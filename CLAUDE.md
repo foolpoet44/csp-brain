@@ -50,6 +50,7 @@
 | AI 솔로프레너 | 🟡 진행 | `projects/ai--솔로프레너/` | 역량 모델 구체화 |
 | ESCON | 🔴 지연 | `projects/escon/` | Vercel 빌드 오류 해결 |
 | LDS 360 | 🔵 신규 | `projects/lds-360/` | 코칭 스크립트 엔진 구현 |
+| llm-knowledge-base | 🟢 완료 | `projects/llm-knowledge-base/` | Zavis Brain 통합 완료 |
 | My_Goal&Performance | 🟢 이식 완료 | `projects/my_goal&performance/` | KPI 연동 |
 | 현실 문제의 해결 | 🟢 이식 완료 | `projects/현실-문제의-해결/` | 페인포인트 정의 |
 | claude_protocol | 🟢 이식 완료 | `projects/claude_protocol/` | 운영 프로세스 고도화 |
