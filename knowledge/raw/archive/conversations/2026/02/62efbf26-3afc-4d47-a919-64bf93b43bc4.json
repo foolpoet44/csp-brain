@@ -1,0 +1,872 @@
+﻿{
+  "uuid": "62efbf26-3afc-4d47-a919-64bf93b43bc4",
+  "name": "아래와 같은 이슈 지속 발생, 모델 변경해도 동일한 메...",
+  "summary": "**Conversation Overview**\n\nThe user encountered a persistent error with Claude Code stating \"There's an issue with the selected model (claude-sonnet-4-5-20250929). It may not exist or you may not have access to it\" that continued even after changing models. They are using Claude Code through a Claude Pro/Max subscription with claude.ai account login on a Windows system. Claude provided comprehensive troubleshooting steps including version updates, configuration checks, re-authentication, and complete reinstallation procedures.\n\nThe user ran the `/doctor` diagnostic command which revealed two critical issues: multiple conflicting installations (both npm-global and native versions) and a corrupted plugin called \"frontend-for-opus-4-5\" with a broken file path. The diagnostic showed they were running Claude Code version 2.1.38 (native) with a leftover npm global installation at `C:\\Users\\Administrator\\AppData\\Roaming\\npm\\claude` causing conflicts. Claude identified the dual installation as the likely root cause of the model access errors and provided specific commands to remove the npm global installation and clean up the corrupted plugin cache.\n\nThe troubleshooting approach progressed systematically from version checks and configuration validation to authentication refresh and finally complete reinstallation, with the diagnostic results pinpointing the exact technical issues requiring resolution.",
+  "created_at": "2026-02-10T02:41:00.640772Z",
+  "updated_at": "2026-02-10T02:50:07.913142Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019c456c-7331-7643-ba44-7acae2785528",
+      "text": "아래와 같은 이슈 지속 발생, 모델 변경해도 동일한 메시지\nThere's an issue with the selected model (claude-sonnet-4-5-20250929). It may not exist or you may not have access to it. Use --model to pick a different model.",
+      "content": [
+        {
+          "start_timestamp": "2026-02-10T02:41:01.359290Z",
+          "stop_timestamp": "2026-02-10T02:41:01.359290Z",
+          "flags": null,
+          "type": "text",
+          "text": "아래와 같은 이슈 지속 발생, 모델 변경해도 동일한 메시지\nThere's an issue with the selected model (claude-sonnet-4-5-20250929). It may not exist or you may not have access to it. Use --model to pick a different model.",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-02-10T02:41:01.452151Z",
+      "updated_at": "2026-02-10T02:41:01.452151Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019c456c-7331-7643-ba44-7acbb98b439a",
+      "text": "\n\nClaude Code에서 모델 접근 오류가 발생하는 문제네요. 몇 가지 원인과 해결책을 확인해보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n사용 환경에 따라 원인이 다를 수 있어서 몇 가지 확인해볼게요.\n\n어떤 환경에서 Claude Code를 사용하고 계신가요?\n\n- **Anthropic API 직접 사용** (API Key)\n- **Claude Pro/Max 구독** (claude.ai 계정으로 로그인)\n- **AWS Bedrock** 경유\n- **VS Code 확장** (Copilot 등)\n\n환경에 따라 해결 방법이 다른데, 우선 가장 흔한 원인들을 정리해드리겠습니다.\n\n---\n\n## 주요 원인 & 해결 순서\n\n### 1. Claude Code 버전 업데이트\n가장 먼저 최신 버전인지 확인하세요:\n```bash\nclaude --version\nnpm update -g @anthropic-ai/claude-code\n```\n\n### 2. 설정 파일에 잘못된 모델명이 남아있는 경우\n`settings.json`이나 환경변수에 오래된/잘못된 모델명이 지정되어 있을 수 있습니다:\n```bash\n# 환경변수 확인\necho $ANTHROPIC_MODEL\n\n# settings.json 확인\ncat ~/.claude/settings.json\n```\n\n공식 모델명은 정확히 `claude-sonnet-4-5-20250929`입니다. 하이픈 위치나 날짜가 다르면 에러가 납니다.\n\n### 3. /model로 잘못 추가된 커스텀 모델 제거\n이전에 `/model` 명령으로 오타가 포함된 모델을 추가했다면, 그것이 기본값으로 남아있을 수 있습니다. 설정 파일에서 직접 제거하세요:\n```bash\n# 설정 파일 열어서 model 관련 항목 확인/수정\ncat ~/.claude.json\n```\n\n### 4. 완전 초기화 (위 방법이 안 될 때)\n```bash\nnpm uninstall -g @anthropic-ai/claude-code\nrm ~/.claude.json\nrm -rf ~/.claude/\nnpm cache clean --force\nnpm install -g @anthropic-ai/claude-code\n```\n\n재설치 후 `claude` 로 실행하면 기본 Sonnet 4.5로 시작됩니다.\n\n---\n\n정확한 사용 환경(API vs Pro 구독 vs Bedrock)과 `claude --version` 결과를 알려주시면 더 구체적으로 안내해 드릴 수 있습니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-02-10T02:41:04.316799Z",
+          "stop_timestamp": "2026-02-10T02:41:05.208625Z",
+          "flags": null,
+          "type": "text",
+          "text": "\n\nClaude Code에서 모델 접근 오류가 발생하는 문제네요. 몇 가지 원인과 해결책을 확인해보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-02-10T02:41:05.454295Z",
+          "stop_timestamp": "2026-02-10T02:41:05.719694Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01JSDTJEYyZh8JEY93kwC9ZU",
+          "name": "web_search",
+          "input": {
+            "query": "Claude Code \"model may not exist\" error 2025"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01JSDTJEYyZh8JEY93kwC9ZU",
+          "name": "web_search",
+          "content": [],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-02-10T02:41:08.096288Z",
+          "stop_timestamp": "2026-02-10T02:41:08.474218Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01SPsrbySW5hffqfcSgsZFpn",
+          "name": "web_search",
+          "input": {
+            "query": "Claude Code model not exist access error fix site:docs.anthropic.com OR site:github.com"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01SPsrbySW5hffqfcSgsZFpn",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "[BUG] API Error 404: model claude-opus-4-5-20251101 not found - persists across machines and locations · Issue #23182 · anthropics/claude-code",
+              "url": "https://github.com/anthropics/claude-code/issues/23182",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "The model claude-opus-4-5-20251101 ... req_011CXogvAmvS5osjnLnazkix · Claude Code should use the configured model (sonnet) or fall back gracefully if a model is unavailable....\n\nDescription Getting a persistent 404 error when trying to use Claude Code. The error occurs across different machines and physical locations, indicating this is an account-level issue. Error Message API Error: 404 {\"type\":\"error\",\"error\"...\n\nThe model claude-opus-4-5-20251101 either doesn't exist or the account is incorrectly configured to try to use it · Local configuration is set correctly to use \"sonnet\" Request ID for debugging: req_011CXogvAmvS5osjnLnazkix · Claude Code should use the configured model (sonnet) or fall back gracefully if a model is unavailable. Claude Code fails with 404 error trying to access non-existent model. ... area:apiarea:modelbugSomething isn't workingSomething isn't workinghas reproHas detailed reproduction stepsHas detailed reproduction steps ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code/issues/23182",
+                "search_provider": "anthropic",
+                "age": "5 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude is not showing as an available model in VS Code · community · Discussion #168289",
+              "url": "https://github.com/orgs/community/discussions/168289",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "What You Can Do Option 1: Use GitHub.com for Claude Access ... This isn&#x27;t a bug or account issue—it&#x27;s just how GitHub has currently structured their model availability across different platforms.\n\nClaude is not showing as an available model in VS Code\n\nThere was an error while loading. Please reload this page. ... Hi there! This is a common confusion point that many developers encounter. Let me help clarify what's happening. The Key Distinction: GitHub Copilot vs. GitHub Copilot Chat The Claude models you enabled in your GitHub settings are for GitHub Copilot Chat in the web interface (on GitHub.com), not for the VS Code extension. The VS Code Copilot Chat extension currently only supports the models you're seeing: ... Why This Happens GitHub maintains separate model availability between their web-based Copilot Chat and the VS Code extension. The web interface has access to Claude models, but the VS Code extension hasn't integrated them yet. What You Can Do Option 1: Use GitHub.com for Claude Access ... This isn't a bug or account issue—it's just how GitHub has currently structured their model availability across different platforms.\n\nThere was an error while loading. Please reload this page. ... Correct me if I'm wrong, but I'm pretty sure that Claude is recently available in VS Code Copilot chat extension, including: Claude 3.5 Sonnet - All Copilot plans (including Free) ... Claude Opus 4.1 in GitHub Copilot - September 23, 2025 Using Claude in GitHub Copilot - Official setup guide Free GitHub Copilot for VS Code - Confirms Claude 3.5 Sonnet access Claude 3.5 Sonnet on GitHub Copilot - Anthropic announcement · Beta Was this translation helpful? Give feedback. ... There was an error while loading. Please reload this page. Something went wrong. There was an error while loading. Please reload this page. ... Ok... Finally got it working here! It's just bad UI/UX... When you click on Manage Models, they present a list of AI company names, and your instinct when you want to enable let's say Claude 4, is to click Anthropic...\n\nThere was an error while loading. Please reload this page. ... Description: I have an active GitHub Copilot Pro subscription, and Claude (Sonnet 3.5, 3.7, and 4) is enabled in my account settings. However, in Visual Studio Code, I only see the following models: GPT-4.1, GPT-4o, Gemini 2.0 Flash, Gemini 2.5 Pro, o3-mini, and o4-mini. Claude is missing from the list, and I am unable to select it. ... Verified I’m using the latest version of the Copilot Chat extension. Confirmed I’m logged in with the correct GitHub account. Tried the /model command in Copilot Chat to view all options. Checked my GitHub account settings where Claude is clearly activated. ... Expected behavior: Claude should appear as an available model in the Copilot Chat interface within VS Code. PD: I also enabled the Claude models from the Copilot settings in my GitHub account.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/orgs/community/discussions/168289",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "[BUG] Claude Code doesn't work when using Amazon Bedrock and not defined model in settings.json · Issue #8436 · anthropics/claude-code",
+              "url": "https://github.com/anthropics/claude-code/issues/8436",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "I have searched existing issues and this hasn&#x27;t been reported yet · This is a single bug report (please file separate reports for different bugs) I am using the latest version of Claude Code · When ”CLAUDE_CODE_USE_BEDROCK” is set to &quot;1&quot; and no model is specified in settings.json, the default model is set to us.anthropic.claude-sonnet-4-5-20250929-v1:0, but it should be global.anthropic.claude-sonnet-4-5-20250929-v1:0. I believe this is because AWS changed the prefix rule starting with Sonnet 4.5. ref. https://aws.amazon.com/jp/blogs/aws/introducing-claude-sonnet-4-5-in-amazon-bedrock-anthropics-most-intelligent-model-best-for-coding-and-complex-agents/ Default model should be global.anthropic.claude-sonnet-4-5-20250929-v1:0 · &gt; hi! ⎿ 403 You don&#x27;t have access to the model with the specified model ID. settings.json · { &quot;env&quot;: { &quot;AWS_PROFILE&quot;: &quot;xxx&quot;, &quot;CLAUDE_CODE_USE_BEDROCK&quot;: &quot;1&quot;, } } and launch claude.\n\nPreflight Checklist I have searched existing issues and this hasn't been reported yet This is a single bug report (please file separate reports for different bugs) I am using the latest version of Claude Code What's Wrong? When ”CLAUDE_C...\n\nI have searched existing issues and this hasn't been reported yet · This is a single bug report (please file separate reports for different bugs) I am using the latest version of Claude Code · When ”CLAUDE_CODE_USE_BEDROCK” is set to \"1\" and no model is specified in settings.json, the default model is set to us.anthropic.claude-sonnet-4-5-20250929-v1:0, but it should be global.anthropic.claude-sonnet-4-5-20250929-v1:0. I believe this is because AWS changed the prefix rule starting with Sonnet 4.5. ref. https://aws.amazon.com/jp/blogs/aws/introducing-claude-sonnet-4-5-in-amazon-bedrock-anthropics-most-intelligent-model-best-for-coding-and-complex-agents/ Default model should be global.anthropic.claude-sonnet-4-5-20250929-v1:0 · > hi! ⎿ 403 You don't have access to the model with the specified model ID. settings.json · { \"env\": { \"AWS_PROFILE\": \"xxx\", \"CLAUDE_CODE_USE_BEDROCK\": \"1\", } } and launch claude.\n\nDefault model should be global.anthropic.claude-sonnet-4-5-20250929-v1:0 · > hi! ⎿ 403 You don't have access to the model with the specified model ID. ... api:bedrockIssue relates to AWS BedrockIssue relates to AWS Bedrockarea:modelbugSomething isn't workingSomething isn't workinghas reproHas detailed reproduction stepsHas detailed reproduction stepsplatform:macosIssue specifically occurs on macOSIssue specifically occurs on macOS ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code/issues/8436",
+                "search_provider": "anthropic",
+                "age": "September 30, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "can not use claude in idea or opencode · community · Discussion #185993",
+              "url": "https://github.com/orgs/community/discussions/185993",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Re-authenticate: Run this in your terminal to refresh the token claims (which contain your allowed models): ... VPN / Firewall: If you are on a corporate network or VPN, specific endpoints for Anthropic models via Copilot might be blocked while ...\n\nSelect Topic Area General Copilot Feature Area General Body I've already subscribed to GitHub Copilot Pro, but I can't use the Claude model. The model doesn't appear in the model list in IntelliJ I...\n\nFor OpenCode (CLI / Editor) & \"Not Found\" Error The \"Not Found\" error usually means the local client can't handshake with the specific model endpoint, often due to cached auth or network rules. Re-authenticate: Run this in your terminal to refresh the token claims (which contain your allowed models): ... VPN / Firewall: If you are on a corporate network or VPN, specific endpoints for Anthropic models via Copilot might be blocked while standard OpenAI endpoints aren't. Try disabling VPN briefly to test. Config Check: Ensure your settings.json or config isn't hardcoding a deprecated model string. The valid model ID string must match exactly what your current plan supports (e.g., claude-3.5-sonnet). If it works in VS Code but not IntelliJ/OpenCode, it confirms your account has access, and the issue is strictly with the plugin/client state on those specific tools.\n\nCurrently, Claude does not appear in the model list in IntelliJ IDEA, and attempting to use it via OpenCode results in a Not Found” error, which suggests the model is either not enabled for my account or not supported in those tools yet. GitHub Copilot Pro primarily guarantees access to Copilot features, but model availability can vary and may be limited to certain editors or phased rollouts. Beta Was this translation helpful? Give feedback. ... Sign up for free to join this conversation on GitHub. Already have an account? Sign in to comment ... General topics and discussions that don't fit into other categories, but are related to GitHub Copilot in GitHub · Copilot functionality in GitHub Copilot Chat and in github.com ... There was an error while loading. Please reload this page.\n\nI've already subscribed to GitHub Copilot Pro, but I can't use the Claude model. The model doesn't appear in the model list in IntelliJ IDEA, and when I try to use it in OpenCode, I get a \"Not Found\" error. Beta Was this translation helpful? Give feedback. ... This is a common confusion because enabling the subscription doesn't always automatically \"switch on\" the new models in every IDE. Here is the checklist to fix both IntelliJ and OpenCode: For IntelliJ IDEA (JetBrains) If Claude isn't showing up in the model dropdown, it's usually due to a plugin version mismatch or a \"Preview\" setting. Update the Plugin: Go to Settings/Preferences -> Plugins and ensure \"GitHub Copilot\" is updated. Sometimes you need to uninstall and reinstall it to force the latest feature set. ... Go to your GitHub Copilot Settings on the web. Ensure that \"Anthropic Claude 3.5 Sonnet\" (or the specific version) is explicitly checked under \"A…",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/orgs/community/discussions/185993",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "[BUG] API Error 404 / ECONNREFUSED · Issue #19226 · anthropics/claude-code",
+              "url": "https://github.com/anthropics/claude-code/issues/19226",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "✻ Cogitated for 2m 59s · Set the env vars as instructed in docs for Ollama local model usage, then prompt the model. It also was giving errors that the model could not use tools.\n\nPreflight Checklist I have searched existing issues and this hasn't been reported yet This is a single bug report (please file separate reports for different bugs) I am using the latest version of Claude Code What's Wrong? I asked claude...\n\nI asked claude to help me setup using ollama for local model usage, to which it gave me instructions I followed (now gone). After restarting Claude, it keeps spitting out 404's and \"Unable to connect to API (ECONNREFUSED) errors. /doctor doesn't help, and I have no idea what's happening. I undid the env vars I was told to set, to no avail. Running the Ollama server seems to have something to do with it and reinstalling claude-code didn't fix it. I can no longer use Claude-Code and don't know what to do at all. I have no ability to use local models and no ability to use claude. I have used /logout to logout and login again to no avail. The UI says I am using the API but I am a Pro subscription user. No idea what to do now. When I prompt claude it should reply and not get 404's. I think the config is somehow stuck using the API method and won't change itself.\n\nSeems to be the only explaination but I have no idea how to fix that. ▐▛███▜▌ Claude Code v2.1.12 ▝▜█████▛▘ Sonnet 4.5 · API Usage Billing ▘▘ ▝▝ /model to try Opus 4.5 ❯ /login ⎿ Login interrupted ❯ hi ⎿ API Error: 404 404 page not found ❯ hi ⎿ API Error: Connection error. ✻ Cogitated for 2m 59s · Set the env vars as instructed in docs for Ollama local model usage, then prompt the model. It also was giving errors that the model could not use tools. No idea why. ... I am an Arch user, using kitty with fish as my shell. /doctor warns of two install locations which may be true? I used both the npm install and the yay -S while troubleshooting. I don't know if that has anything to do with it. Really not sure why it seems so stuck. ... area:apiarea:corearea:packagingbugSomething isn't workingSomething isn't workinghas reproHas detailed reproduction stepsHas detailed reproduction stepsplatform:linuxIssue specifically occurs on LinuxIssue specifically occurs on Linux ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code/issues/19226",
+                "search_provider": "anthropic",
+                "age": "3 weeks ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "[BUG] API Error: 403 You don't have access to the model with the specified model ID. when operating with local files · Issue #536 · anthropics/claude-code",
+              "url": "https://github.com/anthropics/claude-code/issues/536",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "CLAUDE_CODE_USE_BEDROCK=1 ANTHROPIC_MODEL=anthropic.claude-3-5-sonnet-20240620-v1:0 DISABLE_PROMPT_CACHING=1 AWS_REGION=us-west-2 ... api:bedrockIssue relates to AWS BedrockIssue relates to AWS BedrockbugSomething isn&#x27;t workingSomething isn&#x27;t ...\n\nEnvironment Platform (select one): Anthropic API AWS Bedrock Google Vertex AI Other: Claude CLI version: 0.2.45 (Claude Code) Operating System: macOS 15.1.1 Terminal: Warp Bug Description When Claude tries to operate with local files I s...\n\nCLAUDE_CODE_USE_BEDROCK=1 ANTHROPIC_MODEL=anthropic.claude-3-5-sonnet-20240620-v1:0 DISABLE_PROMPT_CACHING=1 AWS_REGION=us-west-2 ... api:bedrockIssue relates to AWS BedrockIssue relates to AWS BedrockbugSomething isn't workingSomething isn't working ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code/issues/536",
+                "search_provider": "anthropic",
+                "age": "March 16, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude is missing from the list of available models in VS Code. · community · Discussion #185950",
+              "url": "https://github.com/orgs/community/discussions/185950",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "The VS Code extension needs an update from GitHub&#x27;s side to surface Claude in the model picker. Keep an eye on Copilot Chat extension updates over the next few weeks. Once they push the update, Claude should just appear in your model list without ...\n\nSelect Topic Area Question Body Topic Area: Copilot Feature Area Product: GitHub Copilot Description I have an active GitHub Copilot Pro subscription, and Claude models (Sonnet 3.5, 3.7, and 4) are...\n\nThere was an error while loading. Please reload this page. ... This is a known issue where Claude models show as enabled in your GitHub account settings but don't actually appear in the VS Code Copilot Chat model selector. From what I've seen, GitHub rolled out Claude support (Sonnet 3.5, 3.7, and 4) to the web interface and account settings first, but the VS Code Copilot Chat extension hasn't been fully updated to expose these models yet - even though your account technically has access. You've already done all the right troubleshooting (latest extension, correct account login, /model command, verified settings), so this is just a waiting game at this point. The VS Code extension needs an update from GitHub's side to surface Claude in the model picker. Keep an eye on Copilot Chat extension updates over the next few weeks. Once they push the update, Claude should just appear in your model list without you needing to change anything on your end.\n\nThere was an error while loading. Please reload this page. ... Description I have an active GitHub Copilot Pro subscription, and Claude models (Sonnet 3.5, 3.7, and 4) are enabled in my GitHub account settings. However, in Visual Studio Code, Claude does not appear in the list of available models. Currently, I only see the following models available in Copilot Chat: ... o4-mini Claude is missing from the list, and I am unable to select it. Troubleshooting Steps Taken Verified that I am using the latest version of the GitHub Copilot Chat extension Confirmed I am logged in with the correct GitHub account Used the /model command in Copilot Chat to check all available models Checked GitHub Copilot settings, where Claude is clearly enabled System Details VS Code version: 1.102.3 Operating System: Windows 11 · Beta Was this translation helpful? Give feedback.\n\neven if claude is enabled in your github web settings, copilot inside vscode only shows models that: ... web UI can say “enabled” while vscode still doesn’t get the flag yet. frustrating but pretty normal for cloud products. if your account belongs to an org with copilot policies, those override personal settings. ... Beta Was this translation helpful? Give feedback. ... Sign up for free to join this conversation on GitHub. Already have an account? Sign in to comment ... General topics and discussions that don't fit into other categories, but are related to GitHub Question · Ask and answer questions about GitHub features and usage ... There was an error while loading. Please reload this page.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/orgs/community/discussions/185950",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Max user cannot access Opus model - 'Claude Pro users are not currently able to use Opus' · Issue #6247 · anthropics/claude-code",
+              "url": "https://github.com/anthropics/claude-code/issues/6247",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Issue Description: As a Claude Max user, I&#x27;m unable to access Opus models through Claude Code. When attempting to switch to Opus using /model opus, I receive the error message: &quot;Invalid model. Claude Pro users are not currently able to use Opus in Claude Code.&quot; Expected Behavior: Claude Max users should have access to Opus models, as this is a higher tier than Claude Pro. ... Additional Context: The error message specifically mentions &quot;Claude Pro users&quot; which seems incorrect for Claude Max tier. Native Anthropic models (claude-3-5-sonnet, claude-3-opus) don&#x27;t appear in the available models list from /models command. Note: The account is associated with an organization in the Anthropic API console, though this shouldn&#x27;t affect Claude Code access. Request: Please enable Opus access for Claude Max users or clarify the correct model names/commands for accessing native Anthropic models without requiring third-party API keys.\n\nIssue Description: As a Claude Max user, I'm unable to access Opus models through Claude Code. When attempting to switch to Opus using /model opus, I receive the error message: \"Invalid model. Claude Pro users are not currently able to use Opus in Claude Code.\" Expected Behavior: Claude Max users should have access to Opus models, as this is a higher tier than Claude Pro. ... Additional Context: The error message specifically mentions \"Claude Pro users\" which seems incorrect for Claude Max tier. Native Anthropic models (claude-3-5-sonnet, claude-3-opus) don't appear in the available models list from /models command. Note: The account is associated with an organization in the Anthropic API console, though this shouldn't affect Claude Code access. Request: Please enable Opus access for Claude Max users or clarify the correct model names/commands for accessing native Anthropic models without requiring third-party API keys.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code/issues/6247",
+                "search_provider": "anthropic",
+                "age": "August 21, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "[BUG] Claude includes mistyped models in /model command as new custom model · Issue #7084 · anthropics/claude-code",
+              "url": "https://github.com/anthropics/claude-code/issues/7084",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "It was included automatically by mistake, it shouldn&#x27;t be there, it&#x27;s not part of claude and doens&#x27;t work. ● I understand the issue - you accidentally added &quot;soonet&quot; as a custom model and now it appears in your /model list, but it&#x27;s not a valid model and doesn&#x27;t work. Unfortunately, I don&#x27;t have access to Claude Code&#x27;s internal configuration files or the ability to modify the custom model list through the available tools. This is a Claude Code configuration issue that needs to be handled at the application level. ... Include that you accidentally added &quot;soonet&quot; via /model soonet and now it appears in your model list but doesn&#x27;t work · Request guidance on how to remove invalid custom models from the configuration · This appears to be a Claude Code feature where it remembers custom model attempts, but there may not be a user-facing way to remove them from the list.\n\nEnvironment Platform (select one): Anthropic API AWS Bedrock Google Vertex AI Other: Claude CLI version: 1.0.102 (Claude Code) Operating System: Windows 11 Terminal: wsl Bug Description When user types /model and makes a typo (example: /...\n\nThis appears to be a Claude Code feature where it remembers custom model attempts, but there may not be a user-facing way to remove them from the list.\" ... Ask Claude to rollback or remove this entry, Claude says it doesn't have access to this configuration. When user makes a typo in /model, should receive an error message (\"Model not found\") Claude created an inexistent, unavailable model, that always appears in the list of available models. ... ● I understand you want to remove \"soonet\" from your custom model configuration, but I don't have access to modify Claude Code's model configuration settings. The model configuration is managed by Claude Code itself and isn't something I can directly edit through the available tools. ... The /model command you used appears to be a Claude Code command that I cannot directly interact with or modify. i typed \"/model soonet\" by mistake, and now Claude shows me this as 5th model when i type /model.\n\nIt was included automatically by mistake, it shouldn't be there, it's not part of claude and doens't work. ● I understand the issue - you accidentally added \"soonet\" as a custom model and now it appears in your /model list, but it's not a valid model and doesn't work. Unfortunately, I don't have access to Claude Code's internal configuration files or the ability to modify the custom model list through the available tools. This is a Claude Code configuration issue that needs to be handled at the application level. ... Include that you accidentally added \"soonet\" via /model soonet and now it appears in your model list but doesn't work · Request guidance on how to remove invalid custom models from the configuration · This appears to be a Claude Code feature where it remembers custom model attempts, but there may not be a user-facing way to remove them from the list.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code/issues/7084",
+                "search_provider": "anthropic",
+                "age": "September 3, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "anthropics/claude-code",
+              "url": "https://github.com/anthropics/claude-code/issues",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "invalidIssue doesn&#x27;t seem to be related to Claude CodeIssue doesn&#x27;t seem to be related to Claude Code · Status: Open. ... Status: Open. ... Status: Open. ... Status: Open. ... Status: Open. ... Status: Open. ... Status: Open. ... Status: Open. ... Status: Open. ... Status: Open. ... invalidIssue doesn&#x27;t seem to be related to Claude CodeIssue doesn&#x27;t seem to be related to Claude Code · Status: Open. ... Status: Open.\n\nClaude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. - anthropics/claude-code\n\ninvalidIssue doesn't seem to be related to Claude CodeIssue doesn't seem to be related to Claude Code · Status: Open. ... Status: Open. ... Status: Open. ... Status: Open. ... Status: Open. ... Status: Open. ... Status: Open. ... Status: Open. ... Status: Open. ... Status: Open. ... invalidIssue doesn't seem to be related to Claude CodeIssue doesn't seem to be related to Claude Code · Status: Open. ... Status: Open.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code/issues",
+                "search_provider": "anthropic"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-02-10T02:41:11.315774Z",
+          "stop_timestamp": "2026-02-10T02:41:12.127515Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01X3viZkh8Bf8mt95DFFxuCf",
+          "name": "web_search",
+          "input": {
+            "query": "Claude Code \"claude-sonnet-4-5-20250929\" model not exist error solution 2025"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01X3viZkh8Bf8mt95DFFxuCf",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "[BUG] ] Anthropic model picker shows claude-sonnet-4-5 instead of claude-sonnet-4-5-20250929 → requests fail with custom base URL · Issue #8545 · RooCodeInc/Roo-Code",
+              "url": "https://github.com/RooCodeInc/Roo-Code/issues/8545",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Open Settings → “API Provider”, choose Anthropic, and set a custom base URL. Expand the model dropdown; Sonnet 4.5 appears as claude-sonnet-4-5 instead of the snapshot string.\n\n[BUG] ] Anthropic model picker shows claude-sonnet-4-5 instead of claude-sonnet-4-5-20250929 → requests fail with custom base URL#8545 ... Roo Code 3.28.15 lists the Sonnet 4.5 model as claude-sonnet-4-5; the Anthropic API expects the full snapshot name claude-sonnet-4-5-20250929, so calls made through a custom base URL return model_not_found errors. All users on v3.28.15 (commit 7734b29) who configure Anthropic with a custom endpoint that requires snapshot-style names are unable to invoke Sonnet 4.5. Install Roo Code v3.28.15 in VS Code. Open Settings → “API Provider”, choose Anthropic, and set a custom base URL. Expand the model dropdown; Sonnet 4.5 appears as claude-sonnet-4-5 instead of the snapshot string. Send a simple chat request with that model selection. Observe the 400/404 response: model_not_found: claude-sonnet-4-5 · The model picker should expose claude-sonnet-4-5-20250929, matching Anthropic documentation and Vertex AI naming guides.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/RooCodeInc/Roo-Code/issues/8545",
+                "search_provider": "anthropic",
+                "age": "October 7, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Setting model to claude-sonnet-4-5-20250929 results in the model reporting itself as either Sonnet 3.5 or Sonnet 3.7? · Issue #595 · anthropics/claude-code-action",
+              "url": "https://github.com/anthropics/claude-code-action/issues/595",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "- name: Run Claude PR Action uses: anthropics/claude-code-action@v1 env: ... with: anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }} claude_args: | --model claude-sonnet-4-5-20250929 --allowedTools &quot;...&quot; --system-prompt &quot;...&quot; Trigger your workflow via an issue comment etc., asking simply &quot;what model are you&quot;? Observe that the answer is not claude-sonnet-4-5-20250929. In my case, the first time it reported its model as claude-3-5-sonnet-20241022, and the second time Claude 3.7 Sonnet. Same YAML file for both runs. Expected behavior Claude reports itself as Sonnet 4.5 (in whatever format). ... Workflow yml file See snippet above in reproduction steps section. ... Additional context Happy to provide additional context as needed. ... bugSomething isn&#x27;t workingSomething isn&#x27;t workingp2Non-showstopper bug or popular feature requestNon-showstopper bug or popular feature requestprovider:1pAnthropic First-Party APIAnthropic First-Party API ...\n\nSetting model to claude-sonnet-4-5-20250929 results in the model reporting itself as either Sonnet 3.5 or Sonnet 3.7?#595 ... bugSomething isn't workingSomething isn't workingp2Non-showstopper bug or popular feature requestNon-showstopper bug or popular feature requestprovider:1pAnthropic First-Party APIAnthropic First-Party API ... Describe the bug Updated my workflow today from beta to v1, and set the model to claude-sonnet-4-5-20250929, as specified in the official documentation. Triggering the workflow by asking the model \"what model are you\" produces inconsistent (and therefore incorrect) answers. The first time I asked, it reported itself as claude-3-5-sonnet-202410221. The second time I asked, it reported itself as Claude 3.7 Sonnet. As a result, I'm left unsure of what model is actually being used. Whatever it is, I assume the inconsistent answers indicate hallucination.\n\n- name: Run Claude PR Action uses: anthropics/claude-code-action@v1 env: ... with: anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }} claude_args: | --model claude-sonnet-4-5-20250929 --allowedTools \"...\" --system-prompt \"...\" Trigger your workflow via an issue comment etc., asking simply \"what model are you\"? Observe that the answer is not claude-sonnet-4-5-20250929. In my case, the first time it reported its model as claude-3-5-sonnet-20241022, and the second time Claude 3.7 Sonnet. Same YAML file for both runs. Expected behavior Claude reports itself as Sonnet 4.5 (in whatever format). ... Workflow yml file See snippet above in reproduction steps section. ... Additional context Happy to provide additional context as needed. ... bugSomething isn't workingSomething isn't workingp2Non-showstopper bug or popular feature requestNon-showstopper bug or popular feature requestprovider:1pAnthropic First-Party APIAnthropic First-Party API ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code-action/issues/595",
+                "search_provider": "anthropic",
+                "age": "September 29, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Configuring Claude Code Extension with AWS Bedrock (And How You Can Avoid My Mistakes) | by Vasko Kelkocev | AWS in Plain English",
+              "url": "https://aws.plainenglish.io/configuring-claude-code-extension-with-aws-bedrock-and-how-you-can-avoid-my-mistakes-090dbed5215b",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "plainenglish.io",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=plainenglish.io",
+                "site_name": "Medium"
+              },
+              "is_missing": false,
+              "text": "Retry your request with the ID or ARN of an inference profile that contains this model. Root cause: AWS Bedrock requires inference profiles for on-demand usage. You cannot use the model ID directly.\n\n“” is published by Vasko Kelkocev in AWS in Plain English.\n\nMy initial mistake: I tried using the direct model ID anthropic.claude-sonnet-4-5-20250929-v1:0 and kept getting errors about on-demand throughput not being supported. What I learned: AWS Bedrock requires inference profiles for on-demand usage. An inference profile is essentially a wrapper around the model that provides additional features like cross-region routing, load balancing, and throughput management. ... These automatically route requests across multiple regions for better availability. ... You can create custom profiles with specific configurations, but for most use cases, the pre-configured ones work perfectly. Reference: AWS Bedrock Inference Profiles Documentation · What we’re doing: We need to get the exact Amazon Resource Name (ARN) for our inference profile. This ARN is what Claude Code will use to connect to Bedrock. Why the full ARN: The ARN includes your account ID and region, ensuring requests go to the right place with the right permissions.\n\nAn error occurred (ValidationException) when calling the InvokeModel operation: Invocation of model ID anthropic.claude-sonnet-4-5-20250929-v1:0 with on-demand throughput isn't supported. Retry your request with the ID or ARN of an inference profile that contains this model. Root cause: AWS Bedrock requires inference profiles for on-demand usage. You cannot use the model ID directly. ... Why this matters: Inference profiles provide better reliability and cross-region failover. AWS requires them for on-demand usage. When this happened to me: Testing the AWS CLI with inline JSON on PowerShell. ... An error occurred (ValidationException) when calling the InvokeModel operation: Malformed input request, please reformat your input and try again. Root cause: PowerShell handles JSON string escaping differently than bash, causing the JSON to be malformed by the time it reaches AWS.\n\nDocument Version: 1.0 Last Updated: October 2025 Author’s Setup: VS Code on Windows, AWS Bedrock in eu-west-2, Claude Code Extension 2.0.14 · Feedback? If you find errors or have suggestions to improve this guide, I’d love to hear them. The best documentation is the documentation that helps real developers solve real problems. Hey, Sunil here. I wanted to take a moment to thank you for reading until the end and for being a part of this community. Did you know that our team run these publications as a volunteer effort to over 3.5m monthly readers? We don’t receive any funding, we do this to support the community. ❤️ · If you want to show some love, please take a moment to follow me on LinkedIn, TikTok, Instagram. You can also subscribe to our weekly newsletter. And before you go, don’t forget to clap and follow the writer️! ... New AWS, Cloud, and DevOps content every day.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://aws.plainenglish.io/configuring-claude-code-extension-with-aws-bedrock-and-how-you-can-avoid-my-mistakes-090dbed5215b",
+                "search_provider": "anthropic",
+                "age": "November 5, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "[BUG] Claude Code doesn't work when using Amazon Bedrock and not defined model in settings.json · Issue #8436 · anthropics/claude-code",
+              "url": "https://github.com/anthropics/claude-code/issues/8436",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "⎿ 403 You don&#x27;t have access to the model with the specified model ID. ... api:bedrockIssue relates to AWS BedrockIssue relates to AWS Bedrockarea:modelbugSomething isn&#x27;t workingSomething isn&#x27;t workinghas reproHas detailed reproduction stepsHas ...\n\nPreflight Checklist I have searched existing issues and this hasn't been reported yet This is a single bug report (please file separate reports for different bugs) I am using the latest version of Claude Code What's Wrong? When ”CLAUDE_C...\n\non Sep 30, 2025 · Issue body actions · I have searched existing issues and this hasn't been reported yet · This is a single bug report (please file separate reports for different bugs) I am using the latest version of Claude Code · When ”CLAUDE_CODE_USE_BEDROCK” is set to \"1\" and no model is specified in settings.json, the default model is set to us.anthropic.claude-sonnet-4-5-20250929-v1:0, but it should be global.anthropic.claude-sonnet-4-5-20250929-v1:0. I believe this is because AWS changed the prefix rule starting with Sonnet 4.5. ref. https://aws.amazon.com/jp/blogs/aws/introducing-claude-sonnet-4-5-in-amazon-bedrock-anthropics-most-intelligent-model-best-for-coding-and-complex-agents/ Default model should be global.anthropic.claude-sonnet-4-5-20250929-v1:0 · > hi! ⎿ 403 You don't have access to the model with the specified model ID.\n\nWhen ”CLAUDE_CODE_USE_BEDROCK” is set to \"1\" and no model is specified in settings.json, the default model is set to us.anthropic.claude-sonnet-4-5-20250929-v1:0, but it should be global.anthropic.claude-sonnet-4-5-20250929-v1:0. I believe this is because AWS changed the prefix rule starting with Sonnet 4.5. ref. https://aws.amazon.com/jp/blogs/aws/introducing-claude-sonnet-4-5-in-amazon-bedrock-anthropics-most-intelligent-model-best-for-coding-and-complex-agents/ Default model should be global.anthropic.claude-sonnet-4-5-20250929-v1:0 · > hi! ⎿ 403 You don't have access to the model with the specified model ID. ... api:bedrockIssue relates to AWS BedrockIssue relates to AWS Bedrockarea:modelbugSomething isn't workingSomething isn't workinghas reproHas detailed reproduction stepsHas detailed reproduction stepsplatform:macosIssue specifically occurs on macOSIssue specifically occurs on macOS ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code/issues/8436",
+                "search_provider": "anthropic",
+                "age": "September 30, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code model configuration | Claude Help Center",
+              "url": "https://support.claude.com/en/articles/11940350-claude-code-model-configuration",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude"
+              },
+              "is_missing": false,
+              "text": "Use the --model flag when starting Claude Code. Start a fresh Terminal session. Enter the following commands (depending on the model you’d like to use for that session): For Opus 4.6: claude --model claude-opus-4-6 · For Opus 4.5: claude ...\n\nSonnet 4.5, claude-sonnet-4-5-20250929 (default) Sonnet 4, claude-sonnet-4-20250514 · Haiku 3.5, claude-3-5-haiku-20241022 · ⚠️ Model access: When using a Pro plan with Claude Code, you will only be able to use Opus models after enabling and purchasing extra usage. Use the --model flag when starting Claude Code. Start a fresh Terminal session. Enter the following commands (depending on the model you’d like to use for that session): For Opus 4.6: claude --model claude-opus-4-6 · For Opus 4.5: claude --model claude-opus-4-5-20251101 · For Haiku 4.5: claude --model claude-haiku-4-5-20251001 · For Sonnet 4.5: claude --model claude-sonnet-4-5-20250929 · For Sonnet 4: claude --model claude-sonnet-4-20250514 · For 3.5 Haiku: claude --model claude-3-5-haiku-20241022 · Step 1) Check your shell type by running: echo $SHELL · /bin/zsh → You're using zsh (macOS default) /bin/bash → You're using bash (Linux default) Step 2) Add model setting to your shell config: Opus 4.6: echo 'export ANTHROPIC_MO\n\nSonnet 4.5: echo 'export ANTHROPIC_MODEL=\"claude-sonnet-4-5-20250929\"' >> ~/.zshrc · Sonnet 4: echo 'export ANTHROPIC_MODEL=\"claude-sonnet-4-20250514\"' >> ~/.zshrc · 3.5 Haiku: echo 'export ANTHROPIC_MODEL=\"claude-3-5-haiku-20241022\"' >> ~/.zshrc · Opus 4.6: echo 'export ANTHROPIC_MODEL=\"claude-opus-4-6\"' >> ~/.bashrc · Opus 4.5: echo 'export ANTHROPIC_MODEL=\"claude-opus-4-5-20251101\"' >> ~/.bashrc · Haiku 4.5: echo 'export ANTHROPIC_MODEL=\"claude-haiku-4-5-20251001\"' >> ~/.bashrc · Sonnet 4.5: echo 'export ANTHROPIC_MODEL=\"claude-sonnet-4-5-20250929\"' >> ~/.bashrc · Sonnet 4: echo 'export ANTHROPIC_MODEL=\"claude-sonnet-4-20250514\"' >> ~/.bashrc · 3.5 Haiku: echo 'export ANTHROPIC_MODEL=\"claude-3-5-haiku-20241022\"' >> ~/.bashrc · Step 3) Apply the changes: For ZSH: source ~/.zshrc · For BASH: source ~/.bashrc · Step 4) Close Terminal completely, then reopen it.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://support.claude.com/en/articles/11940350-claude-code-model-configuration",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "ClaudeLog - Claude Code Docs, Guides, Tutorials & Best Practices",
+              "url": "https://claudelog.com/troubleshooting/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claudelog.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claudelog.com",
+                "site_name": "ClaudeLog"
+              },
+              "is_missing": false,
+              "text": "Use correct syntax: claude --model claude-sonnet-4-5-20250929 · Check subscription - Ensure access to requested model · Restart session after model change · Verify model names - Use exact model identifiers · Update Claude Code - Newer versions ...\n\nUse correct syntax: claude --model claude-sonnet-4-5-20250929 · Check subscription - Ensure access to requested model · Restart session after model change · Verify model names - Use exact model identifiers · Update Claude Code - Newer versions support more models · Problem: Sub-agents not working or hanging Solution: Check internet connection - Sub-agents need network access · Simplify tasks - Break complex requests into smaller parts · Monitor progress - Look for flashing bubbles in UI · Manual tasks - Do critical work in main thread · Restart if stuck - Exit and restart Claude Code · If all else fails, try a complete reset: Uninstall Claude Code: npm uninstall -g @anthropic-ai/claude-code · Remove configuration: rm ~/.claude.json rm -rf ~/.claude/ Clear npm cache: npm cache clean --force · Reinstall fresh: npm install -g @anthropic-ai/claude-code claude config ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://claudelog.com/troubleshooting/",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "[Bug] Incorrect Model Naming in /model Command (Sonnet 4.5 shows as Sonnet 4) · Issue #8467 · anthropics/claude-code",
+              "url": "https://github.com/anthropics/claude-code/issues/8467",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "The /model command UI should correctly display &quot;Sonnet 4.5&quot; instead of &quot;Sonnet 4&quot;. The underlying model is already correct (claude-sonnet-4-5-20250929), so only the UI display string needs fixing.\n\nPreflight Checklist I have searched existing issues and this hasn't been reported yet This is a single bug report (please file separate reports for different bugs) I am using the latest version of Claude Code What's Wrong? The /model com...\n\nThe /model command UI should correctly display \"Sonnet 4.5\" instead of \"Sonnet 4\". The underlying model is already correct (claude-sonnet-4-5-20250929), so only the UI display string needs fixing. No runtime errors. This is purely a **UI display bug**. Logs confirm that the correct model (`claude-sonnet-4-5-20250929`) is being used internally. Open Claude Code (v2.0.1). Run the /model command to view available models. ... Compare against the official announcement and logs, which show \"Sonnet 4.5\". ... area:modelarea:tuiautoclosebugSomething isn't workingSomething isn't workinghas reproHas detailed reproduction stepsHas detailed reproduction stepsplatform:macosIssue specifically occurs on macOSIssue specifically occurs on macOS ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code/issues/8467",
+                "search_provider": "anthropic",
+                "age": "September 30, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Migrating to Claude 4.5 - Claude API Docs",
+              "url": "https://platform.claude.com/docs/en/about-claude/models/migrating-to-claude-4",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude API Docs"
+              },
+              "is_missing": false,
+              "text": "If migrating from Claude 4.1 or earlier: remove legacy beta headers (token-efficient-tools-2025-02-19, output-128k-2025-02-19) Review and update prompts following prompting best practices · Test in development environment before production deployment · Claude Sonnet 4.5 combines strong intelligence with fast performance, making it ideal for everyday coding, analysis, and content tasks. For a complete overview of capabilities, see the models overview. Sonnet 4.5 pricing is $3 per million input tokens, $15 per million output tokens. See Claude pricing for details. ... # From Sonnet 4 model=&quot;claude-sonnet-4-20250514&quot; # Before model=&quot;claude-sonnet-4-5-20250929&quot; # After # From Sonnet 3.7 model=&quot;claude-3-7-sonnet-20250219&quot; # Before model=&quot;claude-sonnet-4-5-20250929&quot; # After · These breaking changes apply when migrating from Claude 3.x Sonnet models. ... This is a breaking change when migrating from Claude 3.x models.\n\nIf migrating from Claude 4.1 or earlier: remove legacy beta headers (token-efficient-tools-2025-02-19, output-128k-2025-02-19) Review and update prompts following prompting best practices · Test in development environment before production deployment · Claude Sonnet 4.5 combines strong intelligence with fast performance, making it ideal for everyday coding, analysis, and content tasks. For a complete overview of capabilities, see the models overview. Sonnet 4.5 pricing is $3 per million input tokens, $15 per million output tokens. See Claude pricing for details. ... # From Sonnet 4 model=\"claude-sonnet-4-20250514\" # Before model=\"claude-sonnet-4-5-20250929\" # After # From Sonnet 3.7 model=\"claude-3-7-sonnet-20250219\" # Before model=\"claude-sonnet-4-5-20250929\" # After · These breaking changes apply when migrating from Claude 3.x Sonnet models. ... This is a breaking change when migrating from Claude 3.x models.\n\nRemove interleaved thinking beta header: Adaptive thinking automatically enables interleaved thinking. Remove betas=[\"interleaved-thinking-2025-05-14\"] from your requests. Migrate to output_config.format: If using structured outputs, update output_format={...} to output_config={\"format\": {...}}. The old parameter remains functional but is deprecated and will be removed in a future model release. If you're migrating from Opus 4.1, Sonnet 4, or earlier models directly to Claude 4.6, apply the Claude 4.6 breaking changes above plus the additional changes in this section. # From Opus 4.1 model=\"claude-opus-4-1-20250805\" # Before model=\"claude-opus-4-6\" # After # From Sonnet 4 model=\"claude-sonnet-4-20250514\" # Before model=\"claude-opus-4-6\" # After # From Sonnet 3.7 model=\"claude-3-7-sonnet-20250219\" # Before model=\"claude-opus-4-6\" # After ... This is a breaking change when migrating from Claude 3.x models.\n\nRemove legacy beta headers: Remove token-efficient-tools-2025-02-19 and output-128k-2025-02-19. All Claude 4+ models have built-in token-efficient tool use and these headers have no effect. ... BREAKING: Remove assistant message prefills (returns 400 error); use structured outputs or output_config.format instead · Recommended: Migrate from thinking: {type: \"enabled\", budget_tokens: N} to thinking: {type: \"adaptive\"} with the effort parameter (budget_tokens is deprecated and will be removed in a future release) Verify tool call JSON parsing uses a standard JSON parser · Remove effort-2025-11-24 beta header (effort is now GA) Remove fine-grained-tool-streaming-2025-05-14 beta header · Remove interleaved-thinking-2025-05-14 beta header · Migrate output_format to output_config.format (if applicable) If migrating from Claude 4.1 or earlier: update sampling parameters to use only temperature OR top_p ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://platform.claude.com/docs/en/about-claude/models/migrating-to-claude-4",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Incorrect model identifier for Claude Sonnet 4.5 in Claude Code provider · Issue #2698 · Kilo-Org/kilocode",
+              "url": "https://github.com/Kilo-Org/kilocode/issues/2698",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "on Sep 29, 2025 · Issue body actions · VSCode Extension · v4.98.1 · Looks like the recent update that added support for Claude Sonnet 4.5 uses an incorrect model identifier that doesn&#x27;t match Claude Code&#x27;s expected value. Steps to Reproduce: Select the claude-4.5-sonnet model using the Claude Code provider Attempt to use the model · Expected Behavior: Model should be successfully initialized and ready to use. Actual Behavior: Error is returned: json{ &quot;type&quot;: &quot;error&quot;, &quot;error&quot;: { &quot;type&quot;: &quot;not_found_error&quot;, &quot;message&quot;: &quot;model: claude-4.5-sonnet&quot; } } Probable Root Cause: In packages/types/src/providers/claude-code.ts, the model key is defined as &quot;claude-4.5-sonnet&quot;, but Claude Code requires the date code in the model identifier &quot;claude-sonnet-4-5-20250929&quot;. Suggested Fix: Change the model key from &quot;claude-4.5-sonnet&quot; to &quot;claude-sonnet-4-5-20250929&quot; in the claude-code.ts configuration.\n\nPlugin Type VSCode Extension App Version v4.98.1 Description Looks like the recent update that added support for Claude Sonnet 4.5 uses an incorrect model identifier that doesn't match Claude Code's expected value. Steps to Reproduce: Se...\n\non Sep 29, 2025 · Issue body actions · VSCode Extension · v4.98.1 · Looks like the recent update that added support for Claude Sonnet 4.5 uses an incorrect model identifier that doesn't match Claude Code's expected value. Steps to Reproduce: Select the claude-4.5-sonnet model using the Claude Code provider Attempt to use the model · Expected Behavior: Model should be successfully initialized and ready to use. Actual Behavior: Error is returned: json{ \"type\": \"error\", \"error\": { \"type\": \"not_found_error\", \"message\": \"model: claude-4.5-sonnet\" } } Probable Root Cause: In packages/types/src/providers/claude-code.ts, the model key is defined as \"claude-4.5-sonnet\", but Claude Code requires the date code in the model identifier \"claude-sonnet-4-5-20250929\". Suggested Fix: Change the model key from \"claude-4.5-sonnet\" to \"claude-sonnet-4-5-20250929\" in the claude-code.ts configuration.\n\nProbable Root Cause: In packages/types/src/providers/claude-code.ts, the model key is defined as \"claude-4.5-sonnet\", but Claude Code requires the date code in the model identifier \"claude-sonnet-4-5-20250929\". Suggested Fix: Change the model key from \"claude-4.5-sonnet\" to \"claude-sonnet-4-5-20250929\" in the claude-code.ts configuration. Select the claude-4.5-sonnet model using the Claude Code provider ... \"type\":\"error\",\"error\":{\"type\":\"not_found_error\",\"message\":\"model: claude-4.5-sonnet\" is then returned ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/Kilo-Org/kilocode/issues/2698",
+                "search_provider": "anthropic",
+                "age": "September 29, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Anthropic | liteLLM",
+              "url": "https://docs.litellm.ai/docs/providers/anthropic",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "litellm.ai",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=litellm.ai",
+                "site_name": "LiteLLM"
+              },
+              "is_missing": false,
+              "text": "Adds the required structured-outputs-2025-11-13 beta header · Transforms OpenAI&#x27;s response_format to Anthropic&#x27;s output_format format · sonnet-4-5 or sonnet-4.5 (all Sonnet 4.5 variants) ... from litellm import completion response = completion( model=&quot;claude-sonnet-4-5-20250929&quot;, messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What is the capital of France?&quot;}], response_format={ &quot;type&quot;: &quot;json_schema&quot;, &quot;json_schema&quot;: { &quot;name&quot;: &quot;capital_response&quot;, &quot;strict&quot;: True, &quot;schema&quot;: { &quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: { &quot;country&quot;: {&quot;type&quot;: &quot;string&quot;}, &quot;capital&quot;: {&quot;type&quot;: &quot;string&quot;} }, &quot;required&quot;: [&quot;country&quot;, &quot;capital&quot;], &quot;additionalProperties&quot;: False } } } ) print(response.choices[0].message.content) # Output: {&quot;country&quot;: &quot;France&quot;, &quot;capital&quot;: &quot;Paris&quot;} ... model_list: - model_name: claude-sonnet-4-5 litellm_params: model: anthropic/claude-sonnet-4-5-20250929 api_key: os.environ/ANTHROPIC_API_KEY ...\n\nAdds the required structured-outputs-2025-11-13 beta header · Transforms OpenAI's response_format to Anthropic's output_format format · sonnet-4-5 or sonnet-4.5 (all Sonnet 4.5 variants) ... from litellm import completion response = completion( model=\"claude-sonnet-4-5-20250929\", messages=[{\"role\": \"user\", \"content\": \"What is the capital of France?\"}], response_format={ \"type\": \"json_schema\", \"json_schema\": { \"name\": \"capital_response\", \"strict\": True, \"schema\": { \"type\": \"object\", \"properties\": { \"country\": {\"type\": \"string\"}, \"capital\": {\"type\": \"string\"} }, \"required\": [\"country\", \"capital\"], \"additionalProperties\": False } } } ) print(response.choices[0].message.content) # Output: {\"country\": \"France\", \"capital\": \"Paris\"} ... model_list: - model_name: claude-sonnet-4-5 litellm_params: model: anthropic/claude-sonnet-4-5-20250929 api_key: os.environ/ANTHROPIC_API_KEY ...\n\nAnthropic’s context editing API lets you automatically clear older tool results or thinking blocks. LiteLLM now forwards the native context_management payload when you call Anthropic models, and automatically attaches the required context-management-2025-06-27 beta header. from litellm import completion response = completion( model=\"anthropic/claude-sonnet-4-20250514\", messages=[{\"role\": \"user\", \"content\": \"Summarize the latest tool results\"}], context_management={ \"edits\": [ { \"type\": \"clear_tool_uses_20250919\", \"trigger\": {\"type\": \"input_tokens\", \"value\": 30000}, \"keep\": {\"type\": \"tool_uses\", \"value\": 3}, \"clear_at_least\": {\"type\": \"input_tokens\", \"value\": 5000}, \"exclude_tools\": [\"web_search\"], } ] }, ) ...\n\nfrom litellm import completion tools = [{ \"type\": \"memory_20250818\", \"name\": \"memory\" }] model = \"claude-sonnet-4-5-20250929\" messages = [{\"role\": \"user\", \"content\": \"Please remember that my favorite color is blue.\"}] response = completion( model=model, messages=messages, tools=tools, ) print(response) ... model_list: - model_name: claude-memory-model litellm_params: model: anthropic/claude-sonnet-4-5-20250929 api_key: os.environ/ANTHROPIC_API_KEY ...\n\nresponse = completion( model=\"claude-sonnet-4-5-20250929\", messages=messages, tools= [ { \"type\": \"code_execution_20250825\", \"name\": \"code_execution\" } ], container= { \"skills\": [ { \"type\": \"anthropic\", \"skill_id\": \"pptx\", \"version\": \"latest\" } ] } ) ... model_list: - model_name: claude-sonnet-4-5-20250929 litellm_params: model: anthropic/claude-sonnet-4-5-20250929 api_key: os.environ/ANTHROPIC_API_KEY ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://docs.litellm.ai/docs/providers/anthropic",
+                "search_provider": "anthropic"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-02-10T02:41:15.056298Z",
+          "stop_timestamp": "2026-02-10T02:41:28.394279Z",
+          "flags": null,
+          "type": "text",
+          "text": "사용 환경에 따라 원인이 다를 수 있어서 몇 가지 확인해볼게요.\n\n어떤 환경에서 Claude Code를 사용하고 계신가요?\n\n- **Anthropic API 직접 사용** (API Key)\n- **Claude Pro/Max 구독** (claude.ai 계정으로 로그인)\n- **AWS Bedrock** 경유\n- **VS Code 확장** (Copilot 등)\n\n환경에 따라 해결 방법이 다른데, 우선 가장 흔한 원인들을 정리해드리겠습니다.\n\n---\n\n## 주요 원인 & 해결 순서\n\n### 1. Claude Code 버전 업데이트\n가장 먼저 최신 버전인지 확인하세요:\n```bash\nclaude --version\nnpm update -g @anthropic-ai/claude-code\n```\n\n### 2. 설정 파일에 잘못된 모델명이 남아있는 경우\n`settings.json`이나 환경변수에 오래된/잘못된 모델명이 지정되어 있을 수 있습니다:\n```bash\n# 환경변수 확인\necho $ANTHROPIC_MODEL\n\n# settings.json 확인\ncat ~/.claude/settings.json\n```\n\n공식 모델명은 정확히 `claude-sonnet-4-5-20250929`입니다. 하이픈 위치나 날짜가 다르면 에러가 납니다.\n\n### 3. /model로 잘못 추가된 커스텀 모델 제거\n이전에 `/model` 명령으로 오타가 포함된 모델을 추가했다면, 그것이 기본값으로 남아있을 수 있습니다. 설정 파일에서 직접 제거하세요:\n```bash\n# 설정 파일 열어서 model 관련 항목 확인/수정\ncat ~/.claude.json\n```\n\n### 4. 완전 초기화 (위 방법이 안 될 때)\n```bash\nnpm uninstall -g @anthropic-ai/claude-code\nrm ~/.claude.json\nrm -rf ~/.claude/\nnpm cache clean --force\nnpm install -g @anthropic-ai/claude-code\n```\n\n재설치 후 `claude` 로 실행하면 기본 Sonnet 4.5로 시작됩니다.\n\n---\n\n정확한 사용 환경(API vs Pro 구독 vs Bedrock)과 `claude --version` 결과를 알려주시면 더 구체적으로 안내해 드릴 수 있습니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-02-10T02:41:28.528258Z",
+      "updated_at": "2026-02-10T02:41:28.528258Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019c456c-7331-7643-ba44-7acae2785528"
+    },
+    {
+      "uuid": "019c456c-f377-75d3-bed5-87d2b2bb051c",
+      "text": "Claude Pro/Max 구독 (claude.ai 계정으로 로그인)",
+      "content": [
+        {
+          "start_timestamp": "2026-02-10T02:41:34.194535Z",
+          "stop_timestamp": "2026-02-10T02:41:34.194535Z",
+          "flags": null,
+          "type": "text",
+          "text": "Claude Pro/Max 구독 (claude.ai 계정으로 로그인)",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-02-10T02:41:34.240266Z",
+      "updated_at": "2026-02-10T02:41:34.240266Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019c456c-7331-7643-ba44-7acbb98b439a"
+    },
+    {
+      "uuid": "019c456c-f377-75d3-bed5-87d3a01a3699",
+      "text": " Claude Pro/Max 구독 로그인 환경에서의 해결 방법을 정리해드릴게요.\n\n---\n\n## 순서대로 확인해보세요\n\n### 1단계: 버전 확인 & 업데이트\n```bash\nclaude --version\nnpm update -g @anthropic-ai/claude-code\n```\n```\nThis block is not supported on your current device yet.\n```\n\n정보를 종합해서 정리해드리겠습니다.\n\n---\n\n## Claude Pro/Max 구독 환경에서의 해결 방법\n\n### 1단계: Claude Code 최신 버전으로 업데이트\n\n```bash\n# 현재 버전 확인\nclaude --version\n\n# 업데이트 (npm 설치인 경우)\nnpm update -g @anthropic-ai/claude-code\n\n# 또는 공식 권장 방식\nclaude update\n```\n\n최신 버전은 Opus 4.6 지원이 포함된 2025년 2월 초 릴리즈입니다.\n\n---\n\n### 2단계: 환경변수/설정에 잘못된 모델명이 남아있는지 확인\n\n```bash\n# 환경변수 확인\necho $ANTHROPIC_MODEL\n\n# 설정 파일 확인\ncat ~/.claude.json\ncat ~/.claude/settings.json\n```\n\n**혹시 `ANTHROPIC_MODEL`이 설정되어 있다면**, 잘못된 모델명이 원인일 수 있습니다. 제거하세요:\n\n```bash\n# zsh인 경우\nnano ~/.zshrc   # ANTHROPIC_MODEL 관련 줄 삭제\nsource ~/.zshrc\n\n# bash인 경우\nnano ~/.bashrc\nsource ~/.bashrc\n```\n\n---\n\n### 3단계: 재로그인\n\n```bash\nclaude /logout\nclaude /login\n```\n\nPro/Max 구독 인증 토큰이 만료되었거나 플랜 정보가 갱신되지 않은 경우가 있습니다. 특히 Pro 플랜에서 Opus 모델은 extra usage를 활성화하고 구매한 후에만 사용 가능하므로, Opus를 사용하려 했다면 이 부분도 확인이 필요합니다.\n\n---\n\n### 4단계: 모델 직접 지정해서 실행\n\n```bash\n# 기본 Sonnet 4.5 (가장 안정적)\nclaude --model claude-sonnet-4-5-20250929\n\n# Opus 4.6 (Max 플랜 또는 extra usage 필요)\nclaude --model claude-opus-4-6\n\n# Sonnet 4\nclaude --model claude-sonnet-4-20250514\n```\n\n---\n\n### 5단계: 완전 초기화 (위 방법 모두 실패 시)\n\n```bash\nnpm uninstall -g @anthropic-ai/claude-code\nrm -f ~/.claude.json\nrm -rf ~/.claude/\nnpm cache clean --force\nnpm install -g @anthropic-ai/claude-code\nclaude\n```\n\n---\n\n### 추가 확인사항\n\n**`/doctor` 실행**해서 진단 결과를 확인해보세요:\n```bash\n# Claude Code 내에서\n/doctor\n```\n\n이 중 어디까지 시도해보셨는지, 그리고 정확한 에러 메시지 전문과 사용 중인 OS를 알려주시면 더 구체적으로 도와드리겠습니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-02-10T02:41:36.462015Z",
+          "stop_timestamp": "2026-02-10T02:41:37.823603Z",
+          "flags": null,
+          "type": "text",
+          "text": " Claude Pro/Max 구독 로그인 환경에서의 해결 방법을 정리해드릴게요.\n\n---\n\n## 순서대로 확인해보세요\n\n### 1단계: 버전 확인 & 업데이트\n```bash\nclaude --version\nnpm update -g @anthropic-ai/claude-code\n```",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-02-10T02:41:38.060034Z",
+          "stop_timestamp": "2026-02-10T02:41:38.282219Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01KAhVjP8j24mW6bGzzJuKBq",
+          "name": "web_search",
+          "input": {
+            "query": "Claude Code latest version February 2026"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01KAhVjP8j24mW6bGzzJuKBq",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Claude Code by Anthropic - Release Notes - February 2026 Latest Updates - Releasebot",
+              "url": "https://releasebot.io/updates/anthropic/claude-code",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "releasebot.io",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=releasebot.io",
+                "site_name": "Releasebot"
+              },
+              "is_missing": false,
+              "text": "Added research preview agent teams feature for multi-agent collaboration (token-intensive feature, requires setting CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1) Claude now automatically records and recalls memories as it works · Added &quot;Summarize from here&quot; to the message selector, allowing partial conversation summarization. Skills defined in ​.claude/skills/ within additional directories (--add-dir) are now loaded automatically. Fixed @ file completion showing incorrect relative paths when running from a subdirectory · Updated --resume to re-use --agent value specified in previous conversation by default. Fixed: Bash tool no longer throws &quot;Bad substitution&quot; errors when heredocs contain JavaScript template literals like ${index + 1}, which previously interrupted tool execution · Skill character budget now scales with context window (2% of context), so users with larger context windows can see more skill descriptions without truncation ·\n\nFebruary 2026 · No date parsed from source. First seen by Releasebot: Feb 8, 2026 · Claude Code by Anthropic · Fixed an issue where /fast was not immediately available after enabling /extra-usage Original source Report a problem · February 2026 · No date parsed from source. First seen by Releasebot: Feb 8, 2026 · Claude Code by Anthropic · Fast mode is now available for Opus 4.6. Learn more at https://code.claude.com/docs/en/fast-mode Original source Report a problem · All of your release notes in one place · Join Releasebot and get updates from Anthropic and hundreds of other software products. Create account · Subscribe with: RSS Email API Slack n8n Zapier · February 2026 · No date parsed from source. First seen by Releasebot: Feb 7, 2026 · Claude Code by Anthropic · Fixed a crash when agent teams setting changed between renders ·\n\nFebruary 2026 · No date parsed from source. First seen by Releasebot: Feb 6, 2026 · Claude Code by Anthropic · Release highlights: new multi-agent workflow events, memory frontmatter support, restricted sub-agent spawning, and improved skill visibility, plus extensive fixes for API streaming, proxies, and VSCode remote sessions. Fixed agent teammate sessions in tmux to send and receive messages · Fixed warnings about agent teams not being available on your current plan · Added TeammateIdle and TaskCompleted hook events for multi-agent workflows · Added support for restricting which sub-agents can be spawned via Task(agent_type) syntax in agent \"tools\" frontmatter · Added memory frontmatter field support for agents, enabling persistent memory with user, project, or local scope · Added plugin name to skill descriptions and /skills menu for better discoverability ·\n\nAdded research preview agent teams feature for multi-agent collaboration (token-intensive feature, requires setting CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1) Claude now automatically records and recalls memories as it works · Added \"Summarize from here\" to the message selector, allowing partial conversation summarization. Skills defined in ​.claude/skills/ within additional directories (--add-dir) are now loaded automatically. Fixed @ file completion showing incorrect relative paths when running from a subdirectory · Updated --resume to re-use --agent value specified in previous conversation by default. Fixed: Bash tool no longer throws \"Bad substitution\" errors when heredocs contain JavaScript template literals like ${index + 1}, which previously interrupted tool execution · Skill character budget now scales with context window (2% of context), so users with larger context windows can see more skill descriptions without truncation ·\n\nFixed context management validation error for gateway users, ensuring CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 avoids the error · Added --from-pr flag to resume sessions linked to a specific GitHub PR number or URL · Sessions are now automatically linked to PRs when created via gh pr create · Fixed /context command not displaying colored output · Fixed status bar duplicating background task indicator when PR status was shown · Windows: Fixed bash command execution failing for users with .bashrc files · Windows: Fixed console windows flashing when spawning child processes · VSCode: Fixed OAuth token expiration causing 401 errors after extended sessions Original source Report a problem ... No date parsed from source.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://releasebot.io/updates/anthropic/claude-code",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Releases · anthropics/claude-code",
+              "url": "https://github.com/anthropics/claude-code/releases",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Fixed a crash that made sessions unusable after entering plan mode when project config in ~/.claude.json was missing default fields · Fixed temperatureOverride being silently ignored in the streaming API path, causing all streaming requests ...\n\nClaude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. - Releases · anthropics/claude-code\n\nVSCode: Added support for remote sessions, allowing OAuth users to browse and resume sessions from claude.ai · VSCode: Added git branch and message count to the session picker, with support for searching by branch name · VSCode: Fixed scroll-to-bottom under-scrolling on initial session load and session switch ... There was an error while loading. Please reload this page. ... There was an error while loading. Please reload this page. ... Claude Opus 4.6 is now available! Added research preview agent teams feature for multi-agent collaboration (token-intensive feature, requires setting CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1) Claude now automatically records and recalls memories as it works · Added \"Summarize from here\" to the message selector, allowing partial conversation summarization. Skills defined in .claude/skills/ within additional directories (--add-dir) are now loaded automatically.\n\nFixed a crash that made sessions unusable after entering plan mode when project config in ~/.claude.json was missing default fields · Fixed temperatureOverride being silently ignored in the streaming API path, causing all streaming requests to use the default temperature (1) regardless of the configured override · Fixed LSP shutdown/exit compatibility with strict language servers that reject null params · Improved system prompts to more clearly guide the model toward using dedicated tools (Read, Edit, Glob, Grep) instead of bash equivalents (cat, sed, grep, find), reducing unnecessary bash command usage · Improved PDF and request size error messages to show actual limits (100 pages, 20MB) Reduced layout jitter in the terminal when the spinner appears and disappears during streaming · Removed misleading Anthropic API pricing from model selector for third-party provider (Bedrock, Vertex, Foundry) users ...\n\nAdded pre-configured OAuth client credentials for MCP servers that don't support Dynamic Client Registration (e.g., Slack). Use --client-id and --client-secret with claude mcp add. Added /debug for Claude to help troubleshoot the current session · Added support for additional git log and git show flags in read-only mode (e.g., --topo-order, --cherry-pick, --format, --raw) Added token count, tool uses, and duration metrics to Task tool results ... Fixed phantom \"(no content)\" text blocks appearing in API conversation history, reducing token waste and potential model confusion · Fixed prompt cache not correctly invalidating when tool descriptions or input schemas changed, only when tool names changed · Fixed 400 errors that could occur after running /login when the conversation contained thinking blocks · Fixed a hang when resuming sessions with corrupted transcript files containing parentUuid cycles ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code/releases",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Release Notes | Claude Help Center",
+              "url": "https://support.claude.com/en/articles/12138966-release-notes",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude"
+              },
+              "is_missing": false,
+              "text": "... See Automated Security Reviews in Claude Code. ... Claude Opus 4.1 (an incremental update to Opus 4) brings enhanced performance as our most capable model for complex reasoning, analysis, and\n\nCowork brings Claude Code's agentic capabilities to the Claude desktop app for knowledge work beyond coding. It runs locally on your computer in an isolated VM, enabling direct access to local files and MCP integrations. Refer to this article to learn more: Getting Started with Cowork. ... Claude can now read and analyze your health and fitness data on iOS and Android. Ask Claude about your activity patterns, workout trends, sleep quality, and more—Claude will provide insights and visualizations using native charts. Health features are available on Pro and Max plans and currently limited to users in the US. On Android, Health Connect and Android 14 or later are required. ... We now offer a HIPAA-ready version of Claude that is available for organizations with Enterprise plans that choose to process protected health information (PHI) through Claude.\n\nA new API tool that allows Claude to execute Python code in a secure, sandboxed environment. Refer to our docs for more information: Code execution tool. ... An experimental browser extension that allows Claude to read, click, and navigate websites alongside you. See Getting Started with Claude in Chrome and follow along with extension-specific feature launches here: Claude in Chrome Release Notes. ... Allows Team and Enterprise plans to enable/disable public desktop extensions and upload custom extensions. See Admin Controls for Desktop Extensions. ... Claude users with free, Pro, or Max plans can generate an embed code for any published artifacts. Premium seats with Claude Code for Team and Enterprise plans · Introduced a premium seat tier for Team and Enterprise plans offering more usage and access to Claude Code. Refer to the following articles for more information: ...\n\nA new setting allows Team and Enterprise plan users to purchase more usage to continue chatting with Claude or using Claude Code after hitting their usage limit. See Extra Usage for Team and Enterprise Plans. Ability to change monthly Team plan billing to annual · Allowing Team plan organizations with monthly billing to upgrade to annual billing. See How to change your Team plan from monthly to annual billing. ... The 1M token context window for Claude Sonnet 4 is currently in beta for API organizations in usage tier 4, or with custom rate limits. See 1M token context window in our docs for more information. ... Users on Max, Team, Enterprise plans can prompt Claude to search over past chats, allowing finer-grained context continuation and synthesizing across topics. See Searching past chats. ... See Automated Security Reviews in Claude Code. ... Claude Opus 4.1 (an incremental update to Opus 4) brings enhanced performance as our most capable model for complex reasoning, analysis, and",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://support.claude.com/en/articles/12138966-release-notes",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Developer Platform - Claude API Docs",
+              "url": "https://platform.claude.com/docs/en/release-notes/overview",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude API Docs"
+              },
+              "is_missing": false,
+              "text": "The 1M token context window is now available in beta for Claude Opus 4.6, in addition to Sonnet 4.5 and Sonnet 4. Long context pricing applies to requests exceeding 200K input tokens.\n\nWe've introduced data residency controls, allowing you to specify where model inference runs with the inference_geo parameter. US-only inference is available at 1.1x pricing for models released after February 1, 2026. The 1M token context window is now available in beta for Claude Opus 4.6, in addition to Sonnet 4.5 and Sonnet 4. Long context pricing applies to requests exceeding 200K input tokens. Fine-grained tool streaming is now generally available on all models and platforms (no beta header required). The output_format parameter for structured outputs has been moved to output_config.format. Structured outputs are now generally available on the Claude API for Claude Sonnet 4.5, Claude Opus 4.5, and Claude Haiku 4.5. GA includes expanded schema support, improved grammar compilation latency, and a simplified integration path with no beta header required.\n\nThe console will be available at both URLs until January 12, 2026. After that date, console.anthropic.com will automatically redirect to platform.claude.com. Anthropic Docs (docs.claude.com) → Claude Docs (docs.claude.com) Anthropic Help Center (support.claude.com) → Claude Help Center (support.claude.com) API endpoints, headers, environment variables, and SDKs remain the same. Your existing integrations will continue working without any changes. We've launched the web fetch tool in beta, allowing Claude to retrieve full content from specified web pages and PDF documents. Learn more in our web fetch tool documentation. We've launched the Claude Code Analytics API, enabling organizations to programmatically access daily aggregated usage metrics for Claude Code, including productivity metrics, tool usage statistics, and cost data. We launched a beta version of the C# SDK.\n\nWe've launched v2 of the Code Execution Tool in public beta, replacing the original Python-only tool with Bash command execution and direct file manipulation capabilities, including writing code in other languages. We launched a beta version of the PHP SDK. We've increased rate limits on the 1M token context window for Claude Sonnet 4 on the Claude API. For more information, see Long context rate limits. The 1m token context window is now available on Google Cloud's Vertex AI. For more information, see Claude on Vertex AI. Request IDs are now included directly in error response bodies alongside the existing request-id header. Learn more in our error documentation. We've released the Usage & Cost API, allowing administrators to programmatically monitor their organization's usage and cost data. We've added a new endpoint to the Admin API for retrieving organization information.\n\nWe've launched programmatic tool calling in public beta, allowing Claude to call tools from within code execution to reduce latency and token usage in multi-tool workflows. We've launched the tool search tool in public beta, enabling Claude to dynamically discover and load tools on-demand from large tool catalogs. We've launched the effort parameter in public beta for Claude Opus 4.5, allowing you to control token usage by trading off between response thoroughness and efficiency. We've added client-side compaction to our Python and TypeScript SDKs, automatically managing conversation context through summarization when using tool_runner. Search result content blocks are now generally available on Amazon Bedrock. Learn more in our search results documentation. We've launched a new documentation platform at platform.claude.com/docs. Our documentation now lives side by side with the Claude Console, providing a unified developer experience.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://platform.claude.com/docs/en/release-notes/overview",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code Changelog: Complete Version History",
+              "url": "https://claudefa.st/blog/guide/changelog",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claudefa.st",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claudefa.st",
+                "site_name": "Claude Fast"
+              },
+              "is_missing": false,
+              "text": "Claude Opus 4.6 - New Opus 4.6 model with 1M token context window (beta) and top Terminal-Bench 2.0 scores · Agent Teams - Experimental multi-agent collaboration with team leads, teammates, and shared task lists (CLAUDE_CODE_EXPERIMENTAL_A...\n\nClaude Fast | Complete Claude Code version history with all releases, features, bug fixes, and breaking changes from v0.2 beta through current 2026 updates.\n\nTask system toggle - CLAUDE_CODE_ENABLE_TASKS=false env var to use old system temporarily · Argument shorthand - $0, $1, etc. for accessing individual arguments in custom commands · AVX crash fix - Fixed crashes on processors without AVX instruction support · Process cleanup - Fixed dangling processes when terminal closed by catching EIO errors · Rename/tag directory fix - Fixed /rename and /tag not updating correct session in git worktrees · Resume by title fix - Fixed resuming sessions by custom title from different directories · Prompt stash fix - Fixed pasted text being lost when using Ctrl+S stash and restore · Agent model display - Fixed showing \"Sonnet (default)\" instead of \"Inherit (default)\" for agents · Background hook fix - Fixed backgrounded hook commands not returning early · File preview fix - Fixed write preview omitting empty lines ·\n\nWindows paths - Managed settings now prefer C:\\Program Files\\ClaudeCode · Plan feedback - Added feedback input when rejecting plans, allowing users to tell Claude what to change · VSCode streaming - Added streaming message support for real-time response display · Progress bar setting - Added setting to enable/disable terminal progress bar (OSC 9;4) VSCode secondary sidebar - Support for VS Code's secondary sidebar (VS Code 1.97+) Proxy DNS fix - Fixed proxy DNS resolution being forced on by default (now opt-in via CLAUDE_CODE_PROXY_RESOLVES_HOSTS=true) Keyboard nav fix - Fixed keyboard navigation becoming unresponsive in memory location selector · AskUserQuestion improvement - Auto-submit single-select questions on the last question · Fuzzy matching - Improved @ file suggestions with faster, more accurate results · PermissionRequest hooks - Enable hooks to process 'always allow' suggestions ·\n\nDuplicate message fix - Fixed duplicate message display when starting Claude with command line argument · Usage command fix - Fixed /usage progress bars to fill up as usage increases · Linux image paste - Fixed image pasting on Linux systems running Wayland · Bash improvement - Permit some uses of $! in bash commands ... MCP nested refs fix - Fixed bug preventing calling MCP tools with nested references in input schemas · Ultrathink display - Improved ultrathink text display · Session limit clarity - Improved clarity of 5-hour session limit warning · Readline paste - Added readline-style ctrl-y for pasting deleted text · Warning clarity - Improved clarity of usage limit warning message · Subagent permissions - Fixed handling of subagent permissions · Teleport improvements - Improved error messages and validation for claude --teleport · Usage error handling - Improved error handling in /usage ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://claudefa.st/blog/guide/changelog",
+                "search_provider": "anthropic",
+                "age": "2 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "ClaudeLog - Claude Code Docs, Guides, Tutorials & Best Practices",
+              "url": "https://claudelog.com/claude-code-changelog/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claudelog.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claudelog.com",
+                "site_name": "ClaudeLog"
+              },
+              "is_missing": false,
+              "text": "Learn more about Vibe Animating · Synopsis: Fixed message rendering bug. Fixed message rendering bug · Jan 17, 2026 · Synopsis: Fixed excessive MCP connection requests for HTTP/SSE transports.\n\nComplete version history of Claude Code releases, from early beta versions to the latest stable release. Each version includes feature additions, bug fixes, and links to relevant documentation. Need to downgrade? See our Revert Claude Code Version guide. Latest Posts · Use AI to create expressive CSS animations by splitting SVGs into logical parts. Claude can grok individual SVG components, split them into separate files, and animate them separately, generating 20+ viable animations with minimal handholding. Learn more about Vibe Animating · Synopsis: Fixed message rendering bug. Fixed message rendering bug · Jan 17, 2026 · Synopsis: Fixed excessive MCP connection requests for HTTP/SSE transports. Fixed excessive MCP connection requests for HTTP/SSE transports · Jan 17, 2026 · Synopsis: New Setup hook event for repository setup and maintenance operations.\n\n[VSCode] Fixed claudeProcessWrapper setting passing the wrapper path instead of the Claude binary path · Jan 14, 2026 · Synopsis: Search functionality for /config command. Date range filtering in /stats (press r to cycle 7/30/All time). Updates section in /doctor showing auto-update channel and npm versions. Fixed permission bypass via shell line continuation. Added search functionality to /config command for quickly filtering settings · Added Updates section to /doctor showing auto-update channel and available npm versions (stable/latest) Added date range filtering to /stats command - press r to cycle between Last 7 days, Last 30 days, and All time · Added automatic discovery of skills from nested .claude/skills directories when working with files in subdirectories · Added context_window.used_percentage and context_window.remaining_percentage fields to status line input for easier context window display ·\n\nComplete version history of Claude Code releases, from early beta versions to the latest stable release. Each version includes feature additions, bug fixes, and links to relevant documentation. Need to downgrade? See our Revert Claude Code Version guide. ... Use AI to create expressive CSS animations by splitting SVGs into logical parts. Claude can grok individual SVG components, split them into separate files, and animate them separately, generating 20+ viable animations with minimal handholding. Learn more about Vibe Animating · Synopsis: Fixed message rendering bug. ... Synopsis: Fixed excessive MCP connection requests for HTTP/SSE transports. Fixed excessive MCP connection requests for HTTP/SSE transports ... Synopsis: New Setup hook event for repository setup and maintenance operations. Keyboard shortcut 'c' to copy OAuth URL during login. Crash fix for heredocs with JavaScript template literals.\n\nFixed duplicate slash commands appearing when ~/.claude is symlinked to a project directory · Fixed slash command selection not working when multiple commands share the same name · Fixed an issue where skill files inside symlinked skill directories could become circular symlinks · Fixed running versions getting removed because lock file incorrectly going stale · Fixed IDE diff tab not closing when rejecting file changes ... Synopsis: Reverted VS Code multiple terminal clients feature due to responsiveness issues. Reverted VSCode support for multiple terminal clients due to responsiveness issues ... Synopsis: Background agent support - agents run in the background while you continue working. Added /mcp enable|disable [server-name] quick toggles for MCP servers. New --disable-slash-commands CLI flag to disable all slash commands. Added background agent support.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://claudelog.com/claude-code-changelog/",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "claude-code/CHANGELOG.md at main · anthropics/claude-code",
+              "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Fixed duplicate slash commands appearing when ~/.claude is symlinked to a project directory · Fixed slash command selection not working when multiple commands share the same name · Fixed an issue where skill files inside symlinked skill directories could become circular symlinks · Fixed running versions getting removed because lock file incorrectly going stale · Fixed IDE diff tab not closing when rejecting file changes · Reverted VSCode support for multiple terminal clients due to responsiveness issues. Added background agent support. Agents run in the background while you work · Added --disable-slash-commands CLI flag to disable all slash commands · Added model name to &quot;Co-Authored-By&quot; commit messages · Enabled &quot;/mcp enable [server-name]&quot; or &quot;/mcp disable [server-name]&quot; to quickly toggle all servers · Updated Fetch to skip summarization for pre-approved websites ·\n\nClaude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. - claude-code/CHANGELOG.md at main · anthropics/claude-code\n\nAdded deprecation notification for npm installations - run claude install or see https://docs.anthropic.com/en/docs/claude-code/getting-started for more options · Improved UI rendering performance with React Compiler · Fixed the \"Context left until auto-compact\" warning not disappearing after running /compact · Fixed MCP stdio server timeout not killing child process, which could cause UI freezes · Added history-based autocomplete in bash mode (!) - type a partial command and press Tab to complete from your bash command history · Added search to installed plugins list - type to filter by name or description · Added support for pinning plugins to specific git commit SHAs, allowing marketplace entries to install exact versions · Fixed a regression where the context window blocking limit was calculated too aggressively, blocking users at ~65% context usage instead of the intended ~98% Fixed memory issues that could cause crashes when running parallel subagents ·\n\nFixed false \"Another process is currently updating Claude\" error when running claude update while another instance is already on the latest version · Fixed MCP servers from .mcp.json being stuck in pending state when running in non-interactive mode (-p flag or piped input) Fixed scroll position resetting after deleting a permission rule in /permissions · Fixed word deletion (opt+delete) and word navigation (opt+arrow) not working correctly with non-Latin text such as Cyrillic, Greek, Arabic, Hebrew, Thai, and Chinese · Fixed claude install --force not bypassing stale lock files · Fixed consecutive @~/ file references in CLAUDE.md being incorrectly parsed due to markdown strikethrough interference · Windows: Fixed plugin MCP servers failing due to colons in log directory paths · Added ability to switch models while writing a prompt using alt+p (linux, windows), option+p (macos).\n\nFixed duplicate slash commands appearing when ~/.claude is symlinked to a project directory · Fixed slash command selection not working when multiple commands share the same name · Fixed an issue where skill files inside symlinked skill directories could become circular symlinks · Fixed running versions getting removed because lock file incorrectly going stale · Fixed IDE diff tab not closing when rejecting file changes · Reverted VSCode support for multiple terminal clients due to responsiveness issues. Added background agent support. Agents run in the background while you work · Added --disable-slash-commands CLI flag to disable all slash commands · Added model name to \"Co-Authored-By\" commit messages · Enabled \"/mcp enable [server-name]\" or \"/mcp disable [server-name]\" to quickly toggle all servers · Updated Fetch to skip summarization for pre-approved websites ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Introducing Claude Opus 4.6",
+              "url": "https://www.anthropic.com/news/claude-opus-4-6",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "anthropic.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+                "site_name": "Anthropic"
+              },
+              "is_missing": false,
+              "text": "This makes Claude much more capable for everyday work. Claude Opus 4.6 is available today on claude.ai, our API, and all major cloud platforms. If you’re a developer, use claude-opus-4-6 via the Claude API. Pricing remains the same at $5/$25 per million tokens; for full details, see our pricing ...\n\nFeb 5, 2026 · We’re upgrading our smartest model. The new Claude Opus 4.6 improves on its predecessor’s coding skills. It plans more carefully, sustains agentic tasks for longer, can operate more reliably in larger codebases, and has better code review and debugging skills to catch its own mistakes. And, in a first for our Opus-class models, Opus 4.6 features a 1M token context window in beta. Opus 4.6 can also apply its improved abilities to a range of everyday work tasks: running financial analyses, doing research, and using and creating documents, spreadsheets, and presentations. Within Cowork, where Claude can multitask autonomously, Opus 4.6 can put all these skills to work on your behalf. The model’s performance is state-of-the-art on several evaluations. For example, it achieves the highest score on the agentic coding evaluation Terminal-Bench 2.0 and leads all other frontier models on Humanity’s Last Exam, a complex multidisciplinary reasoning test.\n\nIn Claude Code, you can now assemble agent teams to work on tasks together. On the API, Claude can use compaction to summarize its own context and perform longer-running tasks without bumping up against limits. We’re also introducing adaptive thinking, where the model can pick up on contextual clues about how much to use its extended thinking, and new effort controls to give developers more control over intelligence, speed, and cost. We’ve made substantial upgrades to Claude in Excel, and we’re releasing Claude in PowerPoint in a research preview. This makes Claude much more capable for everyday work. Claude Opus 4.6 is available today on claude.ai, our API, and all major cloud platforms. If you’re a developer, use claude-opus-4-6 via the Claude API. Pricing remains the same at $5/$25 per million tokens; for full details, see our pricing page.\n\nWe build Claude with Claude. Our engineers write code with Claude Code every day, and every new model first gets tested on our own work. With Opus 4.6, we’ve found that the model brings more focus to the most challenging parts of a task without being told to, moves quickly through the more straightforward parts, handles ambiguous problems with better judgment, and stays productive over longer sessions. Opus 4.6 often thinks more deeply and more carefully revisits its reasoning before settling on an answer. This produces better results on harder problems, but can add cost and latency on simpler ones. If you’re finding that the model is overthinking on a given task, we recommend dialing effort down from its default setting (high) to medium. You can control this easily with the /effort parameter. Here are some of the things our Early Access partners told us about Claude Opus 4.6, including its propensity to work autonomously without hand-holding, its success where previous models failed, \n\nClaude Opus 4.6 is the best model we've tested yet. Its reasoning and planning capabilities have been exceptional at powering our AI Teammates. It's also a fantastic coding model – its ability to navigate a large codebase and identify the right changes to make is state of the art. Claude Opus 4.6 reasons through complex problems at a level we haven't seen before. It considers edge cases that other models miss and consistently lands on more elegant, well-considered solutions. We're particularly impressed with Opus 4.6 in Devin Review, where it's increased our bug catching rates. Claude Opus 4.6 feels noticeably better than Opus 4.5 in Windsurf, especially on tasks that require careful exploration like debugging and understanding unfamiliar codebases. We’ve noticed Opus 4.6 thinks longer, which pays off when deeper reasoning is needed. Claude Opus 4.6 represents a meaningful leap in long-context performance.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.anthropic.com/news/claude-opus-4-6",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude (language model) - Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Claude_(language_model)",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "wikipedia.org",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=wikipedia.org",
+                "site_name": "Wikipedia"
+              },
+              "is_missing": false,
+              "text": "Claude is a series of large language models developed by Anthropic. The first model was released in March 2023, and the latest, Claude Opus 4.6, in February 2026. Claude models are generative pre-trained transformers that have been pre-trained to predict the next word in large amounts of text.\n\nClaude Code was released in February 2025 as an agentic command line tool that enables developers to delegate coding tasks directly from their terminal. While initially released for preview testing, it was made generally available in May 2025 alongside Claude 4. Enterprise adoption of Claude Code showed significant growth, with Anthropic reporting a 5.5x increase in Claude Code revenue by July. Anthropic released a web version that October as well as an iOS app. As of January 2026, it was widely considered the best AI coding assistant, when paired with Opus 4.5, with GPT-5.2 also showing significant improvement. Claude Code went viral during the winter holidays when people had time to experiment with it, including many non-programmers who used it for vibe coding. In August 2025, Anthropic released Claude for Chrome, a Google Chrome extension allowing Claude Code to directly control the browser.\n\nClaude is a series of large language models developed by Anthropic. The first model was released in March 2023, and the latest, Claude Opus 4.6, in February 2026. Claude models are generative pre-trained transformers that have been pre-trained to predict the next word in large amounts of text. Then, they have been fine-tuned, notably using constitutional AI and reinforcement learning from human feedback (RLHF). ClaudeBot searches the web for content. It respects a site's robots.txt but was criticized by iFixit in 2024, before they added their robots.txt, for placing excessive load on their site by scraping content. Constitutional AI is an approach developed by Anthropic for training AI systems, particularly language models like Claude, to be harmless and helpful without relying on extensive human feedback. Claude, seen as one of the safest language models, publishes its constitution hoping to inspire adoption of constitutions throughout the industry.\n\nReporting by Inc. described Haiku 4.5 as targeting smaller companies that needed a faster and cheaper assistant, highlighting its availability on the Claude website and mobile app. Anthropic released Opus 4.5 on November 24, 2025. The main improvements are in coding and workplace tasks like producing spreadsheets. Anthropic introduced a feature called \"Infinite Chats\" that eliminates context window limit errors. Anthropic released Opus 4.6 on February 5, 2026. The main improvements included an agent team and Claude in PowerPoint. In May 2024, Anthropic issued a paper demonstrating mechanistic interpretability via a model which focused on the Golden Gate Bridge in a way the researchers compared to obsession, and another which composed scam emails. In June 2025, Anthropic tested how Claude 3.7 Sonnet could run a vending machine in the company's office.\n\nBecause the constitution is published in human-understandable words instead of in opaque computer code, it is hoped that it will make alignment easier to manage and audit. The first constitution for Claude was published in 2022. The 2023 update listed 75 guidelines for Claude to follow. The first constitutions pulled ideas directly from the 1948 UN Universal Declaration of Human Rights. The 2026 constitution provided more context to the model, explaining the rationale behind guidelines such as refraining from assisting in undermining democracy. The constitution is applied to all public users of the products but does not apply to all contacts, such as some military contracts. The 2026 constitution has 23,000 words, up from 2,700 in 2023. The philosopher Amanda Askell is the lead author of the 2026 constitution, with contributions from Joe Carlsmith, Chris Olah, Jared Kaplan, and Holden Karnofsky.\n\nClaude Cowork is a tool similar to Claude Code but with a graphical user interface, aimed at non-technical users. It was released in January 2026 as a \"research preview\". According to developers, Cowork was mostly built by Claude Code. The name \"Claude\" is reportedly inspired by Claude Shannon, a 20th-century mathematician who laid the foundation for information theory. Claude models are usually released in three sizes: Haiku, Sonnet, and Opus (from smallest and cheapest to largest and the most expensive). Anthropic committed to preserve the weights of the retired models \"for at least as long as the company exists\"; the company also conducts \"exit interviews\" with models before their retirement. The first version of Claude was released in March 2023. It was available only to selected users approved by Anthropic. Claude 2, released in July 2023, became the first Anthropic model available to the general public.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://en.wikipedia.org/wiki/Claude_(language_model)",
+                "search_provider": "anthropic",
+                "age": "5 hours ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Anthropic Release Notes - February 2026 Latest Updates - Releasebot",
+              "url": "https://releasebot.io/updates/anthropic",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "releasebot.io",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=releasebot.io",
+                "site_name": "Releasebot"
+              },
+              "is_missing": false,
+              "text": "Added research preview agent teams feature for multi-agent collaboration (token-intensive feature, requires setting CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1) Claude now automatically records and recalls memories as it works · Added &quot;Summarize from here&quot; to the message selector, allowing partial conversation summarization. Skills defined in ​.claude/skills/ within additional directories (--add-dir) are now loaded automatically. Fixed @ file completion showing incorrect relative paths when running from a subdirectory · Updated --resume to re-use --agent value specified in previous conversation by default. Fixed: Bash tool no longer throws &quot;Bad substitution&quot; errors when heredocs contain JavaScript template literals like ${index + 1}, which previously interrupted tool execution · Skill character budget now scales with context window (2% of context), so users with larger context windows can see more skill descriptions without truncation ·\n\nThe effort parameter is now generally available (no beta header required) and supports Claude Opus 4.6. Effort replaces budget_tokens for controlling thinking depth on new models. We've launched the compaction API in beta, providing server-side context summarization for effectively infinite conversations. Available on Opus 4.6. We've introduced data residency controls, allowing you to specify where model inference runs with the inference_geo parameter. US-only inference is available at 1.1x pricing for models released after February 1, 2026. The 1M token context window is now available in beta for Claude Opus 4.6, in addition to Sonnet 4.5 and Sonnet 4. Long context pricing applies to requests exceeding 200K input tokens. Fine-grained tool streaming is now generally available on all models and platforms (no beta header required). The output_format parameter for structured outputs has been moved to output_config.format.\n\nAdded research preview agent teams feature for multi-agent collaboration (token-intensive feature, requires setting CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1) Claude now automatically records and recalls memories as it works · Added \"Summarize from here\" to the message selector, allowing partial conversation summarization. Skills defined in ​.claude/skills/ within additional directories (--add-dir) are now loaded automatically. Fixed @ file completion showing incorrect relative paths when running from a subdirectory · Updated --resume to re-use --agent value specified in previous conversation by default. Fixed: Bash tool no longer throws \"Bad substitution\" errors when heredocs contain JavaScript template literals like ${index + 1}, which previously interrupted tool execution · Skill character budget now scales with context window (2% of context), so users with larger context windows can see more skill descriptions without truncation ·\n\nFixed context management validation error for gateway users, ensuring CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 avoids the error · Added --from-pr flag to resume sessions linked to a specific GitHub PR number or URL · Sessions are now automatically linked to PRs when created via gh pr create · Fixed /context command not displaying colored output · Fixed status bar duplicating background task indicator when PR status was shown · Windows: Fixed bash command execution failing for users with .bashrc files · Windows: Fixed console windows flashing when spawning child processes · VSCode: Fixed OAuth token expiration causing 401 errors after extended sessions Original source Report a problem ... No date parsed from source.\n\nFixed beta header validation error for gateway users on Bedrock and Vertex, ensuring CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1 avoids the error Original source Report a problem",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://releasebot.io/updates/anthropic",
+                "search_provider": "anthropic",
+                "age": "4 days ago"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-02-10T02:41:41.387553Z",
+          "stop_timestamp": "2026-02-10T02:41:56.230549Z",
+          "flags": null,
+          "type": "text",
+          "text": "정보를 종합해서 정리해드리겠습니다.\n\n---\n\n## Claude Pro/Max 구독 환경에서의 해결 방법\n\n### 1단계: Claude Code 최신 버전으로 업데이트\n\n```bash\n# 현재 버전 확인\nclaude --version\n\n# 업데이트 (npm 설치인 경우)\nnpm update -g @anthropic-ai/claude-code\n\n# 또는 공식 권장 방식\nclaude update\n```\n\n최신 버전은 Opus 4.6 지원이 포함된 2025년 2월 초 릴리즈입니다.\n\n---\n\n### 2단계: 환경변수/설정에 잘못된 모델명이 남아있는지 확인\n\n```bash\n# 환경변수 확인\necho $ANTHROPIC_MODEL\n\n# 설정 파일 확인\ncat ~/.claude.json\ncat ~/.claude/settings.json\n```\n\n**혹시 `ANTHROPIC_MODEL`이 설정되어 있다면**, 잘못된 모델명이 원인일 수 있습니다. 제거하세요:\n\n```bash\n# zsh인 경우\nnano ~/.zshrc   # ANTHROPIC_MODEL 관련 줄 삭제\nsource ~/.zshrc\n\n# bash인 경우\nnano ~/.bashrc\nsource ~/.bashrc\n```\n\n---\n\n### 3단계: 재로그인\n\n```bash\nclaude /logout\nclaude /login\n```\n\nPro/Max 구독 인증 토큰이 만료되었거나 플랜 정보가 갱신되지 않은 경우가 있습니다. 특히 Pro 플랜에서 Opus 모델은 extra usage를 활성화하고 구매한 후에만 사용 가능하므로, Opus를 사용하려 했다면 이 부분도 확인이 필요합니다.\n\n---\n\n### 4단계: 모델 직접 지정해서 실행\n\n```bash\n# 기본 Sonnet 4.5 (가장 안정적)\nclaude --model claude-sonnet-4-5-20250929\n\n# Opus 4.6 (Max 플랜 또는 extra usage 필요)\nclaude --model claude-opus-4-6\n\n# Sonnet 4\nclaude --model claude-sonnet-4-20250514\n```\n\n---\n\n### 5단계: 완전 초기화 (위 방법 모두 실패 시)\n\n```bash\nnpm uninstall -g @anthropic-ai/claude-code\nrm -f ~/.claude.json\nrm -rf ~/.claude/\nnpm cache clean --force\nnpm install -g @anthropic-ai/claude-code\nclaude\n```\n\n---\n\n### 추가 확인사항\n\n**`/doctor` 실행**해서 진단 결과를 확인해보세요:\n```bash\n# Claude Code 내에서\n/doctor\n```\n\n이 중 어디까지 시도해보셨는지, 그리고 정확한 에러 메시지 전문과 사용 중인 OS를 알려주시면 더 구체적으로 도와드리겠습니다.",
+          "citations": [
+            {
+              "uuid": "fea3eef0-de54-4761-9dbf-38062a806a4f",
+              "start_index": 721,
+              "end_index": 771,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://support.claude.com/en/articles/11940350-claude-code-model-configuration"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-02-10T02:41:56.279704Z",
+      "updated_at": "2026-02-10T02:41:56.279704Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019c456c-f377-75d3-bed5-87d2b2bb051c"
+    },
+    {
+      "uuid": "019c4574-9c31-71bf-a930-1f25183eff67",
+      "text": "> /doctor                                                                                                                 Checking installation status…                                                                                          Diagnostics                  iagnose and verify your Claude Code installation and settings  └ Currently running: native (2.1.38)  └ Path: C:\\Users\\Administrator\\.local\\bin\\claude.exe  └ Invoked: C:\\Users\\Administrator\\.local\\bin\\claude.exe  └ Config install method: native  └ Search: OK (bundled)  Warning: Multiple installations found  └ npm-global at C:\\Users\\Administrator\\AppData\\Roaming\\npm\\claude  └ native at C:\\Users\\Administrator\\.local\\share\\claude  Warning: Leftover npm global installation at C:\\Users\\Administrator\\AppData\\Roaming\\npm\\claude  Fix: Run: npm -g uninstall @anthropic-ai/claude-code   Updates  └ Auto-updates: enabled  └ Auto-update channel: latest  └ Stable version: 2.1.29  └ Latest version: 2.1.38   Version Locks  └ No active version locks   Plugin Errors  └ 1 plugin error(s) detected:    └ frontend-for-opus-4-5@xavierchoi-skills-marketplace [frontend-for-opus-4-5]: Path not found: C:\\Users\\Administrato  r\\.claude\\plugins\\cache\\xavierchoi-skills-marketplace\\frontend-for-opus-4-5\\c93660188bb7\\skills\\frontend-for-opus-4-5  (skills)",
+      "content": [
+        {
+          "start_timestamp": "2026-02-10T02:49:56.098861Z",
+          "stop_timestamp": "2026-02-10T02:49:56.098861Z",
+          "flags": null,
+          "type": "text",
+          "text": "> /doctor                                                                                                                 Checking installation status…                                                                                          Diagnostics                  iagnose and verify your Claude Code installation and settings  └ Currently running: native (2.1.38)  └ Path: C:\\Users\\Administrator\\.local\\bin\\claude.exe  └ Invoked: C:\\Users\\Administrator\\.local\\bin\\claude.exe  └ Config install method: native  └ Search: OK (bundled)  Warning: Multiple installations found  └ npm-global at C:\\Users\\Administrator\\AppData\\Roaming\\npm\\claude  └ native at C:\\Users\\Administrator\\.local\\share\\claude  Warning: Leftover npm global installation at C:\\Users\\Administrator\\AppData\\Roaming\\npm\\claude  Fix: Run: npm -g uninstall @anthropic-ai/claude-code   Updates  └ Auto-updates: enabled  └ Auto-update channel: latest  └ Stable version: 2.1.29  └ Latest version: 2.1.38   Version Locks  └ No active version locks   Plugin Errors  └ 1 plugin error(s) detected:    └ frontend-for-opus-4-5@xavierchoi-skills-marketplace [frontend-for-opus-4-5]: Path not found: C:\\Users\\Administrato  r\\.claude\\plugins\\cache\\xavierchoi-skills-marketplace\\frontend-for-opus-4-5\\c93660188bb7\\skills\\frontend-for-opus-4-5  (skills)",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-02-10T02:49:56.130137Z",
+      "updated_at": "2026-02-10T02:49:56.130137Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019c456c-f377-75d3-bed5-87d3a01a3699"
+    },
+    {
+      "uuid": "019c4574-9c31-71bf-a930-1f261a5a13b7",
+      "text": " 문제 원인이 보입니다. 두 가지를 해결하면 됩니다.\n\n---\n\n## 1. 중복 설치 제거 (핵심 원인일 가능성 높음)\n\nnpm 글로벌 설치와 native 설치가 충돌하고 있습니다. `/doctor`가 직접 알려주고 있어요:\n\n```bash\nnpm -g uninstall @anthropic-ai/claude-code\n```\n\n이 명령 실행 후 **터미널을 완전히 닫고 새로 열어서** `claude`를 다시 실행해보세요.\n\n---\n\n## 2. 플러그인 에러 수정\n\n`frontend-for-opus-4-5` 플러그인 경로가 깨져있습니다. 제거하세요:\n\n```bash\nclaude /plugins\n```\n\n에서 해당 플러그인을 uninstall하거나, 직접 캐시 삭제:\n\n```bash\nrmdir /s /q \"%USERPROFILE%\\.claude\\plugins\\cache\\xavierchoi-skills-marketplace\"\n```\n\n---\n\n## 실행 순서 요약\n\n1. `npm -g uninstall @anthropic-ai/claude-code` → 중복 설치 제거\n2. 터미널 완전 종료 후 재실행\n3. `claude --model claude-sonnet-4-5-20250929` 로 실행 테스트\n4. 여전히 안 되면 `claude /logout` → `claude /login` 재인증\n\n중복 설치가 모델 해석 경로를 꼬이게 만드는 것이 가장 흔한 원인입니다. npm 제거 후 결과를 알려주세요.",
+      "content": [
+        {
+          "start_timestamp": "2026-02-10T02:49:59.434733Z",
+          "stop_timestamp": "2026-02-10T02:50:07.862185Z",
+          "flags": null,
+          "type": "text",
+          "text": " 문제 원인이 보입니다. 두 가지를 해결하면 됩니다.\n\n---\n\n## 1. 중복 설치 제거 (핵심 원인일 가능성 높음)\n\nnpm 글로벌 설치와 native 설치가 충돌하고 있습니다. `/doctor`가 직접 알려주고 있어요:\n\n```bash\nnpm -g uninstall @anthropic-ai/claude-code\n```\n\n이 명령 실행 후 **터미널을 완전히 닫고 새로 열어서** `claude`를 다시 실행해보세요.\n\n---\n\n## 2. 플러그인 에러 수정\n\n`frontend-for-opus-4-5` 플러그인 경로가 깨져있습니다. 제거하세요:\n\n```bash\nclaude /plugins\n```\n\n에서 해당 플러그인을 uninstall하거나, 직접 캐시 삭제:\n\n```bash\nrmdir /s /q \"%USERPROFILE%\\.claude\\plugins\\cache\\xavierchoi-skills-marketplace\"\n```\n\n---\n\n## 실행 순서 요약\n\n1. `npm -g uninstall @anthropic-ai/claude-code` → 중복 설치 제거\n2. 터미널 완전 종료 후 재실행\n3. `claude --model claude-sonnet-4-5-20250929` 로 실행 테스트\n4. 여전히 안 되면 `claude /logout` → `claude /login` 재인증\n\n중복 설치가 모델 해석 경로를 꼬이게 만드는 것이 가장 흔한 원인입니다. npm 제거 후 결과를 알려주세요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-02-10T02:50:07.913142Z",
+      "updated_at": "2026-02-10T02:50:07.913142Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019c4574-9c31-71bf-a930-1f25183eff67"
+    }
+  ]
+}

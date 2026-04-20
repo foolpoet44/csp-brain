@@ -1,0 +1,340 @@
+﻿{
+  "uuid": "df9eb622-260c-42cd-bb08-f4b626b1041f",
+  "name": "채팅 내용 파일로 다운로드하기",
+  "summary": "**Conversation Overview**\n\nThe person asked whether there is a way to download all chat history with Claude as a file. Claude provided a structured explanation of three methods for exporting Claude conversation data: the official Export Data feature in Claude's settings (which delivers a ZIP file containing a conversations.json file via email link), a Chrome extension called AI Chat Exporter (supporting multiple formats including Markdown, PDF, and JSON), and a GitHub-based script called claude-chat-exporter that preserves complex formatting such as tables, code blocks, and math expressions in Markdown.\n\nClaude also referenced that the person has an existing Notion archiving automation workflow and tailored the recommendation accordingly, suggesting a combination of using the Chrome extension for immediate Markdown export of important conversations and monthly full backups via the official export feature, noting that Markdown format pastes cleanly into Notion.",
+  "created_at": "2026-04-09T23:07:50.709141Z",
+  "updated_at": "2026-04-09T23:08:11.577244Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d7480-7a3c-7391-be44-ed28cf03b230",
+      "text": "너와 채팅했던 모들 내용을 파일로 다운로드 받을 수 있는 방법이 있어?",
+      "content": [
+        {
+          "start_timestamp": "2026-04-09T23:07:51.197634Z",
+          "stop_timestamp": "2026-04-09T23:07:51.197634Z",
+          "flags": null,
+          "type": "text",
+          "text": "너와 채팅했던 모들 내용을 파일로 다운로드 받을 수 있는 방법이 있어?",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-09T23:07:51.251918Z",
+      "updated_at": "2026-04-09T23:07:51.251918Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d7480-7a3c-7866-9cf4-363b135c4cf0",
+      "text": " Claude.ai에서 대화 내용을 다운로드하는 방법을 알아볼게요.\n```\nThis block is not supported on your current device yet.\n```\n\n방법이 크게 세 가지 층위로 나뉩니다. CSP의 워크플로우에 맞게 정리해드릴게요.\n\n---\n\n## Claude 대화 다운로드 방법\n\n### ① 공식 Export 기능 (전체 히스토리)\n\nSettings → Privacy → Export Data 버튼을 클릭하면 됩니다. 이메일로 다운로드 링크가 발송되고, 링크는 24시간 후 만료됩니다. Web 앱 또는 Desktop 앱에서만 가능하고, iOS/Android 앱은 지원하지 않습니다.\n\n결과물은 ZIP 파일 안의 `conversations.json`으로, 각 대화와 메시지 교환 내역이 중첩 구조로 담겨 있습니다. JSON이라 그대로 읽기엔 불편하지만, VS Code에서 열거나 파싱하면 됩니다.\n\n2026년 초 기준으로 Claude Projects 내 대화도 포함됩니다.\n\n---\n\n### ② 크롬 익스텐션 (개별 대화, 즉시 다운로드)\n\nCSP 같은 파워유저에게 가장 실용적인 방법입니다.\n\n**AI Chat Exporter** (추천)\nPDF, Markdown, Text, CSV, JSON 등 다양한 포맷 지원. 2026년 3월 기준 최신 업데이트 완료. 마크다운은 무제한 무료, PDF는 하루 3회 무료.\n\nPDF 변환 시에만 서버를 경유하고 즉시 삭제. 나머지 포맷은 브라우저 내에서만 처리되어 데이터가 외부로 나가지 않습니다.\n\n---\n\n### ③ GitHub 스크립트 (개발자형, 마크다운 완전 보존)\n\n**claude-chat-exporter**는 Claude의 네이티브 copy 버튼을 활용해 테이블, 수식, 코드블록 등 복잡한 포맷을 100% 마크다운으로 보존합니다. 타임스탬프와 대화 제목도 API를 통해 자동 추출합니다.\n\n---\n\n## CSP에게 맞는 선택은?\n\n현재 **Notion 아카이빙 자동화** 시스템을 이미 구축해두셨으니, 실질적으로는 두 가지 조합이 이상적입니다.\n\n- **중요 대화 즉시 보존** → AI Chat Exporter로 Markdown 추출 후 Notion에 붙여넣기\n- **전체 백업** → 월 1회 공식 Export로 JSON 덤프 보관\n\n특히 Markdown 포맷으로 뽑으면 Notion 페이스트가 그대로 예쁘게 들어가기 때문에, 현재의 아카이빙 워크플로우와 자연스럽게 연결됩니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-09T23:07:51.745895Z",
+          "stop_timestamp": "2026-04-09T23:07:52.266247Z",
+          "flags": null,
+          "type": "text",
+          "text": " Claude.ai에서 대화 내용을 다운로드하는 방법을 알아볼게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-04-09T23:07:52.695260Z",
+          "stop_timestamp": "2026-04-09T23:07:52.848824Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_012VokanzF7Am2KApCCXqgrg",
+          "name": "web_search",
+          "input": {
+            "query": "claude.ai download chat history export conversation 2026"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_012VokanzF7Am2KApCCXqgrg",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "How can I export my Claude data? | Claude Help Center",
+              "url": "https://support.claude.com/en/articles/9450526-how-can-i-export-my-claude-data",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude"
+              },
+              "is_missing": false,
+              "text": "Individual Claude users can export user information and chat history from Settings &gt; Privacy on the web app or Claude Desktop (it&#x27;s not possible to run an export from Claude for iOS or Android).\n\nData exports are available to individual Claude users (free, Pro, and Max) with active accounts. Data exports include conversation data and the user data for your account. Individual Claude users can export user information and chat history from Settings > Privacy on the web app or Claude Desktop (it's not possible to run an export from Claude for iOS or Android). ... Click on your initials in the lower left corner of your account. Select \"Settings\" from the menu. Navigate to the \"Privacy\" section. Click the \"Export data\" button. Once the export has been processed, you will receive a download link via email. ... There may be a small delay while the export is generated. The email will be sent to the address associated with your account. You must be signed in to your account to download your data using this link. The download link will expire 24 hours after delivery.\n\nI would like to input sensitive data into my chats with Claude. Who can view my conversations? Who owns and manages the data of my Claude for Education account?",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://support.claude.com/en/articles/9450526-how-can-i-export-my-claude-data",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to Download a Claude Chat Session",
+              "url": "https://blog.promptlayer.com/how-to-download-a-claude-chat-session/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "promptlayer.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=promptlayer.com",
+                "site_name": "PromptLayer"
+              },
+              "is_missing": false,
+              "text": "Here&#x27;s how to access it: 1. Click your account initials in the lower-left corner ... Once initiated, you&#x27;ll receive an email with a download link that&#x27;s valid for approximately 24 hours.\n\nOn-Demand Chat Recall for enterprise users, there's a growing focus on user control over AI conversation data and privacy. This guide covers four practical methods to download your Claude chats, from official exports to browser extensions, console scripts, and command-line tools plus essential tips on choosing the right format and ensuring data security. Claude's built-in export feature provides the most comprehensive way to download all your conversation history at once. Here's how to access it: 1. Click your account initials in the lower-left corner ... Once initiated, you'll receive an email with a download link that's valid for approximately 24 hours. The export process may take several minutes, depending on your chat history volume. The export arrives as a ZIP file containing JSON data (typically in .dms/JSON format). While comprehensive, this format isn't human-friendly, it requires parsing to extract readable conversations.\n\nAfter filtering to isolate a conversation (or set of messages relevant to it), you can export the results, typically in JSON or CSV format, and reconstruct the conversation thread by ordering entries by timestamp. This allows you to piece together a readable transcript of the chat, even if PromptLayer doesn’t (yet) provide a full thread-view UI for Claude chats out of the box. ... Your Claude conversations represent hours of intellectual work,don't let them vanish into the ether. Whether you're a researcher documenting AI's reasoning capabilities, a developer preserving code solutions, or a team leader building institutional knowledge, these export methods put you in control of your AI-generated content. The ecosystem around Claude is rapidly evolving,with Anthropic's new On-Demand Chat Recall feature and a thriving community of developers creating export tools, we're moving toward a future where AI conversations are as portable and preservable as any other digital document.\n\nImportant caveats: Some users report that the export may miss certain assistant replies, and the formatting (code blocks, tables, lists) isn't preserved in the raw JSON output. For quickly saving individual conversations in readable formats, browser-based solutions are ideal. Claude Exporter offers more versatility with multiple export formats: ... This extension has thousands of active users, receives frequent updates, and reliably handles even lengthy conversations while preserving context. For those who prefer not to install extensions, bookmarklets provide a lightweight alternative. One popular solution uses · html2pdf.js to convert chats to PDF with a single click. Since bookmarklets run entirely client-side, your data never leaves your browser. For maximum control and privacy, you can run scripts directly in your browser. Papacasper's Claude Chat Downloader is a userscript that injects export buttons into the Claude interface.\n\nFor developers and power users who need automation or bulk export capabilities, command-line tools provide the most flexibility. After installing with `pip install claudeshell`, configure it with your session cookie using `claude config`. This tool offers several powerful commands: ... The output preserves Markdown-style formatting, making it suitable for documentation or further processing. ... PromptLayer to manage your Claude API usage, you can view past conversations by ensuring your Claude interactions are routed through PromptLayer’s SDK or API with adequate metadata/tags (for example, conversation IDs, project names, timestamps). Once logged in to the PromptLayer dashboard, use its log or usage explorer to filter for those tags or specific time ranges. The logs will show the individual prompt/response pairs associated with your Claude chats, user messages, Claude’s replies, and any metadata captured (like timestamps or tag labels).",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://blog.promptlayer.com/how-to-download-a-claude-chat-session/",
+                "search_provider": "anthropic",
+                "age": "September 22, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - agarwalvishal/claude-chat-exporter: Claude Chat Exporter is a JavaScript tool that allows you to export your conversations with Claude AI into a well-formatted Markdown file. · GitHub",
+              "url": "https://github.com/agarwalvishal/claude-chat-exporter",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "A JavaScript tool that exports Claude.ai conversations with perfect markdown fidelity by leveraging Claude&#x27;s native copy functionality. Get complete conversations with both human and AI messages including tables, complex formatting, and all ...\n\n# Conversation with Claude ## Human (Feb 23, 2026, 10:30 AM): Can you create a comparison table of sorting algorithms?\n\nA JavaScript tool that exports Claude.ai conversations with perfect markdown fidelity by leveraging Claude's native copy functionality. Get complete conversations with both human and AI messages including tables, complex formatting, and all elements that Claude supports. 🎯 Perfect Markdown Fidelity - Uses Claude's copy function for exact output · 📊 Complete Element Support - Tables, math, complex formatting, everything · 🕐 Timestamps - Human message timestamps fetched from Claude's API · 📁 Smart Filename Generation - Uses actual conversation title from API · 🔧 Future-Proof - Automatically supports new Claude markdown features · 📈 Real-Time Status - Visual progress indicator during export · 🛡️ Robust Error Handling - Comprehensive error detection and recovery · ⚙️ Easy Maintenance - Modular selectors for UI changes ·\n\nThis script is not officially associated with Anthropic or Claude AI. It is a community-created tool to enhance the user experience. Use it responsibly and in accordance with Anthropic's terms of service. Perfect Exports. Every Element.\n\nClaude Responses - Identifies Claude response action bars (those with a thumbs-up feedback button) and clicks their copy buttons; captures each clipboard write the same way · Perfect Output - Combines both sets of captured content into a single markdown file, with timestamps on human message headers when available · Instead of manually parsing HTML and converting to markdown (which misses tables and complex elements), this tool uses Claude's own copy button to ensure 100% accurate markdown output for all message types. ❌ Manual HTML Parsing: - Misses tables and complex elements - Requires constant updates for new features - Error-prone formatting conversion - Maintenance nightmare ✅ Copy Button Method: - Perfect markdown fidelity - Automatic support for ALL elements - Future-proof against new features - Zero formatting edge cases · Open your conversation with Claude in your web browser.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/agarwalvishal/claude-chat-exporter",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "AI Chat Exporter: Save Claude as PDF, MD and more - Chrome Web Store",
+              "url": "https://chromewebstore.google.com/detail/ai-chat-exporter-save-cla/elhmfakncmnghlnabnolalcjkdpfjnin",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "google.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=google.com",
+                "site_name": "Chrome Web Store"
+              },
+              "is_missing": false,
+              "text": "AI Chat Exporter for Claude lets you save your conversations with Claude AI to your computer. You can save your chats as PDF, Markdown, Text, CSV, or JSON files with just a couple of clicks.\n\nThere's no set limit, but very long conversations may take longer to process, especially for PDF exports. ### Can I customize how my exports look? Absolutely! Check out the Customization Options section for details. ### Does Claude Exporter work with the latest version of Claude? Yes! We regularly update the extension to ensure compatibility with the latest Claude features. ### Is my data secure when using Claude Exporter? Yes! Your conversations never leave your device. The extension operates entirely within your browser. ## Support and Contact 📞 Have questions, suggestions, or found a bug? We'd love to hear from you! - Email: support@ai-chat-exporter.net ## Disclaimer ⚠️ AI Chat Exporter is an independent third-party tool and is not affiliated with, endorsed by, or sponsored by Anthropic or claude.ai. \"Claude\" is a trademark of Anthropic. See all reviews · Version · 2.27.1 · Updated · March 26, 2026 ·\n\nClaude Exporter works with the web version of Claude accessed through Chrome. Mobile app exports are not currently supported. ### Will my formatting be preserved in exports? Yes! We work hard to maintain formatting, including code blocks, tables, and special outputs. ### Is there a limit to how long a conversation I can export? There's no set limit, but very long conversations may take longer to process, especially for PDF exports. ### Can I customize how my exports look? Absolutely! Check out the Customization Options section for details. ### Does Claude Exporter work with the latest version of Claude? Yes! We regularly update the extension to ensure compatibility with the latest Claude features. ### Is my data secure when using Claude Exporter? Yes! Your conversations never leave your device. The extension operates entirely within your browser. ## Support and Contact 📞 Have questions, suggestions, or found a bug?\n\nAI Chat Exporter for Claude lets you save your conversations with Claude AI to your computer. You can save your chats as PDF, Markdown, Text, CSV, or JSON files with just a couple of clicks. With AI Chat Exporter for Claude, you can save your conversations and refer back to them whenever you need!\n\n## Main Features 💼 ### Multiple File Formats 📋 Choose the format that works best for you: - PDF - Perfect for printing or sharing with others - Markdown - Great for editing in note-taking apps - Text - Simple and works everywhere - CSV - Useful for data analysis - JSON - Ideal for developers or data processing ### Customization Options ⚙️ Make your exports look exactly how you want: - Choose which messages to export - Include or exclude timestamps(created, updated, exported) - Adjust Date & Time format - More settings for PDF: - File name & Content title - Light or dark theme - Page format (A4, Letter, etc. Portrait or Landscape) - Page margin - Font size - Table of content - User info (name & email) - Include page numbers - Customize footer (page number) - Timestamp for each message - Include Thinking process - Page break for each conversation turn ### Complete Content Support 🧩 Claude Exporter captures everything in your conversations: - Regular text messages - Code blocks with prope",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://chromewebstore.google.com/detail/ai-chat-exporter-save-cla/elhmfakncmnghlnabnolalcjkdpfjnin",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to Export Claude Conversations | XTrace",
+              "url": "https://xtrace.ai/blog/export-claude-conversations",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "xtrace.ai",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=xtrace.ai",
+                "site_name": "XTrace"
+              },
+              "is_missing": false,
+              "text": "Every message, every response, every conversation is stored in your own infrastructure from the start. No export step needed. If you&#x27;re using the API, your conversation data already lives in your database.\n\nMar 6, 2026 · Learn how to export Claude conversations step-by-step, back up your chat history, and keep AI conversations reusable across tools. Guides · If you want to export Claude conversations, save your chat history, or reuse your AI work outside of Claude, there are several ways to do it. Whether you're looking to export Claude chats for backup, export your Claude chat history for reference, or even export memory from Claude to use elsewhere, this guide covers every method step by step. Unlike ChatGPT, Claude offers multiple export paths, including a built-in data export, manual methods, browser extensions, and for developers, API-level access to conversation data. We'll walk through each one. This is the official way to export all your Claude conversations and account data. It's available to all individual Claude users on Free, Pro, and Max plans.\n\nLearn how to export Claude conversations step-by-step, back up your chat history, and keep AI conversations reusable across tools. ... If you want to export Claude conversations, save your chat history, or reuse your AI work outside of Claude, there are several ways to do it. Whether you're looking to export Claude chats for backup, export your Claude chat history for reference, or even export memory from Claude to use elsewhere, this guide covers every method step by step. Unlike ChatGPT, Claude offers multiple export paths, including a built-in data export, manual methods, browser extensions, and for developers, API-level access to conversation data. We'll walk through each one. This is the official way to export all your Claude conversations and account data. It's available to all individual Claude users on Free, Pro, and Max plans. ... Open Claude in your browser at claude.ai and sign in to your account.\n\nManual methods work for quick one-off saves, but they don't preserve structure, metadata, or timestamps. If you're working across AI tools regularly, this becomes tedious fast. This is where Claude differs meaningfully from ChatGPT. If you're building applications or workflows on top of Claude, the Anthropic API gives you programmatic access to conversation data. The Claude API is stateless by design. Each API call via the Messages API (POST /v1/messages) is independent. You send the conversation history as part of each request, and Claude responds with the next message. This means: You control the data. Every message, every response, every conversation is stored in your own infrastructure from the start. No export step needed. If you're using the API, your conversation data already lives in your database. There's no need to request a data export or wait for a download link.\n\nAI Chat Exporter — Save Claude chats as PDF, Markdown, Text, CSV, or JSON. Supports artifacts and reasoning outputs. PDF exports are free 3 times per day; Markdown, Text, CSV, and JSON are unlimited. Claude Toolbox — More than just export. Search your conversation history, bookmark important messages, and save chats as TXT or JSON. Used by 2,000+ Claude users. XTrace Memory — Goes beyond exporting individual conversations. XTrace captures your prompts and AI responses automatically as you work, across Claude, ChatGPT, and Gemini. Instead of exporting after the fact, your AI context is always saved and reusable. Extensions are the most accessible option for non-developers. The tradeoff with most is that they still require you to export each conversation individually, which is where XTrace differs. Every method above solves the same narrow problem: getting data out of Claude.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://xtrace.ai/blog/export-claude-conversations",
+                "search_provider": "anthropic",
+                "age": "March 6, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to Export Your Chat History in Claude (2026) - Sales So",
+              "url": "https://salesso.com/blog/how-to-export-your-chat-history-in-claude-2026/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "salesso.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=salesso.com",
+                "site_name": "Sales So"
+              },
+              "is_missing": false,
+              "text": "Here’s the full step-by-step process. Open claude.ai and log into your account. Click your profile icon or name in the bottom-left corner. Select “Settings” from the dropdown menu.\n\nLearn exactly how to export your Claude chat history step by step. Covers all file formats, download options, and smart data backup tips for 2026.\n\nWhen you download your data, you’ll get a ZIP file. Inside that ZIP, your conversations are usually stored in JSON format. ... JSON files are readable by most data tools, browsers, and developers. They’re not the prettiest to look at raw, but they’re universally compatible. If you want to read them more easily, you can open JSON files in VS Code, Notepad++, or paste them into a free JSON viewer online. Some users convert their JSON exports into spreadsheets (CSV) using simple online converters for easier reading. There’s currently no native PDF or Word export directly from Claude’s interface — JSON is the standard format for AI chat exports across most platforms, including ChatGPT and Gemini. 💡 Pro tip: Create a dedicated folder on your cloud storage for AI exports. With AI usage growing — 77% of devices are expected to use AI by 2025 (Gartner) — keeping your data organized now saves you headaches later.\n\nClaude does retain conversations for a period of time, but Anthropic’s data retention policies can change. As of 2025, Claude.ai stores conversations to support the product experience, but this isn’t a substitute for your own backup. If you want to delete your history manually, you can do that from the same Settings → Privacy section. You can delete individual chats or request full account deletion. Bottom line: Don’t assume your history will always be there. Export it, own it. Exporting your Claude chat history is genuinely simple — go to Settings → Privacy → Export Data, check your email, download the ZIP. Five steps and you’re done. The smarter play is to make it a habit. Your AI conversations are an asset. Treat them like one — back them up, organize them, and keep them somewhere you control. If you’re using Claude as part of a broader workflow for outreach, research, or sales — the real question is whether your outbound system is working as hard as you are.\n\nAccording to Anthropic’s own documentation, the export file includes your conversations, account information, and associated metadata — all packaged neatly for you. Here’s the full step-by-step process. Open claude.ai and log into your account. Click your profile icon or name in the bottom-left corner. Select “Settings” from the dropdown menu. Inside Settings, navigate to the “Privacy & Data” tab (sometimes listed simply as “Privacy”). Scroll down until you see the “Export Data” section. ... Claude will confirm your request and tell you to check your email. You’ll receive a download link in your inbox — usually within a few hours, though larger accounts can take longer. Open the email from Anthropic. Click the download link (it typically expires after a set window, so download it promptly). Save the file to a location you’ll actually remember — cloud storage like Google Drive or Dropbox is a smart choice.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://salesso.com/blog/how-to-export-your-chat-history-in-claude-2026/",
+                "search_provider": "anthropic",
+                "age": "March 9, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Follow the steps to use AI Chat Exporter Browser Extension | AI Chat Exporter",
+              "url": "https://www.ai-chat-exporter.net/en/welcome",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ai-chat-exporter.net",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ai-chat-exporter.net",
+                "site_name": "Ai-chat-exporter"
+              },
+              "is_missing": false,
+              "text": "Your privacy is our top priority. We do not store any of your conversation data. When you export to PDF, the data is only temporarily processed on our servers to generate the file and is immediately deleted afterward. All other export formats (Markdown, Text, JSON, CSV, Image) are processed entirely within your browser. We never store, analyze, or share your conversation data. AI Chat Exporter supports versatile file format. Export your Claude conversations in multiple formats, including: PDF, Markdown, Text (TXT), JSON, CSV, Image. Download only the parts of the conversation you need. Unlike other methods, you&#x27;re not forced to download the entire chat - just select the specific responses you want! Set your preferred filename. Define the content title. Adjust the PDF format, Choose between dark or light mode without altering the Claude interface. Includes page numbers for easier navigation in long PDFs.\n\n\"Cumpre o que promete: consegue extrair o texto dos chats e isso é útil para contextualizar a conversa quando for retomar o assunto.\" ... \"I have struggled SO much with exporting claude convos. It's bizarre that they don't facilitate this. But this plugin did a great job.\" ... \"Almost exactly what I needed. Would be nice to be able to output in pdf and other formats though. As is, it's not always able to retain formatting and linebreaks. Still the simplest way to export chat data though, very useful extension.\" ... \"Clean and effective. To get your entire chat history, you can CTRL+CLICK on everyy voncersation to open each conversation in a seperate, new tab. Then the extension lets you quickly export the conversations (one at a time) with minimal mouse clicks. THANK YOU FOR THE APP!!!!\" ...\n\nYour privacy is our top priority. We do not store any of your conversation data. When you export to PDF, the data is only temporarily processed on our servers to generate the file and is immediately deleted afterward. All other export formats (Markdown, Text, JSON, CSV, Image) are processed entirely within your browser. We never store, analyze, or share your conversation data. AI Chat Exporter supports versatile file format. Export your Claude conversations in multiple formats, including: PDF, Markdown, Text (TXT), JSON, CSV, Image. Download only the parts of the conversation you need. Unlike other methods, you're not forced to download the entire chat - just select the specific responses you want! Set your preferred filename. Define the content title. Adjust the PDF format, Choose between dark or light mode without altering the Claude interface. Includes page numbers for easier navigation in long PDFs.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.ai-chat-exporter.net/en/welcome",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to Export Claude Conversations (Complete Backup Guide) | AI Chat Importer",
+              "url": "https://ai-chat-importer.com/blog/how-to-export-claude-conversations",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ai-chat-importer.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ai-chat-importer.com",
+                "site_name": "AI Chat Importer"
+              },
+              "is_missing": false,
+              "text": "You&#x27;ll need a tool or some technical confidence to make use of it. Log in to claude.ai in your browser. Click your profile picture or initial in the bottom-left corner of the sidebar.\n\nAnthropic retains your conversations unless you manually delete them or request account deletion. There is no automatic expiry. However, Anthropic's data retention policies can change, and you have no guarantee that every past conversation will always be accessible through the Claude interface. Keeping your own export is the only way to guarantee long-term access to your history. ... As of early 2026, the data export includes conversations held inside Claude Projects as well as standard conversations. Project structure metadata (the project name and grouping) may not be fully preserved in the exported JSON, but the underlying conversation content is included. Check the Claude help documentation for the latest on what Projects export covers, as this feature is still evolving. ... The export file itself is just a file — Anthropic sends you a download link, and what you do with it is up to you.\n\nLearn how to export and back up your Claude chat history safely. Step-by-step guide to downloading Claude conversations and creating a private archive. ... By R. Miller · AI Chat Importer · If you use Claude regularly, your conversation history is probably more valuable than you realise. Research threads, draft documents, debugging sessions, brainstorming notes — they accumulate fast. Anthropic does let you export all of it, but the process isn't obvious, and the resulting file isn't something you can just open and read. This guide covers everything: how to trigger the export, what the file actually contains, why a raw JSON dump isn't enough, and how to turn it into a proper searchable archive you can use long-term. When you request a data export from Claude, Anthropic emails you a download link within a few minutes to a few hours. The download is a ZIP archive.\n\nInside, you'll find your conversation history as a JSON file. ... The model used in each conversation (e.g. Claude 3 Opus, Claude 3.5 Sonnet, Claude 3.7 Sonnet) ... Any files or images you uploaded as attachments (the text references may be there, but not the files themselves) ... The file format is JSON. It's structured and complete — but it's not human-readable in the way a Word document or PDF is. You'll need a tool or some technical confidence to make use of it. Log in to claude.ai in your browser. Click your profile picture or initial in the bottom-left corner of the sidebar. Select Settings from the menu. Go to the Account tab (it should be the default). Scroll down to the Privacy section. Click Export Data. Confirm the request in the dialog that appears. Anthropic will send an email to your registered address with a secure download link. The link typically arrives within a few minutes but can take up to a few hours if there's a queue.\n\nClick the link in the email, then download the ZIP file. Extract it to a folder you control — your desktop or a dedicated backups folder works well. Inside the ZIP you'll find a file named something like conversations.json. That's your complete Claude conversation history. Now the question is what to do with it. The conversations.json file is a JSON array. Each item in the array represents one conversation, with nested objects for each message exchange.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ai-chat-importer.com/blog/how-to-export-claude-conversations",
+                "search_provider": "anthropic",
+                "age": "1 month ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to Download Claude Chat History Easily and Efficiently?",
+              "url": "https://www.bitrecover.com/blog/download-claude-chat-history/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "bitrecover.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=bitrecover.com",
+                "site_name": "BitRecover"
+              },
+              "is_missing": false,
+              "text": "Run the Claude AI web or desktop version on your device. Now, click on your profile initial from the bottom-left panel. Then, select Settings option to proceed further. After this, click on Privacy and select the Export Data button.\n\nRun the Claude AI web or desktop version on your device. Now, click on your profile initial from the bottom-left panel. Then, select Settings option to proceed further. After this, click on Privacy and select the Export Data button. At this step, choose the duration to download Claude chat history. Once done, click on the Export button to start the process. When the process is completed, open your registered Claude email ID. There, you will receive an email from Anthropic with a Download Data button to get access to the conversations ZIP file locally. Once done, open the saving location and right-click on the ZIP file to extract Claude chats in JSON format efficiently. Only Limitation: This is the best way to download Claude chat, but the only drawback is that it exports chats in JSON file format, which is not easily readable and hence requires conversion for further use.\n\nEvery method to export Claude conversation has some minor or major drawbacks, but to overcome them, you can always rely on the experts’ advice. Thus, professionals always suggest saving the Claude AI chat using the built-in Export Data option and then saving it to a universal file format using a modern tool. This not only keeps the data safeguarded for long-term future use but also makes it easy to access, share, import, or manage accordingly. One such lightweight piece of utility is the BitRecover Chat Converter. It is lab-tested by IT admins and certified as the best solution for such drills. It offers ease of use, advanced features, 27+ chat saving options, and complete data accuracy throughout the process. To maintain transparency, it also offers a demo version, which is completely free of cost and lets the first-time users test its efficiency without paying a single penny in advance.\n\nUsers also export Claude chat history to take a backup of all the messages to date before deleting the account or clearing the memory storage. To easily save and share the original output with anyone, including clients, colleagues, friends, or families, people choose to download the conversation locally. In order to keep a check on understanding levels, preparation for any exam/presentations, or reviewing anything, users seek a way to save the entire Claude chat. When the user has to convert, import, or manage the Claude chat for personal or professional use, then they wish to keep the conversations handy. There are three direct and indirect methods to download Claude chat locally on your device. Have a look at their working steps and consequences for better clarity. This is the first thought that every user gets while thinking of saving any conversation.\n\nOpen the Claude conversation on your machine. Now, copy the desired message you want to save. Then, open MS Word or another text editor and paste the chat there. Repeat the process for every message you want to download. Once done, save the file locally with the desired name and saving location. Major Limitations: This way is very time-consuming and prone to mismatching the order as well as losing data integrity. Plus, it does not support time stamps, headings, and structures of the chats. Saving the snapshot is another very prominent way to export Claude chat history. It just takes a few seconds to save the complete screen messages. Here’s the right way to do this. Open the Claude chat on your screen. Now, press the keys Windows+Shift+S for a customized screenshot. Once taken, open the screenshot and press Ctrl+S to download Claude chat. Finally, give the saving name and select the saving destination for quick access.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.bitrecover.com/blog/download-claude-chat-history/",
+                "search_provider": "anthropic",
+                "age": "February 25, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "AI Chat Exporter - Save Claude as PDF, MD and more",
+              "url": "https://www.claudexporter.com/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claudexporter.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claudexporter.com",
+                "site_name": "Claudexporter"
+              },
+              "is_missing": false,
+              "text": "&quot;Clean and effective. To get your entire chat history, you can CTRL+CLICK on everyy voncersation to open each conversation in a seperate, new tab. Then the extension lets you quickly export the conversations (one at a time) with minimal mouse clicks. THANK YOU FOR THE APP!!!!&quot;\n\n\"Clean and effective. To get your entire chat history, you can CTRL+CLICK on everyy voncersation to open each conversation in a seperate, new tab. Then the extension lets you quickly export the conversations (one at a time) with minimal mouse clicks. THANK YOU FOR THE APP!!!!\" ... 🎯 AI Chat Exporter is a tool designed to transform your Claude conversations into beautifully formatted, shareable files effortlessly! AI Chat Exporter is the ultimate tool to download Claude results as PDF, Markdown, Text, JSON, CSV, or Image formats, whether for work, study, or personal reference. Please check out the 30-seconds tutorial. Briefly, 1. Install the extension. 2. Open a conversation on claude.ai. 3. Click the 'Export' button to download the conversation to PDF or any other format you prefer. Yes, most features of AI Chat Exporter are completely free. We only charge a small fee for heavy PDF generation to cover service costs.\n\nAI Chat Exporter supports versatile file format. Export your Claude conversations in multiple formats, including: PDF, Markdown, Text (TXT), JSON, CSV, Image. Download only the parts of the conversation you need. Unlike other methods, you're not forced to download the entire chat - just select the specific responses you want! Set your preferred filename. Define the content title. Adjust the PDF format, Choose between dark or light mode without altering the Claude interface. Includes page numbers for easier navigation in long PDFs. Retains essential Claude formatting, such as: Mathematical formulas (block and inline). Code blocks for developers. Tables and structured content. ... \"Been looking for a reliable extension to export Claude chats (exporting long conversations (design progressions etc) into markdown and then uploading those markdown files into a \"fresh chat\" saves your token usage and still provides the new claude instance with all the backstory in a searchable vectorized form\n\nAll other export formats (Markdown, Text, JSON, CSV, Image) are processed entirely within your browser. We never store, analyze, or share your conversation data. You can manage your subscription by clicking the 'manage subscription' button on your acccount dashboard. If you're not satisfied with the extension, just let us know within 3 days of your purchase and we'll give you a full refund, no questions asked. Alternatively, we're happy to work with you to resolve any issues you may have. Yes! If you have a AI Chat Exporter account linked to your organization or school email, reach out to us for a discount. Yes, you can. Please visit this page: Pay with Alipay or Wechat Pay. Feel free to contact us via email if you have any other questions or concerns. We're happy to help! ... Boost your productivity with the ultimate tool to download Claude results as PDF, Markdown, Text, JSON, CSV, or Image formats.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.claudexporter.com/",
+                "search_provider": "anthropic"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-04-09T23:07:54.527948Z",
+          "stop_timestamp": "2026-04-09T23:08:11.539890Z",
+          "flags": null,
+          "type": "text",
+          "text": "방법이 크게 세 가지 층위로 나뉩니다. CSP의 워크플로우에 맞게 정리해드릴게요.\n\n---\n\n## Claude 대화 다운로드 방법\n\n### ① 공식 Export 기능 (전체 히스토리)\n\nSettings → Privacy → Export Data 버튼을 클릭하면 됩니다. 이메일로 다운로드 링크가 발송되고, 링크는 24시간 후 만료됩니다. Web 앱 또는 Desktop 앱에서만 가능하고, iOS/Android 앱은 지원하지 않습니다.\n\n결과물은 ZIP 파일 안의 `conversations.json`으로, 각 대화와 메시지 교환 내역이 중첩 구조로 담겨 있습니다. JSON이라 그대로 읽기엔 불편하지만, VS Code에서 열거나 파싱하면 됩니다.\n\n2026년 초 기준으로 Claude Projects 내 대화도 포함됩니다.\n\n---\n\n### ② 크롬 익스텐션 (개별 대화, 즉시 다운로드)\n\nCSP 같은 파워유저에게 가장 실용적인 방법입니다.\n\n**AI Chat Exporter** (추천)\nPDF, Markdown, Text, CSV, JSON 등 다양한 포맷 지원. 2026년 3월 기준 최신 업데이트 완료. 마크다운은 무제한 무료, PDF는 하루 3회 무료.\n\nPDF 변환 시에만 서버를 경유하고 즉시 삭제. 나머지 포맷은 브라우저 내에서만 처리되어 데이터가 외부로 나가지 않습니다.\n\n---\n\n### ③ GitHub 스크립트 (개발자형, 마크다운 완전 보존)\n\n**claude-chat-exporter**는 Claude의 네이티브 copy 버튼을 활용해 테이블, 수식, 코드블록 등 복잡한 포맷을 100% 마크다운으로 보존합니다. 타임스탬프와 대화 제목도 API를 통해 자동 추출합니다.\n\n---\n\n## CSP에게 맞는 선택은?\n\n현재 **Notion 아카이빙 자동화** 시스템을 이미 구축해두셨으니, 실질적으로는 두 가지 조합이 이상적입니다.\n\n- **중요 대화 즉시 보존** → AI Chat Exporter로 Markdown 추출 후 Notion에 붙여넣기\n- **전체 백업** → 월 1회 공식 Export로 JSON 덤프 보관\n\n특히 Markdown 포맷으로 뽑으면 Notion 페이스트가 그대로 예쁘게 들어가기 때문에, 현재의 아카이빙 워크플로우와 자연스럽게 연결됩니다.",
+          "citations": [
+            {
+              "uuid": "05d5353a-1c41-42e3-8b15-f0765dbe6f19",
+              "start_index": 104,
+              "end_index": 242,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://support.claude.com/en/articles/9450526-how-can-i-export-my-claude-data"
+              }
+            },
+            {
+              "uuid": "45e6f5f7-215a-4dfe-91d0-49faa9de5a23",
+              "start_index": 244,
+              "end_index": 315,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://ai-chat-importer.com/blog/how-to-export-claude-conversations"
+              }
+            },
+            {
+              "uuid": "484ea4b3-e305-4392-9dde-46dea1220382",
+              "start_index": 363,
+              "end_index": 404,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://ai-chat-importer.com/blog/how-to-export-claude-conversations"
+              }
+            },
+            {
+              "uuid": "3af85f7e-cb77-4459-b395-ecd13a0a5df8",
+              "start_index": 499,
+              "end_index": 595,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://chromewebstore.google.com/detail/ai-chat-exporter-save-cla/elhmfakncmnghlnabnolalcjkdpfjnin"
+              }
+            },
+            {
+              "uuid": "c6e35b16-8044-43f2-9967-f9f373b5b4ff",
+              "start_index": 597,
+              "end_index": 665,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.ai-chat-exporter.net/en/welcome"
+              }
+            },
+            {
+              "uuid": "9e4d86b5-d77d-410a-820d-1734b86e3172",
+              "start_index": 710,
+              "end_index": 836,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/agarwalvishal/claude-chat-exporter"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-09T23:08:11.577244Z",
+      "updated_at": "2026-04-09T23:08:11.577244Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d7480-7a3c-7391-be44-ed28cf03b230"
+    }
+  ]
+}

@@ -1,0 +1,448 @@
+﻿{
+  "uuid": "c701288b-1ca2-4dbf-8f01-248593a3dd72",
+  "name": "Claude Code /memory 명령어 기능",
+  "summary": "**Conversation Overview**\n\nThe person asked about the `/memory` command in Claude Code. Claude provided a detailed explanation of the feature, covering its purpose as a memory management interface and the underlying four-layer memory architecture (organization-level policies, user settings, project guidelines, and Auto Memory for self-learning). The conversation used terminology such as \"Auto Memory,\" \"Auto Dream,\" \"compaction,\" \"CLAUDE.md,\" and \"4-layer architecture.\"\n\nClaude explained that `/memory` serves as a control panel for viewing currently loaded memory files and toggling Auto Memory on or off. Key related commands and patterns were covered: `/init` for generating an initial CLAUDE.md, the `#` prefix for immediately saving a note to memory, and the `\"dream\"` command for consolidating and pruning accumulated memory files. Auto Memory was described as available in Claude Code v2.1.59 and above, storing files in plain markdown at `~/.claude/projects/<project>/memory/`.\n\nThe person is referred to with the abbreviation \"CSP,\" suggesting they work within a structured workspace setup involving layered rules, skills, agents, and CLAUDE.md files. Claude framed the Auto Memory and Auto Dream features in terms of how they align with CSP's existing workspace architecture, noting the distinction between using CLAUDE.md for guiding Claude's behavior versus using Auto Memory for passive, automatic preference learning across sessions.",
+  "created_at": "2026-04-03T03:16:32.558598Z",
+  "updated_at": "2026-04-03T03:17:17.779004Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d5157-aac6-7a72-af2a-6f210f05e9e2",
+      "text": "클로드코드에서 /memory 명령어 기능 ?",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T03:16:34.395375Z",
+          "stop_timestamp": "2026-04-03T03:16:34.395375Z",
+          "flags": null,
+          "type": "text",
+          "text": "클로드코드에서 /memory 명령어 기능 ?",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-03T03:16:34.454754Z",
+      "updated_at": "2026-04-03T03:16:34.454754Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d5157-aac6-7199-bf49-e7888d97d2ba",
+      "text": " Claude Code의 `/memory` 명령어는 프로젝트 메모리를 관리하는 기능입니다.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\nCSP가 물어본 `/memory` 명령어, 생각보다 훨씬 깊은 시스템으로 진화해 있어서 정리해봤습니다.\n\n---\n\n## Claude Code `/memory` 명령어 — 현재 상태\n\n### `/memory`가 하는 일\n\n`/memory`를 실행하면 현재 세션에 로드된 모든 CLAUDE.md와 rules 파일 목록을 보여주고, Auto Memory 켜기/끄기 토글을 제공하며, Auto Memory 폴더를 열 수 있는 링크를 제공합니다.\n\n간단히 말해 **\"내 Claude Code가 지금 뭘 기억하고 있나\"를 보는 관제탑**입니다.\n\n---\n\n### Memory의 4계층 아키텍처\n\nClaude Code의 메모리는 4개 레이어로 구성됩니다. Layer 1은 조직 전체에 적용되는 관리 정책, Layer 2는 개인 머신의 사용자 설정, Layer 3는 팀이 공유하는 프로젝트 지침, Layer 4는 Claude가 사용자 행동 기반으로 스스로 학습·기록하는 Auto Memory입니다.\n\nCSP의 4-layer hr-workspace 구조(`Rules/Skills/Agents/CLAUDE.md`)와 거의 동형(同形)의 개념입니다.\n\n---\n\n### Auto Memory — 핵심 기능\n\nAuto Memory는 Claude가 세션을 거치며 지식을 자동 축적하는 기능입니다. 빌드 명령어, 디버깅 인사이트, 아키텍처 노트, 코드 스타일 선호도, 워크플로우 습관 등을 스스로 저장하며, 매 세션마다 저장하는 게 아니라 \"미래 대화에서 유용할지\" 여부를 스스로 판단합니다. Auto Memory는 Claude Code v2.1.59 이상에서 사용 가능하고, 기본값은 ON입니다.\n\n파일 위치는 `~/.claude/projects/<project>/memory/`이며, 모두 **plain markdown**이라 직접 편집·삭제 가능합니다.\n\n---\n\n### Auto Dream — 메모리 정리 시스템 (최신 기능)\n\nAuto Dream은 Auto Memory가 축적한 내용을 검토해서, 여전히 유효한 것은 강화하고 오래된 항목은 제거하며 나머지는 깔끔한 토픽 파일로 재구성하는 REM 수면 같은 역할을 합니다. `/dream` 명령어가 존재하지만 아직 모든 사용자에게 롤아웃되지 않았으며, 그 전까지는 Claude에게 직접 \"dream\", \"auto dream\", \"consolidate my memory files\"라고 말하면 동일한 4단계 프로세스가 실행됩니다.\n\n---\n\n### CSP 실전 활용 포인트\n\n**`#` prefix 패턴** — 즉시 메모리에 저장\n\n어떤 지시 앞에 `#`을 붙이면 즉시 메모리에 추가됩니다. 빌드 시스템의 특이점을 발견했다면 `# NODE_ENV를 명시하지 않으면 빌드 실패`처럼 타이핑하면 Claude가 적절한 메모리 파일에 기록합니다.\n\n**CLAUDE.md vs Auto Memory 역할 분리**\n\nCLAUDE.md는 Claude의 행동을 가이드하고 싶을 때 사용하고, Auto Memory는 사용자의 수정 사항이나 선호도를 수동 작업 없이 Claude가 스스로 학습하게 할 때 사용합니다.\n\n**컴팩션(compaction) 이후에도 CLAUDE.md는 완전히 살아남습니다.** `/compact` 이후에도 Claude가 디스크에서 CLAUDE.md를 다시 읽고 세션에 재주입합니다.\n\n---\n\n### 정리\n\n| 명령어 | 역할 |\n|---|---|\n| `/memory` | 현재 로드된 메모리 파일 목록 확인 + Auto Memory 토글 |\n| `/init` | 코드베이스 분석 후 초기 CLAUDE.md 생성 |\n| `# [내용]` | 즉시 메모리에 한 줄 저장 |\n| `\"dream\"` (또는 `/dream`) | 메모리 파일 정리·통합 실행 |\n\nCSP의 Ouroboros 자기진화 방법론이랑 연결하면, Auto Memory + Auto Dream 조합이 사실상 **에이전트 레벨의 자기학습 루프**입니다. GEMINI.md나 CLAUDE.md에 전략 레이어를 명시하고, Auto Memory가 실행 레이어의 패턴을 자동 축적하는 2-tier 구조가 지금 CSP 워크스페이스에 가장 잘 맞을 것 같아요.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T03:16:35.591055Z",
+          "stop_timestamp": "2026-04-03T03:16:36.512289Z",
+          "flags": null,
+          "type": "text",
+          "text": " Claude Code의 `/memory` 명령어는 프로젝트 메모리를 관리하는 기능입니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-04-03T03:16:36.512289Z",
+          "stop_timestamp": "2026-04-03T03:16:37.604911Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_016ycRSMxdnjRqJFeySdY2va",
+          "name": "view",
+          "input": {
+            "path": "/mnt/skills/public/product-self-knowledge/SKILL.md",
+            "description": "Checking product knowledge for Claude Code memory feature"
+          },
+          "message": "Checking product knowledge for Claude Code memory feature",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "text",
+            "text": "Checking product knowledge for Claude Code memory feature"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_016ycRSMxdnjRqJFeySdY2va",
+          "name": "view",
+          "content": [
+            {
+              "type": "text",
+              "text": "     1\t---\n     2\tname: product-self-knowledge\n     3\tdescription: \"Stop and consult this skill whenever your response would include specific facts about Anthropic's products. Covers: Claude Code (how to install, Node.js requirements, platform/OS support, MCP server integration, configuration), Claude API (function calling/tool use, batch processing, SDK usage, rate limits, pricing, models, streaming), and Claude.ai (Pro vs Team vs Enterprise plans, feature limits). Trigger this even for coding tasks that use the Anthropic SDK, content creation mentioning Claude capabilities or pricing, or LLM provider comparisons. Any time you would otherwise rely on memory for Anthropic product details, verify here instead — your training data may be outdated or wrong.\"\n     4\t---\n     5\t\n     6\t# Anthropic Product Knowledge\n     7\t\n     8\t## Core Principles\n     9\t\n    10\t1. **Accuracy over guessing** - Check official docs when uncertain\n    11\t2. **Distinguish products** - Claude.ai, Claude Code, and Claude API are separate products\n    12\t3. **Source everything** - Always include official documentation URLs\n    13\t4. **Right resource first** - Use the correct docs for each product (see routing below)\n    14\t\n    15\t---\n    16\t\n    17\t## Question Routing\n    18\t\n    19\t### Claude API or Claude Code questions?\n    20\t\n    21\t→ **Check the docs maps first**, then navigate to specific pages:\n    22\t\n    23\t- **Claude API & General:** https://docs.claude.com/en/docs_site_map.md\n    24\t- **Claude Code:** https://docs.anthropic.com/en/docs/claude-code/claude_code_docs_map.md\n    25\t\n    26\t### Claude.ai questions?\n    27\t\n    28\t→ **Browse the support page:**\n    29\t\n    30\t- **Claude.ai Help Center:** https://support.claude.com\n    31\t\n    32\t---\n    33\t\n    34\t## Response Workflow\n    35\t\n    36\t1. **Identify the product** - API, Claude Code, or Claude.ai?\n    37\t2. **Use the right resource** - Docs maps for API/Code, support page for Claude.ai\n    38\t3. **Verify details** - Navigate to specific documentation pages\n    39\t4. **Provide answer** - Include source link and specify which product\n    40\t5. **If uncertain** - Direct user to relevant docs: \"For the most current information, see [URL]\"\n    41\t\n    42\t---\n    43\t\n    44\t## Quick Reference\n    45\t\n    46\t**Claude API:**\n    47\t\n    48\t- Documentation: https://docs.claude.com/en/api/overview\n    49\t- Docs Map: https://docs.claude.com/en/docs_site_map.md\n    50\t\n    51\t**Claude Code:**\n    52\t\n    53\t- Documentation: https://docs.claude.com/en/docs/claude-code/overview\n    54\t- Docs Map: https://docs.anthropic.com/en/docs/claude-code/claude_code_docs_map.md\n    55\t- npm Package: https://www.npmjs.com/package/@anthropic-ai/claude-code\n    56\t\n    57\t**Claude.ai:**\n    58\t\n    59\t- Support Center: https://support.claude.com\n    60\t- Getting Help: https://support.claude.com/en/articles/9015913-how-to-get-support\n    61\t\n    62\t**Other:**\n    63\t\n    64\t- Product News: https://www.anthropic.com/news\n    65\t- Enterprise Sales: https://www.anthropic.com/contact-sales\n    66\t",
+              "uuid": "a5486b49-595c-4413-bc84-e1e27f274923"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-04-03T03:16:42.905809Z",
+          "stop_timestamp": "2026-04-03T03:16:43.126301Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_015dULSPKdsgKkGFciTCCWzy",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://docs.anthropic.com/en/docs/claude-code/claude_code_docs_map.md"
+          },
+          "message": "Fetching: https://docs.anthropic.com/en/docs/claude-code/claude_code_docs_map.md",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_015dULSPKdsgKkGFciTCCWzy",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"error_type\": \"PERMISSIONS_ERROR\", \"error_message\": \"This URL cannot be fetched because it was not provided by the user nor did it appear in any search/fetch results\"}",
+              "uuid": "1d42594a-6228-4f93-b5e6-6cf04f6d2aee"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": "Failed to fetch: https://docs.anthropic.com/en/docs/claude-code/claude_code_docs_map.md",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "https://docs.anthropic.com/en/docs/claude-code/claude_code_docs_map.md",
+              "subtitles": null,
+              "url": "https://docs.anthropic.com/en/docs/claude-code/claude_code_docs_map.md",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+              "source": "anthropic"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-04-03T03:16:44.978619Z",
+          "stop_timestamp": "2026-04-03T03:16:45.352295Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01Jk1xWKif22mq2VWk324QKD",
+          "name": "web_search",
+          "input": {
+            "query": "Claude Code /memory command CLAUDE.md memory management"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01Jk1xWKif22mq2VWk324QKD",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Memory tool - Claude API Docs",
+              "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude API Docs"
+              },
+              "is_missing": false,
+              "text": "To handle memory tool operations in your application, you need to implement handlers for each memory command. The SDKs provide memory tool helpers that handle the tool interface. You can subclass BetaAbstractMemoryTool (Python) or use betaMemoryTool (TypeScript) to implement your own memory backend (file-based, database, cloud storage, encrypted files, etc.). ... Your client-side implementation needs to handle these memory tool commands. While these specifications describe the recommended behaviors that Claude is most familiar with, you can modify your implementation and return strings as needed for your use case. Shows directory contents or file contents with optional line ranges: { &quot;command&quot;: &quot;view&quot;, &quot;path&quot;: &quot;/memories&quot;, &quot;view_range&quot;: [1, 10] // Optional: view specific lines } For directories: Return a listing that shows files and directories with their sizes: Here&#x27;re the files and directories up to 2 levels deep in {path}, excluding hidden items and node_modules: {size} {path} {size\n\nSubsequent sessions: Each new session opens by reading those memory artifacts. This recovers the full state of the project in seconds, without needing to re-explore the codebase or retrace earlier decisions. End-of-session update: Before a session ends, it updates the progress log with what was completed and what remains. This ensures the next session has an accurate starting point. Work on one feature at a time. Only mark a feature complete after end-to-end verification confirms it works, not just after the code is written. This keeps the progress log trustworthy and prevents scope creep from compounding across sessions. For a detailed case study of this pattern in practice, including the initializer script, progress file structure, and git-based recovery, see Effective harnesses for long-running agents. ... Directory of Anthropic-provided tools and their properties. ... Manage conversation length alongside memory.\n\nThe memory tool uses similar error handling patterns to the text editor tool. See the individual tool command sections above for detailed error messages and behaviors. Common errors include file not found, permission errors, invalid paths, and duplicate text matches. The memory tool pairs with context editing to manage long-running conversations. For details, see Context editing. The memory tool can also be paired with compaction, which provides server-side summarization of older conversation context. While context editing clears specific tool results on the client side, compaction automatically summarizes the entire conversation on the server side when it approaches the context window limit. For long-running agentic workflows, consider using both: compaction keeps the active context manageable without client-side bookkeeping, and memory persists important information across compaction boundaries so that nothing critical is lost in the summary.\n\nAdmin API overviewData residencyWorkspacesUsage and Cost APIClaude Code Analytics APIAPI and data retention ... The memory tool enables Claude to store and retrieve information across conversations through a memory file directory. Claude can create, read, update, and delete files that persist between sessions, allowing it to build knowledge over time without keeping everything in the context window. This is the key primitive for just-in-time context retrieval: rather than loading all relevant information upfront, agents store what they learn in memory and pull it back on demand. This keeps the active context focused on what's currently relevant, critical for long-running workflows where loading everything at once would overwhelm the context window. See Effective context engineering for the broader pattern. The memory tool operates client-side: you control where and how the data is stored through your own infrastructure.\n\nTo handle memory tool operations in your application, you need to implement handlers for each memory command. The SDKs provide memory tool helpers that handle the tool interface. You can subclass BetaAbstractMemoryTool (Python) or use betaMemoryTool (TypeScript) to implement your own memory backend (file-based, database, cloud storage, encrypted files, etc.). ... Your client-side implementation needs to handle these memory tool commands. While these specifications describe the recommended behaviors that Claude is most familiar with, you can modify your implementation and return strings as needed for your use case. Shows directory contents or file contents with optional line ranges: { \"command\": \"view\", \"path\": \"/memories\", \"view_range\": [1, 10] // Optional: view specific lines } For directories: Return a listing that shows files and directories with their sizes: Here're the files and directories up to 2 levels deep in {path}, excluding hidden items and node_modules: {size} {path} {size",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool",
+                "search_provider": "anthropic",
+                "age": "2 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How Claude remembers your project - Claude Code Docs",
+              "url": "https://code.claude.com/docs/en/memory",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude"
+              },
+              "is_missing": false,
+              "text": "Run /memory to browse and open memory files from within a session. The /memory command lists all CLAUDE.md and rules files loaded in your current session, lets you toggle auto memory on or off, and provides a link to open the auto memory folder.\n\nPatterns are matched against absolute file paths using glob syntax. You can configure claudeMdExcludes at any settings layer: user, project, local, or managed policy. Arrays merge across layers. Managed policy CLAUDE.md files cannot be excluded. This ensures organization-wide instructions always apply regardless of individual settings. Auto memory lets Claude accumulate knowledge across sessions without you writing anything. Claude saves notes for itself as it works: build commands, debugging insights, architecture notes, code style preferences, and workflow habits. Claude doesn’t save something every session. It decides what’s worth remembering based on whether the information would be useful in a future conversation. Auto memory requires Claude Code v2.1.59 or later. Check your version with claude --version. Auto memory is on by default. To toggle it, open /memory in a session and use the auto memory toggle, or set autoMemoryEnabled in your project settings: ...\n\nGive Claude persistent instructions with CLAUDE.md files, and let Claude accumulate learnings automatically with auto memory. ... Each Claude Code session begins with a fresh context window. Two mechanisms carry knowledge across sessions: CLAUDE.md files: instructions you write to give Claude persistent context · Auto memory: notes Claude writes itself based on your corrections and preferences This page covers how to: ... Claude Code has two complementary memory systems. Both are loaded at the start of every conversation. Claude treats them as context, not enforced configuration. The more specific and concise your instructions, the more consistently Claude follows them. Use CLAUDE.md files when you want to guide Claude’s behavior. Auto memory lets Claude learn from your corrections without manual effort. Subagents can also maintain their own auto memory.\n\nRun /memory and select the auto memory folder to browse what Claude has saved. Everything is plain markdown you can read, edit, or delete. Files over 200 lines consume more context and may reduce adherence. Move detailed content into separate files referenced with @path imports (see Import additional files), or split your instructions across .claude/rules/ files. CLAUDE.md fully survives compaction. After /compact, Claude re-reads your CLAUDE.md from disk and re-injects it fresh into the session. If an instruction disappeared after compaction, it was given only in conversation, not written to CLAUDE.md. Add it to CLAUDE.md to make it persist across sessions. See Write effective instructions for guidance on size, structure, and specificity. Skills: package repeatable workflows that load on demand · Settings: configure Claude Code behavior with settings files · Manage sessions: manage context, resume conversations, and run parallel sessions ·\n\nClaude keeps MEMORY.md concise by moving detailed notes into separate topic files. This limit applies only to MEMORY.md. CLAUDE.md files are loaded in full regardless of length, though shorter files produce better adherence. Topic files like debugging.md or patterns.md are not loaded at startup. Claude reads them on demand using its standard file tools when it needs the information. Claude reads and writes memory files during your session. When you see “Writing memory” or “Recalled memory” in the Claude Code interface, Claude is actively updating or reading from ~/.claude/projects/<project>/memory/. Auto memory files are plain markdown you can edit or delete at any time. Run /memory to browse and open memory files from within a session. The /memory command lists all CLAUDE.md and rules files loaded in your current session, lets you toggle auto memory on or off, and provides a link to open the auto memory folder.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://code.claude.com/docs/en/memory",
+                "search_provider": "anthropic",
+                "age": "2 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "claude-howto/02-memory/README.md at main · luongnv89/claude-howto",
+              "url": "https://github.com/luongnv89/claude-howto/blob/main/02-memory/README.md",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "The /memory command provides direct access to edit your CLAUDE.md memory files within Claude Code sessions. It opens your memory files in your system editor for comprehensive editing.\n\nThe /memory command provides direct access to edit your CLAUDE.md memory files within Claude Code sessions. It opens your memory files in your system editor for comprehensive editing. Usage: /memory · What it does: Opens your memory files in your system's default editor · Allows you to make extensive additions, modifications, and reorganizations · Provides direct access to all memory files in the hierarchy · Enables you to manage persistent context across sessions · When to use /memory: Reviewing existing memory content · Making extensive updates to project standards · Reorganizing memory structure · Adding detailed documentation or guidelines · Maintaining and updating memory as your project evolves · Comparison: /memory vs /init · Aspect · /memory · /init · Purpose · Edit existing memory files · Initialize new CLAUDE.md · When to use ·\n\nManaged policy: Company-wide policies, security standards, compliance requirements · Project memory: Team standards, architecture, coding conventions (commit to git) User memory: Personal preferences, communication style, tooling choices · Directory memory: Module-specific rules and overrides · Leverage imports: Use @path/to/file syntax to reference existing documentation · Supports up to 5 levels of recursive nesting · Avoids duplication across memory files · Example: See @README.md for project overview · Document frequent commands: Include commands you use repeatedly to save time · Version control project memory: Commit project-level CLAUDE.md files to git for team benefit · Review periodically: Update memory regularly as projects evolve and requirements change · Provide concrete examples: Include code snippets and specific scenarios ·\n\nA visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value. - luongnv89/claude-howto\n\n### Example 3: Personal Memory **File:** `~/.claude/CLAUDE.md` ```markdown # My Development Preferences ## About Me - **Experience Level**: 8 years full-stack development - **Preferred Languages**: TypeScript, Python - **Communication Style**: Direct, with examples - **Learning Style**: Visual diagrams with code ## Code Preferences ### Error Handling I prefer explicit error handling with try-catch blocks and meaningful error messages. Avoid generic errors. Always log errors for debugging. ### Comments Use comments for WHY, not WHAT. Code should be self-documenting. Comments should explain business logic or non-obvious decisions. ### Testing I prefer TDD (test-driven development). Write tests first, then implementation. Focus on behavior, not implementation details. ### Architecture I prefer modular, loosely-coupled design. Use dependency injection for testability.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/luongnv89/claude-howto/blob/main/02-memory/README.md",
+                "search_provider": "anthropic",
+                "age": "1 week ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Manage memory within CLAUDE.md files in Claude Code - M.academy",
+              "url": "https://m.academy/lessons/manage-memory-claudemd-files-within-claude-code/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "m.academy",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=m.academy",
+                "site_name": "M"
+              },
+              "is_missing": false,
+              "text": "The CLAUDE.md file is a just a regular text file, formatted in markdown, that Claude Code automatically pulls into context when it starts a conversation. You can treat this file as a persistent memory that’s added to every chat.\n\nLearn how to manage memory in Claude.md files for Claude Code by organizing project context, locations, and best practices. The CLAUDE.md file is a just a regular text file, formatted in markdown, that Claude Code automatically pulls into context when it starts a conversation. You can treat this file as a persistent memory that’s added to every chat. Think of the CLAUDE.md file as a way to tell Claude Code about your project. If you walk up to someone on the street and ask them about your project… would they know about it? Exactly — and neither will Claude Code (until it starts scanning your codebase). We already have a CLAUDE.md file that was created for us whe... Enroll to unlock the full content and all course materials. ... Log in to start chatting! Ask me anything. Ask me anything. Ask me anything. Ask me anything. ... Enroll in this course for AI tutor access.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://m.academy/lessons/manage-memory-claudemd-files-within-claude-code/",
+                "search_provider": "anthropic",
+                "age": "October 31, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code Best Practices: Memory Management | Code Centre",
+              "url": "https://cuong.io/blog/2025/06/15-claude-code-best-practices-memory-management",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "cuong.io",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=cuong.io",
+                "site_name": "Cuong"
+              },
+              "is_missing": false,
+              "text": "A project memory file ( &lt;project root&gt;/CLAUDE.md ) is a good place to put things like: Project-specific guidelines, the ones you can’t share with other projects. Anything that you need Claude Code to know in every single coding session.\n\nThis post shows you some of the Claude Code best practices based on my own experience. This one is focused on memory management.\n\nIf you want to keep the context for future reference, you can ask Claude Code to save the current session to a MD file in docs/. If you mean the memory bank concept from Cline, no, I don’t recommend it. It’s just too complicated. What you can do instead is to use the docs/ folder to store your knowledge. You can use markdown’s checkboxes [ ] to keep track of what’s done and what’s not. Tip: Claude Code can check off the boxes for you. A typical development workflow would look like this: Brainstorm ideas with an AI. My recommendation is OpenAI’s ChatGPT with Canvas. Create a docs/architecture.md. Ask Claude Code to create a detailed implementation plan based on the architecture document. Ask Claude to add a [ ] before each action item so they can be checked off. Use the magic word ultrathink to trigger the highest level of extended thinking.\n\nIt depends. If the model can use the tools effectively, then no. If the model struggles to use the tools, then add minimal instructions to the memory file. Don’t: Fill CLAUDE.md with generic instructions like “write clean code” or “follow best practices” · Do: Only include specific, project-unique instructions ... That’s for now. If you have more questions, feel free to leave a comment below.\n\nTrack tasks with checkboxes - Use [ ] in markdown files instead of complex memory systems · Claude Code uses a cascaded system to manage memory files. The memory files are read in the beginning of each coding session. That’s why it’s important to keep them lean as they take up the context window space. In these files, you typically want to include things like: ... When writing instructions, it’s important to strike a balance between being specific and not overwhelming Claude Code with too many details (a.k.a wasting tokens). Obviously, things like “follow best practices” are too vague and can lead to confusion. ... Follow SOLID principles: - Single Responsibility Principle: A class or function should have one purpose only. - Open/Closed Principle: Classes should be open for extension but closed for modification. - Liskov Substitution Principle: Imagine a function that expects a Bird.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://cuong.io/blog/2025/06/15-claude-code-best-practices-memory-management",
+                "search_provider": "anthropic",
+                "age": "June 15, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code Memory Management: The Complete Guide (2026) | by Gul Jabeen | Data Science Collective | Mar, 2026 | Medium",
+              "url": "https://medium.com/data-science-collective/claude-code-memory-management-the-complete-guide-2026-b0df6300c4e8",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "medium.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=medium.com",
+                "site_name": "Medium"
+              },
+              "is_missing": false,
+              "text": "Layer 3 — Project Instructions (Team Shared) The most important layer. Defines how a specific project works. Layer 4 — Auto Memory (Claude Learns Itself) Claude writes and updates its own memory based on your behavior.\n\nClaude Code has four memory layers. Each one serves a different purpose: Layer 1 — Managed Policy (Org-wide) System-level rules applied across all machines. Used for security policies, compliance, and company standards. Most solo developers can ignore this. Layer 2 — User Instructions (Your Machine) Your personal preferences. Applies to every project you work on. Layer 3 — Project Instructions (Team Shared) The most important layer. Defines how a specific project works. Layer 4 — Auto Memory (Claude Learns Itself) Claude writes and updates its own memory based on your behavior.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://medium.com/data-science-collective/claude-code-memory-management-the-complete-guide-2026-b0df6300c4e8",
+                "search_provider": "anthropic",
+                "age": "2 weeks ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code’s Memory: Working with AI in Large Codebases | by Thomas Landgraf | Medium",
+              "url": "https://medium.com/@tl_99311/claude-codes-memory-working-with-ai-in-large-codebases-a948f66c2d7e",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "medium.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=medium.com",
+                "site_name": "Medium"
+              },
+              "is_missing": false,
+              "text": "Here’s the prompt I use to capture ... memory using two main file types: `CLAUDE.md` for shared or global project context, and `CLAUDE.local.md` for private, developer-specific notes....\n\nAfter a while working with Claude Code, I’ve developed a set of prompts that transform memory management from a chore into a seamless part of the development workflow. These aren’t just commands — they’re conversations that teach Claude to be a better partner for your specific project. The biggest waste in AI-assisted development isn’t token consumption — it’s knowledge loss. Every time you correct Claude or explain a project quirk, that learning typically vanishes when the session ends. Here’s the prompt I use to capture these insights permanently: # Update CLAUDE Files with Relevant Knowledge from This Session FYI: You, Claude Code, manage persistent memory using two main file types: `CLAUDE.md` for shared or global project context, and `CLAUDE.local.md` for private, developer-specific notes. The system recursively searches upward from the current working directory to load all relevant `CLAUDE.md` and `CLAUDE.local.md` files, ensuring both project-level and personal context are avail\n\nThat’s why understanding and managing Claude’s memory system is essential. It’s the difference between working with an architect who remembers your blueprints — and one who has to re-read them every time you ask a question. Let’s explore how that works. ... Claude Code’s memory system is deceptively simple on the surface — it’s just Markdown files. But beneath this simplicity lies a sophisticated hierarchical system that fundamentally changes how AI understands your codebase. Think of Claude’s memory as a nested set of contexts, each serving a distinct purpose: Project Memory (./CLAUDE.md) — This is your team's shared brain. It lives in your repository root and gets committed to version control. Here's where you document your architectural decisions, coding conventions, API patterns, and anything else that should be consistent across your team.\n\nThe Bootstrap Pattern: Start new projects with /init, which analyzes your codebase and generates a comprehensive initial CLAUDE.md. It's like having Claude interview your codebase and take notes for future sessions. The Quick Memory Pattern: Prefix any instruction with # to add it to memory instantly. Discovered a quirk in your build system? Just type # build fails if NODE_ENV isn't set explicitly and Claude files it away in the appropriate memory file. The Checkpoint Pattern: Before major refactoring, explicitly tell Claude to update memory files with current architectural decisions. This creates a knowledge checkpoint that persists even if you need to start a fresh session. Without proper memory management, every Claude session starts from scratch.\n\nClaude Code’s Memory: Working with AI in Large Codebases Transform Token Costs into Team Knowledge with Smart Memory Management 1. Claude Code: It’s Not a Tool — It’s a Mindset Shift Over the …",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://medium.com/@tl_99311/claude-codes-memory-working-with-ai-in-large-codebases-a948f66c2d7e",
+                "search_provider": "anthropic",
+                "age": "June 29, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code Dreams: Anthropic's New Memory Feature",
+              "url": "https://claudefa.st/blog/guide/mechanics/auto-dream",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claudefa.st",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claudefa.st",
+                "site_name": "Claude Fast"
+              },
+              "is_missing": false,
+              "text": "You can keep working in Claude Code while Auto Dream runs. It doesn&#x27;t block your session or require you to wait. The consolidation happens in a separate process. You don&#x27;t have to wait for the automatic trigger. If you know your memory files need cleanup (after a major refactor, for example), you can force a consolidation. The /dream command exists but hasn&#x27;t rolled out to everyone yet. In the meantime, you can manually trigger it by telling Claude directly: &quot;dream&quot; &quot;auto dream&quot; &quot;consolidate my memory files&quot; Claude recognizes the intent and runs through the same four-phase process. This is useful after big project changes when you want clean memory without waiting for the next automatic cycle. Here&#x27;s what a typical memory directory looks like before and after Auto Dream runs. ~/.claude/projects/&lt;project&gt;/memory/ ├── MEMORY.md # 280 lines, over the 200-line limit ├── debugging.md # Contains 3 contradictory entries about API errors ├── api-conventions.md # References Express (switched to\n\nCLAUDE.md provides authoritative rules you control. Auto Memory captures what Claude learns while working. Session Memory maintains conversation continuity. Auto Dream keeps the accumulated knowledge clean, current, and organized. Let it run automatically for most projects. The default trigger conditions (24h + 5 sessions) work well for active development. You don't need to babysit this. Force a dream after major refactors. If you renamed half your codebase, migrated frameworks, or changed your API structure, trigger a manual dream cycle. The old memory entries will cause more confusion than clarity until they're consolidated. Review the output occasionally. After a dream cycle runs, skim your MEMORY.md. Auto Dream is good, but it's not perfect. You might spot a consolidation choice you disagree with. The files are plain markdown. Edit them freely. Combine with context management practices.\n\nIt takes notes as it works: debugging patterns, build commands, architecture decisions, your preferences. Every session adds more entries. But without a consolidation step, those notes accumulate the same way unconsolidated short-term memories do. Contradictions persist. Outdated entries linger. The signal-to-noise ratio degrades with every session. Auto Dream is the REM sleep cycle. It reviews what Auto Memory has collected, strengthens what's still relevant, removes what's outdated, and reorganizes the rest into clean, indexed topic files. Claude Code without Auto Dream was essentially sleep-deprived. It kept adding random notes without ever cleaning up. When Auto Dream runs, it follows a structured four-phase process. Each phase has a specific purpose, and together they transform scattered session notes into organized project knowledge. Claude reads the current memory directory and takes stock of what exists. It opens MEMORY.md (the index file), scans the list of topic files, and bu\n\nYou can keep working in Claude Code while Auto Dream runs. It doesn't block your session or require you to wait. The consolidation happens in a separate process. You don't have to wait for the automatic trigger. If you know your memory files need cleanup (after a major refactor, for example), you can force a consolidation. The /dream command exists but hasn't rolled out to everyone yet. In the meantime, you can manually trigger it by telling Claude directly: \"dream\" \"auto dream\" \"consolidate my memory files\" Claude recognizes the intent and runs through the same four-phase process. This is useful after big project changes when you want clean memory without waiting for the next automatic cycle. Here's what a typical memory directory looks like before and after Auto Dream runs. ~/.claude/projects/<project>/memory/ ├── MEMORY.md # 280 lines, over the 200-line limit ├── debugging.md # Contains 3 contradictory entries about API errors ├── api-conventions.md # References Express (switched to\n\nClaude Fast | Claude Code Auto Dream consolidates memory files, pruning stale notes and merging insights. Like REM sleep for your AI agent.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://claudefa.st/blog/guide/mechanics/auto-dream",
+                "search_provider": "anthropic",
+                "age": "17 hours ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code - Basic Memory",
+              "url": "https://docs.basicmemory.com/integrations/claude-code",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "basicmemory.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=basicmemory.com",
+                "site_name": "Basic Memory"
+              },
+              "is_missing": false,
+              "text": "Basic Memory complements this nicely: CLAUDE.md tells Claude Code how to work in a project, while Basic Memory stores the knowledge -- decisions, architecture notes, research, context -- that doesn&#x27;t belong in a static instruction file.\n\nClaude Code uses CLAUDE.md files for project-level instructions. Basic Memory complements this nicely: CLAUDE.md tells Claude Code how to work in a project, while Basic Memory stores the knowledge -- decisions, architecture notes, research, context -- that doesn't belong in a static instruction file. Install agent skills to teach Claude Code best practices for writing well-structured notes. Skills give your AI reusable patterns so notes are consistent and useful from the start. ... For local: verify Basic Memory is installed (basic-memory --version) and re-add the server: claude mcp remove basic-memory && claude mcp add basic-memory basic-memory mcp · For cloud: re-run the claude mcp add command and complete the OAuth flow again ... Claude Code's built-in memory is great for project instructions and short learnings. Basic Memory adds a full knowledge base on top — searchable notes with semantic connections, observations, and relations that span across projects and AI tools.\n\nThey complement each other. CLAUDE.md holds project instructions and coding standards. Basic Memory holds evolving knowledge — decisions, architecture notes, research, meeting notes, and context that grows over time. Claude Code's auto memory captures small preferences; Basic Memory captures structured knowledge you can search, link, and reuse across any AI tool. Basic Memory also works with:Cursor · OpenAI Codex · Claude Desktop · VS Code · Obsidian ... Learn how to document your development projects. ... Full reference for all 17 Basic Memory tools. ... Pre-built skills that teach Claude Code best practices for Basic Memory. ... Structure effective development documentation. ... Give OpenClaw agents persistent Basic Memory with composited search, auto-capture, slash commands, and bundled workflow skills.\n\nGive Claude Code persistent memory with Basic Memory. Decisions, architecture, and project context carry over across every coding session.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://docs.basicmemory.com/integrations/claude-code",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "CLAUDE.md for Product Managers | Project Memory Guide – Claude Code for Product Managers",
+              "url": "https://ccforpms.com/fundamentals/project-memory",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ccforpms.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ccforpms.com",
+                "site_name": "Ccforpms"
+              },
+              "is_missing": false,
+              "text": "CLAUDE.md is a markdown file in your project directory containing permanent context about your product, team, and preferences. Claude automatically reads it at session start and applies everything in it.\n\n✅ “Use Workspace not Project - We differentiate from traditional project management tools. Workspace signals collaboration space.” ... Audit all: find . -name CLAUDE.md ... You now know how to create CLAUDE.md - giving Claude permanent memory about your product, team, and preferences. Module 1.7: Learn about Planning Mode - master the three input modes and final navigation skills. ... Created by Carl Vellotti. If you have any feedback about this module or the course overall, message me! I’m building a newsletter and community for PM builders, check out The Full Stack PM. Source Repository: github.com/carlvellotti/claude-code-pm-course\n\n# TaskFlow Product Context This file provides permanent context about TaskFlow for Claude Code. ## What TaskFlow Is TaskFlow is a project management SaaS for remote-first teams. Think Asana meets Jira, but built specifically for async collaboration. **Company Details:** - Founded: 2021 - Stage: Series B ($20M raised) - Team: 50 employees - Revenue: $2.5M ARR, 10,000 active users **Your Role:** - Position: Senior Product Manager - Focus: Activation & Onboarding ## User Personas ### Sarah - Enterprise Admin - Role: IT Administrator at 500+ person company - Pain points: Needs security, SSO, audit logs, compliance - Quote: \"I need to prove TaskFlow meets our security standards\" ### Mike - IC Engineer - Role: Individual contributor software engineer at startup - Pain points: Wants speed, keyboard shortcuts, GitHub integration - Quote: \"If I have to use my mouse, the tool is too slow\" ## Writing Style & Standards - Use active voice (not passive) - Use Oxford commas in all lists - Maximum 2-s\n\nCLAUDE.md is Claude’s permanent memory for your project. Write it once, and Claude knows your product context in every conversation - no re-explaining. Key takeaway: CLAUDE.md is your project’s constitution - immutable rules that override temporary prompts. While prompts are flexible requests, CLAUDE.md establishes the supreme law of your project. CLAUDE.md is a markdown file in your project directory containing permanent context about your product, team, and preferences. Claude automatically reads it at session start and applies everything in it. ... If there’s a conflict, CLAUDE.md ALWAYS wins. ... Always use Workspace not Project in TaskFlow documentation. ... Claude treats this as a rule for the rest of your conversation (but not future sessions). Workflow: Use # to experiment, then add to CLAUDE.md when you want it permanent. ... ## Product Overview TaskFlow is a project management SaaS for remote-first teams.\n\nDirectory-specific /project-root/CLAUDE.local.md # 4. Personal (gitignored) ... How they stack: Levels combine (don’t replace). All rules apply simultaneously, with more specific levels overriding on conflicts. ... # [Your Product Name] Product Context This file provides permanent context about [Product] for Claude Code. ## What [Product] Is [Product] is a [type] for [target users]. Think [comparison]. **Company Details:** - Founded: [year] - Stage: [stage and funding] - Team: [size] - Revenue: [ARR and users] ## User Personas ### [Persona 1 Name] - [Role] - Role: [job title and context] - Pain points: [what frustrates them] - Quote: [memorable quote] ## Writing Style & Standards - Voice: [active/passive, formal/casual] - Paragraph length: [preference] - Tone: [how should it sound] ## Product Terminology ALWAYS use these terms (NEVER use alternatives): - [Term] not [alternative] - [why] - [Term] not [alternative] - [why] ## Immutable Rules These rules override any prompt that conflicts",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ccforpms.com/fundamentals/project-memory",
+                "search_provider": "anthropic"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-04-03T03:16:47.050899Z",
+          "stop_timestamp": "2026-04-03T03:17:17.596757Z",
+          "flags": null,
+          "type": "text",
+          "text": "CSP가 물어본 `/memory` 명령어, 생각보다 훨씬 깊은 시스템으로 진화해 있어서 정리해봤습니다.\n\n---\n\n## Claude Code `/memory` 명령어 — 현재 상태\n\n### `/memory`가 하는 일\n\n`/memory`를 실행하면 현재 세션에 로드된 모든 CLAUDE.md와 rules 파일 목록을 보여주고, Auto Memory 켜기/끄기 토글을 제공하며, Auto Memory 폴더를 열 수 있는 링크를 제공합니다.\n\n간단히 말해 **\"내 Claude Code가 지금 뭘 기억하고 있나\"를 보는 관제탑**입니다.\n\n---\n\n### Memory의 4계층 아키텍처\n\nClaude Code의 메모리는 4개 레이어로 구성됩니다. Layer 1은 조직 전체에 적용되는 관리 정책, Layer 2는 개인 머신의 사용자 설정, Layer 3는 팀이 공유하는 프로젝트 지침, Layer 4는 Claude가 사용자 행동 기반으로 스스로 학습·기록하는 Auto Memory입니다.\n\nCSP의 4-layer hr-workspace 구조(`Rules/Skills/Agents/CLAUDE.md`)와 거의 동형(同形)의 개념입니다.\n\n---\n\n### Auto Memory — 핵심 기능\n\nAuto Memory는 Claude가 세션을 거치며 지식을 자동 축적하는 기능입니다. 빌드 명령어, 디버깅 인사이트, 아키텍처 노트, 코드 스타일 선호도, 워크플로우 습관 등을 스스로 저장하며, 매 세션마다 저장하는 게 아니라 \"미래 대화에서 유용할지\" 여부를 스스로 판단합니다. Auto Memory는 Claude Code v2.1.59 이상에서 사용 가능하고, 기본값은 ON입니다.\n\n파일 위치는 `~/.claude/projects/<project>/memory/`이며, 모두 **plain markdown**이라 직접 편집·삭제 가능합니다.\n\n---\n\n### Auto Dream — 메모리 정리 시스템 (최신 기능)\n\nAuto Dream은 Auto Memory가 축적한 내용을 검토해서, 여전히 유효한 것은 강화하고 오래된 항목은 제거하며 나머지는 깔끔한 토픽 파일로 재구성하는 REM 수면 같은 역할을 합니다. `/dream` 명령어가 존재하지만 아직 모든 사용자에게 롤아웃되지 않았으며, 그 전까지는 Claude에게 직접 \"dream\", \"auto dream\", \"consolidate my memory files\"라고 말하면 동일한 4단계 프로세스가 실행됩니다.\n\n---\n\n### CSP 실전 활용 포인트\n\n**`#` prefix 패턴** — 즉시 메모리에 저장\n\n어떤 지시 앞에 `#`을 붙이면 즉시 메모리에 추가됩니다. 빌드 시스템의 특이점을 발견했다면 `# NODE_ENV를 명시하지 않으면 빌드 실패`처럼 타이핑하면 Claude가 적절한 메모리 파일에 기록합니다.\n\n**CLAUDE.md vs Auto Memory 역할 분리**\n\nCLAUDE.md는 Claude의 행동을 가이드하고 싶을 때 사용하고, Auto Memory는 사용자의 수정 사항이나 선호도를 수동 작업 없이 Claude가 스스로 학습하게 할 때 사용합니다.\n\n**컴팩션(compaction) 이후에도 CLAUDE.md는 완전히 살아남습니다.** `/compact` 이후에도 Claude가 디스크에서 CLAUDE.md를 다시 읽고 세션에 재주입합니다.\n\n---\n\n### 정리\n\n| 명령어 | 역할 |\n|---|---|\n| `/memory` | 현재 로드된 메모리 파일 목록 확인 + Auto Memory 토글 |\n| `/init` | 코드베이스 분석 후 초기 CLAUDE.md 생성 |\n| `# [내용]` | 즉시 메모리에 한 줄 저장 |\n| `\"dream\"` (또는 `/dream`) | 메모리 파일 정리·통합 실행 |\n\nCSP의 Ouroboros 자기진화 방법론이랑 연결하면, Auto Memory + Auto Dream 조합이 사실상 **에이전트 레벨의 자기학습 루프**입니다. GEMINI.md나 CLAUDE.md에 전략 레이어를 명시하고, Auto Memory가 실행 레이어의 패턴을 자동 축적하는 2-tier 구조가 지금 CSP 워크스페이스에 가장 잘 맞을 것 같아요.",
+          "citations": [
+            {
+              "uuid": "7ba15fbc-1b53-4b5a-b40d-25eabe32ebca",
+              "start_index": 123,
+              "end_index": 244,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://code.claude.com/docs/en/memory"
+              }
+            },
+            {
+              "uuid": "97da48b8-bcb5-46b1-83a5-f7afaffcb32b",
+              "start_index": 327,
+              "end_index": 494,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://medium.com/data-science-collective/claude-code-memory-management-the-complete-guide-2026-b0df6300c4e8"
+              }
+            },
+            {
+              "uuid": "63e125b7-5862-43c9-b185-d553e58ff247",
+              "start_index": 608,
+              "end_index": 823,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://code.claude.com/docs/en/memory"
+              }
+            },
+            {
+              "uuid": "4e46303d-622d-43b1-8109-9450c3244f5d",
+              "start_index": 957,
+              "end_index": 1208,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://claudefa.st/blog/guide/mechanics/auto-dream"
+              }
+            },
+            {
+              "uuid": "f60a007c-639a-46ba-966e-b78d540b8e0a",
+              "start_index": 1266,
+              "end_index": 1381,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://medium.com/@tl_99311/claude-codes-memory-working-with-ai-in-large-codebases-a948f66c2d7e"
+              }
+            },
+            {
+              "uuid": "41f4ae51-427f-4f6c-9368-4052c398856f",
+              "start_index": 1419,
+              "end_index": 1526,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://code.claude.com/docs/en/memory"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-03T03:17:17.768041Z",
+      "updated_at": "2026-04-03T03:17:17.768041Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d5157-aac6-7a72-af2a-6f210f05e9e2"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+﻿{
+  "uuid": "368e0b2f-7197-4288-bd2f-f284aaf14a80",
+  "name": "Git bash installation for Claude Code",
+  "summary": "**Conversation Overview**\n\nThe user encountered a technical error while trying to use Claude Code on Windows, specifically receiving an error message indicating that git-bash was required but not found in their system PATH. Claude provided comprehensive troubleshooting guidance covering two main scenarios: installing git-bash if not present, and configuring the environment variable if git-bash was already installed but not properly configured. The solution involved either downloading Git for Windows from the official website or setting the CLAUDE_CODE_GIT_BASH_PATH environment variable to point to the bash.exe executable. Claude provided specific instructions for both temporary and permanent environment variable configuration, including step-by-step guidance for accessing Windows System Properties and Environment Variables settings. The response also included practical commands for locating the bash.exe file on the system and listed common installation paths where the executable might be found, such as \"C:\\Program Files\\Git\\bin\\bash.exe\" and \"C:\\Program Files (x86)\\Git\\bin\\bash.exe\".",
+  "created_at": "2025-10-06T20:55:19.738547Z",
+  "updated_at": "2025-10-06T22:23:11.310835Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "460b495e-2c07-447e-9349-8e1e59e546d2",
+      "text": "Error: Claude Code on Windows requires git-bash (https://git-scm.com/downloads/win). If installed but not in PATH, set environment variable pointing to your bash.exe, similar to: CLAUDE_CODE_GIT_BASH_PATH=C:\\Program Files\\Git\\bin\\bash.exe",
+      "content": [
+        {
+          "start_timestamp": "2025-10-06T20:55:28.120706Z",
+          "stop_timestamp": "2025-10-06T20:55:28.120706Z",
+          "flags": null,
+          "type": "text",
+          "text": "Error: Claude Code on Windows requires git-bash (https://git-scm.com/downloads/win). If installed but not in PATH, set environment variable pointing to your bash.exe, similar to: CLAUDE_CODE_GIT_BASH_PATH=C:\\Program Files\\Git\\bin\\bash.exe",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2025-10-06T20:55:28.128315Z",
+      "updated_at": "2025-10-06T20:55:28.128315Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "c82a9ce5-984d-45b9-8c8c-ad750d0087cc",
+      "text": " This error occurs when Claude Code can't find git-bash on your Windows system. Here's how to fix it:\n\n## Solution 1: Install git-bash (if not installed)\n\n1. Download Git for Windows from https://git-scm.com/downloads/win\n2. Run the installer and follow the prompts\n3. Restart your terminal after installation\n\n## Solution 2: Set the PATH environment variable (if already installed)\n\nIf git-bash is already installed but not found, you need to set the `CLAUDE_CODE_GIT_BASH_PATH` environment variable.\n\n**Temporarily (current session only):**\n```bash\nset CLAUDE_CODE_GIT_BASH_PATH=C:\\Program Files\\Git\\bin\\bash.exe\n```\n\n**Permanently:**\n1. Open System Properties (Win + Pause/Break, or search \"Environment Variables\")\n2. Click \"Environment Variables\"\n3. Under \"User variables\" or \"System variables\", click \"New\"\n4. Set:\n   - Variable name: `CLAUDE_CODE_GIT_BASH_PATH`\n   - Variable value: `C:\\Program Files\\Git\\bin\\bash.exe` (or your actual path)\n5. Click OK and restart your terminal\n\n**Find your bash.exe location:**\n\nIf it's not in the default location, search for `bash.exe`:\n```bash\nwhere /R \"C:\\Program Files\" bash.exe\n```\n\nCommon locations:\n- `C:\\Program Files\\Git\\bin\\bash.exe`\n- `C:\\Program Files (x86)\\Git\\bin\\bash.exe`\n\nAfter setting the environment variable, try running Claude Code again!",
+      "content": [
+        {
+          "start_timestamp": "2025-10-06T20:55:30.564807Z",
+          "stop_timestamp": "2025-10-06T20:55:36.783954Z",
+          "flags": null,
+          "type": "text",
+          "text": " This error occurs when Claude Code can't find git-bash on your Windows system. Here's how to fix it:\n\n## Solution 1: Install git-bash (if not installed)\n\n1. Download Git for Windows from https://git-scm.com/downloads/win\n2. Run the installer and follow the prompts\n3. Restart your terminal after installation\n\n## Solution 2: Set the PATH environment variable (if already installed)\n\nIf git-bash is already installed but not found, you need to set the `CLAUDE_CODE_GIT_BASH_PATH` environment variable.\n\n**Temporarily (current session only):**\n```bash\nset CLAUDE_CODE_GIT_BASH_PATH=C:\\Program Files\\Git\\bin\\bash.exe\n```\n\n**Permanently:**\n1. Open System Properties (Win + Pause/Break, or search \"Environment Variables\")\n2. Click \"Environment Variables\"\n3. Under \"User variables\" or \"System variables\", click \"New\"\n4. Set:\n   - Variable name: `CLAUDE_CODE_GIT_BASH_PATH`\n   - Variable value: `C:\\Program Files\\Git\\bin\\bash.exe` (or your actual path)\n5. Click OK and restart your terminal\n\n**Find your bash.exe location:**\n\nIf it's not in the default location, search for `bash.exe`:\n```bash\nwhere /R \"C:\\Program Files\" bash.exe\n```\n\nCommon locations:\n- `C:\\Program Files\\Git\\bin\\bash.exe`\n- `C:\\Program Files (x86)\\Git\\bin\\bash.exe`\n\nAfter setting the environment variable, try running Claude Code again!",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2025-10-06T20:55:36.978423Z",
+      "updated_at": "2025-10-06T20:55:36.978423Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "460b495e-2c07-447e-9349-8e1e59e546d2"
+    }
+  ]
+}

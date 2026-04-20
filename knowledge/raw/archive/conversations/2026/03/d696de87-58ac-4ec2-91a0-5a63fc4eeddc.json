@@ -1,0 +1,1019 @@
+﻿{
+  "uuid": "d696de87-58ac-4ec2-91a0-5a63fc4eeddc",
+  "name": "MarkItDown 리포지토리 설명 및 사용법",
+  "summary": "**Conversation Overview**\n\nThe person asked Claude to explain the Microsoft MarkItDown GitHub repository (github.com/microsoft/markitdown), including its contents and usage. Claude fetched the repository page and provided a comprehensive explanation covering what MarkItDown is (a Python library that converts various document formats to Markdown for LLM consumption), why Markdown is the target format (LLM training data alignment and token efficiency), supported file formats (PDF, PowerPoint, Word, Excel, images, audio, HTML, CSV, JSON, XML, ZIP, YouTube URLs, EPub), and usage methods including CLI, Python API, LLM integration, and MCP server support.\n\nThe person then asked Claude to find ways to use MarkItDown as an installed tool within \"구글 안티그래비티\" (Google Antigravity), a Google-developed agentic coding IDE. Claude searched for relevant information and provided two installation paths: a direct terminal/CLI installation using pip within a virtual environment, and an MCP server integration approach using `markitdown-mcp`. For the MCP approach, Claude specified the exact config file location by OS (`~/.gemini/antigravity/mcp_config.json` on Mac/Linux, `C:\\Users\\<USER_NAME>\\.gemini\\antigravity\\mcp_config.json` on Windows), noted that absolute paths are required (not relative paths like `${workspaceFolder}`), and provided the exact JSON configuration block needed.\n\nThe person appears to work in a CSP (Customer Success Partner or similar) context involving projects named ESCON, EX Intelligence, and Pulse Check, with workflows involving Supabase, vector databases, RAG pipelines, and AI-driven document analysis. Claude consistently framed technical recommendations within this organizational context, connecting MarkItDown's capabilities to the person's specific use cases such as converting HR policy documents, capability model PPTs, and survey result Excel files for AI pipeline ingestion. The person uses terminology like \"Vibe Coding,\" MCP, and agentic workflows fluently, suggesting strong familiarity with modern AI development tooling.",
+  "created_at": "2026-03-24T00:33:00.577154Z",
+  "updated_at": "2026-03-24T00:35:07.387383Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d1d42-5aa1-730f-8c85-370934d94c46",
+      "text": "https://github.com/microsoft/markitdown\n리포의 내용과 사용법을 설명해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-03-24T00:33:01.883425Z",
+          "stop_timestamp": "2026-03-24T00:33:01.883425Z",
+          "flags": null,
+          "type": "text",
+          "text": "https://github.com/microsoft/markitdown\n리포의 내용과 사용법을 설명해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-24T00:33:01.919575Z",
+      "updated_at": "2026-03-24T00:33:01.919575Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d1d42-5aa2-76b2-94c4-d8f389479093",
+      "text": "\n```\nThis block is not supported on your current device yet.\n```\n\nMarkItDown은 Microsoft가 만든 도구인데, 그 존재 이유를 한 문장으로 압축하면 이렇습니다: **\"세상의 모든 문서 형식을 LLM이 읽을 수 있는 언어, 즉 Markdown으로 번역하는 통역사.\"**\n\n---\n\n## MarkItDown이란 무엇인가\n\nGitHub에서 87k 스타를 받은, Microsoft AutoGen 팀이 만든 Python 오픈소스 라이브러리입니다. SW 백그라운드 없이도 이해할 수 있도록 비유하자면, 이 도구는 일종의 **범용 문서 번역기**입니다. PDF든 Word든 Excel이든 PowerPoint든, 심지어 이미지나 오디오 파일까지 — 모든 걸 LLM이 이해하기 좋은 텍스트 형식(Markdown)으로 변환해줍니다.\n\n### 왜 Markdown인가?\n\nGPT-4o와 같은 주류 LLM들은 Markdown을 네이티브하게 \"말하며\", 별도 지시 없이도 Markdown을 자연스럽게 사용합니다. 이는 LLM들이 방대한 양의 Markdown 포맷 텍스트로 훈련되었음을 의미하며, 추가 이점으로 Markdown 문법은 토큰 효율성도 매우 높습니다.\n\n즉, 문서를 AI에게 넣기 전에 Markdown으로 먼저 변환하면 — AI가 훨씬 잘 이해하고, 비용도 덜 든다는 뜻입니다.\n\n---\n\n## 지원 파일 형식\n\n현재 MarkItDown이 변환을 지원하는 형식은 PDF, PowerPoint, Word, Excel, 이미지(EXIF 메타데이터 및 OCR), 오디오(EXIF 메타데이터 및 음성 전사), HTML, 텍스트 기반 포맷(CSV, JSON, XML), ZIP 파일, YouTube URL, EPub 등 다양합니다.\n\nCSP 업무 맥락에서 특히 주목할 만한 것은 **PowerPoint → Markdown** 변환입니다. EX Intelligence 발표 자료나 교육 자료들을 AI 파이프라인에 넣을 때, 먼저 MarkItDown으로 전처리하면 구조가 훨씬 깔끔하게 보존됩니다.\n\n---\n\n## 사용법\n\n### 설치\n\n전체 기능을 설치하려면 `pip install 'markitdown[all]'`을 사용하면 됩니다. 선택적으로 특정 형식만 설치하고 싶다면 `pip install 'markitdown[pdf, docx, pptx]'`처럼 원하는 것만 지정할 수도 있습니다.\n\n### 커맨드라인 (가장 간단한 방법)\n\n파일 변환은 `markitdown path-to-file.pdf > document.md`처럼 한 줄로 실행하거나, `-o` 옵션으로 출력 파일을 지정할 수 있습니다. 또한 파이프를 활용한 `cat path-to-file.pdf | markitdown` 방식도 지원합니다.\n\n### Python API\n\n```python\nfrom markitdown import MarkItDown\n\nmd = MarkItDown(enable_plugins=False)\nresult = md.convert(\"report.pptx\")\nprint(result.text_content)\n```\n\n### LLM 연동 (이미지 설명 자동 생성)\n\n이미지 설명을 위해 LLM을 활용하려면 `llm_client`와 `llm_model`을 함께 제공하면 됩니다. 현재 이 기능은 pptx와 이미지 파일에서 지원됩니다.\n\n```python\nfrom markitdown import MarkItDown\nfrom openai import OpenAI\n\nclient = OpenAI()\nmd = MarkItDown(llm_client=client, llm_model=\"gpt-4o\")\nresult = md.convert(\"slide_with_images.pptx\")\n```\n\n### MCP 서버 지원\n\nMarkItDown은 현재 Claude Desktop 같은 LLM 애플리케이션과의 통합을 위한 MCP(Model Context Protocol) 서버도 제공합니다. Claude Desktop에 연결하면 채팅 중에 \"이 PDF 변환해줘\"라고 말하는 것만으로 동작하게 할 수 있습니다.\n\n---\n\n## CSP 업무에서의 활용 포인트\n\nMarkItDown이 CSP의 워크플로우에 연결되는 지점이 여럿 있습니다.\n\n**ESCON / EX Intelligence 파이프라인**으로의 편입을 생각해보면, 조직 내 각종 문서(HR 정책서, 역량 모델 PPT, 설문 결과 Excel)를 AI 에이전트에 넣기 전 전처리 레이어로 MarkItDown을 두는 것이 자연스럽습니다. `convert()` 한 번으로 구조가 살아있는 Markdown이 나오고, 그것을 Supabase나 벡터 DB에 적재하면 RAG 기반 조회가 훨씬 정밀해집니다.\n\n**Pulse Check 보고서 자동화** 관점에서는, 임원이 제출한 기존 PPT 자료나 Word 보고서를 Markdown으로 변환해 비교 분석하는 용도로도 쓸 수 있습니다. \"intuition에서 data로\"라는 EX Intelligence 서사를 구현하는 하나의 하위 레이어가 되는 셈입니다.\n\n**Vibe Coding 교육 자료 재활용** 측면에서도, 기존에 만들어둔 pptx 강의 자료를 `markitdown`으로 변환하면 Claude Code 워크스페이스에서 바로 참조 가능한 지식 소스가 됩니다.\n\n한마디로, MarkItDown은 독립적인 도구라기보다 **AI 파이프라인의 입구 게이트**입니다. 문서가 세상에서 AI로 들어오는 모든 경로에 설치할 수 있는 얇지만 강력한 변환 레이어라고 보면 됩니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-24T00:33:04.644721Z",
+          "stop_timestamp": "2026-03-24T00:33:04.644721Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_012msg7zQmAZwENDxgPEzSWG",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://github.com/microsoft/markitdown"
+          },
+          "message": "Fetching: https://github.com/microsoft/markitdown",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_012msg7zQmAZwENDxgPEzSWG",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "GitHub - microsoft/markitdown: Python tool for converting files and office documents to Markdown.",
+              "url": "https://github.com/microsoft/markitdown",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "github"
+              },
+              "is_missing": false,
+              "text": "GitHub - microsoft/markitdown: Python tool for converting files and office documents to Markdown.\n\n\n\n[Skip to content](#start-of-content)\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Navigation Menu\n\nToggle navigation\n\n[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fmarkitdown)\n\nAppearance settings\n\n* Platform\n\n  + AI CODE CREATION\n    - [GitHub CopilotWrite better code with AI](https://github.com/features/copilot)\n    - [GitHub SparkBuild and deploy intelligent apps](https://github.com/features/spark)\n    - [GitHub ModelsManage and compare prompts](https://github.com/features/models)\n    - [MCP RegistryNewIntegrate external tools](https://github.com/mcp)\n  + DEVELOPER WORKFLOWS\n    - [ActionsAutomate any workflow](https://github.com/features/actions)\n    - [CodespacesInstant dev environments](https://github.com/features/codespaces)\n    - [IssuesPlan and track work](https://github.com/features/issues)\n    - [Code ReviewManage code changes](https://github.com/features/code-review)\n  + APPLICATION SECURITY\n    - [GitHub Advanced SecurityFind and fix vulnerabilities](https://github.com/security/advanced-security)\n    - [Code securitySecure your code as you build](https://github.com/security/advanced-security/code-security)\n    - [Secret protectionStop leaks before they start](https://github.com/security/advanced-security/secret-protection)\n  + EXPLORE\n    - [Why GitHub](https://github.com/why-github)\n    - [Documentation](https://docs.github.com)\n    - [Blog](https://github.blog)\n    - [Changelog](https://github.blog/changelog)\n    - [Marketplace](https://github.com/marketplace)\n\n  [View all features](https://github.com/features)\n* Solutions\n\n  + BY COMPANY SIZE\n    - [Enterprises](https://github.com/enterprise)\n    - [Small and medium teams](https://github.com/team)\n    - [Startups](https://github.com/enterprise/startups)\n    - [Nonprofits](https://github.com/solutions/industry/nonprofits)\n  + BY USE CASE\n    - [App Modernization](https://github.com/solutions/use-case/app-modernization)\n    - [DevSecOps](https://github.com/solutions/use-case/devsecops)\n    - [DevOps](https://github.com/solutions/use-case/devops)\n    - [CI/CD](https://github.com/solutions/use-case/ci-cd)\n    - [View all use cases](https://github.com/solutions/use-case)\n  + BY INDUSTRY\n    - [Healthcare](https://github.com/solutions/industry/healthcare)\n    - [Financial services](https://github.com/solutions/industry/financial-services)\n    - [Manufacturing](https://github.com/solutions/industry/manufacturing)\n    - [Government](https://github.com/solutions/industry/government)\n    - [View all industries](https://github.com/solutions/industry)\n\n  [View all solutions](https://github.com/solutions)\n* Resources\n\n  + EXPLORE BY TOPIC\n    - [AI](https://github.com/resources/articles?topic=ai)\n    - [Software Development](https://github.com/resources/articles?topic=software-development)\n    - [DevOps](https://github.com/resources/articles?topic=devops)\n    - [Security](https://github.com/resources/articles?topic=security)\n    - [View all topics](https://github.com/resources/articles)\n  + EXPLORE BY TYPE\n    - [Customer stories](https://github.com/customer-stories)\n    - [Events & webinars](https://github.com/resources/events)\n    - [Ebooks & reports](https://github.com/resources/whitepapers)\n    - [Business insights](https://github.com/solutions/executive-insights)\n    - [GitHub Skills](https://skills.github.com)\n  + SUPPORT & SERVICES\n    - [Documentation](https://docs.github.com)\n    - [Customer support](https://support.github.com)\n    - [Community forum](https://github.com/orgs/community/discussions)\n    - [Trust center](https://github.com/trust-center)\n    - [Partners](https://github.com/partners)\n* Open Source\n\n  + COMMUNITY\n    - [GitHub SponsorsFund open source developers](https://github.com/sponsors)\n  + PROGRAMS\n    - [Security Lab](https://securitylab.github.com)\n    - [Maintainer Community](https://maintainers.github.com)\n    - [Accelerator](https://github.com/accelerator)\n    - [Archive Program](https://archiveprogram.github.com)\n  + REPOSITORIES\n    - [Topics](https://github.com/topics)\n    - [Trending](https://github.com/trending)\n    - [Collections](https://github.com/collections)\n* Enterprise\n\n  + ENTERPRISE SOLUTIONS\n    - [Enterprise platformAI-powered developer platform](https://github.com/enterprise)\n  + AVAILABLE ADD-ONS\n    - [GitHub Advanced SecurityEnterprise-grade security features](https://github.com/security/advanced-security)\n    - [Copilot for BusinessEnterprise-grade AI features](https://github.com/features/copilot/copilot-business)\n    - [Premium SupportEnterprise-grade 24/7 support](https://github.com/premium-support)\n* [Pricing](https://github.com/pricing)\n\nSearch or jump to...\n\n\n# Search code, repositories, users, issues, pull requests...\n\nSearch\n\nClear\n\n[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)\n\n# Provide feedback\n\nWe read every piece of feedback, and take your input very seriously.\n\n\nInclude my email address so I can be contacted\n\nCancel\n Submit feedback\n\n\n\n\n\n# Saved searches\n\n## Use saved searches to filter your results more quickly\n\nName\n\nQuery\n\nTo see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).\n\nCancel\n Create saved search\n\n[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fmarkitdown)\n\n[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=microsoft%2Fmarkitdown)\n\nAppearance settings\n\nResetting focus\n\nYou signed in with another tab or window. Reload to refresh your session.\nYou signed out in another tab or window. Reload to refresh your session.\nYou switched accounts on another tab or window. Reload to refresh your session.\n \n\n\nDismiss alert\n\n{{ message }}\n\n[microsoft](/microsoft) \n/\n**[markitdown](/microsoft/markitdown)**\nPublic\n\n* [Notifications](/login?return_to=%2Fmicrosoft%2Fmarkitdown) You must be signed in to change notification settings\n* [Fork\n  5.1k](/login?return_to=%2Fmicrosoft%2Fmarkitdown)\n* [Star\n   87k](/login?return_to=%2Fmicrosoft%2Fmarkitdown)\n\nPython tool for converting files and office documents to Markdown.\n\n### License\n\n[MIT license](/microsoft/markitdown/blob/main/LICENSE)\n\n[87k\nstars](/microsoft/markitdown/stargazers) [5.1k\nforks](/microsoft/markitdown/forks) [Branches](/microsoft/markitdown/branches) [Tags](/microsoft/markitdown/tags) [Activity](/microsoft/markitdown/activity)\n\n[Star](/login?return_to=%2Fmicrosoft%2Fmarkitdown)\n\n[Notifications](/login?return_to=%2Fmicrosoft%2Fmarkitdown) You must be signed in to change notification settings\n\n* [Code](/microsoft/markitdown)\n* [Issues\n  301](/microsoft/markitdown/issues)\n* [Pull requests\n  126](/microsoft/markitdown/pulls)\n* [Discussions](/microsoft/markitdown/discussions)\n* [Actions](/microsoft/markitdown/actions)\n* [Projects\n  0](/microsoft/markitdown/projects)\n* [Models](/microsoft/markitdown/models)\n* [Security\n  0](/microsoft/markitdown/security)\n* [Insights](/microsoft/markitdown/pulse)\n\nAdditional navigation options\n\n\n* [Code](/microsoft/markitdown)\n* [Issues](/microsoft/markitdown/issues)\n* [Pull requests](/microsoft/markitdown/pulls)\n* [Discussions](/microsoft/markitdown/discussions)\n* [Actions](/microsoft/markitdown/actions)\n* [Projects](/microsoft/markitdown/projects)\n* [Models](/microsoft/markitdown/models)\n* [Security](/microsoft/markitdown/security)\n* [Insights](/microsoft/markitdown/pulse)\n\n# microsoft/markitdown\n\nmain\n\n[Branches](/microsoft/markitdown/branches)[Tags](/microsoft/markitdown/tags)\n\nGo to file\n\nCode\n\nOpen more actions menu\n\n## Folders and files\n\n| Name | | Name | Last commit message | Last commit date |\n| --- | --- | --- | --- | --- |\n| Latest commit   History[300 Commits](/microsoft/markitdown/commits/main/)   300 Commits | | |\n| [.devcontainer](/microsoft/markitdown/tree/main/.devcontainer \".devcontainer\") | | [.devcontainer](/microsoft/markitdown/tree/main/.devcontainer \".devcontainer\") |  |  |\n| [.github](/microsoft/markitdown/tree/main/.github \".github\") | | [.github](/microsoft/markitdown/tree/main/.github \".github\") |  |  |\n| [packages](/microsoft/markitdown/tree/main/packages \"packages\") | | [packages](/microsoft/markitdown/tree/main/packages \"packages\") |  |  |\n| [.dockerignore](/microsoft/markitdown/blob/main/.dockerignore \".dockerignore\") | | [.dockerignore](/microsoft/markitdown/blob/main/.dockerignore \".dockerignore\") |  |  |\n| [.gitattributes](/microsoft/markitdown/blob/main/.gitattributes \".gitattributes\") | | [.gitattributes](/microsoft/markitdown/blob/main/.gitattributes \".gitattributes\") |  |  |\n| [.gitignore](/microsoft/markitdown/blob/main/.gitignore \".gitignore\") | | [.gitignore](/microsoft/markitdown/blob/main/.gitignore \".gitignore\") |  |  |\n| [.pre-commit-config.yaml](/microsoft/markitdown/blob/main/.pre-commit-config.yaml \".pre-commit-config.yaml\") | | [.pre-commit-config.yaml](/microsoft/markitdown/blob/main/.pre-commit-config.yaml \".pre-commit-config.yaml\") |  |  |\n| [CODE\\_OF\\_CONDUCT.md](/microsoft/markitdown/blob/main/CODE_OF_CONDUCT.md \"CODE_OF_CONDUCT.md\") | | [CODE\\_OF\\_CONDUCT.md](/microsoft/markitdown/blob/main/CODE_OF_CONDUCT.md \"CODE_OF_CONDUCT.md\") |  |  |\n| [Dockerfile](/microsoft/markitdown/blob/main/Dockerfile \"Dockerfile\") | | [Dockerfile](/microsoft/markitdown/blob/main/Dockerfile \"Dockerfile\") |  |  |\n| [LICENSE](/microsoft/markitdown/blob/main/LICENSE \"LICENSE\") | | [LICENSE](/microsoft/markitdown/blob/main/LICENSE \"LICENSE\") |  |  |\n| [README.md](/microsoft/markitdown/blob/main/README.md \"README.md\") | | [README.md](/microsoft/markitdown/blob/main/README.md \"README.md\") |  |  |\n| [SECURITY.md](/microsoft/markitdown/blob/main/SECURITY.md \"SECURITY.md\") | | [SECURITY.md](/microsoft/markitdown/blob/main/SECURITY.md \"SECURITY.md\") |  |  |\n| [SUPPORT.md](/microsoft/markitdown/blob/main/SUPPORT.md \"SUPPORT.md\") | | [SUPPORT.md](/microsoft/markitdown/blob/main/SUPPORT.md \"SUPPORT.md\") |  |  |\n| View all files | | |\n\n## Repository files navigation\n\n* [README](#)\n* [Code of conduct](#)\n* [MIT license](#)\n* [Security](#)\n\n# MarkItDown\n\n[![PyPI](https://camo.githubusercontent.com/124b95350d48b05db482b4a2153dc9cb06250d6e9272e121a6f3856a5159879d/68747470733a2f2f696d672e736869656c64732e696f2f707970692f762f6d61726b6974646f776e2e737667)](https://pypi.org/project/markitdown/)\n[![PyPI - Downloads](https://camo.githubusercontent.com/b358637622bf3aede990f9e2f7d2297d2cb2974ff07ba78c71de83a0dbaf1220/68747470733a2f2f696d672e736869656c64732e696f2f707970692f64642f6d61726b6974646f776e)](https://camo.githubusercontent.com/b358637622bf3aede990f9e2f7d2297d2cb2974ff07ba78c71de83a0dbaf1220/68747470733a2f2f696d672e736869656c64732e696f2f707970692f64642f6d61726b6974646f776e)\n[![Built by AutoGen Team](https://camo.githubusercontent.com/e773e2d12920abb5d8b2fe1d05f510b9ba7c3c54969bc3e05b6f7e8f8705e71d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4275696c7425323062792d4175746f47656e2532305465616d2d626c7565)](https://github.com/microsoft/autogen)\n\nTip\n\nMarkItDown now offers an MCP (Model Context Protocol) server for integration with LLM applications like Claude Desktop. See [markitdown-mcp](https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp) for more information.\n\nImportant\n\nBreaking changes between 0.0.1 to 0.1.0:\n\n* Dependencies are now organized into optional feature-groups (further details below). Use `pip install 'markitdown[all]'` to have backward-compatible behavior.\n* convert\\_stream() now requires a binary file-like object (e.g., a file opened in binary mode, or an io.BytesIO object). This is a breaking change from the previous version, where it previously also accepted text file-like objects, like io.StringIO.\n* The DocumentConverter class interface has changed to read from file-like streams rather than file paths. *No temporary files are created anymore*. If you are the maintainer of a plugin, or custom DocumentConverter, you likely need to update your code. Otherwise, if only using the MarkItDown class or CLI (as in these examples), you should not need to change anything.\n\nMarkItDown is a lightweight Python utility for converting various files to Markdown for use with LLMs and related text analysis pipelines. To this end, it is most comparable to [textract](https://github.com/deanmalmgren/textract), but with a focus on preserving important document structure and content as Markdown (including: headings, lists, tables, links, etc.) While the output is often reasonably presentable and human-friendly, it is meant to be consumed by text analysis tools -- and may not be the best option for high-fidelity document conversions for human consumption.\n\nMarkItDown currently supports the conversion from:\n\n* PDF\n* PowerPoint\n* Word\n* Excel\n* Images (EXIF metadata and OCR)\n* Audio (EXIF metadata and speech transcription)\n* HTML\n* Text-based formats (CSV, JSON, XML)\n* ZIP files (iterates over contents)\n* Youtube URLs\n* EPubs\n* ... and more!\n\n## Why Markdown?\n\nMarkdown is extremely close to plain text, with minimal markup or formatting, but still\nprovides a way to represent important document structure. Mainstream LLMs, such as\nOpenAI's GPT-4o, natively \"*speak*\" Markdown, and often incorporate Markdown into their\nresponses unprompted. This suggests that they have been trained on vast amounts of\nMarkdown-formatted text, and understand it well. As a side benefit, Markdown conventions\nare also highly token-efficient.\n\n## Prerequisites\n\nMarkItDown requires Python 3.10 or higher. It is recommended to use a virtual environment to avoid dependency conflicts.\n\nWith the standard Python installation, you can create and activate a virtual environment using the following commands:\n\n```\npython -m venv .venv\nsource .venv/bin/activate\n```\n\nIf using `uv`, you can create a virtual environment with:\n\n```\nuv venv --python=3.12 .venv\nsource .venv/bin/activate\n# NOTE: Be sure to use 'uv pip install' rather than just 'pip install' to install packages in this virtual environment\n```\n\nIf you are using Anaconda, you can create a virtual environment with:\n\n```\nconda create -n markitdown python=3.12\nconda activate markitdown\n```\n\n## Installation\n\nTo install MarkItDown, use pip: `pip install 'markitdown[all]'`. Alternatively, you can install it from the source:\n\n```\ngit clone git@github.com:microsoft/markitdown.git\ncd markitdown\npip install -e 'packages/markitdown[all]'\n```\n\n## Usage\n\n### Command-Line\n\n```\nmarkitdown path-to-file.pdf > document.md\n```\n\nOr use `-o` to specify the output file:\n\n```\nmarkitdown path-to-file.pdf -o document.md\n```\n\nYou can also pipe content:\n\n```\ncat path-to-file.pdf | markitdown\n```\n\n### Optional Dependencies\n\nMarkItDown has optional dependencies for activating various file formats. Earlier in this document, we installed all optional dependencies with the `[all]` option. However, you can also install them individually for more control. For example:\n\n```\npip install 'markitdown[pdf, docx, pptx]'\n```\n\nwill install only the dependencies for PDF, DOCX, and PPTX files.\n\nAt the moment, the following optional dependencies are available:\n\n* `[all]` Installs all optional dependencies\n* `[pptx]` Installs dependencies for PowerPoint files\n* `[docx]` Installs dependencies for Word files\n* `[xlsx]` Installs dependencies for Excel files\n* `[xls]` Installs dependencies for older Excel files\n* `[pdf]` Installs dependencies for PDF files\n* `[outlook]` Installs dependencies for Outlook messages\n* `[az-doc-intel]` Installs dependencies for Azure Document Intelligence\n* `[audio-transcription]` Installs dependencies for audio transcription of wav and mp3 files\n* `[youtube-transcription]` Installs dependencies for fetching YouTube video transcription\n\n### Plugins\n\nMarkItDown also supports 3rd-party plugins. Plugins are disabled by default. To list installed plugins:\n\n```\nmarkitdown --list-plugins\n```\n\nTo enable plugins use:\n\n```\nmarkitdown --use-plugins path-to-file.pdf\n```\n\nTo find available plugins, search GitHub for the hashtag `#markitdown-plugin`. To develop a plugin, see `packages/markitdown-sample-plugin`.\n\n### Azure Document Intelligence\n\nTo use Microsoft Document Intelligence for conversion:\n\n```\nmarkitdown path-to-file.pdf -o document.md -d -e \"<document_intelligence_endpoint>\"\n```\n\nMore information about how to set up an Azure Document Intelligence Resource can be found [here](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/create-document-intelligence-resource?view=doc-intel-4.0.0)\n\n### Python API\n\nBasic usage in Python:\n\n```\nfrom markitdown import MarkItDown\n\nmd = MarkItDown(enable_plugins=False) # Set to True to enable plugins\nresult = md.convert(\"test.xlsx\")\nprint(result.text_content)\n```\n\nDocument Intelligence conversion in Python:\n\n```\nfrom markitdown import MarkItDown\n\nmd = MarkItDown(docintel_endpoint=\"<document_intelligence_endpoint>\")\nresult = md.convert(\"test.pdf\")\nprint(result.text_content)\n```\n\nTo use Large Language Models for image descriptions (currently only for pptx and image files), provide `llm_client` and `llm_model`:\n\n```\nfrom markitdown import MarkItDown\nfrom openai import OpenAI\n\nclient = OpenAI()\nmd = MarkItDown(llm_client=client, llm_model=\"gpt-4o\", llm_prompt=\"optional custom prompt\")\nresult = md.convert(\"example.jpg\")\nprint(result.text_content)\n```\n\n### Docker\n\n```\ndocker build -t markitdown:latest .\ndocker run --rm -i markitdown:latest < ~/your-file.pdf > output.md\n```\n\n## Contributing\n\nThis project welcomes contributions and suggestions. Most contributions require you to agree to a\nContributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us\nthe rights to use your contribution. For details, visit <https://cla.opensource.microsoft.com>.\n\nWhen you submit a pull request, a CLA bot will automatically determine whether you need to provide\na CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions\nprovided by the bot. You will only need to do this once across all repos using our CLA.\n\nThis project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).\nFor more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or\ncontact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.\n\n### How to Contribute\n\nYou can help by looking at issues or helping review PRs. Any issue or PR is welcome, but we have also marked some as 'open for contribution' and 'open for reviewing' to help facilitate community contributions. These are of course just suggestions and you are welcome to contribute in any way you like.\n\n|  | All | Especially Needs Help from Community |\n| --- | --- | --- |\n| **Issues** | [All Issues](https://github.com/microsoft/markitdown/issues) | [Issues open for contribution](https://github.com/microsoft/markitdown/issues?q=is%3Aissue+is%3Aopen+label%3A%22open+for+contribution%22) |\n| **PRs** | [All PRs](https://github.com/microsoft/markitdown/pulls) | [PRs open for reviewing](https://github.com/microsoft/markitdown/pulls?q=is%3Apr+is%3Aopen+label%3A%22open+for+reviewing%22) |\n\n### Running Tests and Checks\n\n* Navigate to the MarkItDown package:\n\n  ```\n  cd packages/markitdown\n  ```\n* Install `hatch` in your environment and run tests:\n\n  ```\n  pip install hatch  # Other ways of installing hatch: https://hatch.pypa.io/dev/install/\n  hatch shell\n  hatch test\n  ```\n\n  (Alternative) Use the Devcontainer which has all the dependencies installed:\n\n  ```\n  # Reopen the project in Devcontainer and run:\n  hatch test\n  ```\n* Run pre-commit checks before submitting a PR: `pre-commit run --all-files`\n\n### Contributing 3rd-party Plugins\n\nYou can also contribute by creating and sharing 3rd party plugins. See `packages/markitdown-sample-plugin` for more details.\n\n## Trademarks\n\nThis project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft\ntrademarks or logos is subject to and must follow\n[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).\nUse of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.\nAny use of third-party trademarks or logos are subject to those third-party's policies.\n\n## About\n\nPython tool for converting files and office documents to Markdown.\n\n### Topics\n\n[markdown](/topics/markdown \"Topic: markdown\")\n[pdf](/topics/pdf \"Topic: pdf\")\n[openai](/topics/openai \"Topic: openai\")\n[microsoft-office](/topics/microsoft-office \"Topic: microsoft-office\")\n[autogen](/topics/autogen \"Topic: autogen\")\n[langchain](/topics/langchain \"Topic: langchain\")\n[autogen-extension](/topics/autogen-extension \"Topic: autogen-extension\")\n\n### Resources\n\n[Readme](#readme-ov-file)\n\n### License\n\n[MIT license](#MIT-1-ov-file)\n\n### Code of conduct\n\n[Code of conduct](#coc-ov-file)\n\n### Security policy\n\n[Security policy](#security-ov-file)\n\n### Uh oh!\n\nThere was an error while loading. Please reload this page.\n\n[Activity](/microsoft/markitdown/activity)\n\n[Custom properties](/microsoft/markitdown/custom-properties)\n\n### Stars\n\n[**87k**\nstars](/microsoft/markitdown/stargazers)\n\n### Watchers\n\n[**305**\nwatching](/microsoft/markitdown/watchers)\n\n### Forks\n\n[**5.1k**\nforks](/microsoft/markitdown/forks)\n\n[Report repository](/contact/report-content?content_url=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fmarkitdown&report=microsoft+%28user%29)\n\n## [Releases 17](/microsoft/markitdown/releases)\n\n[Version 0.1.4\n\nLatest\n\nDec 1, 2025](/microsoft/markitdown/releases/tag/v0.1.4)\n\n[+ 16 releases](/microsoft/markitdown/releases)\n\n## [Packages 0](/orgs/microsoft/packages?repo_name=markitdown)\n\nNo packages published\n\n## [Used by 2.2k](/microsoft/markitdown/network/dependents)\n\n[* ![@durmisi](https://avatars.githubusercontent.com/u/263048?s=64&v=4)\n* ![@NourSaber0](https://avatars.githubusercontent.com/u/128285983?s=64&v=4)\n* ![@Qredence](https://avatars.githubusercontent.com/u/148253410?s=64&v=4)\n* ![@c0sogi](https://avatars.githubusercontent.com/u/121936784?s=64&v=4)\n* ![@thebyte007](https://avatars.githubusercontent.com/u/253636663?s=64&v=4)\n* ![@Chivier](https://avatars.githubusercontent.com/u/41494877?s=64&v=4)\n* ![@futuria-ai](https://avatars.githubusercontent.com/u/169246608?s=64&v=4)\n* ![@DREAM-COIN-DRM](https://avatars.githubusercontent.com/u/251792198?s=64&v=4)\n\n+ 2,166](/microsoft/markitdown/network/dependents)\n\n## [Contributors 73](/microsoft/markitdown/graphs/contributors)\n\n* [![@afourney](https://avatars.githubusercontent.com/u/4017093?s=64&v=4)](https://github.com/afourney)\n* [![@gagb](https://avatars.githubusercontent.com/u/13227607?s=64&v=4)](https://github.com/gagb)\n* [![@sugatoray](https://avatars.githubusercontent.com/u/10201242?s=64&v=4)](https://github.com/sugatoray)\n* [![@PetrAPConsulting](https://avatars.githubusercontent.com/u/173082609?s=64&v=4)](https://github.com/PetrAPConsulting)\n* [![@l-lumin](https://avatars.githubusercontent.com/u/71011125?s=64&v=4)](https://github.com/l-lumin)\n* [![@Josh-XT](https://avatars.githubusercontent.com/u/102809327?s=64&v=4)](https://github.com/Josh-XT)\n* [![@Soulter](https://avatars.githubusercontent.com/u/37870767?s=64&v=4)](https://github.com/Soulter)\n* [![@microsoftopensource](https://avatars.githubusercontent.com/u/22527892?s=64&v=4)](https://github.com/microsoftopensource)\n* [![@dependabot[bot]](https://avatars.githubusercontent.com/in/29110?s=64&v=4)](https://github.com/apps/dependabot)\n* [![@AumGupta](https://avatars.githubusercontent.com/u/86357151?s=64&v=4)](https://github.com/AumGupta)\n* [![@KennyZhang1](https://avatars.githubusercontent.com/u/90438893?s=64&v=4)](https://github.com/KennyZhang1)\n* [![@simonw](https://avatars.githubusercontent.com/u/9599?s=64&v=4)](https://github.com/simonw)\n* [![@lesyk](https://avatars.githubusercontent.com/u/818588?s=64&v=4)](https://github.com/lesyk)\n* [![@madduci](https://avatars.githubusercontent.com/u/371042?s=64&v=4)](https://github.com/madduci)\n\n[+ 59 contributors](/microsoft/markitdown/graphs/contributors)\n\n## Languages\n\n* [Python\n  99.6%](/microsoft/markitdown/search?l=python)\n* [Dockerfile\n  0.4%](/microsoft/markitdown/search?l=dockerfile)\n\n## Footer\n\n© 2026 GitHub, Inc.\n\n### Footer navigation\n\n* [Terms](https://docs.github.com/site-policy/github-terms/github-terms-of-service)\n* [Privacy](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement)\n* [Security](https://github.com/security)\n* [Status](https://www.githubstatus.com/)\n* [Community](https://github.community/)\n* [Docs](https://docs.github.com/)\n* [Contact](https://support.github.com?tags=dotcom-footer)\n* Manage cookies\n* Do not share my personal information\n\n\n\nYou can’t perform that action at this time.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "content_type": "html",
+                "mime_type": "text/html; charset=utf-8",
+                "destination_url": "https://github.com/microsoft/markitdown"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Fetched: GitHub - microsoft/markitdown: Python tool for converting files and office documents to Markdown.",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "GitHub - microsoft/markitdown: Python tool for converting files and office documents to Markdown.",
+              "subtitles": null,
+              "url": "https://github.com/microsoft/markitdown",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+              "source": "github"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-03-24T00:33:15.816079Z",
+          "stop_timestamp": "2026-03-24T00:33:51.641251Z",
+          "flags": null,
+          "type": "text",
+          "text": "MarkItDown은 Microsoft가 만든 도구인데, 그 존재 이유를 한 문장으로 압축하면 이렇습니다: **\"세상의 모든 문서 형식을 LLM이 읽을 수 있는 언어, 즉 Markdown으로 번역하는 통역사.\"**\n\n---\n\n## MarkItDown이란 무엇인가\n\nGitHub에서 87k 스타를 받은, Microsoft AutoGen 팀이 만든 Python 오픈소스 라이브러리입니다. SW 백그라운드 없이도 이해할 수 있도록 비유하자면, 이 도구는 일종의 **범용 문서 번역기**입니다. PDF든 Word든 Excel이든 PowerPoint든, 심지어 이미지나 오디오 파일까지 — 모든 걸 LLM이 이해하기 좋은 텍스트 형식(Markdown)으로 변환해줍니다.\n\n### 왜 Markdown인가?\n\nGPT-4o와 같은 주류 LLM들은 Markdown을 네이티브하게 \"말하며\", 별도 지시 없이도 Markdown을 자연스럽게 사용합니다. 이는 LLM들이 방대한 양의 Markdown 포맷 텍스트로 훈련되었음을 의미하며, 추가 이점으로 Markdown 문법은 토큰 효율성도 매우 높습니다.\n\n즉, 문서를 AI에게 넣기 전에 Markdown으로 먼저 변환하면 — AI가 훨씬 잘 이해하고, 비용도 덜 든다는 뜻입니다.\n\n---\n\n## 지원 파일 형식\n\n현재 MarkItDown이 변환을 지원하는 형식은 PDF, PowerPoint, Word, Excel, 이미지(EXIF 메타데이터 및 OCR), 오디오(EXIF 메타데이터 및 음성 전사), HTML, 텍스트 기반 포맷(CSV, JSON, XML), ZIP 파일, YouTube URL, EPub 등 다양합니다.\n\nCSP 업무 맥락에서 특히 주목할 만한 것은 **PowerPoint → Markdown** 변환입니다. EX Intelligence 발표 자료나 교육 자료들을 AI 파이프라인에 넣을 때, 먼저 MarkItDown으로 전처리하면 구조가 훨씬 깔끔하게 보존됩니다.\n\n---\n\n## 사용법\n\n### 설치\n\n전체 기능을 설치하려면 `pip install 'markitdown[all]'`을 사용하면 됩니다. 선택적으로 특정 형식만 설치하고 싶다면 `pip install 'markitdown[pdf, docx, pptx]'`처럼 원하는 것만 지정할 수도 있습니다.\n\n### 커맨드라인 (가장 간단한 방법)\n\n파일 변환은 `markitdown path-to-file.pdf > document.md`처럼 한 줄로 실행하거나, `-o` 옵션으로 출력 파일을 지정할 수 있습니다. 또한 파이프를 활용한 `cat path-to-file.pdf | markitdown` 방식도 지원합니다.\n\n### Python API\n\n```python\nfrom markitdown import MarkItDown\n\nmd = MarkItDown(enable_plugins=False)\nresult = md.convert(\"report.pptx\")\nprint(result.text_content)\n```\n\n### LLM 연동 (이미지 설명 자동 생성)\n\n이미지 설명을 위해 LLM을 활용하려면 `llm_client`와 `llm_model`을 함께 제공하면 됩니다. 현재 이 기능은 pptx와 이미지 파일에서 지원됩니다.\n\n```python\nfrom markitdown import MarkItDown\nfrom openai import OpenAI\n\nclient = OpenAI()\nmd = MarkItDown(llm_client=client, llm_model=\"gpt-4o\")\nresult = md.convert(\"slide_with_images.pptx\")\n```\n\n### MCP 서버 지원\n\nMarkItDown은 현재 Claude Desktop 같은 LLM 애플리케이션과의 통합을 위한 MCP(Model Context Protocol) 서버도 제공합니다. Claude Desktop에 연결하면 채팅 중에 \"이 PDF 변환해줘\"라고 말하는 것만으로 동작하게 할 수 있습니다.\n\n---\n\n## CSP 업무에서의 활용 포인트\n\nMarkItDown이 CSP의 워크플로우에 연결되는 지점이 여럿 있습니다.\n\n**ESCON / EX Intelligence 파이프라인**으로의 편입을 생각해보면, 조직 내 각종 문서(HR 정책서, 역량 모델 PPT, 설문 결과 Excel)를 AI 에이전트에 넣기 전 전처리 레이어로 MarkItDown을 두는 것이 자연스럽습니다. `convert()` 한 번으로 구조가 살아있는 Markdown이 나오고, 그것을 Supabase나 벡터 DB에 적재하면 RAG 기반 조회가 훨씬 정밀해집니다.\n\n**Pulse Check 보고서 자동화** 관점에서는, 임원이 제출한 기존 PPT 자료나 Word 보고서를 Markdown으로 변환해 비교 분석하는 용도로도 쓸 수 있습니다. \"intuition에서 data로\"라는 EX Intelligence 서사를 구현하는 하나의 하위 레이어가 되는 셈입니다.\n\n**Vibe Coding 교육 자료 재활용** 측면에서도, 기존에 만들어둔 pptx 강의 자료를 `markitdown`으로 변환하면 Claude Code 워크스페이스에서 바로 참조 가능한 지식 소스가 됩니다.\n\n한마디로, MarkItDown은 독립적인 도구라기보다 **AI 파이프라인의 입구 게이트**입니다. 문서가 세상에서 AI로 들어오는 모든 경로에 설치할 수 있는 얇지만 강력한 변환 레이어라고 보면 됩니다.",
+          "citations": [
+            {
+              "uuid": "5ef7e38b-07f1-43cc-933a-4b025e80d3c2",
+              "start_index": 148,
+              "end_index": 214,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/microsoft/markitdown"
+              }
+            },
+            {
+              "uuid": "0dc8ee7c-99ec-44f1-8cdb-d81a278a9610",
+              "start_index": 390,
+              "end_index": 550,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/microsoft/markitdown"
+              }
+            },
+            {
+              "uuid": "14373cb3-3cec-4212-949b-3d1e3f1fdd8d",
+              "start_index": 641,
+              "end_index": 814,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/microsoft/markitdown"
+              }
+            },
+            {
+              "uuid": "843cc938-234b-49d7-a7ab-48d0eae14728",
+              "start_index": 984,
+              "end_index": 1127,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/microsoft/markitdown"
+              }
+            },
+            {
+              "uuid": "a5425ad6-3ab2-4871-b6fc-afead9a16b96",
+              "start_index": 1152,
+              "end_index": 1304,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/microsoft/markitdown"
+              }
+            },
+            {
+              "uuid": "bd69be60-a509-49f0-a704-31cb6063e0be",
+              "start_index": 1499,
+              "end_index": 1591,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/microsoft/markitdown"
+              }
+            },
+            {
+              "uuid": "a54b328c-e205-47f8-8d3a-a16cf24bd119",
+              "start_index": 1803,
+              "end_index": 1894,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/microsoft/markitdown"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-24T00:33:52.152289Z",
+      "updated_at": "2026-03-24T00:33:52.152289Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d1d42-5aa1-730f-8c85-370934d94c46"
+    },
+    {
+      "uuid": "019d1d43-abbe-79cc-a3f7-d568dc22d292",
+      "text": "이 리포를 구글 안티그래비티 기반으로 설치형으로 사용할 수 있는 방법을 찾아줘",
+      "content": [
+        {
+          "start_timestamp": "2026-03-24T00:34:28.192077Z",
+          "stop_timestamp": "2026-03-24T00:34:28.192077Z",
+          "flags": null,
+          "type": "text",
+          "text": "이 리포를 구글 안티그래비티 기반으로 설치형으로 사용할 수 있는 방법을 찾아줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-24T00:34:28.242746Z",
+      "updated_at": "2026-03-24T00:34:28.242746Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d1d42-5aa2-76b2-94c4-d8f389479093"
+    },
+    {
+      "uuid": "019d1d43-abbe-7e16-bf9a-4b0b968190b3",
+      "text": " 구글 안티그래비티(Google Project IDX 기반의 클라우드 IDE)에서 MarkItDown을 설치형으로 사용하는 방법을 찾아보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n이제 전체 그림이 보입니다. 두 가지 경로를 명확하게 정리해드리겠습니다.\n\n---\n\n## Antigravity에서 MarkItDown 사용하는 두 가지 경로\n\n핵심부터 말하면, MarkItDown을 Antigravity에서 쓰는 방법은 크게 두 가지입니다. **터미널 직접 설치형(CLI)**과 **MCP 서버 연동형**. 전자는 간단하고 즉각적이며, 후자는 에이전트가 자율적으로 파일 변환을 수행하게 되는 구조입니다.\n\n---\n\n### 경로 1: 터미널 직접 설치 (가장 빠른 방법)\n\nAntigravity는 VS Code의 heavily modified fork이기 때문에 내장 터미널이 그대로 살아있습니다. 에이전트에게 시키거나, 직접 터미널을 열어서 실행하면 됩니다.\n\n**설치 순서:**\n\n```bash\n# 1. 가상환경 생성 (프로젝트 폴더 안에서)\npython -m venv .venv\nsource .venv/bin/activate   # Mac/Linux\n# .venv\\Scripts\\activate    # Windows\n\n# 2. MarkItDown 설치 (전체 기능 포함)\npip install 'markitdown[all]'\n\n# 3. 즉시 사용\nmarkitdown 파일명.pdf > 결과.md\nmarkitdown 파일명.pptx -o 결과.md\n```\n\nAntigravity 에이전트에게 자연어로 시켜도 됩니다:\n> \"이 프로젝트에 markitdown을 설치하고 `/path/to/file.pptx`를 변환해줘\"\n\n에이전트가 venv 생성 → pip 설치 → 변환까지 자동으로 처리합니다.\n\n---\n\n### 경로 2: MCP 서버로 연동 (에이전트 자율 사용 구조)\n\n이 방법이 Antigravity의 본령에 맞는 방식입니다. MCP 서버로 등록해두면, 에이전트가 대화 중에 \"이 파일 변환해서 분석해줘\"라는 말 한마디에 자율적으로 MarkItDown을 호출합니다.\n\nMarkItDown은 공식적으로 MCP 서버(`markitdown-mcp`)를 제공하며, Claude Desktop 같은 LLM 애플리케이션과의 통합을 위해 설계되었습니다.\n\n**Step 1: markitdown-mcp 설치**\n\n```bash\npip install 'markitdown-mcp'\n# 또는 uv 사용 시\nuv pip install 'markitdown-mcp'\n```\n\n**Step 2: mcp_config.json 수정**\n\nAntigravity에서 MCP 서버를 추가하려면, Agent 창 상단 오른쪽 `...` 메뉴 → MCP Servers → Manage MCP Servers → View raw config를 클릭하면 `mcp_config.json` 파일이 열립니다.\n\n파일 경로는 OS별로 다릅니다:\n- **Mac/Linux**: `~/.gemini/antigravity/mcp_config.json`\n- **Windows**: `C:\\Users\\<USER_NAME>\\.gemini\\antigravity\\mcp_config.json`\n\n아래 내용을 추가합니다:\n\n```json\n{\n  \"mcpServers\": {\n    \"markitdown\": {\n      \"command\": \"/절대경로/.venv/bin/python\",\n      \"args\": [\"-m\", \"markitdown_mcp\"]\n    }\n  }\n}\n```\n\n> ⚠️ 중요: Antigravity는 `${workspaceFolder}` 같은 상대경로를 지원하지 않으므로 반드시 절대경로를 사용해야 합니다.\n\n**Step 3: Antigravity 재시작 후 확인**\n\n변경사항 적용을 위해 Antigravity를 닫고 다시 열고, MCP Servers 패널에서 `markitdown`이 표시되는지 확인합니다.\n\n---\n\n### 어떤 경로를 선택할까?\n\nCSP 업무 맥락에서 판단하면 이렇습니다.\n\n**CLI 방식(경로 1)**은 당장 오늘 써야 하는 상황, 즉 EX Intelligence 발표 자료를 Markdown으로 변환해서 Claude에 붙여넣을 때 적합합니다. 설치 3분, 사용 1분.\n\n**MCP 방식(경로 2)**은 ESCON이나 Pulse Check 파이프라인처럼 \"문서 입수 → 변환 → 분석 → 저장\"의 플로우를 에이전트가 자율적으로 반복 수행해야 할 때 적합합니다. 한 번 연결해두면 \"이 폴더의 모든 PPT를 Markdown으로 변환해서 Supabase에 넣어줘\"가 한 문장으로 작동하는 세계가 됩니다.\n\nAntigravity의 본질이 \"에이전트가 자율적으로 계획하고, 실행하고, 검증하는 플랫폼\"이라는 점을 고려하면, 장기적으로는 MCP 방식이 CSP 아키텍처의 철학 — \"do it once, automate it forever\" — 과 훨씬 잘 맞습니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-24T00:34:28.865921Z",
+          "stop_timestamp": "2026-03-24T00:34:29.591443Z",
+          "flags": null,
+          "type": "text",
+          "text": " 구글 안티그래비티(Google Project IDX 기반의 클라우드 IDE)에서 MarkItDown을 설치형으로 사용하는 방법을 찾아보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-24T00:34:29.997433Z",
+          "stop_timestamp": "2026-03-24T00:34:30.277036Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01Qz5vDb37ph4cz5ABJ26Pee",
+          "name": "web_search",
+          "input": {
+            "query": "Google AntiGravity IDE cloud development environment 2025"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01Qz5vDb37ph4cz5ABJ26Pee",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Connect Google Antigravity IDE to Google’s Data Cloud services | Google Cloud Blog",
+              "url": "https://cloud.google.com/blog/products/data-analytics/connect-google-antigravity-ide-to-googles-data-cloud-services",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "google.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=google.com",
+                "site_name": "Google Cloud"
+              },
+              "is_missing": false,
+              "text": "Google Cloud is at the forefront of this shift, empowering you to build robust, data-driven applications quickly and accurately. Last month, Google announced Antigravity, an AI-first integrated development environment (IDE).\n\nDecember 15, 2025 · Sr. Product Manager, AI for Databases · Staff Software Engineer, AI for Databases · State-of-the-art image generation and editingTry now · The AI state of the art is shifting rapidly from simple chat interfaces to autonomous agents capable of planning, executing, and refining complex workflows. In this new landscape, the ability to ground these intelligent agents in your enterprise data is key to unlocking true business value. Google Cloud is at the forefront of this shift, empowering you to build robust, data-driven applications quickly and accurately. Last month, Google announced Antigravity, an AI-first integrated development environment (IDE). And now, you can now give the AI agents you build in Antigravity direct, secure access to the trusted data infrastructure that powers your organization, turning abstract reasoning into concrete, data-aware action.\n\nLast month, Google announced Antigravity, an AI-first integrated development environment (IDE). And now, you can now give the AI agents you build in Antigravity direct, secure access to the trusted data infrastructure that powers your organization, turning abstract reasoning into concrete, data-aware action. With Model Context Protocol (MCP) servers powered by MCP Toolbox for Databases now available within Antigravity, you can securely connect your AI agents to services like AlloyDB for PostgreSQL, BigQuery, Spanner, Cloud SQL, Looker and others within Google’s Data Cloud, all within your development workflow. We designed Antigravity to keep you in the flow, but the power of an AI agent is limited by what it \"knows.\" To build truly useful applications, your agent needs to understand your data. MCP acts as the universal translator. You can think of it like a USB-C port for AI.\n\nYou can also enter your password or have Antigravity use your Identity and Access Management (IAM) credentials for additional security. These are stored securely, so your agent can access the tools it needs without exposing raw secrets in your chat window. ... Once connected to Antigravity, your agent gains a suite of \"tools\" (executable functions) that it can use to assist you, and help transform your development and observability experience across different services. Let’s take a look at a couple of common scenarios. Streamlining database tasks with AlloyDB for PostgreSQL · When building against a relational database like PostgreSQL, you may spend time switching between your IDE and a SQL client to check schema names or test queries. With the AlloyDB MCP server, your agent handles that context and gains the ability to perform database administration and generate high-quality SQL code you can include in your apps — all within the Antigravity interface.\n\nInstantly validating logic: Don't wait to deploy a dashboard to test a theory. Use run_query to execute ad-hoc tests against the Looker model directly in your IDE, so that your application logic matches the live data. Auditing reports: Use run_look to pull results from existing saved reports, allowing you to verify that your application's output aligns with official business reporting. By integrating Google’s Data Cloud MCP servers into Antigravity, it’s easier than ever to use AI to discover insights and develop new applications. Now, with access to a wide variety of data sources that run your business, get ready to take the leap from simply talking to your code, to creating new experiences for your users.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://cloud.google.com/blog/products/data-analytics/connect-google-antigravity-ide-to-googles-data-cloud-services",
+                "search_provider": "anthropic",
+                "age": "December 16, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Google Antigravity - Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Google_Antigravity",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "wikipedia.org",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=wikipedia.org",
+                "site_name": "Wikipedia"
+              },
+              "is_missing": false,
+              "text": "Announced on November 18, 2025 alongside the release of Gemini 3, Antigravity enables developers to delegate complex coding tasks to autonomous AI agents powered primarily by Google&#x27;s Gemini 3.1 Pro and Gemini 3 Flash models. The platform is a heavily modified fork of Visual Studio Code.\n\nGoogle Antigravity is an AI-powered integrated development environment (IDE) developed by Google, designed for prioritizing AI agents platform for software development. Announced on November 18, 2025 alongside the release of Gemini 3, Antigravity enables developers to delegate complex coding tasks to autonomous AI agents powered primarily by Google's Gemini 3.1 Pro and Gemini 3 Flash models. The platform is a heavily modified fork of Visual Studio Code. There is debate as to whether it is a direct fork of the software, or whether it is a fork of Windsurf, another AI-oriented code editor which is itself a fork of Visual Studio Code. Google Antigravity supports multiple AI models, including Anthropic's Claude Sonnet 4.6 and Claude Opus 4.6, as well as an open-source variant of OpenAI models (GPT-OSS-120B). Antigravity was released in public preview on the day of its announcement and is available free of charge for Microsoft Windows, macOS, and Linux, with \"generous rate limits\" for Gemin\n\nAntigravity introduces an \"agent-first\" paradigm, shifting from traditional AI code assistance to a system where AI agents operate with greater autonomy. It features two primary views: Editor view: A usual IDE interface like Visual Studio Code and PyCharm with an agent sidebar, similar to tools like Cursor or GitHub Copilot. Manager view: A control center for orchestrating multiple agents working in parallel across workspaces, allowing asynchronous task execution. To build user trust, agents generate \"Artifacts\"—verifiable deliverables such as task lists, implementation plans, screenshots, and browser recordings—rather than raw tool calls.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://en.wikipedia.org/wiki/Google_Antigravity",
+                "search_provider": "anthropic",
+                "age": "2 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Getting Started with Google Antigravity | Google Codelabs",
+              "url": "https://codelabs.developers.google.com/getting-started-google-antigravity",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "google.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=google.com",
+                "site_name": "Google Codelabs"
+              },
+              "is_missing": false,
+              "text": "Antigravity needs to be locally installed on your system. The product is available on Mac, Windows and specific Linux distributions. In addition to your own machine, you will need the following: Chrome web browser. A Gmail account (Personal Gmail account). This codelab, designed for users and ...\n\nCongratulations! You have now successfully installed Antigravity, configured your environment, and learned how to control your agents. What's Next? To see Antigravity in action building real-world applications, you can look at the following codelabs: Building with Google Antigravity: This codelab shows how to build several applications including a dynamic conference website and a productivity app. Build and Deploy to Google Cloud with Antigravity: This codelab shows how to design, build, and deploy a serverless application to Google Cloud. ... Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.\n\nIn this codelab, you will learn about Google Antigravity (referred to as Antigravity for the rest of the document), an agentic development platform, evolving the IDE into the agent-first era. Unlike standard coding assistants that just autocomplete lines, Antigravity provides a \"Mission Control\" for managing autonomous agents that can plan, code, and even browse the web to help you build. Antigravity is designed as an agent-first platform. It presupposes that the AI is not just a tool for writing code but an autonomous actor capable of planning, executing, validating, and iterating on complex engineering tasks with minimal human intervention. Installing and configuring Antigravity. Exploring key concepts of Antigravity like Agent Manager, Editor, Browser and more. Customizing Antigravity with your own rules and workflow, along with security considerations.\n\nUpon launching Antigravity, the user is typically greeted not by a file tree, but by the Agent Manager, as shown below: This interface acts as a Mission Control dashboard. It is designed for high-level orchestration, allowing developers to spawn, monitor, and interact with multiple agents operating asynchronously across different workspaces or tasks. In this view, the developer acts as an architect. They define high-level objectives, examples could be: ... As the diagram above indicates, each of these requests spawns a dedicated agent instance. The UI provides a visualization of these parallel work streams, displaying the status of each agent, the Artifacts they have produced (plans, results, diffs), and any pending requests for human approval. This architecture addresses a key limitation of previous IDEs that had more of a chatbot experience, which were linear and synchronous.\n\nAntigravity needs to be locally installed on your system. The product is available on Mac, Windows and specific Linux distributions. In addition to your own machine, you will need the following: Chrome web browser. A Gmail account (Personal Gmail account). This codelab, designed for users and developers of all levels (including beginners). For Google Cloud Credits: To help you use Antigravity with Google Cloud projects, redeem your free Google Cloud credits using this link. You can follow the instructions here to activate the credit and create a new project. As you work through the codelab and with Antigravity, you might encounter problems. For codelab related issues (typos, wrong instructions), please open a bug with Report a mistake button in bottom left corner of this codelab: For bugs or feature requests related to Antigravity, please report the issue within Antigravity.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://codelabs.developers.google.com/getting-started-google-antigravity",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "A first look at Google’s new Antigravity IDE | InfoWorld",
+              "url": "https://www.infoworld.com/article/4096113/a-first-look-at-googles-new-antigravity-ide.html",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "infoworld.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=infoworld.com",
+                "site_name": "InfoWorld"
+              },
+              "is_missing": false,
+              "text": "And like Kiro, Antigravity uses a prompt-and-spec driven process for iterative development. The biggest difference between the two IDEs, at this stage, is in the models each one offers. Kiro is limited to Claude Sonnet 4.0 and 4.5, whereas Antigravity offers Sonnet and others (mainly Gemini). Both are still limited to external APIs for their models. Even if you had the hardware to host a model locally, you couldn’t use Antigravity with it—at least not yet. Antigravity doesn’t have Kiro’s more development-workflow-centric features, like the hooks that can be defined to trigger agent behaviors at certain points (e.g., saving a file). The product is still in an early enough stage, though. It is likely Google is focusing on the core agentic functions—the behavior of the user feedback loop, for instance—before adding a broader set of developer features and bringing the product to a full-blown initial release.\n\nMy first project in planning mode was a simple Python-based utility for taking a Markdown file and generating a Microsoft Word (.docx) file from it. The first set of commands Antigravity generated did not take advantage of the Python virtual environment already in the project directory, which meant the needed libraries would have been installed in the wrong place. But after I advised the agent, it used the virtual environment correctly for all future Python actions. The implementation plan created by an Antigravity task prompt, shown at top left. Planning mode allows the developer to vet and comment on each plan document and the description of steps. ... Once the agent created a basic version of the project, including a task list, walkthrough, and implementation plan, I requested some modifications. One was the ability to provide font styling information for the generated Word file, by way of a JSON file.\n\nSerdar Yegulalp is a senior writer at InfoWorld. A veteran technology journalist, Serdar has been writing about computers, operating systems, databases, programming, and other information technology topics for 30 years. Before joining InfoWorld in 2013, Serdar wrote for Windows Magazine, InformationWeek, Byte, and a slew of other publications. At InfoWorld, Serdar has covered software development, devops, containerization, machine learning, and artificial intelligence, winning several B2B journalism awards including a 2024 Neal Award and a 2025 Azbee Award for best instructional content and best how-to article, respectively. He currently focuses on software development tools and technologies and major programming languages including Python, Rust, Go, Zig, and Wasm.\n\nThe project implementation plan generated by Antigravity. The developer can provide inline commentary, which the agent will evaluate and use to shape future revisions. ... All earlier states of those files are preserved along with your agent conversation history. Antigravity also tracks (where it deems relevant) persistent patterns and insights across conversations in what are called Knowledge Items. One much touted feature for Antigravity’s agent integration is the ability to generate mockups and graphics via Google’s Nano Banana image-generation service. To test this, I asked the agent to generate a mockup for a web UI front end for my application. The failure mode for this turned out to be as interesting as the service itself: When multiple attempts to generate the image failed due to the server being overloaded, the agent fell back to generating the mockup as an actual web page.\n\nAnd like Kiro, Antigravity uses a prompt-and-spec driven process for iterative development. The biggest difference between the two IDEs, at this stage, is in the models each one offers. Kiro is limited to Claude Sonnet 4.0 and 4.5, whereas Antigravity offers Sonnet and others (mainly Gemini). Both are still limited to external APIs for their models. Even if you had the hardware to host a model locally, you couldn’t use Antigravity with it—at least not yet. Antigravity doesn’t have Kiro’s more development-workflow-centric features, like the hooks that can be defined to trigger agent behaviors at certain points (e.g., saving a file). The product is still in an early enough stage, though. It is likely Google is focusing on the core agentic functions—the behavior of the user feedback loop, for instance—before adding a broader set of developer features and bringing the product to a full-blown initial release.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.infoworld.com/article/4096113/a-first-look-at-googles-new-antigravity-ide.html",
+                "search_provider": "anthropic",
+                "age": "December 3, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Build with Google Antigravity, our new agentic development platform - Google Developers Blog",
+              "url": "https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "googleblog.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=googleblog.com",
+                "site_name": "Google Developers"
+              },
+              "is_missing": false,
+              "text": "Antigravity isn&#x27;t just an editor—it&#x27;s a development platform that combines a familiar, AI-powered coding experience with a new agent-first interface. This allows you to deploy agents that autonomously plan, execute, and verify complex tasks ...\n\n20, 2025 ... Development is lifting off. The tools of yesterday focused on helping you write code faster; the tools of tomorrow need to help you orchestrate it. Today, we’re introducing Google Antigravity, a new agentic development platform designed to help you operate at a higher, task-oriented level. Antigravity isn't just an editor—it's a development platform that combines a familiar, AI-powered coding experience with a new agent-first interface. This allows you to deploy agents that autonomously plan, execute, and verify complex tasks across your editor, terminal, and browser. We built Antigravity because we believe agents shouldn't just be chatbots in a sidebar; they should have their own dedicated space to work. The platform introduces two distinct ways to interact with your code: The Editor View: When you need to be hands-on, you get a state-of-the-art, AI-powered IDE equipped with tab completions and inline commands for the synchronous workflow you already know.\n\nDelegating work to an agent requires trust, but scrolling through raw tool calls is tedious. Antigravity solves this by having agents generate Artifacts—tangible deliverables like task lists, implementation plans, screenshots, and browser recordings. These Artifacts allow you to verify the agent's logic at a glance. If something looks off, you can leave feedback directly on the Artifact—similar to commenting on a doc—and the agent will incorporate your input without stopping its execution flow. We want Antigravity to be your home base for the era of agents. It treats learning as a core primitive, allowing agents to save useful context and code snippets to a knowledge base to improve future tasks. Google Antigravity is available today in public preview, at no cost for individuals. This cross-platform solution is compatible with MacOS, Windows, and Linux, offering model optionality with generous rate limits on Gemini 3 Pro, and full support for Anthropic's Claude Sonnet 4.5 and OpenAI's \n\nDownload at antigravity.google/download and experience liftoff.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/",
+                "search_provider": "anthropic",
+                "age": "November 20, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to Set Up and Use Google Antigravity | Codecademy",
+              "url": "https://www.codecademy.com/article/how-to-set-up-and-use-google-antigravity",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "codecademy.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=codecademy.com",
+                "site_name": "Codecademy"
+              },
+              "is_missing": false,
+              "text": "Released in November 2025, Google Antigravity represents a shift from traditional manual coding to an agentic development platform where AI handles complete workflows. Unlike traditional coding assistants that only provide autocomplete suggestions, ...\n\nLearn how to use Google Cloud Resource Manager to hierarchically manage resources. Learn to create labels and tags, move and migrate projects, and view audit logs. ... Google Antigravity is Google’s free AI-powered IDE that lets developers build software using autonomous agents instead of writing code line by line. Powered by Gemini 3 Pro, it features an Agent Manager for orchestrating tasks, a built-in browser for testing, and support for multi-agent collaboration. This guide shows you how to install Google Antigravity, set up the Agent Manager, and build your first project using agent-driven development. Released in November 2025, Google Antigravity represents a shift from traditional manual coding to an agentic development platform where AI handles complete workflows. Unlike traditional coding assistants that only provide autocomplete suggestions, Google Antigravity enables true agent-first development where autonomous agents can plan entire projects, write code across multiple file\n\nMaster Google Antigravity, Google’s AI-first IDE powered by Gemini 3 Pro.\n\nHere’s more detail on the other models it’s using as of now (November 20, 2025). Now that the main components are clear, let’s understand how to install Google’s Antigravity. To get started, Google Antigravity must be downloaded and installed on your operating system. The first launch also requires linking a Google account and selecting a supported model. Here are the installation steps: Download the Antigravity installer from the official Google Antigravity download page. Run the installer once it is downloaded. When you open the Antigravity IDE for the first time, it will ask you some questions, so answer them one by one and then click on the next button. After this, select the Start fresh option and click on Next. Then select the theme you want your IDE to have and click on the Next button. Now comes the crucial part of setting up Google Antigravity. You’ll see the Agent Manager configuration screen with different development modes on the left.\n\nCompare Cursor, Windsurf, Antigravity, and VS Code Agents to find the best agentic IDE for your development workflow. ... Build AI agents with Vertex AI Agent Builder. Learn to use Agent Garden, ADK, and Agent Engine to deploy custom agents. ... Learn to use Google ADK Visual Agent Builder to create AI agents visually. ... Learn to build stateful AI agents with persistent memory using Letta's MemGPT architecture—designed for developers and ML engineers. ... Learn how to use Google Cloud Resource Manager to hierarchically manage resources. Learn to create labels and tags, move and migrate projects, and view audit logs. ... Learn to create VPC networks and subnets with Google Virtual Private Cloud.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.codecademy.com/article/how-to-set-up-and-use-google-antigravity",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Google Antigravity AI IDE 2026: Agentic Development Platform & Workflow Revolution",
+              "url": "https://www.baytechconsulting.com/blog/google-antigravity-ai-ide-2026",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "baytechconsulting.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=baytechconsulting.com",
+                "site_name": "Baytech Consulting"
+              },
+              "is_missing": false,
+              "text": "Released in late 2025, it is not an extension or a plugin; it is a complete platform built on a fork of Visual Studio Code.2 · Unlike its predecessors, Antigravity is built on an &quot;Agent-First&quot; philosophy.\n\nGoogle Antigravity is a standalone, AI-native IDE designed to break this bottleneck. Released in late 2025, it is not an extension or a plugin; it is a complete platform built on a fork of Visual Studio Code.2 · Unlike its predecessors, Antigravity is built on an \"Agent-First\" philosophy. It presupposes that the AI is not just a tool for writing code but an autonomous actor capable of planning, executing, validating, and iterating on complex engineering tasks.4 It integrates Google’s most advanced model, Gemini 3, directly into the IDE's core, granting it permissions to interact with the file system, the terminal, and even a browser instance.5 · This shift redefines the developer's role. In the Antigravity workflow, the developer transitions from a \"writer of code\" to an \"Architect\" or \"Mission Controller.\" You do not type function login(); you issue a directive: \"Refactor the login flow to support OAuth and verify it against these design specs.\"\n\nRecommendation: For clients in regulated industries (Healthcare, Finance), Antigravity should be treated as a public cloud environment. Do not use it for codebases containing PII or hardcoded secrets until a formal BAA (Business Associate Agreement) covers the tool. Currently, Antigravity is free for individuals in Public Preview.25 However, the compute costs for Gemini 3 are high. We anticipate Google will introduce a tiered pricing model in 2026: Individual: Free (limited rate limits). Pro: ~$20/month (higher limits, priority access). Enterprise: ~40-60/user/month (SSO, data residency, admin controls, integration with Google Cloud IAM).26 · The ROI of Antigravity is non-linear. Greenfield Projects: For creating new applications, the ROI is massive. A developer can spin up a full-stack prototype in hours rather than days. This accelerates \"Time to Market\" and allows for faster validation of business ideas.\n\nBryan’s expertise spans custom software development, cloud infrastructure, artificial intelligence, and strategic business consulting, making him a trusted advisor and thought leader across a wide range of industries. ... The Future of Software Investment: Risk Strategies for 2026Unlocking Developer Happiness and Productivity in 2025 ... Baytech builds enterprise-grade AI applications that automate processes, enhance decision-making, and drive measurable ROI.Start Your AI Journey · Enterprise-grade AI applications tailored to your business needs · Intelligent automation to streamline your business processes · Turn data into actionable insights with AI-powered analytics · Seamlessly integrate AI capabilities into existing systems · Speak with our AI experts about transforming your business processes.(877) 663-2592 · Recognized by top companies & organizations in the industry ·\n\nHowever, the \"Gravity\" of the existing ecosystem is strong. The friction of leaving the Microsoft/VS Code marketplace, combined with the performance issues of early-stage software, means that Antigravity is currently a specialized tool for early adopters and specific use cases (Web/Python/Google Cloud). It is not yet the universal replacement for VS Code. For the Visionary CTO, the move is clear: Sandbox it. Encourage your innovation teams to use it. Learn the workflow. But keep your core production lines running on the proven stability of VS Code and Azure DevOps—at least for now. Q: Can I use my existing VS Code extensions in Antigravity? A: Only if they are open-source and available on the Open VSX registry. Proprietary Microsoft extensions (C# Dev Kit, Pylance, Remote-SSH) are blocked and will not work. This is a major limitation for .NET developers.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.baytechconsulting.com/blog/google-antigravity-ai-ide-2026",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Tutorial : Getting Started with Google Antigravity | by Romin Irani | Google Cloud - Community | Medium | Google Cloud - Community",
+              "url": "https://medium.com/google-cloud/tutorial-getting-started-with-google-antigravity-b5cc74c103c2",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "medium.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=medium.com",
+                "site_name": "Medium"
+              },
+              "is_missing": false,
+              "text": "Antigravity is designed as an &quot;agent-first&quot; platform. It presupposes that the AI is not just a tool for writing code but an autonomous actor capable of planning, executing, validating, and iterating on complex engineering tasks with minimal ...\n\nNovember 28, 2025: - How to navigate this tutorial. - Workflows and Rules in Antigravity - Agent Security — Allow List, Deny List and Browser Allow Lists. ... You can think of Antigravity as a new agentic development platform that evolves the traditional IDE into an agent-first experience. Unlike standard coding assistants that just autocomplete lines, Antigravity provides a \"Mission Control\" for managing autonomous agents that can plan, code, and even browse the web to help you build. Antigravity is designed as an \"agent-first\" platform. It presupposes that the AI is not just a tool for writing code but an autonomous actor capable of planning, executing, validating, and iterating on complex engineering tasks with minimal human intervention. What is your role as a developer in this environment? It moves the developer's role from that of someone filling out code snippets, editing it, etc to that of an \"architect\" or \"manager,\" orchestrating a workforce of digital agents.\n\nWelcome to the tutorial on Antigravity, Google's free and experimental Agent first development platform.\n\nWelcome to the tutorial on Antigravity, Google’s free and experimental Agent first development platform.\n\nCreating a Skill in Antigravity follows a specific directory structure and file format. This standardization ensures that skills are portable and that the agent can reliably parse and execute them. The design is intentionally simple, relying on widely understood formats like Markdown and YAML, lowering the barrier to entry for developers wishing to extend their IDE’s capabilities. Skills can be defined at two scopes, allowing for both project-specific and user-specific customizations : Workspace Scope: Located in <workspace-root>/.agent/skills/. These skills are available only within the specific project. This is ideal for project-specific scripts, such as deployment to a specific environment, database management for that app, or generating boilerplate code for a proprietary framework. Global Scope: Located in ~/.gemini/antigravity/skills/. These skills are available across all projects on the user's machine.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://medium.com/google-cloud/tutorial-getting-started-with-google-antigravity-b5cc74c103c2",
+                "search_provider": "anthropic",
+                "age": "January 15, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Google Antigravity - AI Agent Reviews, Features, Use Cases & Alternatives (2025)",
+              "url": "https://www.aitoolhouse.com/ai-agents/google-antigravity",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "aitoolhouse.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=aitoolhouse.com",
+                "site_name": "AI Toolhouse"
+              },
+              "is_missing": false,
+              "text": "Google Antigravity is an AI-powered, agent-first Integrated Development Environment (IDE) released by Google in late 2025 to revolutionize software development.\n\nGoogle Antigravity is an AI-powered, agent-first Integrated Development Environment (IDE) released by Google in late 2025 to revolutionize software development. ... Google Antigravity is an advanced AI-powered, agent-first Integrated Development Environment (IDE) designed to redefine how software is built in the era of autonomous AI. Developed by Google and based on a modified Visual Studio Code architecture, it enables developers to delegate complex, end-to-end coding workflows to intelligent AI agents. Positioned at the intersection of AI-driven software development and autonomous systems, Antigravity acts as a mission control hub where agents can plan, write, test, and optimize code with minimal human intervention. Unlike traditional coding assistants, Google Antigravity is built for the \"agentic\" paradigm, where multiple AI agents operate in parallel to execute tasks in the background.\n\nGoogle Antigravity is redefining how developers interact with code by introducing a fully agentic approach to software development. By combining powerful AI models, autonomous task execution, and a familiar IDE environment, it enables faster development, better code quality, and more efficient workflows. As the software industry moves toward AI-driven automation, tools like Antigravity are set to play a central role in shaping the future of programming. ... Versatile, private AI tool supporting any LLM and document, with full customization. ... Boost productivity with AI: autonomous agents, parallel tasks, and rich content library. ... Streamline workflows with AI-driven integration and scalable automation. ... Streamline workflows, connect systems, automate processes with intuitive iPaaS. ... A cloud-based software engineering agent that answers codebase questions, executes code, and drafts pull requests.\n\nAI researchers exploring agent-based programming environments · Enterprises seeking scalable, AI-driven development infrastructure · Google Antigravity is more than just another AI coding assistant—it represents a fundamental shift toward agent-first software development. Its ability to orchestrate multiple autonomous agents that can independently plan, execute, and validate tasks sets it apart from traditional IDEs and copilots. Unlike tools that rely on human prompts for every action, Antigravity enables continuous, background execution of complex workflows, making it a true mission control system for modern software engineering. With deep integration of advanced AI models, a dedicated agent management system, and built-in testing capabilities, Antigravity delivers a unified environment where development is faster, smarter, and more scalable.\n\nCross-Platform Compatibility: Runs locally on Windows, macOS, and Linux environments for secure and flexible development. End-to-end automation: Handles complete development workflows, reducing manual coding effort significantly. Parallel task execution: Multiple agents can work simultaneously, accelerating development timelines. Flexible AI ecosystem: Supports multiple AI models, allowing developers to choose the best model for specific tasks. Improved productivity: Enables developers to focus on architecture and strategy rather than repetitive coding tasks. Local execution: Enhances data security by running workflows on local machines. Early-stage platform: Still in preview phase, which may include bugs or incomplete features. Learning curve: Developers may need time to adapt to agent-based workflows. Resource intensive: Running multiple AI agents locally may require high computational resources.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.aitoolhouse.com/ai-agents/google-antigravity",
+                "search_provider": "anthropic",
+                "age": "5 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Google Antigravity: The First True Agent-First IDE and the Future of Software Development | by James Fahey | Medium",
+              "url": "https://medium.com/@fahey_james/google-antigravity-the-first-true-agent-first-ide-and-the-future-of-software-development-e1a85d1e1d6c",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "medium.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=medium.com",
+                "site_name": "Medium"
+              },
+              "is_missing": false,
+              "text": "On November 18, 2025, Google quietly ... since the launch of VS Code: Google Antigravity, an AI-native, agent-first Integrated Development Environment (IDE) powered by Gemini 3. ... It’s something deeper....\n\nOn November 18, 2025, Google quietly dropped one of the most important — and least understood — developer tools since the launch of VS Code: Google Antigravity, an AI-native, agent-first Integrated Development Environment (IDE) powered by Gemini 3. ... It’s something deeper. Antigravity marks a structural shift: from AI as an assistant to AI as a full agentic collaborator capable of planning, coding, testing, orchestrating, and verifying work across an entire development stack. This article breaks down the history, technology, competition, market forces, product roadmap, and why Google Antigravity may become the default interface for building software in the agentic era. ... The launch of Antigravity happened alongside Gemini 3, Google’s newest large-language model built for reasoning, multimodality, and long-context autonomy. Over several years, Google moved from generative autocomplete (Gemini 1) → multimodal reasoning (Gemini 2/2.5) → full agent orchestration with Gemini 3.\n\nAntigravity is a wedge to pull developers into the Google Cloud ecosystem. ... Antigravity touches all of these. If agent-based development becomes standard, Google could own the interface where all software development happens. ... It’s the same flywheel that made AWS dominate cloud — just applied to AI-native dev. ... Antigravity positions Google as the company defining this transition. ... Antigravity is not just another IDE. It signals the beginning of: ... This is the first credible platform that makes this real. ... Failures will be amplified by automation. Google’s artifact-based verification is an early attempt at solving this. ... Google Antigravity is the most ambitious rethinking of the IDE since the invention of IDEs themselves. It combines: ... If Google executes, Antigravity will become the default interface for building modern software, just as Chrome became the default interface for the web.\n\nThird-party commentary suggests Antigravity extends familiar interfaces (some say a fork of VS Code), but with fundamentally different architecture: agent-first, multimodal, verified, orchestrated. ... Antigravity is not “autocomplete on steroids.” It introduces features that traditional IDEs don’t — and can’t — provide: ... Developers don’t merely give prompts. They assign tasks. Agents: ... This reduces ambiguity and gives enterprises the transparency they demand. ... Multiple agents can run simultaneously for different subtasks, all supervised in a Manager View — a mission-control interface. ... This gives it enormous enterprise appeal: no lock-in. ... Enterprise-grade auditability is built in. ... This becomes not an IDE — but an operating system for agentic software development. ... Even with Google’s muscle, Antigravity must prove its safety and reliability across complex codebases before mainstream adoption.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://medium.com/@fahey_james/google-antigravity-the-first-true-agent-first-ide-and-the-future-of-software-development-e1a85d1e1d6c",
+                "search_provider": "anthropic",
+                "age": "November 19, 2025"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-24T00:34:32.175840Z",
+          "stop_timestamp": "2026-03-24T00:34:32.564714Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01NFacPEWkXMUWfugQ8Au7En",
+          "name": "web_search",
+          "input": {
+            "query": "markitdown install antigravity IDE MCP server terminal pip"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01NFacPEWkXMUWfugQ8Au7En",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Google Antigravity: How to add custom MCP server to improve Vibe Coding | by Tarun Jain | Google Developer Experts | Medium",
+              "url": "https://medium.com/google-developer-experts/google-antigravity-custom-mcp-server-integration-to-improve-vibe-coding-f92ddbc1c22d",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "medium.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=medium.com",
+                "site_name": "Medium"
+              },
+              "is_missing": false,
+              "text": "... 2. To add a custom MCP server, select Manage MCP Servers at the top of the MCP store and then click on View raw config in the main tab. ... 3. Modify the mcp_config.json with your custom MCP server configuration.\n\nGoogle just announced Gemini 3 Pro and the Antigravity release. I am actually more excited about Antigravity because of Varun Mohan. I…\n\nIf you want to start with Antigravity, first install it and pick your preferred IDE layout. After setup, move to planning before writing any code. Begin by defining your task and the features you need. Then prepare an implementation plan and workflow. If you already have clarity, write it yourself. If not, simply describe the goal and let Gemini 3 generate the Implementation Plan, Task, and Walkthrough files. IMPORTANT: DO review the Implementation plan, Task list, and Walkthrough. If there is any task related to testing, remove that. Do tell the Agent not to run tests automatically. Do the testing manually because automated testing from the Agent can consume more tokens than required. When Vibe coding, the key stage is implementing features. Avoid asking the Agent to build all features in a single run. If you have more than 5 features, begin with the first one and then move step by step.\n\nLets see how to add your own custom MCP Server in Google Antigravity. Click on Agent session and select the “…” dropdown at the top of the editor’s side panel. And select MCP Servers, you will find the MCP Store. ... 2. To add a custom MCP server, select Manage MCP Servers at the top of the MCP store and then click on View raw config in the main tab. ... 3. Modify the mcp_config.json with your custom MCP server configuration. Note for Vibe coding, having these 3 MCP servers can be handy: Context-7: Up-to-date Code Docs for the tech stack your app needs. Sequential Thinking: For dynamic and reflective problem-solving through a structured thinking process. Retriever-based MCP: Save and retrieve the code that works for future purposes. for example: Qdrant MCP Server. NOTE: Sequential Thinking is already in MCP Store, just click on Install.\n\nGoogle just announced Gemini 3 Pro and the Antigravity release. I am actually more excited about Antigravity because of Varun Mohan. I have been a big fan of Windsurf, and I had a feeling from the start that once Varun joined the team, something amazing would arrive. And here we are with Antigravity. ... Google Antigravity is a new Agentic development platform from Google that changes how software is built by letting developers work at a higher task-focused level. With the reasoning and Agentic coding abilities of Gemini 3, Antigravity allows AI Agents to plan, code, and validate complete software tasks on their own. It includes an Agent manager dashboard, a VS Code-style editor, and deep browser connectivity, letting Agents interact with web apps directly for testing and validation. Instead of being just another coding tool, it becomes a true development partner that improves productivity by managing multiple projects and tasks in parallel with autonomous workflows.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://medium.com/google-developer-experts/google-antigravity-custom-mcp-server-integration-to-improve-vibe-coding-f92ddbc1c22d",
+                "search_provider": "anthropic",
+                "age": "December 2, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "github-mcp-server/docs/installation-guides/install-antigravity.md at main · github/github-mcp-server",
+              "url": "https://github.com/github/github-mcp-server/blob/main/docs/installation-guides/install-antigravity.md",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "This guide covers setting up the GitHub MCP Server in Google&#x27;s Antigravity IDE. ... Uses GitHub&#x27;s hosted server at https://api.githubcopilot.com/mcp/. ... We recommend this manual configuration method because the &quot;official&quot; installation via the Antigravity MCP Store currently has known issues (often resulting in Docker errors). This direct remote connection is more reliable. ... { &quot;mcpServers&quot;: { &quot;github&quot;: { &quot;serverUrl&quot;: &quot;https://api.githubcopilot.com/mcp/&quot;, &quot;headers&quot;: { &quot;Authorization&quot;: &quot;Bearer YOUR_GITHUB_PAT&quot; } } } } Important: Note that Antigravity uses serverUrl instead of url for HTTP-based MCP servers. Replace YOUR_GITHUB_PAT with your actual GitHub Personal Access Token. Create a token here: https://github.com/settings/tokens ... Close and reopen Antigravity for the changes to take effect. Open the MCP Servers panel (... menu → MCP Servers) You should see &quot;github&quot; with a list of available tools ·\n\nThis guide covers setting up the GitHub MCP Server in Google's Antigravity IDE. ... Uses GitHub's hosted server at https://api.githubcopilot.com/mcp/. ... We recommend this manual configuration method because the \"official\" installation via the Antigravity MCP Store currently has known issues (often resulting in Docker errors). This direct remote connection is more reliable. ... { \"mcpServers\": { \"github\": { \"serverUrl\": \"https://api.githubcopilot.com/mcp/\", \"headers\": { \"Authorization\": \"Bearer YOUR_GITHUB_PAT\" } } } } Important: Note that Antigravity uses serverUrl instead of url for HTTP-based MCP servers. Replace YOUR_GITHUB_PAT with your actual GitHub Personal Access Token. Create a token here: https://github.com/settings/tokens ... Close and reopen Antigravity for the changes to take effect. Open the MCP Servers panel (... menu → MCP Servers) You should see \"github\" with a list of available tools ·\n\n{ \"mcpServers\": { \"github\": { \"command\": \"docker\", \"args\": [ \"run\", \"-i\", \"--rm\", \"-e\", \"GITHUB_PERSONAL_ACCESS_TOKEN\", \"ghcr.io/github/github-mcp-server\" ], \"env\": { \"GITHUB_PERSONAL_ACCESS_TOKEN\": \"YOUR_GITHUB_PAT\" } } } } ... Make sure you're using serverUrl (not url) for the remote server configuration. Antigravity requires serverUrl for HTTP-based MCP servers. ... And many more... For a complete list of available tools and features, see the main README. Configuration key: Antigravity uses serverUrl instead of url for HTTP servers · Config location: .gemini/antigravity/mcp_config.json instead of .cursor/mcp.json · Tool limits: Antigravity recommends keeping total enabled tools under 50 for optimal performance · Explore the Server Configuration Guide for advanced options · Check out toolsets documentation to customize available tools ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/github/github-mcp-server/blob/main/docs/installation-guides/install-antigravity.md",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "n8n-mcp/docs/ANTIGRAVITY_SETUP.md at main · czlonkowski/n8n-mcp",
+              "url": "https://github.com/czlonkowski/n8n-mcp/blob/main/docs/ANTIGRAVITY_SETUP.md",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "... Add MCP server by clicking three dots ... on the top right of chat, and click MCP Servers. Then click on &quot;Manage MCP Servers&quot; and then click on &quot;View raw config&quot; and C:\\Users\\&lt;USER_NAME&gt;\\.gemini\\antigravity\\mcp_config.json will be opened.\n\nA MCP for Claude Desktop / Claude Code / Windsurf / Cursor to build n8n workflows for you - n8n-mcp/docs/ANTIGRAVITY_SETUP.md at main · czlonkowski/n8n-mcp\n\nFor the best results when using n8n-MCP with Antigravity, use these enhanced system instructions (create AGENTS.md in the root directory of the project, AGENTS.md is the file standard for giving special instructions in Antigravity): You are an expert in n8n automation software using n8n-MCP tools. Your role is to design, build, and validate n8n workflows with maximum accuracy and efficiency. ## Core Principles ### 1. Silent Execution CRITICAL: Execute tools without commentary. Only respond AFTER all tools complete. ❌ BAD: \"Let me search for Slack nodes... Great! Now let me get details...\" ✅ GOOD: [Execute search_nodes and get_node in parallel, then respond] ### 2. Parallel Execution When operations are independent, execute them in parallel for maximum performance. ✅ GOOD: Call search_nodes, list_nodes, and search_templates simultaneously ❌ BAD: Sequential tool calls (await each one before the next) ### 3.\n\n✅ This n8n MCP server is compatible with Antigravity (Chat in IDE). Assuming you've already deployed the n8n MCP server locally and connected it to the n8n API, and it's available at: http://localhost:5678 · Or if you are using https://n8n.your.production.url/ then just replace the URLs in the below code. 💡 The deployment process is documented in the HTTP Deployment Guide. ... Add MCP server by clicking three dots ... on the top right of chat, and click MCP Servers. Then click on \"Manage MCP Servers\" and then click on \"View raw config\" and C:\\Users\\<USER_NAME>\\.gemini\\antigravity\\mcp_config.json will be opened. Add the following code to: C:\\Users\\<USER_NAME>\\.gemini\\antigravity\\mcp_config.json and save the file. { \"mcpServers\": { \"n8n-mcp\": { \"command\": \"node\", \"args\": [ \"C:\\\\Users\\\\<USER_NAME>\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\\\\n8n-mcp\\\\dist\\\\mcp\\\\index.js\" ], \"env\": { \"MCP_MODE\": \"stdio\", \"LOG_LEVEL\": \"error\", \"DISABLE_CONSOLE_OUTPUT\": \"true\", \"N8N_API_URL\": \"http://localhost:5678\n\n🧪 This setup is for windows but for Mac and Linux also, it is similar, just provide the absolute path of the global n8n-mcp install!",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/czlonkowski/n8n-mcp/blob/main/docs/ANTIGRAVITY_SETUP.md",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "MCP Registry | Markitdown · GitHub",
+              "url": "https://github.com/mcp/microsoft/markitdown",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "With the standard Python installation, ... python=3.12 conda activate markitdown · To install MarkItDown, use pip: pip install &#x27;markitdown[all]&#x27;. Alternatively, you can install it from the source: git clone git@github.com:mi...\n\nMarkItDown is a lightweight Python utility for converting various files to Markdown for use with LLMs and related text analysis pipelines. To this end, it is most comparable to textract, but with a focus on preserving important document structure and content as Markdown (including: headings, lists, tables, links, etc.) While the output is often reasonably presentable and human-friendly, it is meant to be consumed by text analysis tools -- and may not be the best option for high-fidelity document conversions for human consumption. MarkItDown currently supports the conversion from: ... Markdown is extremely close to plain text, with minimal markup or formatting, but still provides a way to represent important document structure. Mainstream LLMs, such as OpenAI's GPT-4o, natively \"speak\" Markdown, and often incorporate Markdown into their responses unprompted.\n\npip install hatch # Other ways of installing hatch: https://hatch.pypa.io/dev/install/ hatch shell hatch test · (Alternative) Use the Devcontainer which has all the dependencies installed: # Reopen the project in Devcontainer and run: hatch test · Run pre-commit checks before submitting a PR: pre-commit run --all-files · You can also contribute by creating and sharing 3rd party plugins. See packages/markitdown-sample-plugin for more details. This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow Microsoft's Trademark & Brand Guidelines. Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party's policies.\n\nMarkItDown now offers an MCP (Model Context Protocol) server for integration with LLM applications like Claude Desktop. See markitdown-mcp for more information. ... Dependencies are now organized into optional feature-groups (further details below). Use pip install 'markitdown[all]' to have backward-compatible behavior. convert_stream() now requires a binary file-like object (e.g., a file opened in binary mode, or an io.BytesIO object). This is a breaking change from the previous version, where it previously also accepted text file-like objects, like io.StringIO. The DocumentConverter class interface has changed to read from file-like streams rather than file paths. No temporary files are created anymore. If you are the maintainer of a plugin, or custom DocumentConverter, you likely need to update your code. Otherwise, if only using the MarkItDown class or CLI (as in these examples), you should not need to change anything.\n\nMarkItDown requires Python 3.10 or higher. It is recommended to use a virtual environment to avoid dependency conflicts. With the standard Python installation, you can create and activate a virtual environment using the following commands: ... uv venv --python=3.12 .venv source .venv/bin/activate # NOTE: Be sure to use 'uv pip install' rather than just 'pip install' to install packages in this virtual environment · If you are using Anaconda, you can create a virtual environment with: conda create -n markitdown python=3.12 conda activate markitdown · To install MarkItDown, use pip: pip install 'markitdown[all]'. Alternatively, you can install it from the source: git clone git@github.com:microsoft/markitdown.git cd markitdown pip install -e 'packages/markitdown[all]' ... MarkItDown has optional dependencies for activating various file formats. Earlier in this document, we installed all optional dependencies with the [all] option.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/mcp/microsoft/markitdown",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "smart-coding-mcp/docs/ide-setup/antigravity.md at main · omar-haris/smart-coding-mcp",
+              "url": "https://github.com/omar-haris/smart-coding-mcp/blob/main/docs/ide-setup/antigravity.md",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Antigravity is Google&#x27;s AI-powered IDE built on VS Code with deep Gemini integration. ... { &quot;mcpServers&quot;: { &quot;smart-coding-mcp&quot;: { &quot;command&quot;: &quot;npx&quot;, &quot;args&quot;: [ &quot;-y&quot;, &quot;smart-coding-mcp&quot;, &quot;--workspace&quot;, &quot;/absolute/path/to/project&quot; ] } } } Note: Antigravity does NOT support ${workspaceFolder}. You must use absolute paths. Antigravity supports powerful agent rules to control AI behavior. ... --- trigger: always_on description: Mandatory usage of Smart Coding MCP tools for dependencies and search --- # Smart Coding MCP Usage Rules You must prioritize using the **Smart Coding MCP** tools for the following tasks. ## 1. Dependency Management **Trigger:** When checking, adding, or updating package versions (npm, python, go, rust, etc.). **Action:** - **MUST** use the `d_check_last_version` tool. - **DO NOT** guess versions or trust internal training data. - **DO NOT** use generic web search unless `d_check_last_version` fails.\n\nAn extensible Model Context Protocol (MCP-Local-MRL-RAG-AST) server that provides intelligent semantic code search for AI assistants. Built with local AI models, inspired by Cursor's semantic search. - smart-coding-mcp/docs/ide-setup/antigravity.md at main · omar-haris/smart-coding-mcp\n\nAntigravity is Google's AI-powered IDE built on VS Code with deep Gemini integration. ... { \"mcpServers\": { \"smart-coding-mcp\": { \"command\": \"npx\", \"args\": [ \"-y\", \"smart-coding-mcp\", \"--workspace\", \"/absolute/path/to/project\" ] } } } Note: Antigravity does NOT support ${workspaceFolder}. You must use absolute paths. Antigravity supports powerful agent rules to control AI behavior. ... --- trigger: always_on description: Mandatory usage of Smart Coding MCP tools for dependencies and search --- # Smart Coding MCP Usage Rules You must prioritize using the **Smart Coding MCP** tools for the following tasks. ## 1. Dependency Management **Trigger:** When checking, adding, or updating package versions (npm, python, go, rust, etc.). **Action:** - **MUST** use the `d_check_last_version` tool. - **DO NOT** guess versions or trust internal training data. - **DO NOT** use generic web search unless `d_check_last_version` fails.\n\n## 2. Codebase Research **Trigger:** When asking about \"how\" something works, finding logic, or understanding architecture. **Action:** - **MUST** use `a_semantic_search` as the FIRST tool for any codebase research - **DO NOT** use `Glob` or `Grep` for exploratory searches - Use `Grep` ONLY for exact literal string matching (e.g., finding a specific error message) - Use `Glob` ONLY when you already know the exact filename pattern ## 3. Environment & Status **Trigger:** When starting a session or debugging the environment. **Action:** - Use `e_set_workspace` if the current workspace path is incorrect. - Use `f_get_status` to verify the MCP server is healthy and indexed.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/omar-haris/smart-coding-mcp/blob/main/docs/ide-setup/antigravity.md",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to Use MCP Servers in Antigravity (Setup Guide 2026)",
+              "url": "https://antigravity.codes/blog/antigravity-mcp-tutorial",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "antigravity.codes",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=antigravity.codes",
+                "site_name": "Antigravity"
+              },
+              "is_missing": false,
+              "text": "Step-by-step guide to setting up MCP servers in Google Antigravity. Connect Supabase, Playwright, Vercel &amp; more to your AI agent. Includes config examples and troubleshooting.\n\nStep-by-step guide to setting up MCP servers in Google Antigravity. Connect Supabase, Playwright, Vercel & more to your AI agent. Includes config examples and troubleshooting.\n\nGoogle’s new AntiGravity IDE is impressive, but its real power is hidden in a feature called MCP (Model Context Protocol). If you integrate MCP correctly, you stop the Alt-Tab dance. The information comes to you. Think of AntiGravity (and its AI agent, Gemini) as a brilliant developer who has never seen your company's internal tools. Without MCP: The AI is smart, but blind. It can see the code in your open file, but it knows nothing about your database tables, your cloud logs, or your issue tracker. With MCP: You are giving the AI a \"USB cable\" to plug directly into your tools. It gives the AI permission and instruction on how to read your database or run commands in your terminal. MCP operates on a Client-Host-Server architecture: The Host: Google AntiGravity (your IDE). The Client: The AI Agent running inside AntiGravity. The Server: A lightweight application (the MCP Server) that sits between the Agent and your Tool (e.g., Supabase).\n\nHave a legacy internal script? Make it an MCP server in 5 minutes using Python or Node.js, and pipe it into AntiGravity via stdio. Example: An MCP server that queries your internal \"Employee Directory\" legacy SQL database, allowing the Agent to \"Assign this Jira ticket to the on-call engineer\" by looking up the schedule dynamically. When creating API keys for MCP servers (like Supabase or AWS), create specific \"Bot Users\" with limited permissions. Do not use your Admin Service Role key. Do create a role that can SELECT and INSERT but cannot DROP TABLE. Important: MCP servers run local processes with the permissions you grant them. A misconfigured or malicious MCP server can read your file system, exfiltrate API keys, or execute arbitrary commands. Always audit what you install. Least Privilege: Never use admin or service-role keys. Create a dedicated \"bot\" user or API key for each MCP server with only the permissions it actually needs.\n\nAntiGravity promotes \"Vibe Coding\"—a flow state where you describe intent, and the agent handles implementation. MCP is the engine of Vibe Coding. You cannot \"vibe\" if you have to stop and copy-paste database types. With MCP, you stay in the flow, and the agent pulls the info it needs. Let’s say you need to write a function to fetch user data, but you forgot the exact column names in your Supabase database. ... Leave the IDE. Open Chrome and go to supabase.com. Log in and find the project. Wait for the dashboard to load. Click \"Table Editor\" > \"Users\". Memorize that the column is called full_name, not username. Go back to the IDE. Type the code manually. ... You stay in the editor and simply type to the Agent: \"@Supabase check the 'users' table schema and write a TypeScript function to fetch profile details.\" The Result: The Agent uses the MCP connection to \"read\" your actual live database schema in milliseconds and writes the code with the correct column names (full_name) automaticall",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://antigravity.codes/blog/antigravity-mcp-tutorial",
+                "search_provider": "anthropic",
+                "age": "1 week ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to connect MCP servers with Google Antigravity to maximize productivity | Composio",
+              "url": "https://composio.dev/content/howto-mcp-antigravity",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "composio.dev",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=composio.dev",
+                "site_name": "Composio"
+              },
+              "is_missing": false,
+              "text": "Answer: Head to &quot;Manage MCP Servers&quot; in the editor, refresh the page, and confirm that the Rube tool appears in your active list. Answer: No, you configure Rube once, and it dynamically handles connections, requiring only a one-time OAuth login ...\n\nGoogle recently released Gemini 3, Nano Banana Pro and its agentic IDE Antigravity, and it's exploding in popularity. AI, Builders & Business community are hyping it up like crazy. But when it comes to tools, it's limited. Though one can add MCPs for use cases, it's hectic to connect to every application's MCP servers manually, and the biggest downside is that it chokes your LLM's context window. Often, you do not need all the tools that an MCP comes with by default. And sometimes you'd get more value from running scripts than from calling MCP tools. So, what if one has an MCP that you configure once, which dumps your tools directly into the LLM's context, and then dynamically loads the tools required for a given task from the appropriate MCP servers? For example, imagine a single Rube MCP that the LLM talks to. You register several backend MCP servers with it, like GitHub, Supabase, and Notion.\n\nSo, head to Rube MCP, connect it to Antigravity, pull up some PRD doc, give it to Gemini 3 / Nano Banana Pro with a kickass prompt, and let the tool do its thing while you focus on ideating and planning the part. Happy Building….with Rube. Answer: Generate a token from the Rube dashboard and paste the provided command directly into your Antigravity’s mcp.json raw config. Answer: Head to \"Manage MCP Servers\" in the editor, refresh the page, and confirm that the Rube tool appears in your active list. Answer: No, you configure Rube once, and it dynamically handles connections, requiring only a one-time OAuth login the first time you use a specific MCP server.\n\nRube MCP plugs into Antigravity once and instantly unlocks dozens of dev tools without the annoying manual MCP wiring. You can automate code reviews and send off clean summaries straight to Gmail / Slack using Rube’s mail tools. Backend setup becomes trivial when Rube creates and seeds Supabase databases with text instructions and LLM commands. Frontend devs can turn Figma wireframes into clean HTML/CSS by letting Rube fetch designs and Antigravity generate UI code. Antigravity + Rube turns repetitive dev work into background noise so you can actually focus on building. Before doing anything else, one needs to connect it once. Process is straightforward: Go to the Rube MCP site. ... Copy the code to put in place of RUBE API KEY in mcp.json. Head back to Antigravity, … dot in prompt editor → MCP -> Manage MCP Server → View raw config ... And boom, Rube added to the MCP list.\n\nThis can be a time-consuming, mundane & repetitive task. So, they can delegate it to Antigravity + Rube combo. So here is a prompt to paste in the agent window prompt box (much like VS Code) ... Find the bugs in @agent.py @requirements.txt @__init__.py . Categorise them in low , medium high priority and create a short summary analysis with proper formating. Then using @mcp:rube_mcp: Send the summary to devloper.hs2015@gmail.com with title \"Code Analysis Summary\". In simple terms, the prompt asks the LLM to review the codebase, identify bugs, generate a summary, and email it to the user. The output should include a summary and a mail link. And all this should be done using rube’s Gmail tool. Yup, we don't have Gmail support in Antigravity, but rube helps here! Now click > And wait till it's complete. If this is 1st time, rube will ask you to connect your Gmail account to send mail, but that's just OAuth for you.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://composio.dev/content/howto-mcp-antigravity",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "The Perfect Setup for Google Antigravity IDE on Windows (2026) · GitHub",
+              "url": "https://gist.github.com/elcherif/bc7f2389f5b998722d0a91337e7667ec",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Scroll down to Deny List Terminal Commands. The Antigravity parser checks for contiguous subsequences. Add the following strings one by one (using the + Add button) to protect your host OS: ... Scroll back up to the Allow List Terminal Commands. Add these specific tokens one by one. By adding exact tool names (like .venv\\Scripts\\pip.exe instead of just pip), you allow the agent to work freely only within its sandbox, while taking advantage of our &quot;Flat-format&quot; parsing rule. ... With this prompt combined with the meticulous configuration of Antigravity&#x27;s permissions, your AI agent transforms from a flailing Unix-script-kiddie into a Senior Windows AI Engineer. It has absolute speed and autonomy for safe environment manipulation and coding, but hits a rigid wall the moment it attempts to invoke global modifications or destructive operations. Happy building in 2026.\n\nIf you are using Google’s Antigravity IDE on Windows to power autonomous AI agents, you’ve likely encountered terminal hanging, broken token parsing, and endless execution loops. Agents natively default to Unix-style thinking, struggling with pwsh, file path escapes, and the IDE's internal CLI safeguards. This guide provides the Absolute AI System Prompt (gemini.md) and the Optimal IDE Settings (Allow/Deny lists) to transform your Windows environment into a flawlessly stable workspace for any LLM agent. Save this content in your .gemini/GEMINI.md file (or your project's global instruction file). This rule set fundamentally changes how the AI interacts with the Windows terminal, enforcing stability, flat-string arrays, and preventing EOF loops when using MCP tools. ## System & Execution Context (Windows 10/11) - **Terminal:** This environment natively uses `pwsh` (PowerShell 7+).\n\nScroll down to Deny List Terminal Commands. The Antigravity parser checks for contiguous subsequences. Add the following strings one by one (using the + Add button) to protect your host OS: ... Scroll back up to the Allow List Terminal Commands. Add these specific tokens one by one. By adding exact tool names (like .venv\\Scripts\\pip.exe instead of just pip), you allow the agent to work freely only within its sandbox, while taking advantage of our \"Flat-format\" parsing rule. ... With this prompt combined with the meticulous configuration of Antigravity's permissions, your AI agent transforms from a flailing Unix-script-kiddie into a Senior Windows AI Engineer. It has absolute speed and autonomy for safe environment manipulation and coding, but hits a rigid wall the moment it attempts to invoke global modifications or destructive operations. Happy building in 2026.\n\nAvoid using PowerShell pipes (`| Select-Object`) for limiting if possible. ## Python Development - **Strict VENV Usage:** NO global installs. Always use `.venv`. If missing, create it autonomously with system packages to avoid heavy duplication: `pwsh -c python -m venv --system-site-packages .venv` - **Dependencies:** Autonomous package installation and updating inside the `.venv` via `pip install` is expected. - Execute via exact paths (flat format): `pwsh -c .venv\\Scripts\\python.exe script.py` ## Autonomous Operations - **Auto-Commit:** Autonomously commit every stable feature/fix using a two-step process for full Auto-Run support without IDE parser blocking: - BEFORE adding files, ensure `.gitignore` is updated. - Step 1 (Flat auto-run): `pwsh -c git add -u` - Step 2 (CMD auto-run preserves quotes): `cmd /c git commit -m \"feat/fix: description\"` - NEVER rewrite history without asking.\n\nInstead, wrap ONLY the specific path in single quotes (e.g., `pwsh -c python 'my script.py'`) or use backtick escaping. - **Exception (Shell Operators):** ONLY when your command relies on shell operators like `&&`, `|` (pipes), or `>` (redirects), you MUST use outer quotes to preserve the session (e.g., `pwsh -c \"python script.py > output.log\"`). Accept that this specific complex command will require manual human approval. ## Execution Delegation & Anti-Flood - **Long-Running Processes (Servers/Daemons):** To ensure perfect stability, visibility, and prevent zombie processes on Windows, NEVER run infinite processes (e.g., `python manage.py runserver`) autonomously. STOP. Ask the human to open a separate terminal tab and run it manually. - **Anti-Flood (Context Window Protection):** For commands with massive output, always use native limiters to avoid polluting the context window (e.g., `pwsh -c git log -n 5`).",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://gist.github.com/elcherif/bc7f2389f5b998722d0a91337e7667ec",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Antigravity Editor: MCP Integration",
+              "url": "https://antigravity.google/docs/mcp",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "antigravity.google",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=antigravity.google",
+                "site_name": "Google Antigravity"
+              },
+              "is_missing": false,
+              "text": "Google Antigravity - Build the new way",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://antigravity.google/docs/mcp",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - imgt511/Antigravity_Docs_MCP: Google Antigravity IDE Documentation MCP · GitHub",
+              "url": "https://github.com/imgt511/Antigravity_Docs_MCP",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Build a local virtual environment: python3 -m venv venv source venv/bin/activate pip install playwright playwright install · The MCP server itself is served using the official MCP Node SDK.\n\ngit clone https://github.com/imgt511/Antigravity_Docs_MCP.git cd Antigravity_Docs_MCP · The scraper uses Python and Playwright. Build a local virtual environment: python3 -m venv venv source venv/bin/activate pip install playwright playwright install · The MCP server itself is served using the official MCP Node SDK. ... Point your Antigravity IDE settings (or any other MCP-compatible client) to execute the Node.js server: { \"mcpServers\": { \"antigravity-docs\": { \"command\": \"node\", \"args\": [\"/absolute/path/to/Antigravity_Docs_MCP/mcp_server.js\"] } } } When new updates are released for the Antigravity IDE, you can easily pull the latest documentation yourself! Simply run the included update script from inside the project directory: ... Runs scraper.py to find any new pages on the website. Runs extractor.py to overwrite your knowledge_base/ folder with the newest text.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/imgt511/Antigravity_Docs_MCP",
+                "search_provider": "anthropic"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-24T00:34:34.722401Z",
+          "stop_timestamp": "2026-03-24T00:34:35.200641Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_0158q9BXdd5odaKqWxbVA9je",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp"
+          },
+          "message": "Fetching: https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_0158q9BXdd5odaKqWxbVA9je",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"error_type\": \"ROBOTS_DISALLOWED\", \"error_message\": \"There was an error while fetching: URL is disallowed by robots.txt rules\"}",
+              "uuid": "6a794d6d-127a-49f2-90da-c268a89e742a"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": "Failed to fetch: https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp",
+              "subtitles": null,
+              "url": "https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+              "source": "github"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-03-24T00:34:37.600118Z",
+          "stop_timestamp": "2026-03-24T00:34:37.970678Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01BpaFcjeYPM3KSR427FYiUs",
+          "name": "web_search",
+          "input": {
+            "query": "markitdown-mcp MCP server setup config antigravity 2025"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01BpaFcjeYPM3KSR427FYiUs",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Google Antigravity: How to add custom MCP server to improve Vibe Coding | by Tarun Jain | Google Developer Experts | Medium",
+              "url": "https://medium.com/google-developer-experts/google-antigravity-custom-mcp-server-integration-to-improve-vibe-coding-f92ddbc1c22d",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "medium.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=medium.com",
+                "site_name": "Medium"
+              },
+              "is_missing": false,
+              "text": "... 2. To add a custom MCP server, select Manage MCP Servers at the top of the MCP store and then click on View raw config in the main tab. ... 3. Modify the mcp_config.json with your custom MCP server configuration.\n\nGoogle just announced Gemini 3 Pro and the Antigravity release. I am actually more excited about Antigravity because of Varun Mohan. I…\n\nLets see how to add your own custom MCP Server in Google Antigravity. Click on Agent session and select the “…” dropdown at the top of the editor’s side panel. And select MCP Servers, you will find the MCP Store. ... 2. To add a custom MCP server, select Manage MCP Servers at the top of the MCP store and then click on View raw config in the main tab. ... 3. Modify the mcp_config.json with your custom MCP server configuration. Note for Vibe coding, having these 3 MCP servers can be handy: Context-7: Up-to-date Code Docs for the tech stack your app needs. Sequential Thinking: For dynamic and reflective problem-solving through a structured thinking process. Retriever-based MCP: Save and retrieve the code that works for future purposes. for example: Qdrant MCP Server. NOTE: Sequential Thinking is already in MCP Store, just click on Install.\n\nGoogle just announced Gemini 3 Pro and the Antigravity release. I am actually more excited about Antigravity because of Varun Mohan. I have been a big fan of Windsurf, and I had a feeling from the start that once Varun joined the team, something amazing would arrive. And here we are with Antigravity. ... Google Antigravity is a new Agentic development platform from Google that changes how software is built by letting developers work at a higher task-focused level. With the reasoning and Agentic coding abilities of Gemini 3, Antigravity allows AI Agents to plan, code, and validate complete software tasks on their own. It includes an Agent manager dashboard, a VS Code-style editor, and deep browser connectivity, letting Agents interact with web apps directly for testing and validation. Instead of being just another coding tool, it becomes a true development partner that improves productivity by managing multiple projects and tasks in parallel with autonomous workflows.\n\nIf you want to start with Antigravity, first install it and pick your preferred IDE layout. After setup, move to planning before writing any code. Begin by defining your task and the features you need. Then prepare an implementation plan and workflow. If you already have clarity, write it yourself. If not, simply describe the goal and let Gemini 3 generate the Implementation Plan, Task, and Walkthrough files. IMPORTANT: DO review the Implementation plan, Task list, and Walkthrough. If there is any task related to testing, remove that. Do tell the Agent not to run tests automatically. Do the testing manually because automated testing from the Agent can consume more tokens than required. When Vibe coding, the key stage is implementing features. Avoid asking the Agent to build all features in a single run. If you have more than 5 features, begin with the first one and then move step by step.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://medium.com/google-developer-experts/google-antigravity-custom-mcp-server-integration-to-improve-vibe-coding-f92ddbc1c22d",
+                "search_provider": "anthropic",
+                "age": "December 2, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "n8n-mcp/docs/ANTIGRAVITY_SETUP.md at main · czlonkowski/n8n-mcp",
+              "url": "https://github.com/czlonkowski/n8n-mcp/blob/main/docs/ANTIGRAVITY_SETUP.md",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "... Add MCP server by clicking three dots ... on the top right of chat, and click MCP Servers. Then click on &quot;Manage MCP Servers&quot; and then click on &quot;View raw config&quot; and C:\\Users\\&lt;USER_NAME&gt;\\.gemini\\antigravity\\mcp_config.json will be opened.\n\nA MCP for Claude Desktop / Claude Code / Windsurf / Cursor to build n8n workflows for you - n8n-mcp/docs/ANTIGRAVITY_SETUP.md at main · czlonkowski/n8n-mcp\n\nFor the best results when using n8n-MCP with Antigravity, use these enhanced system instructions (create AGENTS.md in the root directory of the project, AGENTS.md is the file standard for giving special instructions in Antigravity): You are an expert in n8n automation software using n8n-MCP tools. Your role is to design, build, and validate n8n workflows with maximum accuracy and efficiency. ## Core Principles ### 1. Silent Execution CRITICAL: Execute tools without commentary. Only respond AFTER all tools complete. ❌ BAD: \"Let me search for Slack nodes... Great! Now let me get details...\" ✅ GOOD: [Execute search_nodes and get_node in parallel, then respond] ### 2. Parallel Execution When operations are independent, execute them in parallel for maximum performance. ✅ GOOD: Call search_nodes, list_nodes, and search_templates simultaneously ❌ BAD: Sequential tool calls (await each one before the next) ### 3.\n\n✅ This n8n MCP server is compatible with Antigravity (Chat in IDE). Assuming you've already deployed the n8n MCP server locally and connected it to the n8n API, and it's available at: http://localhost:5678 · Or if you are using https://n8n.your.production.url/ then just replace the URLs in the below code. 💡 The deployment process is documented in the HTTP Deployment Guide. ... Add MCP server by clicking three dots ... on the top right of chat, and click MCP Servers. Then click on \"Manage MCP Servers\" and then click on \"View raw config\" and C:\\Users\\<USER_NAME>\\.gemini\\antigravity\\mcp_config.json will be opened. Add the following code to: C:\\Users\\<USER_NAME>\\.gemini\\antigravity\\mcp_config.json and save the file. { \"mcpServers\": { \"n8n-mcp\": { \"command\": \"node\", \"args\": [ \"C:\\\\Users\\\\<USER_NAME>\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\\\\n8n-mcp\\\\dist\\\\mcp\\\\index.js\" ], \"env\": { \"MCP_MODE\": \"stdio\", \"LOG_LEVEL\": \"error\", \"DISABLE_CONSOLE_OUTPUT\": \"true\", \"N8N_API_URL\": \"http://localhost:5678\n\n🧪 This setup is for windows but for Mac and Linux also, it is similar, just provide the absolute path of the global n8n-mcp install!",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/czlonkowski/n8n-mcp/blob/main/docs/ANTIGRAVITY_SETUP.md",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "github-mcp-server/docs/installation-guides/install-antigravity.md at main · github/github-mcp-server",
+              "url": "https://github.com/github/github-mcp-server/blob/main/docs/installation-guides/install-antigravity.md",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "{ &quot;mcpServers&quot;: { &quot;github&quot;: { &quot;command&quot;: &quot;docker&quot;, &quot;args&quot;: [ &quot;run&quot;, &quot;-i&quot;, &quot;--rm&quot;, &quot;-e&quot;, &quot;GITHUB_PERSONAL_ACCESS_TOKEN&quot;, &quot;ghcr.io/github/github-mcp-server&quot; ], &quot;env&quot;: { &quot;GITHUB_PERSONAL_ACCESS_TOKEN&quot;: &quot;YOUR_GITHUB_PAT&quot; } } } } ... Make sure you&#x27;re using serverUrl (not url) for the remote server configuration. Antigravity requires serverUrl for HTTP-based MCP servers. ... And many more... For a complete list of available tools and features, see the main README. Configuration key: Antigravity uses serverUrl instead of url for HTTP servers · Config location: .gemini/antigravity/mcp_config.json instead of .cursor/mcp.json · Tool limits: Antigravity recommends keeping total enabled tools under 50 for optimal performance · Explore the Server Configuration Guide for advanced options · Check out toolsets documentation to customize available tools ·\n\nThis guide covers setting up the GitHub MCP Server in Google's Antigravity IDE. ... Uses GitHub's hosted server at https://api.githubcopilot.com/mcp/. ... We recommend this manual configuration method because the \"official\" installation via the Antigravity MCP Store currently has known issues (often resulting in Docker errors). This direct remote connection is more reliable. ... { \"mcpServers\": { \"github\": { \"serverUrl\": \"https://api.githubcopilot.com/mcp/\", \"headers\": { \"Authorization\": \"Bearer YOUR_GITHUB_PAT\" } } } } Important: Note that Antigravity uses serverUrl instead of url for HTTP-based MCP servers. Replace YOUR_GITHUB_PAT with your actual GitHub Personal Access Token. Create a token here: https://github.com/settings/tokens ... Close and reopen Antigravity for the changes to take effect. Open the MCP Servers panel (... menu → MCP Servers) You should see \"github\" with a list of available tools ·\n\n{ \"mcpServers\": { \"github\": { \"command\": \"docker\", \"args\": [ \"run\", \"-i\", \"--rm\", \"-e\", \"GITHUB_PERSONAL_ACCESS_TOKEN\", \"ghcr.io/github/github-mcp-server\" ], \"env\": { \"GITHUB_PERSONAL_ACCESS_TOKEN\": \"YOUR_GITHUB_PAT\" } } } } ... Make sure you're using serverUrl (not url) for the remote server configuration. Antigravity requires serverUrl for HTTP-based MCP servers. ... And many more... For a complete list of available tools and features, see the main README. Configuration key: Antigravity uses serverUrl instead of url for HTTP servers · Config location: .gemini/antigravity/mcp_config.json instead of .cursor/mcp.json · Tool limits: Antigravity recommends keeping total enabled tools under 50 for optimal performance · Explore the Server Configuration Guide for advanced options · Check out toolsets documentation to customize available tools ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/github/github-mcp-server/blob/main/docs/installation-guides/install-antigravity.md",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Antigravity and Firebase MCP accelerate app development",
+              "url": "https://firebase.blog/posts/2025/11/firebase-mcp-and-antigravity/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "firebase.blog",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=firebase.blog",
+                "site_name": "Firebase"
+              },
+              "is_missing": false,
+              "text": "Learn how to enable the Firebase MCP server in Antigravity to accelerate app development\n\nWe have been hard at work making sure that the Firebase MCP server works really well with not only the Gemini CLI, but all the places that you may want to use an MCP server. This includes Google’s newest release, the Antigravity IDE. Let’s take a look at how to add the Firebase MCP server to Antigravity and what Antigravity can do with our MCP server. To add the Firebase MCP server, open Antigravity and go to the drop-down menu in the Agent window. Select “MCP servers”, then choose Firebase from the list of available MCP servers. This will open a description of the MCP server, where you can click install to add our Firebase MCP server. To get started, tell the agent to initialize Firebase in your current project. The agent will then develop an implementation plan using the MCP server to link Firebase to your project. If the agent needs more information to complete a task, it will pause and ask for your input.\n\nUsing Antigravity we can then specify a series of steps that we want the agent to take in building our app. I prompted a racing game that incorporated sign in using email and password login from Firebase and Cloud Firestore for a leaderboard. Antigravity, using its suite of MCP tools from the Firebase MCP server, fetched the API keys for my web app, so I didn’t need to visit the Firebase console, and implemented both features without issue. I then went to test out the game and it worked as I expected. The Antigravity agent already has access to Firebase Hosting via the Firebase MCP server. The agent understands can consult with the Firebase MCP server to verify the steps to deploy to Firebase Hosting. The agent makes a deployment plan which includes compiling the code and then running the firebase deploy --only hosting command to get the app onto Firebase Hosting.\n\nThe Firebase MCP server also supports App Hosting, which is optimized for server-rendered Next.js and Angular web apps. Accelerate your app development with Antigravity and the Firebase MCP server.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://firebase.blog/posts/2025/11/firebase-mcp-and-antigravity/",
+                "search_provider": "anthropic",
+                "age": "November 21, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Antigravityai",
+              "url": "https://antigravityai.directory/blog/mastering-mcp-servers-google-antigravity-advanced-guide-2025",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "antigravityai.directory",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=antigravityai.directory",
+                "site_name": "Antigravityai"
+              },
+              "is_missing": false,
+              "text": "{ &quot;mcpServers&quot;: { &quot;mongodb&quot;: { &quot;command&quot;: &quot;npx&quot;, &quot;args&quot;: [&quot;-y&quot;, &quot;@anthropic-ai/mcp-mongodb&quot;], &quot;env&quot;: { &quot;MONGODB_URI&quot;: &quot;mongodb+srv://user:pass@cluster.mongodb.net/dbname&quot; } } } } ... { &quot;mcpServers&quot;: { &quot;slack&quot;: { &quot;command&quot;: &quot;npx&quot;, &quot;args&quot;: [&quot;-y&quot;, &quot;@anthropic-ai/mcp-slack&quot;], &quot;env&quot;: { &quot;SLACK_BOT_TOKEN&quot;: &quot;xoxb-xxxxxxxxxxxx&quot; } } } } ... { &quot;mcpServers&quot;: { &quot;aws&quot;: { &quot;command&quot;: &quot;npx&quot;, &quot;args&quot;: [&quot;-y&quot;, &quot;@anthropic-ai/mcp-aws&quot;], &quot;env&quot;: { &quot;AWS_ACCESS_KEY_ID&quot;: &quot;AKIAXXXXXXXX&quot;, &quot;AWS_SECRET_ACCESS_KEY&quot;: &quot;xxxxxxxx&quot;, &quot;AWS_REGION&quot;: &quot;us-east-1&quot; } } } } ...\n\n# Check if server runs manually npx -y @anthropic-ai/mcp-github # Check logs tail -f ~/.config/antigravity/logs/mcp-*.log ...\n\n┌─────────────────────┐ MCP Protocol ┌─────────────────────┐ │ Google Antigravity │ ◄──────────────────► │ MCP Server │ │ (AI Client) │ JSON-RPC over │ (Tool Provider) │ │ │ stdio/HTTP │ │ └─────────────────────┘ └─────────────────────┘ │ ▼ ┌─────────────────┐ │ External Service│ │ (DB, API, etc.) │ └─────────────────┘ ... Browse our MCP Server Directory for ready-to-use configurations. MCP servers are configured in your Antigravity settings file: ... { \"mcpServers\": { \"server-name\": { \"command\": \"executable\", \"args\": [\"arg1\", \"arg2\"], \"env\": { \"API_KEY\": \"your-key\" } } } } Configuration issues?\n\n{ \"mcpServers\": { \"filesystem\": { \"command\": \"npx\", \"args\": [\"-y\", \"@anthropic-ai/mcp-filesystem\", \"/projects\"] }, \"github\": { \"command\": \"npx\", \"args\": [\"-y\", \"@anthropic-ai/mcp-github\"], \"env\": { \"GITHUB_TOKEN\": \"ghp_xxx\" } }, \"postgres-prod\": { \"command\": \"npx\", \"args\": [\"-y\", \"@anthropic-ai/mcp-postgres\"], \"env\": { \"POSTGRES_CONNECTION_STRING\": \"postgresql://prod-url\" } }, \"postgres-dev\": { \"command\": \"npx\", \"args\": [\"-y\", \"@anthropic-ai/mcp-postgres\"], \"env\": { \"POSTGRES_CONNECTION_STRING\": \"postgresql://dev-url\" } } } } Never hardcode credentials. Use environment variables: # ~/.zshrc or ~/.bashrc export GITHUB_TOKEN=\"ghp_xxxxxxxxxxxx\" export POSTGRES_URL=\"postgresql://...\" export SLACK_TOKEN=\"xoxb-xxxxxxxxxxxx\" ... { \"mcpServers\": { \"github\": { \"command\": \"npx\", \"args\": [\"-y\", \"@anthropic-ai/mcp-github\"], \"env\": { \"GITHUB_TOKEN\": \"${GITHUB_TOKEN}\" } } } } ...\n\n{ \"mcpServers\": { \"mongodb\": { \"command\": \"npx\", \"args\": [\"-y\", \"@anthropic-ai/mcp-mongodb\"], \"env\": { \"MONGODB_URI\": \"mongodb+srv://user:pass@cluster.mongodb.net/dbname\" } } } } ... { \"mcpServers\": { \"slack\": { \"command\": \"npx\", \"args\": [\"-y\", \"@anthropic-ai/mcp-slack\"], \"env\": { \"SLACK_BOT_TOKEN\": \"xoxb-xxxxxxxxxxxx\" } } } } ... { \"mcpServers\": { \"aws\": { \"command\": \"npx\", \"args\": [\"-y\", \"@anthropic-ai/mcp-aws\"], \"env\": { \"AWS_ACCESS_KEY_ID\": \"AKIAXXXXXXXX\", \"AWS_SECRET_ACCESS_KEY\": \"xxxxxxxx\", \"AWS_REGION\": \"us-east-1\" } } } } ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://antigravityai.directory/blog/mastering-mcp-servers-google-antigravity-advanced-guide-2025",
+                "search_provider": "anthropic",
+                "age": "December 19, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to Use MCP Servers in Antigravity (Setup Guide 2026)",
+              "url": "https://antigravity.codes/blog/antigravity-mcp-tutorial",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "antigravity.codes",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=antigravity.codes",
+                "site_name": "Antigravity"
+              },
+              "is_missing": false,
+              "text": "{ &quot;mcpServers&quot;: { &quot;supabase-db&quot;: { &quot;command&quot;: &quot;npx&quot;, &quot;args&quot;: [ &quot;-y&quot;, &quot;@modelcontextprotocol/server-postgres&quot;, &quot;postgresql://postgres:your_password@db.your-project.supabase.co:5432/postgres&quot; ] } } } Let the agent monitor deployments and debug ...\n\nStep-by-step guide to setting up MCP servers in Google Antigravity. Connect Supabase, Playwright, Vercel & more to your AI agent. Includes config examples and troubleshooting.\n\nGoogle’s new AntiGravity IDE is impressive, but its real power is hidden in a feature called MCP (Model Context Protocol). If you integrate MCP correctly, you stop the Alt-Tab dance. The information comes to you. Think of AntiGravity (and its AI agent, Gemini) as a brilliant developer who has never seen your company's internal tools. Without MCP: The AI is smart, but blind. It can see the code in your open file, but it knows nothing about your database tables, your cloud logs, or your issue tracker. With MCP: You are giving the AI a \"USB cable\" to plug directly into your tools. It gives the AI permission and instruction on how to read your database or run commands in your terminal. MCP operates on a Client-Host-Server architecture: The Host: Google AntiGravity (your IDE). The Client: The AI Agent running inside AntiGravity. The Server: A lightweight application (the MCP Server) that sits between the Agent and your Tool (e.g., Supabase).\n\nWhen you ask AntiGravity, \"Query the users table,\" the Agent sends a standardized JSON-RPC message to the Supabase MCP Server. The Server translates that into a SQL query, runs it against your database, and returns the result in a format the Agent understands. AntiGravity promotes \"Vibe Coding\"—a flow state where you describe intent, and the agent handles implementation. MCP is the engine of Vibe Coding. You cannot \"vibe\" if you have to stop and copy-paste database types. With MCP, you stay in the flow, and the agent pulls the info it needs. Let’s say you need to write a function to fetch user data, but you forgot the exact column names in your Supabase database. ... Leave the IDE. Open Chrome and go to supabase.com. Log in and find the project. Wait for the dashboard to load. Click \"Table Editor\" > \"Users\". Memorize that the column is called full_name, not username.\n\nThe Result: The Agent uses the MCP connection to \"read\" your actual live database schema in milliseconds and writes the code with the correct column names (full_name) automatically. No browser needed. Every MCP server you connect provides the Agent with one or more of these capabilities: While AntiGravity has a built-in store, the real magic happens when you configure specific integrations for your stack. Here are the most popular examples developers use daily — for the full catalogue, see our Top MCP Servers post and browse the MCP Directory. Give your agent direct access to your live data to generate SQL queries that actually run. ... Configuration (mcp_config.json): AntiGravity uses the standard Postgres MCP for this. { \"mcpServers\": { \"supabase-db\": { \"command\": \"npx\", \"args\": [ \"-y\", \"@modelcontextprotocol/server-postgres\", \"postgresql://postgres:your_password@db.your-project.supabase.co:5432/postgres\" ] } } } Let the agent monitor deployments and debug server-side errors.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://antigravity.codes/blog/antigravity-mcp-tutorial",
+                "search_provider": "anthropic",
+                "age": "1 week ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - KorigamiK/markitdown_mcp_server: A Model Context Protocol (MCP) server that converts various file formats to Markdown using the MarkItDown utility. · GitHub",
+              "url": "https://github.com/KorigamiK/markitdown_mcp_server",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Here are some examples: ... &quot;context_servers&quot;: { &quot;markitdown_mcp&quot;: { &quot;settings&quot;: {}, &quot;command&quot;: { &quot;path&quot;: &quot;uv&quot;, &quot;args&quot;: [ &quot;--directory&quot;, &quot;/path/to/markitdown_mcp_server&quot;, &quot;run&quot;, &quot;markitdown-mcp&quot; ] } } } The server responds to the following MCP ...\n\nA Model Context Protocol (MCP) server that converts various file formats to Markdown using the MarkItDown utility. ... The server can be integrated with any MCP client. Here are some examples: ... \"context_servers\": { \"markitdown_mcp\": { \"settings\": {}, \"command\": { \"path\": \"uv\", \"args\": [ \"--directory\", \"/path/to/markitdown_mcp_server\", \"run\", \"markitdown-mcp\" ] } } } The server responds to the following MCP commands: /md <file> - Convert the specified file to Markdown ... MIT License.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/KorigamiK/markitdown_mcp_server",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Connect to the Developer Knowledge MCP server | Google for Developers",
+              "url": "https://developers.google.com/knowledge/mcp",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "google.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=google.com",
+                "site_name": "Google"
+              },
+              "is_missing": false,
+              "text": "In Antigravity, click the Additional options more_horiz menu in the Agent pane &gt; MCP Servers &gt; Manage MCP Servers. At the top of the Manage MCP Servers pane that opens, click View raw config to edit the mcp_config.json file: { &quot;mcpServers&quot;: ...\n\nIn Antigravity, click the Additional options more_horiz menu in the Agent pane > MCP Servers > Manage MCP Servers. At the top of the Manage MCP Servers pane that opens, click View raw config to edit the mcp_config.json file: { \"mcpServers\": { \"google-developer-knowledge\": { \"serverUrl\": \"https://developerknowledge.googleapis.com/mcp\" } } } Return to Manage MCP servers and click Refresh. The first time you attempt to use the Developer Knowledge MCP server, your AI assistant will prompt you to complete setup: Ask the agent to use the Developer Knowledge MCP server with a prompt such as: ... If you see a message asking you to register one or more redirect URIs, click the option to proceed. Because you set up the client ID as a Desktop app, there's no need to add these specific URIs in the Google Auth Platform. When your AI assistant prompts you for the Client ID and Client Secret, paste each corresponding key from the client secret JSON file you saved earlier.\n\nThe Google Developer Knowledge MCP server gives AI-powered development tools the ability to search Google's official developer documentation and retrieve information for Google's products such as Firebase, Google Cloud, Android, Maps, and more. By connecting your AI application straight to our official library of documentation, it ensures the code and guidance you receive are up-to-date and based on authoritative context. After you set up the server, integrated tools can assist with requests such as: ... For example: What's the best way to implement push notifications using Firebase Cloud Messaging in an Android app? ... For example: Search the Google documentation for a Python example to list all buckets in a Cloud Storage project. ... For example: Help me choose between Cloud Run and Cloud Functions for a new microservice. Create a Markdown table that compares key aspects like primary use case, concurrency, and pricing model.\n\nThe Google Developer Knowledge MCP server provides the following tools to your AI application: The search_documents tool divides documentation into smaller chunks of text that are optimized for AI-powered search and retrieval. When you search, the tool returns one or more document snippets that are relevant to your query. If you need to view the full page content that surrounds a snippet, use get_documents with the parent provided in search results to retrieve full page content. The Google Developer Knowledge MCP server is a remote MCP server that uses the Developer Knowledge API to search and retrieve documentation. You can authenticate using either OAuth or an API key. Note: Not all AI applications are compatible with each authentication method. If you don't see your preferred application listed in the configuration section, try using another supported authentication method.\n\nThis section guides you through the process of authenticating your AI application with the Developer Knowledge MCP server using OAuth. ... Open the Developer Knowledge API page in the Google APIs library. Check that you have the correct project selected in which you intend to use the API. Click Enable. No specific IAM roles are required to enable or use the API. Note: After March 17, the Developer Knowledge MCP server is automatically enabled when you enable the Developer Knowledge API. To enable the Developer Knowledge MCP server, run the following command, replacing PROJECT_ID with your Google Cloud project ID: gcloud beta services mcp enable developerknowledge.googleapis.com --project=PROJECT_ID · If the Developer Knowledge service isn't enabled for your Google Cloud project, you'll be prompted to enable the service before enabling the remote MCP server.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://developers.google.com/knowledge/mcp",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Local MCP Server Development: A Quick Start Guide – Tech.Zealot",
+              "url": "https://tech-zeal.com/2025/12/17/local-mcp-server-development-a-quick-start-guide/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "tech-zeal.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=tech-zeal.com",
+                "site_name": "Tech.Zealot"
+              },
+              "is_missing": false,
+              "text": "You need to map your server’s logical name to the actual command that runs it. ... Agent &gt; Additional Options (ellipsis on the top right corner) &gt; MCP Servers &gt; Manage MCP Servers &gt; View raw config OR /path/to/home/antigravity/mcp_config.json ...\n\nIf you are building agents or tools for the Model Context Protocol (MCP), you eventually need to move beyond theory and run things locally. This guide covers how to set up, configure, and test a lo…\n\nIf you are building agents or tools for the Model Context Protocol (MCP), you eventually need to move beyond theory and run things locally. This guide covers how to set up, configure, and test a local MCP server. The exact setup depends on the client you use (Claude Desktop, Cursor, etc.), but for this guide, I am using Antigravity. To make this concrete, I’ve devised a mini-project called Unicon. It is a simple MCP server that stores text contexts categorized by tags and projects. Imagine asking your IDE: “What was the context for the ‘auth-refactor’ tag?” and having it pull that data instantly from your local server. Or even better, from any app, storing the context that you have so that you can use it in another Agent interaction. Before touching any config files, your server needs to be a standalone executable that speaks the STDIO (Standard Input/Output) language.\n\nOnce you save the config, Antigravity (or your MCP client) should attempt to connect immediately or upon reload. Look for a green connection indicator in your MCP settings panel. Now for the fun part. You don’t need to write code to invoke the server; you just talk to the agent. ... This setup provides a reliable way to develop and run MCP servers on your local machine. As a next step, I noticed that robust MCP projects often decouple the service from the database to better handle local server constraints. I plan to apply this architecture to Unicon in future updates. Subscribe to follow up on this! ... Loading Comments... ... Already have a WordPress.com account?\n\nThis is how the client (Antigravity) communicates with your server locally—not over the internet, but directly through your computer’s internal pipes. Recommendation: Use FastMCP for rapid development. Further Reading: Check out my article on how I built this simple server. Building the Universal Brain: A Lightweight Context Holder with MCP · Now, we need to tell Antigravity where your server lives. This is done via the mcp_config.json file. You need to map your server’s logical name to the actual command that runs it. ... Agent > Additional Options (ellipsis on the top right corner) > MCP Servers > Manage MCP Servers > View raw config OR /path/to/home/antigravity/mcp_config.json ... { \"mcpServers\": { \"unicon\": { \"command\": \"/path/to/unicon/.venv/bin/python\", \"args\": [ \"/path/to/unicon/server.py\" ] } } } ... Absolute Paths: Always use the full path to your executable (e.g., /Users/dev/projects/...).",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://tech-zeal.com/2025/12/17/local-mcp-server-development-a-quick-start-guide/",
+                "search_provider": "anthropic",
+                "age": "December 17, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "AntiGravity Quickstart - Augment",
+              "url": "https://docs.augmentcode.com/context-services/mcp/quickstart-anti-gravity",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "augmentcode.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=augmentcode.com",
+                "site_name": "Augment"
+              },
+              "is_missing": false,
+              "text": "{ &quot;mcpServers&quot;: { &quot;augment-context-engine&quot;: { &quot;command&quot;: &quot;auggie&quot;, &quot;args&quot;: [&quot;--mcp&quot;, &quot;--mcp-auto-workspace&quot;] } } } ... AntiGravity should confirm it has access to the codebase-retrieval tool. See MCP Server Mode for more options.\n\n{ \"mcpServers\": { \"augment-context-engine\": { \"command\": \"auggie\", \"args\": [\"--mcp\", \"--mcp-auto-workspace\"] } } } ... AntiGravity should confirm it has access to the codebase-retrieval tool. See MCP Server Mode for more options.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://docs.augmentcode.com/context-services/mcp/quickstart-anti-gravity",
+                "search_provider": "anthropic"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-24T00:34:39.810747Z",
+          "stop_timestamp": "2026-03-24T00:35:06.996714Z",
+          "flags": null,
+          "type": "text",
+          "text": "이제 전체 그림이 보입니다. 두 가지 경로를 명확하게 정리해드리겠습니다.\n\n---\n\n## Antigravity에서 MarkItDown 사용하는 두 가지 경로\n\n핵심부터 말하면, MarkItDown을 Antigravity에서 쓰는 방법은 크게 두 가지입니다. **터미널 직접 설치형(CLI)**과 **MCP 서버 연동형**. 전자는 간단하고 즉각적이며, 후자는 에이전트가 자율적으로 파일 변환을 수행하게 되는 구조입니다.\n\n---\n\n### 경로 1: 터미널 직접 설치 (가장 빠른 방법)\n\nAntigravity는 VS Code의 heavily modified fork이기 때문에 내장 터미널이 그대로 살아있습니다. 에이전트에게 시키거나, 직접 터미널을 열어서 실행하면 됩니다.\n\n**설치 순서:**\n\n```bash\n# 1. 가상환경 생성 (프로젝트 폴더 안에서)\npython -m venv .venv\nsource .venv/bin/activate   # Mac/Linux\n# .venv\\Scripts\\activate    # Windows\n\n# 2. MarkItDown 설치 (전체 기능 포함)\npip install 'markitdown[all]'\n\n# 3. 즉시 사용\nmarkitdown 파일명.pdf > 결과.md\nmarkitdown 파일명.pptx -o 결과.md\n```\n\nAntigravity 에이전트에게 자연어로 시켜도 됩니다:\n> \"이 프로젝트에 markitdown을 설치하고 `/path/to/file.pptx`를 변환해줘\"\n\n에이전트가 venv 생성 → pip 설치 → 변환까지 자동으로 처리합니다.\n\n---\n\n### 경로 2: MCP 서버로 연동 (에이전트 자율 사용 구조)\n\n이 방법이 Antigravity의 본령에 맞는 방식입니다. MCP 서버로 등록해두면, 에이전트가 대화 중에 \"이 파일 변환해서 분석해줘\"라는 말 한마디에 자율적으로 MarkItDown을 호출합니다.\n\nMarkItDown은 공식적으로 MCP 서버(`markitdown-mcp`)를 제공하며, Claude Desktop 같은 LLM 애플리케이션과의 통합을 위해 설계되었습니다.\n\n**Step 1: markitdown-mcp 설치**\n\n```bash\npip install 'markitdown-mcp'\n# 또는 uv 사용 시\nuv pip install 'markitdown-mcp'\n```\n\n**Step 2: mcp_config.json 수정**\n\nAntigravity에서 MCP 서버를 추가하려면, Agent 창 상단 오른쪽 `...` 메뉴 → MCP Servers → Manage MCP Servers → View raw config를 클릭하면 `mcp_config.json` 파일이 열립니다.\n\n파일 경로는 OS별로 다릅니다:\n- **Mac/Linux**: `~/.gemini/antigravity/mcp_config.json`\n- **Windows**: `C:\\Users\\<USER_NAME>\\.gemini\\antigravity\\mcp_config.json`\n\n아래 내용을 추가합니다:\n\n```json\n{\n  \"mcpServers\": {\n    \"markitdown\": {\n      \"command\": \"/절대경로/.venv/bin/python\",\n      \"args\": [\"-m\", \"markitdown_mcp\"]\n    }\n  }\n}\n```\n\n> ⚠️ 중요: Antigravity는 `${workspaceFolder}` 같은 상대경로를 지원하지 않으므로 반드시 절대경로를 사용해야 합니다.\n\n**Step 3: Antigravity 재시작 후 확인**\n\n변경사항 적용을 위해 Antigravity를 닫고 다시 열고, MCP Servers 패널에서 `markitdown`이 표시되는지 확인합니다.\n\n---\n\n### 어떤 경로를 선택할까?\n\nCSP 업무 맥락에서 판단하면 이렇습니다.\n\n**CLI 방식(경로 1)**은 당장 오늘 써야 하는 상황, 즉 EX Intelligence 발표 자료를 Markdown으로 변환해서 Claude에 붙여넣을 때 적합합니다. 설치 3분, 사용 1분.\n\n**MCP 방식(경로 2)**은 ESCON이나 Pulse Check 파이프라인처럼 \"문서 입수 → 변환 → 분석 → 저장\"의 플로우를 에이전트가 자율적으로 반복 수행해야 할 때 적합합니다. 한 번 연결해두면 \"이 폴더의 모든 PPT를 Markdown으로 변환해서 Supabase에 넣어줘\"가 한 문장으로 작동하는 세계가 됩니다.\n\nAntigravity의 본질이 \"에이전트가 자율적으로 계획하고, 실행하고, 검증하는 플랫폼\"이라는 점을 고려하면, 장기적으로는 MCP 방식이 CSP 아키텍처의 철학 — \"do it once, automate it forever\" — 과 훨씬 잘 맞습니다.",
+          "citations": [
+            {
+              "uuid": "2d1af27e-d544-47de-acfc-32ac18d19665",
+              "start_index": 286,
+              "end_index": 316,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://en.wikipedia.org/wiki/Google_Antigravity"
+              }
+            },
+            {
+              "uuid": "3dad738e-0e63-4b93-8c08-703bebfcc71a",
+              "start_index": 947,
+              "end_index": 1043,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/microsoft/markitdown"
+              }
+            },
+            {
+              "uuid": "56749400-7f50-43aa-bf38-c9edb6e49da3",
+              "start_index": 1195,
+              "end_index": 1334,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/czlonkowski/n8n-mcp/blob/main/docs/ANTIGRAVITY_SETUP.md"
+              }
+            },
+            {
+              "uuid": "c6383e28-a2ed-4abc-852e-0cdefc68c1d5",
+              "start_index": 1657,
+              "end_index": 1729,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/omar-haris/smart-coding-mcp/blob/main/docs/ide-setup/antigravity.md"
+              }
+            },
+            {
+              "uuid": "93916251-6541-4811-92a0-b5d0e8129174",
+              "start_index": 1765,
+              "end_index": 1843,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/github/github-mcp-server/blob/main/docs/installation-guides/install-antigravity.md"
+              }
+            },
+            {
+              "uuid": "9073e9f9-ce11-4b20-8130-2016d31ed026",
+              "start_index": 2207,
+              "end_index": 2241,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-24T00:35:07.348857Z",
+      "updated_at": "2026-03-24T00:35:07.348857Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d1d43-abbe-79cc-a3f7-d568dc22d292"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+﻿{
+  "uuid": "0a5d572a-fdfc-46db-b1eb-a2b2ea0b7eb6",
+  "name": "tmux와 cmux의 차이점",
+  "summary": "**Conversation Overview**\n\nThe person asked about tmux and cmux in the context of Claude Code (CC) workflows. The conversation was brief and technical, focused on clarifying the distinction between these terminal tools and their practical application to the person's work setup.\n\nClaude explained that tmux is a terminal multiplexer that preserves long-running agent processes via session detach/attach, making it well-suited for Claude Code workflows. The person confirmed their interest was specifically for CC workflows, prompting Claude to provide concrete tmux usage patterns including session creation, detach/attach commands, and a multi-session structure organized around project names such as `escon`, `ex-intel`, and `ax-strategy`. Claude also introduced tmuxinator (referenced as cmux in some contexts) as a YAML-based session manager for reproducible workspace setup, drawing a parallel to CLAUDE.md-style context management.\n\nThe conversation references a \"CSP\" role, an \"hr-workspace 4-layer\" architecture, and project names like ESCON, EX Intelligence, and AX Strategy, suggesting the person works within a structured multi-project environment. The term \"Mobile → Desktop Dispatch pattern\" was mentioned as a remote control workflow where tmux sessions serve as a bridge. No corrections or preference instructions were provided by the person during this exchange.",
+  "created_at": "2026-03-28T03:36:12.252839Z",
+  "updated_at": "2026-03-28T03:45:59.776389Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d3283-7f8a-70f4-901a-826bd711aa70",
+      "text": "tmux, cmux ??",
+      "content": [
+        {
+          "start_timestamp": "2026-03-28T03:36:13.883067Z",
+          "stop_timestamp": "2026-03-28T03:36:13.883067Z",
+          "flags": null,
+          "type": "text",
+          "text": "tmux, cmux ??",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-28T03:36:13.955607Z",
+      "updated_at": "2026-03-28T03:36:13.955607Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d3283-7f8a-7ec7-9d3d-ff96df01cd2b",
+      "text": " tmux와 cmux, 둘 다 터미널 멀티플렉서 계열인데 성격이 다릅니다.\n\n**tmux**는 terminal multiplexer의 고전입니다. 하나의 터미널 세션 안에서 여러 창(window)과 패널(pane)을 분할해서 쓸 수 있고, 세션을 detach했다가 나중에 다시 attach할 수 있어서 — SSH 끊겨도 작업이 살아있는 그 기능 — 서버 작업이나 Claude Code 같은 장시간 에이전트 실행에 특히 유용합니다. CSP가 hr-workspace 아키텍처 운영할 때 쓰면 딱 맞는 도구죠.\n\n**cmux**는 두 가지로 불립니다. 하나는 Ruby 생태계의 `tmuxinator` 류처럼 tmux 세션을 YAML로 미리 정의해두고 한 번에 띄우는 **tmux session manager** 개념의 도구고, 다른 하나는 gRPC 레이어에서 HTTP/2 연결을 멀티플렉싱하는 **cmux (Go 라이브러리)** 입니다. 어떤 맥락에서 보셨나요?\n\n사용 맥락을 알면 더 정확히 연결해 드릴 수 있습니다 — Claude Code 워크플로우용인지, 서버 인프라용인지, 아니면 다른 문서에서 보신 건지요.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-28T03:36:15.989765Z",
+          "stop_timestamp": "2026-03-28T03:36:25.579198Z",
+          "flags": null,
+          "type": "text",
+          "text": " tmux와 cmux, 둘 다 터미널 멀티플렉서 계열인데 성격이 다릅니다.\n\n**tmux**는 terminal multiplexer의 고전입니다. 하나의 터미널 세션 안에서 여러 창(window)과 패널(pane)을 분할해서 쓸 수 있고, 세션을 detach했다가 나중에 다시 attach할 수 있어서 — SSH 끊겨도 작업이 살아있는 그 기능 — 서버 작업이나 Claude Code 같은 장시간 에이전트 실행에 특히 유용합니다. CSP가 hr-workspace 아키텍처 운영할 때 쓰면 딱 맞는 도구죠.\n\n**cmux**는 두 가지로 불립니다. 하나는 Ruby 생태계의 `tmuxinator` 류처럼 tmux 세션을 YAML로 미리 정의해두고 한 번에 띄우는 **tmux session manager** 개념의 도구고, 다른 하나는 gRPC 레이어에서 HTTP/2 연결을 멀티플렉싱하는 **cmux (Go 라이브러리)** 입니다. 어떤 맥락에서 보셨나요?\n\n사용 맥락을 알면 더 정확히 연결해 드릴 수 있습니다 — Claude Code 워크플로우용인지, 서버 인프라용인지, 아니면 다른 문서에서 보신 건지요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-28T03:36:25.630322Z",
+      "updated_at": "2026-03-28T03:36:25.630322Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d3283-7f8a-70f4-901a-826bd711aa70"
+    },
+    {
+      "uuid": "019d328c-3cd4-759d-84ea-e74c285af524",
+      "text": "Cc 워크플로우",
+      "content": [
+        {
+          "start_timestamp": "2026-03-28T03:45:46.296187Z",
+          "stop_timestamp": "2026-03-28T03:45:46.296187Z",
+          "flags": null,
+          "type": "text",
+          "text": "Cc 워크플로우",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-28T03:45:46.387755Z",
+      "updated_at": "2026-03-28T03:45:46.387755Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d3283-7f8a-7ec7-9d3d-ff96df01cd2b"
+    },
+    {
+      "uuid": "019d328c-3cd4-7d61-9815-e784260aa88d",
+      "text": " Claude Code 워크플로우 맥락이라면 **tmux가 핵심**입니다.\n\n---\n\n## tmux가 CC 워크플로우에서 중요한 이유\n\nClaude Code는 기본적으로 장시간 실행되는 에이전트 프로세스입니다. 터미널을 닫거나 SSH가 끊기면 작업이 날아가는데, tmux는 그 프로세스를 백그라운드 세션으로 보존합니다.\n\n핵심 패턴은 이렇습니다.\n\n```bash\n# 세션 생성\ntmux new -s hr-workspace\n\n# 안에서 Claude Code 실행\nclaude\n\n# 세션 detach (작업은 계속 돌아감)\nCtrl+b, d\n\n# 나중에 다시 붙기\ntmux attach -t hr-workspace\n```\n\n---\n\n## CSP 워크플로우에 맞는 구성\n\nhr-workspace 4-layer 구조에 맞춰 세션을 분리하면 됩니다.\n\n```bash\n# 프로젝트별 세션\ntmux new -s escon        # ESCON Next.js 작업\ntmux new -s ex-intel     # EX Intelligence \ntmux new -s ax-strategy  # AX 전략 문서\n```\n\n하나의 세션 안에서 창을 분할할 수도 있습니다.\n\n```\n[window 1] claude (에이전트 실행)\n[window 2] git / 파일 탐색\n[window 3] 로그 모니터링\n```\n\n---\n\n## cmux와의 관계\n\n**tmuxinator** (흔히 cmux처럼 불리는 것)를 쓰면 이 세션 구성을 YAML로 저장해두고 `tmuxinator start hr-workspace` 한 줄로 전체 환경을 복원할 수 있습니다. CLAUDE.md처럼 워크스페이스 컨텍스트를 코드로 관리하는 개념과 동일선상입니다.\n\n모바일 → 데스크탑 Dispatch 패턴으로 원격 제어할 때도 tmux 세션이 브릿지 역할을 합니다.\n\n어떤 부분을 더 깊이 볼까요?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-28T03:45:47.649149Z",
+          "stop_timestamp": "2026-03-28T03:45:59.352082Z",
+          "flags": null,
+          "type": "text",
+          "text": " Claude Code 워크플로우 맥락이라면 **tmux가 핵심**입니다.\n\n---\n\n## tmux가 CC 워크플로우에서 중요한 이유\n\nClaude Code는 기본적으로 장시간 실행되는 에이전트 프로세스입니다. 터미널을 닫거나 SSH가 끊기면 작업이 날아가는데, tmux는 그 프로세스를 백그라운드 세션으로 보존합니다.\n\n핵심 패턴은 이렇습니다.\n\n```bash\n# 세션 생성\ntmux new -s hr-workspace\n\n# 안에서 Claude Code 실행\nclaude\n\n# 세션 detach (작업은 계속 돌아감)\nCtrl+b, d\n\n# 나중에 다시 붙기\ntmux attach -t hr-workspace\n```\n\n---\n\n## CSP 워크플로우에 맞는 구성\n\nhr-workspace 4-layer 구조에 맞춰 세션을 분리하면 됩니다.\n\n```bash\n# 프로젝트별 세션\ntmux new -s escon        # ESCON Next.js 작업\ntmux new -s ex-intel     # EX Intelligence \ntmux new -s ax-strategy  # AX 전략 문서\n```\n\n하나의 세션 안에서 창을 분할할 수도 있습니다.\n\n```\n[window 1] claude (에이전트 실행)\n[window 2] git / 파일 탐색\n[window 3] 로그 모니터링\n```\n\n---\n\n## cmux와의 관계\n\n**tmuxinator** (흔히 cmux처럼 불리는 것)를 쓰면 이 세션 구성을 YAML로 저장해두고 `tmuxinator start hr-workspace` 한 줄로 전체 환경을 복원할 수 있습니다. CLAUDE.md처럼 워크스페이스 컨텍스트를 코드로 관리하는 개념과 동일선상입니다.\n\n모바일 → 데스크탑 Dispatch 패턴으로 원격 제어할 때도 tmux 세션이 브릿지 역할을 합니다.\n\n어떤 부분을 더 깊이 볼까요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-28T03:45:59.743690Z",
+      "updated_at": "2026-03-28T03:45:59.743690Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d328c-3cd4-759d-84ea-e74c285af524"
+    }
+  ]
+}

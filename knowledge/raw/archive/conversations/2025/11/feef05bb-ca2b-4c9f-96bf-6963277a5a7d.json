@@ -1,0 +1,866 @@
+﻿{
+  "uuid": "feef05bb-ca2b-4c9f-96bf-6963277a5a7d",
+  "name": "GPU와 ASIC 반도체 비교분석",
+  "summary": "**Conversation overview**\n\nThe user engaged in a technical discussion about semiconductors, specifically requesting a comparative analysis of GPUs and ASIC semiconductors. Claude provided a detailed breakdown of their similarities and differences, covering aspects like flexibility, performance efficiency, development costs, market adaptability, and use cases. The user then asked about the concept of \"premortem,\" which led Claude to initially demonstrate the technique by applying it to a GitHub usage scenario before the user clarified they wanted an explanation of the premortem concept itself. Claude explained premortem as a proactive risk analysis method where teams assume future failure and work backwards to identify potential causes and prevention strategies, contrasting it with traditional postmortem analysis. The user then requested a practical application of premortem analysis to KOSPI investment over a six-month period from December 2025 to May 2026. Claude conducted web research to gather current market data, finding that KOSPI had risen 28% in the first half of 2025 and was trading around 3,927 points. Using this context, Claude created a comprehensive premortem analysis identifying six potential failure scenarios for KOSPI investment, including high-point buying, external variables like US interest rates, poor stock selection, psychological trading traps, currency risks, and political instability. Each scenario included detailed failure causes, realistic progression timelines, and specific prevention strategies, culminating in a comprehensive risk management framework with portfolio recommendations and warning signals.\n\n**Tool knowledge**\n\nClaude used web search to gather current market information for the KOSPI premortem analysis. The search queries \"코스피 2025년 12월\" and \"2025 미국 금리 인하 전망\" successfully retrieved relevant financial data including KOSPI index levels, recent performance metrics, Federal Reserve policy expectations, and market sentiment indicators. This real-time data was essential for creating realistic failure scenarios grounded in actual market conditions rather than hypothetical situations. The search results provided specific numerical data points like KOSPI trading around 3,927 points and the 28% first-half 2025 gain, which formed the foundation for calculating realistic loss scenarios and establishing credible market context for the premortem analysis.",
+  "created_at": "2025-11-30T23:49:51.620886Z",
+  "updated_at": "2025-11-30T23:59:24.083522Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019ad72c-4240-73dc-bbc6-cd76fe4e048c",
+      "text": "GPU와 Asic반도체의 공통점과 차이점 비교분석",
+      "content": [
+        {
+          "start_timestamp": "2025-11-30T23:49:53.344886Z",
+          "stop_timestamp": "2025-11-30T23:49:53.344886Z",
+          "flags": null,
+          "type": "text",
+          "text": "GPU와 Asic반도체의 공통점과 차이점 비교분석",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2025-11-30T23:49:53.351864Z",
+      "updated_at": "2025-11-30T23:49:53.351864Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019ad72c-4240-73dc-bbc6-cd774f282183",
+      "text": "사용자가 GPU와 ASIC 반도체의 공통점과 차이점에 대한 비교분석을 요청했습니다. 이것은 기술적인 질문이고, 제 지식으로 답변할 수 있는 내용입니다. 웹 검색이 필요하지 않습니다.\n\nGPU(Graphics Processing Unit)와 ASIC(Application-Specific Integrated Circuit)에 대해 체계적으로 비교해보겠습니다.\n\n사용자가 bullet point를 명시적으로 요청하지 않았으므로, 자연스러운 문단 형식으로 작성하는 것이 좋겠습니다.GPU와 ASIC 반도체를 비교분석해드리겠습니다.\n\n## 공통점\n\nGPU와 ASIC은 모두 특정 작업을 효율적으로 처리하기 위해 설계된 반도체입니다. 두 칩 모두 범용 CPU보다 특정 연산에서 훨씬 높은 성능과 전력 효율성을 제공합니다. 또한 병렬 처리 구조를 활용하여 대량의 데이터를 동시에 처리할 수 있으며, 현대 AI, 암호화폐 채굴, 고성능 컴퓨팅 등의 분야에서 모두 활용되고 있습니다.\n\n## 주요 차이점\n\n**유연성 측면**에서 GPU는 프로그래밍이 가능한 범용 병렬 프로세서입니다. 그래픽 렌더링, AI 학습, 과학 계산 등 다양한 작업에 소프트웨어만 바꿔서 사용할 수 있습니다. 반면 ASIC은 단일 용도로 설계된 칩으로, 비트코인 채굴용 ASIC은 오직 SHA-256 해시 연산만 수행할 수 있습니다. 한번 제조되면 다른 용도로 전환할 수 없습니다.\n\n**성능과 효율성**에서는 ASIC이 압도적입니다. 특정 작업에만 최적화되어 있기 때문에 같은 작업을 수행할 때 GPU보다 수십 배에서 수백 배 빠르며, 전력 소비도 훨씬 적습니다. 예를 들어 비트코인 채굴에서는 ASIC이 GPU를 완전히 대체했습니다.\n\n**개발 비용과 시간**에서 GPU는 이미 상용화된 제품을 구매해서 바로 사용할 수 있지만, ASIC은 설계부터 제조까지 수억 원에서 수백억 원의 비용과 1-2년의 개발 기간이 필요합니다. 따라서 ASIC은 대량 생산이 보장되는 경우에만 경제적입니다.\n\n**시장 적응성**도 중요한 차이입니다. GPU는 알고리즘이나 요구사항이 변경되어도 소프트웨어 업데이트로 대응할 수 있지만, ASIC은 알고리즘이 바뀌면 칩 자체가 무용지물이 됩니다. 이는 AI 분야에서 구글의 TPU 같은 AI 전용 ASIC이 등장했지만, 여전히 NVIDIA GPU가 주류를 유지하는 이유이기도 합니다.\n\n**활용 분야**를 보면, GPU는 게임, AI 개발, 영상 편집, 연구 등 범용적으로 사용되며, ASIC은 암호화폐 채굴, 네트워크 라우터, 특정 AI 추론 작업 등 명확한 단일 목적이 있는 대규모 산업 환경에서 주로 사용됩니다.\n\n결론적으로 GPU는 범용성과 유연성이 강점이고, ASIC은 특정 작업에서의 극한의 성능과 효율성이 강점입니다. 어떤 것을 선택할지는 작업의 특성, 규모, 변화 가능성 등을 고려하여 결정해야 합니다.",
+      "content": [
+        {
+          "start_timestamp": "2025-11-30T23:49:55.161726Z",
+          "stop_timestamp": "2025-11-30T23:49:58.456720Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 GPU와 ASIC 반도체의 공통점과 차이점에 대한 비교분석을 요청했습니다. 이것은 기술적인 질문이고, 제 지식으로 답변할 수 있는 내용입니다. 웹 검색이 필요하지 않습니다.\n\nGPU(Graphics Processing Unit)와 ASIC(Application-Specific Integrated Circuit)에 대해 체계적으로 비교해보겠습니다.\n\n사용자가 bullet point를 명시적으로 요청하지 않았으므로, 자연스러운 문단 형식으로 작성하는 것이 좋겠습니다.",
+          "summaries": [
+            {
+              "summary": "생각해보기: GPU와 ASIC 반도체의 공통점과 차이점 비교 분석"
+            },
+            {
+              "summary": "GPU와 ASIC 비교분석을 체계적으로 구성 중입니다."
+            },
+            {
+              "summary": "GPU와 ASIC 반도체의 공통점과 차이점을 체계적으로 분석했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-11-30T23:49:58.566831Z",
+          "stop_timestamp": "2025-11-30T23:50:16.750694Z",
+          "flags": null,
+          "type": "text",
+          "text": "GPU와 ASIC 반도체를 비교분석해드리겠습니다.\n\n## 공통점\n\nGPU와 ASIC은 모두 특정 작업을 효율적으로 처리하기 위해 설계된 반도체입니다. 두 칩 모두 범용 CPU보다 특정 연산에서 훨씬 높은 성능과 전력 효율성을 제공합니다. 또한 병렬 처리 구조를 활용하여 대량의 데이터를 동시에 처리할 수 있으며, 현대 AI, 암호화폐 채굴, 고성능 컴퓨팅 등의 분야에서 모두 활용되고 있습니다.\n\n## 주요 차이점\n\n**유연성 측면**에서 GPU는 프로그래밍이 가능한 범용 병렬 프로세서입니다. 그래픽 렌더링, AI 학습, 과학 계산 등 다양한 작업에 소프트웨어만 바꿔서 사용할 수 있습니다. 반면 ASIC은 단일 용도로 설계된 칩으로, 비트코인 채굴용 ASIC은 오직 SHA-256 해시 연산만 수행할 수 있습니다. 한번 제조되면 다른 용도로 전환할 수 없습니다.\n\n**성능과 효율성**에서는 ASIC이 압도적입니다. 특정 작업에만 최적화되어 있기 때문에 같은 작업을 수행할 때 GPU보다 수십 배에서 수백 배 빠르며, 전력 소비도 훨씬 적습니다. 예를 들어 비트코인 채굴에서는 ASIC이 GPU를 완전히 대체했습니다.\n\n**개발 비용과 시간**에서 GPU는 이미 상용화된 제품을 구매해서 바로 사용할 수 있지만, ASIC은 설계부터 제조까지 수억 원에서 수백억 원의 비용과 1-2년의 개발 기간이 필요합니다. 따라서 ASIC은 대량 생산이 보장되는 경우에만 경제적입니다.\n\n**시장 적응성**도 중요한 차이입니다. GPU는 알고리즘이나 요구사항이 변경되어도 소프트웨어 업데이트로 대응할 수 있지만, ASIC은 알고리즘이 바뀌면 칩 자체가 무용지물이 됩니다. 이는 AI 분야에서 구글의 TPU 같은 AI 전용 ASIC이 등장했지만, 여전히 NVIDIA GPU가 주류를 유지하는 이유이기도 합니다.\n\n**활용 분야**를 보면, GPU는 게임, AI 개발, 영상 편집, 연구 등 범용적으로 사용되며, ASIC은 암호화폐 채굴, 네트워크 라우터, 특정 AI 추론 작업 등 명확한 단일 목적이 있는 대규모 산업 환경에서 주로 사용됩니다.\n\n결론적으로 GPU는 범용성과 유연성이 강점이고, ASIC은 특정 작업에서의 극한의 성능과 효율성이 강점입니다. 어떤 것을 선택할지는 작업의 특성, 규모, 변화 가능성 등을 고려하여 결정해야 합니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2025-11-30T23:50:16.900962Z",
+      "updated_at": "2025-11-30T23:50:16.900962Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ad72c-4240-73dc-bbc6-cd76fe4e048c"
+    },
+    {
+      "uuid": "019ad72e-8c9d-7558-92bc-a9c1d76784b8",
+      "text": "premortem?",
+      "content": [
+        {
+          "start_timestamp": "2025-11-30T23:52:23.564275Z",
+          "stop_timestamp": "2025-11-30T23:52:23.564275Z",
+          "flags": null,
+          "type": "text",
+          "text": "premortem?",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2025-11-30T23:52:23.573436Z",
+      "updated_at": "2025-11-30T23:52:23.573436Z",
+      "attachments": [
+        {
+          "file_name": "",
+          "file_size": 38491,
+          "file_type": "txt",
+          "extracted_content": "# 🚀 초보 개발자를 위한 GitHub 완벽 활용 가이드\n\n> 개발 업무 효율화 + 포트폴리오 관리를 한 번에!\n\n---\n\n## 📚 목차\n\n1. [GitHub 기본 개념](#1-github-기본-개념)\n2. [초기 설정](#2-초기-설정)\n3. [일상 개발 워크플로우](#3-일상-개발-워크플로우)\n4. [협업하기](#4-협업하기)\n5. [포트폴리오 만들기](#5-포트폴리오-만들기)\n6. [고급 활용법](#6-고급-활용법)\n7. [실전 시나리오](#7-실전-시나리오)\n\n---\n\n## 1. GitHub 기본 개념\n\n### 1.1 Git vs GitHub\n\n```\n┌─────────────────────────────────────────────────────────┐\n│                                                         │\n│  Git = 버전 관리 도구 (내 컴퓨터)                          │\n│  ┌──────────────────────────────────────┐              │\n│  │  v1.0  →  v1.1  →  v1.2  →  v2.0    │              │\n│  │  초안     수정1    수정2    완성      │              │\n│  └──────────────────────────────────────┘              │\n│                                                         │\n│  GitHub = Git 저장소 호스팅 서비스 (클라우드)              │\n│  ┌──────────────────────────────────────┐              │\n│  │  📦 온라인 저장소                      │              │\n│  │  👥 협업 도구                          │              │\n│  │  🎨 포트폴리오 공간                    │              │\n│  └──────────────────────────────────────┘              │\n│                                                         │\n└─────────────────────────────────────────────────────────┘\n```\n\n**쉬운 비유:**\n- **Git**: 워드 문서의 \"변경 내용 추적\" 기능 (내 컴퓨터)\n- **GitHub**: 구글 드라이브 같은 클라우드 저장소 + SNS 기능\n\n---\n\n### 1.2 핵심 용어 정리\n\n```\n┌──────────────────────────────────────────────────────────┐\n│  Repository (저장소)                                      │\n│  ┌────────────────────────────────────────────┐          │\n│  │  프로젝트 전체를 담는 폴더                   │          │\n│  │  📁 my-awesome-project/                    │          │\n│  │     ├── 📄 README.md                       │          │\n│  │     ├── 📂 src/                            │          │\n│  │     └── 📂 docs/                           │          │\n│  └────────────────────────────────────────────┘          │\n│                                                          │\n│  Commit (커밋)                                           │\n│  ┌────────────────────────────────────────────┐          │\n│  │  특정 시점의 \"스냅샷\" (저장 지점)            │          │\n│  │  💾 \"로그인 기능 추가\" ← 이런 메시지와 함께    │          │\n│  └────────────────────────────────────────────┘          │\n│                                                          │\n│  Branch (브랜치)                                         │\n│  ┌────────────────────────────────────────────┐          │\n│  │  코드의 \"평행 세계\"                          │          │\n│  │                                             │          │\n│  │  main    : ●──●──●──●──●                   │          │\n│  │              ╲                              │          │\n│  │  feature  :   ●──●──●                       │          │\n│  └────────────────────────────────────────────┘          │\n│                                                          │\n│  Push / Pull                                            │\n│  ┌────────────────────────────────────────────┐          │\n│  │  내 컴퓨터 💻  ⇄  GitHub ☁️                 │          │\n│  │             ↑         ↓                     │          │\n│  │           Push      Pull                    │          │\n│  │         (업로드)   (다운로드)                │          │\n│  └────────────────────────────────────────────┘          │\n└──────────────────────────────────────────────────────────┘\n```\n\n---\n\n## 2. 초기 설정\n\n### 2.1 Git 설치 및 설정\n\n**Step 1: Git 설치**\n\n```bash\n# macOS\nbrew install git\n\n# Windows\n# https://git-scm.com/download/win 에서 다운로드\n\n# Linux (Ubuntu/Debian)\nsudo apt-get install git\n```\n\n**Step 2: 기본 설정**\n\n```bash\n# 이름 설정 (커밋할 때 표시될 이름)\ngit config --global user.name \"홍길동\"\n\n# 이메일 설정 (GitHub 이메일과 동일하게!)\ngit config --global user.email \"your-email@example.com\"\n\n# 기본 에디터 설정 (VS Code 사용 시)\ngit config --global core.editor \"code --wait\"\n\n# 설정 확인\ngit config --list\n```\n\n---\n\n### 2.2 GitHub 계정 설정\n\n**프로필 최적화 체크리스트:**\n\n```\n□ 프로필 사진 설정 (전문적인 사진 또는 아바타)\n□ 이름 설정 (실명 권장)\n□ Bio 작성 (간단한 자기소개)\n  예: \"풀스택 개발자 지망생 | React & Node.js\"\n□ 위치 추가 (서울, 대한민국)\n□ 블로그/포트폴리오 링크 추가\n□ Twitter, LinkedIn 등 연결\n```\n\n**프로필 README 만들기:**\n\n```\n1. 자신의 GitHub 아이디와 같은 이름의 저장소 생성\n   예: username이 \"hongkildong\"이면\n   → \"hongkildong\" 이름의 저장소 생성\n\n2. README.md 파일 작성\n   → 프로필 페이지에 표시됨!\n```\n\n**프로필 README 예시:**\n\n```markdown\n# 👋 안녕하세요, 홍길동입니다!\n\n## 🚀 About Me\n- 🎓 컴퓨터공학과 재학 중\n- 💼 풀스택 개발자 지망\n- 🌱 현재 React와 Node.js 학습 중\n- 📫 연락처: your-email@example.com\n\n## 🛠️ Tech Stack\n![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)\n![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black)\n![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white)\n\n## 📊 GitHub Stats\n![GitHub stats](https://github-readme-stats.vercel.app/api?username=hongkildong&show_icons=true)\n```\n\n---\n\n### 2.3 SSH 키 설정 (권장)\n\n**왜 필요한가요?**\n- 매번 비밀번호 입력 안 해도 됨\n- 더 안전함\n\n```bash\n# Step 1: SSH 키 생성\nssh-keygen -t ed25519 -C \"your-email@example.com\"\n# Enter 3번 누르기 (기본 설정 사용)\n\n# Step 2: SSH 키 복사\n# macOS\ncat ~/.ssh/id_ed25519.pub | pbcopy\n\n# Windows\ntype %USERPROFILE%\\.ssh\\id_ed25519.pub | clip\n\n# Linux\ncat ~/.ssh/id_ed25519.pub\n\n# Step 3: GitHub에 등록\n# GitHub.com → Settings → SSH and GPG keys → New SSH key\n# 복사한 내용 붙여넣기\n\n# Step 4: 테스트\nssh -T git@github.com\n# \"Hi username!\" 메시지가 나오면 성공!\n```\n\n---\n\n## 3. 일상 개발 워크플로우\n\n### 3.1 새 프로젝트 시작하기\n\n**시나리오: Todo 앱을 만든다고 가정**\n\n```\n┌─────────────────────────────────────────────────────┐\n│  방법 1: GitHub에서 먼저 만들기 (추천!)               │\n└─────────────────────────────────────────────────────┘\n\nGitHub 웹사이트에서:\n  1. \"+\" 버튼 클릭 → \"New repository\"\n  2. Repository name: \"todo-app\"\n  3. Description: \"간단한 할 일 관리 앱\"\n  4. ✅ Public (포트폴리오용)\n  5. ✅ Add a README file\n  6. .gitignore: Node (해당되면)\n  7. License: MIT (선택)\n  8. \"Create repository\" 클릭\n\n내 컴퓨터에서:\n  git clone https://github.com/username/todo-app.git\n  cd todo-app\n  code .  # VS Code로 열기\n```\n\n```\n┌─────────────────────────────────────────────────────┐\n│  방법 2: 로컬에서 먼저 만들기                          │\n└─────────────────────────────────────────────────────┘\n\n내 컴퓨터에서:\n  mkdir todo-app\n  cd todo-app\n  git init  # Git 저장소로 만들기\n  \n  # README 파일 만들기\n  echo \"# Todo App\" > README.md\n  \n  # 첫 커밋\n  git add .\n  git commit -m \"Initial commit\"\n\nGitHub 웹사이트에서:\n  1. 빈 저장소 생성 (README 체크 안 함!)\n  2. 연결 명령어 복사\n\n내 컴퓨터에서:\n  git remote add origin https://github.com/username/todo-app.git\n  git branch -M main\n  git push -u origin main\n```\n\n---\n\n### 3.2 기본 개발 사이클\n\n```\n┌──────────────────────────────────────────────────────┐\n│                                                      │\n│  📝 코드 작성                                         │\n│       ↓                                              │\n│  ✅ 작동 확인                                         │\n│       ↓                                              │\n│  💾 커밋 (저장)                                       │\n│       ↓                                              │\n│  ☁️  푸시 (GitHub에 업로드)                           │\n│       ↓                                              │\n│  🔄 반복!                                            │\n│                                                      │\n└──────────────────────────────────────────────────────┘\n```\n\n**실전 예시:**\n\n```bash\n# 1. 새 기능 추가 (예: 할 일 추가 기능)\n# app.js 파일을 수정했다고 가정\n\n# 2. 변경사항 확인\ngit status\n# 출력 예시:\n# modified:   app.js\n# new file:   styles.css\n\n# 3. 스테이징 (커밋할 파일 선택)\ngit add app.js styles.css\n# 또는 모든 파일:\ngit add .\n\n# 4. 커밋 (스냅샷 생성)\ngit commit -m \"할 일 추가 기능 구현\"\n\n# 5. GitHub에 업로드\ngit push origin main\n\n# ✅ 완료! GitHub에서 확인 가능\n```\n\n---\n\n### 3.3 커밋 메시지 작성법\n\n**❌ 나쁜 예:**\n```bash\ngit commit -m \"수정\"\ngit commit -m \"ㅇㅇ\"\ngit commit -m \"아 진짜\"\n```\n\n**✅ 좋은 예:**\n```bash\ngit commit -m \"로그인 기능 추가\"\ngit commit -m \"버튼 색상 변경 (파란색 → 녹색)\"\ngit commit -m \"null 체크 로직 버그 수정\"\n```\n\n**컨벤션 (선택적):**\n```bash\n# 타입: 설명 형식\ngit commit -m \"feat: 사용자 프로필 페이지 추가\"\ngit commit -m \"fix: 로그인 오류 수정\"\ngit commit -m \"docs: README 업데이트\"\ngit commit -m \"style: 코드 포맷팅\"\n```\n\n**타입 종류:**\n- `feat`: 새 기능\n- `fix`: 버그 수정\n- `docs`: 문서 수정\n- `style`: 코드 포맷팅 (기능 변경 없음)\n- `refactor`: 코드 리팩토링\n- `test`: 테스트 추가\n- `chore`: 기타 작업\n\n---\n\n### 3.4 .gitignore 활용하기\n\n**왜 필요한가요?**\n- 불필요한 파일을 GitHub에 올리지 않기 위해\n- 비밀 정보 (API 키, 비밀번호) 보호\n\n```\n프로젝트 구조:\nmy-project/\n├── src/\n├── node_modules/     ← GitHub에 올리면 안 됨! (너무 큼)\n├── .env             ← GitHub에 올리면 안 됨! (비밀 정보)\n├── .gitignore       ← 여기에 제외할 파일 목록 작성\n└── package.json\n```\n\n**.gitignore 예시:**\n\n```gitignore\n# Node.js\nnode_modules/\nnpm-debug.log\n\n# 환경 변수\n.env\n.env.local\n\n# 빌드 결과물\ndist/\nbuild/\n\n# IDE 설정\n.vscode/\n.idea/\n\n# OS 파일\n.DS_Store\nThumbs.db\n\n# 로그 파일\n*.log\n\n# 개인 메모\nTODO.txt\n```\n\n**적용 방법:**\n```bash\n# 프로젝트 루트에 .gitignore 파일 생성\ntouch .gitignore\n\n# 내용 작성 (위 예시 참고)\n\n# 커밋\ngit add .gitignore\ngit commit -m \"chore: .gitignore 추가\"\n```\n\n---\n\n## 4. 협업하기\n\n### 4.1 브랜치 전략\n\n```\nmain 브랜치 (배포 가능한 안정 버전)\n    ●────●────●────●────●────●\n     ╲        ╲         ╱\n      ╲    feature/login\n       ╲       ●────●──╱\n        ╲\n     feature/signup\n         ●────●────●\n```\n\n**왜 브랜치를 사용하나요?**\n- main은 항상 안정적으로 유지\n- 새 기능은 별도 브랜치에서 개발\n- 완성되면 main에 합치기\n\n**기본 명령어:**\n\n```bash\n# 1. 새 브랜치 생성 + 이동\ngit checkout -b feature/login\n\n# 2. 브랜치 목록 확인\ngit branch\n# 출력:\n# * feature/login  ← 현재 브랜치 (*)\n#   main\n\n# 3. 브랜치 이동\ngit checkout main\n\n# 4. 작업 후 푸시\ngit push origin feature/login\n\n# 5. main으로 합치기 (나중에 설명)\n```\n\n---\n\n### 4.2 Pull Request (PR) 워크플로우\n\n```\n┌─────────────────────────────────────────────────────┐\n│  개발자 A의 작업 흐름                                 │\n└─────────────────────────────────────────────────────┘\n\n1. 이슈 생성\n   GitHub → Issues → New issue\n   \"로그인 기능 추가\" 작성\n\n2. 브랜치 생성\n   git checkout -b feature/login\n\n3. 코드 작성 + 커밋\n   git add .\n   git commit -m \"feat: 로그인 UI 구현\"\n   git push origin feature/login\n\n4. Pull Request 생성\n   GitHub 웹사이트에서:\n   - \"Compare & pull request\" 버튼 클릭\n   - 제목: \"로그인 기능 추가\"\n   - 설명: \n     \"\"\"\n     ## 변경사항\n     - 로그인 폼 UI 구현\n     - JWT 토큰 처리 로직 추가\n     \n     ## 테스트\n     - 로컬에서 테스트 완료\n     \n     Closes #1\n     \"\"\"\n   - \"Create pull request\" 클릭\n\n5. 코드 리뷰 대기\n   (다른 개발자나 팀원이 검토)\n\n6. 피드백 반영\n   # 수정 후\n   git add .\n   git commit -m \"fix: 리뷰 피드백 반영\"\n   git push origin feature/login\n   # PR이 자동으로 업데이트됨!\n\n7. Merge (병합)\n   - 승인 후 \"Merge pull request\" 클릭\n   - 브랜치 삭제\n\n8. 로컬 정리\n   git checkout main\n   git pull origin main\n   git branch -d feature/login\n```\n\n---\n\n### 4.3 Fork & Pull Request (오픈소스 기여)\n\n```\n┌──────────────────────────────────────────────────────┐\n│  오픈소스 프로젝트 기여 흐름                            │\n└──────────────────────────────────────────────────────┘\n\n원본 저장소 (다른 사람 것)\n    awesome-project\n         │\n         │ Fork (복사)\n         ↓\n내 저장소\n    awesome-project\n         │\n         │ Clone\n         ↓\n내 컴퓨터\n    awesome-project/\n         │\n         │ 수정 + 커밋 + 푸시\n         ↓\n내 저장소 (업데이트됨)\n         │\n         │ Pull Request 생성\n         ↓\n원본 저장소로 제안!\n```\n\n**실전 단계:**\n\n```bash\n# 1. GitHub에서 Fork 버튼 클릭\n# 2. 내 저장소로 복사됨\n\n# 3. 클론\ngit clone https://github.com/내아이디/awesome-project.git\ncd awesome-project\n\n# 4. 원본 저장소 추가 (나중에 업데이트 받기 위해)\ngit remote add upstream https://github.com/원저자/awesome-project.git\n\n# 5. 브랜치 생성\ngit checkout -b fix/typo-in-readme\n\n# 6. 수정 (예: README.md 오타 수정)\n\n# 7. 커밋 + 푸시\ngit add README.md\ngit commit -m \"docs: README 오타 수정\"\ngit push origin fix/typo-in-readme\n\n# 8. GitHub에서 Pull Request 생성\n# \"Compare & pull request\" 버튼이 자동으로 나타남!\n```\n\n---\n\n### 4.4 Conflict (충돌) 해결하기\n\n**충돌이 발생하는 경우:**\n\n```\n개발자 A:\n    main: ●────●\n           ╲\n         feature-a: ●────●\n                    (파일 수정)\n\n개발자 B:\n    main: ●────●────●\n                ╲    ╲\n             feature-b: ●────●\n                        (같은 파일 수정)\n\n→ 둘 다 main에 합치려고 할 때 충돌!\n```\n\n**해결 방법:**\n\n```bash\n# 1. main 브랜치 최신화\ngit checkout main\ngit pull origin main\n\n# 2. 내 브랜치로 이동\ngit checkout feature-a\n\n# 3. main을 내 브랜치에 merge\ngit merge main\n# 충돌 발생!\n\n# 4. 충돌 파일 확인\ngit status\n# both modified:   app.js\n\n# 5. VS Code나 에디터로 app.js 열기\n# 다음과 같이 표시됨:\n\n<<<<<<< HEAD (현재 브랜치)\nconst greeting = \"안녕하세요\";\n=======\nconst greeting = \"Hello\";\n>>>>>>> main (main 브랜치)\n\n# 6. 원하는 버전 선택하거나 수동으로 합치기\nconst greeting = \"안녕하세요\"; // 이걸 선택했다고 가정\n\n# 7. 마커 삭제 후 저장\n\n# 8. 해결 완료 표시\ngit add app.js\ngit commit -m \"merge: main 브랜치 병합 및 충돌 해결\"\n\n# 9. 푸시\ngit push origin feature-a\n```\n\n---\n\n## 5. 포트폴리오 만들기\n\n### 5.1 포트폴리오용 저장소 구조\n\n```\ngithub.com/username/\n│\n├── portfolio-website/          ← 포트폴리오 웹사이트\n│   ├── index.html\n│   ├── projects.html\n│   └── README.md\n│\n├── awesome-todo-app/           ← 프로젝트 1\n│   ├── README.md              ← ⭐ 중요!\n│   ├── screenshots/\n│   └── src/\n│\n├── weather-dashboard/          ← 프로젝트 2\n│   ├── README.md\n│   └── ...\n│\n└── algorithm-practice/         ← 알고리즘 연습\n    ├── README.md\n    └── solutions/\n```\n\n---\n\n### 5.2 완벽한 README 작성법\n\n**구조:**\n\n```markdown\n# 프로젝트 제목\n\n짧고 명확한 설명 (한 문장)\n\n![Screenshot](./screenshots/main.png)\n\n## 📌 목차\n- [주요 기능](#주요-기능)\n- [기술 스택](#기술-스택)\n- [시작하기](#시작하기)\n- [사용법](#사용법)\n- [배운 점](#배운-점)\n\n## 🎯 주요 기능\n\n- ✅ 할 일 추가/삭제/수정\n- ✅ 카테고리별 분류\n- ✅ 우선순위 설정\n- ✅ 다크모드 지원\n\n## 🛠️ 기술 스택\n\n**Frontend**\n- React 18\n- TypeScript\n- Tailwind CSS\n\n**Backend**\n- Node.js\n- Express\n- MongoDB\n\n**Deployment**\n- Vercel (Frontend)\n- Heroku (Backend)\n\n## 🚀 시작하기\n\n### 요구사항\n- Node.js 18 이상\n- npm 또는 yarn\n\n### 설치\n\n\\```bash\n# 저장소 클론\ngit clone https://github.com/username/project.git\n\n# 디렉토리 이동\ncd project\n\n# 의존성 설치\nnpm install\n\n# 환경 변수 설정\ncp .env.example .env\n# .env 파일을 열어 필요한 값 입력\n\n# 개발 서버 실행\nnpm run dev\n\\```\n\n## 💡 사용법\n\n1. 회원가입 또는 로그인\n2. \"+\" 버튼을 클릭하여 새 할 일 추가\n3. 체크박스를 클릭하여 완료 표시\n4. 우측 상단에서 다크모드 토글\n\n## 🎓 배운 점\n\n- React Hooks(useState, useEffect)의 활용법\n- RESTful API 설계 원칙\n- JWT를 이용한 인증 구현\n- TypeScript로 타입 안정성 확보\n\n## 🐛 알려진 이슈\n\n- [ ] 모바일에서 드래그 앤 드롭이 작동하지 않음\n- [ ] 대량의 데이터 로딩 시 성능 저하\n\n## 📝 라이선스\n\nMIT License\n\n## 👤 만든이\n\n**홍길동**\n- GitHub: [@hongkildong](https://github.com/hongkildong)\n- Email: your-email@example.com\n```\n\n---\n\n### 5.3 GitHub Pages로 포트폴리오 웹사이트 만들기\n\n**방법 1: 간단한 HTML/CSS/JS**\n\n```bash\n# 1. 저장소 생성\n# 이름을 반드시: username.github.io\n# 예: hongkildong.github.io\n\n# 2. 클론\ngit clone https://github.com/username/username.github.io.git\ncd username.github.io\n\n# 3. index.html 생성\ncat > index.html << 'EOF'\n<!DOCTYPE html>\n<html>\n<head>\n    <title>홍길동 포트폴리오</title>\n    <style>\n        body { font-family: Arial; max-width: 800px; margin: 50px auto; }\n        h1 { color: #333; }\n        .project { border: 1px solid #ddd; padding: 20px; margin: 20px 0; }\n    </style>\n</head>\n<body>\n    <h1>👋 안녕하세요, 홍길동입니다</h1>\n    <p>풀스택 개발자 지망생입니다.</p>\n    \n    <h2>📁 프로젝트</h2>\n    <div class=\"project\">\n        <h3>Todo App</h3>\n        <p>React로 만든 할 일 관리 앱</p>\n        <a href=\"https://github.com/username/todo-app\">GitHub</a>\n    </div>\n</body>\n</html>\nEOF\n\n# 4. 푸시\ngit add .\ngit commit -m \"Initial commit\"\ngit push origin main\n\n# 5. 확인\n# https://username.github.io 접속!\n```\n\n**방법 2: 프로젝트별 GitHub Pages**\n\n```bash\n# 프로젝트 저장소에서\n# Settings → Pages → Source: main 브랜ch 선택\n\n# 접속 URL:\n# https://username.github.io/project-name/\n```\n\n---\n\n### 5.4 README 뱃지(Badge) 활용\n\n**멋진 뱃지로 README 꾸미기:**\n\n```markdown\n# 프로젝트 제목\n\n![GitHub stars](https://img.shields.io/github/stars/username/repo?style=social)\n![GitHub forks](https://img.shields.io/github/forks/username/repo?style=social)\n![License](https://img.shields.io/badge/license-MIT-blue.svg)\n\n![React](https://img.shields.io/badge/React-18.2-61DAFB?logo=react)\n![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)\n![Node.js](https://img.shields.io/badge/Node.js-18-339933?logo=node.js)\n```\n\n**유용한 뱃지 사이트:**\n- https://shields.io/ (커스텀 뱃지)\n- https://simpleicons.org/ (로고 검색)\n\n---\n\n### 5.5 프로젝트 쇼케이스 전략\n\n```\n┌──────────────────────────────────────────────────────┐\n│  ⭐ 핀(Pin) 기능 활용                                  │\n│  GitHub 프로필에서 최대 6개 프로젝트 고정              │\n└──────────────────────────────────────────────────────┘\n\n우선순위:\n1. ⭐⭐⭐ 가장 자신 있는 프로젝트 (완성도 높음)\n2. ⭐⭐   최신 기술 스택 사용 프로젝트\n3. ⭐     진행 중인 프로젝트 (활동성 보여주기)\n\n고정하는 법:\nGitHub 프로필 → Customize your pins → 선택\n```\n\n**프로젝트 선정 기준:**\n\n```\n✅ README가 잘 작성되어 있는가?\n✅ 스크린샷이나 데모 링크가 있는가?\n✅ 코드 품질이 괜찮은가?\n✅ 최근 3개월 이내에 커밋이 있는가?\n✅ 기술 스택이 다양한가?\n\n❌ 미완성 프로젝트\n❌ README가 없거나 대충 작성됨\n❌ 튜토리얼 그대로 따라한 것\n❌ 1년 이상 방치된 프로젝트\n```\n\n---\n\n## 6. 고급 활용법\n\n### 6.1 GitHub Actions (CI/CD)\n\n**자동화 예시: 커밋할 때마다 테스트 실행**\n\n```yaml\n# .github/workflows/test.yml\n\nname: Run Tests\n\non:\n  push:\n    branches: [ main ]\n  pull_request:\n    branches: [ main ]\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n    \n    steps:\n    - uses: actions/checkout@v3\n    \n    - name: Setup Node.js\n      uses: actions/setup-node@v3\n      with:\n        node-version: '18'\n    \n    - name: Install dependencies\n      run: npm install\n    \n    - name: Run tests\n      run: npm test\n```\n\n**결과:**\n```\n✅ 모든 커밋에 자동으로 테스트가 실행됨\n✅ PR에 자동으로 테스트 결과가 표시됨\n✅ README에 뱃지로 표시 가능\n```\n\n---\n\n### 6.2 Issues 활용법\n\n**개인 프로젝트에서도 Issues 사용하기:**\n\n```\n┌──────────────────────────────────────────────────────┐\n│  Issues = 할 일 목록 + 버그 추적 + 아이디어 메모        │\n└──────────────────────────────────────────────────────┘\n\n예시:\n#1 - 로그인 기능 추가 [enhancement]\n#2 - 다크모드 버튼 색상 이상함 [bug]\n#3 - 모바일 반응형 적용 [enhancement]\n#4 - MongoDB 연결 오류 [bug]\n```\n\n**라벨 활용:**\n- 🐛 `bug`: 버그\n- ✨ `enhancement`: 새 기능\n- 📝 `documentation`: 문서 작업\n- 🎨 `design`: UI/UX 개선\n- 🚀 `priority-high`: 우선순위 높음\n\n**이슈 템플릿:**\n\n```markdown\n<!-- .github/ISSUE_TEMPLATE/bug_report.md -->\n\n## 🐛 버그 설명\n간단명료하게 버그를 설명해주세요.\n\n## 재현 방법\n1. '...'로 이동\n2. '...' 클릭\n3. 아래로 스크롤\n4. 오류 확인\n\n## 예상 동작\n원래 어떻게 작동해야 하는지 설명\n\n## 스크린샷\n가능하면 스크린샷 첨부\n\n## 환경\n- OS: [예: macOS]\n- 브라우저: [예: Chrome 120]\n```\n\n---\n\n### 6.3 프로젝트 보드(Kanban)\n\n```\n┌─────────────┬─────────────┬─────────────┬─────────────┐\n│   📋 Todo   │ 🚧 In Prog  │  👀 Review  │   ✅ Done   │\n├─────────────┼─────────────┼─────────────┼─────────────┤\n│ #1 로그인   │ #3 다크모드  │ #5 리팩토링  │ #2 회원가입  │\n│ #4 프로필   │             │             │             │\n│ #6 검색     │             │             │             │\n└─────────────┴─────────────┴─────────────┴─────────────┘\n```\n\n**설정 방법:**\n1. 저장소 → Projects → New project\n2. Board 선택\n3. 컬럼 이름 설정 (Todo, In Progress, Done)\n4. Issues를 드래그 앤 드롭으로 이동\n\n---\n\n### 6.4 GitHub Gist (코드 스니펫 공유)\n\n**언제 사용하나요?**\n- 작은 코드 조각 공유\n- 설정 파일 백업\n- 튜토리얼 예제 코드\n\n```\nhttps://gist.github.com/ 접속\n\n→ New gist 클릭\n→ 파일명과 코드 입력\n→ Create public gist (또는 secret)\n```\n\n**예시 활용:**\n```markdown\n유용한 Git 명령어 모음:\nhttps://gist.github.com/username/abc123...\n```\n\n---\n\n## 7. 실전 시나리오\n\n### 7.1 시나리오 1: 개인 프로젝트 시작부터 배포까지\n\n```\n┌──────────────────────────────────────────────────────┐\n│  프로젝트: 날씨 대시보드 앱                             │\n└──────────────────────────────────────────────────────┘\n\nDay 1: 프로젝트 시작\n  ✓ GitHub에서 저장소 생성 (weather-dashboard)\n  ✓ 로컬에 클론\n  ✓ README 초안 작성\n  ✓ .gitignore 설정\n  ✓ Initial commit\n\nDay 2-3: 기본 UI 구현\n  ✓ 브랜치 생성: feature/basic-ui\n  ✓ HTML/CSS 작성\n  ✓ 커밋: \"feat: 기본 레이아웃 구현\"\n  ✓ 푸시 → PR 생성 → Merge\n\nDay 4-5: API 연동\n  ✓ 브랜치 생성: feature/weather-api\n  ✓ OpenWeather API 연동\n  ✓ 커밋: \"feat: 날씨 API 연동\"\n  ✓ 이슈 #1 close\n\nDay 6: 반응형 디자인\n  ✓ 브랜치: feature/responsive\n  ✓ 모바일 최적화\n  ✓ 커밋 + PR\n\nDay 7: 배포\n  ✓ Vercel 연동\n  ✓ README에 라이브 데모 링크 추가\n  ✓ 스크린샷 추가\n  ✓ GitHub 프로필에 Pin\n\nDay 8: 마무리\n  ✓ 코드 리팩토링\n  ✓ 주석 추가\n  ✓ LICENSE 파일 추가\n  ✓ README 완성\n\n완성! 🎉\n```\n\n---\n\n### 7.2 시나리오 2: 팀 프로젝트 협업\n\n```\n┌──────────────────────────────────────────────────────┐\n│  팀 구성: 4명 (Frontend 2명, Backend 2명)              │\n│  프로젝트: 블로그 플랫폼                               │\n└──────────────────────────────────────────────────────┘\n\nWeek 1: 초기 설정\n  팀장:\n    ✓ 저장소 생성\n    ✓ 팀원들을 Collaborator로 추가\n      (Settings → Collaborators)\n    ✓ Branch protection rule 설정\n      (main 브랜치는 직접 푸시 금지)\n    ✓ 프로젝트 보드 생성\n    ✓ 이슈 템플릿 작성\n\n  팀원 A (Frontend):\n    ✓ 저장소 클론\n    ✓ Issue #1 할당받음: \"메인 페이지 UI\"\n    ✓ 브랜치: feature/main-page\n    ✓ 작업 후 PR 생성\n\n  팀원 B (Frontend):\n    ✓ Issue #2: \"글 작성 페이지\"\n    ✓ 브랜치: feature/write-post\n\n  팀원 C (Backend):\n    ✓ Issue #3: \"게시글 API\"\n    ✓ 브랜치: feature/post-api\n\n  팀원 D (Backend):\n    ✓ Issue #4: \"인증 시스템\"\n    ✓ 브랜치: feature/auth\n\nWeek 2: 코드 리뷰 프로세스\n  ✓ 팀원 A가 PR 생성\n  ✓ 팀원 B가 코드 리뷰\n  ✓ 피드백 반영\n  ✓ 승인 후 Merge\n  ✓ Slack/Discord 알림\n\nWeek 3: 충돌 해결\n  ✓ 팀원 C와 D가 같은 파일 수정\n  ✓ 충돌 발생\n  ✓ 팀원 D가 최신 main pull\n  ✓ 충돌 해결 후 푸시\n\nWeek 4: 배포\n  ✓ main 브랜치를 production에 배포\n  ✓ Tag 생성: v1.0.0\n  ✓ Release Notes 작성\n```\n\n---\n\n### 7.3 시나리오 3: 오픈소스 기여\n\n```\n┌──────────────────────────────────────────────────────┐\n│  목표: 유명한 오픈소스 프로젝트에 기여하기               │\n└──────────────────────────────────────────────────────┘\n\nStep 1: 프로젝트 선정\n  ✓ \"good first issue\" 라벨이 있는 프로젝트 찾기\n  ✓ CONTRIBUTING.md 읽기\n  ✓ 프로젝트 구조 파악\n\nStep 2: Issue 선택\n  ✓ \"good first issue\" 중 하나 선택\n  ✓ 댓글로 \"제가 작업하겠습니다!\" 의사 표현\n\nStep 3: Fork & Clone\n  ✓ 프로젝트 Fork\n  ✓ 로컬에 클론\n  ✓ upstream 추가\n\nStep 4: 개발 환경 설정\n  ✓ README의 설치 가이드 따라하기\n  ✓ 테스트 실행해보기\n  ✓ 정상 작동 확인\n\nStep 5: 코드 수정\n  ✓ 브랜치 생성: fix/issue-123\n  ✓ 최소한의 변경만 하기\n  ✓ 기존 코드 스타일 따르기\n  ✓ 테스트 추가 (가능하면)\n\nStep 6: 커밋\n  ✓ 명확한 커밋 메시지\n  ✓ 프로젝트의 커밋 컨벤션 따르기\n\nStep 7: Pull Request\n  ✓ 내 Fork에 푸시\n  ✓ 원본 저장소에 PR 생성\n  ✓ PR 템플릿 작성\n  ✓ \"Fixes #123\" 추가 (이슈 자동 close)\n\nStep 8: 코드 리뷰\n  ✓ 메인테이너의 피드백 대기\n  ✓ 수정 요청 빠르게 반영\n  ✓ 예의 바르게 소통\n\nStep 9: Merge!\n  ✓ 축하합니다! 첫 오픈소스 기여 완료 🎉\n  ✓ 프로필에 표시됨\n```\n\n---\n\n## 🎓 학습 로드맵\n\n### 초급 (1-2주)\n```\n□ Git 설치 및 기본 설정\n□ Repository 생성\n□ add, commit, push 익히기\n□ .gitignore 사용\n□ README 작성\n□ GitHub Pages로 간단한 페이지 만들기\n```\n\n### 중급 (3-4주)\n```\n□ 브랜치 생성 및 관리\n□ Pull Request 생성\n□ 코드 리뷰 주고받기\n□ Conflict 해결\n□ Issues 활용\n□ 프로젝트 보드 사용\n```\n\n### 고급 (5-8주)\n```\n□ GitHub Actions 설정\n□ 팀 협업 프로젝트 경험\n□ 오픈소스 기여\n□ Release 관리\n□ GitHub API 활용\n```\n\n---\n\n## 🔧 유용한 도구\n\n### Git GUI 클라이언트\n- **GitHub Desktop**: 초보자 추천\n- **GitKraken**: 시각화가 뛰어남\n- **SourceTree**: 무료, 기능 많음\n\n### VS Code 확장\n- **GitLens**: 코드별 커밋 히스토리\n- **Git Graph**: 브랜치 시각화\n- **GitHub Pull Requests**: PR 관리\n\n### 웹 서비스\n- **Shields.io**: 뱃지 생성\n- **Carbon**: 코드 스크린샷\n- **Mermaid**: 다이어그램 생성\n\n---\n\n## 📊 활동 관리 팁\n\n### 잔디(Contribution) 심기\n```\n┌──────────────────────────────────────────────────────┐\n│  GitHub 프로필의 초록색 잔디밭                          │\n└──────────────────────────────────────────────────────┘\n\n          Jan  Feb  Mar  Apr  May  Jun\n    Mon   ░░░  ███  ░░░  ███  ███  ░░░\n    Wed   ███  ███  ░░░  ███  ░░░  ███\n    Fri   ░░░  ███  ███  ███  ███  ███\n\n전략:\n✓ 매일 조금씩 커밋하기 (1일 1커밋)\n✓ 작은 단위로 자주 커밋\n✓ 주말에 몰아서 하지 말기\n✓ 의미 있는 커밋만 하기 (억지로 X)\n```\n\n### 목표 설정\n```\n월간 목표:\n□ 새 프로젝트 1개 시작\n□ 기존 프로젝트 README 개선\n□ 오픈소스 기여 1회\n□ 알고리즘 문제 풀이 꾸준히\n\n분기별 목표:\n□ 완성도 높은 프로젝트 1개\n□ 기술 블로그 시작\n□ 협업 프로젝트 경험\n```\n\n---\n\n## ⚠️ 주의사항\n\n### 보안\n```\n❌ 절대 올리면 안 되는 것들:\n  - API 키, 비밀번호\n  - .env 파일\n  - 데이터베이스 credentials\n  - AWS, Firebase 등의 설정 파일\n  - 개인정보\n\n✅ 대신:\n  - .env.example 파일 제공\n  - 환경 변수는 문서화만\n  - Secrets는 GitHub Secrets 사용\n```\n\n### 라이선스\n```\n프로젝트에 라이선스 추가하기:\n\nMIT License (가장 자유로움):\n  ✓ 상업적 이용 가능\n  ✓ 수정 가능\n  ✓ 배포 가능\n\nGPL (오픈소스 유지 강제):\n  ✓ 수정본도 오픈소스로 공개해야 함\n\nApache 2.0 (특허 관련 보호):\n  ✓ MIT와 비슷 + 특허 보호\n\n프로젝트 → Add file → Create new file\n→ 파일명: LICENSE\n→ Choose a license template 클릭\n```\n\n---\n\n## 🎯 체크리스트: 나만의 포트폴리오\n\n```\nGitHub 프로필\n  □ 프로필 사진 설정\n  □ Bio 작성\n  □ 프로필 README 작성\n  □ 핀한 저장소 6개 선정\n\n저장소 품질\n  □ 모든 프로젝트에 README 있음\n  □ 스크린샷 또는 데모 링크\n  □ 라이선스 파일\n  □ .gitignore 설정\n  □ 의미 있는 커밋 메시지\n\n활동성\n  □ 최근 3개월 내 활동\n  □ 꾸준한 커밋 (잔디)\n  □ Issues/PR 활동\n  □ 오픈소스 기여 경험\n\n문서화\n  □ 기술 스택 명시\n  □ 설치/실행 가이드\n  □ 학습 내용 정리\n  □ 트러블슈팅 문서\n\n차별화\n  □ 개성 있는 프로젝트\n  □ 최신 기술 활용\n  □ 실제 문제 해결\n  □ 코드 품질 (린팅, 포맷팅)\n```\n\n---\n\n## 📚 더 공부하기\n\n### 공식 문서\n- [GitHub Docs](https://docs.github.com/)\n- [Git Documentation](https://git-scm.com/doc)\n\n### 추천 학습 자료\n- [Learn Git Branching](https://learngitbranching.js.org/) - 인터랙티브 학습\n- [Oh My Git!](https://ohmygit.org/) - 게임으로 배우는 Git\n- [GitHub Skills](https://skills.github.com/) - GitHub 공식 튜토리얼\n\n### 한국어 자료\n- [Git 입문](https://backlog.com/git-tutorial/kr/)\n- [누구나 쉽게 이해할 수 있는 Git 입문](https://backlog.com/git-tutorial/kr/)\n\n---\n\n## 💪 실천 과제\n\n### Week 1\n```\n□ GitHub 계정 만들기\n□ 프로필 꾸미기\n□ \"hello-world\" 저장소 만들기\n□ 첫 커밋하기\n□ README 작성하기\n```\n\n### Week 2\n```\n□ 개인 프로젝트 1개 시작\n□ 브랜치 생성 연습\n□ .gitignore 설정\n□ 10개 이상 커밋\n```\n\n### Week 3\n```\n□ GitHub Pages로 웹사이트 만들기\n□ Issues 활용하기\n□ 프로젝트에 스크린샷 추가\n□ 뱃지 추가하기\n```\n\n### Week 4\n```\n□ 오픈소스 프로젝트 Fork하기\n□ good first issue 찾아보기\n□ PR 1개 생성해보기\n```\n\n---\n\n## 🎉 마치며\n\nGitHub는 단순한 코드 저장소가 아니라:\n\n- 📚 **학습 기록**: 성장 과정을 보여주는 포트폴리오\n- 🤝 **협업 도구**: 다른 개발자들과 소통하는 공간\n- 🌱 **커뮤니티**: 오픈소스를 통한 기여와 배움\n- 💼 **취업 도구**: 채용 담당자가 가장 먼저 보는 곳\n\n**오늘부터 시작하세요!**\n\n1. 작은 프로젝트라도 좋으니 시작하기\n2. 매일 조금씩이라도 커밋하기\n3. README를 정성껏 작성하기\n4. 다른 사람의 코드 구경하고 배우기\n5. 두려워하지 말고 오픈소스 기여하기\n\n**Remember:**\n> \"The best time to start was yesterday. The next best time is now.\"\n\n행운을 빕니다! 🚀\n\n---\n\n## 📞 도움이 필요하면\n\n- [GitHub Community](https://github.community/)\n- [Stack Overflow](https://stackoverflow.com/questions/tagged/github)\n- 각 저장소의 Issues 탭\n\n**Happy Coding!** 💻✨"
+        }
+      ],
+      "files": [
+        {
+          "file_uuid": "63471026-d4b5-48f4-affa-ea25b8e39265",
+          "file_name": ""
+        }
+      ],
+      "parent_message_uuid": "019ad72c-4240-73dc-bbc6-cd774f282183"
+    },
+    {
+      "uuid": "019ad72e-8c9d-7558-92bc-a9c2023c5630",
+      "text": "사용자가 \"premortem?\"이라고 물어봤습니다. 이것은 매우 짧은 질문이고, 문서가 첨부되어 있습니다.\n\n문서를 보니 \"초보 개발자를 위한 GitHub 완벽 활용 가이드\"입니다. \n\n\"Premortem\"은 프로젝트 관리 방법론 중 하나인데, 프로젝트가 실패했다고 가정하고 그 원인을 미리 분석하는 기법입니다. \"Postmortem\"(사후 분석)의 반대 개념으로, 사전에 잠재적 문제를 파악하는 것이죠.\n\n사용자가 이 GitHub 가이드 문서와 관련하여 \"premortem\"을 물어본 것 같습니다. 아마도:\n1. 이 가이드를 따라 하다가 실패할 수 있는 시나리오를 미리 분석해달라는 것\n2. 또는 GitHub 사용 시 흔히 겪는 실패 사례를 정리해달라는 것\n3. 또는 premortem이라는 개념 자체를 설명해달라는 것\n\n맥락상 1번이 가장 적절해 보입니다. 이 가이드를 따라 GitHub를 사용하는 초보 개발자가 겪을 수 있는 실패 시나리오와 그 원인을 미리 분석해주는 것이 도움이 될 것 같습니다.# 🔮 Premortem: GitHub 활용 실패 시나리오 분석\n\n> \"1년 후, GitHub를 제대로 활용하지 못했다\" - 왜 실패했을까?\n\n---\n\n## 💀 실패 시나리오 1: \"잔디밭은 초록색인데 포트폴리오가 없다\"\n\n**상황:**\n- 매일 커밋은 했지만 채용 담당자가 볼 만한 프로젝트가 없음\n- 저장소는 20개인데 전부 미완성 상태\n\n**원인:**\n- ❌ 의미 없는 커밋으로 잔디만 채움 (`git commit -m \"update\"`)\n- ❌ 튜토리얼 따라하기만 반복\n- ❌ README 작성 안 함\n- ❌ 프로젝트를 끝까지 완성하지 않음\n\n**예방책:**\n- ✅ **\"1-3-5 규칙\"** 적용: 완성된 프로젝트 1개 > 진행 중 3개 > 아이디어 5개\n- ✅ 새 프로젝트 시작 전에 완성 기준 명확히 정의\n- ✅ 프로젝트당 최소 README + 스크린샷 + 라이브 데모 필수\n- ✅ 매주 일요일 \"프로젝트 정리의 날\" 운영\n\n---\n\n## 💀 실패 시나리오 2: \"협업 경험이 없어서 면접에서 떨어졌다\"\n\n**상황:**\n- 개인 프로젝트만 수십 개\n- PR, 코드 리뷰 경험 전무\n- 팀 프로젝트 경험 없음\n\n**원인:**\n- ❌ 혼자만 작업하는 것이 편해서 협업 회피\n- ❌ 오픈소스 기여가 어려워 보여서 시도 안 함\n- ❌ 브랜치, PR을 쓸 필요성을 못 느낌\n- ❌ \"나중에 하지 뭐\" 마인드\n\n**예방책:**\n- ✅ **첫 달부터** 혼자서도 브랜치 + PR 워크플로우 연습\n- ✅ 2개월 차부터 \"good first issue\" 찾아보기\n- ✅ 3개월 차까지 최소 1개 오픈소스 PR (오타 수정이라도)\n- ✅ 온라인 스터디/해커톤 참여 (디스코드, 오픈채팅)\n- ✅ 학교/부트캠프 팀 프로젝트를 GitHub로",
+      "content": [
+        {
+          "start_timestamp": "2025-11-30T23:52:25.791471Z",
+          "stop_timestamp": "2025-11-30T23:52:34.100488Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 \"premortem?\"이라고 물어봤습니다. 이것은 매우 짧은 질문이고, 문서가 첨부되어 있습니다.\n\n문서를 보니 \"초보 개발자를 위한 GitHub 완벽 활용 가이드\"입니다. \n\n\"Premortem\"은 프로젝트 관리 방법론 중 하나인데, 프로젝트가 실패했다고 가정하고 그 원인을 미리 분석하는 기법입니다. \"Postmortem\"(사후 분석)의 반대 개념으로, 사전에 잠재적 문제를 파악하는 것이죠.\n\n사용자가 이 GitHub 가이드 문서와 관련하여 \"premortem\"을 물어본 것 같습니다. 아마도:\n1. 이 가이드를 따라 하다가 실패할 수 있는 시나리오를 미리 분석해달라는 것\n2. 또는 GitHub 사용 시 흔히 겪는 실패 사례를 정리해달라는 것\n3. 또는 premortem이라는 개념 자체를 설명해달라는 것\n\n맥락상 1번이 가장 적절해 보입니다. 이 가이드를 따라 GitHub를 사용하는 초보 개발자가 겪을 수 있는 실패 시나리오와 그 원인을 미리 분석해주는 것이 도움이 될 것 같습니다.",
+          "summaries": [
+            {
+              "summary": "Thinking about defining and explaining the premortem concept."
+            },
+            {
+              "summary": "Connecting premortem concept to GitHub guide document."
+            },
+            {
+              "summary": "Deciphered premortem concept and anticipated user's GitHub-related intent."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-11-30T23:52:34.212785Z",
+          "stop_timestamp": "2025-11-30T23:52:50.000102Z",
+          "flags": null,
+          "type": "text",
+          "text": "# 🔮 Premortem: GitHub 활용 실패 시나리오 분석\n\n> \"1년 후, GitHub를 제대로 활용하지 못했다\" - 왜 실패했을까?\n\n---\n\n## 💀 실패 시나리오 1: \"잔디밭은 초록색인데 포트폴리오가 없다\"\n\n**상황:**\n- 매일 커밋은 했지만 채용 담당자가 볼 만한 프로젝트가 없음\n- 저장소는 20개인데 전부 미완성 상태\n\n**원인:**\n- ❌ 의미 없는 커밋으로 잔디만 채움 (`git commit -m \"update\"`)\n- ❌ 튜토리얼 따라하기만 반복\n- ❌ README 작성 안 함\n- ❌ 프로젝트를 끝까지 완성하지 않음\n\n**예방책:**\n- ✅ **\"1-3-5 규칙\"** 적용: 완성된 프로젝트 1개 > 진행 중 3개 > 아이디어 5개\n- ✅ 새 프로젝트 시작 전에 완성 기준 명확히 정의\n- ✅ 프로젝트당 최소 README + 스크린샷 + 라이브 데모 필수\n- ✅ 매주 일요일 \"프로젝트 정리의 날\" 운영\n\n---\n\n## 💀 실패 시나리오 2: \"협업 경험이 없어서 면접에서 떨어졌다\"\n\n**상황:**\n- 개인 프로젝트만 수십 개\n- PR, 코드 리뷰 경험 전무\n- 팀 프로젝트 경험 없음\n\n**원인:**\n- ❌ 혼자만 작업하는 것이 편해서 협업 회피\n- ❌ 오픈소스 기여가 어려워 보여서 시도 안 함\n- ❌ 브랜치, PR을 쓸 필요성을 못 느낌\n- ❌ \"나중에 하지 뭐\" 마인드\n\n**예방책:**\n- ✅ **첫 달부터** 혼자서도 브랜치 + PR 워크플로우 연습\n- ✅ 2개월 차부터 \"good first issue\" 찾아보기\n- ✅ 3개월 차까지 최소 1개 오픈소스 PR (오타 수정이라도)\n- ✅ 온라인 스터디/해커톤 참여 (디스코드, 오픈채팅)\n- ✅ 학교/부트캠프 팀 프로젝트를 GitHub로",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2025-11-30T23:52:50.094533Z",
+      "updated_at": "2025-11-30T23:52:50.094533Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ad72e-8c9d-7558-92bc-a9c1d76784b8"
+    },
+    {
+      "uuid": "019ad72f-396c-777d-8550-0b632bf0ef0c",
+      "text": "premortem?이 뭔지 개념을 설명해봐",
+      "content": [
+        {
+          "start_timestamp": "2025-11-30T23:53:07.693523Z",
+          "stop_timestamp": "2025-11-30T23:53:07.693523Z",
+          "flags": null,
+          "type": "text",
+          "text": "premortem?이 뭔지 개념을 설명해봐",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2025-11-30T23:53:07.706896Z",
+      "updated_at": "2025-11-30T23:53:07.706896Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ad72e-8c9d-7558-92bc-a9c2023c5630"
+    },
+    {
+      "uuid": "019ad72f-396c-777d-8550-0b646cb3d9d7",
+      "text": "사용자가 \"premortem\"이라는 개념 자체에 대해 설명을 요청하고 있습니다. 제가 문서를 바탕으로 premortem을 작성했는데, 사용자는 이 용어의 의미를 모르는 것 같습니다. Premortem의 개념을 명확하게 설명해드려야 합니다.# 🔮 Premortem(프리모템) 개념 설명\n\n## 기본 정의\n\n**Premortem = Pre(미리) + Mortem(사후 검시)**\n\n프로젝트나 계획을 **시작하기 전에**, 미래에 \"**실패했다고 가정**\"하고 그 원인을 미리 분석하는 기법입니다.\n\n---\n\n## 💡 쉬운 비유\n\n### Postmortem (사후 검시) - 일반적인 방식\n```\n프로젝트 시작 → 실행 → 실패 발생 → \"왜 실패했지?\" 분석\n                                    ↑\n                              이미 늦음!\n```\n\n### Premortem (사전 검시) - 예방적 방식\n```\n프로젝트 시작 전 → \"1년 후 실패했다고 가정\" → 원인 미리 분석 → 예방 조치\n                                                              ↑\n                                                         실패 방지!\n```\n\n---\n\n## 🎯 핵심 프로세스\n\n### 1단계: 미래로 타임워프\n> \"**1년 후, 우리 프로젝트는 완전히 실패했습니다.**\"\n\n### 2단계: 실패 원인 브레인스토밍\n> \"왜 실패했을까?\" 모든 가능성 나열\n- 기술적 문제\n- 시간 관리 실패\n- 동기 부족\n- 협업 문제 등\n\n### 3단계: 예방책 마련\n> 각 실패 원인에 대한 구체적인 대응책 수립\n\n---\n\n## 📊 예시 비교\n\n### ❌ Premortem 없이 GitHub 시작\n\n```\n\"일단 시작하자!\"\n   ↓\n매일 커밋만 함\n   ↓\n6개월 후...\n   ↓\n\"왜 포트폴리오가 엉망이지?\"\n```\n\n### ✅ Premortem으로 GitHub 시작\n\n```\n\"1년 후 실패했다면?\"\n   ↓\n예상 실패 원인:\n- README 안 쓸 것 같음\n- 프로젝트 완성 안 할 것 같음\n- 협업 경험 없을 것 같음\n   ↓\n예방책 수립:\n- 프로젝트 시작 시 README 템플릿 필수\n- 완성 기준 미리 정의\n- 매달 1개 오픈소스 기여 목표\n   ↓\n6개월 후...\n   ↓\n\"탄탄한 포트폴리오 완성!\"\n```\n\n---\n\n## 🎓 실제 활용 예시\n\n### 취업 준비 Premortem\n\n**가정:** \"6개월 후, 포트폴리오 때문에 면접 탈락했다\"\n\n**실패 원인 분석:**\n1. 프로젝트가 전부 미완성\n2. README가 부실함\n3. 최신 기술 스택이 없음\n4. 실제 문제를 해결한 프로젝트가 없음\n5. 협업 경험 전무\n\n**예방 조치:**\n- ✅ 주 단위 완성 목표 설정\n- ✅ README 템플릿 미리 준비\n- ✅ 학습 로드맵에 최신 기술 포함\n- ✅ 실생활 불편함 해결 프로젝트 기획\n- ✅ 첫 달부터 오픈소스 기여 시작\n\n---\n\n## 💪 Premortem의 장점\n\n1. **선제적 문제 해결**\n   - 문제가 발생하기 전에 방지\n\n2. **심리적 안전**\n   - \"실패해도 괜찮아\"라는 분위기에서 솔직한 우려 표현 가능\n\n3. **현실적인 계획**\n   - 낙관적 편향 제거\n   - 실제 발생 가능한 문제에 집중\n\n4. **팀 참여 유도**\n   - 모든 구성원이 자유롭게 의견 제시\n\n---\n\n## 🔧 Premortem 실천 방법\n\n### 개인 프로젝트용\n\n```\n1. 종이에 쓰기\n   \"3개월 후, 이 프로젝트는 실패했다\"\n\n2. 5분 타이머 설정\n\n3. 가능한 모든 실패 원인 적기\n   - 너무 현실적이어서 슬픈 것들\n   - 솔직하게!\n\n4. 각 원인에 대한 대응책 마련\n\n5. 일정에 반영\n```\n\n### 팀 프로젝트용\n\n```\n1. 회의 시작 시 선언\n   \"우리 프로젝트가 망했다고 가정합시다\"\n\n2. 각자 포스트잇에 실패 원인 작성 (5분)\n\n3. 공유 및 분류\n\n4. 중요도/발생 가능성 평가\n\n5. 우선순위 높은 것부터 대응책 수립\n\n6. 액션 플랜에 반영\n```\n\n---\n\n## 🌟 핵심 포인트\n\n> **\"실패를 두려워하지 말고, 미리 분석하라\"**\n\n- Premortem은 **비관주의**가 아닌 **현실주의**\n- 모든 우려를 **공개적으로 논의**할 수 있는 안전한 공간 제공\n- **방어적 계획**이 아닌 **공격적 예방**\n\n---\n\n제가 위에서 작성한 \"GitHub 활용 실패 시나리오\"가 바로 premortem의 실제 적용 예시입니다. \"1년 후 GitHub를 제대로 활용하지 못했다\"고 가정하고, 그 원인과 예방책을 미리 분석한 것이죠!",
+      "content": [
+        {
+          "start_timestamp": "2025-11-30T23:53:09.960825Z",
+          "stop_timestamp": "2025-11-30T23:53:12.026226Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 \"premortem\"이라는 개념 자체에 대해 설명을 요청하고 있습니다. 제가 문서를 바탕으로 premortem을 작성했는데, 사용자는 이 용어의 의미를 모르는 것 같습니다. Premortem의 개념을 명확하게 설명해드려야 합니다.",
+          "summaries": [
+            {
+              "summary": "생각해보기: premortem 개념과 그 의미 설명하기"
+            },
+            {
+              "summary": "Recognized knowledge gap and prepared concept explanation."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-11-30T23:53:12.134646Z",
+          "stop_timestamp": "2025-11-30T23:53:42.878891Z",
+          "flags": null,
+          "type": "text",
+          "text": "# 🔮 Premortem(프리모템) 개념 설명\n\n## 기본 정의\n\n**Premortem = Pre(미리) + Mortem(사후 검시)**\n\n프로젝트나 계획을 **시작하기 전에**, 미래에 \"**실패했다고 가정**\"하고 그 원인을 미리 분석하는 기법입니다.\n\n---\n\n## 💡 쉬운 비유\n\n### Postmortem (사후 검시) - 일반적인 방식\n```\n프로젝트 시작 → 실행 → 실패 발생 → \"왜 실패했지?\" 분석\n                                    ↑\n                              이미 늦음!\n```\n\n### Premortem (사전 검시) - 예방적 방식\n```\n프로젝트 시작 전 → \"1년 후 실패했다고 가정\" → 원인 미리 분석 → 예방 조치\n                                                              ↑\n                                                         실패 방지!\n```\n\n---\n\n## 🎯 핵심 프로세스\n\n### 1단계: 미래로 타임워프\n> \"**1년 후, 우리 프로젝트는 완전히 실패했습니다.**\"\n\n### 2단계: 실패 원인 브레인스토밍\n> \"왜 실패했을까?\" 모든 가능성 나열\n- 기술적 문제\n- 시간 관리 실패\n- 동기 부족\n- 협업 문제 등\n\n### 3단계: 예방책 마련\n> 각 실패 원인에 대한 구체적인 대응책 수립\n\n---\n\n## 📊 예시 비교\n\n### ❌ Premortem 없이 GitHub 시작\n\n```\n\"일단 시작하자!\"\n   ↓\n매일 커밋만 함\n   ↓\n6개월 후...\n   ↓\n\"왜 포트폴리오가 엉망이지?\"\n```\n\n### ✅ Premortem으로 GitHub 시작\n\n```\n\"1년 후 실패했다면?\"\n   ↓\n예상 실패 원인:\n- README 안 쓸 것 같음\n- 프로젝트 완성 안 할 것 같음\n- 협업 경험 없을 것 같음\n   ↓\n예방책 수립:\n- 프로젝트 시작 시 README 템플릿 필수\n- 완성 기준 미리 정의\n- 매달 1개 오픈소스 기여 목표\n   ↓\n6개월 후...\n   ↓\n\"탄탄한 포트폴리오 완성!\"\n```\n\n---\n\n## 🎓 실제 활용 예시\n\n### 취업 준비 Premortem\n\n**가정:** \"6개월 후, 포트폴리오 때문에 면접 탈락했다\"\n\n**실패 원인 분석:**\n1. 프로젝트가 전부 미완성\n2. README가 부실함\n3. 최신 기술 스택이 없음\n4. 실제 문제를 해결한 프로젝트가 없음\n5. 협업 경험 전무\n\n**예방 조치:**\n- ✅ 주 단위 완성 목표 설정\n- ✅ README 템플릿 미리 준비\n- ✅ 학습 로드맵에 최신 기술 포함\n- ✅ 실생활 불편함 해결 프로젝트 기획\n- ✅ 첫 달부터 오픈소스 기여 시작\n\n---\n\n## 💪 Premortem의 장점\n\n1. **선제적 문제 해결**\n   - 문제가 발생하기 전에 방지\n\n2. **심리적 안전**\n   - \"실패해도 괜찮아\"라는 분위기에서 솔직한 우려 표현 가능\n\n3. **현실적인 계획**\n   - 낙관적 편향 제거\n   - 실제 발생 가능한 문제에 집중\n\n4. **팀 참여 유도**\n   - 모든 구성원이 자유롭게 의견 제시\n\n---\n\n## 🔧 Premortem 실천 방법\n\n### 개인 프로젝트용\n\n```\n1. 종이에 쓰기\n   \"3개월 후, 이 프로젝트는 실패했다\"\n\n2. 5분 타이머 설정\n\n3. 가능한 모든 실패 원인 적기\n   - 너무 현실적이어서 슬픈 것들\n   - 솔직하게!\n\n4. 각 원인에 대한 대응책 마련\n\n5. 일정에 반영\n```\n\n### 팀 프로젝트용\n\n```\n1. 회의 시작 시 선언\n   \"우리 프로젝트가 망했다고 가정합시다\"\n\n2. 각자 포스트잇에 실패 원인 작성 (5분)\n\n3. 공유 및 분류\n\n4. 중요도/발생 가능성 평가\n\n5. 우선순위 높은 것부터 대응책 수립\n\n6. 액션 플랜에 반영\n```\n\n---\n\n## 🌟 핵심 포인트\n\n> **\"실패를 두려워하지 말고, 미리 분석하라\"**\n\n- Premortem은 **비관주의**가 아닌 **현실주의**\n- 모든 우려를 **공개적으로 논의**할 수 있는 안전한 공간 제공\n- **방어적 계획**이 아닌 **공격적 예방**\n\n---\n\n제가 위에서 작성한 \"GitHub 활용 실패 시나리오\"가 바로 premortem의 실제 적용 예시입니다. \"1년 후 GitHub를 제대로 활용하지 못했다\"고 가정하고, 그 원인과 예방책을 미리 분석한 것이죠!",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2025-11-30T23:53:43.002258Z",
+      "updated_at": "2025-11-30T23:53:43.002258Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ad72f-396c-777d-8550-0b632bf0ef0c"
+    },
+    {
+      "uuid": "019ad732-d1e3-7513-bc21-ae9a1202543c",
+      "text": "현재는 25년 12월 1일. 코스피 투자의 향후 6개월을 프리모템 적용해서 시나리오를 만들어줘",
+      "content": [
+        {
+          "start_timestamp": "2025-11-30T23:57:03.332189Z",
+          "stop_timestamp": "2025-11-30T23:57:03.332189Z",
+          "flags": null,
+          "type": "text",
+          "text": "현재는 25년 12월 1일. 코스피 투자의 향후 6개월을 프리모템 적용해서 시나리오를 만들어줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2025-11-30T23:57:03.339189Z",
+      "updated_at": "2025-11-30T23:57:03.339189Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ad72f-396c-777d-8550-0b646cb3d9d7"
+    },
+    {
+      "uuid": "019ad732-d1e3-7513-bc21-ae9b9f39ed71",
+      "text": "사용자가 2025년 12월 1일 기준으로 코스피 투자의 향후 6개월(2026년 5월까지)에 대한 premortem 시나리오를 요청했습니다. \n\n현재 시점의 코스피 상황과 글로벌 경제 상황을 파악하기 위해 웹 검색이 필요합니다. 최신 정보를 확인해야 합니다.\n\n1. 현재 코스피 지수와 상황\n2. 최근 경제 동향\n3. 향후 전망\n\n이 정보를 바탕으로 premortem 시나리오를 작성하겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n좋아요, 현재 2025년 12월 1일 기준으로 코스피 상황을 파악했습니다:\n\n핵심 정보:\n- 2025년 상반기 코스피가 28% 상승하며 1999년 이후 최고 상승률 기록\n- 11월 28일 기준 코스피 약 3,927포인트\n- 12월 전망치는 3,700~4,300 사이\n- 연말 4,000선 회복 시도 전망\n- 2026년 전망은 더 긍정적 (일부는 6,000대까지 예측)\n\n주요 긍정 요인:\n- 반도체 업황 개선 (SK하이닉스 등)\n- 원화 강세 (1,280~1,350원대)\n- 외국인 매수 전환\n- 정책 기대감 (상법 개정, 배당소득 분리과세 등)\n- 거래 시간 확대\n\n리스크:\n- 미국 금리 정책 불확실성\n- 개인투자자들의 종목 선택 실패\n- 레버리지 ETF 손실\n- 환율 변동성\n- 지수 상승 vs 개별 종목 부진\n\n이제 premortem 시나리오를 작성하겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n좋습니다. 미국 금리 관련 정보도 확보했습니다:\n\n핵심 정보:\n- 2025년 초 연준은 금리 인하 횟수를 4회→2회로 축소\n- 현재 기준금리 4.25~4.50%\n- 2026년 전망은 불확실 (일부는 3회 인하 예상, 일부는 더 신중)\n- 트럼프 관세 정책으로 인플레이션 우려\n- AI 거품 우려로 기술주 급락\n\n이제 충분한 정보를 확보했으니 premortem 시나리오를 작성하겠습니다.# 🔮 코스피 투자 Premortem (2025.12 → 2026.5)\n\n> **\"2026년 5월, 나는 코스피 투자에서 큰 손실을 봤다\"**\n\n---\n\n## 📅 시나리오 설정\n\n**현재 상황 (2025년 12월 1일)**\n- 코스피: 약 3,927포인트 (전년 대비 59.88% 상승)\n- 12월 전망: 3,700~4,300 박스권\n- 상반기 연초 대비 약 22% 상승, 3,200선 저항대 형성\n- 시장 분위기: 연말 랠리 기대, 4,000선 돌파 전망 우세\n\n**가정:** \"6개월 후인 2026년 5월, 투자 원금의 30% 이상 손실\"\n\n---\n\n## 💀 실패 시나리오 1: \"고점 매수의 비극\"\n\n### 상황\n2025년 12월, 언론과 증권사들이 \"연말·연초 강세장 진입 가능성\"을 제시하며 낙관론이 팽배했습니다. \"코스피 4,000선 돌파!\", \"반도체 슈퍼사이클!\" 같은 헤드라인에 흥분해서 3,900~4,200 고점에서 대량 매수했습니다.\n\n### 실패 원인\n- ❌ **FOMO(Fear Of Missing Out)**: \"지금 안 사면 기회를 놓친다\"는 조급함\n- ❌ **역사 무시**: 2025년 상반기 이미 28% 상승한 상태였는데 추가 상승만 기대\n- ❌ **타이밍 실패**: 조정 없이 계속 오를 거라는 착각\n- ❌ **뉴스 맹신**: 증권사 목표가를 확정된 미래로 착각\n\n### 실제 전개 (예상)\n```\n2025.12: 4,200 도달 → \"역시 내 판단이 맞았어!\" \n2026.01: 4,100 하락 → \"잠깐 조정이겠지\" (손실 -2.4%)\n2026.02: 3,800 추가하락 → \"물타기 기회!\" (손실 -9.5%)\n2026.03: 3,500 급락 → \"이건 아닌데...\" (손실 -16.7%)\n2026.04: 3,300 공포 → \"손절해야 하나?\" (손실 -21.4%)\n2026.05: 3,200 패닉 → 손절 단행 (손실 -23.8%)\n```\n\n### 예방책\n- ✅ **분할 매수 원칙**: 목표 금액의 1/3씩 3회 나눠 매수\n- ✅ **조정 대기**: 최소 5~10% 조정 후 진입\n- ✅ **역사 학습**: 2025년 상반기 28% 상승 후 반드시 조정이 온다는 것을 인지\n- ✅ **매수가 기록**: \"왜 이 가격에 샀는지\" 근거 문서화\n\n---\n\n## 💀 실패 시나리오 2: \"외부 변수 무시 - 미국 금리 쇼크\"\n\n### 상황\n연준이 2025년 금리 인하 횟수를 4회에서 2회로 축소했지만, \"어차피 인하 기조니까 괜찮아\"라고 안이하게 생각했습니다. 2026년 초 미국에서 예상치 못한 인플레이션 재발로 금리 인상 시사가 나왔고, 원/달러 환율이 1,500원을 돌파하며 외국인 자금이 대량 이탈했습니다.\n\n### 실패 원인\n- ❌ **글로벌 변수 무시**: 한국만 보고 미국/중국 상황 간과\n- ❌ **환율 리스크 간과**: 원화 강세가 영원할 거라는 착각\n- ❌ **정치 리스크**: 트럼프의 관세 정책 실제 시행\n- ❌ **외국인 수급 의존**: 외국인 매수가 주도했던 상승장인데 이탈 시 대응 없음\n\n### 트리거 이벤트 (가능성)\n```\n2026.01: 미국 CPI 예상 초과 → 금리 동결\n2026.02: 연준 매파 발언 → 달러 강세\n2026.03: 트럼프 對한국 관세 10% 발표 \n2026.04: 환율 1,500원 돌파 → 외국인 대량 매도\n2026.05: 코스피 3,000선 붕괴\n```\n\n### 예방책\n- ✅ **매크로 모니터링**: 매주 미국 경제지표 확인 (CPI, 고용)\n- ✅ **환율 알림 설정**: 1,400원 돌파 시 비중 조절 고려\n- ✅ **분산 투자**: 미국 ETF 20%, 채권 10% 보유로 환율 헷지\n- ✅ **시나리오 플랜**: \"환율 1,450원 시 → 30% 현금화\" 같은 구체적 계획\n\n---\n\n## 💀 실패 시나리오 3: \"종목 선택 실패 - 지수는 오르는데 내 주식은...\"\n\n### 상황\n2025년 상반기에도 코스피는 28% 올랐지만 개인투자자들은 수익을 내지 못했습니다. 6개월 후에도 똑같은 실수를 반복했습니다. 코스피는 4,000을 유지하는데, 내가 산 종목들은 -30% 손실입니다.\n\n### 실패 원인\n- ❌ **테마주 쫓기**: SNS에서 화제인 바이오, 2차전지 중소형주만 매수\n- ❌ **우량주 외면**: 외국인이 SK하이닉스(68% 상승), 한화에어로스페이스(164% 상승)를 살 때 \"너무 비싸\"며 회피\n- ❌ **레버리지 ETF**: \"조정이 올 것\"이라며 곱버스(2배 역방향) ETF 투자\n- ❌ **분산 실패**: 3~4개 종목에 올인\n\n### 구체적 예시\n```\n보유 종목 (2025.12 매수)\n종목A (바이오): -40% → 임상 3상 실패\n종목B (2차전지 부품): -35% → 중국 경쟁 심화\n종목C (AI 테마주): -25% → 실적 없는 급등 후 급락\n레버리지 ETF: -45% → 코스피 상승 시 역방향 손실\n\n반면 코스피200 ETF: +5% 유지\nSK하이닉스: +15% 상승\n삼성전자: +8% 상승\n```\n\n### 예방책\n- ✅ **코어 70% + 위성 30%**: 우량주/ETF 70%, 테마주 30%\n- ✅ **실적 기반 투자**: 매출/이익 성장이 확인된 기업만\n- ✅ **레버리지 금지**: 최소 1년간은 일반 ETF만 투자\n- ✅ **최소 10개 종목**: 집중 투자 아닌 분산\n- ✅ **리밸런싱**: 매달 1일, 비중 벗어난 종목 조정\n\n---\n\n## 💀 실패 시나리오 4: \"심리적 함정 - 손절 못하고 물타기\"\n\n### 상황\n3,900에 샀는데 3,700으로 하락. \"싸게 사는 기회!\"라며 물타기. 3,500에서 또 물타기. 3,300에서 현금 소진. 3,000까지 하락해도 손절 못하고 \"장기 투자\"로 자기합리화.\n\n### 실패 원인\n- ❌ **손절선 없음**: \"주식은 장기로 가면 오른다\" 맹신\n- ❌ **손실 회피 편향**: 손실 확정을 심리적으로 거부\n- ❌ **평균 단가 집착**: 물타기로 평단 낮추는 데만 집중\n- ❌ **기회비용 무시**: 하락장에서 묶인 자금으로 다른 기회 놓침\n\n### 심리 진행도\n```\n3,900 → 3,700 (-5%): \"일시적 조정\"\n3,700 → 3,500 (-10%): \"저점 매수 기회!\" (물타기 1차)\n3,500 → 3,300 (-15%): \"이제 진짜 바닥\" (물타기 2차)\n3,300 → 3,000 (-23%): \"현금 없음... 존버\"\n3,000 → 2,800 (-28%): \"인생 망했다\" (공포)\n```\n\n### 예방책\n- ✅ **손절선 -10% 고수**: 매수 시 자동으로 손절가 설정\n- ✅ **물타기 금지 룰**: 첫 매수 후 -7% 이상 하락 시 추가 매수 금지\n- ✅ **비상 현금 30%**: 총 투자금의 30%는 반드시 현금 보유\n- ✅ **감정 일기**: 매매 시 \"왜 샀는지, 왜 팔았는지\" 기록\n- ✅ **3일 대기 룰**: 손실 난 종목 재매수는 최소 3일 후\n\n---\n\n## 💀 실패 시나리오 5: \"환율 역풍 - 미국 ETF 투자의 함정\"\n\n### 상황\n\"2025년 상반기 원/달러 환율이 1,350원대에서 1,280원대까지 하락\"하면서 미국 투자자들이 손실을 봤던 것처럼, 2026년에는 역으로 원화 약세가 급진전되어 달러 자산 수익을 갉아먹었습니다.\n\n### 실패 원인\n- ❌ **환율 무지**: 환율이 수익률에 미치는 영향 간과\n- ❌ **양날의 검**: S&P500이 10% 올라도 환율 하락으로 원화 수익률 5%라는 사실 망각\n- ❌ **타이밍 실패**: 원화 최강세 시점에 달러 자산 매수\n- ❌ **헷지 없음**: 환헷지 ETF 존재 몰랐거나 무시\n\n### 구체적 시나리오\n```\n2025.12: 달러당 1,280원\n- S&P500 ETF 1,000만원 매수 (약 $7,812)\n\n2026.05: 달러당 1,450원\n- S&P500 +8% 상승 → $8,437\n- 원화 환산: 1,223만원\n- 실제 수익률: +22.3%... 아니 잠깐!\n\n환율 효과 분해:\n- 주가 수익: +8%\n- 환율 수익: +13.3% (1,280→1,450)\n- 합계: +22.3%\n\n역시나리오 (환율 하락):\n2026.05: 달러당 1,200원\n- S&P500 +8% → $8,437\n- 원화 환산: 1,012만원\n- 실제 수익률: +1.2% (주가↑환율↓)\n```\n\n### 예방책\n- ✅ **환헷지 ETF 활용**: TIGER 미국S&P500(H) 같은 상품\n- ✅ **환율 비중 관리**: 달러 자산은 1,300원 이하에서만 매수\n- ✅ **국내/해외 5:5**: 환율 리스크 분산\n- ✅ **환율 공부**: \"달러 강세/약세가 내 자산에 미치는 영향\" 이해\n\n---\n\n## 💀 실패 시나리오 6: \"정치 리스크 - 탄핵 정국 재연\"\n\n### 상황\n2024년 말 윤석열 대통령의 탄핵 정국이 있었고, 2026년 상반기에도 정치 불안이 재발했습니다. 정책 공백, 외교 리스크, 국가 신용등급 우려 등으로 코스피가 급락했지만 \"정치는 일시적\"이라며 방치했습니다.\n\n### 실패 원인\n- ❌ **정치 무관심**: \"정치 vs 경제는 별개\"라는 착각\n- ❌ **뉴스 무시**: 정치 뉴스를 투자와 무관하다고 판단\n- ❌ **역사 망각**: 탄핵, 북핵 위기 때마다 코스피 급락 사례\n- ❌ **대응 지연**: 리스크 인지하고도 \"괜찮겠지\" 방관\n\n### 예방책\n- ✅ **정치 모니터링**: 주요 정치 이벤트는 투자 일정에 반영\n- ✅ **리스크 시그널**: \"탄핵/선거/외교 위기\" 시 자동으로 비중 10% 축소\n- ✅ **국내주 30% 하향**: 평상시 국내 50% → 위기 시 30%\n- ✅ **안전자산 편입**: 금 ETF, 달러 MMF 최소 10% 보유\n\n---\n\n## 🛡️ 종합 예방 전략\n\n### 1. 투자 원칙 수립 (지금 바로!)\n\n```\n✅ 최대 손실 허용: -15%\n✅ 종목당 비중: 최대 10%\n✅ 현금 비중: 최소 20%\n✅ 손절선: -10% 자동 실행\n✅ 물타기: 절대 금지\n✅ 레버리지: 금지\n✅ 분할 매수: 3회 이상\n```\n\n### 2. 월간 점검 체크리스트\n\n```\n□ 미국 금리 동향 (FOMC 결과)\n□ 원/달러 환율 (1,400원 이상?)\n□ 외국인 수급 (순매수/순매도)\n□ 보유 종목 실적 발표\n□ 정치 리스크 체크\n□ 포트폴리오 리밸런싱\n```\n\n### 3. 시나리오별 대응 매뉴얼\n\n```\n📉 코스피 -5% 급락 시\n→ 추가 매수 금지, 현금 비중 확인\n\n📉 코스피 -10% 급락 시\n→ 손절 검토, 약한 종목 정리\n\n📉 코스피 -15% 급락 시\n→ 50% 현금화, 시장 재평가\n\n📈 코스피 +10% 급등 시\n→ 익절 고려, 비중 조절\n\n📈 환율 1,400원 돌파 시\n→ 달러 자산 매도 검토\n\n🔴 정치 위기 발생 시\n→ 즉시 20% 현금화\n```\n\n---\n\n## 📊 권장 포트폴리오 (2025.12 → 2026.5)\n\n```\n💰 현금 (25%)\n- 급락 시 저점 매수용\n- 심리적 안정감\n\n🇰🇷 국내 우량주 (30%)\n- 삼성전자, SK하이닉스, NAVER\n- 배당주 (통신, 금융)\n\n📈 국내 ETF (15%)\n- 코스피200 ETF\n- 고배당 ETF\n\n🇺🇸 미국 ETF (20%)\n- S&P500 (환헷지)\n- 나스닥100\n\n🏅 안전자산 (10%)\n- 금 ETF\n- 단기 채권\n\n합계: 100%\n```\n\n---\n\n## ⚠️ 최종 경고 신호\n\n**다음 중 3개 이상 해당되면 즉시 현금 50% 이상 확보**\n\n```\n□ 코스피가 3개월 평균 대비 15% 이상 급등\n□ 주변에서 \"주식 대박\" 이야기가 넘쳐남\n□ 증권계좌 신규 개설이 급증한다는 뉴스\n□ 본인이 모르는 테마주가 연일 상한가\n□ 환율이 1주일 만에 50원 이상 급변\n□ 미국 금리 인상 시사\n□ 국내 정치 혼란 가시화\n□ VIX 지수 30 이상\n□ 내가 주식으로 \"벌써\" 30% 이상 수익\n□ 빚내서 투자하고 싶은 충동\n```\n\n---\n\n## 🎯 성공적인 투자를 위한 마음가짐\n\n> **\"2026년 5월, 나는 원금을 지켰고 기회를 노리고 있다\"**\n\n**성공 시나리오:**\n- ✅ 조급하지 않고 기다렸다\n- ✅ 손절 원칙을 지켰다\n- ✅ 분산 투자로 리스크를 관리했다\n- ✅ 환율/금리/정치를 모니터링했다\n- ✅ 감정이 아닌 데이터로 판단했다\n\n**기억할 것:**\n1. **시장은 항상 기회를 준다** - 놓쳐도 괜찮다\n2. **손실 방어가 수익보다 중요하다** - 원금 보존 우선\n3. **모르면 하지 않는다** - 이해 못하는 상품 금지\n4. **검증된 전략을 따른다** - 본인만의 원칙 수립\n5. **6개월은 짧다** - 조급함이 가장 큰 적\n\n---\n\n**행운을 빕니다! 하지만 행운에만 의지하지 마세요.** 🍀📈",
+      "content": [
+        {
+          "start_timestamp": "2025-11-30T23:57:04.802710Z",
+          "stop_timestamp": "2025-11-30T23:57:08.011780Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 2025년 12월 1일 기준으로 코스피 투자의 향후 6개월(2026년 5월까지)에 대한 premortem 시나리오를 요청했습니다. \n\n현재 시점의 코스피 상황과 글로벌 경제 상황을 파악하기 위해 웹 검색이 필요합니다. 최신 정보를 확인해야 합니다.\n\n1. 현재 코스피 지수와 상황\n2. 최근 경제 동향\n3. 향후 전망\n\n이 정보를 바탕으로 premortem 시나리오를 작성하겠습니다.",
+          "summaries": [
+            {
+              "summary": "생각해보기: 프리모템 방식으로 코스피 6개월 투자 시나리오 구성하기"
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-11-30T23:57:08.245654Z",
+          "stop_timestamp": "2025-11-30T23:57:08.435572Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "web_search",
+          "input": {
+            "query": "코스피 2025년 12월"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "주가지수 추이(월) - 한국거래소 | 정보데이터시스템",
+              "url": "https://data.krx.co.kr/contents/MMC/STAT/stat/MMCSTAT001.cmd",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "krx.co.kr",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=krx.co.kr",
+                "site_name": "KRX Data"
+              },
+              "is_missing": false,
+              "text": "증권·파생상품의 시장정보(Marketdata), 공매도정보, 투자분석정보(SMILE) 등 한국거래소의 정보데이터를 통합하여 제공 서비스",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://data.krx.co.kr/contents/MMC/STAT/stat/MMCSTAT001.cmd"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "코스피 지수 전망 2025년, 2026년",
+              "url": "https://wonforecast.com/코스피-지수-전망",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "wonforecast.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=wonforecast.com",
+                "site_name": "Wonforecast"
+              },
+              "is_missing": false,
+              "text": "11월 28일, 금요일의 코스피 지수 전망: 4388, 최대 4695, 최소 4081. 12월 01일, 월요일의 코스피전망: 4476, 최대 4789, 최소 4163. 12월 02일, 화요일의 코스피 지수 전망: 4447, 최대 4758, 최소 4136. 12월 03일, 수요일의 코스피전망: 4415, 최대 ...\n\n코스피 지수 전망. 코스피 전망. 2025년, 2026년 코스피 지수 변동 전망. 월별 예측.한국 주식 시장 동향 및 예측. 코스피 지수 전망.\n\n시세는 4388 원부터 시작하고 최대 5118, 최소 4388 으로 예측됩니다. 평균 4669. 12월말의: 4783. 2026년 01월의 코스피 지수 전망. 시세는 4783 원부터 시작하고 최대 5885, 최소 4783 으로 예측됩니다. 평균 5238. 01월말의: 5500. 2026년 02월의 코스피전망. 시세는 5500 원부터 시작하고 최대 6471, 최소 5500 으로 예측됩니다. 평균 5880. 02월말의: 6048. 2026년 03월의 코스피 지수 전망. 시세는 6048 원부터 시작하고 최대 6522, 최소 5668 으로 예측됩니다. 평균 6083. 03월말의: 6095. 2026년 04월의 코스피전망. 시세는 6095 원부터 시작하고 최대 6583, 최소 5721 으로 예측됩니다. 평균 6138. 04월말의: 6152. 2026년 05월의 코스피 지수 전망. 시세는 6152 원부터 시작하고 최대 7539, 최소 6152 으로 예측됩니다.\n\n2026년 11월의 코스피 지수 전망. 시세는 7923 원부터 시작하고 최대 8283, 최소 7199 으로 예측됩니다. 평균 7787. 11월말의: 7741. 2026년 12월의 코스피전망. 시세는 7741 원부터 시작하고 최대 8001, 최소 6955 으로 예측됩니다. 평균 7544. 12월말의: 7478. 2027년 01월의 코스피 지수 전망. 시세는 7478 원부터 시작하고 최대 7844, 최소 6818 으로 예측됩니다. 평균 7368. 01월말의: 7331. 2027년 02월의 코스피전망. 시세는 7331 원부터 시작하고 최대 7607, 최소 6611 으로 예측됩니다. 평균 7165. 02월말의: 7109. 2027년 03월의 코스피 지수 전망. 시세는 7109 원부터 시작하고 최대 7323, 최소 6365 으로 예측됩니다. 평균 6910. 03월말의: 6844. 2027년 04월의 코스피전망. 시세는 6844 원부터 시작하고 최대 7254, 최소 6304 으로 예측됩니다.\n\n11월 07일, 금요일의 코스피전망: 4048, 최대 4331, 최소 3765. 11월 10일, 월요일의 코스피 지수 전망: 3967, 최대 4245, 최소 3689. 11월 11일, 화요일의 코스피전망: 3888, 최대 4160, 최소 3616. 11월 12일, 수요일의 코스피 지수 전망: 3966, 최대 4244, 최소 3688. 11월 13일, 목요일의 코스피전망: 3986, 최대 4265, 최소 3707. 11월 14일, 금요일의 코스피 지수 전망: 3992, 최대 4271, 최소 3713. 11월 17일, 월요일의 코스피전망: 4063, 최대 4347, 최소 3779. 11월 18일, 화요일의 코스피 지수 전망: 4030, 최대 4312, 최소 3748. 11월 19일, 수요일의 코스피전망: 4111, 최대 4399, 최소 3823. 11월 20일, 목요일의 코스피 지수 전망: 4193, 최대 4487, 최소 3899. 11월 21일, 금요일의 코스피전망: 4152, 최대 4443, 최소 3861.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://wonforecast.com/코스피-지수-전망"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "KOSPI 과거 금리 - Investing.com",
+              "url": "https://kr.investing.com/indices/kospi-historical-data",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "investing.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=investing.com",
+                "site_name": "Investing.com"
+              },
+              "is_missing": false,
+              "text": "KOSPI에 대한 무료 과거 데이터를 받으세요.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://kr.investing.com/indices/kospi-historical-data"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "2025년 코스피 추가 상승 가능할까? - 실적, 밸류에이션, 환율, 외국인 수급 분석",
+              "url": "https://m.kbam.co.kr/board/view/711?srchTxt=&srchSel=&ctgry=",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "kbam.co.kr",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=kbam.co.kr",
+                "site_name": "Kbam"
+              },
+              "is_missing": false,
+              "text": "■ 코스피 2,900pt 돌파, 연중 고점 경신 안녕하세요. 수학과 통계 지식을 바탕으로 투자 방법을 설명하는 &#x27;알고리즘맨&#x27; 입니다. 2025년 들어 코스피가 2,900pt를 돌파하며 연중 고점을 경신하고 ...\n\n■ 코스피 2,900pt 돌파, 연중 고점 경신 안녕하세요. 수학과 통계 지식을 바탕으로 투자 방법을 설명하는 '알고리즘맨' 입니다. 2025년 들어 코스피가 2,900pt를 돌파하며 연중 고점을 경신하고 있습니다. 그동안 국내 증시를 둘러싼 회의적인 분위기와 달리, 모처럼 시장에 긍정적인 기대감이 커지는 흐름입니다. 이럴 때일수록 과도한 낙관이나 막연한 감정보다는, 펀더멘탈 관점에서의 객관적인 점검이 필요합니다. 이번 글에서는 실적 전망, 밸류에이션, 환율, 외국인 수급 등의 지표를 중심으로 국내 증시의 추가 상승 여력이 충분한지에 대해 데이터로 확인해 보겠습니다. ■ 2025년, 다시 사상 최대 이익 경신 가능성 2021년 이후 삼성전자, 엔씨소프트, NAVER, 카카오, LG화학, 삼성SDI 등 기존 대표주 일부의 주가 부진, 국내 정치 리스크, 외국인 매도세 등으로 코스피는 2021년 최고점 3,316pt에서 연초 2,400pt 전후까지 크게 하락했습니다.\n\n그런데 2024년 코스피 전체의 영업이익은 약 250조 원으로, 2021년 기록했던 사상 최대치(243조 원)를 이미 상회했습니다. 특히 2025년에는 영업이익이 23% 증가할 것으로 전망되는 등, 최근까지 하향 조정되던 이익 전망치도 다시 반등세로 전환되고 있습니다. 올해 하반기에 현재의 이익 전망치가 일부 하향 조정되더라도, 2025년 영업이익은 다시 사상 최대치를 경신할 가능성이 큽니다. 한편, 코스피가 여전히 기존 고점인 3,300pt보다 크게 낮은 점을 고려하면, 코스피 지수의 상승 여력은 충분하다고 볼 수 있겠습니다. ■ 원화 강세와 외국인 순 매수 전환 가능성 2025년 들어 가장 뚜렷하게 나타나는 변화 중 하나는 환율의 방향 전환입니다. 올해 4월 원 달러 환율은 1,479원까지 상승했지만, 6월 초 기준으로는 1,350원대까지 하락했습니다.\n\n2021년 이후 2년 연속 이익이 감소하며, 투자자들의 실적에 대한 신뢰도가 낮아진 시기가 있었지만, 2024년에는 이미 큰 폭의 이익 회복이 달성되었습니다. 그럼에도 불구하고 이익 전망치에 대한 낮은 신뢰도, 미국의 관세 정책 우려, 글로벌 금리 불확실성 등의 요인으로 인해 실적 대비 주가 반영 속도가 늦어지고 있습니다. 그렇지만, 올해 기업이익의 최대치 경신 전망과, 원화 강세 흐름을 감안할 때 PER 저평가 상태의 해소 가능성도 높아지고 있다고 보입니다. ■ 시장 전망은 언제나 유동적 결국은 데이터 기반 점검이 중요 요약하자면 ▶ 2025년 이후 코스피 종목들의 영업이익이 사상 최대치를 경신할 가능성이 높은 점 ▶ 원화 강세 추세와 외국인 매수 전환 여력, ▶ 그리고 PER 기준 저평가 상태를 감안할 때 국내 증시는 추가 상승 여력이 충분한 상황으로 판단됩니다.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://m.kbam.co.kr/board/view/711?srchTxt=&srchSel=&ctgry="
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "본자료는고객의투자에참고가될수있는각종정보 제공을목적으로제작되었습니다.본자료는합리적인 정보를바탕으로작성된것이지만,투자권유의적합성",
+              "url": "https://www.samsungpop.com/common.do?cmd=down&contentType=application/pdf&inlineYn=Y&saveKey=research.pdf&fileName=4030/2025070116503515K_02_01.pdf",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "samsungpop.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=samsungpop.com",
+                "site_name": "Samsungpop"
+              },
+              "is_missing": false,
+              "text": "코스피, 3년6개월만에3,000pt 돌파 · 달러-원환율, 약9개월만에1,350원하회 · 16 · Samsung Securities (Korea) ∷www.samsungpop.com · 하반기한국시장ㅣ여전히싸다 · 19.6 · 19.0 · 15.0 · 15.4 · 14.1 · 10.1 · 10.9 · 11.7 · 9.9 · 10.8 · 9.9 · 0 · 5 ...\n\n코스피, 3년6개월만에3,000pt 돌파 · 달러-원환율, 약9개월만에1,350원하회 · 16 · Samsung Securities (Korea) ∷www.samsungpop.com · 하반기한국시장ㅣ여전히싸다 · 19.6 · 19.0 · 15.0 · 15.4 · 14.1 · 10.1 · 10.9 · 11.7 · 9.9 · 10.8 · 9.9 · 0 · 5 · 10 · 15 · 20 (%) 6.0 · 4.5 · 3.1 · 2.3 · 1.9 · 1.9 · 1.8 · 1.7 · 1.2 · 1.2 · 1.0 · 0 · 2 · 4 · 6 (배) 27.6 · 21.8 · 20.5 · 15.3 · 12.8 · 18.5 · 15.3 · 14.1 · 12.5 · 10.2 · 10.1 · 0 · 10 · 20 · 30 · 미국나스닥 · 미국S&P500 · 인도NIFTY · 대만가권 · 영국FTSE 100 · 일본Nikkei 225 · 독일DAX 30 · 프랑스CAC 40 · 중국상해종합 · 홍콩항셍 · 한국코스피 · (배) P/E · ROE · P/B · 참고: 2025년6월말기준, PER·PBR·ROE는12개월선행기준 · 자료: Bloomberg, 삼성증권 · 17 · Samsung Securities (Korea) ∷www.samsungpop.com ·\n\n참고: 2025년6월말기준, PBR·ROE는12개월선행기준 · 자료: Bloomberg, 삼성증권 · 35 · Samsung Securities (Korea) ∷www.samsungpop.com · • 거래대금증가에따른영업이익증가전망 · • BPS는꾸준히증가하지만PBR는여전히1배이하, 밸류에이션재평가에따른주가상승기대(PBR=주가/BPS) Korea Specialtyㅣ한국금융지주: 코스피3,000 시대개막 · 참고: PBR은12개월선행기준 · 자료: 언론보도, Bloomberg, 삼성증권 · PBR과BPS 추이 · 한국금융지주\"2030년자기자본15조원·ROE 15% 이상달성목표\" 0.8 · 179 · 0 · 50 · 100 · 150 · 200 · 0 · 0.5 · 1 · 1.5 · 2 · 2.5 · '07 '09 '11 '13 '15 '17 '19 '21 '23 '25 · P/B (좌측) BPS (우측) (배) (천원) 45 · 50 · 55 · 60 · 65 · 70 · 1.6 · 1.8 · 2 · 2.2 · 2.4 · 2.6 · 2.8 · '24.01 '24.04 '24.07 '24.10 '25.01 '25.04 ·\n\nKorea Specialtyㅣ한국금융지주: 코스피3,000 시대개막 ... 자료: 한국관광통계, 파마리서치, 아모레퍼시픽, 롯데관광개발, 호텔신라, 삼양식품, Gettyimages, 삼성증권 ... - 본조사분석자료의애널리스트는2025년6월30일현재위조사분석자료에언급된종목의지분을보유하고있지않습니다. - 당사는2025년6월30일현재위조사분석자료에언급된종목의지분을1% 이상보유하고있지않습니다. - 본조사분석자료에는외부의부당한압력이나간섭없이애널리스트의의견이정확하게반영되었음을확인합니다. - 본조사분석자료는당사의저작물로서모든저작권은당사에게있습니다. - 본조사분석자료는당사의동의없이어떠한경우에도어떠한형태로든복제, 배포, 전송, 변형, 대여할수없습니다.\n\n2025년하반기증시키워드S(S2), N(New Era), A(AI Never Die), K(Korea Specialty), E(Evolution Story)를제시합니다. 작년말한국증시는비관론이팽배했습니다. 트럼프2.0시대에대한불안감, 한국의성장률둔화우려, 그리고한국시장에서 · 자금이탈이가속화되는최악의조건속에서2025년을맞이했습니다. 하지만, 2025년상반기가지난지금, 한국증시는글로 · 벌주요국중가장압도적인상승세를기록하고있습니다. 저희는작년말S.N.A.K.E 1탄(‘비관속에도주도주는태어난다’)을 · 통해서한국증시가세가지생존전략을통해돌파구를찾을것으로전망했습니다. 1) 트럼프시대의수혜업종, 2) 독보적인성 · 장기업, 3) 한국에서만투자가능한업종을중심으로키워드S(Solo Play).N(Natural Gas).A(After H/W).K(Korea ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.samsungpop.com/common.do?cmd=down&contentType=application/pdf&inlineYn=Y&saveKey=research.pdf&fileName=4030/2025070116503515K_02_01.pdf"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "2025년 하반기, 코스피 지수 어디까지 오를까? 상승 배경과 주목할 이슈 | EBC Financial Group",
+              "url": "https://www.ebc.com/kr/forex/262908.html",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ebc.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ebc.com",
+                "site_name": "EBC Financial Group"
+              },
+              "is_missing": false,
+              "text": "2025년 상반기, 국내 증시는 의미 있는 반등을 보여주었습니다. 특히 코스피 지수는 연초 대비 약 22% 상승하며 3,200선에서 저항대를 형성하고 있습니다. 이제 투자자들의 시선은 하반기, 나아가 4,000포인트를 향한 추가 상승 가능성에 쏠리고 있습니다. 이번 글에서는 최근 코스피의 흐름을 간단히 정리하고, 투자에 참고할 수 있는 주요 이슈와 포인트들을 짚어보겠습니다. 상반기 코스피 상승을 주도한 핵심 종목은 단연 반도체 대장주들입니다. SK하이닉스는 연초 대비 약 50% 상승, 2분기 기준으로 영업이익 9조 원이라는 역대 최대 실적을 기록했습니다. HBM 수요 증가에 대한 확신을 밝히며, 연내 생산량을 2배로 늘릴 계획도 발표했습니다. 삼성전자 역시 연초 대비 20% 넘게 상승했으며, 시가총액 기준 1, 2위 기업이 다시 시장을 끌어올리는 국면이 이어지고 있습니다.\n\n상반기 동안 코스피 시장의 일평균 거래 대금은 33조 원 수준까지 증가했습니다. 과거 암호화폐로 향했던 자금이 다시 증시로 유입되며 머니무브 현상이 발생한 것으로 보입니다. 또한 대체거래소(넥스트레이드)의 출범 이후, 프리마켓(08:0008:50)과 애프터마켓(15:3020:00)까지 거래 가능한 시간이 확장되면서, 출퇴근 시간대의 거래 수요도 크게 늘었습니다. 실제로 현재 대체거래소의 거래 대금은 한국거래소(KRX)의 약 45% 수준에 도달하며 빠르게 정착하고 있습니다. 이런 흐름은 단순히 거래량 확대에 그치지 않고, 기존 증권시장 구조의 재편 가능성까지 열어두고 있습니다. 대체거래소의 성공적인 안착과 함께, 한국거래소 역시 거래 시간 확대를 준비 중입니다.\n\n이는 단순한 시간 확장 이상의 의미를 갖습니다. 글로벌 증시가 24시간 거래 체제로 전환하는 흐름 속에서, 코스피 역시 글로벌 투자자의 접근성과 유동성을 확대하기 위한 전환점에 놓여 있기 때문입니다. 나스닥과 뉴욕증권거래소(NYSE)도 2026년부터 22시간 이상 영되는 정규 시장 체제를 도입할 예정이며, 향후 우리 시장과의 경쟁도 심화될 것으로 보입니다. 현재 시장은 상승에 대한 기대와 고점 부담이 공존하는 상태입니다. 반도체 실적, 미국 기준금리 방향성, 중국 경기 회복 등 다양한 변수들이 코스피 지수에 영향을 미칠 수 있습니다. 단기적으로는 3,200선에서의 저항 여부, 글로벌 경제 지표 발표에 따른 외국인 수급, 금융당국의 규제 여부 등을 주의 깊게 관찰할 필요가 있습니다.\n\n현재 코스피가 보여주고 있는 흐름은 분명 긍정적입니다. 다만 이미 발표된 호재가 반영된 상태에서 무리한 진입은 리스크를 수반할 수 있습니다. 늦게 시장에 진입하는 투자자라면 다음과 같은 전략적 접근이 도움이 될 수 있습니다. 하반기 주요 이슈(예: 반도체 업황, 미국 금리, 중국 정책 등)를 기준으로 구간별 대응 · 거래 시간 확대에 따른 글로벌 시장 투자 병행 · ETF 등 분산된 상품을 활용한 리스크 관리 · 필요 시 해외 주식 CFD나 선물 등을 통한 방향성 대응 · 국내 증시 외에도 글로벌 시장이 실시간으로 움직이는 환경이 현실화되고 있는 만큼, 자신만의 투자 전략을 구체화할 시기입니다. 면책 조항: 본 자료는 일반적인 정보 제공 목적으로만 제공되며, 의존해야 할 금융, 투자 또는 기타 조언으로 의도된 것이 아니며, 그렇게 간주되어서도 안 됩니다.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "age": "August 4, 2025",
+                "url": "https://www.ebc.com/kr/forex/262908.html"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "\"12월 코스피, 숨 고르고 최대 4300 가능\"...연말랠리 찾아올까 - 파이낸셜뉴스",
+              "url": "https://www.fnnews.com/news/202511241506237327",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "fnnews.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=fnnews.com",
+                "site_name": "First News"
+              },
+              "is_missing": false,
+              "text": "25일 국내 주요 증권사들이 제시한 12월 코스피 지수 전망치는 3700~4300p 선이다. 하나증권이 3750~4300를 예상해 상단이 가장 높았다. 한국투자증권은 3900~4200, KB증권은 3800~4200을 제시했다.\n\n12월 국내 증시가 4000선 안착을 시도할 것이란 전망이 나오고 있다. 반도체 업황 개선과 글로벌 유동성 여건 변화, 미국 연방준비제도의 통화정책 전환 기대 등이 부각되면서 연말·연초 강세장 진입 가능성이 높아졌다는 관측이 우세하다. 주요 증권사들이 내년 코스피 전망 밴드를 일제히 상향 조정한 것도 한몫하고 있다. 해당 요약은 자동화된 기술로 생성되었으며, 일부 핵심 내용이 생략되었을 수 있습니다. 정확한 정보 파악을 위해 전체 본문을 확인하시길 권장합니다. (제공 = 파이낸셜뉴스 & NAVER MEDIA API) 닫기 ... [파이낸셜뉴스] 12월 국내 증시가 4000선 안착을 시도할 것이란 전망이 나오고 있다. 반도체 업황 개선과 글로벌 유동성 여건 변화, 미국 연방준비제도(Fed)의 통화정책 전환 기대 등이 부각되면서 연말·연초 강세장 진입 가능성이 높아졌다는 관측이 우세하다.\n\n주요 증권사들이 내년 코스피 전망 밴드를 일제히 상향 조정한 것도 한몫하고 있다. 25일 국내 주요 증권사들이 제시한 12월 코스피 지수 전망치는 3700~4300p 선이다. 하나증권이 3750~4300를 예상해 상단이 가장 높았다. 한국투자증권은 3900~4200, KB증권은 3800~4200을 제시했다. 대신증권은 3700~4200, 유진투자증권은 3750~4100, 현대차증권은 3700~4200을 예상했다. 글로벌 유동성 환경 변화는 국내 증시 개선 요인으로 꼽힌다. 김용구 유안타증권 연구원은 “12월 1일을 기점으로 국내 증시 스트레스 요인이 상당 부분 완화될 것”이라며 “최근 약세는 12월 금리 인하 기대가 약화됐다는 인식에서 비롯됐지만, 이는 셧다운으로 핵심 데이터 발표가 밀리면서 정책 일정이 단순히 이월된 영향이 크다”고 말했다.\n\n이어 “12월 초 양적긴축(QT) 종료만으로도 정책 변화 기대감이 커지고, 연방정부 차원의 유동성 방출이 재개되면 시장 유동성은 뚜렷하게 개선될 것”이라며 “코스피는 다시 4200선 회복을 시도할 것”이라고 내다봤다. 수급 개선 조짐도 긍정적이다. 김 연구원은 “11월 외국인 매도는 인덱스 중심의 포지션 정리 성격이 컸고, 12월 옵션만기 이전에 롤오버 수요가 발생하면서 외국인 매수 흐름이 앞설 가능성이 있다”고 전망했다. 개인 투자자는 10~11월 조정 이후 재진입이 확대되고 있고, 기관은 연말 배당 시즌에 맞춰 고배당, 가치 업종 중심의 매수 비중을 늘리는 모습이다. 상장지수펀드(ETF) 시장에서도 반도체, 인공지능(AI), 전력기기, 방산, 고배당 등 주요 테마로 자금 유입이 이어질 것이라는 전망에 힘이 실리고 있다.\n\n증권가는 이 같은 요인을 종합할 때 연말 연초 코스피가 다시 4000선 상단을 테스트할 여건을 갖춘 것으로 보고 있다. 반도체 업황 개선과 정책 모멘텀, 글로벌 유동성 변화가 동시에 맞물리면서 연말 랠리 기대가 점차 현실화될 것으로 보고 있다. 단기적으로 박스권 흐름이 이어지고 있지만 정책 모멘텀은 주도주 회전의 촉매 역할을 할 것이란 전망도 나온다. 이상헌 iM증권 연구원은 “12월 코스피는 3800~4200선 박스권이 불가피하지만 고환율, 안전자산 선호 속에서도 정책 관련주는 오히려 수혜가 부각될 시기”라고 말했다. 그는 이어 “상법개정 1, 2차에 이어 자사주 소각을 포함한 3차 상법개정안 논의가 진행되고 있어 자사주를 많이 보유한 지주회사에 정책 수혜 가능성이 있다”며 “기획재정위원회 조세소위에서 배당소득 분리과세 논의가 본격화되면서 은행, 보험업종도 관심을 받을 수 있다”고 설명했다.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "age": "6 days ago",
+                "url": "https://www.fnnews.com/news/202511241506237327"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "2025년 상반기 코스피 대폭등! 개인투자자들은 왜 웃지 못했나? 📈💔 - The Road to Financial Independence",
+              "url": "https://nomadic-worker.com/finance/korea-kospi-soars/amp/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "nomadic-worker.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=nomadic-worker.com",
+                "site_name": "Nomadic-worker"
+              },
+              "is_missing": false,
+              "text": "😲 무려 28.01%나 상승하며 1999년 이후 26년 만에 최고의 상승률을 보였죠. 이는 1999년 상반기의 56.99% 상승 이후 최고 기록입니다. 📈✨ · 새 정부의 증시부양 정책에 대한 기대감 🏛️💰 ...\n\n안녕하세요, 여러분! 😊 오늘은 2025년 상반기 주식시장에서 있었던 흥미로운 이야기를 함께 살펴보려고 합니다. 특히 코스피가 기록적인 상승세를 보였음에도 개인투자자들이 큰 수익을 내지 못했던 이유에 대해 자세히 알아보겠습니다. 🤔💭 ... 2025년 상반기 코스피는 정말 놀라운 성과를 기록했습니다! 😲 무려 28.01%나 상승하며 1999년 이후 26년 만에 최고의 상승률을 보였죠. 이는 1999년 상반기의 56.99% 상승 이후 최고 기록입니다. 📈✨ · 새 정부의 증시부양 정책에 대한 기대감 🏛️💰 · 지난해 부진했던 기저효과 📉➡️📈 · 원화 강세로 인한 외국인 투자자금 유입 💵➡️🇰🇷 · 개인투자자들의 적극적인 매수세 🏃‍♂️💨 · 특히 6월 한 달 동안에만 전체 상승분의 55.6%인 374.03포인트가 상승했다는 점이 눈에 띕니다.\n\n종목 선택의 차이 🎯❌: 코스피 지수를 끌어올린 주요 종목과 개인투자자들이 실제로 투자한 종목이 달랐습니다. 투자 타이밍의 문제 ⏰😵: 많은 개인투자자들이 상승 후반부에 진입하거나, 중간에 차익실현을 했습니다. 포트폴리오 구성의 차이 📊🤹‍♂️: 개인투자자들은 국내 주식뿐만 아니라 해외 주식, ETF 등에도 분산 투자를 했는데, 이들의 성과가 엇갈렸습니다. 미국 주식 투자의 새로운 패러다임, 2025년 버퍼 ETF로 하락 위험은 낮추고 수익은 지키자! 외국인들은 주로 다음과 같은 우량주에 집중했습니다. SK하이닉스 (1조9283억 원 순매수) – 68% 상승! 🔥🚀 · 한화에어로스페이스 (5993억 원 순매수) – 164% 상승! 🚁💥 · 한국전력 (5297억 원 순매수) – 안정적 수익 ⚡💰 ·\n\n반면 외국인들은 MSCI 한국 지수, 코스피200 등 국내 지수 상승 시 수익을 얻는 ETF를 선택했습니다. 🎯✅ · 환율 리스크의 무서움 💱😱: 2025년 상반기 원/달러 환율은 1,350원대에서 1,280원대까지 하락했습니다. 이는 약 5%의 원화 강세를 의미하는데, 미국 ETF에 투자한 개인투자자들은 달러 기준으로는 수익을 냈더라도 원화로 환산하면 손실을 본 경우가 많았습니다. 😰💔 · 예를 들어, S&P500이 10% 상승했더라도 환율 하락으로 인해 실제 원화 수익률은 5% 정도에 그쳤던 것이죠. 😰📊 · 레버리지 ETF의 위험성 ⚠️💥: 특히 곱버스(2배 역방향) ETF에 투자한 개인투자자들의 손실이 컸습니다. 코스피가 상승하는 상황에서 하락에 베팅한 것이니 당연한 결과였지만, 많은 투자자들이 “조정이 올 것”이라는 예상으로 이런 상품에 투자했다가 큰 손실을 봤습니다.\n\n🔥 2025년 배당소득 분리과세 확정! 금융주 투자로 세후수익 300% 늘리는 비밀 전략 대공개 💰 · 가족간 돈 빌려줬다가 세금폭탄 맞는다고? 2025년 증여세 100% 피하는 방법 · 2025년 간병보험 완전정복! 50대 가입 시 월 6만원으로 최대 1억 보장받는 방법 · 실손보험 청구 방법 완벽 가이드 2025 | 거절 사유부터 온라인 신청까지 총정리 💊 · 신용카드 연체자 긴급 필독! 예적금 월 185만원까지 압류 방지하는 법적 보호 완벽 가이드 2025 💰 · 2025년 상반기 글로벌 경제 환경은 한국 주식시장에 복합적인 영향을 미쳤습니다. 🌐🎭 ... 중국 경제의 점진적 회복도 한국 주식시장에 긍정적인 영향을 미쳤습니다. 특히 중국 관광객의 한국 방문 증가로 면세점, 화장품, 엔터테인먼트 관련 주식들이 상승했죠.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "age": "July 2, 2025",
+                "url": "https://nomadic-worker.com/finance/korea-kospi-soars/amp/"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "한국 주식 시장 | 1983-2025 데이터 | 2026-2027 예상",
+              "url": "https://ko.tradingeconomics.com/south-korea/stock-market",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "tradingeconomics.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=tradingeconomics.com",
+                "site_name": "TRADING ECONOMICS"
+              },
+              "is_missing": false,
+              "text": "2025년 11월 28일, 한국의 주요 주식 시장 지수인 kospi는 3927포인트로 하락하며 이전 거래일 대비 1.51% 하락했습니다. 지난 한 달 동안 이 지수는 3.79% 하락했지만, cfd 거래에 따르면 1년 전보다 59.88% 높은 수준을 유지하고 있습니다.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ko.tradingeconomics.com/south-korea/stock-market"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "2025년 3월 한국 주식시장 전망과 전략 - 수급 주도 주체의 변화",
+              "url": "https://www.samsungpop.com/common.do?cmd=down&saveKey=research.pdf&fileName=1010/2025022809340223K_02_02.pdf",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "samsungpop.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=samsungpop.com",
+                "site_name": "Samsungpop"
+              },
+              "is_missing": false,
+              "text": "We cannot provide a description for this page right now",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.samsungpop.com/common.do?cmd=down&saveKey=research.pdf&fileName=1010/2025022809340223K_02_02.pdf"
+              }
+            },
+            {
+              "type": "text",
+              "text": "<system>You only have 19 searches left this turn</system>\n\n",
+              "uuid": "ae13f469-5ba9-46f3-9bd8-07e9763c6752"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-11-30T23:57:11.304123Z",
+          "stop_timestamp": "2025-11-30T23:57:19.582035Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "좋아요, 현재 2025년 12월 1일 기준으로 코스피 상황을 파악했습니다:\n\n핵심 정보:\n- 2025년 상반기 코스피가 28% 상승하며 1999년 이후 최고 상승률 기록\n- 11월 28일 기준 코스피 약 3,927포인트\n- 12월 전망치는 3,700~4,300 사이\n- 연말 4,000선 회복 시도 전망\n- 2026년 전망은 더 긍정적 (일부는 6,000대까지 예측)\n\n주요 긍정 요인:\n- 반도체 업황 개선 (SK하이닉스 등)\n- 원화 강세 (1,280~1,350원대)\n- 외국인 매수 전환\n- 정책 기대감 (상법 개정, 배당소득 분리과세 등)\n- 거래 시간 확대\n\n리스크:\n- 미국 금리 정책 불확실성\n- 개인투자자들의 종목 선택 실패\n- 레버리지 ETF 손실\n- 환율 변동성\n- 지수 상승 vs 개별 종목 부진\n\n이제 premortem 시나리오를 작성하겠습니다.",
+          "summaries": [
+            {
+              "summary": "코스피 6개월 시나리오 구성 중입니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-11-30T23:57:19.935775Z",
+          "stop_timestamp": "2025-11-30T23:57:20.225676Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "web_search",
+          "input": {
+            "query": "2025 미국 금리 인하 전망"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "미국 연방기금 금리 | 1971-2025 데이터 | 2026-2027 예상",
+              "url": "https://ko.tradingeconomics.com/united-states/interest-rate",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "tradingeconomics.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=tradingeconomics.com",
+                "site_name": "TRADING ECONOMICS"
+              },
+              "is_missing": false,
+              "text": "미국의 기준 금리는 최근 4%로 기록되었습니다. 이 페이지는 - 미국 연방 기금 금리 -의 최신 보고된 값과 이전 릴리스, 역사적인 최고점과 최저점, 단기 예측과 장기 예측, 경제 캘린더, 조사 결과 및 뉴스를 제공합니다.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ko.tradingeconomics.com/united-states/interest-rate"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "미국 기준금리 0.25% ↓…2025년 인하 횟수 4번 → 2번 축소 전망 | 그리니엄",
+              "url": "https://greenium.kr/news/60253/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "greenium.kr",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=greenium.kr",
+                "site_name": "Greenium"
+              },
+              "is_missing": false,
+              "text": "연준은 이날 발표한 경제전망을 통해 2025년 말 미국의 기준금리가 3.9%에 이를 것으로 전망했습니다. 현재 기준금리(4.25~4.50%)를 고려하면 내년 말까지 ‘스몰컷(0.25%p 인)’ 기준으로 2차례를 ...\n\n실제로 트럼프의 보편관세 예고 여파로 이미 커피 원두 가격이 47년 만에 역대 최고치로 치솟았습니다. 월스트리트저널(WSJ)은 관세 정책에 따른 인플레이션을 우려한 미국인들이 가전제품과 생활용품 등을 사재기하고 있다는 상황을 전한 바 있습니다. 연준 역시 이같은 상황을 반영한 것으로 보입니다. 파월 의장은 “인플레이션에 대한 진전 상황을 면밀히 살펴봐야 한다”며 “금리 인하 결정을 신중하게 하는 새로운 국면에 접어든 것으로 평가된다”고 말했습니다. 파월 의장은 금리 인하 속도를 줄여서라도 인플레이션 2% 목표를 반드시 달성하겠다는 의지를 재차 피력했습니다. 한편, 이날 연준은 2025년 국내총생산(GDP) 성장률 전망치를 올해 9월 2.0%에서 2.1%로 상향 조정했습니다.\n\n미국 중앙은행인 연방준비제도(연준·Fed)가 18일(이하 현지시각) 연방공개시장위원회(FOMC)에서 4.50~4.75%였던 기준금리를 4.25~4.50%로 인하했습니다.\n\n미국 연준발 쇼크로 1,450원대를 넘어선 겁니다. 당장 한국은행의 고심은 더 깊어지게 됐습니다. 윤석열 대통령의 탄핵 정국과 트럼프 행정부 출범 같은 대내외 변수로 경기 위축 가능성이 커졌기 때문입니다. 한은 입장에서는 금리를 내려 경기 부양을 도울 필요가 있습니다. 문제는 환율 추이입니다. 환율 변동성이 확대된 상황에서 기준금리를 인하할 경우 원화 가치가 떨어져 환율이 더 치솟을 우려가 있습니다. 이 때문에 내년 1월 금리 향방을 두고 한은의 고심이 커질 것으로 보입니다. 이창용 한국은행 총재는 ”새로운 변수들이 많이 들어왔다“며 ”금통위원들과 아직 공식적으로 상의해보지 않았다“고 말했습니다. 해외 투자은행들 역시 평가가 엇갈립니다.\n\n반면, 골드만삭스는 연준의 이번 발표로 인해 한은의 금리 인하 역시 지연될 것으로 내다봤습니다. 저작권자(©) 그리니엄, 무단 전재-재배포 금지- AI학습 이용 금지 · 경제, 관세, 그린비즈, 도널드 트럼프, 미국, 비상계엄, 연방준비제도, 인플레이션, 한국, 한국은행 ... 우리 세대가 직면한 가장 큰 위기는 기후위기라고 생각함. 이 문제를 해결하기 위해선 기술과 토론이 답이라고 생각. 사실과 이야기 그리고 문제의 간극을 좁히고자 열심히 글을 쓰고 있는 중. 댓글을 달기 위해서는 로그인해야합니다. ... 제호: 그리니엄(greenium) 등록번호: 경기, 아 52803 등록(발행)일자: 2021.3.15. 법인명: 그린펄스 주식회사 발행인·편집인: 하태상 주소: 경기도 안양시 동안구 시민대로 327번길 11-41 문의 : [email protected] | 070-7525-2050 청소년 보호정책(책임자 황윤희) ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "age": "December 20, 2024",
+                "url": "https://greenium.kr/news/60253/"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "연준 FOMC \" 2025년 금리인하 2회 축소\" - 글로벌이코노믹",
+              "url": "https://www.g-enews.com/article/Global-Biz/2024/12/2024122207293590124a01bf698f_1",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "g-enews.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=g-enews.com",
+                "site_name": "G-News"
+              },
+              "is_missing": false,
+              "text": "연준은 새로 제시한 점도표에서 내년 연말까지 기준금리가 3.9%로 낮아질 것으로 전망했다. 기존 내년 말 전망 3.4%보다 높아졌다. 연준이 보는 내년 한 해 금리 인하 횟수 전망 기존 ...\n\n미국 연준 FOMC/사진= 연준 홈페이지 연준 FOMC \"금리인하 대폭 축소\" …뉴욕증시 비트코인 달러환율 테슬라 아이온큐 리게티\" 산타랠리\" 제롬파월 연준 Fed 의장 2025년 금리인하 계획 전면 수정 미국 연준 FOMC가 2025년에는 당초 예상보다 금리인하 횟수와 폭을 대폭 축소한다. 미국 뉴욕증시는 연준 Fed의 금리인하 축소에 주목하고 있다. 욕증시뿐 아니라 달러환율 국채금리 국제유가 천연가스 금값 그리고 비트코인 이더리움 리플등 가상 암호화폐도 연준 FOMC의 금리인하 속도조절을 예의 주시하고 있다. 뉴욕증시에서는 비트코인 달러환율 테슬라 아이온큐 리게티 올 마지막 거래에서 \" 산타랠리\"에 도전하고 있다. 연준 2025년 FOMC 금리인하 2회 축소 …뉴욕증시 비트코인 달러환율 테슬라 아이온큐 리게티\" 산타랠리\" 1일 뉴욕증시에 따르면 연준은 2005년 올해 한 해 금리 인하 횟수 전망 기존 4차례에서 2차례로 축소했다.\n\n연준 FOMC \"금리인하 대폭 축소\" …뉴욕증시 비트코인 달러환율 테슬라 아이온큐 리게티\" 산타랠리\"제롬파월 연준 Fed 의장 2025년 금리인하 계획 전면 수정미국 연준 FOMC가 2025년에는 당초 예상보다 금리인하 횟수와 폭을 대폭 축소한다. 미국 뉴욕증시는 연준 Fed의 금리인하\n\n연준은 앞서 9월에 발표한 점도표에서 연준은 내년 말까지 금리가 3.4%로 낮아질 것이라고 전망한 바 있다. 3개월 만에 인하 전망폭이 줄어든 것은 고용 시장이 악화할 것이란 우려는 가라앉고 인플레이션은 당초 예상보다 더 오를 것이라는 관측이 늘어났기 때문이다. 실제로 연준은 앞서 9월 경제 전망에서는 실업률이 내년말 4.4% 수준일 것으로 봤지만 이번에는 4.3%로 관측했다. 반면 내년 말 근원 개인소비지출(PCE) 물가지수 9월 2.2%까지 낮아질 것으로 봤지만 이번에는 2.5%로 높아졌다. 인플레이션과의 싸움의 마지막 여정이 쉽지 않을 것으로 본다는 의미다. 무안국제공항에서 발생한 제주항공 여객기 참사의 원인이 정확히 규명되지 않은 가운데 사고 기종인 보잉 737-800을 제조한 미국 보잉의 주가가 하락했다.뉴욕 증시에서 보잉 주가는 전장 대비 2.31% 내린 176.55달러로 마감했다.\n\n연준은 새로 제시한 점도표에서 내년 연말까지 기준금리가 3.9%로 낮아질 것으로 전망했다. 기존 내년 말 전망 3.4%보다 높아졌다. 연준이 보는 내년 한 해 금리 인하 횟수 전망 기존 4차례에서 2차례로 감소한 것이다. 연준은 12월 연방공개시장위원회(FOMC)에서 기준금리를 현행 4.5~4.75%에서 4.25~4.5%로 낮춘다고 밝혔다. 연준은 정책결정문에서 기존 “기준금리의 추가적 조정을 고려할 때”라는 표현을 “기준금리의 조정 속도와 폭을 고려할 때”로 수정하면서 앞으로 정책 결정 과정에서 인하 속도와 폭을 줄일 수 있다는 점을 암시했다. 만장일치로 인하를 결정했던 11월 회의와 달리 이번에는 클리블랜드 연방준비은행 총재 베스 해맥이 인하에 반대했다.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "age": "December 31, 2024",
+                "url": "https://www.g-enews.com/article/Global-Biz/2024/12/2024122207293590124a01bf698f_1"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "FedWatch - CME Group",
+              "url": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "cmegroup.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=cmegroup.com",
+                "site_name": "CME Group"
+              },
+              "is_missing": false,
+              "text": "Stay up-to-date with the latest probabilities of FOMC rate moves as implied by Fed Funds futures prices",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "2025년 첫 FOMC를 기다리며 금리 인하 속도 여전히 완화 | KB의 생각",
+              "url": "https://kbthink.com/main/asset-management/asset-management-expert-column/gw/2025/gw-WealthManagement-250131.html",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "kbthink.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=kbthink.com",
+                "site_name": "KB"
+              },
+              "is_missing": false,
+              "text": "금리 전망을 보여주는 점도표에 따른 2025년 금리 인하 횟수의 중간값은 기존 4회에서 2회로 축소됐으며, 내년 말 기준금리 중간값은 50bp 상향 조정된 3.875%로 제시했다. 2025년 4회 기준금리 인하 기대와 달리 2회 인하 예상은 연준이 상당히 매파적 입장임을 시사한다. 1월 9일 발표한 12월 FOMC 의사록에서도 대다수(The Vast Majority) 위원이 금리 인하를 지지했지만, 일부(Some) 위원이 금리 동결을 주장한 것으로 확인됐다. 이들은 디스인플레이션(물가상승률 둔화) 과정이 일시적으로 중단됐거나 중단될 위험이 있는 것으로 판단했으며, 실제 12월 미국 소비자물가지수(CPI) 물가 지표가 이 견해를 뒷받침할 가능성이 높을 것으로 판단한 것이다. 의사록에 따르면, 연준 위원이 금리 인하에 조심스러운 태도를 보인 이유는 높아진 물가 우려 때문이다.\n\n미 연방준비제도(Fed, 연준)는 지난해 12월 18일 연방공개시장위원회(FOMC)에서 기준금리를 4.25~4.50%로 25bp 인하했다. FOMC에서 전망한 것처럼 2024년에\n\n12월 근원 CPI 둔화가 연준이 비둘기파적 판단을 하는 데 좀 더 영향을 미칠 수는 있겠지만, 인하 중단에 대한 생각을 바꾸기는 어렵고, 금리 인상 전망도 제한될 것으로 판단된다. 고용 지표가 예상 외 서프라이즈로 발표되면서 다시 물가 상승을 자극할 우려 등 물가에 대한 불확실성이 여전하기 때문이다. 그리고 1월 20일은 트럼프 취임식이다. 실제로 정책이 무엇이고 어떻게 시행되는지 확인한 이후에야 통화정책 조정 여부를 판단할 수 있을 것이다. 여전히 금리 인하 논리가 약해진 상황에서 관세 인상과 세금 감면, 불법 체류자 추방 등의 정책은 모두 인플레이션 압력을 높일 변수들이다. 금리 인하에 대한 속도 조절이 더 이어질 수 있을 것이다. 2025년 첫 FOMC에서 미 연준은 금리 동결을 택할 가능성이 높아졌다.\n\n당분간 금리 인하에 대한 기대감은 낮아질 것이다. 한편, 한국은행 금융통화위원회는 지난 1월 16일 2025년 새해 첫 통화정책 방향 회의에서 기준금리를 3.00%로 유지했다. 원/달러 환율이 1,400원대 후반으로 여전히 높은 상태에서, 세 차례 연속 인하로 미국과의 금리 격차가 더 벌어지면 원화 가치가 떨어져 환율이 더 뛸 가능성을 우려한 것으로 판단된다. 참고로 고환율은 물가에도 부담을 준다. 환율이 상승하면 수입 물가를 높이는데, 이는 시차를 두고 소비자물가에 반영되기 때문이다. 더구나 금융통화위원회로서는 트럼프 정부 2기 출범 이후 드러날 정책 윤곽, 28일~29일에 미국 FOMC 정례회의 결과와 Fed의 통화 완화 속도 관련 언급, 국내 탄핵 정국과 재정 집행 상황 여부 등을 더 확인할 필요가 있었던 것으로 판단된다.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "age": "February 27, 2025",
+                "url": "https://kbthink.com/main/asset-management/asset-management-expert-column/gw/2025/gw-WealthManagement-250131.html"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "FED 금리 모니터링 도구 - Investing.com",
+              "url": "https://kr.investing.com/central-banks/fed-rate-monitor",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "investing.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=investing.com",
+                "site_name": "Investing.com"
+              },
+              "is_missing": false,
+              "text": "연방준비제도(FED) 금리 모니터링 계산기는 CME 그룹 30일 연방기금(Fed Fund) 선물 가격을 토대로, 연준의 통화정책에 기반하여 미국 금리 변경 가능성에 관한 시장의 기대를 보여줍니다. 이 도구를 통해 곧 있을 연준의 금리 인상 가능성을 계산할 수 있습니다. ... 파월 연준 의장의 동맹자들, 12월 금리 인하 길 열어 - WSJ 티미라오스 By Investing.com - 2025년 11월 25일 1 · Investing.com- 월스트리트저널(WSJ)의 닉 티미라오스가 월요일 보도한 바에 따르면, 제롬 파월 연방준비제도 의장의 동맹자들이 중앙은행의 12월 9-10일 회의에서 금리... 미국 9월 비농업 고용 11만 9천 명 증가, 실업률 4.4%로 상승 By Investing.com - 2025년 11월 20일 · Investing.com - 미국의 9월 비농업 부문 고용이 예상보다 증가했지만, 실업률이 예상외로 상승하면서 12월 연방준비제도(Fed) 정책 회의에 대한 불확실성이 커지고 있습...\n\n금리 인하 국면에서 빛을 발할 10개의 저평가 배당주 By David Wagner - 2025년 10월 23일 ... 에너지 시황 - 미국 원유 수출, 약 2년래 최고치 기록 By 김광래 연구원 - 2025년 09월 18일 1 ... 오늘의 미국장: 트럼프의 압력에도 9월에도 금리인하는 없다? By 머니네버슬립 us - 2025년 07월 31일 · 오늘의 증시 미국 증권시장이 30일(현지시간) 혼조세로 거래를 마쳤습니다.\n\n연방준비제도(FED) 금리 모니터링 계산기는 CME 그룹 30일 연방기금(Fed Fund) 선물 가격을 토대로, 연준의 통화정책에 기반하여 미국 금리 변경 가능성에 관한 시장의 기대를 보여줍니다. 이 도구를 통해 곧 있을 연준의 금리 인상 가능성을 계산할 수 있습니다. ... 파월 연준 의장의 동맹자들, 12월 금리 인하 길 열어 - WSJ 티미라오스 By Investing.com - 2025년 11월 25일 1 · Investing.com- 월스트리트저널(WSJ)의 닉 티미라오스가 월요일 보도한 바에 따르면, 제롬 파월 연방준비제도 의장의 동맹자들이 중앙은행의 12월 9-10일 회의에서 금리... 미국 9월 비농업 고용 11만 9천 명 증가, 실업률 4.4%로 상승 By Investing.com - 2025년 11월 20일 · Investing.com - 미국의 9월 비농업 부문 고용이 예상보다 증가했지만, 실업률이 예상외로 상승하면서 12월 연방준비제도(Fed) 정책 회의에 대한 불확실성이 커지고 있습...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://kr.investing.com/central-banks/fed-rate-monitor"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "United States Federal Reserve Interest Rate Decision",
+              "url": "https://www.investing.com/economic-calendar/interest-rate-decision-168",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "investing.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=investing.com",
+                "site_name": "Investing.com"
+              },
+              "is_missing": false,
+              "text": "Bitcoin’s Recovery: Short-Term Reaction to Fed Dovishness or a True Trend Change? By Günay Caymaz - Nov 28, 2025 1 · Macro tailwinds and Fed dovishness offered Bitcoin temporary relief amid a volatile week. ETF outflows clashed with bottom-fishing inflows, while sentiment collapsed to six-month lows. With key... Glass Half Full: Hassett’s Fed Bid Meets a Mixed Economic Picture By Louis Navellier - Nov 26, 2025 · Kevin Hassett, currently the head of the Council of Economic Advisors in the Trump Administration, is now the leading candidate to be nominated as the next Fed Chairman, Bloomberg reported. One thing... Disappointing Retail Sales Boost Fed Cut Odds as Nvidia’s Monopoly Questioned By Louis Navellier - Nov 25, 2025 · The retail sales report was disappointing and below economists’ consensus estimate of a 0.3% increase, so this may help coax the Fed to cut key interest rates on December 10th.\n\nBy Fawad Razaqzada - Nov 27, 2025 1\n\nDollar bounces after hefty losses; sterling awaits budget announcement By Investing.com - Nov 26, 2025 · Investing.com - The U.S. dollar edged higher Wednesday, rebounding to a degree after the previous session’s sharp losses as traders positioned for a December rate cut by the Federal Reserve, while... Oil prices stabilize after Ukraine peace deal-inspired losses By Investing.com - Nov 26, 2025 1 · Investing.com-- Oil prices traded in a steady manner Wednesday, stabilizing after the previous session’s sharp losses, as investors weighed a smaller-than-expected draw in U.S. crude inventories and... Fed Chair Powell’s allies to open path for December rate cut - WSJ’s Timiraos By Investing.com - Nov 24, 2025 8 · Investing.com - Allies of Federal Reserve Chair Jerome Powell have laid the groundwork for him to push through an interest rate cut during the central bank’s December 9-10 meeting, the Wall Street...\n\nHere’s your final chance to grab InvestingPro for the LOWEST PRICE OF... By Investing.com - Nov 29, 2025 1 · 60%+ returns in 2025: Here’s how AI-powered stock investing has... By Investing.com - Nov 29, 2025 · Bitcoin set for a rebound that could stretch toward $100000, BTIG says By Investing.com - Nov 28, 2025 22 · Deutsche Bank sees a buying opportunity in this EU market By Investing.com - Nov 28, 2025 ... 8 Undervalued Small Caps Positioned to Lead as the Russell 2000 Breaks... By David Wagner - Nov 27, 2025 5 · The Gold Gobble: A Cornucopia of Bullish Year-End Catalysts on the... By Mike Zaccardi, CFA, CMT - Nov 28, 2025 4 · Bitcoin’s Recovery: Short-Term Reaction to Fed Dovishness or a True... By Günay Caymaz - Nov 28, 2025 1 · Crude Oil Faces Stiff Resistance Near $60 With Downtrend Poised to...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.investing.com/economic-calendar/interest-rate-decision-168"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "﻿美, 금리 인하 시계 다시 빨라진다....월가, 6월 인하 재개·올해 3회 인하 예상 - 글로벌이코노믹",
+              "url": "https://www.g-enews.com/article/Global-Biz/2025/03/2025030907033882156b49b9d1da_1",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "g-enews.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=g-enews.com",
+                "site_name": "G-News"
+              },
+              "is_missing": false,
+              "text": "제롬 파월 미국 연방준비제도(Fed, 연준) 의장이 올해 6월에 다시 금리를 내리고, 올해 모두 3회에 걸쳐 금리를 인하할 것으로 월가가 8일(현지시각) 전망했다. 사진=로이터/연합뉴스 미국 연방준비제도(Fed, 연준)가 오는 6월부터 다시 금리를 내릴 것으로 월가가 예상했다. 또 올해 금리 인하 횟수가 3회에 달할 것으로 전망했다. 도널드 트럼프 대통령 정부 출범 이후 경제 둔화와 실업률 증가 등으로 인해 연준이 그동안 금리 동결 국면에서 벗어나 6월에 다시 기준 금리를 0.25% 포인트 내릴 것으로 보인다고 로이터 통신이 8일(현지시각) 보도했다. 연초에는 연준이 올해 1~2회 금리를 내릴 것이라는 전망이 대세였으나 이제는 3회에 이를 것으로 월가가 분석했다.\n\n미국 연방준비제도(Fed, 연준)가 오는 6월부터 다시 금리를 내릴 것으로 월가가 예상했다. 또 올해 리 인하 횟수가 3회에 달할 것으로 전망했다. 도널드 트럼프 대통령 정부 출범 이후 경제 둔화와 실업률 증가 등으로 인해 연준이 그동안 금리 동결 국면에서 벗어나 6월에 다시 기준 금\n\nCME 페드워치 툴에 따르면 오는 18, 19일 FOMC 회의에서 금리 동결 가능성은 88%, 0.25% 포인트 인하 가능성은 12%로 나타났다. 그다음으로 5월 6, 7일 열리는 회의에서 금리 동결 가능성은 47.9%, 0.25% 포인트 인하 가능성은 46.2%, 0.5% 포인트 인하 가능성은 5.5%로 집계됐다. 미국에서 노동 시장에서 불안감이 확산하고 있다. 미 노동부는 2월 미국의 비농업 일자리가 전월 대비 15만1000명 증가했다고 밝혔다. 이는 1월 당시의 12만5000명 )보다는 증가 폭이 확대됐으나 시장의 기대치에 미치지 못했다. 2월 실업률은 4.1%로 1월의 4.0%에 비해 상승했다. 로이터는 “고용 시장의 질이 좋지 않다”면서 “노동 시장에서 파트타임 일자리가 증가하고 있다”고 지적했다. 제롬 파월 연준 의장은 FOMC가 이번 3월 회의에서 점도표를 수정해 제시할 것임을 시사했다고 로이터가 보도했다.\n\n연준은 오는 18, 19일 연방공개시장위원회(FOMC) 회의를 열어 통화 정책을 결정한다. 연준은 특히 이번에 FOMC 위원들의 금리 예상치인 점도표를 새로 제시한다. 연준이 이번에 금리 인하 횟수를 3회로 제시할 것으로 보인다고 로이터가 전했다. 연준은 지난해 12월 FOMC 회의 당시에 올해 2회 금리 인하 가능성을 시사했었다. 시카고 상품 거래소(CME) 페드워치에 따르면 8일 오후 현재 현행 4.25~4.5%인 기준 금리가 올해 6월까지 4~4.25%로 0.25% 포인트 낮아질 가능성은 47.5%, 0.5% 포인트 낮은 3.75~4% 가능성은 34.7%, 3.5~3.75% 가능성은 3.9%로 나타났다. 이는 곧 금리 선물 시장이 오는 6월까지 연준이 다시 금리를 내릴 가능성을 86.1%로 본다는 뜻이다. 올 6월까지 금리 동결 가능성은 13.8%에 그쳤다.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "age": "March 9, 2025",
+                "url": "https://www.g-enews.com/article/Global-Biz/2025/03/2025030907033882156b49b9d1da_1"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "연준 FOMC 금리인하 수정 \"AI 거품 예상밖 심각\" - 글로벌이코노믹",
+              "url": "https://www.g-enews.com/article/Global-Biz/2025/10/202510302007444811906806b77b_1",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "g-enews.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=g-enews.com",
+                "site_name": "G-News"
+              },
+              "is_missing": false,
+              "text": "파월 의장은 이날 연준이 FOMC를 열어 기준금리를 3.75∼4.00%로 0.25%포인트 인하하기로 결정한 뒤 회견에서 향후 정책 방향에 대해 &quot;12월 연방공개시장위원회(FOMC) 회의에서 기준금리를 추가 ...\n\n연준 FOMC 금리인하 전면 수정... 뉴욕증시 달러환율 비트코인 \"AI 거품 예상밖 심각\"\"AI 거품붕과 우려가 나오고 있는 가운데 연준 FOMC 가 금리인하 계획을 전면 수정하고 있다. 미국 노동부의 고용보고서가 연방정부 셧다운으로 발표되지않고 있는 가운데 연방준비은행이 자체적으로\n\n오스탄 굴스비 시카고 연은 총재는 전날 CNBC 방송 인터뷰에서 \"고용시장은 크게 안정적인 상황\"이라며 \"실업률은 객관적으로 낮은 상황이고 해고 역시 낮다\"라고 말했다.뱅크오브아메리카 인스티튜트의 데이비드 틴슬리 선임 이코노미스트는 \"노동시장이 무너지고 있는 상황은 확실히 아니라고 할 수 있다\"며 \"우리가 본 냉각 상황은 주로 중소기업 부문에서 일어나고 있다\"라고 분석했다 제롬 파월 미 연방준비제도(Fed·연준) 의장이 달리 12월 기준금리 추가 인하를 두고 \"기정사실이 아니다\"라고 언급하면서 뉴욕증시가 혼조 상태이다. 파월 의장은 이날 연준이 FOMC를 열어 기준금리를 3.75∼4.00%로 0.25%포인트 인하하기로 결정한 뒤 회견에서 향후 정책 방향에 대해 \"12월 연방공개시장위원회(FOMC) 회의에서 기준금리를 추가 인하하는 것은 기정사실이 아니\"라고 말했다.12월 금리 인하를 거의 '기정사실'로 여겨온 시장은 원론적 입장으로 해석될 수도 있는 파월 의장의 이 같은 발언을 매파적으로 받아들였다. 이번 주 뉴욕 증시는 불확실성 속 미국 연방정부의 일시적 업무 정지(셧다운) 협상 추이에 주목하며 움직일 것으로 보인다.\n\n노동통계국(BLS)은 정상 업무 시기였다면 원래 이날 공개했어야 할 10월 비농업 고용지표를 발표하지 않았다.지난달 초 발표됐어야 할 9월 지표에 이어 두 달 연속 고용 상황에 대해 '깜깜이' 상태가 지속되고 있는 것이다. 뉴욕증시 월가에서 대체 지표로 삼고 있는 민간업체 집계 지표들은 고용시장이 전반적으로 약화 흐름을 지속하되 급속한 냉각 상황은 아님을 시사하고 있다. 고용정보업체 오토매틱데이터프로세싱(ADP)은 10월 미국의 민간기업 고용이 전월 대비 4만2천명 증가했다고 지난 5일 발표했다. 2개월 연속 감소했던 고용이 증가로 전환한 데다 증가 폭도 시장 전망을 웃돌긴 했지만, 우려했던 것만큼 나쁘지 않았을 뿐 연초 대비해서는 여전히 약화 수준을 나타냈다.\n\n주간 하락률은 도널드 트럼프 미국 대통령의 이른바 '미국 해방의 날' 상호관세 계획 발표 여파로 10% 급락한 4월 1주(3월 31일∼4월 4일) 이후 최대였다. 특히 AI 산업의 과열 투자 논란이 재점화되면서 주요 기술주의 주가가 일제히 급락했다.종목별로 팔란티어가 11% 급락했으며 오라클(-9%), 엔비디아(-7%), 메타(-4%), 마이크로소프트(-4%) 등도 줄줄이 내렸다. 이들 종목을 포함한 AI 관련 상위 8개 종목의 시가총액은 지난 한 주간 약 8천억달러(약 1천166조원) 줄었고, 지난달 29일 사상 처음으로 시총 5조달러를 돌파했던 엔비디아의 경우 이 기간 시총 약 3천500억달러(약 510조원)가 증발했다. 김대호 글로벌이코노믹 연구소장 tiger8280@g-enews.com · 中, 美 제재 피해 인니 경유 엔비디아 칩 확보 ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "age": "3 weeks ago",
+                "url": "https://www.g-enews.com/article/Global-Biz/2025/10/202510302007444811906806b77b_1"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "구겐하임 “미 연준, 올해 분기별 금리인하 전망”",
+              "url": "https://www.newstof.com/news/articleView.html?idxno=26132",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "newstof.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=newstof.com",
+                "site_name": "Newstof"
+              },
+              "is_missing": false,
+              "text": "앤 월시(Anne Walsh) 구겐하임 파트너스의 최고 투자 책임자(CIO) 2025년에 미국 연방준비제도(연준·Fed)가 약 75bp(베이시스 포인트)에서 최대 100bp까지 금리를 인하할 것으로 전망했다. 그녀는 세계경제포럼(WEF) 연례회의가 열리는 다보스에서 열린 로이터 글로벌 마켓 포럼에서 \"연준이 예상보다는 느린 속도로 금리를 인하하겠지만, 지속적으로 인하할 것\"이라고 밝혔다. 최근 며칠 동안 시장의 예상은 올해 단 한 차례의 금리 인하 가능성으로 좁혀졌으며, 두 번째 인하 여부는 불확실해졌다. 이는 한 달 전 세 차례 인하 가능성이 점쳐졌던 것과 비교해 변화된 전망이다. 월시는 도널드 트럼프 신임 대통령이 부과할 것으로 예상되는 관세가 시장의 우려만큼 가혹하지 않을 것이라고 전망했다.\n\n앤 월시(Anne Walsh) 구겐하임 파트너스의 최고 투자 책임자(CIO)는 2025년에 미국 연방준비제도(연준·Fed)가 약 75bp(베이시스 포인트)에서 최대 100bp까지 금리를 인하할 것으로 전망했다. 그녀는 세계경제포럼(WEF) 연례회의가 열리는 다보스에서 열린 로이터 글로\n\n다만 트럼프 행정부의 정책이 실제로 어떻게 구현될지에 대한 불확실성과 미국 경제가 현재 예상보다 더 둔화될 가능성은 리스크 요인으로 지적했다. 월시는 \"정치와 정책 간의 핑퐁 게임처럼 투자 테마에 많은 변동성이 있을 것\"이라며, 올해 투자 환경이 예측하기 어려운 상황이 될 것이라고 전망했다. ... 인터내셔널 페이퍼, 'DS스미스' 인수 대한 EU 승인 예정 미 증시 상승 마감…산업재·유틸리티 강세 [美 트럼프 재임] 투자자들 환영… “친기업 정책 기대” [美 트럼프 재임] 달러화·원유가격 하락, 암호화폐 강세 트럼프, 취임 후 틱톡 정상화 추진…“50% 美 소유 조건” 아시아 증시, 中 경기 회복·월가 랠리로 상승 기대 심보틱, 월마트 로보틱스 부문 2억 달러에 인수 미 증시, 연준 금리 인하 기대 속 소폭 하락 마감 캐나다, 번지-비테라 340억 달러 합병 조건부 승인 미 증시, 2개월 만에 최대 상승률 기록…인플레 압력 완화",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "age": "January 21, 2025",
+                "url": "https://www.newstof.com/news/articleView.html?idxno=26132"
+              }
+            },
+            {
+              "type": "text",
+              "text": "<system>You only have 18 searches left this turn</system>\n\n",
+              "uuid": "1502a829-a404-4191-99f2-e9cadaf52443"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-11-30T23:57:23.771523Z",
+          "stop_timestamp": "2025-11-30T23:57:28.355005Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "좋습니다. 미국 금리 관련 정보도 확보했습니다:\n\n핵심 정보:\n- 2025년 초 연준은 금리 인하 횟수를 4회→2회로 축소\n- 현재 기준금리 4.25~4.50%\n- 2026년 전망은 불확실 (일부는 3회 인하 예상, 일부는 더 신중)\n- 트럼프 관세 정책으로 인플레이션 우려\n- AI 거품 우려로 기술주 급락\n\n이제 충분한 정보를 확보했으니 premortem 시나리오를 작성하겠습니다.",
+          "summaries": [
+            {
+              "summary": "수집한 경제 정보로 투자 시나리오 구성 준비 완료."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-11-30T23:57:28.367013Z",
+          "stop_timestamp": "2025-11-30T23:59:23.732920Z",
+          "flags": null,
+          "type": "text",
+          "text": "# 🔮 코스피 투자 Premortem (2025.12 → 2026.5)\n\n> **\"2026년 5월, 나는 코스피 투자에서 큰 손실을 봤다\"**\n\n---\n\n## 📅 시나리오 설정\n\n**현재 상황 (2025년 12월 1일)**\n- 코스피: 약 3,927포인트 (전년 대비 59.88% 상승)\n- 12월 전망: 3,700~4,300 박스권\n- 상반기 연초 대비 약 22% 상승, 3,200선 저항대 형성\n- 시장 분위기: 연말 랠리 기대, 4,000선 돌파 전망 우세\n\n**가정:** \"6개월 후인 2026년 5월, 투자 원금의 30% 이상 손실\"\n\n---\n\n## 💀 실패 시나리오 1: \"고점 매수의 비극\"\n\n### 상황\n2025년 12월, 언론과 증권사들이 \"연말·연초 강세장 진입 가능성\"을 제시하며 낙관론이 팽배했습니다. \"코스피 4,000선 돌파!\", \"반도체 슈퍼사이클!\" 같은 헤드라인에 흥분해서 3,900~4,200 고점에서 대량 매수했습니다.\n\n### 실패 원인\n- ❌ **FOMO(Fear Of Missing Out)**: \"지금 안 사면 기회를 놓친다\"는 조급함\n- ❌ **역사 무시**: 2025년 상반기 이미 28% 상승한 상태였는데 추가 상승만 기대\n- ❌ **타이밍 실패**: 조정 없이 계속 오를 거라는 착각\n- ❌ **뉴스 맹신**: 증권사 목표가를 확정된 미래로 착각\n\n### 실제 전개 (예상)\n```\n2025.12: 4,200 도달 → \"역시 내 판단이 맞았어!\" \n2026.01: 4,100 하락 → \"잠깐 조정이겠지\" (손실 -2.4%)\n2026.02: 3,800 추가하락 → \"물타기 기회!\" (손실 -9.5%)\n2026.03: 3,500 급락 → \"이건 아닌데...\" (손실 -16.7%)\n2026.04: 3,300 공포 → \"손절해야 하나?\" (손실 -21.4%)\n2026.05: 3,200 패닉 → 손절 단행 (손실 -23.8%)\n```\n\n### 예방책\n- ✅ **분할 매수 원칙**: 목표 금액의 1/3씩 3회 나눠 매수\n- ✅ **조정 대기**: 최소 5~10% 조정 후 진입\n- ✅ **역사 학습**: 2025년 상반기 28% 상승 후 반드시 조정이 온다는 것을 인지\n- ✅ **매수가 기록**: \"왜 이 가격에 샀는지\" 근거 문서화\n\n---\n\n## 💀 실패 시나리오 2: \"외부 변수 무시 - 미국 금리 쇼크\"\n\n### 상황\n연준이 2025년 금리 인하 횟수를 4회에서 2회로 축소했지만, \"어차피 인하 기조니까 괜찮아\"라고 안이하게 생각했습니다. 2026년 초 미국에서 예상치 못한 인플레이션 재발로 금리 인상 시사가 나왔고, 원/달러 환율이 1,500원을 돌파하며 외국인 자금이 대량 이탈했습니다.\n\n### 실패 원인\n- ❌ **글로벌 변수 무시**: 한국만 보고 미국/중국 상황 간과\n- ❌ **환율 리스크 간과**: 원화 강세가 영원할 거라는 착각\n- ❌ **정치 리스크**: 트럼프의 관세 정책 실제 시행\n- ❌ **외국인 수급 의존**: 외국인 매수가 주도했던 상승장인데 이탈 시 대응 없음\n\n### 트리거 이벤트 (가능성)\n```\n2026.01: 미국 CPI 예상 초과 → 금리 동결\n2026.02: 연준 매파 발언 → 달러 강세\n2026.03: 트럼프 對한국 관세 10% 발표 \n2026.04: 환율 1,500원 돌파 → 외국인 대량 매도\n2026.05: 코스피 3,000선 붕괴\n```\n\n### 예방책\n- ✅ **매크로 모니터링**: 매주 미국 경제지표 확인 (CPI, 고용)\n- ✅ **환율 알림 설정**: 1,400원 돌파 시 비중 조절 고려\n- ✅ **분산 투자**: 미국 ETF 20%, 채권 10% 보유로 환율 헷지\n- ✅ **시나리오 플랜**: \"환율 1,450원 시 → 30% 현금화\" 같은 구체적 계획\n\n---\n\n## 💀 실패 시나리오 3: \"종목 선택 실패 - 지수는 오르는데 내 주식은...\"\n\n### 상황\n2025년 상반기에도 코스피는 28% 올랐지만 개인투자자들은 수익을 내지 못했습니다. 6개월 후에도 똑같은 실수를 반복했습니다. 코스피는 4,000을 유지하는데, 내가 산 종목들은 -30% 손실입니다.\n\n### 실패 원인\n- ❌ **테마주 쫓기**: SNS에서 화제인 바이오, 2차전지 중소형주만 매수\n- ❌ **우량주 외면**: 외국인이 SK하이닉스(68% 상승), 한화에어로스페이스(164% 상승)를 살 때 \"너무 비싸\"며 회피\n- ❌ **레버리지 ETF**: \"조정이 올 것\"이라며 곱버스(2배 역방향) ETF 투자\n- ❌ **분산 실패**: 3~4개 종목에 올인\n\n### 구체적 예시\n```\n보유 종목 (2025.12 매수)\n종목A (바이오): -40% → 임상 3상 실패\n종목B (2차전지 부품): -35% → 중국 경쟁 심화\n종목C (AI 테마주): -25% → 실적 없는 급등 후 급락\n레버리지 ETF: -45% → 코스피 상승 시 역방향 손실\n\n반면 코스피200 ETF: +5% 유지\nSK하이닉스: +15% 상승\n삼성전자: +8% 상승\n```\n\n### 예방책\n- ✅ **코어 70% + 위성 30%**: 우량주/ETF 70%, 테마주 30%\n- ✅ **실적 기반 투자**: 매출/이익 성장이 확인된 기업만\n- ✅ **레버리지 금지**: 최소 1년간은 일반 ETF만 투자\n- ✅ **최소 10개 종목**: 집중 투자 아닌 분산\n- ✅ **리밸런싱**: 매달 1일, 비중 벗어난 종목 조정\n\n---\n\n## 💀 실패 시나리오 4: \"심리적 함정 - 손절 못하고 물타기\"\n\n### 상황\n3,900에 샀는데 3,700으로 하락. \"싸게 사는 기회!\"라며 물타기. 3,500에서 또 물타기. 3,300에서 현금 소진. 3,000까지 하락해도 손절 못하고 \"장기 투자\"로 자기합리화.\n\n### 실패 원인\n- ❌ **손절선 없음**: \"주식은 장기로 가면 오른다\" 맹신\n- ❌ **손실 회피 편향**: 손실 확정을 심리적으로 거부\n- ❌ **평균 단가 집착**: 물타기로 평단 낮추는 데만 집중\n- ❌ **기회비용 무시**: 하락장에서 묶인 자금으로 다른 기회 놓침\n\n### 심리 진행도\n```\n3,900 → 3,700 (-5%): \"일시적 조정\"\n3,700 → 3,500 (-10%): \"저점 매수 기회!\" (물타기 1차)\n3,500 → 3,300 (-15%): \"이제 진짜 바닥\" (물타기 2차)\n3,300 → 3,000 (-23%): \"현금 없음... 존버\"\n3,000 → 2,800 (-28%): \"인생 망했다\" (공포)\n```\n\n### 예방책\n- ✅ **손절선 -10% 고수**: 매수 시 자동으로 손절가 설정\n- ✅ **물타기 금지 룰**: 첫 매수 후 -7% 이상 하락 시 추가 매수 금지\n- ✅ **비상 현금 30%**: 총 투자금의 30%는 반드시 현금 보유\n- ✅ **감정 일기**: 매매 시 \"왜 샀는지, 왜 팔았는지\" 기록\n- ✅ **3일 대기 룰**: 손실 난 종목 재매수는 최소 3일 후\n\n---\n\n## 💀 실패 시나리오 5: \"환율 역풍 - 미국 ETF 투자의 함정\"\n\n### 상황\n\"2025년 상반기 원/달러 환율이 1,350원대에서 1,280원대까지 하락\"하면서 미국 투자자들이 손실을 봤던 것처럼, 2026년에는 역으로 원화 약세가 급진전되어 달러 자산 수익을 갉아먹었습니다.\n\n### 실패 원인\n- ❌ **환율 무지**: 환율이 수익률에 미치는 영향 간과\n- ❌ **양날의 검**: S&P500이 10% 올라도 환율 하락으로 원화 수익률 5%라는 사실 망각\n- ❌ **타이밍 실패**: 원화 최강세 시점에 달러 자산 매수\n- ❌ **헷지 없음**: 환헷지 ETF 존재 몰랐거나 무시\n\n### 구체적 시나리오\n```\n2025.12: 달러당 1,280원\n- S&P500 ETF 1,000만원 매수 (약 $7,812)\n\n2026.05: 달러당 1,450원\n- S&P500 +8% 상승 → $8,437\n- 원화 환산: 1,223만원\n- 실제 수익률: +22.3%... 아니 잠깐!\n\n환율 효과 분해:\n- 주가 수익: +8%\n- 환율 수익: +13.3% (1,280→1,450)\n- 합계: +22.3%\n\n역시나리오 (환율 하락):\n2026.05: 달러당 1,200원\n- S&P500 +8% → $8,437\n- 원화 환산: 1,012만원\n- 실제 수익률: +1.2% (주가↑환율↓)\n```\n\n### 예방책\n- ✅ **환헷지 ETF 활용**: TIGER 미국S&P500(H) 같은 상품\n- ✅ **환율 비중 관리**: 달러 자산은 1,300원 이하에서만 매수\n- ✅ **국내/해외 5:5**: 환율 리스크 분산\n- ✅ **환율 공부**: \"달러 강세/약세가 내 자산에 미치는 영향\" 이해\n\n---\n\n## 💀 실패 시나리오 6: \"정치 리스크 - 탄핵 정국 재연\"\n\n### 상황\n2024년 말 윤석열 대통령의 탄핵 정국이 있었고, 2026년 상반기에도 정치 불안이 재발했습니다. 정책 공백, 외교 리스크, 국가 신용등급 우려 등으로 코스피가 급락했지만 \"정치는 일시적\"이라며 방치했습니다.\n\n### 실패 원인\n- ❌ **정치 무관심**: \"정치 vs 경제는 별개\"라는 착각\n- ❌ **뉴스 무시**: 정치 뉴스를 투자와 무관하다고 판단\n- ❌ **역사 망각**: 탄핵, 북핵 위기 때마다 코스피 급락 사례\n- ❌ **대응 지연**: 리스크 인지하고도 \"괜찮겠지\" 방관\n\n### 예방책\n- ✅ **정치 모니터링**: 주요 정치 이벤트는 투자 일정에 반영\n- ✅ **리스크 시그널**: \"탄핵/선거/외교 위기\" 시 자동으로 비중 10% 축소\n- ✅ **국내주 30% 하향**: 평상시 국내 50% → 위기 시 30%\n- ✅ **안전자산 편입**: 금 ETF, 달러 MMF 최소 10% 보유\n\n---\n\n## 🛡️ 종합 예방 전략\n\n### 1. 투자 원칙 수립 (지금 바로!)\n\n```\n✅ 최대 손실 허용: -15%\n✅ 종목당 비중: 최대 10%\n✅ 현금 비중: 최소 20%\n✅ 손절선: -10% 자동 실행\n✅ 물타기: 절대 금지\n✅ 레버리지: 금지\n✅ 분할 매수: 3회 이상\n```\n\n### 2. 월간 점검 체크리스트\n\n```\n□ 미국 금리 동향 (FOMC 결과)\n□ 원/달러 환율 (1,400원 이상?)\n□ 외국인 수급 (순매수/순매도)\n□ 보유 종목 실적 발표\n□ 정치 리스크 체크\n□ 포트폴리오 리밸런싱\n```\n\n### 3. 시나리오별 대응 매뉴얼\n\n```\n📉 코스피 -5% 급락 시\n→ 추가 매수 금지, 현금 비중 확인\n\n📉 코스피 -10% 급락 시\n→ 손절 검토, 약한 종목 정리\n\n📉 코스피 -15% 급락 시\n→ 50% 현금화, 시장 재평가\n\n📈 코스피 +10% 급등 시\n→ 익절 고려, 비중 조절\n\n📈 환율 1,400원 돌파 시\n→ 달러 자산 매도 검토\n\n🔴 정치 위기 발생 시\n→ 즉시 20% 현금화\n```\n\n---\n\n## 📊 권장 포트폴리오 (2025.12 → 2026.5)\n\n```\n💰 현금 (25%)\n- 급락 시 저점 매수용\n- 심리적 안정감\n\n🇰🇷 국내 우량주 (30%)\n- 삼성전자, SK하이닉스, NAVER\n- 배당주 (통신, 금융)\n\n📈 국내 ETF (15%)\n- 코스피200 ETF\n- 고배당 ETF\n\n🇺🇸 미국 ETF (20%)\n- S&P500 (환헷지)\n- 나스닥100\n\n🏅 안전자산 (10%)\n- 금 ETF\n- 단기 채권\n\n합계: 100%\n```\n\n---\n\n## ⚠️ 최종 경고 신호\n\n**다음 중 3개 이상 해당되면 즉시 현금 50% 이상 확보**\n\n```\n□ 코스피가 3개월 평균 대비 15% 이상 급등\n□ 주변에서 \"주식 대박\" 이야기가 넘쳐남\n□ 증권계좌 신규 개설이 급증한다는 뉴스\n□ 본인이 모르는 테마주가 연일 상한가\n□ 환율이 1주일 만에 50원 이상 급변\n□ 미국 금리 인상 시사\n□ 국내 정치 혼란 가시화\n□ VIX 지수 30 이상\n□ 내가 주식으로 \"벌써\" 30% 이상 수익\n□ 빚내서 투자하고 싶은 충동\n```\n\n---\n\n## 🎯 성공적인 투자를 위한 마음가짐\n\n> **\"2026년 5월, 나는 원금을 지켰고 기회를 노리고 있다\"**\n\n**성공 시나리오:**\n- ✅ 조급하지 않고 기다렸다\n- ✅ 손절 원칙을 지켰다\n- ✅ 분산 투자로 리스크를 관리했다\n- ✅ 환율/금리/정치를 모니터링했다\n- ✅ 감정이 아닌 데이터로 판단했다\n\n**기억할 것:**\n1. **시장은 항상 기회를 준다** - 놓쳐도 괜찮다\n2. **손실 방어가 수익보다 중요하다** - 원금 보존 우선\n3. **모르면 하지 않는다** - 이해 못하는 상품 금지\n4. **검증된 전략을 따른다** - 본인만의 원칙 수립\n5. **6개월은 짧다** - 조급함이 가장 큰 적\n\n---\n\n**행운을 빕니다! 하지만 행운에만 의지하지 마세요.** 🍀📈",
+          "citations": [
+            {
+              "uuid": "a7c50ea7-0a79-4c27-b85c-d05d9c7956bd",
+              "start_index": 127,
+              "end_index": 160,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://ko.tradingeconomics.com/south-korea/stock-market"
+              }
+            },
+            {
+              "uuid": "cb6d62f1-cf3d-4d30-aba9-88a07c809918",
+              "start_index": 163,
+              "end_index": 186,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.fnnews.com/news/202511241506237327"
+              }
+            },
+            {
+              "uuid": "5032abf9-3b5d-48e9-bc81-135f31f57dfa",
+              "start_index": 189,
+              "end_index": 222,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.ebc.com/kr/forex/262908.html"
+              }
+            },
+            {
+              "uuid": "4aa5a127-72c6-418b-9d95-1ef07629f231",
+              "start_index": 367,
+              "end_index": 391,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.fnnews.com/news/202511241506237327"
+              }
+            },
+            {
+              "uuid": "c1b22c91-ee66-4c40-8bcd-2867ab1f79f6",
+              "start_index": 1035,
+              "end_index": 1071,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://nomadic-worker.com/finance/korea-kospi-soars/amp/"
+              }
+            },
+            {
+              "uuid": "4549cae2-df07-4969-bfba-fa971c4442f8",
+              "start_index": 1161,
+              "end_index": 1195,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://greenium.kr/news/60253/"
+              }
+            },
+            {
+              "uuid": "fb20cc9f-89f8-4582-a85b-c6e8464be1d6",
+              "start_index": 1454,
+              "end_index": 1470,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://nomadic-worker.com/finance/korea-kospi-soars/amp/"
+              }
+            },
+            {
+              "uuid": "9818e08b-e07a-4074-98c3-8356e886218d",
+              "start_index": 1898,
+              "end_index": 1945,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://nomadic-worker.com/finance/korea-kospi-soars/amp/"
+              }
+            },
+            {
+              "uuid": "189c0677-3a46-448e-a90a-7b6bcd9e64fb",
+              "start_index": 2083,
+              "end_index": 2127,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://nomadic-worker.com/finance/korea-kospi-soars/amp/"
+              }
+            },
+            {
+              "uuid": "d9e146a3-f091-44b7-8cfa-684129acb08d",
+              "start_index": 2158,
+              "end_index": 2189,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://nomadic-worker.com/finance/korea-kospi-soars/amp/"
+              }
+            },
+            {
+              "uuid": "169b788c-ce98-4523-b9d7-4d3a6b6c5041",
+              "start_index": 3415,
+              "end_index": 3461,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://nomadic-worker.com/finance/korea-kospi-soars/amp/"
+              }
+            },
+            {
+              "uuid": "e8ba3e91-f376-424f-92f3-d68268f8c552",
+              "start_index": 3587,
+              "end_index": 3620,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://nomadic-worker.com/finance/korea-kospi-soars/amp/"
+              }
+            },
+            {
+              "uuid": "a582905f-d4ef-4e6e-a7ca-47691e99b417",
+              "start_index": 4249,
+              "end_index": 4276,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://greenium.kr/news/60253/"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2025-11-30T23:59:24.083522Z",
+      "updated_at": "2025-11-30T23:59:24.083522Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ad732-d1e3-7513-bc21-ae9a1202543c"
+    }
+  ]
+}

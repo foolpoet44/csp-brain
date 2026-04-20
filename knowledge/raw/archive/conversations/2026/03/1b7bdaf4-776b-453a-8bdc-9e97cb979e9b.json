@@ -1,0 +1,326 @@
+﻿{
+  "uuid": "1b7bdaf4-776b-453a-8bdc-9e97cb979e9b",
+  "name": "Horilla 플랫폼 분석 및 프로젝트 적용 방안",
+  "summary": "**Conversation Overview**\n\nThe person asked Claude to analyze the Horilla website (an open-source HRMS platform) and extract business model (BM) elements applicable to their project. The conversation was conducted in Korean, and the person used the abbreviation \"BM\" to mean business model benchmarking or reference points to adopt.\n\nClaude fetched and reviewed the Horilla website and features pages, then produced a structured analysis comparing Horilla's design philosophy and product architecture against the person's existing projects, which include ESCON (a Skill Ontology system), a Pulse Check employee engagement system, and AX (AI transformation) training programs — all developed in an HR innovation context, referenced as \"CSP\" and associated with \"LG PRI.\"\n\nThe analysis identified six BM elements to benchmark: modular platform architecture, PMS design patterns (Period management UI, 360-degree feedback), Candidate Self-Tracking as a learner self-tracking interface, onboarding module philosophy applied to AI training programs, Helpdesk FAQ automation for training operations, and the Free + Open Source + Paid Support revenue model as a long-term SaaS commercialization path. Claude also produced a comparison table distinguishing what to borrow from Horilla versus areas where the person's existing projects already surpass Horilla (particularly in psychological depth of engagement measurement and AI capability). The overarching framing was that Horilla's value lies in its \"entire Employee Lifecycle as a single data flow\" design philosophy, which could serve as a blueprint for integrating the person's currently siloed HR automation projects into a unified platform.",
+  "created_at": "2026-03-14T03:27:07.360667Z",
+  "updated_at": "2026-03-14T03:28:14.161379Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019cea62-2a4b-78c0-abd1-74c37e535fd8",
+      "text": "https://www.horilla.com/\n을 잘 살펴보고 나의 프로젝트에 bm할수 있는 요소들을 제안해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-03-14T03:27:08.828849Z",
+          "stop_timestamp": "2026-03-14T03:27:08.828849Z",
+          "flags": null,
+          "type": "text",
+          "text": "https://www.horilla.com/\n을 잘 살펴보고 나의 프로젝트에 bm할수 있는 요소들을 제안해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-14T03:27:08.888518Z",
+      "updated_at": "2026-03-14T03:27:08.888518Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019cea62-2a4c-7788-9f8d-b26e0244bd29",
+      "text": "\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\nHorilla를 꼼꼼히 살펴봤습니다. 단순한 기능 나열이 아니라, CSP의 현재 프로젝트 맥락과 교차시켜 진짜 쓸 수 있는 BM 인사이트를 뽑아드리겠습니다.\n\n---\n\n## Horilla에서 배울 수 있는 것들 — CSP 프로젝트에의 적용\n\n### 먼저, Horilla가 무엇인지 한 문장으로\n\n완전 무료 오픈소스 HRMS로, 채용·온보딩·근태·성과·급여·오프보딩까지 전 사이클을 단일 플랫폼에서 커버하는 시스템입니다. 핵심 차별화는 세 가지입니다 — **무료**, **오픈소스**, **셀프호스팅 가능**. 이 조합이 CSP가 추구하는 \"내부 실험 → SaaS 창업\" 경로와 매우 흥미로운 대화를 나눌 수 있습니다.\n\n---\n\n### BM 요소 1 — **모듈형 아키텍처 전략**\n\nHorilla는 Attendance, Recruitment, Onboarding, Employee, PMS, Payroll, Leave, Offboarding, Helpdesk를 독립 모듈로 구성합니다. 각 모듈은 탐색 가능하고, 필요한 것만 쓸 수 있습니다.\n\n**CSP 적용 포인트:** ESCON(Skill Ontology)과 Pulse Check 시스템을 지금처럼 독립 프로젝트로 유지하되, 장기적으로는 **\"LG PRI HR Automation Suite\"라는 단일 플랫폼 아래 모듈로 통합**하는 아키텍처를 구상할 수 있습니다. 각 내부 자동화 프로젝트(리더십 평가, Pulse Check, Skill Ontology)가 하나의 모듈이 되는 것입니다. SaaS 창업 시 개별 모듈을 떼어 팔거나 묶어 팔 수 있는 유연성이 생깁니다.\n\n---\n\n### BM 요소 2 — **PMS 모듈의 설계 언어**\n\nHorilla의 PMS는 OKR 기반 목표 설정과 360도 피드백을 중심으로 구성되며, Period List View로 시간 단위 관리가 가능하고, Question Template으로 피드백 문항을 자유롭게 커스터마이징할 수 있습니다.\n\n**CSP 적용 포인트:** 현재 Pulse Check 시스템의 설계 방식과 비교할 때, Horilla PMS가 빠뜨리고 있는 것이 보입니다 — **4-Layer 인과 모델(EX Touchpoints → Psychology → Engagement → Outcomes)** 이 없다는 것. CSP의 Pulse Check는 이미 Horilla PMS보다 심리학적 깊이에서 앞서 있습니다. 반대로 Horilla에서 배울 것은 **Period 관리 UI** — 월별/분기별 사이클을 시각적으로 관리하는 인터페이스를 Pulse Check 시스템에 적용할 수 있습니다.\n\n---\n\n### BM 요소 3 — **Candidate Self-Tracking = 학습자 자기추적**\n\nHorilla의 채용 모듈에는 지원자가 실시간으로 자신의 지원 현황을 직접 추적할 수 있는 Candidate Self Tracking 기능이 있습니다.\n\n**CSP 적용 포인트:** 이 개념을 **학습자(기술인재) 자기추적**으로 전환할 수 있습니다. ESCON의 Skill Ontology 위에 \"나의 현재 스킬 레벨이 어디에 있는지, 목표 LV3까지 어떤 갭이 있는지를 엔지니어 스스로 확인\"하는 Self-Tracking 뷰. 지금 ESCON이 갖고 있는 \"HR 기획 언어 → 엔지니어 자기발견 언어로\"의 전환 문제를 푸는 UI 패턴이 여기 있습니다.\n\n---\n\n### BM 요소 4 — **Onboarding 모듈의 철학**\n\nHorilla의 온보딩은 새 직원이 첫날부터 준비된 상태로 시작할 수 있도록 사전 준비를 강조하며, 참여도·생산성·유지율 향상을 목표로 합니다.\n\n**CSP 적용 포인트:** AX Level 1 교육의 온보딩 경험 설계에 직접 적용 가능합니다. \"AI 도구를 처음 쓰는 HR 직원이 첫 세션부터 'Wow 모멘트'를 경험하도록 사전 준비 플로우\"를 Horilla 온보딩 모듈의 설계 논리로 재구성하면, 지금 만들고 있는 HTML 트레이닝 워크북이 단순 교재가 아니라 **온보딩 시스템**이 됩니다.\n\n---\n\n### BM 요소 5 — **Helpdesk 모듈 = AI 활용 질문 창구**\n\nHorilla Helpdesk는 FAQ 중앙화와 티켓 관리, 우선순위·에스컬레이션 체계를 갖추고 있습니다.\n\n**CSP 적용 포인트:** AX 교육 운영 중 가장 소모적인 것 중 하나가 반복 질문 대응입니다. \"AI 도구 사용 관련 FAQ 자동화 + 질문 티켓화\" 시스템을 내부에 구축하면 **교육 운영 오버헤드를 줄이면서 동시에 어떤 질문이 많은지 데이터를 축적**할 수 있습니다. 이 데이터 자체가 다음 교육 커리큘럼 설계의 인풋이 됩니다.\n\n---\n\n### BM 요소 6 — **\"Free + Open Source + Paid Support\" 수익 모델**\n\nHorilla는 소프트웨어 자체는 완전 무료 오픈소스로 제공하면서, Cloud 호스팅과 Support, Implementation 서비스를 별도로 유료화합니다.\n\n**CSP 적용 포인트:** 이것이 CSP의 5~6년 SaaS 창업 경로에서 가장 직접적으로 참고할 비즈니스 모델입니다. 내부에서 검증된 HR 자동화 도구(Pulse Check, Skill Ontology)를 **코어는 오픈소스로 공개 → 구현 컨설팅과 커스터마이징을 유료화**하는 방식. HR 도메인 신뢰가 없는 순수 SaaS보다, \"LG PRI에서 실제로 쓴 도구\"라는 레퍼런스를 앞세운 이 모델이 초기 시장 진입에 훨씬 유리합니다.\n\n---\n\n### 종합 정리 — CSP가 Horilla로부터 빌릴 것 vs 버릴 것\n\n| 빌릴 것 | 버릴 것 (CSP가 이미 앞서 있음) |\n|---|---|\n| 모듈형 플랫폼 아키텍처 | 단순 OKR/360도 피드백 구조 (심리학적 깊이 부족) |\n| Period 관리 UI 패턴 | 범용적 Question Template (맥락 없는 문항 설계) |\n| Self-Tracking 인터페이스 개념 | 데이터 분석 없는 리포팅 |\n| Free + Support 수익 모델 | AI 기능 부재 (Horilla엔 AI가 없음) |\n| Helpdesk의 FAQ 자동화 구조 | — |\n\nHorilla의 진짜 가치는 기능 그 자체보다, **\"전체 Employee Lifecycle을 하나의 데이터 흐름으로 연결한다\"**는 설계 철학입니다. CSP의 현재 프로젝트들이 각각 훌륭하지만 아직 고립된 섬처럼 존재한다면, Horilla는 그 섬들을 대륙으로 연결하는 지도를 보여주는 레퍼런스입니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-14T03:27:11.026485Z",
+          "stop_timestamp": "2026-03-14T03:27:11.188854Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_018PTBCdsjNXpzvMdMRiF5Y9",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://www.horilla.com/"
+          },
+          "message": "Fetching: https://www.horilla.com/",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_018PTBCdsjNXpzvMdMRiF5Y9",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Horilla – Open Source HR Software | Free HRMS Software",
+              "url": "https://www.horilla.com/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "horilla.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=horilla.com",
+                "site_name": "horilla"
+              },
+              "is_missing": false,
+              "text": "Horilla – Open Source HR Software | Free HRMS Software\n\n\n\n\n\n\nNew\n\nExperience Smart HR with Horilla Mobile App\n\n[![Google Play Store](https://www.horilla.com/wp-content/uploads/2024/12/google-play-store.png)](https://play.google.com/store/apps/details?id=com.cybrosys.horilla_project)\n[![Google Play Store](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/cta/app-store.png)](https://apps.apple.com/in/app/horilla-mobile-app/id6744724397)\n\n[![Horilla](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/brand/horilla-logo.png)](https://www.horilla.com)\n\n* [Home](https://www.horilla.com/)\n* [CRM](https://www.horilla.com/crm/)\n* Features\n  + [HR](https://www.horilla.com/features/)\n  + [CRM](https://www.horilla.com/crm-features/)\n* [Docs](http://docs.horilla.com/)\n* [Cloud](https://cloud.horilla.com/)\n* [Blogs](https://www.horilla.com/blogs/)\n* [Videos](https://www.horilla.com/videos/)\n* Pricing\n  + [Support](https://www.horilla.com/pricing/)\n  + [Implementation](https://www.horilla.com/implementation/)\n* [Contact Us](https://www.horilla.com/contact-us/)\n\n\n\n\n\n\n\n\n\n# Empower Your HR Team with Free Open Source Software\n\nHorilla HRMS offers all the features you would expect from your favorite Open Source HR Software and\nmuch more.\n\n[Try Demo](http://demo.horilla.com)\n[View on Github](https://github.com/horilla-opensource/horilla/)\n\n\n\n![Product Image](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/screenshots/grid.svg)\n\n![Product Image](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/design/pattern-horilla.svg)\n\n### What makes Horilla HRM Standout\n\n* ![Free of cost](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/illustrations/free-of-cost.svg)\n\n  #### Free of Cost\n\n  Horilla is the only comprehensive HR software solution that's absolutely free.\n* ![Open-source](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/illustrations/open-source.svg)\n\n  #### Open-source\n\n  Horilla is open-source. You get to call shots. Use it however you see fit.\n* ![Host Yourself](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/illustrations/host-yourself.svg)\n\n  #### Host Yourself\n\n  Horilla is yours, forever. Host it wherever you like — local or live server.\n\n#### All the modules you'll ever need in one software.\n\n[Attendance](https://www.horilla.com/docs/attendance/)\n\n* ### Efficient Attendance Management\n\n  Streamline employee attendance with Horilla HR's automated check-in/out feature,\n  eliminating manual tracking effortlessly.\n* ### Biometric Integration\n\n  Horilla Open Source HRMS ensures precise attendance tracking with seamless\n  biometric device integration for effortless workforce management.\n* ### Overtime Calculation\n\n  Horilla Open Source Attendance Software accurately calculates overtime hours,\n  ensuring proper compensation and labor law compliance.\n* ### Late-Come and Early-Out Tracking\n\n  Horilla tracks late arrivals and early departures via check-in/out, addressing\n  attendance issues to promote punctuality.\n\n[Explore\nMore](https://www.horilla.com/docs/attendance/)\n\n![A screenshot of the attendance module](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-attendance-screenshot.webp)\n\n[Recruitment](https://www.horilla.com/docs/recruitment/)\n\n* ### Manage Recruitment Easily\n\n  Simplify recruitment with Horilla's open-source HRMS, offering an intuitive UI\n  for seamless candidate management.\n* ### Identify Potential Candidates\n\n  Effortlessly find and evaluate candidates with smart insights on strengths and\n  weaknesses at a glance.\n* ### Manage Recruitment Flow\n\n  Design and control your recruitment process, manage candidates, and seamlessly\n  transition between stages with prioritization.\n* ### Candidate Self Tracking\n\n  Horilla HRMS offers real-time, transparent application tracking for candidates\n  through an intuitive interface.\n\n[Explore\nMore](https://www.horilla.com/docs/recruitment/)\n\n![A screenshot of the recruitment module](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-recruitment-screenshot.webp)\n\n[Onboarding](https://www.horilla.com/docs/onboarding/)\n\n* ### Seamless Integration and Familiarization\n\n  This integration and familiarization process sets a positive tone for the new\n  employee's experience and contributes to their retention and productivity.\n* ### Preparation for a Successful Start\n\n  By preparing new employees in advance, they feel welcomed, informed, and ready\n  to hit the ground running on their first day.\n* ### Enhancing engagement, productivity, and retention.\n\n  An effective onboarding experience enhances retention rates, as new employees\n  feel supported and valued by the organization.\n\n[Explore\nMore](https://www.horilla.com/docs/onboarding/)\n\n![A screenshot of the onboarding module](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-onboarding-screenshot.webp)\n\n[Leave](https://www.horilla.com/docs/leave/)\n\n* ### Streamlined and Efficient Leave Management\n\n  Horilla's open-source leave management software simplifies employee leave\n  applications, eliminating manual paperwork.\n* ### Leave Planning and Operational Continuity\n\n  The system allows managers to proactively manage leave patterns, identify\n  trends, and take necessary measures to minimize absenteeism.\n* ### Enhanced Accuracy and Compliance\n\n  Horilla HRMS manages leave balances, tracks accruals, enforces policies, and\n  processes allocation requests efficiently.\n* ### Flexible Approval Workflows\n\n  Horilla HRMS simplifies approvals with customizable rules for leave duration,\n  projects, and additional layers.\n\n[Explore\nMore](https://www.horilla.com/docs/leave/)\n\n![A screenshot of the leave module](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-leave-screenshot.webp)\n\n[Assets](https://www.horilla.com/docs/assets/)\n\n* ### Streamlined Asset Tracking and Accountability\n\n  Asset management software systems can track the location, status, and usage of\n  assets, including asset requests and allocations.\n* ### Optimized Maintenance and Reliability\n\n  The system automates maintenance scheduling and predictive alerts to prevent\n  breakdowns, minimize downtime, and extend lifespan.\n* ### Improved Compliance and Risk Management\n\n  Horilla ensures compliance by maintaining audit trails and using risk management\n  tools for proactive mitigation.\n\n[Explore\nMore](https://www.horilla.com/docs/assets/)\n\n![A screenshot of the assets module](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-assets-screenshot.webp)\n\n[Employee](https://www.horilla.com/docs/employee/)\n\n* ### Employee Directory and Information Management\n\n  Horilla HR Software centralizes employee management with LDAP integration for\n  seamless data syncing and efficient organization.\n* ### Personal Information Management\n\n  Horilla HRMS an open-source software, securely manages employee data, ensuring\n  accurate, accessible information for HR professionals and managers.\n* ### Work Information Tracking\n\n  Horilla HR Software effectively tracks employee details like roles, departments,\n  hierarchies, and statuses for streamlined workforce management.\n\n[Explore\nMore](https://www.horilla.com/docs/employee/)\n\n![A screenshot of the employee module](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-employee-screenshot.webp)\n\n[PMS](https://www.horilla.com/docs/pms/)\n\n* ### Enhanced Clarity and OKR Alignment\n\n  OKRs provide clear direction and goals for employees.\n\n  Helps employees understand how their work aligns with company goals.\n* ### 360° Performance Insights\n\n  360 feedback gathers feedback from multiple sources.\n\n  Provides a comprehensive view of employee performance.\n* ### Continuous Improvement via Feedback\n\n  OKRs and 360 feedback can be used on a regular basis.\n\n  Provides ongoing feedback to employees.\n\n[Explore\nMore](https://www.horilla.com/docs/pms/)\n\n![A screenshot of the PMS module](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-pms-screenshot.webp)\n\n[Payroll](https://www.horilla.com/docs/payroll/)\n\n* ### Manage Cotracts & Agreements\n\n  Horilla's Payroll Software streamlines contract management, enabling customized\n  employment agreements, compensation, and work arrangements effortlessly.\n* ### Manage Allowances with Ease\n\n  Horilla HRMS simplifies allowance management with customizable options,\n  eligibility criteria, and allocation controls for fair compensation.\n* ### Simplify Deduction Management\n\n  Horilla HRMS streamlines deduction management, offering customization,\n  eligibility settings, and targeted allocation, ensuring fair compensation\n  practices.\n* ### Effortless Federal Tax Management\n\n  Horilla HR software enables customizable tax calculations for accurate\n  withholdings and seamless payroll processing.\n\n[Explore\nMore](https://www.horilla.com/docs/payroll/)\n\n![A screenshot of the attendance module](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-payroll-screenshot.webp)\n\n[Offboarding](https://www.horilla.com/docs/offboarding/)\n\n* ### Streamlined Resignation Handling\n\n  Horilla HRMS simplifies resignation submission and management with an intuitive\n  interface, enabling efficient tracking and processing of employee exits.\n* ### Customized Workflows\n\n  Design customizable offboarding workflows for resignations, retirements, and\n  terminations to manage diverse employee exits efficiently.\n* ### Flexible Offboarding Features\n\n  Horilla HRMS enables customizable offboarding tasks tailored to organizational\n  and individual needs.\n\n[Explore\nMore](https://www.horilla.com/docs/offboarding/)\n\n![A screenshot of the offboarding module](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-offboarding-screenshot.webp)\n\n[Help Desk](https://www.horilla.com/docs/help-desk/)\n\n* ### Centralized Frequently Asked Questions\n\n  Horilla Help Desk centralizes FAQs, enabling quick solutions, reducing\n  repetitive inquiries, and boosting self-service efficiency.\n* ### Efficient Ticket Handling\n\n  The system offers robust ticket management with automated workflows,\n  multi-channel creation, and real-time updates for efficient support resolution.\n* ### Prioritization and Escalation\n\n  Tickets are prioritized by urgency and impact, ensuring critical issues are\n  swiftly escalated and resolved efficiently.\n\n[Explore\nMore](https://www.horilla.com/docs/help-desk/)\n\n![A screenshot of the help desk module](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-helpdesk-screenshot.webp)\n\n### Words From Our Clients\n\nThe proof of our performance lies in the people who use Horilla every day.\nReal stories from real users who’ve transformed their journey.\n\n\n\n![Quote Icon](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-crm/icon.svg)\n\n\n![Fashion Bazar](https://www.horilla.com/wp-content/uploads/2025/11/user.png)\n\n#### Fashion Bazar\n\nJunaid-IT Manager-India\n\n★★★★★\n\nWe recently switched to Horilla HRMS and couldn't be happier! After using a multinational brand's HRMS, we found their pricing…\n\nRead More\n\n\n\n![Hajgulf](https://www.horilla.com/wp-content/uploads/2025/11/user.png)\n\n#### Hajgulf\n\nSreehari-IT Manager-Bahrain\n\n★★★★★\n\nI’ve been using Horilla and it’s made my work so much easier. It’s user-friendly, efficient, and has really improved how…\n\nRead More\n\n\n\n![MG Steel Industries Pvt Ltd](https://www.horilla.com/wp-content/uploads/2025/11/user.png)\n\n#### MG Steel Industries Pvt Ltd\n\nParas jain - MD-Nepal\n\n★★★★★\n\nMy experience with Horrila team was much better than I had expected. Though my work had not been completed due…\n\nRead More\n\n\n\n![Just Simply Marketing](https://www.horilla.com/wp-content/uploads/2025/11/user.png)\n\n#### Just Simply Marketing\n\nLianna-Operations Consultant- Malaysia\n\n★★★★★\n\nHorilla provided a free and efficient software for our HR needs with our start-up. It’s a great alternative to expensive…\n\nRead More\n\n\n\n![Betasaurus](https://www.horilla.com/wp-content/uploads/2025/11/user.png)\n\n#### Betasaurus\n\nMohith - Founder of Betasaurus-India\n\n★★★★★\n\nHorilla is good, above expectations. Received good installation support also. However some modules like user addition and management should be…\n\nRead More\n\n\n\n![Whitehorse Manpower Pvt. Ltd](https://www.horilla.com/wp-content/uploads/2025/11/user.png)\n\n#### Whitehorse Manpower Pvt. Ltd\n\nMahesh- Operations Manager-India\n\n★★★★★\n\nEfficient and User-Friendly HRMS Solution. We at Whitehorse Manpower have been using Horilla HMRS for managing our HR operations, and…\n\nRead More\n\n\n\n![Akase Solutions](https://www.horilla.com/wp-content/uploads/2025/11/user.png)\n\n#### Akase Solutions\n\nPrince -Founder of Akase Solutions-- Ghana\n\n★★★★★\n\nHorilla HRMS has been an excellent, cost-effective HR solution for me. The comprehensive and user-friendly platform, which covers everything from…\n\nRead More\n\n### Frequently Asked Questions\n\n### Why do businesses make use of HRMS software?\n\n\\_\n\nCompanies utilize human resource management software to automate HR activities, increase\nproductivity, decrease mistakes, and assure labor law compliance.\n\n### Can Horilla be customized to fit specific business requirements?\n\n+\n\nYes, Horilla's open-source framework allows organizations to tailor modules, workflows, and features\nto align with their unique HR management processes.\n\n### Is Horilla ideal for both small and large businesses?\n\n+\n\nYes, Horilla’s modular and scalable design makes it ideal for businesses of all sizes, from startups\nto large enterprises, across various industries.\n\n### How does Horilla improve HR operations?\n\n+\n\nHorilla automates key HR processes, reduces manual work, enhances accuracy in payroll and attendance\ntracking, and provides detailed insights for better workforce management.\n\n### Does Horilla require technical expertise to use?\n\n+\n\nNo, Horilla has a user-friendly interface designed for HR professionals, but advanced customization\nmay require IT expertise or developer support.\n\n### Does HRMS software serve remote and hybrid work arrangements?\n\n+\n\nYes, modern HRMS platforms provide cloud-based access, enabling remote teams to log attendance,\nmanage leaves, and collaborate efficiently.\n\n### Can an HRMS be integrated with other corporate applications?\n\n+\n\nMost HRMS solutions support integration with accounting software, ERP systems, and communication\ntools to streamline business operations.\n\n### What aspects should a corporation consider while deciding on an HRMS?\n\n+\n\nCompanies should evaluate factors like scalability, ease of use, customization options, integration\ncapabilities, and customer support when selecting an HRMS.\n\n### What are the latest trends in HRMS security and data protection?\n\n+\n\nAI-powered threat detection, blockchain for secure personnel data, and multi-factor authentication\nfor improved access management are among the latest trends.\n\n### How can HRMS contribute to employee engagement?\n\n+\n\nEmployee self-service portals, performance monitoring, and feedback tools are all part of modern HRMS\nplatforms, which help to increase engagement and workplace happiness.\n\nShow More\n\n### Experience Smart HR with Horilla Mobile App\n\n![](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-app-mockup.png)\n\nManage attendance, leaves, employee, & much more effortlessly\nwith\nthe Horilla HRMS app. Your HR tasks, simplified & streamlined on the go.\n\n\n[For Android](https://play.google.com/store/apps/details?id=com.cybrosys.horilla_project)\n[For IOS](https://apps.apple.com/in/app/horilla-mobile-app/id6744724397)\n\n### It's Free,It's Open Source With Horilla HRMS Software you have the total freedom to use it however you see fit. No limits, no asterisks. [Get Started Free](http://demo.horilla.com) [View on Github](https://github.com/horilla-opensource/horilla/)\n\n### We will guide you every step of the way\n\n![](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-youtube-preview.webp)\n\nHow to start with Horilla step-by-step video tutorials.\n [See tutorials](https://www.horilla.com/videos/)\n\n### For queries contact Straightforward support, no conditions, no confusion and unrestricted assistance designed around your needs. [Contact Us](https://www.horilla.com/contact-us) Product Image\n\n\n\n\n\n×\n\n\n\n\n\n\n\n\n#### Quick Links\n\n* [Home](https://www.horilla.com/)\n* [Documentation](https://www.horilla.com/docs/)\n* [Features](https://www.horilla.com/features/)\n* [Blog](https://www.horilla.com/blogs/)\n* [Sitemap](https://www.horilla.com/sitemap/)\n\n#### Discover Horilla\n\n* [What is Horilla?](https://www.horilla.com/what-is-horilla/)\n* [Horilla Stories](https://www.horilla.com/web-stories/)\n* [Compare Competitors](https://www.horilla.com/compare/)\n* [Client Locations](https://www.horilla.com/locations/)\n* [Support](https://www.horilla.com/pricing/)\n\n#### Features\n\n* [Assets](https://www.horilla.com/features/asset/)\n* [Attendance](https://www.horilla.com/features/attendance/)\n* [Employee](https://www.horilla.com/features/employee/)\n* [Leave](https://www.horilla.com/features/leave/)\n* [Onboarding](https://www.horilla.com/features/onboarding/)\n* [Payroll](https://www.horilla.com/features/payroll/)\n* [PMS](https://www.horilla.com/features/pms/)\n* [Recruitment](https://www.horilla.com/features/recruitment/)\n* [Offboarding](https://www.horilla.com/features/offboarding/)\n* [Helpdesk](https://www.horilla.com/features/helpdesk/)\n\n#### Source\n\n* [GitHub](https://github.com/horilla-opensource/horilla/)\n\n#### Legal\n\n* [Privacy Policy](https://www.horilla.com/privacy-policy/)\n\n[![get it on playstore](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/get-it-on-playstore.svg)](https://play.google.com/store/apps/details?id=com.cybrosys.horilla_project)\n[![get it on playstore](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/get-it-on-app-store.png)](https://apps.apple.com/in/app/horilla-mobile-app/id6744724397)\n\n© 2026 Horilla. All rights reserved.\n[![Horilla](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-logo-black.png)](https://www.horilla.com/)",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "content_type": "html",
+                "mime_type": "text/html; charset=UTF-8",
+                "destination_url": "https://www.horilla.com/"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Fetched: Horilla – Open Source HR Software | Free HRMS Software",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=horilla.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "Horilla – Open Source HR Software | Free HRMS Software",
+              "subtitles": null,
+              "url": "https://www.horilla.com/",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=horilla.com",
+              "source": "horilla"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-03-14T03:27:15.096540Z",
+          "stop_timestamp": "2026-03-14T03:27:15.294639Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01PHegjvQTyPLk8EzfrKx3dp",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://www.horilla.com/features/"
+          },
+          "message": "Fetching: https://www.horilla.com/features/",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01PHegjvQTyPLk8EzfrKx3dp",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Open Source HRMS Features - Horilla Open Source HR Software",
+              "url": "https://www.horilla.com/features/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "horilla.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=horilla.com",
+                "site_name": "horilla"
+              },
+              "is_missing": false,
+              "text": "Open Source HRMS Features | Free HRMS | Horilla\n\n\n\n\n\n\nNew\n\nExperience Smart HR with Horilla Mobile App\n\n[![Google Play Store](https://www.horilla.com/wp-content/uploads/2024/12/google-play-store.png)](https://play.google.com/store/apps/details?id=com.cybrosys.horilla_project)\n[![Google Play Store](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/cta/app-store.png)](https://apps.apple.com/in/app/horilla-mobile-app/id6744724397)\n\n[![Horilla](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/brand/horilla-logo.png)](https://www.horilla.com)\n\n* [Home](https://www.horilla.com/)\n* [CRM](https://www.horilla.com/crm/)\n* Features\n  + [HR](https://www.horilla.com/features/)\n  + [CRM](https://www.horilla.com/crm-features/)\n* [Docs](http://docs.horilla.com/)\n* [Cloud](https://cloud.horilla.com/)\n* [Blogs](https://www.horilla.com/blogs/)\n* [Videos](https://www.horilla.com/videos/)\n* Pricing\n  + [Support](https://www.horilla.com/pricing/)\n  + [Implementation](https://www.horilla.com/implementation/)\n* [Contact Us](https://www.horilla.com/contact-us/)\n\n\n\n\n\n\n\n\n# Explore Our HR Features\n\nFrom hiring to offboarding, all features in one platform.\n\n![Product Image](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/hr-feature-page-hero.svg)\n\n### Our Features\n\n![Attendance](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/feature/checkmark-circle-outline.png)\n\n## Attendence\n\nEfficiently streamline attendance with accurate tracking and intuitive reporting capabilities.\n\n[Explore](https://www.horilla.com/features/attendance/)\n\n![Recruitment](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/feature/id-card-outline.png)\n\n## Recruitment\n\nEfficiently manage job postings, interviews, and candidate progress with our streamlined\nrecruitment features.\n\n[Explore](https://www.horilla.com/features/recruitment/)\n\n![Onboarding](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/feature/rocket-outline.png)\n\n## Onboarding\n\nHorilla Onboarding revolutionizes employee onboarding with an advanced, intuitive platform.\n\n[Explore](https://www.horilla.com/features/onboarding/)\n\n![Employees](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/feature/people-outline.png)\n\n## Employees\n\nSeamlessly manage employee data and requests with our comprehensive module.\n\n[Explore](https://www.horilla.com/features/employee/)\n\n![Assets](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/feature/laptop-outline.png)\n\n## Assets\n\nManage company asset allocations and requests to employees with our Asset Management System.\n\n[Explore](https://www.horilla.com/features/asset/)\n\n![PMS](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/feature/analytics-outline.png)\n\n## PMS\n\nManage employee performance effectively with OKRs and 360-degree feedback.\n\n[Explore](https://www.horilla.com/features/pms/)\n\n![Employees](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/feature/payroll.png)\n\n## Payroll\n\nEfficiently manage employee compensation, tax calculations, and payslip generation with Payroll.\n\n[Explore](https://www.horilla.com/features/payroll/)\n\n![Assets](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/feature/leave.png)\n\n## Leave\n\nStreamline employees leave management with efficient tracking and request processing.\n\n[Explore](https://www.horilla.com/features/leave/)\n\n![Assets](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/feature/logout.png)\n\n## Offboarding\n\nRevamp offboarding procedures and oversee employee resignations with efficiency and care.\n\n[Explore](https://www.horilla.com/features/offboarding/)\n\n![Employees](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/feature/question-mark.png)\n\n## Helpdesk\n\nHarness centralized platforms to swiftly manage and resolve employee inquiries, issues, and suggestions.\n\n[Explore](https://www.horilla.com/features/helpdesk/)\n\n\n\n#### Quick Links\n\n* [Home](https://www.horilla.com/)\n* [Documentation](https://www.horilla.com/docs/)\n* [Features](https://www.horilla.com/features/)\n* [Blog](https://www.horilla.com/blogs/)\n* [Sitemap](https://www.horilla.com/sitemap/)\n\n#### Discover Horilla\n\n* [What is Horilla?](https://www.horilla.com/what-is-horilla/)\n* [Horilla Stories](https://www.horilla.com/web-stories/)\n* [Compare Competitors](https://www.horilla.com/compare/)\n* [Client Locations](https://www.horilla.com/locations/)\n* [Support](https://www.horilla.com/pricing/)\n\n#### Features\n\n* [Assets](https://www.horilla.com/features/asset/)\n* [Attendance](https://www.horilla.com/features/attendance/)\n* [Employee](https://www.horilla.com/features/employee/)\n* [Leave](https://www.horilla.com/features/leave/)\n* [Onboarding](https://www.horilla.com/features/onboarding/)\n* [Payroll](https://www.horilla.com/features/payroll/)\n* [PMS](https://www.horilla.com/features/pms/)\n* [Recruitment](https://www.horilla.com/features/recruitment/)\n* [Offboarding](https://www.horilla.com/features/offboarding/)\n* [Helpdesk](https://www.horilla.com/features/helpdesk/)\n\n#### Source\n\n* [GitHub](https://github.com/horilla-opensource/horilla/)\n\n#### Legal\n\n* [Privacy Policy](https://www.horilla.com/privacy-policy/)\n\n[![get it on playstore](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/get-it-on-playstore.svg)](https://play.google.com/store/apps/details?id=com.cybrosys.horilla_project)\n[![get it on playstore](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/get-it-on-app-store.png)](https://apps.apple.com/in/app/horilla-mobile-app/id6744724397)\n\n© 2026 Horilla. All rights reserved.\n[![Horilla](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-logo-black.png)](https://www.horilla.com/)",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "content_type": "html",
+                "mime_type": "text/html; charset=UTF-8",
+                "destination_url": "https://www.horilla.com/features"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Fetched: Open Source HRMS Features - Horilla Open Source HR Software",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=horilla.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "Open Source HRMS Features - Horilla Open Source HR Software",
+              "subtitles": null,
+              "url": "https://www.horilla.com/features/",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=horilla.com",
+              "source": "horilla"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-03-14T03:27:17.990913Z",
+          "stop_timestamp": "2026-03-14T03:27:18.200328Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01JiTkBV9PWRVKzJq5jBWSrq",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://www.horilla.com/features/pms/"
+          },
+          "message": "Fetching: https://www.horilla.com/features/pms/",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01JiTkBV9PWRVKzJq5jBWSrq",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Open Source Performance Management System - Horilla Open Source HR Software",
+              "url": "https://www.horilla.com/features/pms/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "horilla.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=horilla.com",
+                "site_name": "horilla"
+              },
+              "is_missing": false,
+              "text": "Open Source Performance Management System | Horilla\n\n\n\n\n\n\nNew\n\nExperience Smart HR with Horilla Mobile App\n\n[![Google Play Store](https://www.horilla.com/wp-content/uploads/2024/12/google-play-store.png)](https://play.google.com/store/apps/details?id=com.cybrosys.horilla_project)\n[![Google Play Store](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/cta/app-store.png)](https://apps.apple.com/in/app/horilla-mobile-app/id6744724397)\n\n[![Horilla](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/brand/horilla-logo.png)](https://www.horilla.com)\n\n* [Home](https://www.horilla.com/)\n* [CRM](https://www.horilla.com/crm/)\n* Features\n  + [HR](https://www.horilla.com/features/)\n  + [CRM](https://www.horilla.com/crm-features/)\n* [Docs](http://docs.horilla.com/)\n* [Cloud](https://cloud.horilla.com/)\n* [Blogs](https://www.horilla.com/blogs/)\n* [Videos](https://www.horilla.com/videos/)\n* Pricing\n  + [Support](https://www.horilla.com/pricing/)\n  + [Implementation](https://www.horilla.com/implementation/)\n* [Contact Us](https://www.horilla.com/contact-us/)\n\n\n\n\n\n\n\nfeature\n\n# Performance Management System\n\nHorilla’s performance management system enhances accountability and growth with OKRs and 360-degree feedback, providing clear goal-setting, progress tracking, and insights.\n\n[Talk to US](javascript:void(Tawk_API.toggle()))\n\n## Objectives & Key Results\n\nTrack Objectives & Key Results\n\nOKRs are used to set specific, measurable goals for employees that\nalign with the organization's overall objectives. This helps to\nensure that employees are working towards meaningful goals that\ncontribute to the success of the organization.\n\n![OKR](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/screenshots/pms-01.png)\n\n![360 Degree Feedback](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/screenshots/pms-02.png)\n\n## 360° Feedback\n\nGet Feedback from Every Source\n\n360° feedback involves collecting feedback from a variety of\nsources, including managers, peers, and direct reports. This\nprovides a more complete picture of an employee's performance, as\nwell as their strengths and areas for improvement.\n\n## Period List View\n\nManage & Track Periods of Time\n\nPeriod List View, this view provides a centralized way to manage and\ntrack periods of time, which can be used to automate certain HR and\nperformance management tasks. By setting the start and end dates for\neach period, you can ensure that feedback and OKRs are aligned with\nyour organization's goals and objectives. The update and delete\nbuttons make it easy to make changes to existing periods or remove\nthem as needed. Overall, this view can help streamline your HR and\nperformance management processes by providing a clear framework for\nsetting and managing time periods.\n\n![Attendance View](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/screenshots/pms-03.png)\n\n![Hour Account](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/screenshots/pms-04.png)\n\n## Question Template\n\nAsk Anything with Question Templates\n\nHere you have the ability to create your own question template and\nadd questions based on your specific needs or requirements. A\nquestion template provides a structure or framework for asking\nquestions in a particular context, such as during a feedback. By\ncreating your own template, you can tailor the questions to suit\nyour specific goals.\n\n\n\n#### Quick Links\n\n* [Home](https://www.horilla.com/)\n* [Documentation](https://www.horilla.com/docs/)\n* [Features](https://www.horilla.com/features/)\n* [Blog](https://www.horilla.com/blogs/)\n* [Sitemap](https://www.horilla.com/sitemap/)\n\n#### Discover Horilla\n\n* [What is Horilla?](https://www.horilla.com/what-is-horilla/)\n* [Horilla Stories](https://www.horilla.com/web-stories/)\n* [Compare Competitors](https://www.horilla.com/compare/)\n* [Client Locations](https://www.horilla.com/locations/)\n* [Support](https://www.horilla.com/pricing/)\n\n#### Features\n\n* [Assets](https://www.horilla.com/features/asset/)\n* [Attendance](https://www.horilla.com/features/attendance/)\n* [Employee](https://www.horilla.com/features/employee/)\n* [Leave](https://www.horilla.com/features/leave/)\n* [Onboarding](https://www.horilla.com/features/onboarding/)\n* [Payroll](https://www.horilla.com/features/payroll/)\n* [PMS](https://www.horilla.com/features/pms/)\n* [Recruitment](https://www.horilla.com/features/recruitment/)\n* [Offboarding](https://www.horilla.com/features/offboarding/)\n* [Helpdesk](https://www.horilla.com/features/helpdesk/)\n\n#### Source\n\n* [GitHub](https://github.com/horilla-opensource/horilla/)\n\n#### Legal\n\n* [Privacy Policy](https://www.horilla.com/privacy-policy/)\n\n[![get it on playstore](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/get-it-on-playstore.svg)](https://play.google.com/store/apps/details?id=com.cybrosys.horilla_project)\n[![get it on playstore](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/get-it-on-app-store.png)](https://apps.apple.com/in/app/horilla-mobile-app/id6744724397)\n\n© 2026 Horilla. All rights reserved.\n[![Horilla](https://www.horilla.com/wp-content/themes/horilla-wp-theme-main/assets/images/home-screenshots/horilla-logo-black.png)](https://www.horilla.com/)",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "content_type": "html",
+                "mime_type": "text/html; charset=UTF-8",
+                "destination_url": "https://www.horilla.com/features/pms"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Fetched: Open Source Performance Management System - Horilla Open Source HR Software",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=horilla.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "Open Source Performance Management System - Horilla Open Source HR Software",
+              "subtitles": null,
+              "url": "https://www.horilla.com/features/pms/",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=horilla.com",
+              "source": "horilla"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-03-14T03:27:20.601101Z",
+          "stop_timestamp": "2026-03-14T03:28:13.981728Z",
+          "flags": null,
+          "type": "text",
+          "text": "Horilla를 꼼꼼히 살펴봤습니다. 단순한 기능 나열이 아니라, CSP의 현재 프로젝트 맥락과 교차시켜 진짜 쓸 수 있는 BM 인사이트를 뽑아드리겠습니다.\n\n---\n\n## Horilla에서 배울 수 있는 것들 — CSP 프로젝트에의 적용\n\n### 먼저, Horilla가 무엇인지 한 문장으로\n\n완전 무료 오픈소스 HRMS로, 채용·온보딩·근태·성과·급여·오프보딩까지 전 사이클을 단일 플랫폼에서 커버하는 시스템입니다. 핵심 차별화는 세 가지입니다 — **무료**, **오픈소스**, **셀프호스팅 가능**. 이 조합이 CSP가 추구하는 \"내부 실험 → SaaS 창업\" 경로와 매우 흥미로운 대화를 나눌 수 있습니다.\n\n---\n\n### BM 요소 1 — **모듈형 아키텍처 전략**\n\nHorilla는 Attendance, Recruitment, Onboarding, Employee, PMS, Payroll, Leave, Offboarding, Helpdesk를 독립 모듈로 구성합니다. 각 모듈은 탐색 가능하고, 필요한 것만 쓸 수 있습니다.\n\n**CSP 적용 포인트:** ESCON(Skill Ontology)과 Pulse Check 시스템을 지금처럼 독립 프로젝트로 유지하되, 장기적으로는 **\"LG PRI HR Automation Suite\"라는 단일 플랫폼 아래 모듈로 통합**하는 아키텍처를 구상할 수 있습니다. 각 내부 자동화 프로젝트(리더십 평가, Pulse Check, Skill Ontology)가 하나의 모듈이 되는 것입니다. SaaS 창업 시 개별 모듈을 떼어 팔거나 묶어 팔 수 있는 유연성이 생깁니다.\n\n---\n\n### BM 요소 2 — **PMS 모듈의 설계 언어**\n\nHorilla의 PMS는 OKR 기반 목표 설정과 360도 피드백을 중심으로 구성되며, Period List View로 시간 단위 관리가 가능하고, Question Template으로 피드백 문항을 자유롭게 커스터마이징할 수 있습니다.\n\n**CSP 적용 포인트:** 현재 Pulse Check 시스템의 설계 방식과 비교할 때, Horilla PMS가 빠뜨리고 있는 것이 보입니다 — **4-Layer 인과 모델(EX Touchpoints → Psychology → Engagement → Outcomes)** 이 없다는 것. CSP의 Pulse Check는 이미 Horilla PMS보다 심리학적 깊이에서 앞서 있습니다. 반대로 Horilla에서 배울 것은 **Period 관리 UI** — 월별/분기별 사이클을 시각적으로 관리하는 인터페이스를 Pulse Check 시스템에 적용할 수 있습니다.\n\n---\n\n### BM 요소 3 — **Candidate Self-Tracking = 학습자 자기추적**\n\nHorilla의 채용 모듈에는 지원자가 실시간으로 자신의 지원 현황을 직접 추적할 수 있는 Candidate Self Tracking 기능이 있습니다.\n\n**CSP 적용 포인트:** 이 개념을 **학습자(기술인재) 자기추적**으로 전환할 수 있습니다. ESCON의 Skill Ontology 위에 \"나의 현재 스킬 레벨이 어디에 있는지, 목표 LV3까지 어떤 갭이 있는지를 엔지니어 스스로 확인\"하는 Self-Tracking 뷰. 지금 ESCON이 갖고 있는 \"HR 기획 언어 → 엔지니어 자기발견 언어로\"의 전환 문제를 푸는 UI 패턴이 여기 있습니다.\n\n---\n\n### BM 요소 4 — **Onboarding 모듈의 철학**\n\nHorilla의 온보딩은 새 직원이 첫날부터 준비된 상태로 시작할 수 있도록 사전 준비를 강조하며, 참여도·생산성·유지율 향상을 목표로 합니다.\n\n**CSP 적용 포인트:** AX Level 1 교육의 온보딩 경험 설계에 직접 적용 가능합니다. \"AI 도구를 처음 쓰는 HR 직원이 첫 세션부터 'Wow 모멘트'를 경험하도록 사전 준비 플로우\"를 Horilla 온보딩 모듈의 설계 논리로 재구성하면, 지금 만들고 있는 HTML 트레이닝 워크북이 단순 교재가 아니라 **온보딩 시스템**이 됩니다.\n\n---\n\n### BM 요소 5 — **Helpdesk 모듈 = AI 활용 질문 창구**\n\nHorilla Helpdesk는 FAQ 중앙화와 티켓 관리, 우선순위·에스컬레이션 체계를 갖추고 있습니다.\n\n**CSP 적용 포인트:** AX 교육 운영 중 가장 소모적인 것 중 하나가 반복 질문 대응입니다. \"AI 도구 사용 관련 FAQ 자동화 + 질문 티켓화\" 시스템을 내부에 구축하면 **교육 운영 오버헤드를 줄이면서 동시에 어떤 질문이 많은지 데이터를 축적**할 수 있습니다. 이 데이터 자체가 다음 교육 커리큘럼 설계의 인풋이 됩니다.\n\n---\n\n### BM 요소 6 — **\"Free + Open Source + Paid Support\" 수익 모델**\n\nHorilla는 소프트웨어 자체는 완전 무료 오픈소스로 제공하면서, Cloud 호스팅과 Support, Implementation 서비스를 별도로 유료화합니다.\n\n**CSP 적용 포인트:** 이것이 CSP의 5~6년 SaaS 창업 경로에서 가장 직접적으로 참고할 비즈니스 모델입니다. 내부에서 검증된 HR 자동화 도구(Pulse Check, Skill Ontology)를 **코어는 오픈소스로 공개 → 구현 컨설팅과 커스터마이징을 유료화**하는 방식. HR 도메인 신뢰가 없는 순수 SaaS보다, \"LG PRI에서 실제로 쓴 도구\"라는 레퍼런스를 앞세운 이 모델이 초기 시장 진입에 훨씬 유리합니다.\n\n---\n\n### 종합 정리 — CSP가 Horilla로부터 빌릴 것 vs 버릴 것\n\n| 빌릴 것 | 버릴 것 (CSP가 이미 앞서 있음) |\n|---|---|\n| 모듈형 플랫폼 아키텍처 | 단순 OKR/360도 피드백 구조 (심리학적 깊이 부족) |\n| Period 관리 UI 패턴 | 범용적 Question Template (맥락 없는 문항 설계) |\n| Self-Tracking 인터페이스 개념 | 데이터 분석 없는 리포팅 |\n| Free + Support 수익 모델 | AI 기능 부재 (Horilla엔 AI가 없음) |\n| Helpdesk의 FAQ 자동화 구조 | — |\n\nHorilla의 진짜 가치는 기능 그 자체보다, **\"전체 Employee Lifecycle을 하나의 데이터 흐름으로 연결한다\"**는 설계 철학입니다. CSP의 현재 프로젝트들이 각각 훌륭하지만 아직 고립된 섬처럼 존재한다면, Horilla는 그 섬들을 대륙으로 연결하는 지도를 보여주는 레퍼런스입니다.",
+          "citations": [
+            {
+              "uuid": "81dc17bf-c286-43ed-aea7-e3ba85232102",
+              "start_index": 165,
+              "end_index": 230,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.horilla.com/"
+              }
+            },
+            {
+              "uuid": "cddd1d2d-bbd4-4b4d-b4dd-8dea555d9ec2",
+              "start_index": 383,
+              "end_index": 492,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.horilla.com/features/"
+              }
+            },
+            {
+              "uuid": "51b01033-8a0a-46e7-8420-07028c59093a",
+              "start_index": 838,
+              "end_index": 960,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.horilla.com/features/pms/"
+              }
+            },
+            {
+              "uuid": "e8815a19-193d-4e60-9b49-de1263c01700",
+              "start_index": 1344,
+              "end_index": 1428,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.horilla.com/"
+              }
+            },
+            {
+              "uuid": "2a0987f1-e88e-49d8-a605-bd8d98b4d245",
+              "start_index": 1698,
+              "end_index": 1778,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.horilla.com/"
+              }
+            },
+            {
+              "uuid": "d1969cc8-fe89-4e2c-bc52-2c4c77cae468",
+              "start_index": 2027,
+              "end_index": 2086,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.horilla.com/"
+              }
+            },
+            {
+              "uuid": "55bf73be-ba41-4041-9450-a1a45131fc7c",
+              "start_index": 2343,
+              "end_index": 2428,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.horilla.com/"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-14T03:28:14.146702Z",
+      "updated_at": "2026-03-14T03:28:14.146702Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019cea62-2a4b-78c0-abd1-74c37e535fd8"
+    }
+  ]
+}

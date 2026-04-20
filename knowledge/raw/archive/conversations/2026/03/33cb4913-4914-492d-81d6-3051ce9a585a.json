@@ -1,0 +1,52 @@
+﻿{
+  "uuid": "33cb4913-4914-492d-81d6-3051ce9a585a",
+  "name": "Claude computer",
+  "summary": "**Conversation Overview**\n\nThe person asked a brief, exploratory question in Korean (\"클로드 컴퓨터?\" / \"Claude computer?\") about Claude's computing environment. Claude explained the technical setup available: an Ubuntu 24 Linux container supporting bash command execution, file creation and editing, and code execution in languages such as Python and Node.js. Claude described how files like HTML portals, Excel, PPTX, and DOCX documents are generated in this environment.\n\nClaude also outlined key operational characteristics of the environment: the file system resets after each conversation (making timely downloads from `/mnt/user-data/outputs/` important), internet access is restricted to permitted development-related domains such as GitHub, PyPI, and npm, and the Skills directory at `/mnt/skills/` is read-only and used by Claude as a reference to improve work quality. The conversation was brief and informational, with no specific task requested beyond understanding the environment's capabilities.",
+  "created_at": "2026-03-28T07:51:45.814804Z",
+  "updated_at": "2026-03-28T07:51:59.360099Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d336d-7b37-77ab-b346-0d079cc1f070",
+      "text": "클로드 컴퓨터?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-28T07:51:48.736771Z",
+          "stop_timestamp": "2026-03-28T07:51:48.736771Z",
+          "flags": null,
+          "type": "text",
+          "text": "클로드 컴퓨터?",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-28T07:51:48.801531Z",
+      "updated_at": "2026-03-28T07:51:48.801531Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d336d-7b37-766f-8895-65cd1d907937",
+      "text": " 네, Claude에게는 컴퓨터 환경이 있습니다.\n\n정확히는 **Ubuntu 24 Linux 컨테이너**가 제공되고, 여기서 bash 명령어 실행, 파일 생성/편집, Python·Node.js 등 코드 실행이 가능합니다. CSP가 요청하는 HTML 포털, Excel, PPTX, DOCX 같은 파일들이 이 환경에서 만들어지는 거고요.\n\n다만 몇 가지 특성이 있습니다.\n\n대화가 끝나면 파일 시스템은 초기화됩니다. 그래서 `/mnt/user-data/outputs/`에 올려둔 파일을 그때그때 다운로드해두는 게 중요합니다. 인터넷 접근은 제한적이고, 허용된 도메인(GitHub, PyPI, npm 등 개발 관련)만 가능합니다. Skills(`/mnt/skills/`)는 읽기 전용이라 직접 수정은 안 되고, Claude가 참조해서 작업 품질을 높이는 데 씁니다.\n\nCSP가 궁금한 게 구체적으로 어떤 건지에 따라 더 얘기할 수 있습니다. 혹시 특정 작업을 이 환경에서 해보고 싶은 게 있나요?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-28T07:51:50.567954Z",
+          "stop_timestamp": "2026-03-28T07:51:59.072275Z",
+          "flags": null,
+          "type": "text",
+          "text": " 네, Claude에게는 컴퓨터 환경이 있습니다.\n\n정확히는 **Ubuntu 24 Linux 컨테이너**가 제공되고, 여기서 bash 명령어 실행, 파일 생성/편집, Python·Node.js 등 코드 실행이 가능합니다. CSP가 요청하는 HTML 포털, Excel, PPTX, DOCX 같은 파일들이 이 환경에서 만들어지는 거고요.\n\n다만 몇 가지 특성이 있습니다.\n\n대화가 끝나면 파일 시스템은 초기화됩니다. 그래서 `/mnt/user-data/outputs/`에 올려둔 파일을 그때그때 다운로드해두는 게 중요합니다. 인터넷 접근은 제한적이고, 허용된 도메인(GitHub, PyPI, npm 등 개발 관련)만 가능합니다. Skills(`/mnt/skills/`)는 읽기 전용이라 직접 수정은 안 되고, Claude가 참조해서 작업 품질을 높이는 데 씁니다.\n\nCSP가 궁금한 게 구체적으로 어떤 건지에 따라 더 얘기할 수 있습니다. 혹시 특정 작업을 이 환경에서 해보고 싶은 게 있나요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-28T07:51:59.342579Z",
+      "updated_at": "2026-03-28T07:51:59.342579Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d336d-7b37-77ab-b346-0d079cc1f070"
+    }
+  ]
+}

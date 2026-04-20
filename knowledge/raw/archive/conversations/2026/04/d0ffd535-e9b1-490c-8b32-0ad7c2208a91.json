@@ -1,0 +1,1566 @@
+﻿{
+  "uuid": "d0ffd535-e9b1-490c-8b32-0ad7c2208a91",
+  "name": "Gemma3 model tools not supported",
+  "summary": "**Conversation Overview**\n\nThe person is setting up a local AI coding environment on a MacBook Air M5 with 16GB RAM, using Claude Code with Ollama as a backend. The conversation began with a tool-use compatibility error when attempting to use `gemma3:27b` with Claude Code — Claude explained that Claude Code requires tool/function calling support, which gemma3:27b lacks entirely.\n\nThe discussion then focused on finding optimal local and cloud models compatible with Claude Code on 16GB RAM. Claude recommended `qwen2.5-coder:7b` and `qwen3.5:9b` as primary local options, and `qwen3-coder-next:cloud` and `devstral-small-2:cloud` as cloud options via Ollama's cloud tier. The person attempted `qwen3-coder:7b` but discovered the tag doesn't exist — qwen3-coder's minimum size is 30b-a3b (32GB), making it incompatible with 16GB RAM. They successfully pulled `qwen2.5-coder:7b` instead.\n\nA secondary issue arose where `ollama launch claude --model` was defaulting to `llama3.1:8b` (not installed) rather than the specified model. Claude provided a workaround using direct environment variables (`ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_BASE_URL`) and running `claude --model` directly to bypass the default model check. The person also asked about deleting models (`ollama rm <model>`), confirming `gemma3:27b` was being removed. Claude consistently noted that for production-level coding (referenced as ESCON and Pulse Check projects), Anthropic API models remain more stable than local alternatives.",
+  "created_at": "2026-04-03T23:10:07.946481Z",
+  "updated_at": "2026-04-04T01:16:55.049085Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d559c-6dbe-7f88-b69d-cad1aeb7f69f",
+      "text": "❯ ok?                                                                                                               \n  ⎿  API Error: 400                                                                                                 \n     {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"registry.ollama.ai/library/gemma3:27b does  \n     not support tools\"},\"request_id\":\"req_14f8696489cf92c40da8c22a\"}",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:10:08.924779Z",
+          "stop_timestamp": "2026-04-03T23:10:08.924779Z",
+          "flags": null,
+          "type": "text",
+          "text": "❯ ok?                                                                                                               \n  ⎿  API Error: 400                                                                                                 \n     {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"registry.ollama.ai/library/gemma3:27b does  \n     not support tools\"},\"request_id\":\"req_14f8696489cf92c40da8c22a\"}",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-03T23:10:08.973699Z",
+      "updated_at": "2026-04-03T23:10:08.973699Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d559c-6dbe-720d-a91f-970c3e659d0d",
+      "text": " 이 에러는 Claude Code에서 발생한 것이군요. Gemma3:27b 모델이 tools를 지원하지 않는다는 메시지입니다.\n\n**원인**: Claude Code (또는 연결된 워크플로우)에서 Ollama의 `gemma3:27b` 모델을 호출하고 있는데, 이 모델은 function calling / tool use를 지원하지 않습니다.\n\n**해결 방법은 세 가지입니다:**\n\n첫째, tools를 지원하는 Ollama 모델로 교체하는 방법입니다. `llama3.1`, `llama3.2`, `mistral-nemo`, `qwen2.5` 계열은 tool use를 지원합니다.\n\n둘째, `gemma3:27b`를 단순 텍스트 완성(non-tool) 용도로만 사용하고, tool이 필요한 작업은 다른 모델에 라우팅하는 방법입니다.\n\n셋째, CLAUDE.md나 설정 파일에서 해당 모델이 호출되는 컨텍스트를 확인해서, tool 호출 없이 순수 생성만 하도록 프롬프트를 조정하는 방법입니다.\n\n어느 워크플로우에서 이 에러가 발생했는지 알 수 있을까요? (Claude Code의 어떤 에이전트인지, 혹은 어떤 작업 중이었는지) 맥락을 알면 더 정확한 수정 방향을 잡을 수 있습니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:10:10.465922Z",
+          "stop_timestamp": "2026-04-03T23:10:18.014347Z",
+          "flags": null,
+          "type": "text",
+          "text": " 이 에러는 Claude Code에서 발생한 것이군요. Gemma3:27b 모델이 tools를 지원하지 않는다는 메시지입니다.\n\n**원인**: Claude Code (또는 연결된 워크플로우)에서 Ollama의 `gemma3:27b` 모델을 호출하고 있는데, 이 모델은 function calling / tool use를 지원하지 않습니다.\n\n**해결 방법은 세 가지입니다:**\n\n첫째, tools를 지원하는 Ollama 모델로 교체하는 방법입니다. `llama3.1`, `llama3.2`, `mistral-nemo`, `qwen2.5` 계열은 tool use를 지원합니다.\n\n둘째, `gemma3:27b`를 단순 텍스트 완성(non-tool) 용도로만 사용하고, tool이 필요한 작업은 다른 모델에 라우팅하는 방법입니다.\n\n셋째, CLAUDE.md나 설정 파일에서 해당 모델이 호출되는 컨텍스트를 확인해서, tool 호출 없이 순수 생성만 하도록 프롬프트를 조정하는 방법입니다.\n\n어느 워크플로우에서 이 에러가 발생했는지 알 수 있을까요? (Claude Code의 어떤 에이전트인지, 혹은 어떤 작업 중이었는지) 맥락을 알면 더 정확한 수정 방향을 잡을 수 있습니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-03T23:10:18.058577Z",
+      "updated_at": "2026-04-03T23:10:18.058577Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d559c-6dbe-7f88-b69d-cad1aeb7f69f"
+    },
+    {
+      "uuid": "019d559e-d730-768f-952d-794bf2231674",
+      "text": "Last login: Sat Apr  4 08:11:26 on ttys000\n(base) dkmac@MacBook-Air-3 ~ % ollama launch claude\n\nLaunching Claude Code with gemma3:27b...\n▗ ▗   ▖ ▖  Claude Code v2.1.91\n           gemma3:27b with medium effort · API Usage Billing\n  ▘▘ ▝▝    /Users/dkmac\n\n  ↑ Opus now defaults to 1M context · 5x more room, same pricing\n                                                                                                                    \n❯ /model                                                                                                            \n  ⎿  Set model to gemma3:27b with medium effort                                                                     \n                                                                                                                    \n❯ how to                                                                                                            \n  ⎿  API Error: 400                                                                                                 \n     {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"registry.ollama.ai/library/gemma3:27b does  \n     not support tools\"},\"request_id\":\"req_859d65402d725848f79517c2\"}",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:12:47.223740Z",
+          "stop_timestamp": "2026-04-03T23:12:47.223740Z",
+          "flags": null,
+          "type": "text",
+          "text": "Last login: Sat Apr  4 08:11:26 on ttys000\n(base) dkmac@MacBook-Air-3 ~ % ollama launch claude\n\nLaunching Claude Code with gemma3:27b...\n▗ ▗   ▖ ▖  Claude Code v2.1.91\n           gemma3:27b with medium effort · API Usage Billing\n  ▘▘ ▝▝    /Users/dkmac\n\n  ↑ Opus now defaults to 1M context · 5x more room, same pricing\n                                                                                                                    \n❯ /model                                                                                                            \n  ⎿  Set model to gemma3:27b with medium effort                                                                     \n                                                                                                                    \n❯ how to                                                                                                            \n  ⎿  API Error: 400                                                                                                 \n     {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"registry.ollama.ai/library/gemma3:27b does  \n     not support tools\"},\"request_id\":\"req_859d65402d725848f79517c2\"}",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-03T23:12:47.273887Z",
+      "updated_at": "2026-04-03T23:12:47.273887Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d559c-6dbe-720d-a91f-970c3e659d0d"
+    },
+    {
+      "uuid": "019d559e-d730-7f99-86a5-e07514d6a7a7",
+      "text": " 상황이 명확해졌습니다. `ollama launch claude`로 Claude Code를 실행하면서 `/model gemma3:27b`로 모델을 변경했는데, Claude Code 자체가 tool use를 필수로 사용하는 구조라 gemma3:27b와 호환이 안 되는 것입니다.\n\n**핵심 문제**: Claude Code는 내부적으로 Bash, file read/write 등을 tool call로 처리합니다. gemma3:27b는 이 tool 스펙을 지원하지 않습니다.\n\n**해결책:**\n\nClaude Code에서 Ollama 모델을 쓰려면 tool use를 지원하는 모델이어야 합니다.\n\n```bash\n# tool use 지원 모델로 교체\nollama pull llama3.1:8b      # 가볍고 tool 지원\nollama pull qwen2.5:14b      # tool 지원, 한국어 강함\nollama pull mistral-nemo     # tool 지원\n```\n\n그리고 Claude Code에서:\n```\n/model llama3.1:8b\n```\n\n다만 현실적으로, **Ollama 로컬 모델은 Claude Code와 궁합이 좋지 않습니다.** Claude Code의 agentic loop가 Anthropic 모델 기준으로 설계되어 있어서 tool call 형식이 미묘하게 달라 오류가 자주 납니다.\n\n**CSP 워크플로우 기준 추천**: 로컬 모델은 Claude Code 밖에서 순수 텍스트 생성 용도로 쓰고, Claude Code 자체는 `claude-sonnet-4-5` 또는 `claude-haiku-4-5` (비용 절감)로 운영하는 게 안정적입니다.\n\ngemma3:27b를 어떤 용도로 쓰려고 하셨나요?",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:12:49.910557Z",
+          "stop_timestamp": "2026-04-03T23:12:59.092057Z",
+          "flags": null,
+          "type": "text",
+          "text": " 상황이 명확해졌습니다. `ollama launch claude`로 Claude Code를 실행하면서 `/model gemma3:27b`로 모델을 변경했는데, Claude Code 자체가 tool use를 필수로 사용하는 구조라 gemma3:27b와 호환이 안 되는 것입니다.\n\n**핵심 문제**: Claude Code는 내부적으로 Bash, file read/write 등을 tool call로 처리합니다. gemma3:27b는 이 tool 스펙을 지원하지 않습니다.\n\n**해결책:**\n\nClaude Code에서 Ollama 모델을 쓰려면 tool use를 지원하는 모델이어야 합니다.\n\n```bash\n# tool use 지원 모델로 교체\nollama pull llama3.1:8b      # 가볍고 tool 지원\nollama pull qwen2.5:14b      # tool 지원, 한국어 강함\nollama pull mistral-nemo     # tool 지원\n```\n\n그리고 Claude Code에서:\n```\n/model llama3.1:8b\n```\n\n다만 현실적으로, **Ollama 로컬 모델은 Claude Code와 궁합이 좋지 않습니다.** Claude Code의 agentic loop가 Anthropic 모델 기준으로 설계되어 있어서 tool call 형식이 미묘하게 달라 오류가 자주 납니다.\n\n**CSP 워크플로우 기준 추천**: 로컬 모델은 Claude Code 밖에서 순수 텍스트 생성 용도로 쓰고, Claude Code 자체는 `claude-sonnet-4-5` 또는 `claude-haiku-4-5` (비용 절감)로 운영하는 게 안정적입니다.\n\ngemma3:27b를 어떤 용도로 쓰려고 하셨나요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-03T23:12:59.135815Z",
+      "updated_at": "2026-04-03T23:12:59.135815Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d559e-d730-768f-952d-794bf2231674"
+    },
+    {
+      "uuid": "019d55a4-176e-7477-965f-42928af6bdf6",
+      "text": "맥북에어 m5 16g로 클로드 코드로 코딩을 하기위한 최적의 로컬모델을 제안해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:18:31.467073Z",
+          "stop_timestamp": "2026-04-03T23:18:31.467073Z",
+          "flags": null,
+          "type": "text",
+          "text": "맥북에어 m5 16g로 클로드 코드로 코딩을 하기위한 최적의 로컬모델을 제안해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-03T23:18:31.516991Z",
+      "updated_at": "2026-04-03T23:18:31.516991Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d559e-d730-7f99-86a5-e07514d6a7a7"
+    },
+    {
+      "uuid": "019d55a4-176f-7d74-863e-ff85edcd9c25",
+      "text": " M5 MacBook Air 16GB 기준으로 찾아보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n검색 결과를 토대로 CSP의 상황에 맞게 솔직하게 정리해드리겠습니다.\n\n---\n\n## M5 MacBook Air 16GB + Claude Code 로컬 모델 가이드\n\n### 먼저 현실적인 이야기부터\n\nM5 MacBook Air 16GB 기준으로, 16GB RAM에서는 더 작은 모델만 실용적으로 돌아가고 경험이 다소 거칠 수 있습니다. 진짜 쓸만한 Claude Code + 로컬 모델 환경을 원한다면 32GB RAM이 목표 스펙이고, 16GB에서는 \"작동하긴 하지만 wrong edit + retry가 늘어나서 전체적으로 느릴 수 있다\"는 게 솔직한 평가입니다.\n\n그럼에도 M5 칩의 Neural Engine과 unified memory 특성 때문에 같은 16GB라도 인텔 맥보다 훨씬 낫습니다. 시도해볼 가치는 충분합니다.\n\n---\n\n### 16GB 환경 최적 모델 3가지\n\n**① qwen3.5:9b — 일상 추천 (메인)**\n\n16GB RAM 기준으로 가장 많이 추천되는 조합이 qwen3.5:9b입니다. Tool use를 지원하고 한국어 성능도 좋습니다. 약 5GB 용량으로 메모리에 여유가 생겨 다른 앱과 병행 가능합니다.\n\n```bash\nollama pull qwen3.5:9b\nollama launch claude --model qwen3.5:9b\n```\n\n**② qwen3-coder — 코딩 특화 (추천)**\n\n코딩 작업에서 tool calling을 지원하는 모델로 qwen3-coder가 자주 언급됩니다. Qwen 시리즈는 코딩 벤치마크에서 특히 강하고, 16GB에서 돌릴 수 있는 7B~8B 버전이 있습니다.\n\n```bash\nollama pull qwen3-coder   # 기본 pull (7B 정도)\nollama launch claude --model qwen3-coder\n```\n\n**③ glm-4.7-flash (클라우드 버전) — 품질 우선시할 때**\n\ntool-calling을 완전히 지원하고 128K context length를 제공하는 GLM-4.7-flash는 Claude Code의 advanced tool 기능과 잘 맞는 모델로 추천됩니다. 단, 로컬 전체 버전(21GB)은 16GB에서 돌리기 어렵습니다.\n\n```bash\n# 클라우드 버전 (Ollama 서버에서 실행, 무료 tier 있음)\nollama pull glm-4.7:cloud\nollama launch claude --model glm-4.7:cloud\n```\n\n---\n\n### 설정 방법 (환경변수 방식)\n\n```bash\n# ~/.zshrc에 추가\nexport ANTHROPIC_AUTH_TOKEN=\"ollama\"\nexport ANTHROPIC_API_KEY=\"\"\nexport ANTHROPIC_BASE_URL=\"http://localhost:11434\"\n```\n\n또는 `ollama launch claude --model qwen3-coder` 한 줄로 끝납니다.\n\n---\n\n### CSP 워크플로우 기준 추천 전략\n\n| 상황 | 모델 |\n|------|------|\n| 빠른 코드 생성, 파일 수정 | qwen3-coder (로컬) |\n| 한국어 문서 작업, 설계 논의 | qwen3.5:9b (로컬) |\n| 복잡한 agentic 코딩 | glm-4.7:cloud (무료 tier) |\n| EX Intelligence, ESCON 수준 | claude-sonnet-4-5 (API, 비용 절감 필요 시 haiku) |\n\n**제 솔직한 의견**: ESCON이나 Pulse Check처럼 실제 프로덕트 코딩은 여전히 Anthropic API (Sonnet/Haiku)가 훨씬 안정적입니다. 로컬 모델은 **크레딧 소진 시 fallback**, **프라이버시 민감한 코드 탐색**, **반복적인 보일러플레이트 생성** 용도로 포지셔닝하는 게 현실적입니다.\n\ngemma3:27b는 tool use 자체가 안 되니 Claude Code와는 궁합이 근본적으로 안 맞습니다. qwen3-coder나 qwen3.5:9b로 갈아타시면 바로 작동할 것입니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:18:32.069039Z",
+          "stop_timestamp": "2026-04-03T23:18:32.578356Z",
+          "flags": null,
+          "type": "text",
+          "text": " M5 MacBook Air 16GB 기준으로 찾아보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-04-03T23:18:33.021343Z",
+          "stop_timestamp": "2026-04-03T23:18:33.114905Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01QJd28mnq2wes1QhKsn9BxV",
+          "name": "web_search",
+          "input": {
+            "query": "Claude Code local model Ollama best model 2025 tool use support"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01QJd28mnq2wes1QhKsn9BxV",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Claude Code - Ollama",
+              "url": "https://docs.ollama.com/integrations/claude-code",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "Open models can be used with Claude Code through Ollama’s Anthropic-compatible API, enabling you to use models such as qwen3.5, glm-5:cloud, kimi-k2.5:cloud. ... The --yes flag auto-pulls the model, skips selectors, and requires --model to ...\n\nClaude Code is Anthropic’s agentic coding tool that can read, modify, and execute code in your working directory. Open models can be used with Claude Code through Ollama’s Anthropic-compatible API, enabling you to use models such as qwen3.5, glm-5:cloud, kimi-k2.5:cloud. ... The --yes flag auto-pulls the model, skips selectors, and requires --model to be specified. Arguments after -- are passed directly to Claude Code. Claude Code can search the web through Ollama’s web search API. See the web search documentation for setup and usage. The /loop command runs a prompt or slash command on a recurring schedule inside Claude Code. This is useful for automating repetitive tasks like checking PRs, running research, or setting reminders. ... Chat with Claude Code from Telegram by connecting a bot to your session. Install the Telegram plugin, create a bot via @BotFather, then launch with the channel flag: ollama launch claude -- --channels plugin:telegram@claude-plugins-official ·\n\nClaude Code will prompt for permission on most actions. To allow the bot to work autonomously, configure permission rules or pass --dangerously-skip-permissions in isolated environments. See the plugin README for full setup instructions including pairing and access control. Claude Code connects to Ollama using the Anthropic-compatible API. ... export ANTHROPIC_AUTH_TOKEN=ollama export ANTHROPIC_API_KEY=\"\" export ANTHROPIC_BASE_URL=http://localhost:11434 ... ANTHROPIC_AUTH_TOKEN=ollama ANTHROPIC_BASE_URL=http://localhost:11434 ANTHROPIC_API_KEY=\"\" claude --model glm-5:cloud · Note: Claude Code requires a large context window. We recommend at least 64k tokens.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://docs.ollama.com/integrations/claude-code",
+                "search_provider": "anthropic",
+                "age": "18 hours ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Run Claude Code with Local & Cloud Models in 5 Minutes (Ollama, LM Studio, llama.cpp, OpenRouter) | by Luong NGUYEN | Medium",
+              "url": "https://medium.com/@luongnv89/run-claude-code-on-local-cloud-models-in-5-minutes-ollama-openrouter-llama-cpp-6dfeaee03cda",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "medium.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=medium.com",
+                "site_name": "Medium"
+              },
+              "is_missing": false,
+              "text": "Fast forward to now: Claude Code has much better support for alternative providers (including Ollama, LM Studio, llama.cpp, OpenRouter, and others). That changes the practical question from: ... “Which option should I choose for my use case ...\n\nThis post exists because the old guides were written back when using non-Anthropic models in Claude Code required hacks and weird adapters…\n\nFast forward to now: Claude Code has much better support for alternative providers (including Ollama, LM Studio, llama.cpp, OpenRouter, and others). That changes the practical question from: ... “Which option should I choose for my use case (cost / speed / quality / privacy) — and how do I set it up in 5 minutes?” · So this is the updated, opinionated guide. My test setup for the examples: MacBook Pro M1 (32GB RAM) and Nvidia DGX Spark (120GB RAM, GB10 GPU). I’ll show the simplest paths first (Ollama local and easy cloud routing), then the more flexible setups. If you want Claude Code + local models to be genuinely usable for coding (not just a demo), I’d aim for: RAM: 32GB (Apple Silicon unified memory or PC RAM) ... At 16GB you can run smaller models, but the experience tends to be rough (more wrong edits + more retries = slower overall).\n\nThe main takeaway: Claude Code is surprisingly flexible. You’re not locked into Anthropic’s API. If you need complete privacy with a local model, then on a Mac M1 (32 GB) it is okay to work with devstral‑2‑small (24B), but bellow that it is quite slow. If you have an Nvidia DGX Spark, then there are plenty of choices. If you prefer fast, high quality and have no problem with privacy, then cloud providers are a very good option. You can test Ollama Cloud with a free tier (quite OK for some emergency tasks). Otherwise go with Kimi, Minimax, Deepseek, or GLM, which have much cheaper prices. However, if you still need decent quality, at the moment I think Opus 4.5 is still the best (quality + speed). Let me know what setups you’re using.\n\nSo I started looking for alternatives. Turns out, Claude Code works with any provider that speaks the Anthropic API format. And there are a lot of them now. The bottom line: Third-party alternatives can save you up to 98% compared to Opus 4.5 — DeepSeek V3.2 is the cheapest at ~0.28/0.28/0.42 per million tokens, while local options like Ollama are completely free. If you prefer subscriptions over pay-per-token, budget options start at just 3/month(ZhipuGLM)or3/month(ZhipuGLM)or10/month (MiniMax). See the detailed pricing comparison at the end for full tables. Time: 5 minutes | Cost: Free | Best for: Privacy, no internet needed · If you just want something that works without fussing around, Ollama is your friend. ... export ANTHROPIC_AUTH_TOKEN=\"ollama\" export ANTHROPIC_API_KEY=\"\" export ANTHROPIC_BASE_URL=\"http://localhost:11434\" ... That’s it!",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://medium.com/@luongnv89/run-claude-code-on-local-cloud-models-in-5-minutes-ollama-openrouter-llama-cpp-6dfeaee03cda",
+                "search_provider": "anthropic",
+                "age": "January 31, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Using Claude Code With Ollama Local Models | DataCamp",
+              "url": "https://www.datacamp.com/tutorial/using-claude-code-with-ollama-local-models",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "datacamp.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=datacamp.com",
+                "site_name": "DataCamp"
+              },
+              "is_missing": false,
+              "text": "Once Ollama is installed and running, the next step is to download the GLM 4.7 Flash model and verify that it works correctly. This step ensures the model runs locally before integrating it with Claude Code. ... This will download the model files and store them locally. Depending on your internet speed, this may take a few minutes. After the download completes, run the model in interactive chat mode as a quick sanity check: ... Type a simple prompt, such as a greeting, and press enter. Within a few seconds, you should receive a response. If you are running on a GPU, you will notice that responses are very fast, and the output may include internal thinking tokens or reasoning traces depending on the model configuration. You can also test the model through Ollama’s local HTTP API. This is useful to confirm that external tools can communicate with the model.\n\nRun GLM 4.7 Flash locally (RTX 3090) with Claude Code and Ollama in minutes, no cloud, no lock-in, just pure speed and control. ... Get your team access to the full DataCamp for business platform. GLM 4.7 Flash is quickly becoming a popular choice for local agentic coding. Many developers are using it with tools like llama.cpp and LM Studio. However, a lot of people still run into problems during setup, getting the model to run correctly, and making sure tool calling works as expected. This tutorial focuses on the simplest and most reliable way to run GLM 4.7 Flash locally using Claude Code with Ollama. The goal is to remove friction and help you get a working setup without unnecessary complexity. This guide works across all operating systems. It does not matter whether you are using Linux, Windows, or macOS. By the end, you will have GLM 4.7 Flash running locally and correctly integrated with Claude Code through Ollama.\n\nOllama is the runtime we will use to run GLM 4.7 Flash locally and expose it in a way that Claude Code can interact with reliably. Installation is straightforward on all supported platforms. On Linux, you can install Ollama with one command: ... For macOS and Windows, download the installer directly from the Ollama website and follow the on-screen instructions. ... Ollama runs as a background service and will automatically check for updates. When an update is available, you can apply it by selecting “Restart to update” from the Ollama menu. After installation, open a terminal and check that Ollama is installed correctly: ... If you see an error when running ollama -v, it usually means the Ollama service is not running yet. Start the Ollama server manually: ... Once the version command works, Ollama is ready to be used in the next steps of the tutorial.\n\nOnce Ollama is installed and running, the next step is to download the GLM 4.7 Flash model and verify that it works correctly. This step ensures the model runs locally before integrating it with Claude Code. ... This will download the model files and store them locally. Depending on your internet speed, this may take a few minutes. After the download completes, run the model in interactive chat mode as a quick sanity check: ... Type a simple prompt, such as a greeting, and press enter. Within a few seconds, you should receive a response. If you are running on a GPU, you will notice that responses are very fast, and the output may include internal thinking tokens or reasoning traces depending on the model configuration. You can also test the model through Ollama’s local HTTP API. This is useful to confirm that external tools can communicate with the model.\n\nWe tested multiple context sizes and found that a 10k context was not sufficient for Claude Code workflows. A 20k context provided a good balance. It was large enough for coding tasks while still maintaining fast response times and reducing unnecessary thinking loops. First, stop the running Ollama server. You can do this by pressing Ctrl + C in the terminal or by terminating the process. Next, restart Ollama with a custom context length by setting the environment variable before launching the server: ... This tells Ollama to load models with a maximum context window of 20,000 tokens. ... This confirms that GLM 4.7 Flash is running on the GPU and that the context length has been set correctly. At this point, the model is configured for stable and fast use with Claude Code. NAME ID SIZE PROCESSOR CONTEXT UNTIL glm-4.7-flash:latest d1a8a26252f1 21 GB 100% GPU 20000 About a minute from now ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.datacamp.com/tutorial/using-claude-code-with-ollama-local-models",
+                "search_provider": "anthropic",
+                "age": "February 3, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to Run Claude Code for Free with Local and Cloud Models from Ollama | Towards Data Science",
+              "url": "https://towardsdatascience.com/run-claude-code-for-free-with-local-and-cloud-models-from-ollama/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "towardsdatascience.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=towardsdatascience.com",
+                "site_name": "Towards Data Science"
+              },
+              "is_missing": false,
+              "text": "Ollama’s recent support for the Anthropic Messages API enables running Claude Code entirely on local, open-source models, eliminating the need for expensive Anthropic subscriptions.\n\nIf you are a fan of Claude Code, Anthropic’s ubiquitous command-line coding tool, but baulk at the costs of using it, Ollama recently gave you a late Christmas present. Just a couple of weeks ago, they announced that their latest Ollama versions are now compatible with the Anthropic Messages API. If that statement is a little underwhelming for you, what it means in practice is that you can now run Claude Code with local models using Ollama, making it completely free to use. In addition, you can also use Ollama cloud-based models initially for free, although frequent use of cloud models is limited without a paid subscription · Ok, so you lose the capabilities of Anthropic’s very top models like Opus 4.5, etc., but the top open source coding models are very good in their own right. For building demos and MVPs and, importantly, for learning Claude Code, they will be more than good enough.\n\nTo run Claude Code, type the following command in a PowerShell command-line window. PS C:\\Users\\thoma> $env:ANTHROPIC_AUTH_TOKEN = \"ollama\" PS C:\\Users\\thoma> $env:ANTHROPIC_API_KEY = \"\" PS C:\\Users\\thoma> $env:ANTHROPIC_BASE_URL = \"http://localhost:11434\" PS C:\\Users\\thoma> claude --model gpt-oss:20b --allow-dangerously-skip-permissions · Click any required permissions you are presented with, and eventually, you should see the familiar CC screen. ... I created a new directory for my project, switched to it, and started Claude Code. I wanted CC to create a Python file that prints the text “Hello World”. Here is the conversation I had with it. ❯ create a python file that will output Hello World when ran ⎿ Error writing file ● I'm ready to help. Use /help for usage instructions or report issues at https://github.com/anthropics/claude-code/issues.\n\nOllama’s recent support for the Anthropic Messages API enables running Claude Code entirely on local, open-source models, eliminating the need for expensive Anthropic subscriptions. There is also the possibility to use even more advanced, non-local models via the Ollama Cloud LLM service. Using Ollama with top open-source LLMs, developers can enjoy Claude Code’s workflow and still enjoy full control over cost, privacy, and infrastructure. In this article, we walked through installing Ollama, downloading two capable models, one local and one cloud-based. We then showed how to install and configure Claude Code to use the models and validated that our setup worked with some real coding examples. While this approach can’t match the capabilities of Anthropic’s flagship proprietary models, it offers a highly practical, zero-cost alternative that is more than sufficient for most day-to-day development tasks and for learning about Clode Code itself.\n\nThis simply means that the model runs on Ollama’s servers, not locally, and all inference is routed through their servers. As I mentioned before, all users receive a free amount of cloud model use, but you’ll need a paid subscription if you want to use cloud models frequently. PS C:\\Users\\thoma\\projects\\kanban> claude --model qwen3-coder:480b-cloud --allow-dangerously-skip-permissions ╭─── Claude Code v2.1.20 ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮ │ │ Tips for getting started │ │ Welcome back!",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://towardsdatascience.com/run-claude-code-for-free-with-local-and-cloud-models-from-ollama/",
+                "search_provider": "anthropic",
+                "age": "January 31, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "I used Claude Code with a local LLM on Ollama, and it’s surprisingly capable for something that's free",
+              "url": "https://www.xda-developers.com/claude-code-local-llm-ollama-capable-costs-nothing/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "xda-developers.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=xda-developers.com",
+                "site_name": "XDA Developers"
+              },
+              "is_missing": false,
+              "text": "Claude Code with Opus is fantastic. It gets things done, and it’s so capable that you almost start wondering if this thing is alive. But it also burns through credits at an insane rate. You can spend an hour working while it generates an extension for you, but the moment you get into any serious coding, you run out of credits and end up stuck waiting. During one of those moments, while waiting for credits to reset, I figured I’d try a local model through Ollama and see how it holds up. I ended up using Qwen 3.5, the 9 billion parameter model, and it’s not as bad as I expected. It’s not really competing with Opus or even Sonnet, but it still gets the job done, especially considering you’re not paying anything. It just runs locally on your laptop or PC, and that alone makes it worth trying. ... The setup is simpler than you&#x27;d expect. You start by installing Ollama like any other macOS app from ollama.com.\n\nClaude Code with Opus is fantastic. It gets things done, and it’s so capable that you almost start wondering if this thing is alive. But it also burns through credits at an insane rate. You can spend an hour working while it generates an extension for you, but the moment you get into any serious coding, you run out of credits and end up stuck waiting. During one of those moments, while waiting for credits to reset, I figured I’d try a local model through Ollama and see how it holds up. I ended up using Qwen 3.5, the 9 billion parameter model, and it’s not as bad as I expected. It’s not really competing with Opus or even Sonnet, but it still gets the job done, especially considering you’re not paying anything. It just runs locally on your laptop or PC, and that alone makes it worth trying. ... The setup is simpler than you'd expect. You start by installing Ollama like any other macOS app from ollama.com.\n\nFrom there, everything happens in the terminal. Pull the model with the command below. Ollama downloads and prepares it in the background. ... Next, install Claude Code. Then point Claude Code at your local Ollama server instead of Anthropic's API by setting the environment variables. ... Once inside, run /init and Claude Code will scan your codebase and set itself up. From there, you can give it tasks just like you would with any Claude model. Before you even think about running something like Qwen locally, you need to be realistic about the hardware. A local LLM will happily eat up your memory and compute if you let it. If you’re on 8GB RAM, you’re going to struggle. I have noticed even basic models will push your system into swap, and that’s when everything slows down. With 16GB RAM, things become usable, but only up to a point. If you’re not on Apple Silicon, you’ll likely need a dedicated GPU to get a decent experience, because CPU-only setups tend to be painfully slow for anythin\n\nGet hands-on coverage in the newsletter of local LLM workflows: step-by-step Ollama setup, model sizing and hardware trade-offs, and real-world coding use cases so you can implement these techniques and explore related topics. ... By subscribing, you agree to receive newsletter and marketing emails, and accept our Terms of Use and Privacy Policy. You can unsubscribe anytime. One of the most practical use cases of running something like Claude Code with a local LLM shows up when you hit API limits. If you are using higher-end models like Opus or Sonnet, it is easy to burn through tokens during a long coding session, and once that happens, your workflow just stops. Instead of waiting for credits to reset, you can switch to a local model and keep going. It is not ideal for heavy lifting, but for smaller follow-ups, quick fixes, or minor experiments on code that is already in place, it works well enough.\n\nLocal models usually fall apart even on basic tasks, so I was expecting Qwen through Ollama to struggle pretty quickly, but that didn’t really happen in practice. For everyday coding work, Qwen 3 is way more usable than I expected. It is particularly strong when it comes to reading and explaining code. You can point it at an unfamiliar file and ask what is going on, and it will give you a clear breakdown. If you ask it to trace data flow or explain why something is structured a certain way, it handles that reliably. Writing code is more of a mixed experience, but still solid. It handles boilerplate, helper functions, and simple components without much trouble. I used it to scaffold a form handler, generate utility functions, and extend templates, and the results were usable with minimal edits. It does not always get everything right on the first pass, but the gap is small enough that fixing it is faster than starting from scratch.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.xda-developers.com/claude-code-local-llm-ollama-capable-costs-nothing/",
+                "search_provider": "anthropic",
+                "age": "1 week ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to Use Claude Code with Local Models (Ollama Guide) - DEV Community",
+              "url": "https://dev.to/proflead/how-to-use-claude-code-with-local-models-ollama-guide-9fn",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "dev.to",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=dev.to",
+                "site_name": "DEV Community"
+              },
+              "is_missing": false,
+              "text": "For streaming tool calls (used when Claude Code executes functions or scripts), a pre-release such as 0.14.3‑rc1 may be required. ... After installation, verify the version with ollama version. Choose a local model suitable for coding tasks. You can see the full list on https://ollama.com/search website. Pulling a model downloads and configures it. For example: # Pull the 20 B parameter GPT‑OSS model ollama pull gpt-oss:20b · # Pull Qwen Coder (a general coding model) ollama pull qwen3-coder · To use Claude Code’s advanced tool features locally, the article Running Claude Code fully local recommends GLM-4.7-flash because it supports tool-calling and provides a 128K context length. Pull it with: ... Claude Code is Anthropic’s agentic coding tool. It can read and modify files, run tests, fix bugs, and even handle merge conflicts across your entire code base.\n\nIn January 2026, Ollama added support for the Anthropic Messages API, enabling Claude Code to connect... Tagged with agents, ai, programming, llm.\n\nIn January 2026, Ollama added support for the Anthropic Messages API, enabling Claude Code to connect directly to any Ollama model. This tutorial explains how to install Claude Code, pull and run local models using Ollama, and configure your environment for a seamless local coding experience. Ollama is a locally deployed AI model runner that lets you download and run large language models on your own machine. It provides a command-line interface and an API, supports open models such as Mistral and Gemma, and uses quantization to make models run efficiently on consumer hardware. A model file allows you to customise base models, system prompts, and parameters (temperature, top-p, top-k). Running models locally gives you offline capability and protects sensitive data. To use Claude Code with local models, you need Ollama v0.14.0 or later. The January 2026 blog notes that this version implements Anthropic Messages API compatibility.\n\nFor streaming tool calls (used when Claude Code executes functions or scripts), a pre-release such as 0.14.3‑rc1 may be required. ... After installation, verify the version with ollama version. Choose a local model suitable for coding tasks. You can see the full list on https://ollama.com/search website. Pulling a model downloads and configures it. For example: # Pull the 20 B parameter GPT‑OSS model ollama pull gpt-oss:20b · # Pull Qwen Coder (a general coding model) ollama pull qwen3-coder · To use Claude Code’s advanced tool features locally, the article Running Claude Code fully local recommends GLM-4.7-flash because it supports tool-calling and provides a 128K context length. Pull it with: ... Claude Code is Anthropic’s agentic coding tool. It can read and modify files, run tests, fix bugs, and even handle merge conflicts across your entire code base.\n\nAnd that’s it! Now your Claude code works with Ollama and local models. ... By pairing Claude Code with Ollama, you can run agentic coding workflows entirely on your own machine. Don’t expect the same experience as with the Anthropic models! Experiment with different models and share with me which one worked the best for you! ... The config can be done now with ollama launch claude --config without setting the variables (though still export OLLAMA_HOST=myhost:11434 if you have a remote dedicated inference server running ollama as a service first) ... Thank you for writing, very interesting. After installation, verify the version with: ollama --version for me, on OSX · Some comments may only be visible to logged-in visitors. Sign in to view all comments. For further actions, you may consider blocking this person and/or reporting abuse ... Developer & PhD Researcher in AI ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://dev.to/proflead/how-to-use-claude-code-with-local-models-ollama-guide-9fn",
+                "search_provider": "anthropic",
+                "age": "January 24, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code with Anthropic API compatibility · Ollama Blog",
+              "url": "https://ollama.com/blog/claude",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "Claude Code is Anthropic’s agentic coding tool that lives in your terminal. With Anthropic API support, you can now use Claude Code with any Ollama model. ... It is recommended to run a model with at least 32K tokens context length.\n\nOllama v0.14.0 and later are now compatible with the Anthropic Messages API, making it possible to use tools like Claude Code with open-source models. Run Claude Code with local models on your machine, or connect to cloud models through ollama.com. Claude Code is Anthropic’s agentic coding tool that lives in your terminal. With Anthropic API support, you can now use Claude Code with any Ollama model. ... It is recommended to run a model with at least 32K tokens context length. For more information, please see context length documentation on how to make changes. Ollama’s cloud models always run at their full context length. ... Existing applications using the Anthropic SDK can connect to Ollama by changing the base URL. See the Anthropic compatibility documentation for details.\n\nFor more detailed setup instructions and configuration options, see the Claude Code guide.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ollama.com/blog/claude",
+                "search_provider": "anthropic",
+                "age": "January 16, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Run Claude Code with Local LLMs Using Ollama | by Mehul Gupta | Data Science in Your Pocket | Medium",
+              "url": "https://medium.com/data-science-in-your-pocket/run-claude-code-with-local-llms-using-ollama-a97d2c2f2bd1",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "medium.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=medium.com",
+                "site_name": "Medium"
+              },
+              "is_missing": false,
+              "text": "This opens up faster, more flexible coding workflows without being tied to the cloud. Ollama now supports Anthropic Messages API compatibility, which means Claude Code can interact with any Ollama model. You can: Run models locally on your machine.\n\nIf you’re a developer who loves coding in the terminal, you’ve probably heard of Claude Code, Anthropic’s agentic coding tool. Until recently, using Claude Code meant connecting to Anthropic’s API. But now, with Ollama v0.14.0+, you can run Claude Code locally with open-source models or connect to cloud models. This opens up faster, more flexible coding workflows without being tied to the cloud. Ollama now supports Anthropic Messages API compatibility, which means Claude Code can interact with any Ollama model. You can: Run models locally on your machine. Connect to cloud models hosted by Ollama. Use Claude Code features like multi-turn conversations, tool calling, and vision inputs. ... Tip: For coding tasks, use models with at least 64k tokens context length for smoother, longer interactions. ... If you already have applications using Anthropic’s SDK, switching to Ollama is simple — just update the base URL.\n\nWhether you’re building tools, prototyping ideas, or just experimenting, Claude Code + Ollama makes it seamless to integrate advanced LLMs right into your terminal workflow.\n\nclient = anthropic.Anthropic( base_url='http://localhost:11434', api_key='ollama', # required but ignored ) message = client.messages.create( model='qwen3-coder', messages=[{'role': 'user', 'content': 'Write a function to check if a number is prime'}] ) ... const message = await anthropic.messages.create({ model: 'qwen3-coder', messages: [{ role: 'user', content: 'Write a function to check if a number is prime' }], }) ... Claude Code can use models that interact with external tools.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://medium.com/data-science-in-your-pocket/run-claude-code-with-local-llms-using-ollama-a97d2c2f2bd1",
+                "search_provider": "anthropic",
+                "age": "January 20, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code + Ollama: Stress Testing Opus 4.5 vs GLM 4.7 - The Miners",
+              "url": "https://blog.codeminer42.com/claude-code-ollama-stress-testing-opus-4-5-vs-glm-4-7/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "codeminer42.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=codeminer42.com",
+                "site_name": "CodeMiner42"
+              },
+              "is_missing": false,
+              "text": "However, I had the idea that Claude Code played a part in this greatness. Now that Ollama made it possible, it’s a good chance to test the Agent isolated from the model. I then decided to compare Opus 4.5 vs GLM 4.7 inside Claude Code. With the latest Ollama version, it’s very simple to setup Claude Code to use Ollama models. You must set two environment variables: ANTHROPIC_BASE_URL and ANTHROPIC_AUTH_TOKEN. The first one must point to your local Ollama server, usually http://localhost:11434/v1. The second can be anything actually. ... Pull the model that you want to use, e.g. ollama pull glm-4.7:cloud · Start Claude Code with the environment variables set: ANTHROPIC_BASE_URL=http://localhost:11434 ANTHROPIC_AUTH_TOKEN=ollama claude --model glm-4.7:cloud · I’m using GLM 4.7 from the cloud because I don’t have enough hardware to run it locally.\n\nOllama just made it possible for you to use their models inside of Claude Code. To test Claude Code capabilities and compare top open models with closed ones, I compared GLM 4.7 and Opus 4.5 on a task that requires attention to details and debugging skills. The TL;DR is that Opus 4.5 outperformed GLM 4.7 by (what I consider) a large margin. This makes GLM 4.7 seem useless but it’s not. The task of doing this is more tedious than difficult. Claude Code, as an agent, just makes calls to the Anthropic servers to get the model’s responses. To get this working with any other API is a matter of implementing a proxy that translates the calls from Claude Code to the target API. I’m not saying that this work has no value. On the contrary, it’s great work that requires attention and knowledge of both systems. But it’s not something that only Ollama could do.\n\nHowever, I had the idea that Claude Code played a part in this greatness. Now that Ollama made it possible, it’s a good chance to test the Agent isolated from the model. I then decided to compare Opus 4.5 vs GLM 4.7 inside Claude Code. With the latest Ollama version, it’s very simple to setup Claude Code to use Ollama models. You must set two environment variables: ANTHROPIC_BASE_URL and ANTHROPIC_AUTH_TOKEN. The first one must point to your local Ollama server, usually http://localhost:11434/v1. The second can be anything actually. ... Pull the model that you want to use, e.g. ollama pull glm-4.7:cloud · Start Claude Code with the environment variables set: ANTHROPIC_BASE_URL=http://localhost:11434 ANTHROPIC_AUTH_TOKEN=ollama claude --model glm-4.7:cloud · I’m using GLM 4.7 from the cloud because I don’t have enough hardware to run it locally.\n\nOllama just implemented an adapter for Claude Code https://github.com/ollama/ollama/blob/main/anthropic/anthropic.go It acts as a proxy, requests are sent to Ollama API instead of anthropic server. I want you to implement a proxy like this to Vertex API, but it should be in Node.js. Make direct calls as in the following curl. Don't install any library for calling Vertex api. curl \"https://aiplatform.googleapis.com/v1/publishers/google/models/gemini-3-pro-preview:streamGenerateContent?key=YOUR_API_KEY\" \\ -X POST \\ -H \"Content-Type: application/json\" \\ -d '{ \"contents\": [ { \"role\": \"user\", \"parts\": [ { \"text\": \"Explain how AI works in a few words\" } ] } ] }' I will provide the API key through CLI. It should get a server running. Claude Code will be pointed to it. This is a simple prompt. I give the reference to the Ollama implementation, the curl to call Vertex API and I just want a Node.js server that acts as a proxy.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://blog.codeminer42.com/claude-code-ollama-stress-testing-opus-4-5-vs-glm-4-7/",
+                "search_provider": "anthropic",
+                "age": "February 10, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "claude code integration with ollama to use local models · GitHub",
+              "url": "https://gist.github.com/iam-veeramalla/d0f46791619b0db348d8312060a80f2d",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "1.Install Ollama Open CMD/terminal and run below command curl -fsSL https://ollama.com/install.sh | sh 2.Pull the Model Install model based on your system configuration using belw commands ollama pull glm-4.7-flash # or gpt-oss:20b (for better performance) or ollama pull gemma:2b *.Optional: ollama run gemma:2b and work in your local 3.Install Claude Install Claude using below commands macOS, Linux, WSL: curl -fsSL https://claude.ai/install.sh | bash Windows CMD: curl -fsSL https://claude.ai/install.cmd -o install.cmd &amp;&amp; install.cmd &amp;&amp; del install.cmd 4.Run Claude with Ollama Launch Claude using below commands ollama launch claude --model glm-4.7-flash # or ollama launch claude --model glm-4.7-flash gpt-oss:20b ... I&#x27;ve followed this directive and all works but claude, one the first test command &quot;write a python function to reverse a script&quot; its been hyperspacing for 10mins+ Bare in mind i&#x27;m working the qwen2.5-coder:7b model.\n\nI tried it but claude can't see the local filesystem not even the files in the directory I run it from. ... eshwar: ollama launch claude --model qwen3-coder-next:latest Error: unknown command \"launch\" for \"ollama\" ... eshwar: ollama launch claude --model qwen3-coder-next:latest Error: unknown command \"launch\" for \"ollama\" ... eshwar: ollama launch claude --model qwen3-coder-next:latest Error: unknown command \"launch\" for \"ollama\" Ran to this same issue. I just updated ollama and it works fine now. ... eshwar: ollama launch claude --model qwen3-coder-next:latest Error: unknown command \"launch\" for \"ollama\" man , how about Error: unknown command \"launch\" for \"ollama\" ? thanks. ... eshwar: ollama launch claude --model qwen3-coder-next:latest Error: unknown command \"launch\" for \"ollama\" man , how about Error: unknown command \"launch\" for \"ollama\" ? thanks.\n\neshwar: ollama launch claude --model qwen3-coder-next:latest Error: unknown command \"launch\" for \"ollama\" ... Hey guys I tried the same but with different model qwen2.5-coder:7b I tried with the continue extension in vs code and also with the Claude as well, why this is giving the output in only json format ... Hey guys I tried the same but with different model qwen2.5-coder:7b I tried with the continue extension in vs code and also with the Claude as well, why this is giving the output in only json format ... I tried it but claude can't see the local filesystem not even the files in the directory I run it from. I had same problem. Check /permissions, by default almost all usable are denied. I added for example Bash to Allow rules and file access started working. ... Hi @iam-veeramalla @ShubhmPatil @chinthakindi-saikumar - I am running Windows with PowerShell and set up Ollama with the local model qwen3.5:9b.\n\n1.Install Ollama Open CMD/terminal and run below command curl -fsSL https://ollama.com/install.sh | sh 2.Pull the Model Install model based on your system configuration using belw commands ollama pull glm-4.7-flash # or gpt-oss:20b (for better performance) or ollama pull gemma:2b *.Optional: ollama run gemma:2b and work in your local 3.Install Claude Install Claude using below commands macOS, Linux, WSL: curl -fsSL https://claude.ai/install.sh | bash Windows CMD: curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd 4.Run Claude with Ollama Launch Claude using below commands ollama launch claude --model glm-4.7-flash # or ollama launch claude --model glm-4.7-flash gpt-oss:20b ... I've followed this directive and all works but claude, one the first test command \"write a python function to reverse a script\" its been hyperspacing for 10mins+ Bare in mind i'm working the qwen2.5-coder:7b model.\n\nollama launch claude --model glm-4.7-flash # or ollama launch claude --model glm-4.7-flash gpt-oss:20b ... used instead curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd for windows ... used instead curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd for windows ... Here are the clear steps @vinoth-6 .",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://gist.github.com/iam-veeramalla/d0f46791619b0db348d8312060a80f2d",
+                "search_provider": "anthropic",
+                "age": "1 week ago"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-04-03T23:18:35.018866Z",
+          "stop_timestamp": "2026-04-03T23:18:35.559721Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01ARTqeM4zQqGuDoC42ScJao",
+          "name": "web_search",
+          "input": {
+            "query": "best local model MacBook Air M5 16GB Claude Code Ollama 2025 qwen3-coder glm"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01ARTqeM4zQqGuDoC42ScJao",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "I used Claude Code with a local LLM on Ollama, and it’s surprisingly capable for something that's free",
+              "url": "https://www.xda-developers.com/claude-code-local-llm-ollama-capable-costs-nothing/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "xda-developers.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=xda-developers.com",
+                "site_name": "XDA Developers"
+              },
+              "is_missing": false,
+              "text": "Then point Claude Code at your local Ollama server instead of Anthropic&#x27;s API by setting the environment variables. ... Once inside, run /init and Claude Code will scan your codebase and set itself up. From there, you can give it tasks just like you would with any Claude model. Before you even think about running something like Qwen locally, you need to be realistic about the hardware. A local LLM will happily eat up your memory and compute if you let it. If you’re on 8GB RAM, you’re going to struggle. I have noticed even basic models will push your system into swap, and that’s when everything slows down. With 16GB RAM, things become usable, but only up to a point. If you’re not on Apple Silicon, you’ll likely need a dedicated GPU to get a decent experience, because CPU-only setups tend to be painfully slow for anything beyond very small models. I was running this on a MacBook Air (M5, 16GB RAM), which is about as common a baseline as it gets.\n\nThen point Claude Code at your local Ollama server instead of Anthropic's API by setting the environment variables. ... Once inside, run /init and Claude Code will scan your codebase and set itself up. From there, you can give it tasks just like you would with any Claude model. Before you even think about running something like Qwen locally, you need to be realistic about the hardware. A local LLM will happily eat up your memory and compute if you let it. If you’re on 8GB RAM, you’re going to struggle. I have noticed even basic models will push your system into swap, and that’s when everything slows down. With 16GB RAM, things become usable, but only up to a point. If you’re not on Apple Silicon, you’ll likely need a dedicated GPU to get a decent experience, because CPU-only setups tend to be painfully slow for anything beyond very small models. I was running this on a MacBook Air (M5, 16GB RAM), which is about as common a baseline as it gets.\n\nI didn't expect it to be usable.\n\nGet hands-on coverage in the newsletter of local LLM workflows: step-by-step Ollama setup, model sizing and hardware trade-offs, and real-world coding use cases so you can implement these techniques and explore related topics. ... By subscribing, you agree to receive newsletter and marketing emails, and accept our Terms of Use and Privacy Policy. You can unsubscribe anytime. One of the most practical use cases of running something like Claude Code with a local LLM shows up when you hit API limits. If you are using higher-end models like Opus or Sonnet, it is easy to burn through tokens during a long coding session, and once that happens, your workflow just stops. Instead of waiting for credits to reset, you can switch to a local model and keep going. It is not ideal for heavy lifting, but for smaller follow-ups, quick fixes, or minor experiments on code that is already in place, it works well enough.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.xda-developers.com/claude-code-local-llm-ollama-capable-costs-nothing/",
+                "search_provider": "anthropic",
+                "age": "1 week ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "The Best Local LLMs To Run On Every Mac (Apple Silicon)",
+              "url": "https://apxml.com/posts/best-local-llm-apple-silicon-mac",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "apxml.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=apxml.com",
+                "site_name": "APXML"
+              },
+              "is_missing": false,
+              "text": "List of the best local LLMs for Apple Silicon Macs, optimized for your specific RAM configuration.\n\nBy Ryan A. on Jul 4, 2025 ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://apxml.com/posts/best-local-llm-apple-silicon-mac",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Run Claude Code with Local & Cloud Models in 5 Minutes (Ollama, LM Studio, llama.cpp, OpenRouter) | by Luong NGUYEN | Medium",
+              "url": "https://medium.com/@luongnv89/run-claude-code-on-local-cloud-models-in-5-minutes-ollama-openrouter-llama-cpp-6dfeaee03cda",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "medium.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=medium.com",
+                "site_name": "Medium"
+              },
+              "is_missing": false,
+              "text": "My test setup for the examples: MacBook Pro M1 (32GB RAM) and Nvidia DGX Spark (120GB RAM, GB10 GPU). I’ll show the simplest paths first (Ollama local and easy cloud routing), then the more flexible setups. If you want Claude Code + local models to be genuinely usable for coding (not just a demo), I’d aim for: RAM: 32GB (Apple Silicon unified memory or PC RAM) ... At 16GB you can run smaller models, but the experience tends to be rough (more wrong edits + more retries = slower overall). devstral-small-2 (24B) → good starting point for coding quality · qwen3-coder:30b → better coding ability, still practical on 32GB · GLM4.7-flash:q8_0 → strong value/latency tradeoff (quantized) Let’s be honest — Claude Code with the official API is great, but it adds up fast. I was burning through credits just experimenting with features. So I started looking for alternatives.\n\nThis post exists because the old guides were written back when using non-Anthropic models in Claude Code required hacks and weird adapters…\n\nMy test setup for the examples: MacBook Pro M1 (32GB RAM) and Nvidia DGX Spark (120GB RAM, GB10 GPU). I’ll show the simplest paths first (Ollama local and easy cloud routing), then the more flexible setups. If you want Claude Code + local models to be genuinely usable for coding (not just a demo), I’d aim for: RAM: 32GB (Apple Silicon unified memory or PC RAM) ... At 16GB you can run smaller models, but the experience tends to be rough (more wrong edits + more retries = slower overall). devstral-small-2 (24B) → good starting point for coding quality · qwen3-coder:30b → better coding ability, still practical on 32GB · GLM4.7-flash:q8_0 → strong value/latency tradeoff (quantized) Let’s be honest — Claude Code with the official API is great, but it adds up fast. I was burning through credits just experimenting with features. So I started looking for alternatives.\n\nGo to huggingface.co and find any model (text-to-text) that you want to try (important: can use tool, good at coding). Here I just took qwen3-coder as a random choice. The following command will download the model bartowski/cerebras_Qwen3-Coder-REAP-25B-A3B-GGUF:Q4_K_M and set an alias “Qwen3-Coder-REAP-25B-A3B-GGUF” to make it easier to use. The server will listen on port 8000 · llama-server -hf bartowski/cerebras_Qwen3-Coder-REAP-25B-A3B-GGUF:Q4_K_M \\ --alias \"Qwen3-Coder-REAP-25B-A3B-GGUF\" \\ --port 8000 \\ --jinja \\ --kv-unified \\ --cache-type-k q8_0 --cache-type-v q8_0 \\ --flash-attn on \\ --batch-size 4096 --ubatch-size 1024 \\ --ctx-size 64000 · The --jinja flag is important — without it, tool calling doesn't work. I learned this the hard way. (Source) ... On Ndivia DGX Spark it was quite ok in term of speed, but on Mac M1 — it is quite slow (not suite for everyday task) Time: 5 minutes | Cost: Free | Best for: Privacy, no internet needed ...\n\nWith similar configuration, you can do the same for GLM, Deepseek or Kimi. The most important are: ANTHROPIC_BASE_URL, ANTHROPIC_AUTH_TOKEN, ANTHROPIC_MODEL and ANTHROPIC_API_KEY · The main takeaway: Claude Code is surprisingly flexible. You’re not locked into Anthropic’s API. If you need complete privacy with a local model, then on a Mac M1 (32 GB) it is okay to work with devstral‑2‑small (24B), but bellow that it is quite slow. If you have an Nvidia DGX Spark, then there are plenty of choices. If you prefer fast, high quality and have no problem with privacy, then cloud providers are a very good option. You can test Ollama Cloud with a free tier (quite OK for some emergency tasks). Otherwise go with Kimi, Minimax, Deepseek, or GLM, which have much cheaper prices. However, if you still need decent quality, at the moment I think Opus 4.5 is still the best (quality + speed).",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://medium.com/@luongnv89/run-claude-code-on-local-cloud-models-in-5-minutes-ollama-openrouter-llama-cpp-6dfeaee03cda",
+                "search_provider": "anthropic",
+                "age": "January 31, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Best Mac for AI in 2026: Run Local LLMs on a Budget",
+              "url": "https://www.refurb.me/blog/best-mac-for-ai",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "refurb.me",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=refurb.me",
+                "site_name": "RefurbMe"
+              },
+              "is_missing": false,
+              "text": "Type ollama run qwen3:8b and press Enter. Ollama downloads the model automatically (about 5 GB). Start chatting. Type any prompt and press Enter. Everything runs locally on your Mac. If you prefer a visual interface, download LM Studio from lmstudio.ai. Open it, browse the model catalog, click Download on a recommended model, then click Chat. No terminal required. Both tools are free. No account needed. No data sent anywhere. After the initial model download, everything works completely offline. If you have 48 GB of RAM, try ollama run qwen3:32b for a significant quality jump. For coding tasks, ollama run qwen2.5-coder:32b is the current benchmark leader among open-source models. You cannot run ChatGPT itself locally. ChatGPT is a proprietary OpenAI service. However, open-source models like Qwen 3, Llama 3.3, and DeepSeek R1 rival ChatGPT&#x27;s capabilities on many tasks.\n\nType ollama run qwen3:8b and press Enter. Ollama downloads the model automatically (about 5 GB). Start chatting. Type any prompt and press Enter. Everything runs locally on your Mac. If you prefer a visual interface, download LM Studio from lmstudio.ai. Open it, browse the model catalog, click Download on a recommended model, then click Chat. No terminal required. Both tools are free. No account needed. No data sent anywhere. After the initial model download, everything works completely offline. If you have 48 GB of RAM, try ollama run qwen3:32b for a significant quality jump. For coding tasks, ollama run qwen2.5-coder:32b is the current benchmark leader among open-source models. You cannot run ChatGPT itself locally. ChatGPT is a proprietary OpenAI service. However, open-source models like Qwen 3, Llama 3.3, and DeepSeek R1 rival ChatGPT's capabilities on many tasks.\n\nOpenClaw is an open-source autonomous AI agent created by Austrian developer Peter Steinberger. First published as \"Clawdbot\" in November 2025 and renamed to OpenClaw in January 2026, it has amassed over 247,000 GitHub stars and become one of the fastest-growing open-source projects in history. Unlike Ollama or LM Studio, OpenClaw is not a tool for chatting with AI. It is a personal AI agent that connects to LLMs (cloud or local via Ollama) and uses messaging platforms like WhatsApp, Slack, Discord, and iMessage as its interface. It runs 24/7, monitors your messages, executes multi-step tasks, manages files, and automates workflows autonomously. Think of it as an always-on digital assistant that lives on your Mac. Two forces are pushing people to buy dedicated Mac minis for OpenClaw. Always-on operation. OpenClaw is designed to run continuously. It needs a computer that stays on 24/7 without running up your electricity bill or making noise.\n\nWith the M5 Pro and M5 Max now on shelves, M3 Max machines are flowing into refurbished channels at steep discounts. A MacBook Pro M3 Max with 48 GB offers better raw AI throughput than a brand-new M4 Pro, often at a lower price. The refurbished Apple Silicon iMac M4 with 32 GB handles 7B to 14B models well enough for occasional AI use. If you want a single device with a built-in 4.5K Retina display and decent local AI capability, the iMac fills that niche. It is not an AI-first machine, but it gets the job done for lighter workloads. Four tools dominate the Mac local AI landscape. All are free. Ollama is a command-line tool that makes running AI models as simple as typing ollama run llama3.2. It exposes an OpenAI-compatible API, so developers can plug local models into any app that supports OpenAI's format. Lightweight (roughly 100 MB of RAM overhead), MIT-licensed, and the most popular choice for developers and automation.\n\nThe open-source model landscape changes fast. Ollama's model library and Hugging Face host thousands of models. Start with Qwen 3 8B if you have 16 GB of RAM, or Qwen 3 32B if you have 48 GB. Both offer strong performance across general tasks. RAM is the most expensive Mac configuration option, and it is soldered to the board. You cannot upgrade later. A Mac mini M4 Pro jumping from 24 GB to 48 GB adds $200 to the new price. On a MacBook Pro, high-RAM configurations quickly push past $3,000. Refurbished Macs offer the same chip, the same RAM, the same performance, just at a lower price. A refurbished Apple Silicon MacBook Pro with 48 GB of unified memory performs identically to a new one for AI inference. The silicon does not age. Three reasons to buy refurbished for AI in particular: The M5 timing window. Apple launched the M5 Pro and M5 Max in March 2026.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.refurb.me/blog/best-mac-for-ai",
+                "search_provider": "anthropic",
+                "age": "1 week ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Is it worthwhile to run local LLMs for coding today? - ~comp - Tildes",
+              "url": "https://tildes.net/~comp/1t2j/is_it_worthwhile_to_run_local_llms_for_coding_today",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "tildes.net",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=tildes.net",
+                "site_name": "Tildes"
+              },
+              "is_missing": false,
+              "text": "I just tried running Qwen3.5 27B @ 4b quantization on an M3 with 24GB. It loads. But it runs at 2.2 tok/s (slow). It can work with the Pi coding agent so I gave that a shot. After a few minutes it was 50% through processing the 16,000 token agent prompt, at which point Pi killed the request to the LLM because it had taken too long. I guess for simple questions it might take 15-20 minutes to give an answer. You’ll definitely need one of Apple’s Max chips with 64-128GB of memory to do even half decent agentic tasks. The M5 series’ reported 4x prompt processing speeds sounds pretty appealing now. Edit: I switched to Qwen3.5 35B-A3B @ 3b quantization. I can now actually get it to work with Oh My Pi. It&#x27;s slow but it does work. It runs 7-12x faster than the 27B monolithic model from what I&#x27;ve seen. It&#x27;s cool to see an agent running locally on a relatively low-end machine, tool calling and giving me a correct answer to a simple question.\n\nI'd like to say I don't know much about running models locally. I'm just recently got past the Ollama stage. A tips I'd recommend is that you can add your hardware to HuggingFace which on GGUF model pages it will show whether you can load that specific model. Although loading is just the first step and running it with cache & context window & other workloads (eg. desktop GUI) you'd need to add your own safety margin. ... Btw, may I ask if you've given Qwen3.5 27B a shot? Some -- admittedly kinda bad -- benchmarks figure that it's about as good as Anthropic's cheap model (Haiku 3.5). Btw, may I ask if you've given Qwen3.5 27B a shot? Some -- admittedly kinda bad -- benchmarks figure that it's about as good as Anthropic's cheap model (Haiku 3.5). ... If you want to learn how to use AI Agents, spend the 20€ or something for Claude Pro for a month and start using it.\n\nI just tried running Qwen3.5 27B @ 4b quantization on an M3 with 24GB. It loads. But it runs at 2.2 tok/s (slow). It can work with the Pi coding agent so I gave that a shot. After a few minutes it was 50% through processing the 16,000 token agent prompt, at which point Pi killed the request to the LLM because it had taken too long. I guess for simple questions it might take 15-20 minutes to give an answer. You’ll definitely need one of Apple’s Max chips with 64-128GB of memory to do even half decent agentic tasks. The M5 series’ reported 4x prompt processing speeds sounds pretty appealing now. Edit: I switched to Qwen3.5 35B-A3B @ 3b quantization. I can now actually get it to work with Oh My Pi. It's slow but it does work. It runs 7-12x faster than the 27B monolithic model from what I've seen. It's cool to see an agent running locally on a relatively low-end machine, tool calling and giving me a correct answer to a simple question.\n\nYou can test a lot of open weight models on OpenRouter. I'd say Qwen3.5 9B is quite good for getting non-coding tasks done (like querying), for coding Qwen Coder is probably the best model you can run with a single RTX 3090 but it is nowhere near GLM-4.7 (you could point Claude Code to Qwen Coder but it's not as agentic as it should be). You need a LOT of VRAM to get the model to load. The top open weight models today, GLM-4.7, Kimi K2.5, MiniMax M2.5, etc. are not possible to be loaded on a single gaming GPU at all. I think there are tricks about MoE models that you'd only load specific experts to the GPU, but you still need enough RAM for it (or you can tolerate if it loads from your SSD - I tried HDD and it takes over 5 min to load Gemma3), and it requires some tuning with your LLM runtime. There are quantized models that may fit in to consumer GPU, but it will be significantly watered down.\n\nIf you ignore overheads a parameter is one byte at 8 bit quant, half a byte at 4 bit quant, so you're looking at nominal 27GB or 13.5GB VRAM for the model itself and then that leaves a sensible amount free for context window etc. on a 32GB or 16GB card, and lets you do long context and extra caching on a 24GB card at 4 bit. The 35B model is MoE rather than monolithic - the full name is 35B-A3B, meaning \"active 3B\", so it'll run on hardware that's too small for the 27B altogether or run much faster on the same hardware by offloading inactive parts of the model. Basically the 27B model is \"what's the best quality we can get within the bounds of current consumer GPUs?\" and the 35B-A3B is \"what's a reasonable balance of quality and performance with the fewest possible active parameters?\". They're using more parameters total (which they couldn't do on the 27B version without pushing it out of reach of most users) to somewhat compensate for the fact that fewer will be active at any given tim",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://tildes.net/~comp/1t2j/is_it_worthwhile_to_run_local_llms_for_coding_today",
+                "search_provider": "anthropic",
+                "age": "1 month ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Local Free Claude & Codex with Ollama - DEV Community",
+              "url": "https://dev.to/tak089/local-free-claude-codex-with-ollama-5fg5",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "dev.to",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=dev.to",
+                "site_name": "DEV Community"
+              },
+              "is_missing": false,
+              "text": "Choose a model based on your hardware (RAM/VRAM). Here are recommendations for coding tasks: For 16-32GB RAM (smaller models, faster on CPU): qwen2.5-coder:7b (good balance of speed and quality).\n\nPrerequisites A machine with at least 16GB RAM (32GB+ recommended for better performance... Tagged with ai, opensource, llm, beginners.\n\nOllama needs a local model to power Claude Code and Codex. Choose a model based on your hardware (RAM/VRAM). Here are recommendations for coding tasks: For 16-32GB RAM (smaller models, faster on CPU): qwen2.5-coder:7b (good balance of speed and quality). ... For 32GB+ RAM (larger models, better accuracy): devstral-small-2 (24B parameters) or qwen3-coder:30b. ... High-performance option (quantized for efficiency): glm-4.7-flash:q8_0 (requires ~19-24GB VRAM for best speed). ... Larger models provide better coding assistance but may run slower on limited hardware. Claude Code is an AI coding assistant from Anthropic, but you can run it locally with Ollama's models instead of paying for API access. ... This starts Claude Code, configures it to use your local model, and prompts you to confirm trust (type \"yes\"). Option 2: Manual configuration (add to your ~/.bashrc or ~/.zshrc file): export ANTHROPIC_AUTH_TOKEN=\"ollama\" export ANTHROPIC_API_KEY=\"\" export ANTHROPIC_BASE_URL=\"http://localhost\n\nCodex (inspired by OpenAI's original code model, often used in tools like GitHub Copilot) can be run locally via a CLI tool integrated with Ollama. ... This configures and launches Codex with your local model. Confirm trust if prompted. ... Select your model and save. In the interactive session, enter prompts like \"Generate a JavaScript function for API calls.\" Navigate with Tab, use Ctrl+P for menu options. It supports code completion, explanation, and generation. Fully local and free, no API keys needed. Exit with Ctrl+C. Performance: Start with smaller models if your machine is slower. Quantized models (e.g., ending in :q8_0) are faster. Switching Models: Relaunch with a different --model flag. Cloud Hybrid: If local is too slow, try cloud models like minimax-m2.1:cloud (pull with ollama pull minimax-m2.1:cloud), but note potential costs after free tier.\n\nErrors: Ensure Ollama is running (ollama serve if needed). Check RAM usage with system tools. Updates: Keep Ollama updated for new features and model support. This setup replaces paid services like Anthropic or OpenAI APIs, keeping everything private and cost-free.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://dev.to/tak089/local-free-claude-codex-with-ollama-5fg5",
+                "search_provider": "anthropic",
+                "age": "March 3, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Selecting the Optimal Open-Source Large Language Model for Coding on Apple M3 | by Dzianis Vashchuk | Medium",
+              "url": "https://medium.com/@dzianisv/selecting-the-optimal-open-source-large-language-model-for-coding-on-apple-m3-8d2ba600d8ac",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "medium.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=medium.com",
+                "site_name": "Medium"
+              },
+              "is_missing": false,
+              "text": "For instance, on a 16GB M3, one might try Llama 3.1 8B (Q4_K_M), DeepSeek Coder 6.7B (Q4_K_M), and perhaps Qwen2.5 Coder 7B (Q4_K_M). Test Thoroughly: Evaluate the selected models on typical coding tasks.\n\nM3 Suitability: The Llama 3.1 8B parameter model is the most practical choice for typical M3 configurations (especially those with 16GB RAM). GGUF quantized versions are readily available, and tools like Ollama provide easy access (e.g., ollama run llama3.1:8b).10 · License: Llama 3.1 Community License.14 This license is permissive for research and commercial use but includes an Acceptable Use Policy and a clause requiring a separate license from Meta for services with over 700 million monthly active users. Profile: Code Llama is a family of LLMs specifically specialized for coding tasks, built upon the Llama 2 architecture.20 It was created by further training Llama 2 models on extensive code-specific datasets. The 7B, 13B, and 34B parameter versions were released in August 2023, followed by a 70B parameter version in January 2024.20 Code Llama supports many popular programming languages, including Python, C++, Java, PHP, Typescript (Javascript), C#, and Bash.20 ·\n\nM3 Suitability: At 14B parameters, Phi-4 is feasible for M3 configurations with adequate RAM (typically 16GB or more for quantized versions). GGUF versions are available, and Ollama supports phi4.16 Community reports indicate good performance on M3 Max systems.3 · License: Phi-4 is released under the permissive MIT License.43 · Profile: DBRX is a powerful Mixture-of-Experts (MoE) model developed by Databricks. It has a total of 132 billion parameters, with 36 billion parameters active during any given inference operation.47 DBRX was pre-trained on 12 trillion tokens of text and code data and supports a context length of 32,000 tokens.47 · Coding Focus: DBRX is highlighted as an especially capable code model, reportedly surpassing even specialized models like CodeLLaMA-70B on programming benchmarks.47 · M3 Suitability: Due to its size, even with only 36B active parameters, DBRX is challenging for most standard M3 configurations.\n\nChoose Initial Tools: Start with user-friendly tools like Ollama or LM Studio. These simplify the download, setup, and management process significantly. Select and Download Candidates: Based on the M3 configuration and priorities outlined above, select 2–3 promising models and their appropriate GGUF quantization levels. For instance, on a 16GB M3, one might try Llama 3.1 8B (Q4_K_M), DeepSeek Coder 6.7B (Q4_K_M), and perhaps Qwen2.5 Coder 7B (Q4_K_M). Test Thoroughly: Evaluate the selected models on typical coding tasks. Consider: Quality of generated code (correctness, efficiency, style). Relevance and accuracy of code explanations or debugging suggestions. Responsiveness (Time to First Token — TTFT). Inference speed (tokens/second) with varying context lengths. How well the model maintains context over longer interactions or with larger code inputs.\n\n“” is published by Dzianis Vashchuk.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://medium.com/@dzianisv/selecting-the-optimal-open-source-large-language-model-for-coding-on-apple-m3-8d2ba600d8ac",
+                "search_provider": "anthropic",
+                "age": "June 11, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Best Local LLM Models 2026 | Developer Comparison",
+              "url": "https://www.sitepoint.com/best-local-llm-models-2026/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "sitepoint.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=sitepoint.com",
+                "site_name": "SitePoint"
+              },
+              "is_missing": false,
+              "text": "Developers working across polyglot codebases or generating multilingual documentation should prioritize Qwen 3. Qwen 3 7B posts the highest HumanEval score (76.0) of any model under 8B parameters in this comparison, a 3.4-point margin over Llama ...\n\nVerify available model tags at ollama.com/library before pulling. For example, confirm the exact Qwen 3 tag at ollama.com/library/qwen3 before running ollama pull qwen3. Multiple models can coexist on disk, managed through ollama list and removed with ollama rm <name>:<tag>. LM Studio offers a desktop GUI for browsing, downloading, and running models, with an integrated chat interface and a built-in model discovery browser. For developers who prefer visual tooling or need to quickly compare model outputs side by side, it reduces friction significantly. ... Open LM Studio and load a model via the GUI. Navigate to the \"Local Server\" tab and click \"Start Server.\" Note the model identifier displayed in the server panel — you will need it for API calls. Note: LM Studio's local server listens on localhost:1234 by default with no authentication. Ensure it is bound to 127.0.0.1 (not 0.0.0.0) and avoid exposing it on shared networks without additional access controls.\n\nWe tested three quantization levels: Q4_K_M (4-bit, medium quality), Q5_K_M (5-bit, medium quality), and Q8 (8-bit). We used Ollama as the inference runtime for all benchmarks, while LM Studio provided GUI-based testing and OpenAI-compatible API validation. We matched hardware tiers to the three categories detailed in the hardware section below: 8GB RAM integrated GPU, 16GB RAM with a dedicated GPU (8 to 12GB VRAM), and 32GB+ RAM with 24GB+ VRAM. Methodology note: Benchmark scores are indicative, not definitive. They were obtained in single runs on the hardware tiers described below. Variance across runs was not measured. Readers should treat these as directional guidance and verify against their own hardware and workloads. Exact hardware, Ollama version, and OS were not recorded with sufficient rigor for strict reproduction; we recommend running ollama --version and documenting your setup before benchmarking.\n\nThe primary weakness for Western developers is tooling. Fewer Ollama-native integrations, fewer community fine-tunes on English-language platforms, and less documentation in English. Q4_K_M is the recommended quantization for the 7B variant. Developers working across polyglot codebases or generating multilingual documentation should prioritize Qwen 3. Qwen 3 7B posts the highest HumanEval score (76.0) of any model under 8B parameters in this comparison, a 3.4-point margin over Llama 3.3's 72.6. Ollama provides the fastest path from zero to running a local LLM. It handles model downloading, quantization selection, and inference in a single CLI tool, abstracting away the underlying llama.cpp machinery. Installation is a single command on macOS and Linux. Windows users can use WSL2 or the native Windows installer at ollama.com/download. Note: Pulling models requires significant disk space and bandwidth.\n\n| tail -1 | tr -d 'G ') required_gb=10 if [ \"${available_gb}\" -lt \"${required_gb}\" ]; then echo \"Insufficient disk space: ${available_gb}GB available, ${required_gb}GB required.\" >&2 exit 1 fi # Define model tag once; verify the exact tag at https://ollama.com/library/llama3.3 MODEL=\"llama3.3:8b-instruct-q4_K_M\" # Pull the Llama 3.3 8B model with error handling ollama pull \"${MODEL}\" || { echo \"Error: Failed to pull model '${MODEL}'. Check tag and connectivity.\" >&2 exit 1 } # Confirm the expected model is present before running ollama list | grep -q \"${MODEL}\" || { echo \"Error: Model '${MODEL}' not found after pull.\" >&2 exit 1 } # Run an interactive prompt (quoted to prevent word-splitting/glob expansion) PROMPT=\"Explain async/await in JavaScript\" ollama run \"${MODEL}\" \"${PROMPT}\" # List downloaded models ollama list · Switching between models is as simple as pulling a different tag.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.sitepoint.com/best-local-llm-models-2026/",
+                "search_provider": "anthropic",
+                "age": "3 weeks ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Best Local LLMs to Run On Every Apple Silicon Mac in 2026",
+              "url": "https://apxml.com/posts/best-local-llms-apple-silicon-mac",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "apxml.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=apxml.com",
+                "site_name": "APXML"
+              },
+              "is_missing": false,
+              "text": "Top-performing local LLMs for every Mac configuration, from M1 to M4 Max. Learn how to optimize your setup for privacy and speed.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://apxml.com/posts/best-local-llms-apple-silicon-mac",
+                "search_provider": "anthropic",
+                "age": "February 1, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "I Ran Local AI on My MacBook and iPhone. The Gap Is Closing Fast",
+              "url": "https://thoughts.jock.pl/p/local-llm-macbook-iphone-qwen-experiment",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "jock.pl",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=jock.pl",
+                "site_name": "Jock"
+              },
+              "is_missing": false,
+              "text": "# Install Ollama (or download from ollama.com) brew install ollama # Pull Qwen 3.5 — pick your size based on RAM ollama pull qwen3.5:9b # 16 GB RAM, my recommendation ollama pull qwen3.5:4b # 8 GB RAM, if you&#x27;re tight on memory # Run it ollama run qwen3.5:9b · That’s it. Ollama starts a local server at localhost:11434 with an OpenAI-compatible API. If you use Claude Code, you can point it at Ollama by setting the base URL. Any tool built for the OpenAI API format just works. You’re now offline, no API key, no cost per token. Since Wiz is built to be model-agnostic, switching to a local Ollama-served model was a configuration change. That’s it. One line. And then I was running tasks through my agent system with Qwen instead of Claude. ... Memory recall worked surprisingly well. I asked it to pull context from my memory files. It read them and surfaced relevant information with reasonable accuracy.\n\nNormal hardware x really smart local LLMs = future\n\n# Install Ollama (or download from ollama.com) brew install ollama # Pull Qwen 3.5 — pick your size based on RAM ollama pull qwen3.5:9b # 16 GB RAM, my recommendation ollama pull qwen3.5:4b # 8 GB RAM, if you're tight on memory # Run it ollama run qwen3.5:9b · That’s it. Ollama starts a local server at localhost:11434 with an OpenAI-compatible API. If you use Claude Code, you can point it at Ollama by setting the base URL. Any tool built for the OpenAI API format just works. You’re now offline, no API key, no cost per token. Since Wiz is built to be model-agnostic, switching to a local Ollama-served model was a configuration change. That’s it. One line. And then I was running tasks through my agent system with Qwen instead of Claude. ... Memory recall worked surprisingly well. I asked it to pull context from my memory files. It read them and surfaced relevant information with reasonable accuracy.\n\nIf you’re curious: install Ollama, pull Qwen 3.5 at 9B, and try something simple in your workflow. The experience is different from running a benchmark. It’s surprisingly real. Thanks for reading Digital Thoughts!\n\nThe hardware argument is important here too. Look at the last four years of consumer silicon. M1, M2, M3, M4, M5. Each generation meaningfully faster and more memory-efficient than the last. The trajectory on both sides, better models and better hardware, is pointing toward the same place. A few years from now, the laptops people already own will run models that feel noticeably more capable than what I ran this week. My rough prediction: in three years, there will be local models fine-tuned to specific use cases that genuinely compete with today’s frontier models on those specific tasks. Not on general reasoning. Not on creative synthesis. But on “do this specific thing I care about, quickly, privately, without an internet connection.” That’s a very real and useful category. There’s also an environmental angle that doesn’t get discussed enough.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://thoughts.jock.pl/p/local-llm-macbook-iphone-qwen-experiment",
+                "search_provider": "anthropic",
+                "age": "1 month ago"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-04-03T23:18:37.311277Z",
+          "stop_timestamp": "2026-04-03T23:19:02.600447Z",
+          "flags": null,
+          "type": "text",
+          "text": "검색 결과를 토대로 CSP의 상황에 맞게 솔직하게 정리해드리겠습니다.\n\n---\n\n## M5 MacBook Air 16GB + Claude Code 로컬 모델 가이드\n\n### 먼저 현실적인 이야기부터\n\nM5 MacBook Air 16GB 기준으로, 16GB RAM에서는 더 작은 모델만 실용적으로 돌아가고 경험이 다소 거칠 수 있습니다. 진짜 쓸만한 Claude Code + 로컬 모델 환경을 원한다면 32GB RAM이 목표 스펙이고, 16GB에서는 \"작동하긴 하지만 wrong edit + retry가 늘어나서 전체적으로 느릴 수 있다\"는 게 솔직한 평가입니다.\n\n그럼에도 M5 칩의 Neural Engine과 unified memory 특성 때문에 같은 16GB라도 인텔 맥보다 훨씬 낫습니다. 시도해볼 가치는 충분합니다.\n\n---\n\n### 16GB 환경 최적 모델 3가지\n\n**① qwen3.5:9b — 일상 추천 (메인)**\n\n16GB RAM 기준으로 가장 많이 추천되는 조합이 qwen3.5:9b입니다. Tool use를 지원하고 한국어 성능도 좋습니다. 약 5GB 용량으로 메모리에 여유가 생겨 다른 앱과 병행 가능합니다.\n\n```bash\nollama pull qwen3.5:9b\nollama launch claude --model qwen3.5:9b\n```\n\n**② qwen3-coder — 코딩 특화 (추천)**\n\n코딩 작업에서 tool calling을 지원하는 모델로 qwen3-coder가 자주 언급됩니다. Qwen 시리즈는 코딩 벤치마크에서 특히 강하고, 16GB에서 돌릴 수 있는 7B~8B 버전이 있습니다.\n\n```bash\nollama pull qwen3-coder   # 기본 pull (7B 정도)\nollama launch claude --model qwen3-coder\n```\n\n**③ glm-4.7-flash (클라우드 버전) — 품질 우선시할 때**\n\ntool-calling을 완전히 지원하고 128K context length를 제공하는 GLM-4.7-flash는 Claude Code의 advanced tool 기능과 잘 맞는 모델로 추천됩니다. 단, 로컬 전체 버전(21GB)은 16GB에서 돌리기 어렵습니다.\n\n```bash\n# 클라우드 버전 (Ollama 서버에서 실행, 무료 tier 있음)\nollama pull glm-4.7:cloud\nollama launch claude --model glm-4.7:cloud\n```\n\n---\n\n### 설정 방법 (환경변수 방식)\n\n```bash\n# ~/.zshrc에 추가\nexport ANTHROPIC_AUTH_TOKEN=\"ollama\"\nexport ANTHROPIC_API_KEY=\"\"\nexport ANTHROPIC_BASE_URL=\"http://localhost:11434\"\n```\n\n또는 `ollama launch claude --model qwen3-coder` 한 줄로 끝납니다.\n\n---\n\n### CSP 워크플로우 기준 추천 전략\n\n| 상황 | 모델 |\n|------|------|\n| 빠른 코드 생성, 파일 수정 | qwen3-coder (로컬) |\n| 한국어 문서 작업, 설계 논의 | qwen3.5:9b (로컬) |\n| 복잡한 agentic 코딩 | glm-4.7:cloud (무료 tier) |\n| EX Intelligence, ESCON 수준 | claude-sonnet-4-5 (API, 비용 절감 필요 시 haiku) |\n\n**제 솔직한 의견**: ESCON이나 Pulse Check처럼 실제 프로덕트 코딩은 여전히 Anthropic API (Sonnet/Haiku)가 훨씬 안정적입니다. 로컬 모델은 **크레딧 소진 시 fallback**, **프라이버시 민감한 코드 탐색**, **반복적인 보일러플레이트 생성** 용도로 포지셔닝하는 게 현실적입니다.\n\ngemma3:27b는 tool use 자체가 안 되니 Claude Code와는 궁합이 근본적으로 안 맞습니다. qwen3-coder나 qwen3.5:9b로 갈아타시면 바로 작동할 것입니다.",
+          "citations": [
+            {
+              "uuid": "a5df7bd8-b156-4da8-bab4-dab9c576dce2",
+              "start_index": 112,
+              "end_index": 187,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.xda-developers.com/claude-code-local-llm-ollama-capable-costs-nothing/"
+              }
+            },
+            {
+              "uuid": "218e6e02-84eb-4455-9dcc-2aa88a32214b",
+              "start_index": 188,
+              "end_index": 314,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://medium.com/@luongnv89/run-claude-code-on-local-cloud-models-in-5-minutes-ollama-openrouter-llama-cpp-6dfeaee03cda"
+              }
+            },
+            {
+              "uuid": "86946d35-5567-4563-bf46-3c3e125ca790",
+              "start_index": 466,
+              "end_index": 509,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://thoughts.jock.pl/p/local-llm-macbook-iphone-qwen-experiment"
+              }
+            },
+            {
+              "uuid": "423f27b3-886e-47bc-9f4e-20a75ec6d026",
+              "start_index": 687,
+              "end_index": 740,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://medium.com/data-science-in-your-pocket/run-claude-code-with-local-llms-using-ollama-a97d2c2f2bd1"
+              }
+            },
+            {
+              "uuid": "3c26c9d6-0201-4fcb-82ae-537bccb3750a",
+              "start_index": 942,
+              "end_index": 1052,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://dev.to/proflead/how-to-use-claude-code-with-local-models-ollama-guide-9fn"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-03T23:19:02.696956Z",
+      "updated_at": "2026-04-03T23:19:02.696956Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55a4-176e-7477-965f-42928af6bdf6"
+    },
+    {
+      "uuid": "019d55aa-db5b-7b83-ab3b-37741b4cd2c7",
+      "text": "설치된 모델을 삭제하는 명령어",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:25:54.756361Z",
+          "stop_timestamp": "2026-04-03T23:25:54.756361Z",
+          "flags": null,
+          "type": "text",
+          "text": "설치된 모델을 삭제하는 명령어",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-03T23:25:54.805718Z",
+      "updated_at": "2026-04-03T23:25:54.805718Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55a4-176f-7d74-863e-ff85edcd9c25"
+    },
+    {
+      "uuid": "019d55aa-db5b-7044-a695-0fb59c115fbd",
+      "text": " ```bash\nollama rm gemma3:27b\n```\n\n확인하려면:\n\n```bash\nollama list        # 현재 설치된 모델 목록\nollama rm <모델명>  # 삭제\n```",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:25:55.291678Z",
+          "stop_timestamp": "2026-04-03T23:25:56.110524Z",
+          "flags": null,
+          "type": "text",
+          "text": " ```bash\nollama rm gemma3:27b\n```\n\n확인하려면:\n\n```bash\nollama list        # 현재 설치된 모델 목록\nollama rm <모델명>  # 삭제\n```",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-03T23:25:56.169607Z",
+      "updated_at": "2026-04-03T23:25:56.169607Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55aa-db5b-7b83-ab3b-37741b4cd2c7"
+    },
+    {
+      "uuid": "019d55ae-a677-7a2c-8090-b014cf9a18a9",
+      "text": "qwen3-coder 자체는 사이즈가 너무 큰데, 7b를 다운로드하는 방법을 알려줘",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:30:03.562656Z",
+          "stop_timestamp": "2026-04-03T23:30:03.562656Z",
+          "flags": null,
+          "type": "text",
+          "text": "qwen3-coder 자체는 사이즈가 너무 큰데, 7b를 다운로드하는 방법을 알려줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-03T23:30:03.631212Z",
+      "updated_at": "2026-04-03T23:30:03.631212Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55aa-db5b-7044-a695-0fb59c115fbd"
+    },
+    {
+      "uuid": "019d55ae-a677-7963-b1c1-4f95b8eec4c5",
+      "text": " ```bash\nollama pull qwen3-coder:7b\n```\n\n설치 후 실행:\n\n```bash\nollama launch claude --model qwen3-coder:7b\n```\n\n혹시 7b가 없으면 정확한 태그 확인:\n\n```bash\nollama search qwen3-coder\n```\n\n또는 [ollama.com/library/qwen3-coder](https://ollama.com/library/qwen3-coder) 에서 사용 가능한 태그 목록 확인할 수 있습니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:30:04.248986Z",
+          "stop_timestamp": "2026-04-03T23:30:06.233741Z",
+          "flags": null,
+          "type": "text",
+          "text": " ```bash\nollama pull qwen3-coder:7b\n```\n\n설치 후 실행:\n\n```bash\nollama launch claude --model qwen3-coder:7b\n```\n\n혹시 7b가 없으면 정확한 태그 확인:\n\n```bash\nollama search qwen3-coder\n```\n\n또는 [ollama.com/library/qwen3-coder](https://ollama.com/library/qwen3-coder) 에서 사용 가능한 태그 목록 확인할 수 있습니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-03T23:30:06.281113Z",
+      "updated_at": "2026-04-03T23:30:06.281113Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55ae-a677-7a2c-8090-b014cf9a18a9"
+    },
+    {
+      "uuid": "019d55af-3241-7de8-9374-d6c0eab52f20",
+      "text": "! ollama pull qwen3-coder:7b                                                                                        \n  ⎿  pulling manifest ⠋ pulling manifest ⠙ pulling manifest ⠹ pulling manifest ⠸ pulling manifest ⠼ pulling manifest\n      ⠴ pulling manifest ⠦ pulling manifest ⠧ pulling manifest ⠇ pulling manifest ⠏ pulling manifest ⠋ pulling      \n     manifest ⠙ pulling manifest ⠹ pulling manifest ⠸ pulling manifest ⠼ pulling manifest ⠴ pulling manifest ⠦      \n     pulling manifest ⠧ pulling manifest ⠇ pulling manifest ⠏ pulling manifest ⠋ pulling manifest ⠙ pulling manifest\n      ⠹ pulling manifest ⠸ pulling manifest ⠼ pulling manifest ⠴ pulling manifest ⠦ pulling manifest ⠧ pulling      \n     manifest ⠇ pulling manifest ⠏ pulling manifest ⠋ pulling manifest ⠙ pulling manifest ⠹ pulling manifest ⠸      \n     pulling manifest ⠼ pulling manifest ⠴ pulling manifest ⠦ pulling manifest                                      \n     Error: pull model manifest: file does not exist",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:30:39.478989Z",
+          "stop_timestamp": "2026-04-03T23:30:39.478989Z",
+          "flags": null,
+          "type": "text",
+          "text": "! ollama pull qwen3-coder:7b                                                                                        \n  ⎿  pulling manifest ⠋ pulling manifest ⠙ pulling manifest ⠹ pulling manifest ⠸ pulling manifest ⠼ pulling manifest\n      ⠴ pulling manifest ⠦ pulling manifest ⠧ pulling manifest ⠇ pulling manifest ⠏ pulling manifest ⠋ pulling      \n     manifest ⠙ pulling manifest ⠹ pulling manifest ⠸ pulling manifest ⠼ pulling manifest ⠴ pulling manifest ⠦      \n     pulling manifest ⠧ pulling manifest ⠇ pulling manifest ⠏ pulling manifest ⠋ pulling manifest ⠙ pulling manifest\n      ⠹ pulling manifest ⠸ pulling manifest ⠼ pulling manifest ⠴ pulling manifest ⠦ pulling manifest ⠧ pulling      \n     manifest ⠇ pulling manifest ⠏ pulling manifest ⠋ pulling manifest ⠙ pulling manifest ⠹ pulling manifest ⠸      \n     pulling manifest ⠼ pulling manifest ⠴ pulling manifest ⠦ pulling manifest                                      \n     Error: pull model manifest: file does not exist",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-03T23:30:39.532983Z",
+      "updated_at": "2026-04-03T23:30:39.532983Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55ae-a677-7963-b1c1-4f95b8eec4c5"
+    },
+    {
+      "uuid": "019d55af-3241-79a3-aa02-80fabc700244",
+      "text": " `qwen3-coder:7b` 태그가 없네요. 정확한 태그를 확인해보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n확인됐습니다. `qwen3-coder`는 7b 태그가 없고, 최소 사이즈가 `30b-a3b` (MoE 아키텍처, 32GB)입니다. 16GB에서는 불가능한 크기입니다.\n\n**대신 이걸 쓰세요:**\n\n**옵션 1 — qwen2.5-coder:7b (코딩 특화, 가장 추천)**\n```bash\nollama pull qwen2.5-coder:7b\nollama launch claude --model qwen2.5-coder:7b\n```\n\n**옵션 2 — qwen3.5:4b (최신, 경량)**\n```bash\nollama pull qwen3.5:4b   # 2.7GB, tools 지원\nollama launch claude --model qwen3.5:4b\n```\n\n**옵션 3 — qwen3.5:9b (균형, 메모리 여유 있을 때)**\n```bash\nollama pull qwen3.5:9b   # 6.6GB\nollama launch claude --model qwen3.5:9b\n```\n\n---\n\n**결론**: 16GB에서 코딩용으로는 `qwen2.5-coder:7b`가 가장 검증된 선택입니다. `qwen3-coder`는 사실상 클라우드 모델 용도입니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:30:40.018548Z",
+          "stop_timestamp": "2026-04-03T23:30:40.481001Z",
+          "flags": null,
+          "type": "text",
+          "text": " `qwen3-coder:7b` 태그가 없네요. 정확한 태그를 확인해보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-04-03T23:30:40.917227Z",
+          "stop_timestamp": "2026-04-03T23:30:40.917227Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01G6DfDuU39wY3T1WbT7UqaV",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://ollama.com/library/qwen3-coder"
+          },
+          "message": "Fetching: https://ollama.com/library/qwen3-coder",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01G6DfDuU39wY3T1WbT7UqaV",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"error_type\": \"PERMISSIONS_ERROR\", \"error_message\": \"This URL cannot be fetched because it was not provided by the user nor did it appear in any search/fetch results\"}",
+              "uuid": "ef2a05d7-bf6f-4b32-8394-15ae8bfb7232"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": "Failed to fetch: https://ollama.com/library/qwen3-coder",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "https://ollama.com/library/qwen3-coder",
+              "subtitles": null,
+              "url": "https://ollama.com/library/qwen3-coder",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+              "source": "ollama"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-04-03T23:30:42.094119Z",
+          "stop_timestamp": "2026-04-03T23:30:42.338992Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01CyrZXDKzeGh67Mk8NSnRdN",
+          "name": "web_search",
+          "input": {
+            "query": "ollama qwen3-coder available tags sizes 7b 8b 2025"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01CyrZXDKzeGh67Mk8NSnRdN",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "library",
+              "url": "https://ollama.com/library",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "Dolphin 2.9 is a new model with 8B and 70B sizes by Eric Hartford based on Llama 3 that has a variety of instruction, conversational, and coding skills. ... Building upon the foundational models of the Qwen3 series, Qwen3 Embedding provides a comprehensive range of text embeddings models in various sizes ... Meta&#x27;s latest collection of multimodal models. ... Uncensored, 8x7b and 8x22b ...\n\nLlama 3.1 is a new state-of-the-art model from Meta available in 8B, 70B and 405B parameter sizes. ... DeepSeek-R1 is a family of open reasoning models with performance approaching that of leading models, such as O3 and Gemini 2.5 Pro. ... Meta's Llama 3.2 goes small with 1B and 3B models. ... A high-performing open embedding model with a large token context window. ... The current, most capable model that runs on a single GPU. ... The 7B model released by Mistral AI, updated to version 0.3. ... Qwen2.5 models are pretrained on Alibaba's latest large-scale dataset, encompassing up to 18 trillion tokens. The model supports up to 128K tokens and has multilingual support. ... Qwen3 is the latest generation of large language models in Qwen series, offering a comprehensive suite of dense and mixture-of-experts (MoE) models. ... Google Gemma 2 is a high-performing and efficient model available in three sizes: 2B, 9B, and 27B.\n\nDolphin 2.9 is a new model with 8B and 70B sizes by Eric Hartford based on Llama 3 that has a variety of instruction, conversational, and coding skills. ... Building upon the foundational models of the Qwen3 series, Qwen3 Embedding provides a comprehensive range of text embeddings models in various sizes ... Meta's latest collection of multimodal models. ... Uncensored, 8x7b and 8x22b fine-tuned models based on the Mixtral mixture of experts models that excels at coding tasks. Created by Eric Hartford. ... Gemma 3n models are designed for efficient execution on everyday devices such as laptops, tablets or phones. ... 🪐 A family of small models with 135M, 360M, and 1.7B parameters, trained on a new high-quality dataset. ... 2.7B uncensored Dolphin model by Eric Hartford, based on the Phi language model by Microsoft Research. ... Phi 4 reasoning and reasoning plus are 14-billion parameter open-weight reasoning models that rival much larger models on complex reasoning tasks.\n\nQwen3-Coder-Next is a coding-focused language model from Alibaba's Qwen team, optimized for agentic coding workflows and local development. ... Yi 1.5 is a high-performing, bilingual language model. ... IBM Granite 2B and 8B models are 128K context length language models that have been fine-tuned for improved reasoning and instruction-following capabilities. ... Zephyr is a series of fine-tuned versions of the Mistral and Mixtral models that are trained to act as helpful assistants. ... State of the art large language model from Microsoft AI with improved performance on complex chat, multilingual, reasoning and agent use cases. ... Mistral Large 2 is Mistral's new flagship model that is significantly more capable in code generation, mathematics, and reasoning with 128k context window and support for dozens of languages. ... Wizard Vicuna Uncensored is a 7B, 13B, and 30B parameter model based on Llama 2 uncensored by Eric Hartford.\n\nLlama 2 is a collection of foundation language models ranging from 7B to 70B parameters. ... Qwen 1.5 is a series of large language models by Alibaba Cloud spanning from 0.5B to 110B parameters ... A series of multimodal LLMs (MLLMs) designed for vision-language understanding. ... A large language model that can use text prompts to generate and discuss code. ... Qwen 3.5 is a family of open-source multimodal models that delivers exceptional utility and performance. vision tools thinking cloud 0.8b 2b 4b 9b 27b 35b 122b ... The TinyLlama project is an open endeavor to train a compact 1.1B Llama model on 3 trillion tokens. ... Llama 3.2 Vision is a collection of instruction-tuned image reasoning generative models in 11B and 90B sizes. ... Alibaba's performant long context models for agentic and coding tasks. ... A state-of-the-art 12B model with 128k context length, built by Mistral AI in collaboration with NVIDIA.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ollama.com/library",
+                "search_provider": "anthropic",
+                "age": "1 day ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Tags · qwen2.5-coder",
+              "url": "https://ollama.com/library/qwen2.5-coder/tags",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "The latest series of Code-Specific Qwen models, with significant improvements in code generation, code reasoning, and code fixing.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ollama.com/library/qwen2.5-coder/tags",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Tags · qwen3",
+              "url": "https://ollama.com/library/qwen3/tags",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "qwen3 · 25.7M Downloads Updated 5 months ago · tools thinking 0.6b 1.7b 4b 8b 14b 30b 32b 235b · Name · 58 models · Size · Context · Input · qwen3:latest · 500a1f067a9f • 5.2GB • 40K context window • Text input • 10 months ago ...\n\nqwen3 · 25.7M Downloads Updated 5 months ago · tools thinking 0.6b 1.7b 4b 8b 14b 30b 32b 235b · Name · 58 models · Size · Context · Input · qwen3:latest · 500a1f067a9f • 5.2GB • 40K context window • Text input • 10 months ago · Text input • 10 months ago · qwen3:latest · 5.2GB · 40K · Text · 500a1f067a9f · 10 months ago · qwen3:0.6b · 7df6b6e09427 • 523MB • 40K context window • Text input • 10 months ago · Text input • 10 months ago · qwen3:0.6b · 523MB · 40K · Text · 7df6b6e09427 · 10 months ago · qwen3:1.7b · 8f68893c685c • 1.4GB • 40K context window • Text input • 10 months ago · Text input • 10 months ago · qwen3:1.7b · 1.4GB · 40K · Text · 8f68893c685c · 10 months ago · qwen3:4b · 359d7dd4bcda • 2.5GB • 256K context window • Text input • 6 months ago · Text input • 6 months ago ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ollama.com/library/qwen3/tags",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Tags · qwen3-coder",
+              "url": "https://ollama.com/library/qwen3-coder/tags",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "qwen3-coder:30b-a3b-q8_0 · 7b438a19895a • 32GB • 256K context window • Text input • 6 months ago · Text input • 6 months ago · qwen3-coder:30b-a3b-q8_0 · 32GB · 256K · Text · 7b438a19895a · 6 months ago · qwen3-coder:30b-a3b-fp16 ...\n\nqwen3-coder:30b-a3b-q8_0 · 7b438a19895a • 32GB • 256K context window • Text input • 6 months ago · Text input • 6 months ago · qwen3-coder:30b-a3b-q8_0 · 32GB · 256K · Text · 7b438a19895a · 6 months ago · qwen3-coder:30b-a3b-fp16 · 0d2a10a65d2f • 61GB • 256K context window • Text input • 6 months ago · Text input • 6 months ago · qwen3-coder:30b-a3b-fp16 · 61GB · 256K · Text · 0d2a10a65d2f · 6 months ago · qwen3-coder:480b-a35b-q4_K_M · 72b144baf727 • 290GB • 256K context window • Text input • 6 months ago · Text input • 6 months ago · qwen3-coder:480b-a35b-q4_K_M · 290GB · 256K · Text · 72b144baf727 · 6 months ago · qwen3-coder:480b-a35b-q8_0 · 459cea34ff3a • 510GB • 256K context window • Text input • 6 months ago · Text input • 6 months ago · qwen3-coder:480b-a35b-q8_0 · 510GB · 256K ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ollama.com/library/qwen3-coder/tags",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Tags · qwen3-vl",
+              "url": "https://ollama.com/library/qwen3-vl/tags",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "qwen3-vl · 2.8M Downloads Updated 5 months ago · vision tools thinking cloud 2b 4b 8b 30b 32b 235b · Name · 59 models · Size · Context · Input · qwen3-vl:latest · 901cae732162 • 6.1GB • 256K context window • Text, Image input ...\n\nqwen3-vl · 2.8M Downloads Updated 5 months ago · vision tools thinking cloud 2b 4b 8b 30b 32b 235b · Name · 59 models · Size · Context · Input · qwen3-vl:latest · 901cae732162 • 6.1GB • 256K context window • Text, Image input • 5 months ago · Text, Image input • 5 months ago · qwen3-vl:latest · 6.1GB · 256K · Text, Image · 901cae732162 · 5 months ago · qwen3-vl:2b · 0635d9d857d4 • 1.9GB • 256K context window • Text, Image input • 5 months ago · Text, Image input • 5 months ago · qwen3-vl:2b · 1.9GB · 256K · Text, Image · 0635d9d857d4 · 5 months ago · qwen3-vl:4b · 1343d82ebee3 • 3.3GB • 256K context window • Text, Image input • 5 months ago · Text, Image input • 5 months ago · qwen3-vl:4b · 3.3GB · 256K · Text, Image · 1343d82ebee3 · 5 months ago · qwen3-vl:8b latest · 901cae732162 • 6.1GB • 256K context window • Text, Image input • 5 months ago ·\n\nqwen3-vl:8b latest · 6.1GB · 256K · Text, Image · 901cae732162 · 5 months ago · qwen3-vl:30b · eda0be100877 • 20GB • 256K context window • Text, Image input • 5 months ago · Text, Image input • 5 months ago · qwen3-vl:30b · 20GB · 256K · Text, Image · eda0be100877 · 5 months ago · qwen3-vl:32b · ff2e46876908 • 21GB • 256K context window • Text, Image input • 5 months ago · Text, Image input • 5 months ago · qwen3-vl:32b · 21GB · 256K · Text, Image · ff2e46876908 · 5 months ago · qwen3-vl:235b · dc44c5b88b17 • 143GB • 256K context window • Text, Image input • 5 months ago · Text, Image input • 5 months ago · qwen3-vl:235b · 143GB · 256K · Text, Image · dc44c5b88b17 · 5 months ago · qwen3-vl:2b-instruct · ea422f1e7365 • 1.9GB • 256K context window • Text, Image input • 5 months ago ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ollama.com/library/qwen3-vl/tags",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Tags · qwen3-embedding",
+              "url": "https://ollama.com/library/qwen3-embedding/tags",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "qwen3-embedding · 1.5M Downloads Updated 6 months ago · embedding 0.6b 4b 8b · Name · 12 models · Size · Context · Input · qwen3-embedding:latest · 64b933495768 • 4.7GB • 40K context window • Text input • 6 months ago · Text ...\n\nqwen3-embedding · 1.5M Downloads Updated 6 months ago · embedding 0.6b 4b 8b · Name · 12 models · Size · Context · Input · qwen3-embedding:latest · 64b933495768 • 4.7GB • 40K context window • Text input • 6 months ago · Text input • 6 months ago · qwen3-embedding:latest · 4.7GB · 40K · Text · 64b933495768 · 6 months ago · qwen3-embedding:0.6b · ac6da0dfba84 • 639MB • 32K context window • Text input • 6 months ago · Text input • 6 months ago · qwen3-embedding:0.6b · 639MB · 32K · Text · ac6da0dfba84 · 6 months ago · qwen3-embedding:4b · df5bd2e3c74c • 2.5GB • 40K context window • Text input • 6 months ago · Text input • 6 months ago · qwen3-embedding:4b · 2.5GB · 40K · Text · df5bd2e3c74c · 6 months ago · qwen3-embedding:8b latest · 64b933495768 • 4.7GB • 40K context window • Text input • 6 months ago ·\n\nqwen3-embedding:8b latest · 4.7GB · 40K · Text · 64b933495768 · 6 months ago · qwen3-embedding:0.6b-q8_0 · ac6da0dfba84 • 639MB • 32K context window • Text input • 6 months ago · Text input • 6 months ago · qwen3-embedding:0.6b-q8_0 · 639MB · 32K · Text · ac6da0dfba84 · 6 months ago · qwen3-embedding:0.6b-fp16 · 67a7592a8852 • 1.2GB • 32K context window • Text input • 6 months ago · Text input • 6 months ago · qwen3-embedding:0.6b-fp16 · 1.2GB · 32K · Text · 67a7592a8852 · 6 months ago · qwen3-embedding:4b-q4_K_M · df5bd2e3c74c • 2.5GB • 40K context window • Text input • 6 months ago · Text input • 6 months ago · qwen3-embedding:4b-q4_K_M · 2.5GB · 40K · Text · df5bd2e3c74c · 6 months ago · qwen3-embedding:4b-q8_0 · 357d756ba8e5 • 4.3GB • 40K context window • Text input • 6 months ago ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ollama.com/library/qwen3-embedding/tags",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "qwen3-coder · Ollama",
+              "url": "https://ollama.com/search?q=qwen3-coder",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "Qwen3-Coder-Next is a coding-focused language model from Alibaba&#x27;s Qwen team, optimized for agentic coding workflows and local development · 990.9K Pulls 4 Tags Updated 1 month ago\n\nSearch for models on Ollama.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ollama.com/search?q=qwen3-coder",
+                "search_provider": "anthropic",
+                "age": "February 4, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "coder · Ollama",
+              "url": "https://ollama.com/search?q=coder",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "Qwen3-Coder-Next is a coding-focused language model from Alibaba&#x27;s Qwen team, optimized for agentic coding workflows and local development · 992.6K Pulls 4 Tags Updated 1 month ago\n\nSearch for models on Ollama.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ollama.com/search?q=coder",
+                "search_provider": "anthropic",
+                "age": "February 4, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "qwen3-embedding:8b",
+              "url": "https://ollama.com/library/qwen3-embedding:8b",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "Building upon the dense foundational ... sizes (0.6B, 4B, and 8B). This series inherits the exceptional multilingual capabilities, long-text understanding, and reasoning skills of its foundational model. The Qwen3 Embedding series represents significant advancements in multiple text embedding and ranking tasks, including text retrieval, code retrieval, text classification, text clustering, and bitext mining. Exceptional Versatility: The embedding model has achieved state-of-the-art performance across a wide range of downstream application evaluations. The 8B size embedding model ranks No.1 in the MTEB multilingual leaderboard (as of June 5, 2025, score 70.58). Comprehensive Flexibility: The Qwen3 Embedding series offers a full spectrum of sizes (from 0.6B to 8B) for embedding ...\n\nBuilding upon the dense foundational models of the Qwen3 series, it provides a comprehensive range of text embeddings models in various sizes (0.6B, 4B, and 8B). This series inherits the exceptional multilingual capabilities, long-text understanding, and reasoning skills of its foundational model. The Qwen3 Embedding series represents significant advancements in multiple text embedding and ranking tasks, including text retrieval, code retrieval, text classification, text clustering, and bitext mining. Exceptional Versatility: The embedding model has achieved state-of-the-art performance across a wide range of downstream application evaluations. The 8B size embedding model ranks No.1 in the MTEB multilingual leaderboard (as of June 5, 2025, score 70.58). Comprehensive Flexibility: The Qwen3 Embedding series offers a full spectrum of sizes (from 0.6B to 8B) for embedding models, catering to diverse use cases that prioritize efficiency and effectiveness.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ollama.com/library/qwen3-embedding:8b",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Tags · qwen3.5",
+              "url": "https://ollama.com/library/qwen3.5/tags",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "qwen3.5 · 4.6M Downloads Updated yesterday · vision tools thinking cloud 0.8b 2b 4b 9b 27b 35b 122b · Name · 58 models · Size · Context · Input · qwen3.5:latest · 6488c96fa5fa • 6.6GB • 256K context window • Text, Image input ...\n\nqwen3.5 · 4.6M Downloads Updated yesterday · vision tools thinking cloud 0.8b 2b 4b 9b 27b 35b 122b · Name · 58 models · Size · Context · Input · qwen3.5:latest · 6488c96fa5fa • 6.6GB • 256K context window • Text, Image input • 1 month ago · Text, Image input • 1 month ago · qwen3.5:latest · 6.6GB · 256K · Text, Image · 6488c96fa5fa · 1 month ago · qwen3.5:cloud · a7bf6f7891c3 • 256K context window • Text, Image input • 1 month ago · Text, Image input • 1 month ago · qwen3.5:cloud · - 256K · Text, Image · a7bf6f7891c3 · 1 month ago · qwen3.5:0.8b · f3817196d142 • 1.0GB • 256K context window • Text, Image input • 1 month ago · Text, Image input • 1 month ago · qwen3.5:0.8b · 1.0GB · 256K · Text, Image · f3817196d142 · 1 month ago · qwen3.5:2b · 324d162be6ca • 2.7GB • 256K context window • Text, Image input • 1 month ago ·\n\nqwen3.5:122b · 8b9d11d807c5 • 81GB • 256K context window • Text, Image input • 1 month ago · Text, Image input • 1 month ago · qwen3.5:122b · 81GB · 256K · Text, Image · 8b9d11d807c5 · 1 month ago · qwen3.5:0.8b-mlx-bf16 · 95fbaba894b5 • 1.7GB • 256K context window • Text input • yesterday · Text input • yesterday · qwen3.5:0.8b-mlx-bf16 · 1.7GB · 256K · Text · 95fbaba894b5 · yesterday · qwen3.5:0.8b-mxfp8 · 6a48dd9c06e3 • 1.2GB • 256K context window • Text input • 5 days ago · Text input • 5 days ago · qwen3.5:0.8b-mxfp8 · 1.2GB · 256K · Text · 6a48dd9c06e3 · 5 days ago · qwen3.5:0.8b-nvfp4 · 6d2b253cfc04 • 1.0GB • 256K context window • Text input • 5 days ago · Text input • 5 days ago · qwen3.5:0.8b-nvfp4 · 1.0GB · 256K · Text · 6d2b253cfc04 · 5 days ago · qwen3.5:0.8b-q8_0 ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ollama.com/library/qwen3.5/tags",
+                "search_provider": "anthropic",
+                "age": "1 day ago"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-04-03T23:30:44.051614Z",
+          "stop_timestamp": "2026-04-03T23:30:50.335868Z",
+          "flags": null,
+          "type": "text",
+          "text": "확인됐습니다. `qwen3-coder`는 7b 태그가 없고, 최소 사이즈가 `30b-a3b` (MoE 아키텍처, 32GB)입니다. 16GB에서는 불가능한 크기입니다.\n\n**대신 이걸 쓰세요:**\n\n**옵션 1 — qwen2.5-coder:7b (코딩 특화, 가장 추천)**\n```bash\nollama pull qwen2.5-coder:7b\nollama launch claude --model qwen2.5-coder:7b\n```\n\n**옵션 2 — qwen3.5:4b (최신, 경량)**\n```bash\nollama pull qwen3.5:4b   # 2.7GB, tools 지원\nollama launch claude --model qwen3.5:4b\n```\n\n**옵션 3 — qwen3.5:9b (균형, 메모리 여유 있을 때)**\n```bash\nollama pull qwen3.5:9b   # 6.6GB\nollama launch claude --model qwen3.5:9b\n```\n\n---\n\n**결론**: 16GB에서 코딩용으로는 `qwen2.5-coder:7b`가 가장 검증된 선택입니다. `qwen3-coder`는 사실상 클라우드 모델 용도입니다.",
+          "citations": [
+            {
+              "uuid": "0d9a3dfb-4993-49f4-a03e-fa9c8d6add1e",
+              "start_index": 8,
+              "end_index": 72,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://ollama.com/library/qwen3-coder/tags"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-03T23:30:50.445880Z",
+      "updated_at": "2026-04-03T23:30:50.445880Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55af-3241-7de8-9374-d6c0eab52f20"
+    },
+    {
+      "uuid": "019d55b2-785e-7876-af19-9c173996800b",
+      "text": "❯ ollama launch claude --model qwen2.5-coder:7b                                                                     \n                                                                                                                    \n⏺ There's an issue with the selected model (llama3.1:8b). It may not exist or you may not have access to it. Run    \n  /model to pick a different model.                                                                                 \n                                                                                                                    \n❯ /model                                                                                                            \n  ⎿  Kept model as llama3.1:8b",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:34:14.479945Z",
+          "stop_timestamp": "2026-04-03T23:34:14.479945Z",
+          "flags": null,
+          "type": "text",
+          "text": "❯ ollama launch claude --model qwen2.5-coder:7b                                                                     \n                                                                                                                    \n⏺ There's an issue with the selected model (llama3.1:8b). It may not exist or you may not have access to it. Run    \n  /model to pick a different model.                                                                                 \n                                                                                                                    \n❯ /model                                                                                                            \n  ⎿  Kept model as llama3.1:8b",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-03T23:34:14.531123Z",
+      "updated_at": "2026-04-03T23:34:14.531123Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55af-3241-79a3-aa02-80fabc700244"
+    },
+    {
+      "uuid": "019d55b2-785e-7eb2-b971-3ac3ac21bf0f",
+      "text": " `ollama launch claude`가 기본값으로 `llama3.1:8b`를 잡고 있는데 그 모델이 설치 안 된 상황이네요.\n\n**해결책:**\n\n먼저 설치된 모델 확인:\n```bash\nollama list\n```\n\n그 다음 두 가지 방법 중 선택:\n\n**방법 1 — llama3.1:8b 설치 (기본값 맞추기)**\n```bash\nollama pull llama3.1:8b\nollama launch claude --model qwen2.5-coder:7b\n```\n\n**방법 2 — 환경변수 방식으로 직접 실행 (권장)**\n```bash\nexport ANTHROPIC_AUTH_TOKEN=\"ollama\"\nexport ANTHROPIC_API_KEY=\"\"\nexport ANTHROPIC_BASE_URL=\"http://localhost:11434\"\nclaude --model qwen2.5-coder:7b\n```\n\n방법 2가 더 안정적입니다. `ollama launch claude`는 내부적으로 기본 모델 체크를 하는데, 직접 `claude --model` 로 실행하면 그 과정을 우회합니다.\n\n`~/.zshrc`에 환경변수 추가해두면 매번 입력 안 해도 됩니다:\n```bash\necho 'export ANTHROPIC_AUTH_TOKEN=\"ollama\"' >> ~/.zshrc\necho 'export ANTHROPIC_API_KEY=\"\"' >> ~/.zshrc\necho 'export ANTHROPIC_BASE_URL=\"http://localhost:11434\"' >> ~/.zshrc\nsource ~/.zshrc\n```",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:34:15.095629Z",
+          "stop_timestamp": "2026-04-03T23:34:21.160206Z",
+          "flags": null,
+          "type": "text",
+          "text": " `ollama launch claude`가 기본값으로 `llama3.1:8b`를 잡고 있는데 그 모델이 설치 안 된 상황이네요.\n\n**해결책:**\n\n먼저 설치된 모델 확인:\n```bash\nollama list\n```\n\n그 다음 두 가지 방법 중 선택:\n\n**방법 1 — llama3.1:8b 설치 (기본값 맞추기)**\n```bash\nollama pull llama3.1:8b\nollama launch claude --model qwen2.5-coder:7b\n```\n\n**방법 2 — 환경변수 방식으로 직접 실행 (권장)**\n```bash\nexport ANTHROPIC_AUTH_TOKEN=\"ollama\"\nexport ANTHROPIC_API_KEY=\"\"\nexport ANTHROPIC_BASE_URL=\"http://localhost:11434\"\nclaude --model qwen2.5-coder:7b\n```\n\n방법 2가 더 안정적입니다. `ollama launch claude`는 내부적으로 기본 모델 체크를 하는데, 직접 `claude --model` 로 실행하면 그 과정을 우회합니다.\n\n`~/.zshrc`에 환경변수 추가해두면 매번 입력 안 해도 됩니다:\n```bash\necho 'export ANTHROPIC_AUTH_TOKEN=\"ollama\"' >> ~/.zshrc\necho 'export ANTHROPIC_API_KEY=\"\"' >> ~/.zshrc\necho 'export ANTHROPIC_BASE_URL=\"http://localhost:11434\"' >> ~/.zshrc\nsource ~/.zshrc\n```",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-03T23:34:21.214682Z",
+      "updated_at": "2026-04-03T23:34:21.214682Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55b2-785e-7876-af19-9c173996800b"
+    },
+    {
+      "uuid": "019d5610-19f4-74d5-b661-b4b1c37df5c4",
+      "text": "ollama launch claude --model로 불러올 수 있는 클라우드 모델 중 가성비가 가장 높은 모델 추천",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T01:16:29.855302Z",
+          "stop_timestamp": "2026-04-04T01:16:29.855302Z",
+          "flags": null,
+          "type": "text",
+          "text": "ollama launch claude --model로 불러올 수 있는 클라우드 모델 중 가성비가 가장 높은 모델 추천",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-04T01:16:29.917262Z",
+      "updated_at": "2026-04-04T01:16:29.917262Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55b2-785e-7eb2-b971-3ac3ac21bf0f"
+    },
+    {
+      "uuid": "019d5610-19f5-7038-a3cd-e660f961ab7a",
+      "text": " \n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n현재 Ollama 클라우드 모델 전체 목록을 확인했습니다. 정리해드리겠습니다.\n\n---\n\n## Ollama 클라우드 모델 가성비 추천\n\n### 먼저 과금 구조 이해\n\nOllama 클라우드는 Free / Pro($20/월) / Max($100/월) 구조입니다. Free 플랜도 클라우드 모델 접근이 가능하고, 5시간마다 세션 리셋, 주간 한도가 있습니다. 과금 기준은 토큰 수가 아니라 GPU 사용 시간 기반입니다.\n\n---\n\n### CSP에게 추천하는 클라우드 모델 TOP 3\n\n**🥇 1순위 — `qwen3-coder-next:cloud` (코딩 가성비 최강)**\n\nQwen3-Coder-Next는 Alibaba Qwen팀의 코딩 특화 모델로 agentic coding workflow와 로컬 개발에 최적화되어 있으며 tools를 지원합니다. 91만 pulls로 가장 검증된 클라우드 코딩 모델입니다.\n\n```bash\nollama launch claude --model qwen3-coder-next:cloud\n```\n\n**🥈 2순위 — `devstral-small-2:cloud` (agentic 코딩 특화)**\n\nDevstral-small-2는 24B 모델로 tool을 활용한 코드베이스 탐색, 멀티파일 편집, software engineering agent에 특화되어 있습니다. Mistral 계열로 Claude Code의 agentic loop와 궁합이 좋습니다.\n\n```bash\nollama launch claude --model devstral-small-2:cloud\n```\n\n**🥉 3순위 — `qwen3.5:9b` (로컬 + 클라우드 겸용, 무료 tier 절약)**\n\nqwen3.5는 tools, thinking, vision을 모두 지원하는 멀티모달 모델로 9b 사이즈가 16GB MacBook Air에서도 로컬 실행 가능합니다. 클라우드 quota를 아끼고 싶을 때 로컬로 전환 가능한 유일한 옵션.\n\n```bash\n# 클라우드\nollama launch claude --model qwen3.5:cloud\n# 로컬 fallback\nollama launch claude --model qwen3.5:9b\n```\n\n---\n\n### 전략적 사용법 (Free 플랜 최대 활용)\n\n```\n복잡한 agentic 코딩  →  qwen3-coder-next:cloud (클라우드 quota 사용)\n단순 파일 수정/확인  →  qwen3.5:9b (로컬, quota 무소비)\nquota 소진 시 fallback  →  qwen2.5-coder:7b (로컬)\n```\n\nFree 플랜은 \"소규모 모델을 사용한 코딩 및 AI 어시스턴트\" 용도로 설계되어 있고, Pro($20/월)는 \"대형 모델, 코딩 자동화, 딥 리서치\" 수준입니다. ESCON·Pulse Check 수준의 실제 프로덕트 코딩이라면 Pro 플랜이 현실적입니다. Anthropic API (Sonnet) 대비 월정액으로 예산 예측이 쉬운 게 장점입니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T01:16:31.489215Z",
+          "stop_timestamp": "2026-04-04T01:16:31.489215Z",
+          "flags": null,
+          "type": "text",
+          "text": " ",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-04-04T01:16:31.701748Z",
+          "stop_timestamp": "2026-04-04T01:16:31.997089Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01EQgtam1XEAYW37GbaXquR7",
+          "name": "web_search",
+          "input": {
+            "query": "ollama cloud models list pricing 2025 claude code best value"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01EQgtam1XEAYW37GbaXquR7",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Pricing · Ollama",
+              "url": "https://ollama.com/pricing",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "See the full list of cloud-enabled models here. Yes. Cloud models that are trained to support tools are tested for tool calling and with real agent workflows before they go live. If something isn&#x27;t working, let us know at hello@ollama.com. Native weights, as released by the model provider. On modern NVIDIA hardware, models may use accelerated data formats supported by Blackwell and Vera Rubin architectures (e.g. NVFP4). Speed depends on model size, architecture, and hardware optimization. We target and monitor for low time-to-first-token and high throughput across all cloud models. Priority tiers with faster performance may be available in the future. Running models on your own hardware is always unlimited. Cloud usage varies by plan: Each plan has session limits that reset every 5 hours and weekly limits that reset every 7 days. Usage reflects actual utilization of Ollama&#x27;s cloud infrastructure - primarily GPU time, which depends on model size and request duration.\n\nGet up and running with large language models.\n\nSee the full list of cloud-enabled models here. Yes. Cloud models that are trained to support tools are tested for tool calling and with real agent workflows before they go live. If something isn't working, let us know at hello@ollama.com. Native weights, as released by the model provider. On modern NVIDIA hardware, models may use accelerated data formats supported by Blackwell and Vera Rubin architectures (e.g. NVFP4). Speed depends on model size, architecture, and hardware optimization. We target and monitor for low time-to-first-token and high throughput across all cloud models. Priority tiers with faster performance may be available in the future. Running models on your own hardware is always unlimited. Cloud usage varies by plan: Each plan has session limits that reset every 5 hours and weekly limits that reset every 7 days. Usage reflects actual utilization of Ollama's cloud infrastructure - primarily GPU time, which depends on model size and request duration.\n\nOllama collaborates with NVIDIA Cloud Providers (NCPs) to host open models.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ollama.com/pricing",
+                "search_provider": "anthropic",
+                "age": "5 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code - Ollama",
+              "url": "https://docs.ollama.com/integrations/claude-code",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "Claude Code is Anthropic’s agentic coding tool that can read, modify, and execute code in your working directory. Open models can be used with Claude Code through Ollama’s Anthropic-compatible API, enabling you to use models such as qwen3.5, glm-5:cloud, kimi-k2.5:cloud. ... The --yes flag auto-pulls the model, skips selectors, and requires --model to be specified. Arguments after -- are passed directly to Claude Code. Claude Code can search the web through Ollama’s web search API. See the web search documentation for setup and usage. The /loop command runs a prompt or slash command on a recurring schedule inside Claude Code. This is useful for automating repetitive tasks like checking PRs, running research, or setting reminders. ... Chat with Claude Code from Telegram by connecting a bot to your session. Install the Telegram plugin, create a bot via @BotFather, then launch ...\n\nClaude Code is Anthropic’s agentic coding tool that can read, modify, and execute code in your working directory. Open models can be used with Claude Code through Ollama’s Anthropic-compatible API, enabling you to use models such as qwen3.5, glm-5:cloud, kimi-k2.5:cloud. ... The --yes flag auto-pulls the model, skips selectors, and requires --model to be specified. Arguments after -- are passed directly to Claude Code. Claude Code can search the web through Ollama’s web search API. See the web search documentation for setup and usage. The /loop command runs a prompt or slash command on a recurring schedule inside Claude Code. This is useful for automating repetitive tasks like checking PRs, running research, or setting reminders. ... Chat with Claude Code from Telegram by connecting a bot to your session. Install the Telegram plugin, create a bot via @BotFather, then launch with the channel flag: ollama launch claude -- --channels plugin:telegram@claude-plugins-official ·\n\nANTHROPIC_AUTH_TOKEN=ollama ANTHROPIC_BASE_URL=http://localhost:11434 ANTHROPIC_API_KEY=\"\" claude --model glm-5:cloud · Note: Claude Code requires a large context window. We recommend at least 64k tokens.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://docs.ollama.com/integrations/claude-code",
+                "search_provider": "anthropic",
+                "age": "20 hours ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to Run Claude Code for Free with Local and Cloud Models from Ollama | Towards Data Science",
+              "url": "https://towardsdatascience.com/run-claude-code-for-free-with-local-and-cloud-models-from-ollama/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "towardsdatascience.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=towardsdatascience.com",
+                "site_name": "Towards Data Science"
+              },
+              "is_missing": false,
+              "text": "Great as CC is, one of its biggest issues is cost. If you’re using it daily, you really need to be on their MAX pricing plan. That’s a minimum of $100 per month, and for real power users, it could be as much as $200 per month.\n\nIf you are a fan of Claude Code, Anthropic’s ubiquitous command-line coding tool, but baulk at the costs of using it, Ollama recently gave you a late Christmas present. Just a couple of weeks ago, they announced that their latest Ollama versions are now compatible with the Anthropic Messages API. If that statement is a little underwhelming for you, what it means in practice is that you can now run Claude Code with local models using Ollama, making it completely free to use. In addition, you can also use Ollama cloud-based models initially for free, although frequent use of cloud models is limited without a paid subscription · Ok, so you lose the capabilities of Anthropic’s very top models like Opus 4.5, etc., but the top open source coding models are very good in their own right. For building demos and MVPs and, importantly, for learning Claude Code, they will be more than good enough.\n\nTo run Claude Code, type the following command in a PowerShell command-line window. PS C:\\Users\\thoma> $env:ANTHROPIC_AUTH_TOKEN = \"ollama\" PS C:\\Users\\thoma> $env:ANTHROPIC_API_KEY = \"\" PS C:\\Users\\thoma> $env:ANTHROPIC_BASE_URL = \"http://localhost:11434\" PS C:\\Users\\thoma> claude --model gpt-oss:20b --allow-dangerously-skip-permissions · Click any required permissions you are presented with, and eventually, you should see the familiar CC screen. ... I created a new directory for my project, switched to it, and started Claude Code. I wanted CC to create a Python file that prints the text “Hello World”. Here is the conversation I had with it. ❯ create a python file that will output Hello World when ran ⎿ Error writing file ● I'm ready to help. Use /help for usage instructions or report issues at https://github.com/anthropics/claude-code/issues.\n\nOllama’s recent support for the Anthropic Messages API enables running Claude Code entirely on local, open-source models, eliminating the need for expensive Anthropic subscriptions. There is also the possibility to use even more advanced, non-local models via the Ollama Cloud LLM service. Using Ollama with top open-source LLMs, developers can enjoy Claude Code’s workflow and still enjoy full control over cost, privacy, and infrastructure. In this article, we walked through installing Ollama, downloading two capable models, one local and one cloud-based. We then showed how to install and configure Claude Code to use the models and validated that our setup worked with some real coding examples. While this approach can’t match the capabilities of Anthropic’s flagship proprietary models, it offers a highly practical, zero-cost alternative that is more than sufficient for most day-to-day development tasks and for learning about Clode Code itself.\n\nThis simply means that the model runs on Ollama’s servers, not locally, and all inference is routed through their servers. As I mentioned before, all users receive a free amount of cloud model use, but you’ll need a paid subscription if you want to use cloud models frequently. PS C:\\Users\\thoma\\projects\\kanban> claude --model qwen3-coder:480b-cloud --allow-dangerously-skip-permissions ╭─── Claude Code v2.1.20 ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮ │ │ Tips for getting started │ │ Welcome back!",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://towardsdatascience.com/run-claude-code-for-free-with-local-and-cloud-models-from-ollama/",
+                "search_provider": "anthropic",
+                "age": "January 31, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Run Claude Code with Local & Cloud Models in 5 Minutes (Ollama, LM Studio, llama.cpp, OpenRouter) | by Luong NGUYEN | Medium",
+              "url": "https://medium.com/@luongnv89/run-claude-code-on-local-cloud-models-in-5-minutes-ollama-openrouter-llama-cpp-6dfeaee03cda",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "medium.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=medium.com",
+                "site_name": "Medium"
+              },
+              "is_missing": false,
+              "text": "The bottom line: Third-party alternatives can save you up to 98% compared to Opus 4.5 — DeepSeek V3.2 is the cheapest at ~0.28/0.28/0.42 per million tokens, while local options like Ollama are completely free.\n\nThis post exists because the old guides were written back when using non-Anthropic models in Claude Code required hacks and weird adapters…\n\nFast forward to now: Claude Code has much better support for alternative providers (including Ollama, LM Studio, llama.cpp, OpenRouter, and others). That changes the practical question from: ... “Which option should I choose for my use case (cost / speed / quality / privacy) — and how do I set it up in 5 minutes?” · So this is the updated, opinionated guide. My test setup for the examples: MacBook Pro M1 (32GB RAM) and Nvidia DGX Spark (120GB RAM, GB10 GPU). I’ll show the simplest paths first (Ollama local and easy cloud routing), then the more flexible setups. If you want Claude Code + local models to be genuinely usable for coding (not just a demo), I’d aim for: RAM: 32GB (Apple Silicon unified memory or PC RAM) ... At 16GB you can run smaller models, but the experience tends to be rough (more wrong edits + more retries = slower overall).\n\nThe main takeaway: Claude Code is surprisingly flexible. You’re not locked into Anthropic’s API. If you need complete privacy with a local model, then on a Mac M1 (32 GB) it is okay to work with devstral‑2‑small (24B), but bellow that it is quite slow. If you have an Nvidia DGX Spark, then there are plenty of choices. If you prefer fast, high quality and have no problem with privacy, then cloud providers are a very good option. You can test Ollama Cloud with a free tier (quite OK for some emergency tasks). Otherwise go with Kimi, Minimax, Deepseek, or GLM, which have much cheaper prices. However, if you still need decent quality, at the moment I think Opus 4.5 is still the best (quality + speed). Let me know what setups you’re using.\n\nSo I started looking for alternatives. Turns out, Claude Code works with any provider that speaks the Anthropic API format. And there are a lot of them now. The bottom line: Third-party alternatives can save you up to 98% compared to Opus 4.5 — DeepSeek V3.2 is the cheapest at ~0.28/0.28/0.42 per million tokens, while local options like Ollama are completely free. If you prefer subscriptions over pay-per-token, budget options start at just 3/month(ZhipuGLM)or3/month(ZhipuGLM)or10/month (MiniMax). See the detailed pricing comparison at the end for full tables. Time: 5 minutes | Cost: Free | Best for: Privacy, no internet needed · If you just want something that works without fussing around, Ollama is your friend. ... export ANTHROPIC_AUTH_TOKEN=\"ollama\" export ANTHROPIC_API_KEY=\"\" export ANTHROPIC_BASE_URL=\"http://localhost:11434\" ... That’s it!",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://medium.com/@luongnv89/run-claude-code-on-local-cloud-models-in-5-minutes-ollama-openrouter-llama-cpp-6dfeaee03cda",
+                "search_provider": "anthropic",
+                "age": "January 31, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Cloud models · Ollama",
+              "url": "https://ollama.com/search?c=cloud",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "MiniMax&#x27;s M2-series model for coding, agentic workflows, and professional productivity · 47.3K Pulls 1 Tag Updated 2 weeks ago\n\nCloud models on Ollama.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ollama.com/search?c=cloud",
+                "search_provider": "anthropic",
+                "age": "March 2, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "claude · Ollama",
+              "url": "https://ollama.com/search?q=claude",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "Ollama"
+              },
+              "is_missing": false,
+              "text": "A large language model that can use text prompts to generate and discuss code · 4.9M Pulls 199 Tags Updated 1 year ago\n\nSearch for models on Ollama.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ollama.com/search?q=claude",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Ollama Pricing 2026: Plans, Costs & TCO - Ollama | CheckThat.ai",
+              "url": "https://checkthat.ai/brands/ollama/pricing",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "checkthat.ai",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=checkthat.ai",
+                "site_name": "Checkthat"
+              },
+              "is_missing": false,
+              "text": "Ollama Cloud launched in preview in September 2025 with fixed-price subscription tiers ($20/month Pro, $100/month Max) for cloud-hosted inference, while local deployment remains free.\n\nOllama Cloud launched in preview in September 2025 with fixed-price subscription tiers ($20/month Pro, $100/month Max) for cloud-hosted inference, while local deployment remains free. This is a fundamentally different model from OpenAI and Anthropic's usage-based per-token pricing. Ollama Cloud provides managed inference on datacenter-grade hardware: ... Quantified rate limits: Usage described qualitatively (“light,” “day-to-day,” “heavy”) without numeric quotas · Per-token costs: No published rates for direct comparison with OpenAI/Anthropic · Concurrency limits: No specific numbers on simultaneous requests · SLA terms: No uptime guarantees or response time commitments published · Enterprise plans: The pricing page states “Team and enterprise plans are coming soon” with no timeline. Contact hello@ollama.com for updates. Without per-token pricing from Ollama Cloud, direct cost comparison with commercial APIs isn't possible.\n\nOllama enables organizations to run large language models locally on their own hardware without cloud connectivity. ... Ollama offers a dual-path pricing approach: run open-source LLMs locally at zero software cost, or pay fixed monthly subscriptions ($20/month Pro, $100/month Max) for cloud-hosted inference. For engineering leaders evaluating infrastructure options, understanding actual costs requires looking beyond sticker price to hardware investments, operational overhead, and stability considerations. Here's what you need to know about Ollama's pricing structure and whether self-hosted deployment makes economic sense. Critical distinction: Local deployment remains free regardless of cloud tier. The cloud subscriptions are for managed inference infrastructure, not software licensing. Ollama's local deployment costs nothing for the software itself: you download it, run it, and access the full model library without subscription fees or per-token charges.\n\nOllama's local deployment provides complete access to all capabilities at zero cost, with unlimited local usage. Cloud-based inference through Ollama Cloud is available through separate subscription tiers (Free, Pro at $20/month, and Max at $100/month) with varying usage limits and features. Full model library: Access to Llama, Mistral, Qwen, and other open-source models · OpenAI-compatible API: Drop-in replacement for existing integrations · Offline operation: No internet required after initial model download · Unlimited local inference: No token limits, rate caps, or usage restrictions on local deployments · Commercial use: No licensing restrictions on local deployment · Model downloads range from 4-7GB for 7B parameter models to 40-70GB for 70B models. Once downloaded, everything runs locally with no ongoing data transmission. The “free” local deployment shifts costs to infrastructure, staffing, and operations.\n\nCritical cost driver: Ollama lacks automated update mechanisms (GitHub #2586). Each model update requires manual ollama pull commands, staging validation, and production rollout, which typically consumes 2-4 hours monthly. ... Activities: High-availability configuration, disaster recovery, compliance documentation, 24/7 on-call rotation ... Small teams: Staffing stays low because ops work can be absorbed into existing DevOps responsibilities. Medium deployments: Complexity forces dedicated expertise; the jump from 5-10% FTE to 50-75% FTE comes from multi-GPU optimization, security hardening, and reliability work. Enterprise: Full-time staffing becomes unavoidable because HA, compliance, and 24/7 on-call cannot be handled “part time.” · TCO pattern: Hardware dominates Year 1, but staffing dominates the 3-year total once you move beyond a small team.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://checkthat.ai/brands/ollama/pricing",
+                "search_provider": "anthropic",
+                "age": "4 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Ollama Cloud Models for Code Review - An Honest Comparison Using Real Examples - DEV Community",
+              "url": "https://dev.to/urlbug/ollama-cloud-models-for-code-review-an-honest-comparison-using-real-examples-2o7e",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "dev.to",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=dev.to",
+                "site_name": "DEV Community"
+              },
+              "is_missing": false,
+              "text": "First, Ollama cloud models can indeed be used for code review tasks, but the quality of results strongly depends on the chosen model and tool configuration. Second, context configuration and tooling are critical. With proper setup (for example, RAG and access to project files), models better understand the codebase and provide more accurate recommendations. when a project contains sensitive code or NDA restrictions ... In these cases, local models may be a good alternative to SaaS solutions. If security restrictions are not critical and budget is not an issue, specialized services such as CodeRabbit, Claude Review, or QoDo may provide more stable out-of-the-box review quality, since they use proprietary analysis pipelines and additional models. Nevertheless, this experiment shows that with proper configuration and the right model selection, LLMs can already be a useful assistant in the code review process.\n\nRecently, AI tools have become an important part of modern software development. Solutions such as... Tagged with ai, opensource, github, cloud.\n\nRecently, AI tools have become an important part of modern software development. Solutions such as Cursor, OpenAI Codex, and Claude Code allow developers to generate code, accelerate function writing, and automate routine tasks. This significantly increases development speed. However, there is also a downside: code begins to appear faster than teams can properly review it. As a result, the load on the code review process increases. This raises an important question: can LLMs themselves help developers review code? In this article, I decided to test how well cloud models available through Ollama handle code review tasks and compare their responses on real Pull Requests. ... The goal of this article is to evaluate how well modern LLMs available through Ollama can perform high-quality code reviews on real Pull Requests and identify which models deliver the best results.\n\nBefore moving to the model tests, it is worth briefly looking at existing solutions, their limitations, and why Ollama was chosen for this experiment. Today, several tools already exist for AI-powered code review, including CodeRabbit, Claude Code (review features), and Qodo. These cloud services integrate with GitHub, GitLab, or IDEs and automatically analyze changes in Pull Requests. ... For example, CodeRabbit can act as a “first reviewer”, automatically checking code and pointing out potential problems before a human reviewer looks at the Pull Request. These tools fit well into the developer workflow and can significantly speed up the code review process. However, most of them share several common limitations: Most of these solutions are paid services, and the price can grow significantly as the number of Pull Requests increases. For companies working with NDA restrictions or sensitive data, there is always a risk when sending source code to external infrastructure.\n\nFirst, Ollama cloud models can indeed be used for code review tasks, but the quality of results strongly depends on the chosen model and tool configuration. Second, context configuration and tooling are critical. With proper setup (for example, RAG and access to project files), models better understand the codebase and provide more accurate recommendations. when a project contains sensitive code or NDA restrictions ... In these cases, local models may be a good alternative to SaaS solutions. If security restrictions are not critical and budget is not an issue, specialized services such as CodeRabbit, Claude Review, or QoDo may provide more stable out-of-the-box review quality, since they use proprietary analysis pipelines and additional models. Nevertheless, this experiment shows that with proper configuration and the right model selection, LLMs can already be a useful assistant in the code review process.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://dev.to/urlbug/ollama-cloud-models-for-code-review-an-honest-comparison-using-real-examples-2o7e",
+                "search_provider": "anthropic",
+                "age": "3 weeks ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Ollama + Claude Code / OpenCode making coding free. | Cloudron Forum",
+              "url": "https://forum.cloudron.io/topic/14937/ollama-claude-code-opencode-making-coding-free.",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "cloudron.io",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=cloudron.io",
+                "site_name": "Cloudron"
+              },
+              "is_missing": false,
+              "text": "No limits. No data leaving your machine. Claude Code used to cost $3-$15 per million tokens. Now you can run it with free open-source models on your computer. January 16th, 2026: Ollama version 0.14.0 became compatible with Anthropic&#x27;s messages API.\n\nOllama + Claude Code / OpenCode making coding free. ... This topic has been deleted. Only users with topic management privileges can see it. ... 𝗔𝗻𝗱 𝗶𝘁 𝗿𝘂𝗻𝘀 𝗰𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗹𝘆 𝗹𝗼𝗰𝗮𝗹. No subscriptions. No limits. No data leaving your machine. Claude Code used to cost $3-$15 per million tokens. Now you can run it with free open-source models on your computer. January 16th, 2026: Ollama version 0.14.0 became compatible with Anthropic's messages API. That means Claude Code now works with any Ollama model. Zero ongoing costs. Your code never leaves your computer. ... Download Ollama. Run ollama pull qwen3-coder. Install Claude Code. Set two environment variables to connect them. ... It reads your files. Makes changes. Tests the code. Shows you what it did. Top models: Qwen 3-Coder for everyday tasks.\n\nI use ollama desktop with their cloud qwen 3 coder 480b. I’m hoping that connecting Claude code to ollama can make use of that. Will give it a shot. Indie app dev, scratching my itches, lover of Cloudron PaaS, communityapps.appx.uk ... I had a go with that lately also on my local setup with a GPU. ollama works well also with openwebui for the models I can run, however I never succeeded to get anything out of claude. If anyone succeeds I would be very happy to hear about the steps to do so. Using qwen3-coder, claude was endlessly spinning the GPU even on small tasks, eventually giving up without ever producing anything ... I got some Intel Arc Battlemage B580 to test local llm for real. Nvidia is quite trivial to play with, since one can get a VPS with some nvidia card and mostly things are set up ready to use regarding GPU support (it can get very expensive though!)\n\nSo it can very likely be the case that this card is woefully underpowered for that use-case, though other similarly sized general purpose models work just fine with ollama. But maybe I miss something obvious with claude code here. ... I use Koyeb for this kind of thing. It's a good proposition but I am not needing it much, so may discontinue. Others might find it helpful. Generally I am happy with my TRAE and desktop Ollama client using one of their cloud models (to avoid pulling it locally). But everyone raves about Claude Code, so will check them with an Ollama out. My quick look suggested you still need a subscription for Clause Code even if you hook up Ollama model. Did I misunderstand this ? Indie app dev, scratching my itches, lover of Cloudron PaaS, communityapps.appx.uk ... I use Koyeb for this kind of thing. It's a good proposition but I am not needing it much, so may discontinue.\n\nGenerally I am happy with my TRAE and desktop Ollama client using one of their cloud models (to avoid pulling it locally). But everyone raves about Claude Code, so will check them with an Ollama out. My quick look suggested you still need a subscription for Clause Code even if you hook up Ollama model. Did I misunderstand this ? ... My quick look suggested you still need a subscription for Clause Code even if you hook up Ollama model. Did I misunderstand this ? Yes, only the API needs a sub. ... My quick look suggested you still need a subscription for Clause Code even if you hook up Ollama model. Did I misunderstand this ? Yes, only the API needs a sub. ... robi cool ! Reluctant to switch dev setup mid-project but next one will try it out. Hoping to get Appflowy and ZeroNet out the door soon. Indie app dev, scratching my itches, lover of Cloudron PaaS, communityapps.appx.uk ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://forum.cloudron.io/topic/14937/ollama-claude-code-opencode-making-coding-free.",
+                "search_provider": "anthropic",
+                "age": "January 23, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "I used Claude Code with a local LLM on Ollama, and it’s surprisingly capable for something that's free",
+              "url": "https://www.xda-developers.com/claude-code-local-llm-ollama-capable-costs-nothing/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "xda-developers.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=xda-developers.com",
+                "site_name": "XDA Developers"
+              },
+              "is_missing": false,
+              "text": "During one of those moments, while waiting for credits to reset, I figured I’d try a local model through Ollama and see how it holds up. I ended up using Qwen 3.5, the 9 billion parameter model, and it’s not as bad as I expected. It’s not really competing with Opus or even Sonnet, but it still gets the job done, especially considering you’re not paying anything. It just runs locally on your laptop or PC, and that alone makes it worth trying. ... The setup is simpler than you&#x27;d expect. You start by installing Ollama like any other macOS app from ollama.com. From there, everything happens in the terminal. Pull the model with the command below. Ollama downloads and prepares it in the background. ... Next, install Claude Code. Then point Claude Code at your local Ollama server instead of Anthropic&#x27;s API by setting the environment variables. ... Once inside, run /init and Claude Code will scan your codebase and set itself up.\n\nDuring one of those moments, while waiting for credits to reset, I figured I’d try a local model through Ollama and see how it holds up. I ended up using Qwen 3.5, the 9 billion parameter model, and it’s not as bad as I expected. It’s not really competing with Opus or even Sonnet, but it still gets the job done, especially considering you’re not paying anything. It just runs locally on your laptop or PC, and that alone makes it worth trying. ... The setup is simpler than you'd expect. You start by installing Ollama like any other macOS app from ollama.com. From there, everything happens in the terminal. Pull the model with the command below. Ollama downloads and prepares it in the background. ... Next, install Claude Code. Then point Claude Code at your local Ollama server instead of Anthropic's API by setting the environment variables. ... Once inside, run /init and Claude Code will scan your codebase and set itself up.\n\nLocal models usually fall apart even on basic tasks, so I was expecting Qwen through Ollama to struggle pretty quickly, but that didn’t really happen in practice. For everyday coding work, Qwen 3 is way more usable than I expected. It is particularly strong when it comes to reading and explaining code. You can point it at an unfamiliar file and ask what is going on, and it will give you a clear breakdown. If you ask it to trace data flow or explain why something is structured a certain way, it handles that reliably. Writing code is more of a mixed experience, but still solid. It handles boilerplate, helper functions, and simple components without much trouble. I used it to scaffold a form handler, generate utility functions, and extend templates, and the results were usable with minimal edits. It does not always get everything right on the first pass, but the gap is small enough that fixing it is faster than starting from scratch.\n\nGet hands-on coverage in the newsletter of local LLM workflows: step-by-step Ollama setup, model sizing and hardware trade-offs, and real-world coding use cases so you can implement these techniques and explore related topics. ... By subscribing, you agree to receive newsletter and marketing emails, and accept our Terms of Use and Privacy Policy. You can unsubscribe anytime. One of the most practical use cases of running something like Claude Code with a local LLM shows up when you hit API limits. If you are using higher-end models like Opus or Sonnet, it is easy to burn through tokens during a long coding session, and once that happens, your workflow just stops. Instead of waiting for credits to reset, you can switch to a local model and keep going. It is not ideal for heavy lifting, but for smaller follow-ups, quick fixes, or minor experiments on code that is already in place, it works well enough.\n\nI didn't expect it to be usable.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.xda-developers.com/claude-code-local-llm-ollama-capable-costs-nothing/",
+                "search_provider": "anthropic",
+                "age": "1 week ago"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-04-04T01:16:33.882810Z",
+          "stop_timestamp": "2026-04-04T01:16:33.882810Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_012gx4tzszZLfJorBoBzacuw",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://ollama.com/pricing"
+          },
+          "message": "Fetching: https://ollama.com/pricing",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_012gx4tzszZLfJorBoBzacuw",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Pricing · Ollama",
+              "url": "https://ollama.com/pricing",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "ollama"
+              },
+              "is_missing": false,
+              "text": "Pricing · Ollama\n\n\n\n\n[![Ollama](https://ollama.com/public/ollama.png)](https://ollama.com/)\n\n[Models](https://ollama.com/search)\n[Docs](https://ollama.com/docs)\n[Pricing](https://ollama.com/pricing)\n\n[Sign in](https://ollama.com/signin)\n[Download](https://ollama.com/download)\n\n[Models](https://ollama.com/search)\n[Download](https://ollama.com/download)\n[Docs](https://ollama.com/docs)\n[Pricing](https://ollama.com/pricing)\n[Sign in](https://ollama.com/signin)\n\n\n\n# Pricing\n\n![Ollama](https://ollama.com/public/Ollama_reading_free.png)\n\n## Free\n\nGet started with Ollama\n\n$0\n\n[Download](https://ollama.com/download)\n\n* Automate coding, document analysis, and other tasks with open models\n* Keep your data private\n* Run models on your hardware\n* Access cloud models\n* CLI, API, and desktop apps\n* 40,000+ community integrations\n* Unlimited public models\n\n![Ollama](https://ollama.com/public/Ollama_reading.png)\n\n## Pro\n\nSolve harder tasks, faster\n\n$20 / mo\n\nor $200/yr billed [annually](https://ollama.com/upgrade?plan=pro&interval=year)\n\n[Get Pro](https://ollama.com/upgrade?plan=pro)\n\nEverything in Free, plus:\n\n* Run 3 cloud models at a time\n* 50x more cloud usage than Free\n* Upload and share private models\n\n![Ollama](https://ollama.com/public/Ollama_reading_smart.png)\n\n## Max\n\nFor your most demanding work\n\n$100 / mo\n\n[Get Max](https://ollama.com/upgrade?plan=max)\n\nEverything in Pro, plus:\n\n* Run 10 cloud models at a time\n* 5x more usage than Pro\n\n## Frequently asked questions\n\n### Models\n\n* #### Which models are available?\n\n  See the full list of cloud-enabled models [here](https://ollama.com/search?c=cloud).\n* #### Do models support tool calling?\n\n  Yes. Cloud models that are trained to support tools are tested for tool calling and with real agent workflows before they go live. If something isn't working, let us know at [hello@ollama.com](mailto:hello@ollama.com).\n* #### What quantization or data format do cloud models use?\n\n  Native weights, as released by the model provider. On modern NVIDIA hardware, models may use accelerated data formats supported by Blackwell and Vera Rubin architectures (e.g. NVFP4).\n* #### How fast is Ollama?\n\n  Speed depends on model size, architecture, and hardware optimization. We target and monitor for low time-to-first-token and high throughput across all cloud models. Priority tiers with faster performance may be available in the future.\n\n### Usage\n\n* #### What are the usage limits for each plan?\n\n  Running models on your own hardware is always unlimited. Cloud usage varies by plan:\n\n  | Plan | Usage | Example use cases |\n  | --- | --- | --- |\n  | Free | Light usage | Chatting with models, evaluating larger models, coding and AI assistants with smaller models |\n  | Pro | Day-to-day work | Larger models, coding automation, deep research |\n  | Max | Heavy, sustained usage | Continuous agent tasks, multiple concurrent agents, large models over extended sessions |\n\n  Each plan has session limits that reset every 5 hours and weekly limits that reset every 7 days.\n* #### How is usage measured?\n\n  Usage reflects actual utilization of Ollama's cloud infrastructure - primarily GPU time, which depends on model size and request duration. Shorter requests and prompts that share cached context use less.\n\n  This is different from fixed token or request-based plans. Ollama doesn't cap you at a set number of tokens. As hardware and model architectures get more efficient, you'll get more out of your plan over time.\n* #### Can I purchase additional usage?\n\n  Soon. Additional usage at competitive per-token rates, including cache-aware pricing, is coming.\n* #### How much more usage does Pro include?\n\n  50x more than Free.\n* #### How much more usage does Max include?\n\n  5x more than Pro.\n* #### How do I know when I've hit my limit?\n\n  Check your usage [here](https://ollama.com/settings) anytime. At 90% of your plan's limit, Ollama sends an email reminder. You can turn this off in settings.\n* #### How many cloud models can I run at once?\n\n  Concurrency limits ensure dedicated capacity for workflows that need multiple models running simultaneously:\n\n  | Plan | Concurrent models |\n  | --- | --- |\n  | Free | 1 |\n  | Pro | 3 |\n  | Max | 10 |\n\n  Requests beyond your plan's concurrency limit are queued and processed as soon as a slot is available. Queued requests are held up to a fixed limit - if the queue is full, the request will be rejected until one of your concurrency slots opens.\n\n### Privacy\n\n* #### Where are models hosted?\n\n  Ollama hosts models and compute resources primarily in the United States. To serve global demand, we may route to Europe and Singapore for additional capacity.\n* #### Is my prompt or response data trained on?\n\n  Prompt or response data is never logged or trained on.\n* #### Who does Ollama partner with to host models?\n\n  Ollama collaborates with NVIDIA Cloud Providers (NCPs) to host open models.\n\n  When Ollama partners with providers, we require no logging, no training, and zero data retention policies in place.\n\n\n\n© 2026 Ollama\n\n[Download](https://ollama.com/download)\n[Blog](https://ollama.com/blog)\n[Docs](https://docs.ollama.com)\n[GitHub](https://github.com/ollama/ollama)\n[Discord](https://discord.com/invite/ollama)\n[X (Twitter)](https://twitter.com/ollama)\n[Contact](mailto:hello@ollama.com)\n[Privacy](https://ollama.com/privacy)\n[Terms](https://ollama.com/terms)\n\n* [Blog](https://ollama.com/blog)\n* [Download](https://ollama.com/download)\n* [Docs](https://docs.ollama.com)\n\n* [GitHub](https://github.com/ollama/ollama)\n* [Discord](https://discord.com/invite/ollama)\n* [X (Twitter)](https://twitter.com/ollama)\n* [Meetups](https://lu.ma/ollama)\n* [Privacy](https://ollama.com/privacy)\n* [Terms](https://ollama.com/terms)\n\n© 2026 Ollama Inc.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "content_type": "html",
+                "mime_type": "text/html; charset=utf-8",
+                "destination_url": "https://ollama.com/pricing"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Fetched: Pricing · Ollama",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "Pricing · Ollama",
+              "subtitles": null,
+              "url": "https://ollama.com/pricing",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+              "source": "ollama"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-04-04T01:16:35.149277Z",
+          "stop_timestamp": "2026-04-04T01:16:35.149277Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_015CyDS8jyEeHM12UMmZM6gm",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://ollama.com/search?c=cloud"
+          },
+          "message": "Fetching: https://ollama.com/search?c=cloud",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_015CyDS8jyEeHM12UMmZM6gm",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Cloud models · Ollama",
+              "url": "https://ollama.com/search?c=cloud",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ollama.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+                "site_name": "ollama"
+              },
+              "is_missing": false,
+              "text": "Cloud models · Ollama\n\n\n\n\n[![Ollama](https://ollama.com/public/ollama.png)](https://ollama.com/)\n\n[Models](https://ollama.com/search)\n[Docs](https://ollama.com/docs)\n[Pricing](https://ollama.com/pricing)\n\n[Sign in](https://ollama.com/signin)\n[Download](https://ollama.com/download)\n\n[Models](https://ollama.com/search)\n[Download](https://ollama.com/download)\n[Docs](https://ollama.com/docs)\n[Pricing](https://ollama.com/pricing)\n[Sign in](https://ollama.com/signin)\n\n\n\n\n\n\nPopular\nNewest\n\n⇅\n\nCloud models · Ollama\n\nCloud models on Ollama.\n\nCloud\n\nEmbedding\n\nVision\n\nTools\n\nThinking\n\nPopular\nNewest\n\n* [## minimax-m2.7\n\n  MiniMax's M2-series model for coding, agentic workflows, and professional productivity.\n\n  cloud\n\n  31.2K\n   Pulls\n\n\n\n\n\n  1\n   Tag\n\n\n\n\n  Updated \n  1 week ago](https://ollama.com/library/minimax-m2.7)\n* [## qwen3.5\n\n  Qwen 3.5 is a family of open-source multimodal models that delivers exceptional utility and performance.\n\n  vision\n  tools\n  thinking\n  cloud\n  0.8b\n  2b\n  4b\n  9b\n  27b\n  35b\n  122b\n\n  3.5M\n   Pulls\n\n\n\n\n\n  30\n   Tags\n\n\n\n\n  Updated \n  3 weeks ago](https://ollama.com/library/qwen3.5)\n* [## qwen3-coder-next\n\n  Qwen3-Coder-Next is a coding-focused language model from Alibaba's Qwen team, optimized for agentic coding workflows and local development.\n\n  tools\n  cloud\n\n  914.4K\n   Pulls\n\n\n\n\n\n  4\n   Tags\n\n\n\n\n  Updated \n  1 month ago](https://ollama.com/library/qwen3-coder-next)\n* [## qwen3-vl\n\n  The most powerful vision-language model in the Qwen model family to date.\n\n  vision\n  tools\n  thinking\n  cloud\n  2b\n  4b\n  8b\n  30b\n  32b\n  235b\n\n  2.5M\n   Pulls\n\n\n\n\n\n  59\n   Tags\n\n\n\n\n  Updated \n  4 months ago](https://ollama.com/library/qwen3-vl)\n* [## devstral-small-2\n\n  24B model that excels at using tools to explore codebases, editing multiple files and power software engineering agents.\n\n  vision\n  tools\n  cloud\n  24b\n\n  692.5K\n   Pulls\n\n\n\n\n\n  6\n   Tags\n\n\n\n\n  Updated \n  3 months ago](https://ollama.com/library/devstral-small-2)\n* [## ministral-3\n\n  The Ministral 3 family is designed for edge deployment, capable of running on a wide range of hardware.\n\n  vision\n  tools\n  cloud\n  3b\n  8b\n  14b\n\n  749.6K\n   Pulls\n\n\n\n\n\n  16\n   Tags\n\n\n\n\n  Updated \n  3 months ago](https://ollama.com/library/ministral-3)\n* [## minimax-m2.5\n\n  MiniMax-M2.5 is a state-of-the-art large language model designed for real-world productivity and coding tasks.\n\n  cloud\n\n  145.6K\n   Pulls\n\n\n\n\n\n  1\n   Tag\n\n\n\n\n  Updated \n  1 month ago](https://ollama.com/library/minimax-m2.5)\n* [## qwen3-next\n\n  The first installment in the Qwen3-Next series with strong performance in terms of both parameter efficiency and inference speed.\n\n  tools\n  thinking\n  cloud\n  80b\n\n  441.3K\n   Pulls\n\n\n\n\n\n  10\n   Tags\n\n\n\n\n  Updated \n  3 months ago](https://ollama.com/library/qwen3-next)\n* [## nemotron-3-super\n\n  NVIDIA Nemotron 3 Super is a 120B open MoE model activating just 12B parameters to deliver maximum compute efficiency and accuracy for complex multi-agent applications.\n\n  tools\n  thinking\n  cloud\n  120b\n\n  100.9K\n   Pulls\n\n\n\n\n\n  7\n   Tags\n\n\n\n\n  Updated \n  2 weeks ago](https://ollama.com/library/nemotron-3-super)\n* [## glm-5\n\n  A strong reasoning and agentic model from Z.ai with 744B total parameters (40B active), built for complex systems engineering and long-horizon tasks.\n\n  cloud\n\n  137.9K\n   Pulls\n\n\n\n\n\n  1\n   Tag\n\n\n\n\n  Updated \n  1 month ago](https://ollama.com/library/glm-5)\n* [## kimi-k2.5\n\n  Kimi K2.5 is an open-source, native multimodal agentic model that seamlessly integrates vision and language understanding with advanced agentic capabilities, instant and thinking modes, as well as conversational and agentic paradigms.\n\n  cloud\n\n  188.1K\n   Pulls\n\n\n\n\n\n  1\n   Tag\n\n\n\n\n  Updated \n  1 month ago](https://ollama.com/library/kimi-k2.5)\n* [## rnj-1\n\n  Rnj-1 is a family of 8B parameter open-weight, dense models trained from scratch by Essential AI, optimized for code and STEM with capabilities on par with SOTA open-weight models.\n\n  tools\n  cloud\n  8b\n\n  395.3K\n   Pulls\n\n\n\n\n\n  6\n   Tags\n\n\n\n\n  Updated \n  3 months ago](https://ollama.com/library/rnj-1)\n* [## nemotron-3-nano\n\n  Nemotron-3-Nano is a new Standard for Efficient, Open, and Intelligent Agentic Models, now updated with a 4B parameter count model.\n\n  tools\n  thinking\n  cloud\n  4b\n  30b\n\n  294.8K\n   Pulls\n\n\n\n\n\n  9\n   Tags\n\n\n\n\n  Updated \n  1 week ago](https://ollama.com/library/nemotron-3-nano)\n* [## devstral-2\n\n  123B model that excels at using tools to explore codebases, editing multiple files and power software engineering agents.\n\n  tools\n  cloud\n  123b\n\n  150.5K\n   Pulls\n\n\n\n\n\n  6\n   Tags\n\n\n\n\n  Updated \n  3 months ago](https://ollama.com/library/devstral-2)\n* [## gemini-3-flash-preview\n\n  Gemini 3 Flash offers frontier intelligence built for speed at a fraction of the cost.\n\n  cloud\n\n  105.1K\n   Pulls\n\n\n\n\n\n  2\n   Tags\n\n\n\n\n  Updated \n  3 months ago](https://ollama.com/library/gemini-3-flash-preview)\n* [## cogito-2.1\n\n  The Cogito v2.1 LLMs are instruction tuned generative models. All models are released under MIT license for commercial use.\n\n  cloud\n  671b\n\n  127.9K\n   Pulls\n\n\n\n\n\n  6\n   Tags\n\n\n\n\n  Updated \n  4 months ago](https://ollama.com/library/cogito-2.1)\n* [## glm-4.7\n\n  Advancing the Coding Capability\n\n  cloud\n\n  76K\n   Pulls\n\n\n\n\n\n  1\n   Tag\n\n\n\n\n  Updated \n  3 months ago](https://ollama.com/library/glm-4.7)\n* [## minimax-m2\n\n  MiniMax M2 is a high-efficiency large language model built for coding and agentic workflows.\n\n  cloud\n\n  89.7K\n   Pulls\n\n\n\n\n\n  1\n   Tag\n\n\n\n\n  Updated \n  4 months ago](https://ollama.com/library/minimax-m2)\n* [## deepseek-v3.2\n\n  DeepSeek-V3.2, a model that harmonizes high computational efficiency with superior reasoning and agent performance.\n\n  cloud\n\n  59.9K\n   Pulls\n\n\n\n\n\n  1\n   Tag\n\n\n\n\n  Updated \n  3 months ago](https://ollama.com/library/deepseek-v3.2)\n* [## glm-4.6\n\n  Advanced agentic, reasoning and coding capabilities.\n\n  cloud\n\n  94.2K\n   Pulls\n\n\n\n\n\n  1\n   Tag\n\n\n\n\n  Updated \n  5 months ago](https://ollama.com/library/glm-4.6)\n\n\n\n\n© 2026 Ollama\n\n[Blog](https://ollama.com/blog)\n[Contact](mailto:hello@ollama.com)",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "content_type": "html",
+                "mime_type": "text/html; charset=utf-8",
+                "destination_url": "https://ollama.com/search?c=cloud"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Fetched: Cloud models · Ollama",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "Cloud models · Ollama",
+              "subtitles": null,
+              "url": "https://ollama.com/search?c=cloud",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=ollama.com",
+              "source": "ollama"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-04-04T01:16:36.652991Z",
+          "stop_timestamp": "2026-04-04T01:16:54.945791Z",
+          "flags": null,
+          "type": "text",
+          "text": "현재 Ollama 클라우드 모델 전체 목록을 확인했습니다. 정리해드리겠습니다.\n\n---\n\n## Ollama 클라우드 모델 가성비 추천\n\n### 먼저 과금 구조 이해\n\nOllama 클라우드는 Free / Pro($20/월) / Max($100/월) 구조입니다. Free 플랜도 클라우드 모델 접근이 가능하고, 5시간마다 세션 리셋, 주간 한도가 있습니다. 과금 기준은 토큰 수가 아니라 GPU 사용 시간 기반입니다.\n\n---\n\n### CSP에게 추천하는 클라우드 모델 TOP 3\n\n**🥇 1순위 — `qwen3-coder-next:cloud` (코딩 가성비 최강)**\n\nQwen3-Coder-Next는 Alibaba Qwen팀의 코딩 특화 모델로 agentic coding workflow와 로컬 개발에 최적화되어 있으며 tools를 지원합니다. 91만 pulls로 가장 검증된 클라우드 코딩 모델입니다.\n\n```bash\nollama launch claude --model qwen3-coder-next:cloud\n```\n\n**🥈 2순위 — `devstral-small-2:cloud` (agentic 코딩 특화)**\n\nDevstral-small-2는 24B 모델로 tool을 활용한 코드베이스 탐색, 멀티파일 편집, software engineering agent에 특화되어 있습니다. Mistral 계열로 Claude Code의 agentic loop와 궁합이 좋습니다.\n\n```bash\nollama launch claude --model devstral-small-2:cloud\n```\n\n**🥉 3순위 — `qwen3.5:9b` (로컬 + 클라우드 겸용, 무료 tier 절약)**\n\nqwen3.5는 tools, thinking, vision을 모두 지원하는 멀티모달 모델로 9b 사이즈가 16GB MacBook Air에서도 로컬 실행 가능합니다. 클라우드 quota를 아끼고 싶을 때 로컬로 전환 가능한 유일한 옵션.\n\n```bash\n# 클라우드\nollama launch claude --model qwen3.5:cloud\n# 로컬 fallback\nollama launch claude --model qwen3.5:9b\n```\n\n---\n\n### 전략적 사용법 (Free 플랜 최대 활용)\n\n```\n복잡한 agentic 코딩  →  qwen3-coder-next:cloud (클라우드 quota 사용)\n단순 파일 수정/확인  →  qwen3.5:9b (로컬, quota 무소비)\nquota 소진 시 fallback  →  qwen2.5-coder:7b (로컬)\n```\n\nFree 플랜은 \"소규모 모델을 사용한 코딩 및 AI 어시스턴트\" 용도로 설계되어 있고, Pro($20/월)는 \"대형 모델, 코딩 자동화, 딥 리서치\" 수준입니다. ESCON·Pulse Check 수준의 실제 프로덕트 코딩이라면 Pro 플랜이 현실적입니다. Anthropic API (Sonnet) 대비 월정액으로 예산 예측이 쉬운 게 장점입니다.",
+          "citations": [
+            {
+              "uuid": "d36efc82-73f4-49d4-92f9-bfefbbd88cde",
+              "start_index": 93,
+              "end_index": 231,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://ollama.com/pricing"
+              }
+            },
+            {
+              "uuid": "fb050bef-b691-42bf-96f0-b0b37b366dd5",
+              "start_index": 318,
+              "end_index": 416,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://ollama.com/search?c=cloud"
+              }
+            },
+            {
+              "uuid": "7b0fc0a8-ed86-47de-b187-d9c51e1a0971",
+              "start_index": 570,
+              "end_index": 663,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://ollama.com/search?c=cloud"
+              }
+            },
+            {
+              "uuid": "feb72337-f0a3-4d6f-9f90-c1f3b20a9093",
+              "start_index": 832,
+              "end_index": 923,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://ollama.com/library/qwen3.5/tags"
+              }
+            },
+            {
+              "uuid": "240dca60-636c-4b79-8ee0-0253f8e8730d",
+              "start_index": 1272,
+              "end_index": 1363,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://ollama.com/pricing"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-04T01:16:55.037088Z",
+      "updated_at": "2026-04-04T01:16:55.037088Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d5610-19f4-74d5-b661-b4b1c37df5c4"
+    }
+  ]
+}

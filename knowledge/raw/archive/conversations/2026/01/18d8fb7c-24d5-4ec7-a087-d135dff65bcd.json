@@ -1,0 +1,74 @@
+﻿{
+  "uuid": "18d8fb7c-24d5-4ec7-a087-d135dff65bcd",
+  "name": "Tool result block mismatch error",
+  "summary": "**Conversation Overview**\n\nThe user encountered an Anthropic API error (400 status) with the message indicating an unexpected tool_use_id found in tool_result blocks without a corresponding tool_use block in the previous message. The user asked \"뭐가문제야?\" (What's the problem?) in Korean, seeking help to understand and resolve this technical issue.\n\nClaude provided a comprehensive diagnosis explaining that this error occurs when the API message structure is malformed, specifically when tool_result blocks exist without their corresponding tool_use blocks in the conversation history. The error occurred at message 34 with tool_use_id \"toolu_016MfUwy8eVnCuK61Pz8MiNo\". Claude explained the proper message structure required by the Anthropic API, where tool_use blocks must appear in assistant messages followed by tool_result blocks in user messages, maintaining proper pairing and sequencing.\n\nClaude offered multiple solution approaches including conversation history initialization, tool use pair validation through JavaScript code examples, and quick temporary fixes. The response included detailed code examples showing both incorrect and correct message array structures, validation functions to check for orphaned tool results, and recommendations to examine the conversation history logs around the problematic message. Claude concluded by offering to provide more specific solutions if the user could share their current code implementation and usage context.",
+  "created_at": "2026-01-01T10:06:52.803715Z",
+  "updated_at": "2026-01-01T10:07:28.689459Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019b7906-534d-7784-8ea8-a75729eb90fe",
+      "text": "뭐가문제야?:\nAPI Error: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"messages.34.content.2: unexpected tool_use_id found in tool_result blocks: toolu_016MfUwy8eVnCuK61Pz8MiNo. Each tool_result block must have a corresponding tool_use block in the previous message.\"},\"request_id\":\"req_011CWgUHJrg4VshSqEmVgLHN\"}",
+      "content": [
+        {
+          "start_timestamp": "2026-01-01T10:06:56.411097Z",
+          "stop_timestamp": "2026-01-01T10:06:56.411097Z",
+          "flags": null,
+          "type": "text",
+          "text": "뭐가문제야?:\nAPI Error: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"messages.34.content.2: unexpected tool_use_id found in tool_result blocks: toolu_016MfUwy8eVnCuK61Pz8MiNo. Each tool_result block must have a corresponding tool_use block in the previous message.\"},\"request_id\":\"req_011CWgUHJrg4VshSqEmVgLHN\"}",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-01T10:06:56.416131Z",
+      "updated_at": "2026-01-01T10:06:56.416131Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019b7906-534d-7784-8ea8-a758222a55fc",
+      "text": "사용자가 API 에러를 보고 있습니다. 에러 메시지를 분석해보면:\n\n```\nAPI Error: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"messages.34.content.2: unexpected tool_use_id found in tool_result blocks: toolu_016MfUwy8eVnCuK61Pz8MiNo. Each tool_result block must have a corresponding tool_use block in the previous message.\"},\"request_id\":\"req_011CWgUHJrg4VshSqEmVgLHN\"}\n```\n\n이것은 Anthropic API 에러입니다. 핵심 문제는:\n- \"unexpected tool_use_id found in tool_result blocks\"\n- \"Each tool_result block must have a corresponding tool_use block in the previous message\"\n\n즉, tool_result 블록이 있는데, 이전 메시지에 해당하는 tool_use 블록이 없다는 뜻입니다.\n\n이것은 일반적으로 다음과 같은 상황에서 발생합니다:\n\n1. **대화 히스토리 구조 문제**: \n   - Assistant가 tool을 사용하면 (tool_use 블록 생성)\n   - 시스템이 tool_result를 반환해야 하는데\n   - 대화 히스토리를 잘못 구성하면 tool_use 없이 tool_result만 있는 상황이 발생\n\n2. **메시지 페어링 문제**:\n   - tool_use는 assistant 메시지에 있어야 함\n   - tool_result는 user 메시지에 있어야 함\n   - 이 순서가 맞지 않으면 에러 발생\n\n3. **대화 히스토리 편집**:\n   - 대화 중간의 메시지를 삭제하거나 수정했을 때\n   - tool_use와 tool_result의 연결이 끊어질 수 있음\n\n메시지 구조에 주의를 기울여야 합니다. tool_use와 tool_result는 정확한 순서와 연결이 필요하며, 대화 히스토리를 변경할 때 이 관계를 유지해야 합니다.\n\nAPI나 외부 통합 환경에서 발생할 수 있는 시나리오를 고려해야 합니다. 직접적인 API 사용이나 다른 플랫폼에서의 통합 과정에서 이러한 에러가 나타날 수 있습니다.이 에러는 **Anthropic API의 메시지 구조 문제**입니다! 🔍\n\n## 🚨 문제 진단\n\n에러 메시지를 해석하면:\n- `tool_result` 블록이 있는데, 이전 메시지에 해당하는 `tool_use` 블록이 없다는 뜻입니다\n- 34번째 메시지에서 발생했습니다\n\n## 🔧 원인과 해결방법\n\n### 1️⃣ **대화 히스토리 구조 문제** (가장 흔한 원인)\n\nAPI 호출 시 메시지 배열이 이런 구조여야 합니다:\n\n```javascript\n// ❌ 잘못된 예시\nmessages: [\n  { role: \"user\", content: \"안녕\" },\n  { role: \"assistant\", content: \"안녕하세요\" },\n  { \n    role: \"user\", \n    content: [\n      { type: \"tool_result\", tool_use_id: \"toolu_xxx\", content: \"...\" }\n    ]\n  }  // ← tool_use 없이 tool_result만 있음!\n]\n\n// ✅ 올바른 예시\nmessages: [\n  { role: \"user\", content: \"안녕\" },\n  { \n    role: \"assistant\", \n    content: [\n      { type: \"text\", text: \"검색하겠습니다\" },\n      { type: \"tool_use\", id: \"toolu_xxx\", name: \"web_search\", input: {...} }\n    ]\n  },\n  { \n    role: \"user\", \n    content: [\n      { type: \"tool_result\", tool_use_id: \"toolu_xxx\", content: \"...\" }\n    ]\n  }\n]\n```\n\n### 2️⃣ **해결 방법**\n\n**방법 A: 대화 히스토리 초기화**\n```javascript\n// 문제가 있는 메시지를 제거하고 새로 시작\nconst cleanMessages = messages.filter((msg, index) => {\n  // 34번 메시지 근처를 확인하고 문제 있는 부분 제거\n  return index < 33; // 문제 발생 전까지만 유지\n});\n```\n\n**방법 B: Tool Use 페어 검증**\n```javascript\nfunction validateMessages(messages) {\n  const toolUseIds = new Set();\n  \n  for (let i = 0; i < messages.length; i++) {\n    const msg = messages[i];\n    \n    if (msg.role === \"assistant\") {\n      // tool_use 수집\n      const toolUses = msg.content.filter(c => c.type === \"tool_use\");\n      toolUses.forEach(tu => toolUseIds.add(tu.id));\n    }\n    \n    if (msg.role === \"user\") {\n      // tool_result 검증\n      const toolResults = msg.content.filter(c => c.type === \"tool_result\");\n      toolResults.forEach(tr => {\n        if (!toolUseIds.has(tr.tool_use_id)) {\n          console.error(`Orphan tool_result: ${tr.tool_use_id} at message ${i}`);\n        }\n      });\n    }\n  }\n}\n```\n\n### 3️⃣ **빠른 임시 해결책**\n\n```javascript\n// 현재 대화를 포기하고 새로 시작\nconst response = await fetch(\"https://api.anthropic.com/v1/messages\", {\n  method: \"POST\",\n  headers: {\n    \"Content-Type\": \"application/json\",\n  },\n  body: JSON.stringify({\n    model: \"claude-sonnet-4-20250514\",\n    max_tokens: 1000,\n    messages: [\n      { \n        role: \"user\", \n        content: \"새로운 대화 시작\" \n      }\n    ]\n  })\n});\n```\n\n## 🎯 추천 조치\n\n1. **대화 히스토리를 로그로 출력**해서 34번째 메시지 전후 구조 확인\n2. **tool_use_id가 `toolu_016MfUwy8eVnCuK61Pz8MiNo`인 tool_use 블록**이 있는지 확인\n3. 없다면 해당 `tool_result` 블록 제거 또는 대화 초기화\n\n## 💡 코드가 있다면?\n\n현재 사용 중인 코드를 보여주시면 정확한 해결책을 드릴 수 있습니다!\n\n- 어떤 환경에서 이 에러가 발생했나요? (아티팩트? 직접 API 호출? 다른 앱?)\n- 메시지 배열 구조를 확인할 수 있나요?",
+      "content": [
+        {
+          "start_timestamp": "2026-01-01T10:06:59.388391Z",
+          "stop_timestamp": "2026-01-01T10:07:12.663351Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 API 에러를 보고 있습니다. 에러 메시지를 분석해보면:\n\n```\nAPI Error: 400 {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"messages.34.content.2: unexpected tool_use_id found in tool_result blocks: toolu_016MfUwy8eVnCuK61Pz8MiNo. Each tool_result block must have a corresponding tool_use block in the previous message.\"},\"request_id\":\"req_011CWgUHJrg4VshSqEmVgLHN\"}\n```\n\n이것은 Anthropic API 에러입니다. 핵심 문제는:\n- \"unexpected tool_use_id found in tool_result blocks\"\n- \"Each tool_result block must have a corresponding tool_use block in the previous message\"\n\n즉, tool_result 블록이 있는데, 이전 메시지에 해당하는 tool_use 블록이 없다는 뜻입니다.\n\n이것은 일반적으로 다음과 같은 상황에서 발생합니다:\n\n1. **대화 히스토리 구조 문제**: \n   - Assistant가 tool을 사용하면 (tool_use 블록 생성)\n   - 시스템이 tool_result를 반환해야 하는데\n   - 대화 히스토리를 잘못 구성하면 tool_use 없이 tool_result만 있는 상황이 발생\n\n2. **메시지 페어링 문제**:\n   - tool_use는 assistant 메시지에 있어야 함\n   - tool_result는 user 메시지에 있어야 함\n   - 이 순서가 맞지 않으면 에러 발생\n\n3. **대화 히스토리 편집**:\n   - 대화 중간의 메시지를 삭제하거나 수정했을 때\n   - tool_use와 tool_result의 연결이 끊어질 수 있음\n\n메시지 구조에 주의를 기울여야 합니다. tool_use와 tool_result는 정확한 순서와 연결이 필요하며, 대화 히스토리를 변경할 때 이 관계를 유지해야 합니다.\n\nAPI나 외부 통합 환경에서 발생할 수 있는 시나리오를 고려해야 합니다. 직접적인 API 사용이나 다른 플랫폼에서의 통합 과정에서 이러한 에러가 나타날 수 있습니다.",
+          "summaries": [
+            {
+              "summary": "Thinking about resolving API tool_result validation errors in message formatting"
+            },
+            {
+              "summary": "API 에러 메시지 분석 중입니다."
+            },
+            {
+              "summary": "API 에러의 원인을 진단하고 해결책을 제시했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-01T10:07:09.978924Z",
+          "stop_timestamp": "2026-01-01T10:07:28.639240Z",
+          "flags": null,
+          "type": "text",
+          "text": "이 에러는 **Anthropic API의 메시지 구조 문제**입니다! 🔍\n\n## 🚨 문제 진단\n\n에러 메시지를 해석하면:\n- `tool_result` 블록이 있는데, 이전 메시지에 해당하는 `tool_use` 블록이 없다는 뜻입니다\n- 34번째 메시지에서 발생했습니다\n\n## 🔧 원인과 해결방법\n\n### 1️⃣ **대화 히스토리 구조 문제** (가장 흔한 원인)\n\nAPI 호출 시 메시지 배열이 이런 구조여야 합니다:\n\n```javascript\n// ❌ 잘못된 예시\nmessages: [\n  { role: \"user\", content: \"안녕\" },\n  { role: \"assistant\", content: \"안녕하세요\" },\n  { \n    role: \"user\", \n    content: [\n      { type: \"tool_result\", tool_use_id: \"toolu_xxx\", content: \"...\" }\n    ]\n  }  // ← tool_use 없이 tool_result만 있음!\n]\n\n// ✅ 올바른 예시\nmessages: [\n  { role: \"user\", content: \"안녕\" },\n  { \n    role: \"assistant\", \n    content: [\n      { type: \"text\", text: \"검색하겠습니다\" },\n      { type: \"tool_use\", id: \"toolu_xxx\", name: \"web_search\", input: {...} }\n    ]\n  },\n  { \n    role: \"user\", \n    content: [\n      { type: \"tool_result\", tool_use_id: \"toolu_xxx\", content: \"...\" }\n    ]\n  }\n]\n```\n\n### 2️⃣ **해결 방법**\n\n**방법 A: 대화 히스토리 초기화**\n```javascript\n// 문제가 있는 메시지를 제거하고 새로 시작\nconst cleanMessages = messages.filter((msg, index) => {\n  // 34번 메시지 근처를 확인하고 문제 있는 부분 제거\n  return index < 33; // 문제 발생 전까지만 유지\n});\n```\n\n**방법 B: Tool Use 페어 검증**\n```javascript\nfunction validateMessages(messages) {\n  const toolUseIds = new Set();\n  \n  for (let i = 0; i < messages.length; i++) {\n    const msg = messages[i];\n    \n    if (msg.role === \"assistant\") {\n      // tool_use 수집\n      const toolUses = msg.content.filter(c => c.type === \"tool_use\");\n      toolUses.forEach(tu => toolUseIds.add(tu.id));\n    }\n    \n    if (msg.role === \"user\") {\n      // tool_result 검증\n      const toolResults = msg.content.filter(c => c.type === \"tool_result\");\n      toolResults.forEach(tr => {\n        if (!toolUseIds.has(tr.tool_use_id)) {\n          console.error(`Orphan tool_result: ${tr.tool_use_id} at message ${i}`);\n        }\n      });\n    }\n  }\n}\n```\n\n### 3️⃣ **빠른 임시 해결책**\n\n```javascript\n// 현재 대화를 포기하고 새로 시작\nconst response = await fetch(\"https://api.anthropic.com/v1/messages\", {\n  method: \"POST\",\n  headers: {\n    \"Content-Type\": \"application/json\",\n  },\n  body: JSON.stringify({\n    model: \"claude-sonnet-4-20250514\",\n    max_tokens: 1000,\n    messages: [\n      { \n        role: \"user\", \n        content: \"새로운 대화 시작\" \n      }\n    ]\n  })\n});\n```\n\n## 🎯 추천 조치\n\n1. **대화 히스토리를 로그로 출력**해서 34번째 메시지 전후 구조 확인\n2. **tool_use_id가 `toolu_016MfUwy8eVnCuK61Pz8MiNo`인 tool_use 블록**이 있는지 확인\n3. 없다면 해당 `tool_result` 블록 제거 또는 대화 초기화\n\n## 💡 코드가 있다면?\n\n현재 사용 중인 코드를 보여주시면 정확한 해결책을 드릴 수 있습니다!\n\n- 어떤 환경에서 이 에러가 발생했나요? (아티팩트? 직접 API 호출? 다른 앱?)\n- 메시지 배열 구조를 확인할 수 있나요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-01T10:07:28.689459Z",
+      "updated_at": "2026-01-01T10:07:28.689459Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019b7906-534d-7784-8ea8-a75729eb90fe"
+    }
+  ]
+}

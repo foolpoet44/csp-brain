@@ -1,0 +1,341 @@
+﻿{
+  "uuid": "7abbe0c9-cb87-4ad9-b89c-e4f92abf90be",
+  "name": "Claude code plugin 기능 및 사용법",
+  "summary": "**Conversation Overview**\n\nThe user inquired about Claude Code plugin functionality and usage methods in Korean. Claude provided a comprehensive explanation of Claude Code plugins, which are custom collections that bundle slash commands, agents, MCP servers, and hooks into single installable packages. The conversation covered the four main components that plugins can include: slash commands for custom shortcuts, subagents for specialized development tasks, MCP servers for connecting tools and data sources through Model Context Protocol, and hooks for customizing Claude Code workflows at key points. Claude explained the installation process using command-line syntax, including how to add marketplaces with `/plugin marketplace add` and install specific plugins with `/plugin install`. The discussion included practical examples of using the official Anthropic marketplace, plugin management commands, and common use cases such as DevOps automation, documentation generation, code review automation, frontend development tools, and testing workflows. Claude also mentioned team-wide configuration options through `.claude/settings.json` files and referenced the official documentation for additional details. The user demonstrated interest in understanding both the technical capabilities and practical implementation of this development tool ecosystem.",
+  "created_at": "2025-12-01T00:24:24.592225Z",
+  "updated_at": "2025-12-01T00:24:58.243324Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019ad74b-e499-7254-a38c-3f938117d4bb",
+      "text": "claude code plugin의 기능과 사용방법",
+      "content": [
+        {
+          "start_timestamp": "2025-12-01T00:24:26.521537Z",
+          "stop_timestamp": "2025-12-01T00:24:26.521537Z",
+          "flags": null,
+          "type": "text",
+          "text": "claude code plugin의 기능과 사용방법",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2025-12-01T00:24:26.527666Z",
+      "updated_at": "2025-12-01T00:24:26.527666Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019ad74b-e499-7254-a38c-3f946a3e2bb6",
+      "text": "사용자가 Claude Code 플러그인의 기능과 사용방법에 대해 물어보고 있습니다. 제 지식 기준일은 2025년 1월 말이고, Claude Code는 명령줄 도구(command line tool)로서 개발자들이 터미널에서 직접 Claude에게 코딩 작업을 위임할 수 있게 해주는 도구입니다.\n\n하지만 제품 정보가 변경되었을 수 있으므로, 최신 정보를 확인하기 위해 Anthropic의 공식 문서를 검색해야 합니다. 특히 사용방법이나 구체적인 기능에 대해서는 웹 검색을 통해 최신 정보를 제공하는 것이 좋겠습니다.Claude Code에 대한 최신 정보를 찾아보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n좋습니다. Claude Code 플러그인에 대한 충분한 정보를 얻었습니다. 이제 사용자에게 명확하고 체계적으로 설명할 수 있습니다. 주요 내용은:\n\n1. Claude Code 플러그인이란?\n2. 주요 기능\n3. 설치 및 사용 방법\n4. 플러그인 마켓플레이스\n5. 플러그인의 구성 요소\n\n사용자가 한국어로 질문했으므로 한국어로 답변하겠습니다.# Claude Code 플러그인 소개\n\nClaude Code 플러그인은 슬래시 커맨드, 에이전트, MCP 서버, 훅을 하나의 명령어로 설치할 수 있는 커스텀 컬렉션입니다. 2025년 10월에 공개 베타로 출시되었습니다.\n\n## 주요 기능\n\n플러그인은 다음 4가지 요소를 포함할 수 있습니다:\n\n1. **슬래시 커맨드(Slash Commands)**: 자주 사용하는 작업을 위한 커스텀 단축키\n2. **서브에이전트(Subagents)**: 특정 개발 작업을 위한 전문 에이전트\n3. **MCP 서버**: Model Context Protocol을 통해 도구 및 데이터 소스에 연결\n4. **훅(Hooks)**: Claude Code의 워크플로우 주요 지점에서 동작을 커스터마이징\n\n## 설치 및 사용 방법\n\n### 기본 설치\n```bash\n# 플러그인 마켓플레이스 추가\n/plugin marketplace add user-or-org/repo-name\n\n# 플러그인 설치\n/plugin install plugin-name@marketplace-name\n```\n\n### 공식 마켓플레이스 사용 예시\n```bash\n# Anthropic 공식 마켓플레이스 추가\n/plugin marketplace add anthropics/claude-code\n\n# 특정 플러그인 설치\n/plugin install frontend-design@claude-code\n```\n\n### 플러그인 관리\n- `/plugin` - 플러그인 메뉴 열기\n- 플러그인 브라우징, 설치, 관리 가능\n- 설치 후 Claude Code 재시작 필요\n\n## 주요 활용 사례\n\n플러그인의 일반적인 용도는 다음과 같습니다: 엔지니어링 리더가 코드 리뷰나 테스팅 워크플로우를 위한 특정 훅을 실행하도록 하여 팀 전체의 일관성을 유지하고, 오픈소스 메인테이너가 개발자들이 패키지를 올바르게 사용할 수 있도록 돕는 슬래시 커맨드를 제공하며, 개발자들이 디버깅 설정, 배포 파이프라인, 테스팅 하네스와 같은 생산성 향상 워크플로우를 쉽게 공유할 수 있습니다.\n\n## 인기 플러그인 예시\n\n1. **DevOps 자동화** - 배포 및 인프라 관리\n2. **문서 생성** - 자동 문서화 도구\n3. **코드 리뷰** - PR 리뷰 자동화\n4. **프론트엔드 개발** - UI/UX 개선 도구\n5. **테스팅** - 자동화된 테스트 생성\n\n## 팀 전체 설정\n\n프로젝트의 `.claude/settings.json`에 플러그인 설정을 추가하면 팀원들이 자동으로 동일한 플러그인을 사용할 수 있습니다.\n\n더 자세한 정보는 [Claude Code 공식 문서](https://code.claude.com/docs/en/plugins)에서 확인하실 수 있습니다.",
+      "content": [
+        {
+          "start_timestamp": "2025-12-01T00:24:28.696618Z",
+          "stop_timestamp": "2025-12-01T00:24:33.201402Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 Claude Code 플러그인의 기능과 사용방법에 대해 물어보고 있습니다. 제 지식 기준일은 2025년 1월 말이고, Claude Code는 명령줄 도구(command line tool)로서 개발자들이 터미널에서 직접 Claude에게 코딩 작업을 위임할 수 있게 해주는 도구입니다.\n\n하지만 제품 정보가 변경되었을 수 있으므로, 최신 정보를 확인하기 위해 Anthropic의 공식 문서를 검색해야 합니다. 특히 사용방법이나 구체적인 기능에 대해서는 웹 검색을 통해 최신 정보를 제공하는 것이 좋겠습니다.",
+          "summaries": [
+            {
+              "summary": "생각해보기: Claude 코드 플러그인의 기능과 사용 방법 설명하기"
+            },
+            {
+              "summary": "공식 문서 검색하여 최신 정보 확인 중"
+            },
+            {
+              "summary": "Claude Code의 기능과 사용방법 검증 중입니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-12-01T00:24:33.296167Z",
+          "stop_timestamp": "2025-12-01T00:24:33.526829Z",
+          "flags": null,
+          "type": "text",
+          "text": "Claude Code에 대한 최신 정보를 찾아보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2025-12-01T00:24:33.756648Z",
+          "stop_timestamp": "2025-12-01T00:24:33.928803Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "web_search",
+          "input": {
+            "query": "Claude Code plugin 사용방법"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Plugins - Claude Code Docs",
+              "url": "https://code.claude.com/docs/en/plugins",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude"
+              },
+              "is_missing": false,
+              "text": "/plugin install my-first-plugin@test-marketplace Select “Install now”. You’ll then need to restart Claude Code in order to use the new plugin. ... /hello You’ll see Claude use your greeting command! Check /help to see your new command listed. You’ve successfully created and tested a plugin with these key components: Plugin manifest (.claude-plugin/plugin.json) - Describes your plugin’s metadata · Commands directory (commands/) - Contains your custom slash commands · Test marketplace - Allows you to test your plugin locally ...\n\nExtend Claude Code with custom commands, agents, hooks, Skills, and MCP servers through the plugin system. ... For complete technical specifications and schemas, see Plugins reference. For marketplace management, see Plugin marketplaces. Plugins let you extend Claude Code with custom functionality that can be shared across projects and teams. Install plugins from marketplaces to add pre-built commands, agents, hooks, Skills, and MCP servers, or create your own to automate your workflows. Let’s create a simple greeting plugin to get you familiar with the plugin system. We’ll build a working plugin that adds a custom command, test it locally, and understand the core concepts. ... mkdir .claude-plugin cat > .claude-plugin/plugin.json << 'EOF' { \"name\": \"my-first-plugin\", \"description\": \"A simple greeting plugin to learn the basics\", \"version\": \"1.0.0\", \"author\": { \"name\": \"Your Name\" } } EOF ...\n\nLearn how to discover, install, and manage plugins to extend your Claude Code capabilities. ... Marketplaces are catalogs of available plugins. Add them to discover and install plugins: ... /plugin For detailed marketplace management including Git repositories, local development, and team distribution, see Plugin marketplaces. ... /plugin Select “Browse Plugins” to see available options with descriptions, features, and installation options. ... Configure plugins at the repository level to ensure consistent tooling across your team. When team members trust your repository folder, Claude Code automatically installs specified marketplaces and plugins. To set up team plugins: Add marketplace and plugin configuration to your repository’s .claude/settings.json ... Plugins install automatically for all team members For complete instructions including configuration examples, marketplace setup, and rollout best practices, see Configure team marketplaces.\n\nFor complete technical specifications, debugging techniques, and distribution strategies, see Plugins reference. Now that you understand Claude Code’s plugin system, here are suggested paths for different goals: Discover plugins: Browse community marketplaces for useful tools · Team adoption: Set up repository-level plugins for your projects · Marketplace management: Learn to manage multiple plugin sources · Advanced usage: Explore plugin combinations and workflows · Create your first marketplace: Plugin marketplaces guide ·\n\n/plugin install my-first-plugin@test-marketplace Select “Install now”. You’ll then need to restart Claude Code in order to use the new plugin. ... /hello You’ll see Claude use your greeting command! Check /help to see your new command listed. You’ve successfully created and tested a plugin with these key components: Plugin manifest (.claude-plugin/plugin.json) - Describes your plugin’s metadata · Commands directory (commands/) - Contains your custom slash commands · Test marketplace - Allows you to test your plugin locally ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://code.claude.com/docs/en/plugins"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code 사용 가이드 - 하이퍼리즘 기술 블로그",
+              "url": "https://tech.hyperithm.com/claude_code_guides",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "hyperithm.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=hyperithm.com",
+                "site_name": "Hyperithm"
+              },
+              "is_missing": false,
+              "text": "(추가적으로) /status 명령어 ... · ide내 터미널 창에서 claude 입력 → 자동으로 extension 이 설치됨 · extension 이 설치된 이후에는 오른쪽 상단, 클로드 아이콘을 통해 실행 가능 ...\n\nClaude Code에서는 Shift-Tab을 사용하여 다양한 작업 모드를 선택할 수 있습니다. 세 가지 모드가 있습니다: 계 모드 (Plan): Claude가 작업을 실행하기 전에 계획을 설명하고 승인을 기다립니다. 자동 수락 모드 (Auto Accept): Claude가 제안하는 모든 작업을 자동으로 수락합니다. 일반 모드 (Normal): 기본 모드로, 각 작업에 대해 승인이 필요합니다. Claude Code에서 이전 명령어나 상태로 되돌아가는 방법은 두 가지가 있습니다: ESC 키를 누르면 이전 채팅 목록이 표시됩니다. 다시 ESC 키를 누르고 이전 채팅을 선택합니다. 주의사항: 이 방법으로 이전 상태로 돌아가면, 현재 상태 이후의 기록(미래 기록)은 삭제됩니다. 결과는 되돌려지지만 다시 미래로 돌아갈 수 없습니다.\n\n본 문서는 Hyperithm 테크팀 IA (Intelligent Automation) 팀이, 사내 개발인력 생산성 강화를 위해 작성한 Claude Code 사용에 대한 종합적인 가이드입니다. 작성 시점은 2025년 6월 4일이며 작성자는 Hyperithm 엔지니어 이한결 님입니다. 회사와 팀에 대한 소개는 다음에서 볼 수 있습니다. ... # Claude Code CLI 설치 npm install -g @anthropic-ai/claude-code claude --version # v1.x.x 출력 확인 ... (추가적으로) /status 명령어 실행후 : 아래와 같이 login method Claude Max Account 라고 표기 · ide내 터미널 창에서 claude 입력 → 자동으로 extension 이 설치됨 · extension 이 설치된 이후에는 오른쪽 상단, 클로드 아이콘을 통해 실행 가능 ... 코드 수정 diff view를 windsurf 뷰어 내에서 보기 (미 설정시 terminal diff view만 보임) ...\n\n여러 개의 Claude Code 세션을 동시에 실행하여, 각 세션이 서로 다른 브랜치 또는 작업 디렉토리에서 독립적으로 작업할 때 유용합니다. 예를 들어, 한쪽에서는 버그를 수정하고, 다른 쪽에서는 새로운 기능을 개발하고 싶을 때 사용할 수 있음 · Git Worktree는 하나의 Git 저장소에서 여러 개의 작업 디렉토리를 만들 수 있게 해주는 기능입니다. 각 디렉토리는 서로 다른 브랜치나 커밋을 체크아웃할 수 있어, 여러 작업을 동시에 진행할 때 매우 유용합니다. ... # 1. 기존 저장소로 이동 cd /path/to/your/repo # 2. 새로운 worktree 디렉토리 생성 (feature-branch를 체크아웃) git worktree add ../repo-feature feature-branch ... ../repo-feature : 새로 만들 worktree 디렉토리 (원본 저장소와 같은 상위 폴더에 생성) ...\n\n더 안전한 방법은 Claude Code에게 변경사항을 만들 때마다 커밋하도록 요청하는 것입니다. 이렇게 하면 Git을 통해 이전 버전과 현재 버전 사이에서 자유롭게 이동할 수 있습니다. # Claude Code에게 요청하는 프롬프트 예시 > Please commit these changes with a descriptive message before proceeding · 이 방법을 사용하면 작업 중에 문제가 발생하더라도 안전하게 이전 상태로 돌아갈 수 있으며, 필요한 경우 다시 미래 버전으로도 이동할 수 있습니다. MCP(Model Context Protocol) 서버 설정을 변경한 후 Claude Code를 재시작해야 하는 시나리오에서는 다음과 같은 절차를 따르면 됩니다: 현재 세션에서 /exit 명령어를 입력하여 Claude Code를 종료합니다. MCP 설정 파일(.mcp.json 또는 ~/.claude.json)을 수정합니다.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://tech.hyperithm.com/claude_code_guides"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Customize Claude Code with plugins | Claude",
+              "url": "https://www.claude.com/blog/claude-code-plugins",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude"
+              },
+              "is_missing": false,
+              "text": "You can use plugin marketplaces to share plugins with the community, distribute approved plugins across your organization, and build on existing solutions for common development challenges. To host a marketplace, all you need is a git repository, GitHub repository, or URL with a properly formatted .claude-plugin/marketplace.json file. See our documentation for details. To use plugins from a marketplace, run /plugin marketplace add user-or-org/repo-name, then browse and install plugins using the /plugin menu. Plugin marketplaces amplify the best practices our community has already developed, and community members are leading the way. For instance, engineer Dan Ávila&#x27;s plugin marketplace offers plugins for DevOps automation, documentation generation, project management, and testing suites, while engineer Seth Hobson has curated over 80 specialized sub-agents in his GitHub repository, giving developers instant access via plugins.\n\nClaude Code now supports plugins: custom collections of slash commands, agents, MCP servers, and hooks that install with a single command. ... Slash commands, agents, MCP servers, and hooks are all extension points you can use to customize your experience with Claude Code. As we've rolled them out, we've seen users build increasingly powerful setups that they want to share with teammates and the broader community. We built plugins to make this easier. Plugins are a lightweight way to package and share any combination of: Slash commands: Create custom shortcuts for frequently-used operations · Subagents: Install purpose-built agents for specialized development tasks · MCP servers: Connect to tools and data sources through the Model Context Protocol · Hooks: Customize Claude Code's behavior at key points in its workflow · You can install plugins directly within Claude Code using the /plugin command, now in public beta.\n\nMoving forward, plugins will be our standard way to bundle and share Claude Code customizations, and we’ll continue to evolve the format as we add more extension points. Plugins help you standardize Claude Code environments around a set of shared best practices. Common plugin use cases include: Enforcing standards: Engineering leaders can maintain consistency across their team by using plugins to ensure specific hooks run for code reviews or testing workflows · Supporting users: Open source maintainers, for example, can provide slash commands that help developers use their packages correctly · Sharing workflows: Developers who build productivity-boosting workflows—like debugging setups, deployment pipelines, or testing harnesses—can easily share them with others · Connecting tools: Teams that need to connect internal tools and data sources through MCP servers can use plugins with the same security and configuration protocols to speed up the process ·\n\nPlugins are now in public beta for all Claude Code users. Install them with the /plugin command and they'll work across your terminal and VS Code. Check out our documentation to get started, build your own plugins, or publish a marketplace. To see plugins in action, try this multi-agent workflow we use to develop Claude Code: ... No items found. Explore more insights on how Claude supports learning, research, and innovation across education. ... What’s new in Claude: Turning Claude into your thinking partnerWhat’s new in Claude: Turning Claude into your thinking partner · What’s new in Claude: Turning Claude into your thinking partnerWhat’s new in Claude: Turning Claude into your thinking partner ... Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox. Thank you! You’re subscribed. Sorry, there was a problem with your submission, please try again later.\n\nYou can use plugin marketplaces to share plugins with the community, distribute approved plugins across your organization, and build on existing solutions for common development challenges. To host a marketplace, all you need is a git repository, GitHub repository, or URL with a properly formatted .claude-plugin/marketplace.json file. See our documentation for details. To use plugins from a marketplace, run /plugin marketplace add user-or-org/repo-name, then browse and install plugins using the /plugin menu. Plugin marketplaces amplify the best practices our community has already developed, and community members are leading the way. For instance, engineer Dan Ávila's plugin marketplace offers plugins for DevOps automation, documentation generation, project management, and testing suites, while engineer Seth Hobson has curated over 80 specialized sub-agents in his GitHub repository, giving developers instant access via plugins.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "age": "1 month ago",
+                "url": "https://www.claude.com/blog/claude-code-plugins"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "claude-code/plugins/README.md at main · anthropics/claude-code",
+              "url": "https://github.com/anthropics/claude-code/blob/main/plugins/README.md",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "These plugins are included in the Claude Code repository. To use them in your own projects: ... Use the /plugin command to install plugins from marketplaces, or configure them in your project&#x27;s .claude/settings.json. For detailed plugin installation and configuration, see the official documentation.\n\nClaude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. - claude-code/plugins/README.md at main · anthropics/claude-code\n\nThis directory contains some official Claude Code plugins that extend functionality through custom commands, agents, and workflows. These are examples of what's possible with the Claude Code plugin system—many more plugins are available through community marketplaces. Claude Code plugins are extensions that enhance Claude Code with custom slash commands, specialized agents, hooks, and MCP servers. Plugins can be shared across projects and teams, providing consistent tooling and workflows. Learn more in the official plugins documentation. ... Command: /new-sdk-app - Interactive setup for new Agent SDK projects Agents: agent-sdk-verifier-py, agent-sdk-verifier-ts - Validate SDK applications against best practices ... Skill: claude-opus-4-5-migration - Automated migration of model strings, beta headers, and prompt adjustments ... Automated PR code review using multiple specialized agents with confidence-based scoring to filter false positives ·\n\nComprehensive toolkit for developing Claude Code plugins with 7 expert skills and AI-assisted creation · Command: /plugin-dev:create-plugin - 8-phase guided workflow for building plugins Agents: agent-creator, plugin-validator, skill-reviewer Skills: Hook development, MCP integration, plugin structure, settings, commands, agents, and skill development ... Comprehensive PR review agents specializing in comments, tests, error handling, type design, code quality, and code simplification · Command: /pr-review-toolkit:review-pr - Run with optional review aspects (comments, tests, errors, types, code, simplify, all) Agents: comment-analyzer, pr-test-analyzer, silent-failure-hunter, type-design-analyzer, code-reviewer, code-simplifier ... Interactive self-referential AI loops for iterative development. Claude works on the same task repeatedly until completion ·\n\nThese plugins are included in the Claude Code repository. To use them in your own projects: ... Use the /plugin command to install plugins from marketplaces, or configure them in your project's .claude/settings.json. For detailed plugin installation and configuration, see the official documentation.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code/blob/main/plugins/README.md"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Using Claude Code with your Pro or Max plan | Anthropic Help Center",
+              "url": "https://support.anthropic.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "anthropic.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+                "site_name": "Anthropic"
+              },
+              "is_missing": false,
+              "text": "Visit the Claude Code documentation page to download and install Claude Code. Follow the installation instructions for your operating system. ... When prompted during setup or first use, log in with the same credentials you use for Claude. This will connect your Pro or Max plan subscription to Claude Code. If you&#x27;re already logged in to Claude Code via Anthropic Console PAYG, run /login from within Claude Code to switch to your subscription plan. If you&#x27;re not seeing the option to authenticate with your preferred account, follow these steps to update Claude Code: Log out of your active session completely using the /logout command. Run claude update. Restart your terminal completely for the change to take effect. Run claude and select the correct account to use Claude Code. Both Pro and Max plans offer usage limits that are shared across Claude and Claude Code, meaning all activity in both tools counts against the same usage limits.\n\nVisit the Claude Code documentation page to download and install Claude Code. Follow the installation instructions for your operating system. ... When prompted during setup or first use, log in with the same credentials you use for Claude. This will connect your Pro or Max plan subscription to Claude Code. If you're already logged in to Claude Code via Anthropic Console PAYG, run /login from within Claude Code to switch to your subscription plan. If you're not seeing the option to authenticate with your preferred account, follow these steps to update Claude Code: Log out of your active session completely using the /logout command. Run claude update. Restart your terminal completely for the change to take effect. Run claude and select the correct account to use Claude Code. Both Pro and Max plans offer usage limits that are shared across Claude and Claude Code, meaning all activity in both tools counts against the same usage limits.\n\nThe number of messages you can send varies based on message length, conversation length, and file attachments, while Claude Code usage varies based on project complexity, codebase size, and auto-accept settings. Using more compute-intensive models will cause you to hit your usage limits sooner. To read more about Pro plan usage limits, see About Claude’s Pro Plan Usage. Pro ($20/month): Average users can send approximately 45 messages with Claude every five hours, OR send approximately 10-40 prompts with Claude Code every five hours. Most Pro users can expect 40-80 hours of Sonnet 4 within their weekly usage limits. This will vary based on factors such as codebase size and user settings like auto-accept mode. Users running multiple Claude Code instances in parallel will hit their limits sooner. Model access: Pro plan subscribers can access Sonnet 4, but won’t be able to use Opus 4 with Claude Code.\n\nBest for: Light work on small repositories (typically under 1,000 lines of code). For detailed information about Max plan usage limits, see About Claude's Max Plan Usage. Max 5x ($100/month): Average users can send approximately 225 messages with Claude every five hours, OR send approximately 50-200 prompts with Claude Code every five hours. Most Max 5x users can expect 140-280 hours of Sonnet 4 and 15-35 hours of Opus 4 within their weekly usage limits. This will vary based on factors such as codebase size and user settings like auto-accept mode. Heavy Opus users with large codebases or those running multiple Claude Code instances in parallel will hit their limits sooner. Max 20x ($200/month): Average users can send approximately 900 messages with Claude every five hours, OR send approximately 200-800 prompts with Claude Code every five hours. Most Max 20x users can expect 240-480 hours of Sonnet 4 and 24-40 hours of Opus 4 within their weekly usage limits.\n\nHeavy Opus users with large codebases or those running multiple Claude Code instances in parallel will hit their limits sooner. Model access: Max plan subscribers can use Sonnet or Opus 4 on Claude Code (switch between them using the /model command). Best for: Everyday use with larger codebases, or power users. In addition, to manage capacity and ensure fair access to all users, we may limit your usage in other ways, such as weekly and monthly caps or model and feature usage, at our discretion. To help you monitor your usage, you will see warning messages about remaining capacity. When you reach your usage limits, you can select from a few options based on your needs: Consider upgrading to the Max 5x plan if you consistently hit limits and need more capacity for larger repositories. You will have the flexibility to switch to pay-as-you-go usage with an Anthropic Console account for intensive coding sprints.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://support.anthropic.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - jeremylongshore/claude-code-plugins-plus: Claude Code Plugins Hub — browse and install 243 plugins (175 with Agent Skills v1.2.0). First 100% compliant with Anthropic 2025 Skills schema.",
+              "url": "https://github.com/jeremylongshore/claude-code-plugins-plus",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "/plugin marketplace add jeremylongshore/claude-code-plugins /plugin install devops-automation-pack@claude-code-plugins-plus · Already using an older install? Run /plugin marketplace remove claude-code-plugins and re-add with the command above to switch to the new claude-code-plugins-plus slug. Existing plugins keep working either way. Browse the catalog: Visit Claude Code Plugins Marketplace (CLI slug claude-code-plugins-plus) or explore plugins/ Learn to build: See Learning Paths for step-by-step guides ... What are Agent Skills? They&#x27;re instruction manuals that teach Claude Code when and how to use your installed plugins automatically. 1. DISCOVERY (Marketplace) └─ You browse claudecodeplugins.io └─ Find &quot;ansible-playbook-creator&quot; └─ Install: /plugin install ansible-playbook-creator@claude-code-plugins-plus 2. INSTALLATION (Files Copied) └─ Plugin files copied to your machine └─ Including skills/skill-adapter/SKILL.md ← The instruction manual!\n\nExample: Say \"create a plugin\" and Claude uses the Skills Powerkit automatically ... Skills vs Commands: Commands require explicit /command trigger. Skills activate automatically based on what you're asking for. Note: Plugins can bundle Skills, Commands, Agents, and MCP servers together. Agent Skills are a feature that enhances any plugin type. ... This article is the definitive external resource for understanding how Agent Skills work under the hood. 185 plugins in this marketplace (73%) include Agent Skills based on these principles. # Analyze your codebase health /plugin install project-health-auditor@claude-code-plugins-plus /analyze /path/to/repo # Debug API failures /plugin install conversational-api-debugger@claude-code-plugins-plus /debug-api # Build a knowledge base /plugin install domain-memory-agent@claude-code-plugins-plus # Never write commit messages again /plugin install git-commit-smart@claude-code-plugins-plus /gc ...\n\nThey operate in a completely separate ecosystem using JSON-based marketplace catalogs hosted in Git repositories. This repository IS a Claude Code plugin marketplace. There is currently no monetization mechanism for Claude Code plugins. All plugins in the ecosystem are free and open-source. See Monetization Alternatives for external revenue strategies. Claude Code plugins are in public beta (October 2025). Features and best practices may evolve. This marketplace will stay updated with the latest changes. ... All templates are in the templates/ directory with complete examples. ... MIT License - See LICENSE file for details. Anthropic - For creating Claude Code and the plugin system · Community Contributors - Everyone who submits plugins and improvements · Early Adopters - Users who provide feedback and help us improve · Join the conversation and connect with other plugin developers and users!\n\n254 production-ready Claude Code plugins for automation, development, and AI workflows. 🎯 NEW in v1.4.1: Website Accuracy & Enterprise Sponsor - Corrected plugin counts (now 254), added recognition for Max Mergenthaler @ Nixtla as first Enterprise supporter · Latest: v1.4.1 Release - Website accuracy improvements, Enterprise sponsor recognition, link fixes · /plugin marketplace add jeremylongshore/claude-code-plugins /plugin install devops-automation-pack@claude-code-plugins-plus · ⚡🪽 Buy me a Red Bull – Give these plugins wings, support ongoing development, and influence the premium plugin roadmap. See our sponsor page for tier details. Additional support options (like Patreon) may be added later as the ecosystem grows. 🏢 Grateful to have Max Mergenthaler and Nixtla as our first Enterprise supporter! Max is CEO & Co-Founder at Nixtla (YC S21), building production-grade time-series tools: ...\n\n/plugin marketplace add jeremylongshore/claude-code-plugins /plugin install devops-automation-pack@claude-code-plugins-plus · Already using an older install? Run /plugin marketplace remove claude-code-plugins and re-add with the command above to switch to the new claude-code-plugins-plus slug. Existing plugins keep working either way. Browse the catalog: Visit Claude Code Plugins Marketplace (CLI slug claude-code-plugins-plus) or explore plugins/ Learn to build: See Learning Paths for step-by-step guides ... What are Agent Skills? They're instruction manuals that teach Claude Code when and how to use your installed plugins automatically. 1. DISCOVERY (Marketplace) └─ You browse claudecodeplugins.io └─ Find \"ansible-playbook-creator\" └─ Install: /plugin install ansible-playbook-creator@claude-code-plugins-plus 2. INSTALLATION (Files Copied) └─ Plugin files copied to your machine └─ Including skills/skill-adapter/SKILL.md ← The instruction manual!",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/jeremylongshore/claude-code-plugins-plus"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code Plugins - Marketplace & CLI Plugin Manager",
+              "url": "https://claude-plugins.dev/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude-plugins.dev",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude-plugins.dev",
+                "site_name": "Claude Code Plugins"
+              },
+              "is_missing": false,
+              "text": "Discover and Install Claude Code plugins, even ones with skills quickly. Claude Code normally requires installing a marketplace, then installing plugins from it. This CLI handles both steps automatically in one command. Browse plugins with skills to extend Claude&#x27;s capabilities—discover AI agents, document processors, and more. Open-source and community-maintained. ... Requires Claude Code v2.0.12 or higher. Learn more → ... AI-powered development tools that get smarter with every use. Make each unit of engineering work easier than the last. Includes 24 specialized agents, 16 commands, and 11 skills. $npx claude-plugins install @EveryInc/every-marketplace/compounding-engineering ... Create distinctive, production-grade frontend interfaces with high design quality. Generates creative, polished code that avoids generic AI aesthetics. $npx claude-plugins install @anthropics/claude-code-plugins/frontend-design ...\n\nDiscover and Install Claude Code plugins, even ones with skills quickly. Claude Code normally requires installing a marketplace, then installing plugins from it. This CLI handles both steps automatically in one command. Browse plugins with skills to extend Claude's capabilities—discover AI agents, document processors, and more. Open-source and community-maintained. ... Requires Claude Code v2.0.12 or higher. Learn more → ... AI-powered development tools that get smarter with every use. Make each unit of engineering work easier than the last. Includes 24 specialized agents, 16 commands, and 11 skills. $npx claude-plugins install @EveryInc/every-marketplace/compounding-engineering ... Create distinctive, production-grade frontend interfaces with high design quality. Generates creative, polished code that avoids generic AI aesthetics. $npx claude-plugins install @anthropics/claude-code-plugins/frontend-design ...\n\n$npx claude-plugins install @wshobson/claude-code-workflows/python-development ... Comprehensive feature development workflow with specialized agents for codebase exploration, architecture design, and quality review · $npx claude-plugins install @anthropics/claude-code-plugins/feature-dev ... Comprehensive PR review agents specializing in comments, tests, error handling, type design, code quality, and code simplification · $npx claude-plugins install @anthropics/claude-code-plugins/pr-review-toolkit ... Backend API design, GraphQL architecture, workflow orchestration with Temporal, and test-driven backend development · $npx claude-plugins install @wshobson/claude-code-workflows/backend-development ... Modern React and UI development. Master React 19, Next.js 15, component architecture, state management, and performance optimization. $npx claude-plugins install @dotclaude/dotclaude-plugins/frontend-excellence ...\n\n$npx claude-plugins install @ananddtyagi/claude-code-marketplace/ui-designer ... Documentation generation, code explanation, and technical writing with automated doc generation and tutorial creation · $npx claude-plugins install @wshobson/claude-code-workflows/code-documentation ... AI-powered task management system for ambitious development workflows with intelligent orchestration, complexity analysis, and automated coordination · $npx claude-plugins install @eyaltoledano/taskmaster/taskmaster ... Essential developer skills including Git workflows, SQL optimization, error handling, code review, E2E testing, authentication, debugging, and monorepo management ·\n\n$npx claude-plugins install @wshobson/claude-code-workflows/developer-essentials",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://claude-plugins.dev/"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - hekmon8/awesome-claude-code-plugins: Find best claude code plugins for vibe coding!",
+              "url": "https://github.com/hekmon8/awesome-claude-code-plugins",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "{ &quot;name&quot;: &quot;my-awesome-plugin&quot;, &quot;version&quot;: &quot;1.0.0&quot;, &quot;description&quot;: &quot;Does awesome things with Claude Code&quot;, &quot;author&quot;: &quot;Your Name&quot;, &quot;homepage&quot;: &quot;https://github.com/yourusername/my-plugin&quot;, &quot;repository&quot;: &quot;https://github.com/yourusername/my-plugin&quot;, &quot;license&quot;: &quot;MIT&quot;, &quot;keywords&quot;: [&quot;development&quot;, &quot;automation&quot;, &quot;productivity&quot;] } # Use the meta-plugin to create new plugins /plugin install plugin-creator /create-plugin my-awesome-plugin ... &lt;!-- commands/hello.md --&gt; You are a friendly assistant. Greet the user warmly and ask how you can help them today. // .claude-plugin/plugin.json { &quot;name&quot;: &quot;hello-plugin&quot;, &quot;version&quot;: &quot;1.0.0&quot;, &quot;description&quot;: &quot;A friendly greeting plugin&quot; } &lt;!-- commands/review.md --&gt; Perform a comprehensive code review: 1. Check for code style issues 2. Identify potential bugs 3. Suggest performance improvements 4. Verify test coverage 5. Check security vulnerabilities Provide actionable feedback in a constructive tone.\n\nHave you created a useful plugin? Share it with the community! ... Contributions are welcome! Please read the contribution guidelines first. ... To the extent possible under law, the contributors have waived all copyright and related rights to this work. Note: Claude Code is developed by Anthropic.\n\nA curated list of awesome Claude Code plugins, marketplaces, tools, and resources. Claude Code is an agentic coding tool that lives in your terminal and IDE. With the plugin system (released October 2025), you can now extend Claude Code with custom slash commands, specialized agents, MCP servers, and workflow hooks. ... /plugin marketplace add anthropics/claude-code /plugin marketplace add davila7/claude-code-templates ... # From this awesome collection /plugin marketplace add hekmon8/awesome-claude-code-plugins # From other GitHub marketplaces /plugin marketplace add owner/repo # From Git repository /plugin marketplace add https://gitlab.com/company/plugins.git # From local directory (for development) /plugin marketplace add ./my-plugins · Anthropic Official Plugins - anthropics/claude-code ... my-plugin/ ├── .claude-plugin/ │ └── plugin.json # Plugin manifest ├── commands/ # Custom slash commands │ ├── hello.md │ └── build.md ├── agents/ # Specialized subagents │ └── feature-agent.md\n\n{ \"name\": \"my-awesome-plugin\", \"version\": \"1.0.0\", \"description\": \"Does awesome things with Claude Code\", \"author\": \"Your Name\", \"homepage\": \"https://github.com/yourusername/my-plugin\", \"repository\": \"https://github.com/yourusername/my-plugin\", \"license\": \"MIT\", \"keywords\": [\"development\", \"automation\", \"productivity\"] } # Use the meta-plugin to create new plugins /plugin install plugin-creator /create-plugin my-awesome-plugin ... <!-- commands/hello.md --> You are a friendly assistant. Greet the user warmly and ask how you can help them today. // .claude-plugin/plugin.json { \"name\": \"hello-plugin\", \"version\": \"1.0.0\", \"description\": \"A friendly greeting plugin\" } <!-- commands/review.md --> Perform a comprehensive code review: 1. Check for code style issues 2. Identify potential bugs 3. Suggest performance improvements 4. Verify test coverage 5. Check security vulnerabilities Provide actionable feedback in a constructive tone.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/hekmon8/awesome-claude-code-plugins"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code Plugin I use every day - DEV Community",
+              "url": "https://dev.to/connectonion/claude-code-plugin-i-use-every-day-k69",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "dev.to",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=dev.to",
+                "site_name": "DEV Community"
+              },
+              "is_missing": false,
+              "text": "I spent 30 days building and polishing this Claude Code plugin for agent builders. It has 5 slash commands I use every day. Now let me show you how magical they are and how I built and polished them over the past 30 days. /generate-code-map-headers - Generate code map headers · When we use Claude Code to vibe code, sometimes it needs multiple steps to search and find the most related code and figure out the data flow trace stack, etc. If you run it every day when you finish work, the next morning Claude will understand the code relationships in one step and code much faster. /design-refine - Iteratively refine website design to professional standards · If you&#x27;re building frontend like me, you&#x27;ll find it&#x27;s annoying to deal with small design problems. You have to screenshot and tell Claude Code to fix them. This slash command will run a browser agent and take screenshots of mobile and desktop at different sizes and fix the design problems.\n\nMy polished plugin for Agents builder I spent 30 days building and polishing this Claude... Tagged with ai, tooling, programming, showdev.\n\nI spent 30 days building and polishing this Claude Code plugin for agent builders. It has 5 slash commands I use every day. Now let me show you how magical they are and how I built and polished them over the past 30 days. /generate-code-map-headers - Generate code map headers · When we use Claude Code to vibe code, sometimes it needs multiple steps to search and find the most related code and figure out the data flow trace stack, etc. If you run it every day when you finish work, the next morning Claude will understand the code relationships in one step and code much faster. /design-refine - Iteratively refine website design to professional standards · If you're building frontend like me, you'll find it's annoying to deal with small design problems. You have to screenshot and tell Claude Code to fix them. This slash command will run a browser agent and take screenshots of mobile and desktop at different sizes and fix the design problems.\n\n/aaron-review-my-code - Get reviewed by the creator (Aaron: educational & principled) If you're using ConnectOnion to build agents and don't want to read documentation, but still want to build elegant agents that follow the principles \"make simple things simple and make complicated things possible,\" then run this! /aaron-build-my-agent - Let Aaron build your agent (scaffolding done right) If you want to build an agent but don't want to build it yourself, just run this and input what you want to build—let this prompt build one for you! ... The plugin is open source using Apache 2.0. Please check and install it. If you have any problems, welcome to discuss with me in our Discord server. https://github.com/openonion/connectonion-claude-plugin ... #gemini #llm #agents #ai Introducing ConnectOnion: The Simplest Way to Build AI Agents with Python Functions ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "age": "2 weeks ago",
+                "url": "https://dev.to/connectonion/claude-code-plugin-i-use-every-day-k69"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - anthropics/claude-code: Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
+              "url": "https://github.com/anthropics/claude-code",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "This repository includes several Claude Code plugins that extend functionality with custom commands and agents. See the plugins directory for detailed documentation on available plugins. We welcome your feedback. Use the /bug command to report issues directly within Claude Code, or file a GitHub issue. Join the Claude Developers Discord to connect with other developers using Claude Code. Get help, share feedback, and discuss your projects with the community. When you use Claude Code, we collect feedback, which includes usage data (such as code acceptance or rejections), associated conversation data, and user feedback submitted via the /bug command. See our data usage policies. We have implemented several safeguards to protect your data, including limited retention periods for sensitive information, restricted access to user session data, and clear policies against using feedback for model training.\n\nClaude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. - anthropics/claude-code\n\nThis repository includes several Claude Code plugins that extend functionality with custom commands and agents. See the plugins directory for detailed documentation on available plugins. We welcome your feedback. Use the /bug command to report issues directly within Claude Code, or file a GitHub issue. Join the Claude Developers Discord to connect with other developers using Claude Code. Get help, share feedback, and discuss your projects with the community. When you use Claude Code, we collect feedback, which includes usage data (such as code acceptance or rejections), associated conversation data, and user feedback submitted via the /bug command. See our data usage policies. We have implemented several safeguards to protect your data, including limited retention periods for sensitive information, restricted access to user session data, and clear policies against using feedback for model training.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code"
+              }
+            },
+            {
+              "type": "text",
+              "text": "<system>You only have 19 searches left this turn</system>\n\n",
+              "uuid": "1f3fdee7-25b5-4cd8-b6cf-c46b82e86d52"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-12-01T00:24:37.900359Z",
+          "stop_timestamp": "2025-12-01T00:24:41.015378Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "좋습니다. Claude Code 플러그인에 대한 충분한 정보를 얻었습니다. 이제 사용자에게 명확하고 체계적으로 설명할 수 있습니다. 주요 내용은:\n\n1. Claude Code 플러그인이란?\n2. 주요 기능\n3. 설치 및 사용 방법\n4. 플러그인 마켓플레이스\n5. 플러그인의 구성 요소\n\n사용자가 한국어로 질문했으므로 한국어로 답변하겠습니다.",
+          "summaries": [
+            {
+              "summary": "Claude Code 플러그인의 기능과 사용법을 체계적으로 정리했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-12-01T00:24:41.165552Z",
+          "stop_timestamp": "2025-12-01T00:24:58.161489Z",
+          "flags": null,
+          "type": "text",
+          "text": "# Claude Code 플러그인 소개\n\nClaude Code 플러그인은 슬래시 커맨드, 에이전트, MCP 서버, 훅을 하나의 명령어로 설치할 수 있는 커스텀 컬렉션입니다. 2025년 10월에 공개 베타로 출시되었습니다.\n\n## 주요 기능\n\n플러그인은 다음 4가지 요소를 포함할 수 있습니다:\n\n1. **슬래시 커맨드(Slash Commands)**: 자주 사용하는 작업을 위한 커스텀 단축키\n2. **서브에이전트(Subagents)**: 특정 개발 작업을 위한 전문 에이전트\n3. **MCP 서버**: Model Context Protocol을 통해 도구 및 데이터 소스에 연결\n4. **훅(Hooks)**: Claude Code의 워크플로우 주요 지점에서 동작을 커스터마이징\n\n## 설치 및 사용 방법\n\n### 기본 설치\n```bash\n# 플러그인 마켓플레이스 추가\n/plugin marketplace add user-or-org/repo-name\n\n# 플러그인 설치\n/plugin install plugin-name@marketplace-name\n```\n\n### 공식 마켓플레이스 사용 예시\n```bash\n# Anthropic 공식 마켓플레이스 추가\n/plugin marketplace add anthropics/claude-code\n\n# 특정 플러그인 설치\n/plugin install frontend-design@claude-code\n```\n\n### 플러그인 관리\n- `/plugin` - 플러그인 메뉴 열기\n- 플러그인 브라우징, 설치, 관리 가능\n- 설치 후 Claude Code 재시작 필요\n\n## 주요 활용 사례\n\n플러그인의 일반적인 용도는 다음과 같습니다: 엔지니어링 리더가 코드 리뷰나 테스팅 워크플로우를 위한 특정 훅을 실행하도록 하여 팀 전체의 일관성을 유지하고, 오픈소스 메인테이너가 개발자들이 패키지를 올바르게 사용할 수 있도록 돕는 슬래시 커맨드를 제공하며, 개발자들이 디버깅 설정, 배포 파이프라인, 테스팅 하네스와 같은 생산성 향상 워크플로우를 쉽게 공유할 수 있습니다.\n\n## 인기 플러그인 예시\n\n1. **DevOps 자동화** - 배포 및 인프라 관리\n2. **문서 생성** - 자동 문서화 도구\n3. **코드 리뷰** - PR 리뷰 자동화\n4. **프론트엔드 개발** - UI/UX 개선 도구\n5. **테스팅** - 자동화된 테스트 생성\n\n## 팀 전체 설정\n\n프로젝트의 `.claude/settings.json`에 플러그인 설정을 추가하면 팀원들이 자동으로 동일한 플러그인을 사용할 수 있습니다.\n\n더 자세한 정보는 [Claude Code 공식 문서](https://code.claude.com/docs/en/plugins)에서 확인하실 수 있습니다.",
+          "citations": [
+            {
+              "uuid": "67884124-adfc-497d-9b5e-6998639a5d26",
+              "start_index": 41,
+              "end_index": 68,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.claude.com/blog/claude-code-plugins"
+              }
+            },
+            {
+              "uuid": "158d4ae1-9f3f-456b-8b14-0a203c07b9cb",
+              "start_index": 801,
+              "end_index": 1008,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.claude.com/blog/claude-code-plugins"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2025-12-01T00:24:58.243324Z",
+      "updated_at": "2025-12-01T00:24:58.243324Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ad74b-e499-7254-a38c-3f938117d4bb"
+    }
+  ]
+}

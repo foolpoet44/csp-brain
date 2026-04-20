@@ -1,0 +1,395 @@
+﻿{
+  "uuid": "758982fb-f117-4bee-8a9f-d05a3ad46e22",
+  "name": "사용량 확인",
+  "summary": "**Conversation Overview**\n\nThe user initiated a brief conversation in Korean requesting to check usage limits for Claude. They specifically asked about message limits for their current plan. Claude responded by first acknowledging the current session's token budget of 190,000 tokens and explaining that real-time usage data access is limited. Claude then performed a web search to retrieve the most current information about Anthropic's pricing plans and message limits from official documentation. The conversation resulted in Claude providing comprehensive details about Claude's 2025 plan structure, including Free, Pro, and Max tiers with their respective 5-hour session limits and newly introduced weekly limits. Claude explained that message limits are affected by factors like message length, attachments, conversation history, and model choice, and that all Claude products share the same usage limits. The user demonstrated a preference for Korean language communication, and Claude provided optimization tips for maximizing message allowances across different usage patterns.",
+  "created_at": "2026-01-23T07:01:33.028330Z",
+  "updated_at": "2026-01-23T08:31:21.104285Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019be9a8-936a-7569-911d-5d69936cd417",
+      "text": "사용량 체크좀 하자",
+      "content": [
+        {
+          "start_timestamp": "2026-01-23T07:01:37.818574Z",
+          "stop_timestamp": "2026-01-23T07:01:37.818574Z",
+          "flags": null,
+          "type": "text",
+          "text": "사용량 체크좀 하자",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-23T07:01:37.825187Z",
+      "updated_at": "2026-01-23T07:01:37.825187Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019be9a8-936a-7569-911d-5d6a004e2e55",
+      "text": "사용자가 \"사용량 체크좀 하자\"라고 했네요. 이건 아마도 Claude의 토큰 사용량이나 대화 사용량을 확인하고 싶다는 의미인 것 같습니다.\n\n제 시스템 프롬프트를 보면 사용자에게 제공할 수 있는 정보들이 있습니다:\n\n1. 토큰 예산 정보: `<budget:token_budget>190000</budget:token_budget>` - 현재 190,000 토큰 예산이 있네요.\n\n2. 사용자 프로필에서 CSP님이 한국어 커뮤니케이션을 선호한다는 걸 알 수 있습니다.\n\n하지만 실제로 현재 대화에서 **얼마나 토큰을 사용했는지**는 제가 직접 알 수 없습니다. 제 시스템에는 현재까지 사용한 토큰 양을 조회하는 도구가 없습니다.\n\n제가 할 수 있는 것:\n- 토큰 예산이 190,000이라는 것을 알려드리기\n- Claude.ai의 사용량 제한에 대한 일반적인 정보 제공\n- 필요하다면 Anthropic 문서를 검색해서 최신 정보 제공\n\n사용자가 원하는 게 뭘까요?\n1. 현재 대화의 토큰 사용량?\n2. Claude.ai 계정의 전체 사용량?\n\n\n3. 메시지 한도 확인?\n\n일단 제가 알 수 있는 정보를 제공하고, 더 구체적인 사용량 정보가 필요하면 Anthropic 문서를 검색하겠다고 제안하는 게 좋겠습니다.안녕하세요! 사용량 관련해서 확인해드리겠습니다.\n\n## 현재 세션 정보\n- **토큰 예산**: 190,000 토큰\n- 현재 대화는 이제 막 시작되었습니다\n\n## 확인 가능한 사용량 정보\n\n제가 직접 조회할 수 있는 실시간 사용량 데이터는 제한적입니다만, 다음을 확인하실 수 있습니다:\n\n**Claude.ai 웹/앱에서 확인 가능한 것들:**\n1. **메시지 한도**: 설정(Settings) > 사용량(Usage)에서 확인\n2. **플랜별 제한**: Pro/Team 플랜에 따른 일일/월간 메시지 한도\n3. **Claude Code 사용량**: 별도 한도 적용\n\n**필요하시다면:**\n- 최신 플랜별 메시지 한도 정보를 Anthropic 공식 문서에서 검색해드릴 수 있습니다\n- 특정 기능(Web search, Code execution 등)의 사용량 제한 정보 제공 가능\n\n어떤 사용량 정보가 필요하신가요? \n- 현재 플랜의 메시지 한도?\n- 특정 기능의 제한사항?\n- 토큰 사용 최적화 방법?",
+      "content": [
+        {
+          "start_timestamp": "2026-01-23T07:01:40.382300Z",
+          "stop_timestamp": "2026-01-23T07:01:51.142592Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 \"사용량 체크좀 하자\"라고 했네요. 이건 아마도 Claude의 토큰 사용량이나 대화 사용량을 확인하고 싶다는 의미인 것 같습니다.\n\n제 시스템 프롬프트를 보면 사용자에게 제공할 수 있는 정보들이 있습니다:\n\n1. 토큰 예산 정보: `<budget:token_budget>190000</budget:token_budget>` - 현재 190,000 토큰 예산이 있네요.\n\n2. 사용자 프로필에서 CSP님이 한국어 커뮤니케이션을 선호한다는 걸 알 수 있습니다.\n\n하지만 실제로 현재 대화에서 **얼마나 토큰을 사용했는지**는 제가 직접 알 수 없습니다. 제 시스템에는 현재까지 사용한 토큰 양을 조회하는 도구가 없습니다.\n\n제가 할 수 있는 것:\n- 토큰 예산이 190,000이라는 것을 알려드리기\n- Claude.ai의 사용량 제한에 대한 일반적인 정보 제공\n- 필요하다면 Anthropic 문서를 검색해서 최신 정보 제공\n\n사용자가 원하는 게 뭘까요?\n1. 현재 대화의 토큰 사용량?\n2. Claude.ai 계정의 전체 사용량?\n\n\n3. 메시지 한도 확인?\n\n일단 제가 알 수 있는 정보를 제공하고, 더 구체적인 사용량 정보가 필요하면 Anthropic 문서를 검색하겠다고 제안하는 게 좋겠습니다.",
+          "summaries": [
+            {
+              "summary": "사용량 확인하기"
+            },
+            {
+              "summary": "사용량 정보 확인하고 한국어로 안내 준비 중"
+            },
+            {
+              "summary": "토큰 예산 확인 후 사용량 조회 방법 모색했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-23T07:01:50.478971Z",
+          "stop_timestamp": "2026-01-23T07:01:57.653976Z",
+          "flags": null,
+          "type": "text",
+          "text": "안녕하세요! 사용량 관련해서 확인해드리겠습니다.\n\n## 현재 세션 정보\n- **토큰 예산**: 190,000 토큰\n- 현재 대화는 이제 막 시작되었습니다\n\n## 확인 가능한 사용량 정보\n\n제가 직접 조회할 수 있는 실시간 사용량 데이터는 제한적입니다만, 다음을 확인하실 수 있습니다:\n\n**Claude.ai 웹/앱에서 확인 가능한 것들:**\n1. **메시지 한도**: 설정(Settings) > 사용량(Usage)에서 확인\n2. **플랜별 제한**: Pro/Team 플랜에 따른 일일/월간 메시지 한도\n3. **Claude Code 사용량**: 별도 한도 적용\n\n**필요하시다면:**\n- 최신 플랜별 메시지 한도 정보를 Anthropic 공식 문서에서 검색해드릴 수 있습니다\n- 특정 기능(Web search, Code execution 등)의 사용량 제한 정보 제공 가능\n\n어떤 사용량 정보가 필요하신가요? \n- 현재 플랜의 메시지 한도?\n- 특정 기능의 제한사항?\n- 토큰 사용 최적화 방법?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-23T07:01:57.685853Z",
+      "updated_at": "2026-01-23T07:01:57.685853Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019be9a8-936a-7569-911d-5d69936cd417"
+    },
+    {
+      "uuid": "019be9fa-34ce-703b-a616-237852207e02",
+      "text": "현재 플랜의 메시지 한도",
+      "content": [
+        {
+          "start_timestamp": "2026-01-23T08:30:47.539666Z",
+          "stop_timestamp": "2026-01-23T08:30:47.539666Z",
+          "flags": null,
+          "type": "text",
+          "text": "현재 플랜의 메시지 한도",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-23T08:30:47.543090Z",
+      "updated_at": "2026-01-23T08:30:47.543090Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019be9a8-936a-7569-911d-5d6a004e2e55"
+    },
+    {
+      "uuid": "019be9fa-34ce-703b-a616-23794bd30207",
+      "text": "사용자가 현재 플랜의 메시지 한도를 알고 싶어합니다. 이는 Anthropic의 제품 정보이고, 시간이 지나면서 변경될 수 있는 정보이므로, 시스템 프롬프트의 지침에 따라 최신 정보를 얻기 위해 웹 검색을 해야 합니다.\n\n특히 product_information 섹션에서:\n\"Claude does not know other details about Anthropic's products, as these may have changed since this prompt was last edited. If asked about Anthropic's products or product features Claude first tells the person it needs to search for the most up to date information. Then it uses web search to search Anthropic's documentation before providing an answer to the person.\"\n\n따라서 https://support.claude.com 이나 https://docs.claude.com 을 검색해야 합니다.최신 정보를 확인하기 위해 Anthropic 공식 문서를 검색해드리겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n좋아, 검색 결과를 토대로 현재 Claude의 플랜별 메시지 한도를 정리해드릴 수 있겠습니다. 공식 Anthropic 문서를 바탕으로 정확한 정보를 제공해야 합니다.\n\n주요 내용:\n1. Free 플랜: 5시간마다 리셋되는 세션 기반 한도 (정확한 숫자는 가변적)\n2. Pro 플랜: 5시간마다 약 45개 메시지 (짧은 대화 기준), 주간 한도 추가\n3. Max 플랜: 5시간마다 약 225개 메시지 (Pro의 5배), 주간 한도 추가\n4. 2025년부터 주간 한도(weekly limit)가 추가됨\n5. 모든 Claude 제품(claude.ai, Claude Code, Desktop)이 동일한 한도 공유\n\n사용자는 한국어 커뮤니케이션을 선호하므로 한국어로 답변하겠습니다.현재 Claude의 플랜별 메시지 한도를 정리해드리겠습니다.\n\n## 📊 플랜별 메시지 한도 (2025년 기준)\n\n### **리셋 주기**\n- **5시간 세션 한도**: 첫 메시지 전송 시점부터 5시간 후 리셋\n- **주간 한도**: 7일 롤링 윈도우 (2025년 중반 추가됨)\n\n### **Free 플랜**\n- 5시간당 가변적 (대략 20-40개 짧은 메시지)\n- 메시지 길이, 첨부파일, 시스템 부하에 따라 변동\n- 피크 시간대 우선순위 낮음\n\n### **Pro 플랜** ($20/월)\n- **5시간당 약 45개 메시지** (짧은 대화 기준)\n  - 200문장 정도, 문장당 15-20단어 기준\n- **주간 한도**: 약 40-80 Claude Code 시간\n- Free 대비 최소 5배 많은 용량\n- 하루 약 216개 짧은 메시지 가능 (이론상)\n\n### **Max 플랜**\n- **5시간당 약 225개 메시지** (Pro의 5배)\n- Max 20x: 200-800 프롬프트/5시간 (코드 크기에 따라)\n- 주간 한도도 비례적으로 증가\n\n### **Team/Enterprise 플랜**\n- 더 높은 한도 (구체적 수치는 계약에 따라 상이)\n- Enterprise는 Sonnet 4.5의 경우 500K 컨텍스트 윈도우 제공\n\n## 🔑 중요 포인트\n\n**한도에 영향을 미치는 요소:**\n1. 메시지 길이 (토큰 수)\n2. 첨부파일 크기 및 개수\n3. 대화 기록 길이 (매 메시지마다 전체 대화 재처리)\n4. 사용 모델 (Opus > Sonnet > Haiku)\n5. 특수 기능 사용 (Web search, Research 등)\n\n**통합 한도:**\n- claude.ai, Claude Code, Claude Desktop 모두 **동일한 한도 공유**\n- 디바이스 변경해도 별도 한도 없음\n\n## 💡 한도 최적화 팁\n\n1. **Projects 활용**: 문서는 캐싱되어 재사용 시 한도에 덜 영향\n2. **질문 묶기**: 여러 질문을 한 메시지에 통합\n3. **파일 재업로드 금지**: 같은 대화 내에서 재업로드 불필요\n4. **새 대화 시작**: 긴 대화는 토큰 많이 소모\n\n현재 어떤 플랜을 사용 중이신가요? 사용량 최적화가 필요하신가요?",
+      "content": [
+        {
+          "start_timestamp": "2026-01-23T08:30:49.898798Z",
+          "stop_timestamp": "2026-01-23T08:30:55.589582Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 현재 플랜의 메시지 한도를 알고 싶어합니다. 이는 Anthropic의 제품 정보이고, 시간이 지나면서 변경될 수 있는 정보이므로, 시스템 프롬프트의 지침에 따라 최신 정보를 얻기 위해 웹 검색을 해야 합니다.\n\n특히 product_information 섹션에서:\n\"Claude does not know other details about Anthropic's products, as these may have changed since this prompt was last edited. If asked about Anthropic's products or product features Claude first tells the person it needs to search for the most up to date information. Then it uses web search to search Anthropic's documentation before providing an answer to the person.\"\n\n따라서 https://support.claude.com 이나 https://docs.claude.com 을 검색해야 합니다.",
+          "summaries": [
+            {
+              "summary": "현재 플랜의 메시지 한도 확인하기"
+            },
+            {
+              "summary": "웹 검색으로 최신 메시지 한도 정보 수집 중"
+            },
+            {
+              "summary": "웹 검색으로 최신 메시지 한도 정보 확인 필요."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-23T08:30:55.710262Z",
+          "stop_timestamp": "2026-01-23T08:30:56.077657Z",
+          "flags": null,
+          "type": "text",
+          "text": "최신 정보를 확인하기 위해 Anthropic 공식 문서를 검색해드리겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-01-23T08:30:56.320657Z",
+          "stop_timestamp": "2026-01-23T08:30:56.729379Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_014G2JmDAUzCVhKhfzfcqPH4",
+          "name": "web_search",
+          "input": {
+            "query": "Claude.ai plan message limits usage 2025"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_014G2JmDAUzCVhKhfzfcqPH4",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "About Free Claude Usage | Claude Help Center",
+              "url": "https://support.claude.com/en/articles/8602283-about-free-claude-usage",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude"
+              },
+              "is_missing": false,
+              "text": "While using the free Claude plan, there is a session-based usage limit that will reset every five hours. Also, the number of messages you can send will vary based on demand, and we may impose other types of usage limits to ensure fair access ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://support.claude.com/en/articles/8602283-about-free-claude-usage",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "About Claude's Pro Plan Usage | Claude Help Center",
+              "url": "https://support.claude.com/en/articles/8324991-about-claude-s-pro-plan-usage",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude"
+              },
+              "is_missing": false,
+              "text": "Your session-based usage limit will reset every five hours. In addition, to manage capacity and ensure fair access to all users, we may limit your usage in other ways, such as weekly and monthly caps or model and feature usage, at our discretion. If your conversations are relatively short (approximately 200 English sentences, assuming your sentences are around 15-20 words) and use a less compute-intensive model, you can expect to send around 45 messages every five hours...\n\nYes. During peak hours, the Pro plan offers at least five times the usage per session compared to our free service. The number of messages you can send will vary based on message length, including the length of files you attach, the length of your current conversation, and the model or feature you use. Your session-based usage limit will reset every five hours. In addition, to manage capacity and ensure fair access to all users, we may limit your usage in other ways, such as weekly and monthly caps or model and feature usage, at our discretion. If your conversations are relatively short (approximately 200 English sentences, assuming your sentences are around 15-20 words) and use a less compute-intensive model, you can expect to send around 45 messages every five hours, often more depending on Claude’s current capacity. A model as capable as Claude takes a lot of powerful computers to run, especially when responding to large attachments and long conversations.\n\nYour Pro plan limits are based on the total length of your conversation, combined with the number of messages you send, and the model or feature you use. Please note that these limits may vary depending on Claude’s current capacity. Ask multiple questions at once, especially when working with long documents. Sending multiple questions in one message is more efficient than sending them separately. Don't re-upload files within the same conversation. Claude remembers the context from your conversation, so you don't need to upload the same file multiple times. Use projects when working on related tasks. Projects provide caching that saves your usage: When you add documents to a project, they're cached. Every time you reference that content, cached tokens count less than uncached portions toward your usage limits. This means you can work with the same materials repeatedly without using up your messages as quickly.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://support.claude.com/en/articles/8324991-about-claude-s-pro-plan-usage",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "What's Claude AI Daily Usage Limit Quota? (Free vs Pro) | 16x Prompt",
+              "url": "https://prompt.16x.engineer/blog/claude-daily-usage-limit-quota",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "16x.engineer",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=16x.engineer",
+                "site_name": "16x Prompt"
+              },
+              "is_missing": false,
+              "text": "They can expect to send around 40 short messages per day before reaching this limit. For longer conversations or conversations involving attachments, the number of messages may be lowered to around 20-30 per day.\n\nThis opens up possibilities for more intensive tasks, large-scale data processing, or continuous operation without worrying about hitting message quotas. The rate limits of Claude API are quite generous compared to the web interface, with Tier 1 users having a limit of 50 requests per minute to Claude 3.5 Sonnet. To effectively use the Claude API and manage your interactions, consider using 16x Prompt as a desktop GUI that connects to Claude API. This tool can help streamline your workflow when working with large language models like Claude 3.5 Sonnet. 16x Prompt can also be used with Claude web interface to manage source code context and token limits effectively. You can copy the final prompt and paste it into the Claude web interface for generating responses. April 13, 2025 · March 20, 2025 · July 8, 2024 · 16x Prompt is the authoritative source for LLMs, AI coding models, and development tools.\n\nFor free tier of Claude AI users, Claude operates on a daily reset system. They can expect to send around 40 short messages per day before reaching this limit. For longer conversations or conversations involving attachments, the number of messages may be lowered to around 20-30 per day. Claude Pro is the paid subscription option, offering more advanced features and increased usage limits at $20 per month (as same ChatGPT Plus). Claude Pro users also get priority access to Claude.ai during high-traffic periods, early access to new features like Projects and Knowledge Base and access to all Claude models via model selector. Claude Pro uses a 5-hour reset cycle for its usage limits. If the conversations are short, Claude Pro subscribers can expect to send about 45 messages per 5 hours. That means you can send around 216 short messages per day. The primary factor affecting the number of messages you can send to Claude is the length of your conversations.\n\nIf you need to refer to a file multiple times, avoid re-uploading it in every message. This is especially true for large documents that takes up a lot of tokens. Claude can remember the file you uploaded earlier in the conversation, so you can refer to it without re-uploading. ... Estimate the number of tokens used in text inputs for large language models like Anthropic Claude and OpenAI GPT-4o. ... The use of usage limits is mainly due to the immense computing power required to run advanced ai models like Claude. These limits help balance accessibility for a wide user base while maintaining high performance standards. Claude's limits are set to provide a fair distribution of resources among users. The recent release of the most powerful model Claude 3.5 Sonnet has also brought in an influx of users to Claude from its competitor OpenAI's GPT-4, as Claude 3.5 Sonnet is considered more powerful model than OpenAI's ChatGPT.\n\nThis opens up possibilities for more intensive tasks, large-scale data processing, or continuous operation without worrying about hitting message quotas. The rate limits of Claude API are quite generous compared to the web interface, with Tier 1 users having a limit of 50 requests per minute to Claude 3.5 Sonnet. To effectively use the Claude API and manage your interactions, consider using 16x Prompt as a desktop GUI that connects to Claude API. This tool can help streamline your workflow when working with large language models like Claude 3.5 Sonnet. 16x Prompt can also be used with Claude web interface to manage source code context and token limits effectively. You can copy the final prompt and paste it into the Claude web interface for generating responses. ... 16x Prompt is the authoritative source for LLMs, AI coding models, and development tools.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://prompt.16x.engineer/blog/claude-daily-usage-limit-quota",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Understanding Usage and Length Limits | Claude Help Center",
+              "url": "https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude"
+              },
+              "is_missing": false,
+              "text": "Think of this as your &quot;conversation budget&quot; that determines how many messages you can send to Claude, or how long you can work with Claude Code, before needing to wait for your limit to reset. Your usage is affected by several factors, including the length and complexity of your conversations, the features you use, and which Claude model you&#x27;re chatting with. Different subscription plans (Pro, Max, Team, etc.) have different usage allowances, with paid plans offering higher limits. Note that your usage of all different Claude product surfaces (claude.ai, Claude Code, Claude Desktop) counts towards the same usage limit. There are a couple of different ways to increase your usage depending on your plan: If you’re using a paid plan, including Pro, Max, Team, or seat-based Enterprise plans, see these articles for details about purchasing extra usage: ...\n\nRefer to Usage Limit Best Practices for strategies to maximize your message allotment. Length limits relate to Claude's context window—the amount of information Claude can work with in a single chat. Think of the context window as Claude's working memory that determines how much content it can process and remember at once. Claude's context window size is 200K tokens across all models and paid plans, with one exception: Claude Sonnet 4.5 has a 500K context window for users on Enterprise plans. Refer to What is the Enterprise plan? for more information. For users on paid plans with code execution enabled, Claude now automatically manages long conversations. When your conversation approaches the context window limit, Claude summarizes earlier messages to continue the conversation seamlessly. This means you can have longer, more natural conversations with fewer interruptions.\n\nNote: Code execution must be enabled for automatic context management. Rare edge cases (such as very large first messages) may still encounter context limits. While you can't increase the fixed context window size for your plan, you can use these strategies to maximize available context space and optimize both your context window and usage limits: Utilize projects effectively: Projects use retrieval-augmented generation (RAG), which allows Claude to work with larger amounts of information more efficiently by only loading relevant content into the context window. Shorten project instructions: Keep your project instructions concise and focused on essential information. Claude performs best when you use project instructions for general context around your project, key guidelines, and Claude's role. Reserve task-specific instructions for the chat itself.\n\nIf you hit your usage limit, you'll need to wait for it to reset, upgrade your plan, or purchase extra usage.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Opus 4.5 Message Limit Reset Time: Complete Guide to All Plans [2025] | AI Free API",
+              "url": "https://www.aifreeapi.com/en/posts/claude-opus-message-limit-reset",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "aifreeapi.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=aifreeapi.com",
+                "site_name": "AI Free API"
+              },
+              "is_missing": false,
+              "text": "... Claude Opus 4.5 message limits reset on two separate schedules: every 5 hours for session limits and every 7 days for weekly limits. The session reset uses a rolling window that begins when you send your first message, not at fixed times.\n\nAAI Free API Team•Dec 14, 2025•12 min read•Claude AI · Your Claude Opus 4.5 limits reset every 5 hours (session) and 7 days (weekly). This guide explains exact timing, plan differences, and strategies to never hit limits again. ... Claude Opus 4.5 message limits reset on two separate schedules: every 5 hours for session limits and every 7 days for weekly limits. The session reset uses a rolling window that begins when you send your first message, not at fixed times. Weekly limits, introduced by Anthropic in mid-2025, provide an additional cap that prevents sustained heavy usage. Understanding both systems is essential for planning your work and avoiding unexpected interruptions. The introduction of Claude 4.5 brought significant changes to how Anthropic manages usage. Opus 4.5, their most capable model, consumes your allocation faster than Sonnet variants, leading Anthropic to officially recommend \"Sonnet 4.5 for everyday use.\"\n\nWhen you hit your session limit, you'll receive a clear notification indicating the limit has been reached. The notification includes the time until your next reset, allowing you to decide whether to wait, enable extra usage for pay-as-you-go access, or switch to a different approach entirely. For users on Max plans, the session limit increases to approximately 225 messages per 5-hour window—roughly five times the Pro allocation. This increased capacity, combined with access to Opus in Claude Code, makes Max plans attractive for power users who frequently hit Pro limits. Anthropic introduced weekly limits in mid-2025 specifically to address heavy usage patterns, particularly in Claude Code. Before weekly limits, determined users could essentially achieve unlimited usage by working in 5-hour sprints. The weekly cap prevents this while still allowing substantial daily use.\n\nClaude implements a two-tiered limit system that often confuses users encountering restrictions for the first time. The session-based 5-hour limit handles short-term usage bursts, while the weekly limit prevents any single user from consuming excessive resources over longer periods. Both limits must have available capacity for you to continue using Claude. The 5-hour session limit works as a rolling window. When you send your first message, the clock starts. Five hours later, your session allocation refreshes regardless of when within that window you hit your limit. This means if you exhaust your messages in the first hour, you'll wait four hours for the reset. If you pace yourself, you might never notice the limit at all. Weekly limits operate differently. Introduced in mid-2025, these caps track your cumulative usage across a 7-day rolling period.\n\nYes. Your Claude account's usage aggregates across all access points: claude.ai, Claude Code, and any other Anthropic products using your account. Switching devices doesn't provide additional capacity or separate allocations. What happens if I'm mid-conversation when I hit my limit? Your conversation history remains accessible for reading, but you cannot send new messages until capacity returns. In most cases, you'll have a few more messages available before hard limits apply, as the system checks eligibility before processing rather than after. Is there any way to increase my limits beyond Max 20x? Enterprise arrangements with custom limits exist for organizations with specific requirements. For individual users, Max 20x represents the highest standard allocation. Extra Usage provides unlimited access at per-token pricing for those willing to pay beyond included allocations.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.aifreeapi.com/en/posts/claude-opus-message-limit-reset",
+                "search_provider": "anthropic",
+                "age": "December 14, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to Bypass Claude’s Message Limits: Complete Guide to AI Conversation Memory (2025) | by Michelle Jamesina | Medium",
+              "url": "https://michellejamesina.medium.com/how-to-bypass-claudes-message-limits-complete-guide-to-ai-conversation-memory-2025-b3d5f0685f39",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "medium.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=medium.com",
+                "site_name": "Medium"
+              },
+              "is_missing": false,
+              "text": "When you upload documents at the start, expect 10–15 messages maximum instead of the usual limit. Q: How do you continue a Claude conversation after hitting limits? A: Create a memory log at the end of each conversation capturing key insights, ...\n\nThink systems, not sessions when planning complex Claude projects · The goal isn’t to hack Claude’s limitations. It’s to build a workflow that makes those limitations irrelevant. As AI workflow automation becomes more common, understanding memory limitations across platforms becomes crucial. For more technical depth on this topic, see my analysis of multi-agent AI memory systems. Most people will keep treating Claude like a magic chatbot and wonder why their productivity hits a wall. Smart operators will build memory systems and compound their Claude interactions over time. ... A: Claude conversations have message limits that vary based on usage and document uploads. When you upload documents at the start, expect 10–15 messages maximum instead of the usual limit. Q: How do you continue a Claude conversation after hitting limits? A: Create a memory log at the end of each conversation capturing key insights, context, and next steps.\n\nHow to Bypass Claude’s Message Limits: Complete Guide to AI Conversation Memory (2025) Most people using Claude are doing it wrong. Not because they don’t understand the technology, but because …\n\nMost people using Claude are doing it wrong. Not because they don’t understand the technology, but because they’re ignoring the most…\n\nMost people using Claude are doing it wrong. Not because they don’t understand the technology, but because they’re ignoring the most obvious limitation that kills productivity: Claude’s message limits force you to restart conversations exactly when you’re building momentum. And they’re a documented feature of the platform. According to Anthropic’s official documentation, these Claude message limits vary based on usage patterns and uploaded content. Here’s what everyone focuses on: getting better prompts, choosing between Claude models, optimizing for token limits. Here’s what actually matters: continuity across conversations, structured handoffs, and building external memory that bridges Claude sessions. The difference: One approach leaves you constantly rebuilding context. The other creates a sustainable system that gets smarter over time.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://michellejamesina.medium.com/how-to-bypass-claudes-message-limits-complete-guide-to-ai-conversation-memory-2025-b3d5f0685f39",
+                "search_provider": "anthropic",
+                "age": "August 1, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Free limits: updated usage restrictions, message caps, and file upload rules.",
+              "url": "https://www.datastudios.org/post/claude-free-limits-updated-usage-restrictions-message-caps-and-file-upload-rules",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "datastudios.org",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=datastudios.org",
+                "site_name": "Data Studios"
+              },
+              "is_missing": false,
+              "text": "Claude Free is accessible but regulated through strict limits that reset every few hours.As of August 2025, the free version of Claude AI—available via claude.ai and the iOS/Android apps—offers a powerful interface to interact with Claude ...\n\nThey have access only to Claude Sonnet 4, which is optimized for speed and context awareness but lacks the full reasoning power of Claude Opus 4 (available in Pro and Team plans). Additionally, Claude Free has no long-term memory: it remembers the current chat during a session, but does not retain context between sessions, and it does not allow persistent instructions. Users seeking features like workspace history, pinned memory, and model switching must upgrade to the Pro or Team tiers. Claude Free users are served on a lower resource priority than Pro and Team subscribers. During high traffic periods—especially after product announcements or updates—access to Claude Free may be temporarily limited or slower. ... Anthropic’s intent is to guarantee uptime and stability for all users by dynamically adjusting session limits. ... Despite its restrictions, Claude Free remains one of the most generous free-tier AI tools currently available, offering high-quality output with modern multimoda\n\nclaude.ai and the iOS/Android apps—offers a powerful interface to interact with Claude Sonnet 4, the default model for non-paying users. However, Claude Free operates under dynamic usage restrictions that adapt to user behavior and system load. These constraints are not publicly listed in full detail, but official notes and current user experience paint a clear picture of how the limits work in practice. Contrary to older assumptions about a fixed number of messages per day, the actual limits on Claude Free are based on session windows, interaction density, and resource consumption per prompt, with no official daily quota published. Claude Free works on a sliding usage window, which resets approximately every 5 hours. Within that window, users can send a variable number of messages, depending on: ... There is no fixed number of messages guaranteed per session.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.datastudios.org/post/claude-free-limits-updated-usage-restrictions-message-caps-and-file-upload-rules",
+                "search_provider": "anthropic",
+                "age": "August 10, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude AI Free vs Pro Limit, User Caps. How to Bypass Them? | Writingmate Blog",
+              "url": "https://writingmate.ai/blog/avoid-claude-ai-usage-limits",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "writingmate.ai",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=writingmate.ai",
+                "site_name": "Writingmate"
+              },
+              "is_missing": false,
+              "text": "Now, policy has changed and in 2025, limits are dynamic and depend on your queries. Claude limits resets each 5 hours. Claude Pro has less user caps and will surely let you go over 50 messages every 5 hours (hundreds per day).\n\nYou can try a chat app that accepts your Claude API key without those hilarious Claude message limits. For instance, Writingmate all-in-one AI chatbot lets you use over 200+ AI models for text, coding, and images, with features like LLM comparison, MCP support for AI agents, and a refreshed 2025-friendly UI. No API needed and subscription starts at 9 dollars. You can try the app via the link: writingmate.ai · This tool gives you most of API power with no coding. No actual API keys used and you don't pay for each prompt, but get a very spacious plan to make all of your… plans possible :D As my other blog posts explain, using even a basic subscription from writingmate.ai lets you to unlock higher usage and you get more for your buck in general. Claude supports many document types in chat or projects, as long as they fit within the context window.\n\nAvoid Claude Pro limits and caps, upload files, clear chat history, use Claude AI with fewer usage limits using Writingmate.ai's multi-model platform.\n\nIn contrast, ChatGPT (GPT-3.5) has a fixed 4,096-token context & no strict message cap inside of ChatGPT and all-in-one platforms like Writingmate alike. Here’s my quick comparison of Claude vs some other popular models (approximate limits) in 2025: With years of using Claude I've tried stretching your limit hard, bot on free tier, a paid one and within Writingmate.ai all in one chatbot. Ironically enough, even The official Claude Usage Best Practices do suggest quite useful steps for users to optimize Claude AI free limit & even some of Claude Pro limits: Start a new conversation often. Claude rereads the entire chat history on each message. And this costs tokens. Beginning a fresh chat reduces work, it often saves my user limit. Bundle questions into one message. Instead of sending separate prompts, ask multiple related questions together. Each new message forces Claude to re-read, so combining questions uses fewer tokens overall.\n\nEach file can be up to 30 MB, and in 2025 you can upload up to 20 files per chat. Note that Claude only extracts text from non-PDF files (images inside them aren’t often read if you don't prompt it specifically). With writingmate.ai, you also get an ability to upload various file types to analyze and work with, and you can do it almost with no limits or caps. For PDFs, Claude 4 and Claude 3.5/3.7 Sonnet can analyze both text & visual content (images/charts) if the PDF is under 100 pages. But with Writingmate multi-model approach, you can do even more with such documents. At the same time, larger PDFs or other models only get the text. So in practice, if your file is very large or in case it has a huge ammount of pages, you better split it to stay within limits. Does AI save chats and let you search in chats? For a long time, Claude does save your chats by default as part of your account history.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://writingmate.ai/blog/avoid-claude-ai-usage-limits",
+                "search_provider": "anthropic",
+                "age": "October 1, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Everything We Know About Claude Code Limits",
+              "url": "https://portkey.ai/blog/claude-code-limits/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "portkey.ai",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=portkey.ai",
+                "site_name": "Portkey"
+              },
+              "is_missing": false,
+              "text": "That’s why we built the MCP Gateway: a centralized control layer to run MCP-powered agents in production. Check it out! Weekly limit kicker (28 Aug 2025): Pro ≈ 40‑80 Claude Code hours; Max tiers scale proportionally.\n\nAll messages and token spend during that period draw from your plan’s pool; the clock resets only when you send the next message after the 5 hours lapse. Pro users average 10‑40 prompts per window, while Max 20× users can push 200‑800 prompts depending on code size and model choice. (Source: Anthropic Help Center) ... Time your first prompt so the window spans your peak coding block; fire a dummy ping at 13:01 to start a fresh window for the afternoon. Batch edits: one long diff request burns fewer tokens than several “please refine” follow‑ups. ... As MCP adoption grows, teams are starting to run into operational challenges around authentication, tool access, and visibility. That’s why we built the MCP Gateway: a centralized control layer to run MCP-powered agents in production. Check it out! Weekly limit kicker (28 Aug 2025): Pro ≈ 40‑80 Claude Code hours; Max tiers scale proportionally.\n\nIf you're looking to implement Claude Code for your organisation with governance at scale, book a demo with us for a detailed walkthrough, or try it yourself! ... Keep Watching Anthropic may refine quotas again once weekly limits ship, and Bedrock/Vertex regions keep expanding. Bookmark this post—we’ll update as soon as the numbers move. Learn why LLM reliability is fragile in production and how to build resilience with multi-provider failover strategies with an AI gateway. Learn how Portkey and Feedback Intelligence combine to deliver end-to-end debugging for LLMs,tracing infrastructure health and user outcomes together to find root causes faster and build reliable AI at scale. Reliability is now a competitive edge for AI applications.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://portkey.ai/blog/claude-code-limits/",
+                "search_provider": "anthropic",
+                "age": "July 29, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Usage Limit Best Practices | Claude Help Center",
+              "url": "https://support.claude.com/en/articles/9797557-usage-limit-best-practices",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude"
+              },
+              "is_missing": false,
+              "text": "The number of messages you can send will vary based on your Claude plan. For more information on your plan’s usage, refer to the following resources. ... Tool usage (ex. Research, web search) ... Content in projects is cached and doesn&#x27;t count against your limits when reused. Similar prompts you use frequently are partially cached. Claude remembers context from earlier in the conversation. Before starting a conversation with Claude, consider the following: What specific information or assistance do you need? Can you combine multiple related questions into a single message? Is there any background information you can provide upfront? Planning helps reduce the number of back-and-forth messages needed. Provide clear, detailed instructions or questions in each message. Avoid vague queries that may require clarification. Include relevant context to help Claude understand your needs better.\n\nUsers with paid plans (Pro, Max, Team, and Enterprise) can use Claude's memory and project summaries to build context across conversations. ... If you have multiple related tasks or questions, group them in a single message. For example, instead of sending separate messages for each math problem, send them all in one message. Take a moment to review your message for clarity and completeness to reduce the need for follow-up messages. ... When you upload documents to a project, they're cached for future use. Every time you reference that content, only new/uncached portions count against your limits. This means you can work with the same documents repeatedly without using up your messages as quickly. Example: If you're working on a research paper and add all your reference materials to a project, you can ask multiple questions about those materials while using fewer messages than if you uploaded them each time.\n\nWeekly limits: Check when your plan’s weekly usage limit resets for Opus only and all other models. Extra usage: If you are using a Max 20x, Team, or Enterprise plan, your Usage settings page will also show how much of your configured spending caps you’ve used. Refer to these articles for more information about extra usage depending on your plan: ... Use projects for anything you'll reference multiple times. Upload your core working documents to the project knowledge section when starting a project. The more you use the same content, the more benefit you get from caching. Provide complete context about your coding environment in your initial message. Include entire relevant code snippets in one message for reviews or debugging. Outline requirements, target audience, and key points comprehensively. Send entire texts for editing in one message rather than breaking them up.\n\nProvide all relevant data in a single, well-structured message. By following these best practices, you can make the most efficient use of your Claude plan's message allocation.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://support.claude.com/en/articles/9797557-usage-limit-best-practices",
+                "search_provider": "anthropic"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2026-01-23T08:30:59.569767Z",
+          "stop_timestamp": "2026-01-23T08:31:05.048606Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "좋아, 검색 결과를 토대로 현재 Claude의 플랜별 메시지 한도를 정리해드릴 수 있겠습니다. 공식 Anthropic 문서를 바탕으로 정확한 정보를 제공해야 합니다.\n\n주요 내용:\n1. Free 플랜: 5시간마다 리셋되는 세션 기반 한도 (정확한 숫자는 가변적)\n2. Pro 플랜: 5시간마다 약 45개 메시지 (짧은 대화 기준), 주간 한도 추가\n3. Max 플랜: 5시간마다 약 225개 메시지 (Pro의 5배), 주간 한도 추가\n4. 2025년부터 주간 한도(weekly limit)가 추가됨\n5. 모든 Claude 제품(claude.ai, Claude Code, Desktop)이 동일한 한도 공유\n\n사용자는 한국어 커뮤니케이션을 선호하므로 한국어로 답변하겠습니다.",
+          "summaries": [
+            {
+              "summary": "Claude의 플랜별 메시지 한도 정리 중입니다."
+            },
+            {
+              "summary": "Synthesized Claude's tiered message limits across plans."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-23T08:31:05.108426Z",
+          "stop_timestamp": "2026-01-23T08:31:21.037741Z",
+          "flags": null,
+          "type": "text",
+          "text": "현재 Claude의 플랜별 메시지 한도를 정리해드리겠습니다.\n\n## 📊 플랜별 메시지 한도 (2025년 기준)\n\n### **리셋 주기**\n- **5시간 세션 한도**: 첫 메시지 전송 시점부터 5시간 후 리셋\n- **주간 한도**: 7일 롤링 윈도우 (2025년 중반 추가됨)\n\n### **Free 플랜**\n- 5시간당 가변적 (대략 20-40개 짧은 메시지)\n- 메시지 길이, 첨부파일, 시스템 부하에 따라 변동\n- 피크 시간대 우선순위 낮음\n\n### **Pro 플랜** ($20/월)\n- **5시간당 약 45개 메시지** (짧은 대화 기준)\n  - 200문장 정도, 문장당 15-20단어 기준\n- **주간 한도**: 약 40-80 Claude Code 시간\n- Free 대비 최소 5배 많은 용량\n- 하루 약 216개 짧은 메시지 가능 (이론상)\n\n### **Max 플랜**\n- **5시간당 약 225개 메시지** (Pro의 5배)\n- Max 20x: 200-800 프롬프트/5시간 (코드 크기에 따라)\n- 주간 한도도 비례적으로 증가\n\n### **Team/Enterprise 플랜**\n- 더 높은 한도 (구체적 수치는 계약에 따라 상이)\n- Enterprise는 Sonnet 4.5의 경우 500K 컨텍스트 윈도우 제공\n\n## 🔑 중요 포인트\n\n**한도에 영향을 미치는 요소:**\n1. 메시지 길이 (토큰 수)\n2. 첨부파일 크기 및 개수\n3. 대화 기록 길이 (매 메시지마다 전체 대화 재처리)\n4. 사용 모델 (Opus > Sonnet > Haiku)\n5. 특수 기능 사용 (Web search, Research 등)\n\n**통합 한도:**\n- claude.ai, Claude Code, Claude Desktop 모두 **동일한 한도 공유**\n- 디바이스 변경해도 별도 한도 없음\n\n## 💡 한도 최적화 팁\n\n1. **Projects 활용**: 문서는 캐싱되어 재사용 시 한도에 덜 영향\n2. **질문 묶기**: 여러 질문을 한 메시지에 통합\n3. **파일 재업로드 금지**: 같은 대화 내에서 재업로드 불필요\n4. **새 대화 시작**: 긴 대화는 토큰 많이 소모\n\n현재 어떤 플랜을 사용 중이신가요? 사용량 최적화가 필요하신가요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-23T08:31:21.104285Z",
+      "updated_at": "2026-01-23T08:31:21.104285Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019be9fa-34ce-703b-a616-237852207e02"
+    }
+  ]
+}

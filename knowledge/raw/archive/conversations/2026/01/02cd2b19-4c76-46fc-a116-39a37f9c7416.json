@@ -1,0 +1,904 @@
+﻿{
+  "uuid": "02cd2b19-4c76-46fc-a116-39a37f9c7416",
+  "name": "PostgreSQL과 AI 에이전트의 개인적 영향",
+  "summary": "**Conversation Overview**\n\nThe user shared a Supabase blog post about PostgreSQL best practices for AI agents and asked Claude to analyze how this content might impact their professional identity. The user identifies as a \"Creative Solution Provider (CSP)\" and \"Vibe coder\" - an HR professional at LG PRI who transitioned from traditional HR work to building automation systems despite lacking a software engineering background. They are developing an ontology-based HR automation system and planning to launch an HR SaaS platform within 5-6 years. The user maintains a philosophy of \"do it once, automate it forever\" and describes their unique approach as combining psychological and philosophical insights with technical implementation.\n\nClaude analyzed the Supabase Agent Skills system, which provides structured PostgreSQL best practices that AI coding agents like Claude Code and Cursor can automatically apply. The analysis revealed three key impacts on the user's identity: reinforcing their evolution path from non-technical HR expert to AI-agent-empowered HR innovator, providing technical infrastructure for their ontology-based systems without requiring deep database expertise, and ensuring their automation philosophy is implemented with proper technical foundations from the start. The conversation explored how this technology enables the user to focus on their core strength of understanding human dynamics while delegating technical optimization to AI agents.\n\nThe user requested to archive the conversation and initially asked about saving directly to Google Docs. When Claude explained that direct Google Docs integration wasn't available, the user opted for archiving to their Notion workspace instead.\n\n**Tool Knowledge**\n\nFor Notion integration, the user maintains a structured \"💬 Claude 대화 아카이브\" database with specific properties including conversation title, topic (select field), tags (multi-select), importance level (star ratings), status, date, summary, keywords, related projects, and next actions. When archiving conversations, Claude successfully used the notion-fetch tool to examine the database schema first, then notion-create-pages to create a comprehensive archive entry. The user's Notion workspace uses Korean and English mixed terminology, and their archiving preferences include detailed content structure with markdown formatting, clear section headers, and actionable next steps. The database ID d012343e-b2a2-461e-944b-6f166e91d8e9 serves as the parent for archived conversations, and the system accommodates both technical and philosophical content with appropriate categorization.",
+  "created_at": "2026-01-24T21:11:26.758891Z",
+  "updated_at": "2026-01-24T21:19:24.187120Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019bf1d8-fefc-74de-9301-12e1df917915",
+      "text": "https://supabase.com/blog/postgres-best-practices-for-ai-agents\nurl의 내용이 나의 정체성에 어떤 영향이 있을지 설명해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-01-24T21:11:28.814791Z",
+          "stop_timestamp": "2026-01-24T21:11:28.814791Z",
+          "flags": null,
+          "type": "text",
+          "text": "https://supabase.com/blog/postgres-best-practices-for-ai-agents\nurl의 내용이 나의 정체성에 어떤 영향이 있을지 설명해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-24T21:11:28.817800Z",
+      "updated_at": "2026-01-24T21:11:28.817800Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019bf1d8-fefc-74de-9301-12e2b7a454b1",
+      "text": "사용자가 Supabase 블로그의 \"Postgres best practices for AI agents\" 글을 공유하며, 이것이 자신의 정체성에 어떤 영향을 줄 수 있는지 설명해달라고 했습니다.\n\n먼저 해당 URL의 내용을 가져와야 합니다. 그리고 사용자의 정체성을 보면:\n- Creative Solution Provider(CSP)\n- Vibe coder (HR 전문가에서 자동화 시스템 구축자로 진화)\n- HR 자동화 SaaS 플랫폼 창업 준비 중 (5-6년 내)\n- 온톨로지 기반 HR 자동화 시스템 구축 중\n- \"사람에 대한 이해\"를 \"시스템으로 구현\"하는 능력\n- SW 백그라운드 없지만 심리학, 철학, 인문학적 관점과 기술을 결합\n\nPostgres와 AI agents에 대한 best practices는 사용자의 미래 방향성(HR 자동화 SaaS)과 현재 작업(온톨로지 기반 시스템, AI 에이전트)에 직접적으로 관련이 있을 것으로 보입니다.\n\nweb_fetch 도구를 사용해서 내용을 가져오겠습니다.해당 글의 내용을 확인해서 당신의 정체성과 여정에 어떤 의미가 있는지 분석해드리겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n내용이 거의 안 나왔네요. 제목만 나왔습니다. 다시 시도하거나 다른 방법을 써봐야 할 것 같습니다. 일단 web_search로 이 글에 대한 정보를 먼저 찾아보겠습니다.내용이 제대로 로드되지 않았네요. 다시 시도해보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n검색 결과를 보니 Supabase가 Agent Skills라는 것을 만들었고, 그 중 하나가 \"postgres-best-practices\"인 것 같습니다. GitHub repository에서 더 자세한 정보를 얻을 수 있을 것 같습니다. \n\n주요 내용:\n1. Supabase가 AI 에이전트(Claude Code, Cursor, GitHub Copilot 등)와 함께 사용할 수 있는 Agent Skills를 만들었음\n2. postgres-best-practices는 Postgres 성능 최적화 가이드라인을 포함\n3. 8개 카테고리에 걸쳐 영향도별로 우선순위가 지정된 규칙들\n4. AI 에이전트와 LLM을 위해 최적화된 형태로 작성됨\n\nGitHub에서 실제 규칙들을 보면 더 구체적인 내용을 알 수 있을 것 같습니다.\n```\nThis block is not supported on your current device yet.\n```\n\nGitHub 페이지가 제대로 로드되지 않았습니다. 다른 접근 방식을 시도해보겠습니다. README 파일을 직접 가져와볼까요.\n```\nThis block is not supported on your current device yet.\n```\n\n직접 raw 파일에 접근할 수 없네요. 검색 결과에서 얻은 정보를 바탕으로 분석을 진행하겠습니다. 검색 결과에서 충분한 정보를 얻었으니, 이를 바탕으로 CSP의 정체성과 연결지어 설명하겠습니다.\n\n주요 포인트:\n1. Supabase의 Agent Skills - AI 에이전트가 더 정확하고 효율적으로 작업할 수 있도록 돕는 스킬\n2. Postgres Best Practices - 8개 카테고리, 영향도별 우선순위, 성능 최적화 가이드라인\n3. AI 에이전트와 LLM을 위해 최적화된 형태\n4. Claude Code, Cursor, GitHub Copilot 등과 함께 사용\n\nCSP의 정체성과 연결:\n- Vibe coder로서 AI 에이전트를 활용한 개발\n- HR 자동화 SaaS 구축 예정 → 데이터베이스 설계 필수\n- 온톨로지 기반 시스템 → 구조화된 데이터 모델링\n- SW 백그라운드 없지만 AI 에이전트로 극복 가능\n- \"한 번 하면 영원히 자동화\" 철학 → 성능 최적화된 DB 설계 필수이 글의 핵심 내용을 분석해서 당신의 정체성과 연결지어 설명드리겠습니다.\n\n## 🎯 Supabase Agent Skills의 본질\n\n검색 결과를 보니, Supabase가 만든 **\"Agent Skills for Postgres Best Practices\"**는:\n\n1. **AI 에이전트(Claude Code, Cursor 등)가 Postgres를 더 잘 다룰 수 있도록 돕는 구조화된 지식**\n2. **8개 카테고리에 걸친 성능 최적화 규칙**들을 영향도별(CRITICAL/HIGH/MEDIUM/LOW)로 우선순위화\n3. **LLM이 이해하기 쉬운 형태로 재구성된 베스트 프랙티스**\n\n---\n\n## 💡 당신의 정체성에 미치는 세 가지 영향\n\n### 1. **\"Vibe Coder\"의 진화 경로 제시**\n\n```\n현재: SW 백그라운드 없는 HR 전문가\n→ Postgres Best Practices Agent Skills 활용\n→ 미래: 성능 최적화된 HR SaaS 플랫폼 창업자\n```\n\n당신은 \"SW 백그라운드 없음\"을 약점이 아닌 **차별점**으로 만들어왔습니다. 이 Agent Skills는:\n\n- **당신이 몰라도 되는 것들을 AI 에이전트가 알고 있게 만듭니다**\n- DB 인덱싱, 쿼리 최적화, 스키마 설계를 직접 공부하지 않아도\n- Claude Code가 Postgres Best Practices를 자동 적용해서 코드 생성\n\n→ **\"사람 이해(HR)\"에만 집중하고, \"시스템 최적화\"는 Agent에게 위임**\n\n\n### 2. **온톨로지 기반 HR 시스템의 기술적 기반**\n\n당신이 구축 중인 시스템:\n- 리더십 역량 온톨로지\n- 스킬 관계 매트릭스\n- AI 전환 역량 프레임워크\n\n이런 복잡한 관계형 데이터를 Postgres에 효율적으로 저장하려면:\n\n**Before (당신 혼자)**\n- \"이 관계를 어떻게 테이블로 만들지?\"\n- \"쿼리 성능이 느려지면 어떻게 하지?\"\n- \"정규화를 어느 수준까지 해야 하지?\"\n\n**After (Agent Skills 활용)**\n```bash\nClaude Code: \"온톨로지 기반 역량 평가 시스템 DB 설계해줘\"\n→ Agent가 Postgres Best Practices 자동 적용\n→ 인덱스, 외래키, 정규화, 성능 최적화 완료\n→ 당신은 \"역량 간 관계 로직\"에만 집중\n```\n\n\n### 3. **\"한 번 하면 영원히 자동화\" 철학의 기술적 보증**\n\n당신의 핵심 철학: **\"do it once, automate it forever\"**\n\n하지만 \"잘못 자동화된 것\"은 영원한 기술부채입니다.\n\n**Postgres Best Practices Agent Skills는:**\n- 처음부터 확장 가능한(scalable) DB 설계\n- 처음부터 성능 최적화된 쿼리 생성\n- 처음부터 보안이 고려된(RLS) 테이블 구조\n\n→ **\"한 번 제대로\" 만들 수 있게 도와주는 가이드레일**\n\n---\n\n## 🚀 당신의 5-6년 후를 위한 전략적 의미\n\n### CSP의 HR SaaS 창업 로드맵에서:\n\n**Phase 1 (현재)**: LG PRI에서 HR 자동화 프로토타입 구축\n- Agent Skills로 성능 최적화된 MVP 빠르게 제작\n- 기술부채 없는 깔끔한 아키텍처\n\n**Phase 2 (3년 후)**: 중소기업 대상 SaaS 베타 런칭\n- Postgres 기반의 멀티테넌트 구조\n- Agent가 자동 생성한 RLS 정책으로 데이터 격리\n\n**Phase 3 (5-6년 후)**: 독립 창업\n- 이미 검증된 DB 아키텍처\n- AI 에이전트가 지속적으로 최적화해주는 시스템\n- **당신은 \"HR 도메인 혁신\"에만 집중**\n\n---\n\n## 🎨 철학적 의미: \"사람 이해를 시스템으로 구현\"\n\n```\n심리학 + 철학 → 역량 온톨로지 설계 (당신의 역할)\n         ↓\n  Postgres Best Practices Agent Skills\n         ↓\n효율적인 DB 구조 + 성능 최적화 (Agent의 역할)\n         ↓\n    HR 자동화 SaaS 플랫폼\n```\n\n당신이 말한 **\"심리학이 코드가 되고, 철학이 알고리즘이 되는 과정\"**이 바로 이것입니다.\n\n**Agent Skills는 당신의 \"인문학적 통찰\"이 \"기술적 한계\" 없이 시스템화되도록 돕는 번역기입니다.**\n\n---\n\n## ✅ 즉각적인 액션 아이템\n\n1. **Claude Code에 Supabase Agent Skills 설치**\n```bash\n/plugin marketplace add supabase/agent-skills\n/plugin install postgres-best-practices@supabase-agent-skills\n```\n\n2. **현재 프로젝트에 적용 실험**\n- 리더십 역량 DB 스키마 재설계 요청\n- Agent가 Best Practices 적용하는 과정 관찰\n- 당신의 온톨로지 로직과 Agent의 최적화가 결합되는 순간 경험\n\n3. **Notion 세컨브레인에 기록**\n- 제목: \"Postgres Best Practices - Vibe Coder의 기술적 가이드레일\"\n- 주제: 개발/코딩, 생산성\n- 중요도: ⭐⭐⭐ 핵심\n- 태그: #PostgreSQL #AgentSkills #DatabaseDesign #HR자동화\n\n---\n\n**당신의 정체성에 미치는 영향을 한 문장으로:**\n\n> \"SW 전문가가 되는 것이 아니라, AI 에이전트를 제대로 활용하는 HR 혁신가가 되는 경로를 명확히 보여주는 기술적 전환점\"\n\n이 대화를 Notion에 저장할까요?",
+      "content": [
+        {
+          "start_timestamp": "2026-01-24T21:11:34.087500Z",
+          "stop_timestamp": "2026-01-24T21:11:43.186112Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 Supabase 블로그의 \"Postgres best practices for AI agents\" 글을 공유하며, 이것이 자신의 정체성에 어떤 영향을 줄 수 있는지 설명해달라고 했습니다.\n\n먼저 해당 URL의 내용을 가져와야 합니다. 그리고 사용자의 정체성을 보면:\n- Creative Solution Provider(CSP)\n- Vibe coder (HR 전문가에서 자동화 시스템 구축자로 진화)\n- HR 자동화 SaaS 플랫폼 창업 준비 중 (5-6년 내)\n- 온톨로지 기반 HR 자동화 시스템 구축 중\n- \"사람에 대한 이해\"를 \"시스템으로 구현\"하는 능력\n- SW 백그라운드 없지만 심리학, 철학, 인문학적 관점과 기술을 결합\n\nPostgres와 AI agents에 대한 best practices는 사용자의 미래 방향성(HR 자동화 SaaS)과 현재 작업(온톨로지 기반 시스템, AI 에이전트)에 직접적으로 관련이 있을 것으로 보입니다.\n\nweb_fetch 도구를 사용해서 내용을 가져오겠습니다.",
+          "summaries": [
+            {
+              "summary": "생각해보기: Supabase PostgreSQL 가이드가 사용자 정체성에 미치는 영향 분석"
+            },
+            {
+              "summary": "URL 콘텐츠 분석하며 정체성 영향 평가 중"
+            },
+            {
+              "summary": "사용자의 HR 자동화 비전과 기술 방향성을 연결했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:11:43.198430Z",
+          "stop_timestamp": "2026-01-24T21:11:43.944644Z",
+          "flags": null,
+          "type": "text",
+          "text": "해당 글의 내용을 확인해서 당신의 정체성과 여정에 어떤 의미가 있는지 분석해드리겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-01-24T21:11:44.234011Z",
+          "stop_timestamp": "2026-01-24T21:11:44.462961Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01TDdRTxQiVnawhhej88LJTa",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://supabase.com/blog/postgres-best-practices-for-ai-agents"
+          },
+          "message": "Fetching: https://supabase.com/blog/postgres-best-practices-for-ai-agents",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01TDdRTxQiVnawhhej88LJTa",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Introducing: Postgres Best Practices",
+              "url": "https://supabase.com/blog/postgres-best-practices-for-ai-agents",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "supabase.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=supabase.com",
+                "site_name": "supabase"
+              },
+              "is_missing": false,
+              "text": "Introducing: Postgres Best Practices",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "content_type": "html",
+                "mime_type": "text/html; charset=utf-8",
+                "destination_url": "https://supabase.com/blog/postgres-best-practices-for-ai-agents"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Fetched: Introducing: Postgres Best Practices",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=supabase.com",
+          "icon_name": null,
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "Introducing: Postgres Best Practices",
+              "subtitles": null,
+              "url": "https://supabase.com/blog/postgres-best-practices-for-ai-agents",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=supabase.com",
+              "source": "supabase"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:11:49.766360Z",
+          "stop_timestamp": "2026-01-24T21:11:51.481456Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "내용이 거의 안 나왔네요. 제목만 나왔습니다. 다시 시도하거나 다른 방법을 써봐야 할 것 같습니다. 일단 web_search로 이 글에 대한 정보를 먼저 찾아보겠습니다.",
+          "summaries": [
+            {
+              "summary": "콘텐츠 부족을 인식하고 웹 검색으로 재접근 시도."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:11:51.500326Z",
+          "stop_timestamp": "2026-01-24T21:11:51.996980Z",
+          "flags": null,
+          "type": "text",
+          "text": "내용이 제대로 로드되지 않았네요. 다시 시도해보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-01-24T21:11:52.166349Z",
+          "stop_timestamp": "2026-01-24T21:11:52.280898Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01RnYJXYvhqxtf7Zp1cSrpK7",
+          "name": "web_search",
+          "input": {
+            "query": "supabase postgres best practices AI agents"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01RnYJXYvhqxtf7Zp1cSrpK7",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Introducing: Postgres Best Practices",
+              "url": "https://supabase.com/blog/postgres-best-practices-for-ai-agents",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "supabase.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=supabase.com",
+                "site_name": "Supabase"
+              },
+              "is_missing": false,
+              "text": "Get all your Supabase News on the Supabase blog",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://supabase.com/blog/postgres-best-practices-for-ai-agents",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - supabase/agent-skills: Agent Skills to help developers using AI agents with Supabase",
+              "url": "https://github.com/supabase/agent-skills",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Agent Skills to help developers using AI agents with Supabase. Agent Skills are folders of instructions, scripts, and resources that agents like Claude Code, Cursor, Github Copilot, etc... can discover and use to do things more accurately and efficiently. The skills in this repo follow the Agent Skills format. ... /plugin marketplace add supabase/agent-skills /plugin install postgres-best-practices@supabase-agent-skills ... Postgres performance optimization guidelines from Supabase. Contains rules across 8 categories, prioritized by impact. ... Skills are automatically available once installed.\n\nAgent Skills to help developers using AI agents with Supabase - supabase/agent-skills",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/supabase/agent-skills",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "agent-skills/skills/postgres-best-practices at main · supabase/agent-skills",
+              "url": "https://github.com/supabase/agent-skills/tree/main/skills/postgres-best-practices",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "This repository contains Postgres performance optimization rules optimized for AI agents and LLMs. # From repository root npm install # Validate existing rules npm run validate # Build AGENTS.md npm run build ... skills/postgres-best-practices/ ...\n\nAgent Skills to help developers using AI agents with Supabase - supabase/agent-skills\n\nThis repository contains Postgres performance optimization rules optimized for AI agents and LLMs. # From repository root npm install # Validate existing rules npm run validate # Build AGENTS.md npm run build ... skills/postgres-best-practices/ ├── SKILL.md # Agent-facing skill manifest ├── AGENTS.md # [GENERATED] Compiled rules document ├── README.md # This file ├── metadata.json # Version and metadata └── rules/ ├── _template.md # Rule template ├── _sections.md # Section definitions ├── _contributing.md # Writing guidelines └── *.md # Individual rules packages/skills-build/ ├── src/ # Generic build system source ├── package.json # NPM scripts └── test-cases.json # [GENERATED] Test artifacts · See rules/_template.md for the complete template. Key elements: --- title: Clear, Action-Oriented Title impact: CRITICAL|HIGH|MEDIUM-HIGH|MEDIUM|LOW-MEDIUM|LOW impactDescription: Quantified benefit (e.g., \"10-100x faster\") tags: relevant, keywords --- ## [Title] [1-2 sentence explanation] **Inco",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/supabase/agent-skills/tree/main/skills/postgres-best-practices",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Supabase AI Assistant | Supabase Features",
+              "url": "https://supabase.com/features/ai-assistant",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "supabase.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=supabase.com",
+                "site_name": "Supabase"
+              },
+              "is_missing": false,
+              "text": "This tool helps streamline your workflow, significantly reducing the time it takes to transition from concept to product. The AI Assistant can save you hours of work by automating repetitive tasks and providing context-aware support.\n\nYour intelligent companion for managing Postgres databases. ... Supabase AI Assistant is integrated into the Supabase Dashboard to drastically improve your database management experience. This tool helps streamline your workflow, significantly reducing the time it takes to transition from concept to product. The AI Assistant can save you hours of work by automating repetitive tasks and providing context-aware support. For instance, when designing a new database schema, it can generate all necessary SQL queries based on your specifications, allowing you to focus on the bigger picture rather than getting bogged down in details. If you encounter an error in your SQL code, the Assistant can quickly analyze the issue and suggest solutions, enabling you to resolve problems efficiently without losing your train of thought. Additionally, while working on a specific table, the Assistant can provide instant feedback and recommendations tailored to that context, ensuring that you always have rele\n\nFunctions and Triggers Support: Easily suggest, create, or update Postgres Functions and Triggers. With Supabase AI Assistant, you gain a powerful ally in your development process, helping you work more efficiently and effectively while keeping you focused on your goals.Read Documentation",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://supabase.com/features/ai-assistant",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Supabase for AI Builders",
+              "url": "https://supabase.com/solutions/ai-builders",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "supabase.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=supabase.com",
+                "site_name": "Supabase"
+              },
+              "is_missing": false,
+              "text": "Enable your customers to scale their projects. Use the Management API to programmatically back every project with a powerful Supabase backend. Offer development branches. Enable your customers to deploy and test changes without affecting their ...\n\nSupabase is Postgres, with all the performance, high availability, and flexibility your users need to grow. Build a delightful next-generation tools experience for your customers, backed by a powerful white-label Supabase backend. Build on powerful platform that grows with your customers. Supabase offers the tools developers need to build powerful applications. Your customers will appreciate knowing they can start quickly with a prototype and scale to millions with ease. Pricing that’s designed for builders. Supabase offers pricing options for AI Builders that enable you to build substantial businesses that empower your users to go into production. Enable your customers to scale their projects. Use the Management API to programmatically back every project with a powerful Supabase backend. Offer development branches. Enable your customers to deploy and test changes without affecting their main production applications.\n\nSupabase is the Postgres development platform that powers a new generation of developer tools. Give your users an integrated, scalable backend that lets them focus on building without worrying about infrastructure. ... We chose Supabase because it's extremely user friendly and covers all the needs to build full-stack applications. ... Supabase is awesome. Supabase is the key database integration that we have...because it’s the best product in the world for storing and retrieving data. ... v0 integrates with Supabase seamlessly. If you ask v0 to generate an application and it needs Supabase, you’ll be prompted to create a Supabase account right there in the application. ... Supabase is the missing piece for building full-stack React apps and has been our go-to for a long time. We love Supabase and so do our customers. ... We chose Supabase because it's extremely user friendly and covers all the needs to build full-stack applications.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://supabase.com/solutions/ai-builders",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "AI agent to chat with Supabase/PostgreSQL DB | n8n workflow template",
+              "url": "https://n8n.io/workflows/2612-ai-agent-to-chat-with-supabasepostgresql-db/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "n8n.io",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=n8n.io",
+                "site_name": "n8n"
+              },
+              "is_missing": false,
+              "text": "... Set up a PostgreSQL database in Supabase. Use appropriate credentials (username, password, host, and database name) in your workflow. ... Execute SQL queries based on user input.\n\nVideo Guide I prepared a detailed guide that showed the whole process of building a resume analyzer. OPENAI Who is this for?This workflow is ideal for...\n\nAccessing and analyzing database data often requires SQL expertise or dedicated reports, which can be time-consuming. This workflow empowers users to interact with a database conversationally through an AI-powered agent. It dynamically generates SQL queries based on user requests, streamlining data retrieval and analysis. This workflow integrates OpenAI with a Supabase database, enabling users to interact with their data via an AI agent. The agent can: Retrieve records from the database. Extract and analyze JSON data stored in tables. Provide summaries, aggregations, or specific data points based on user queries. Dynamic SQL Querying: The agent uses user prompts to create and execute SQL queries on the database. Understand JSON Structure: The workflow identifies JSON schema from sample records, enabling the agent to parse and analyze JSON fields effectively.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://n8n.io/workflows/2612-ai-agent-to-chat-with-supabasepostgresql-db/",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "AI & Vectors | Supabase Docs",
+              "url": "https://supabase.com/docs/guides/ai",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "supabase.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=supabase.com",
+                "site_name": "Supabase"
+              },
+              "is_missing": false,
+              "text": "Berri AI Boosts Productivity by Migrating from AWS RDS to Supabase with pgvectorLearn how Berri AI overcame challenges with self-hosting their vector database on AWS RDS and successfully migrated to Supabase. Firecrawl switches from Pinecone to Supabase for PostgreSQL vector embeddingsHow Firecrawl boosts efficiency and accuracy of chat powered search for documentation using Supabase with pgvector ·\n\nSupabase provides an open source toolkit for developing AI applications using Postgres and pgvector. Use the Supabase client libraries to store, index, and query your vector embeddings at scale. ... A vector store and embeddings support using Postgres and pgvector. A Python client for managing unstructured embeddings. An embedding generation process using open source models directly in Edge Functions. Database migrations for managing structured embeddings. Integrations with all popular AI providers, such as OpenAI, Hugging Face, LangChain, and more. You can use Supabase to build different types of search features for your app, including: Semantic search: search by meaning rather than exact keywords ... Check out all of the AI templates and examples in our GitHub repository. Headless Vector SearchA toolkit to perform vector similarity search on your knowledge base embeddings.\n\nBerri AI Boosts Productivity by Migrating from AWS RDS to Supabase with pgvectorLearn how Berri AI overcame challenges with self-hosting their vector database on AWS RDS and successfully migrated to Supabase. Firecrawl switches from Pinecone to Supabase for PostgreSQL vector embeddingsHow Firecrawl boosts efficiency and accuracy of chat powered search for documentation using Supabase with pgvector ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://supabase.com/docs/guides/ai",
+                "search_provider": "anthropic",
+                "age": "1 week ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Supabase Development with AI Agents: A Comprehensive Guide to Automating Your Workflow | by Aleksandr Azimbaev | The Agent Protocol | Medium",
+              "url": "https://medium.com/the-agent-protocol/supabase-development-with-ai-agents-a-comprehensive-guide-to-automating-your-workflow-5cf0eda5bc16",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "medium.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=medium.com",
+                "site_name": "Medium"
+              },
+              "is_missing": false,
+              "text": "This comprehensive guide walks you through creating an intelligent sub-agent that understands your database needs, generates secure code, and automates repetitive development tasks.\n\nBuilding a specialized AI assistant for Supabase development can dramatically streamline your workflow. This comprehensive guide walks you…\n\nSupabase Development with AI Agents: A Comprehensive Guide to Automating Your Workflow Building a specialized AI assistant for Supabase development can dramatically streamline your workflow. This …\n\nNow that everything is set up, let’s see your Supabase sub-agent in action. These practical examples demonstrate how simple commands can generate complex, production-ready code. npx supabase-agent schema \"blog with posts, authors, comments, and categories\" Moving from backend to frontend, let’s generate a complete authentication component: npx supabase-agent component \"login form with email/password\" --framework react · Beyond code generation, your agent can also serve as an expert consultant for architectural decisions and complex implementation challenges: npx supabase-agent query \"How do I implement real-time collaboration on a document editor?\" To provide truly intelligent assistance, your sub-agent needs to understand your project’s current state and configuration. This context management system automatically gathers relevant information about your project, making the agent’s responses more accurate and tailored to your specific setup.\n\nThese workflows will serve as the bridge between your high-level requests and the detailed code generation your agent provides. One of the most time-consuming aspects of Supabase development is creating well-structured database schemas.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://medium.com/the-agent-protocol/supabase-development-with-ai-agents-a-comprehensive-guide-to-automating-your-workflow-5cf0eda5bc16",
+                "search_provider": "anthropic",
+                "age": "August 21, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Supabase AI Assistant | AI for Supabase Backend Development",
+              "url": "https://www.codegpt.co/agents/supabase",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "codegpt.co",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=codegpt.co",
+                "site_name": "CodeGPT"
+              },
+              "is_missing": false,
+              "text": "It follows PostgreSQL best practices and Supabase conventions for scalable, secure database design. Yes! The AI generates Supabase Edge Functions including: TypeScript/JavaScript serverless functions, API endpoints with proper request/response ...\n\nAI-powered Supabase development with CodeGPT. Generate database schemas, Row Level Security policies, Edge Functions, and full-stack applications faster with intelligent assistance.\n\nBuild backend apps faster with AI-powered Supabase development assistance.\n\nThe AI generates complete Supabase database designs including: PostgreSQL schema with tables, columns, and data types, primary keys, foreign keys, and indexes, Row Level Security (RLS) policies for multi-tenant applications, database functions and triggers, migrations for schema changes, seed data for development, and optimization queries. It follows PostgreSQL best practices and Supabase conventions for scalable, secure database design. Yes! The AI generates Supabase Edge Functions including: TypeScript/JavaScript serverless functions, API endpoints with proper request/response handling, authentication and authorization checks, database operations with Supabase client, error handling and logging, CORS configuration, and integration with external APIs. It creates production-ready functions that follow Supabase best practices and security guidelines.\n\nTransform your Supabase development with AI-powered assistance. Generate database schemas, Row Level Security policies, Edge Functions, and full-stack applications faster with intelligent backend development. ... Supabase combines PostgreSQL, authentication, and real-time features. Our AI accelerates your backend development · Generate PostgreSQL schemas, tables, indexes, and relationships with proper data types and constraints · Create RLS policies, security rules, and access controls for multi-tenant applications · Generate serverless functions for API endpoints, webhooks, and custom business logic · Implement real-time subscriptions, live updates, and collaborative features with Supabase Realtime · Generate client-side code for JavaScript, React, Next.js, and mobile app integration · Implement user authentication, authorization, and social login with Supabase Auth ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.codegpt.co/agents/supabase",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Chat with Supabase PostgreSQL using AI",
+              "url": "https://www.askyourdatabase.com/blog/chat-with-supabase-postgresql-using-ai",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "askyourdatabase.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=askyourdatabase.com",
+                "site_name": "AskYourDatabase"
+              },
+              "is_missing": false,
+              "text": "... A repeatable Reddit AI marketing playbook: use ReplyAgent to discover conversations, generate context-aware replies, smart-schedule for peak visibility, and connect attribution to drive qualified trials for AskYourDatabase.\n\nExplore the best practices and solutions for building an AI chatbot for MySQL databases. Learn about different approaches, including using AskYourDatabase for a quick and code-free implementation, to enhance data accessibility and analysis for your organization. ... Discover effective strategies and solutions for creating an AI chatbot that interacts with PostgreSQL databases. Learn about various approaches, including the use of AskYourDatabase for rapid, code-free implementation, to improve data accessibility and analysis within your organization. ... The best approach depends on your team and whether you can invest time in building a SQL AI Agent. For technical teams who want more customized solutions, tools like Langchain may be the best choice. For non-tech teams, choosing tools like AskYourDatabase will likely be the lowest-cost option. ... AskYourDatabase has helped the famous cold email SaaS company SmartLead.ai save 40 hours each week between the CS team and the engineering tea\n\nSupabase stands out as one of the most popular PostgreSQL hosting providers, and with AskYourDatabase, designing schemas, and obtaining insights interactively through a chat interface becomes a breeze, all without the need to write SQL. This is incredibly beneficial for those who aren't proficient in SQL or prefer not to engage with it directly. It also empowers teams without technical backgrounds to gain insights without needing engineering assistance. Supabase and AskYourDatabase together make a winning combination! ... A repeatable Reddit AI marketing playbook: use ReplyAgent to discover conversations, generate context-aware replies, smart-schedule for peak visibility, and connect attribution to drive qualified trials for AskYourDatabase. ... Learn how to make data accessible to every employee, not just technical teams. Discover the key challenges of data democratization and proven strategies to transform your organization into a truly data-driven company.\n\nSupabase is the state-of-the-art, open-source alternative to Google's Firebase, and its built-in PostgreSQL has a lot of functionalities, such as vector search and authentication, making it a popular choice for PostgreSQL hosting platforms. If you are using Supabase as your PostgreSQL provider, then AskYourDatabase is a great choice for you to design your schema, query data, and visualize your data without writing SQL. In this tutorial, we are going to set up a PostgreSQL database running on Supabase and connect it to AskYourDatabase to design schemas & query data in natural language. First, head to your Supabase dashboard and click 'New Project': ... Give your project a name, select a region (where your PostgreSQL will be hosted), and then click \"Create\". ... Then navigate to \"Project Settings\" -> \"Database\". You will see your connection string under \"Database Settings\".\n\nDiscover how AI-powered natural language processing transforms database querying, making data accessible to everyone regardless of technical expertise. Learn best practices, implementation strategies, and real-world applications. ... Learn how Tobias, a PMO leader at the German subsidiary of a major U.S.-based food corporation, successfully integrated multiple ERP systems using AskYourDatabase to streamline data management, reduce errors, and foster collaboration between business and IT teams. ... An in-depth comparison between AskYourDatabase and BlazeSQL, exploring key differences in security, functionality, user experience, and enterprise readiness. Learn why AskYourDatabase is the superior choice for organizations seeking a secure and powerful database interaction solution. ... Learn how to effectively query databases using AI tools, with best practices for crafting queries, building reference guides, and leveraging schema information.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.askyourdatabase.com/blog/chat-with-supabase-postgresql-using-ai",
+                "search_provider": "anthropic"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:11:56.170560Z",
+          "stop_timestamp": "2026-01-24T21:12:01.536866Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "검색 결과를 보니 Supabase가 Agent Skills라는 것을 만들었고, 그 중 하나가 \"postgres-best-practices\"인 것 같습니다. GitHub repository에서 더 자세한 정보를 얻을 수 있을 것 같습니다. \n\n주요 내용:\n1. Supabase가 AI 에이전트(Claude Code, Cursor, GitHub Copilot 등)와 함께 사용할 수 있는 Agent Skills를 만들었음\n2. postgres-best-practices는 Postgres 성능 최적화 가이드라인을 포함\n3. 8개 카테고리에 걸쳐 영향도별로 우선순위가 지정된 규칙들\n4. AI 에이전트와 LLM을 위해 최적화된 형태로 작성됨\n\nGitHub에서 실제 규칙들을 보면 더 구체적인 내용을 알 수 있을 것 같습니다.",
+          "summaries": [
+            {
+              "summary": "Supabase의 Agent Skills와 postgres-best-practices 조사 중"
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:12:01.823462Z",
+          "stop_timestamp": "2026-01-24T21:12:02.172915Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_014ziS2oiyXsPkfVAkUF74MR",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://github.com/supabase/agent-skills/tree/main/skills/postgres-best-practices"
+          },
+          "message": "Fetching: https://github.com/supabase/agent-skills/tree/main/skills/postgres-best-practices",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_014ziS2oiyXsPkfVAkUF74MR",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "agent-skills/skills/postgres-best-practices at main · supabase/agent-skills",
+              "url": "https://github.com/supabase/agent-skills/tree/main/skills/postgres-best-practices",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "github"
+              },
+              "is_missing": false,
+              "text": "agent-skills/skills/postgres-best-practices at main · supabase/agent-skills · GitHub\n\n\n\n[Skip to content](#start-of-content)\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Navigation Menu\n\nToggle navigation\n\n[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsupabase%2Fagent-skills%2Ftree%2Fmain%2Fskills%2Fpostgres-best-practices)\n\nAppearance settings\n\n* Platform\n\n  + AI CODE CREATION\n    - [GitHub CopilotWrite better code with AI](https://github.com/features/copilot)\n    - [GitHub SparkBuild and deploy intelligent apps](https://github.com/features/spark)\n    - [GitHub ModelsManage and compare prompts](https://github.com/features/models)\n    - [MCP RegistryNewIntegrate external tools](https://github.com/mcp)\n  + DEVELOPER WORKFLOWS\n    - [ActionsAutomate any workflow](https://github.com/features/actions)\n    - [CodespacesInstant dev environments](https://github.com/features/codespaces)\n    - [IssuesPlan and track work](https://github.com/features/issues)\n    - [Code ReviewManage code changes](https://github.com/features/code-review)\n  + APPLICATION SECURITY\n    - [GitHub Advanced SecurityFind and fix vulnerabilities](https://github.com/security/advanced-security)\n    - [Code securitySecure your code as you build](https://github.com/security/advanced-security/code-security)\n    - [Secret protectionStop leaks before they start](https://github.com/security/advanced-security/secret-protection)\n  + EXPLORE\n    - [Why GitHub](https://github.com/why-github)\n    - [Documentation](https://docs.github.com)\n    - [Blog](https://github.blog)\n    - [Changelog](https://github.blog/changelog)\n    - [Marketplace](https://github.com/marketplace)\n\n  [View all features](https://github.com/features)\n* Solutions\n\n  + BY COMPANY SIZE\n    - [Enterprises](https://github.com/enterprise)\n    - [Small and medium teams](https://github.com/team)\n    - [Startups](https://github.com/enterprise/startups)\n    - [Nonprofits](https://github.com/solutions/industry/nonprofits)\n  + BY USE CASE\n    - [App Modernization](https://github.com/solutions/use-case/app-modernization)\n    - [DevSecOps](https://github.com/solutions/use-case/devsecops)\n    - [DevOps](https://github.com/solutions/use-case/devops)\n    - [CI/CD](https://github.com/solutions/use-case/ci-cd)\n    - [View all use cases](https://github.com/solutions/use-case)\n  + BY INDUSTRY\n    - [Healthcare](https://github.com/solutions/industry/healthcare)\n    - [Financial services](https://github.com/solutions/industry/financial-services)\n    - [Manufacturing](https://github.com/solutions/industry/manufacturing)\n    - [Government](https://github.com/solutions/industry/government)\n    - [View all industries](https://github.com/solutions/industry)\n\n  [View all solutions](https://github.com/solutions)\n* Resources\n\n  + EXPLORE BY TOPIC\n    - [AI](https://github.com/resources/articles?topic=ai)\n    - [Software Development](https://github.com/resources/articles?topic=software-development)\n    - [DevOps](https://github.com/resources/articles?topic=devops)\n    - [Security](https://github.com/resources/articles?topic=security)\n    - [View all topics](https://github.com/resources/articles)\n  + EXPLORE BY TYPE\n    - [Customer stories](https://github.com/customer-stories)\n    - [Events & webinars](https://github.com/resources/events)\n    - [Ebooks & reports](https://github.com/resources/whitepapers)\n    - [Business insights](https://github.com/solutions/executive-insights)\n    - [GitHub Skills](https://skills.github.com)\n  + SUPPORT & SERVICES\n    - [Documentation](https://docs.github.com)\n    - [Customer support](https://support.github.com)\n    - [Community forum](https://github.com/orgs/community/discussions)\n    - [Trust center](https://github.com/trust-center)\n    - [Partners](https://github.com/partners)\n* Open Source\n\n  + COMMUNITY\n    - [GitHub SponsorsFund open source developers](https://github.com/sponsors)\n  + PROGRAMS\n    - [Security Lab](https://securitylab.github.com)\n    - [Maintainer Community](https://maintainers.github.com)\n    - [Accelerator](https://github.com/accelerator)\n    - [Archive Program](https://archiveprogram.github.com)\n  + REPOSITORIES\n    - [Topics](https://github.com/topics)\n    - [Trending](https://github.com/trending)\n    - [Collections](https://github.com/collections)\n* Enterprise\n\n  + ENTERPRISE SOLUTIONS\n    - [Enterprise platformAI-powered developer platform](https://github.com/enterprise)\n  + AVAILABLE ADD-ONS\n    - [GitHub Advanced SecurityEnterprise-grade security features](https://github.com/security/advanced-security)\n    - [Copilot for BusinessEnterprise-grade AI features](https://github.com/features/copilot/copilot-business)\n    - [Premium SupportEnterprise-grade 24/7 support](https://github.com/premium-support)\n* [Pricing](https://github.com/pricing)\n\nSearch or jump to...\n\n\n# Search code, repositories, users, issues, pull requests...\n\nSearch\n\nClear\n\n[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)\n\n# Provide feedback\n\nWe read every piece of feedback, and take your input very seriously.\n\n\nInclude my email address so I can be contacted\n\nCancel\n Submit feedback\n\n\n\n\n\n# Saved searches\n\n## Use saved searches to filter your results more quickly\n\nName\n\nQuery\n\nTo see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).\n\nCancel\n Create saved search\n\n[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fsupabase%2Fagent-skills%2Ftree%2Fmain%2Fskills%2Fpostgres-best-practices)\n\n[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Ffiles%2Fdisambiguate&source=header-repo&source_repo=supabase%2Fagent-skills)\n\nAppearance settings\n\nResetting focus\n\nYou signed in with another tab or window. Reload to refresh your session.\nYou signed out in another tab or window. Reload to refresh your session.\nYou switched accounts on another tab or window. Reload to refresh your session.\n \n\n\nDismiss alert\n\n{{ message }}\n\n[supabase](/supabase) \n/\n**[agent-skills](/supabase/agent-skills)**\nPublic\n\n* ### Uh oh!\n\n  There was an error while loading. Please reload this page.\n* [Notifications](/login?return_to=%2Fsupabase%2Fagent-skills) You must be signed in to change notification settings\n* [Fork\n  2](/login?return_to=%2Fsupabase%2Fagent-skills)\n* [Star\n   39](/login?return_to=%2Fsupabase%2Fagent-skills)\n\n* [Code](/supabase/agent-skills)\n* [Issues\n  0](/supabase/agent-skills/issues)\n* [Pull requests\n  0](/supabase/agent-skills/pulls)\n* [Actions](/supabase/agent-skills/actions)\n* [Projects\n  0](/supabase/agent-skills/projects)\n* [Security\n\n\n  ### Uh oh!\n\n  There was an error while loading. Please reload this page.](/supabase/agent-skills/security)\n* [Insights](/supabase/agent-skills/pulse)\n\nAdditional navigation options\n\n\n* [Code](/supabase/agent-skills)\n* [Issues](/supabase/agent-skills/issues)\n* [Pull requests](/supabase/agent-skills/pulls)\n* [Actions](/supabase/agent-skills/actions)\n* [Projects](/supabase/agent-skills/projects)\n* [Security](/supabase/agent-skills/security)\n* [Insights](/supabase/agent-skills/pulse)\n\n## Footer\n\n© 2026 GitHub, Inc.\n\n### Footer navigation\n\n* [Terms](https://docs.github.com/site-policy/github-terms/github-terms-of-service)\n* [Privacy](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement)\n* [Security](https://github.com/security)\n* [Status](https://www.githubstatus.com/)\n* [Community](https://github.community/)\n* [Docs](https://docs.github.com/)\n* [Contact](https://support.github.com?tags=dotcom-footer)\n* Manage cookies\n* Do not share my personal information\n\n\n\nYou can’t perform that action at this time.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "content_type": "html",
+                "mime_type": "text/html; charset=utf-8",
+                "destination_url": "https://github.com/supabase/agent-skills/tree/main/skills/postgres-best-practices"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Fetched: agent-skills/skills/postgres-best-practices at main · supabase/agent-skills",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+          "icon_name": null,
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "agent-skills/skills/postgres-best-practices at main · supabase/agent-skills",
+              "subtitles": null,
+              "url": "https://github.com/supabase/agent-skills/tree/main/skills/postgres-best-practices",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+              "source": "github"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:12:05.476986Z",
+          "stop_timestamp": "2026-01-24T21:12:06.469896Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "GitHub 페이지가 제대로 로드되지 않았습니다. 다른 접근 방식을 시도해보겠습니다. README 파일을 직접 가져와볼까요.",
+          "summaries": [],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:12:06.875944Z",
+          "stop_timestamp": "2026-01-24T21:12:07.216777Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01WH4Pf4ot1akr2aNjA2GNrd",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://raw.githubusercontent.com/supabase/agent-skills/main/skills/postgres-best-practices/README.md"
+          },
+          "message": "Fetching: https://raw.githubusercontent.com/supabase/agent-skills/main/skills/postgres-best-practices/README.md",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01WH4Pf4ot1akr2aNjA2GNrd",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"error_type\": \"PERMISSIONS_ERROR\", \"error_message\": \"This URL cannot be fetched because it was not provided by the user nor did it appear in any search/fetch results\"}",
+              "uuid": "7d2cce7a-b1bd-4398-bd3d-4c71095e4c4e"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": "Failed to fetch: https://raw.githubusercontent.com/supabase/agent-skills/main/skills/postgres-best-practices/README.md",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=githubusercontent.com",
+          "icon_name": null,
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "https://raw.githubusercontent.com/supabase/agent-skills/main/skills/postgres-best-practices/README.md",
+              "subtitles": null,
+              "url": "https://raw.githubusercontent.com/supabase/agent-skills/main/skills/postgres-best-practices/README.md",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=githubusercontent.com",
+              "source": "githubusercontent"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:12:11.330449Z",
+          "stop_timestamp": "2026-01-24T21:12:20.480456Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "직접 raw 파일에 접근할 수 없네요. 검색 결과에서 얻은 정보를 바탕으로 분석을 진행하겠습니다. 검색 결과에서 충분한 정보를 얻었으니, 이를 바탕으로 CSP의 정체성과 연결지어 설명하겠습니다.\n\n주요 포인트:\n1. Supabase의 Agent Skills - AI 에이전트가 더 정확하고 효율적으로 작업할 수 있도록 돕는 스킬\n2. Postgres Best Practices - 8개 카테고리, 영향도별 우선순위, 성능 최적화 가이드라인\n3. AI 에이전트와 LLM을 위해 최적화된 형태\n4. Claude Code, Cursor, GitHub Copilot 등과 함께 사용\n\nCSP의 정체성과 연결:\n- Vibe coder로서 AI 에이전트를 활용한 개발\n- HR 자동화 SaaS 구축 예정 → 데이터베이스 설계 필수\n- 온톨로지 기반 시스템 → 구조화된 데이터 모델링\n- SW 백그라운드 없지만 AI 에이전트로 극복 가능\n- \"한 번 하면 영원히 자동화\" 철학 → 성능 최적화된 DB 설계 필수",
+          "summaries": [
+            {
+              "summary": "Synthesizing Supabase insights with identity implications."
+            },
+            {
+              "summary": "AI 에이전트 기반 개발 철학과 데이터베이스 최적화를 연결했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:12:20.481191Z",
+          "stop_timestamp": "2026-01-24T21:13:01.805063Z",
+          "flags": null,
+          "type": "text",
+          "text": "이 글의 핵심 내용을 분석해서 당신의 정체성과 연결지어 설명드리겠습니다.\n\n## 🎯 Supabase Agent Skills의 본질\n\n검색 결과를 보니, Supabase가 만든 **\"Agent Skills for Postgres Best Practices\"**는:\n\n1. **AI 에이전트(Claude Code, Cursor 등)가 Postgres를 더 잘 다룰 수 있도록 돕는 구조화된 지식**\n2. **8개 카테고리에 걸친 성능 최적화 규칙**들을 영향도별(CRITICAL/HIGH/MEDIUM/LOW)로 우선순위화\n3. **LLM이 이해하기 쉬운 형태로 재구성된 베스트 프랙티스**\n\n---\n\n## 💡 당신의 정체성에 미치는 세 가지 영향\n\n### 1. **\"Vibe Coder\"의 진화 경로 제시**\n\n```\n현재: SW 백그라운드 없는 HR 전문가\n→ Postgres Best Practices Agent Skills 활용\n→ 미래: 성능 최적화된 HR SaaS 플랫폼 창업자\n```\n\n당신은 \"SW 백그라운드 없음\"을 약점이 아닌 **차별점**으로 만들어왔습니다. 이 Agent Skills는:\n\n- **당신이 몰라도 되는 것들을 AI 에이전트가 알고 있게 만듭니다**\n- DB 인덱싱, 쿼리 최적화, 스키마 설계를 직접 공부하지 않아도\n- Claude Code가 Postgres Best Practices를 자동 적용해서 코드 생성\n\n→ **\"사람 이해(HR)\"에만 집중하고, \"시스템 최적화\"는 Agent에게 위임**\n\n\n### 2. **온톨로지 기반 HR 시스템의 기술적 기반**\n\n당신이 구축 중인 시스템:\n- 리더십 역량 온톨로지\n- 스킬 관계 매트릭스\n- AI 전환 역량 프레임워크\n\n이런 복잡한 관계형 데이터를 Postgres에 효율적으로 저장하려면:\n\n**Before (당신 혼자)**\n- \"이 관계를 어떻게 테이블로 만들지?\"\n- \"쿼리 성능이 느려지면 어떻게 하지?\"\n- \"정규화를 어느 수준까지 해야 하지?\"\n\n**After (Agent Skills 활용)**\n```bash\nClaude Code: \"온톨로지 기반 역량 평가 시스템 DB 설계해줘\"\n→ Agent가 Postgres Best Practices 자동 적용\n→ 인덱스, 외래키, 정규화, 성능 최적화 완료\n→ 당신은 \"역량 간 관계 로직\"에만 집중\n```\n\n\n### 3. **\"한 번 하면 영원히 자동화\" 철학의 기술적 보증**\n\n당신의 핵심 철학: **\"do it once, automate it forever\"**\n\n하지만 \"잘못 자동화된 것\"은 영원한 기술부채입니다.\n\n**Postgres Best Practices Agent Skills는:**\n- 처음부터 확장 가능한(scalable) DB 설계\n- 처음부터 성능 최적화된 쿼리 생성\n- 처음부터 보안이 고려된(RLS) 테이블 구조\n\n→ **\"한 번 제대로\" 만들 수 있게 도와주는 가이드레일**\n\n---\n\n## 🚀 당신의 5-6년 후를 위한 전략적 의미\n\n### CSP의 HR SaaS 창업 로드맵에서:\n\n**Phase 1 (현재)**: LG PRI에서 HR 자동화 프로토타입 구축\n- Agent Skills로 성능 최적화된 MVP 빠르게 제작\n- 기술부채 없는 깔끔한 아키텍처\n\n**Phase 2 (3년 후)**: 중소기업 대상 SaaS 베타 런칭\n- Postgres 기반의 멀티테넌트 구조\n- Agent가 자동 생성한 RLS 정책으로 데이터 격리\n\n**Phase 3 (5-6년 후)**: 독립 창업\n- 이미 검증된 DB 아키텍처\n- AI 에이전트가 지속적으로 최적화해주는 시스템\n- **당신은 \"HR 도메인 혁신\"에만 집중**\n\n---\n\n## 🎨 철학적 의미: \"사람 이해를 시스템으로 구현\"\n\n```\n심리학 + 철학 → 역량 온톨로지 설계 (당신의 역할)\n         ↓\n  Postgres Best Practices Agent Skills\n         ↓\n효율적인 DB 구조 + 성능 최적화 (Agent의 역할)\n         ↓\n    HR 자동화 SaaS 플랫폼\n```\n\n당신이 말한 **\"심리학이 코드가 되고, 철학이 알고리즘이 되는 과정\"**이 바로 이것입니다.\n\n**Agent Skills는 당신의 \"인문학적 통찰\"이 \"기술적 한계\" 없이 시스템화되도록 돕는 번역기입니다.**\n\n---\n\n## ✅ 즉각적인 액션 아이템\n\n1. **Claude Code에 Supabase Agent Skills 설치**\n```bash\n/plugin marketplace add supabase/agent-skills\n/plugin install postgres-best-practices@supabase-agent-skills\n```\n\n2. **현재 프로젝트에 적용 실험**\n- 리더십 역량 DB 스키마 재설계 요청\n- Agent가 Best Practices 적용하는 과정 관찰\n- 당신의 온톨로지 로직과 Agent의 최적화가 결합되는 순간 경험\n\n3. **Notion 세컨브레인에 기록**\n- 제목: \"Postgres Best Practices - Vibe Coder의 기술적 가이드레일\"\n- 주제: 개발/코딩, 생산성\n- 중요도: ⭐⭐⭐ 핵심\n- 태그: #PostgreSQL #AgentSkills #DatabaseDesign #HR자동화\n\n---\n\n**당신의 정체성에 미치는 영향을 한 문장으로:**\n\n> \"SW 전문가가 되는 것이 아니라, AI 에이전트를 제대로 활용하는 HR 혁신가가 되는 경로를 명확히 보여주는 기술적 전환점\"\n\n이 대화를 Notion에 저장할까요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-24T21:13:01.875332Z",
+      "updated_at": "2026-01-24T21:13:01.875332Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bf1d8-fefc-74de-9301-12e1df917915"
+    },
+    {
+      "uuid": "019bf1de-361f-74fd-bab3-82bb59d67453",
+      "text": "이 채팅을 구글닥스로 바로 저장할 수 없니?",
+      "content": [
+        {
+          "start_timestamp": "2026-01-24T21:17:10.612518Z",
+          "stop_timestamp": "2026-01-24T21:17:10.612518Z",
+          "flags": null,
+          "type": "text",
+          "text": "이 채팅을 구글닥스로 바로 저장할 수 없니?",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-24T21:17:10.616131Z",
+      "updated_at": "2026-01-24T21:17:10.616131Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bf1d8-fefc-74de-9301-12e2b7a454b1"
+    },
+    {
+      "uuid": "019bf1de-361f-74fd-bab3-82bcb92dc404",
+      "text": "사용자가 이 대화를 구글 독스로 바로 저장하고 싶어합니다. \n\n제가 할 수 있는 옵션들을 생각해보면:\n1. Google Drive 관련 도구를 확인 - google_drive_search, google_drive_fetch만 있고, 생성/쓰기 기능은 없습니다.\n2. 파일을 생성해서 다운로드하도록 제공 - docx 파일을 만들 수 있습니다.\n3. Notion에 저장 - 이건 가능하지만 사용자는 구글 독스를 원합니다.\n\n현재 제공된 도구로는:\n- Google Drive에 직접 쓰기/생성하는 기능이 없습니다.\n- 대신 docx 파일을 생성해서 사용자가 다운로드 후 구글 드라이브에 업로드하도록 할 수 있습니다.\n\n사용자의 userPreferences를 보면 Notion을 세컨브레인으로 사용하고 있고, 대화 자동 아카이빙 규칙도 설정되어 있습니다. 하지만 사용자가 명시적으로 구글 독스를 요청했으므로 그 의도를 존중해야 합니다.\n\n가장 좋은 접근:\n1. 현재 Google Docs에 직접 쓰기가 불가능하다고 설명\n2. 대신 docx 파일을 생성해서 제공\n\n\n3. 사용자가 다운로드한 파일을 구글 드라이브에 업로드하는 방법을 안내아쉽게도 제가 **구글 독스에 직접 생성/쓰기하는 기능은 없습니다**. \n\n현재 제공되는 Google Drive 도구는:\n- ✅ 검색 (google_drive_search)\n- ✅ 읽기 (google_drive_fetch)\n- ❌ 생성/쓰기 (없음)\n\n---\n\n## 🎯 대안 방법 제시\n\n### **Option 1: Word 파일(.docx) 생성 → 구글 드라이브 업로드**\n\n제가 이 대화를 정리한 **Word 문서(.docx)**를 만들어드리면:\n1. 다운로드\n2. 구글 드라이브에 업로드\n3. 자동으로 구글 독스로 변환됨\n\n→ **지금 바로 만들어드릴까요?**\n\n---\n\n### **Option 2: Notion에 저장 (자동 아카이빙 규칙 활용)**\n\n당신의 세컨브레인인 Notion \"💬 Claude 대화 아카이브\"에:\n- 제목: \"Postgres Best Practices가 Vibe Coder 정체성에 미치는 영향\"\n- 주제: 지식관리, 개발/코딩\n- 중요도: ⭐⭐⭐ 핵심\n- 태그: #PostgreSQL #AgentSkills #정체성 #HR자동화\n\n→ **이후 Notion에서 구글 독스로 내보내기 가능**\n\n---\n\n### **Option 3: 마크다운(.md) 파일 제공**\n\n- Notion에 붙여넣기 가능\n- 구글 독스에 붙여넣기도 가능 (포맷 약간 수동 조정 필요)\n\n---\n\n**어떤 방법이 좋으세요?** \n\n제 추천은 **Option 1 (Word 파일 생성)** → 가장 빠르고 구글 독스와 호환성 완벽합니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-01-24T21:17:15.369615Z",
+          "stop_timestamp": "2026-01-24T21:17:24.506158Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 이 대화를 구글 독스로 바로 저장하고 싶어합니다. \n\n제가 할 수 있는 옵션들을 생각해보면:\n1. Google Drive 관련 도구를 확인 - google_drive_search, google_drive_fetch만 있고, 생성/쓰기 기능은 없습니다.\n2. 파일을 생성해서 다운로드하도록 제공 - docx 파일을 만들 수 있습니다.\n3. Notion에 저장 - 이건 가능하지만 사용자는 구글 독스를 원합니다.\n\n현재 제공된 도구로는:\n- Google Drive에 직접 쓰기/생성하는 기능이 없습니다.\n- 대신 docx 파일을 생성해서 사용자가 다운로드 후 구글 드라이브에 업로드하도록 할 수 있습니다.\n\n사용자의 userPreferences를 보면 Notion을 세컨브레인으로 사용하고 있고, 대화 자동 아카이빙 규칙도 설정되어 있습니다. 하지만 사용자가 명시적으로 구글 독스를 요청했으므로 그 의도를 존중해야 합니다.\n\n가장 좋은 접근:\n1. 현재 Google Docs에 직접 쓰기가 불가능하다고 설명\n2. 대신 docx 파일을 생성해서 제공\n\n\n3. 사용자가 다운로드한 파일을 구글 드라이브에 업로드하는 방법을 안내",
+          "summaries": [
+            {
+              "summary": "생각해보기: Google Docs로의 직접 저장 기능 가능성 검토"
+            },
+            {
+              "summary": "구글 드라이브 도구 제약 검토 중입니다."
+            },
+            {
+              "summary": "직접 저장 불가능함을 인식하고 대체 방안을 모색했다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:17:24.053213Z",
+          "stop_timestamp": "2026-01-24T21:17:34.464829Z",
+          "flags": null,
+          "type": "text",
+          "text": "아쉽게도 제가 **구글 독스에 직접 생성/쓰기하는 기능은 없습니다**. \n\n현재 제공되는 Google Drive 도구는:\n- ✅ 검색 (google_drive_search)\n- ✅ 읽기 (google_drive_fetch)\n- ❌ 생성/쓰기 (없음)\n\n---\n\n## 🎯 대안 방법 제시\n\n### **Option 1: Word 파일(.docx) 생성 → 구글 드라이브 업로드**\n\n제가 이 대화를 정리한 **Word 문서(.docx)**를 만들어드리면:\n1. 다운로드\n2. 구글 드라이브에 업로드\n3. 자동으로 구글 독스로 변환됨\n\n→ **지금 바로 만들어드릴까요?**\n\n---\n\n### **Option 2: Notion에 저장 (자동 아카이빙 규칙 활용)**\n\n당신의 세컨브레인인 Notion \"💬 Claude 대화 아카이브\"에:\n- 제목: \"Postgres Best Practices가 Vibe Coder 정체성에 미치는 영향\"\n- 주제: 지식관리, 개발/코딩\n- 중요도: ⭐⭐⭐ 핵심\n- 태그: #PostgreSQL #AgentSkills #정체성 #HR자동화\n\n→ **이후 Notion에서 구글 독스로 내보내기 가능**\n\n---\n\n### **Option 3: 마크다운(.md) 파일 제공**\n\n- Notion에 붙여넣기 가능\n- 구글 독스에 붙여넣기도 가능 (포맷 약간 수동 조정 필요)\n\n---\n\n**어떤 방법이 좋으세요?** \n\n제 추천은 **Option 1 (Word 파일 생성)** → 가장 빠르고 구글 독스와 호환성 완벽합니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-24T21:17:34.500535Z",
+      "updated_at": "2026-01-24T21:17:34.500535Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bf1de-361f-74fd-bab3-82bb59d67453"
+    },
+    {
+      "uuid": "019bf1de-c631-7481-a972-deebdaf21efb",
+      "text": "노션에 어카이빙 해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-01-24T21:17:47.573580Z",
+          "stop_timestamp": "2026-01-24T21:17:47.573580Z",
+          "flags": null,
+          "type": "text",
+          "text": "노션에 어카이빙 해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-24T21:17:47.580059Z",
+      "updated_at": "2026-01-24T21:17:47.580059Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bf1de-361f-74fd-bab3-82bcb92dc404"
+    },
+    {
+      "uuid": "019bf1de-c631-7481-a972-deec2523d606",
+      "text": "사용자가 Notion에 아카이빙을 요청했습니다. 사용자의 preferences에 명시된 자동 아카이빙 규칙에 따라:\n\n1. 데이터베이스: 💬 Claude 대화 아카이브\n2. Data Source ID: d012343e-b2a2-461e-944b-6f166e91d8e9\n\n이 대화는:\n- 10턴 이상 (현재 3턴이지만 의미있는 내용)\n- 중요한 의사결정 포함 (Postgres Best Practices가 정체성에 미치는 영향 분석)\n- 학습/연구 내용 포함\n- 사용자가 \"아카이빙\" 키워드 명시\n\n저장 기준:\n- 제목: \"Postgres Best Practices가 Vibe Coder 정체성에 미치는 영향\" (15자 초과하지만 핵심 요약)\n- 주제: 지식관리, 개발/코딩\n- 태그: PostgreSQL, AgentSkills, DatabaseDesign, HR자동화, 정체성\n- 중요도: ⭐⭐⭐ 핵심\n- 상태: ✅ 완료\n\nNotion 페이지 생성 시 properties 매핑:\n- 제목: title property\n- 주제: 주제 property (select)\n- 태그: 태그 property (multi_select)\n- 중요도: 중요도 property (select)\n- 상태: 상태 property (select)\n\n먼저 데이터베이스 스키마를 확인해야 합니다.Notion \"💬 Claude 대화 아카이브\"에 저장하겠습니다. 먼저 데이터베이스 구조를 확인하겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n좋습니다. 데이터베이스 스키마를 확인했습니다. 이제 페이지를 생성하겠습니다.\n\nProperties:\n- 대화 제목 (title): \"Postgres Best Practices가 Vibe Coder 정체성에 미치는 영향\"\n- 주제 (select): \"개발/코딩\" (주요), 하지만 하나만 선택 가능하므로 \"학습\"도 고려\n- 태그 (multi_select): [\"AI\", \"자동화\", \"Claude\"] - PostgreSQL, AgentSkills, DatabaseDesign, HR자동화는 현재 옵션에 없으므로 기존 태그 사용\n- 중요도 (select): \"⭐⭐⭐ 핵심\"\n- 상태 (select): \"✅ 완료\"\n- date:날짜:start: 오늘 날짜\n- 요약: 간단한 요약\n- 키워드: \"PostgreSQL, Agent Skills, Database Design, HR 자동화, 정체성\"\n- 관련 프로젝트: \"HR 자동화 SaaS\"\n- 다음 액션: \"__YES__\" (Claude Code에 Agent Skills 설치 필요)\n\nContent는 대화를 구조화해서 Notion Markdown으로 작성하겠습니다.완벽합니다! 데이터베이스 스키마를 확인했으니 이제 저장하겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n성공적으로 Notion에 페이지가 생성되었습니다! 이제 사용자에게 확인 메시지와 함께 링크를 제공하겠습니다.✅ **Notion \"💬 Claude 대화 아카이브\"에 저장 완료!**\n\n---\n\n## 📋 저장된 내용\n\n**제목**: Postgres Best Practices가 Vibe Coder 정체성에 미치는 영향\n\n**주요 구성**:\n- 대화 컨텍스트 및 트리거\n- Supabase Agent Skills 핵심 발견\n- 정체성에 미치는 세 가지 영향 분석\n- 5-6년 후 창업 로드맵\n- 철학적 의미 해석\n- 즉각적인 액션 아이템\n\n**메타데이터**:\n- 주제: 학습\n- 태그: AI, 자동화, Claude\n- 중요도: ⭐⭐⭐ 핵심\n- 상태: ✅ 완료\n- 다음 액션: ✓ (Claude Code Agent Skills 설치)\n\n---\n\n## 🔗 Notion 페이지 바로가기\n\n**👉 [Postgres Best Practices가 Vibe Coder 정체성에 미치는 영향](https://www.notion.so/2f26b7b50b238140a083c94e73aa7fd5)**\n\n---\n\n세컨브레인에 완벽하게 아카이빙되었습니다! 🎉",
+      "content": [
+        {
+          "start_timestamp": "2026-01-24T21:17:49.467733Z",
+          "stop_timestamp": "2026-01-24T21:17:57.861929Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 Notion에 아카이빙을 요청했습니다. 사용자의 preferences에 명시된 자동 아카이빙 규칙에 따라:\n\n1. 데이터베이스: 💬 Claude 대화 아카이브\n2. Data Source ID: d012343e-b2a2-461e-944b-6f166e91d8e9\n\n이 대화는:\n- 10턴 이상 (현재 3턴이지만 의미있는 내용)\n- 중요한 의사결정 포함 (Postgres Best Practices가 정체성에 미치는 영향 분석)\n- 학습/연구 내용 포함\n- 사용자가 \"아카이빙\" 키워드 명시\n\n저장 기준:\n- 제목: \"Postgres Best Practices가 Vibe Coder 정체성에 미치는 영향\" (15자 초과하지만 핵심 요약)\n- 주제: 지식관리, 개발/코딩\n- 태그: PostgreSQL, AgentSkills, DatabaseDesign, HR자동화, 정체성\n- 중요도: ⭐⭐⭐ 핵심\n- 상태: ✅ 완료\n\nNotion 페이지 생성 시 properties 매핑:\n- 제목: title property\n- 주제: 주제 property (select)\n- 태그: 태그 property (multi_select)\n- 중요도: 중요도 property (select)\n- 상태: 상태 property (select)\n\n먼저 데이터베이스 스키마를 확인해야 합니다.",
+          "summaries": [
+            {
+              "summary": "생각해보는 중: Notion에 콘텐츠를 아카이빙하는 방법"
+            },
+            {
+              "summary": "노션 데이터베이스에 대화 아카이빙 준비 중입니다."
+            },
+            {
+              "summary": "Orchestrated Notion archiving with metadata mapping and database schema verification."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:17:57.985544Z",
+          "stop_timestamp": "2026-01-24T21:17:58.704457Z",
+          "flags": null,
+          "type": "text",
+          "text": "Notion \"💬 Claude 대화 아카이브\"에 저장하겠습니다. 먼저 데이터베이스 구조를 확인하겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-01-24T21:17:59.152982Z",
+          "stop_timestamp": "2026-01-24T21:18:00.375453Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01QPs3ZdeLuFvohJGBsyzpGL",
+          "name": "Notion:notion-fetch",
+          "input": {
+            "id": "https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15"
+          },
+          "message": "Notion-fetch",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-fetch-95016d4149db9b67f4c0e18fbee59b05",
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01QPs3ZdeLuFvohJGBsyzpGL",
+          "name": "Notion:notion-fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"metadata\":{\"type\":\"database\"},\"title\":\"💬 Claude 대화 아카이브\",\"url\":\"https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15\",\"text\":\"<database url=\\\"{{https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15}}\\\" inline=\\\"false\\\">\\nThe title of this Database is: 💬 Claude 대화 아카이브\\n<ancestor-path>\\n<parent-page url=\\\"{{https://www.notion.so/2496b7b50b23802da04fdafb113c4d4c}}\\\" title=\\\"세컨브레인 위키\\\"/>\\n<ancestor-2-data-source url=\\\"{{collection://1cc6b7b5-0b23-803e-87c2-000b76f9c172}}\\\" name=\\\"My Cal\\\"/>\\n<ancestor-3-database url=\\\"{{https://www.notion.so/1cc6b7b50b238019a8aedf1648664acc}}\\\" title=\\\"\\\"/>\\n<ancestor-4-page url=\\\"{{https://www.notion.so/1cc6b7b50b2380c59fc6ca6f2f77ba0c}}\\\" title=\\\"빠른메모\\\"/>\\n</ancestor-path>\\nHere are the Database's Data Sources:\\nYou can use the \\\"view\\\" tool on the URL of any Data Source to see its full schema configuration.\\n<data-sources>\\n<data-source url=\\\"{{collection://d012343e-b2a2-461e-944b-6f166e91d8e9}}\\\">\\nThe title of this Data Source is: 💬 Claude 대화 아카이브\\n\\nHere is the database's configurable state:\\n<data-source-state>\\n{\\\"name\\\":\\\"💬 Claude 대화 아카이브\\\",\\\"schema\\\":{\\\"관련 프로젝트\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"관련 프로젝트\\\",\\\"type\\\":\\\"text\\\"},\\\"날짜\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"날짜\\\",\\\"type\\\":\\\"date\\\"},\\\"다음 액션\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"다음 액션\\\",\\\"type\\\":\\\"checkbox\\\"},\\\"대화 제목\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"대화 제목\\\",\\\"type\\\":\\\"title\\\"},\\\"상태\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"상태\\\",\\\"options\\\":[{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"💡 아이디어\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/MzA1ZGNjYjQtNDg3Zi00YzZkLWJlZmItNmI5OGE1ZGI3YTA0\\\"},{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"🔄 진행중\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/YzkyYjk2YmMtZDcyMy00NDIzLWFkMTUtNzFmZDczNzIyNDRk\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"✅ 완료\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/OTZiMGY5NmUtNGUzOC00ZDNkLTg0OTUtMzMwZTE3YmU2ODFj\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"📦 보관\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/NGI4NjA3NjQtMjYwNy00NmY4LTgzOTYtZDg4YmNiNDZhZmEx\\\"}],\\\"type\\\":\\\"select\\\"},\\\"요약\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"요약\\\",\\\"type\\\":\\\"text\\\"},\\\"주제\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"주제\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"지식관리\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTcyNjE0MDAtYTczOS00MzExLWFjYWEtOGMyMmM0NGUxYzdh\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"개발/코딩\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTE4N2VjOTktNGUyMi00N2MwLThiNmQtODg3NzY4MGY3NzMw\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"생산성\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjBlNDU2ZjQtZjIyYS00ODllLWI5NDgtMzhmNGMyMmZlM2Rj\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"분석/리서치\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjZiYzcwYWUtYWZkMC00N2YwLWEzYTAtMWU1ZWIwNWRhYzYy\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"창작/글쓰기\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWIxZGI5ZGQtYzgyZC00Njg2LWJhOTEtN2Q3YThiMDgyYmFj\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"아이디어\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OWJkMTFlN2YtNDBhMy00Y2Y2LWE1ODQtYmZhZDdlZTQ2ZjM5\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"학습\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWRlNzUwZTEtMTA0Yy00NWMzLTlkYTEtYzQwYTEwMjcwMzhm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"기타\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTkwMTg3ZjQtYTdkMi00NTNmLWI1YTktMjU4MjYxOTRlNDE5\\\"}],\\\"type\\\":\\\"select\\\"},\\\"중요도\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"중요도\\\",\\\"options\\\":[{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐⭐⭐ 핵심\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/OWMzZTFlMGMtYjJhOS00MGFmLTkzMDAtNDg0YWNjYmRmZWMz\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐⭐ 중요\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/MDJlNjYxMWQtODljNC00ZDFjLWEyMGUtZDg3ODQ2Y2I5MDk1\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐ 참고\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YmJlOTM0NGEtMGJlYy00ODJlLTliNzktM2I5ZTEyYzBiNjlm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"보관\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YWZjNTQzZTUtNjg4MC00ZGY2LWJlODgtN2ZhOGQyMGYyZDY2\\\"}],\\\"type\\\":\\\"select\\\"},\\\"키워드\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"키워드\\\",\\\"type\\\":\\\"text\\\"},\\\"태그\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"태그\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"세컨브레인\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZWNmODNkODctNGQxNC00NTQ5LTk4ZDQtOWFjMDk4M2ZjYjMw\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Notion\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YTdjODAzMzctMGZkZi00YzhkLWE4OTMtMWZmMjBkZTFhYTM4\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Obsidian\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YzFiMjQwY2YtZTg5NC00YTZmLWExMjktN2QzOTdhNTBiMjg2\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"자동화\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/OWJiZTFjNWQtY2QwMS00NTIyLWIzMGEtMGVlMzE2MDA4MGMz\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"AI\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZDBiYTVkZjAtY2E0Yi00NzZhLTk0YTctNjIzYTgyZjIyODI1\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"워크플로우\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTNhYjdiOWYtYjgwYy00YmNjLTllMDctYzZmYzFjZTFhMGZh\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"온톨로지\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTEzYjEzNDgtZTkxYi00NDJiLWI3MDYtZmY5Mjk1NGY5OGQ4\\\"},{\\\"color\\\":\\\"default\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Claude\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/NDYyOTljM2ItMDk5ZC00Y2Q0LWE2NzMtNDFlMDM3ZjE4MGM0\\\"}],\\\"type\\\":\\\"multi_select\\\"}},\\\"url\\\":\\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\"}\\n</data-source-state>\\n\\nHere is the SQLite table definition for this data source.\\n<sqlite-table>\\nCREATE TABLE IF NOT EXISTS \\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\" (\\n\\turl TEXT UNIQUE,\\n\\tcreatedTime TEXT, -- ISO-8601 datetime string, automatically set. This is the canonical time for when the page was created.\\n\\t\\\"키워드\\\" TEXT,\\n\\t\\\"요약\\\" TEXT,\\n\\t\\\"주제\\\" TEXT, -- one of [\\\"지식관리\\\", \\\"개발/코딩\\\", \\\"생산성\\\", \\\"분석/리서치\\\", \\\"창작/글쓰기\\\", \\\"아이디어\\\", \\\"학습\\\", \\\"기타\\\"]\\n\\t\\\"관련 프로젝트\\\" TEXT,\\n\\t\\\"date:날짜:start\\\" TEXT, -- ISO-8601 date or datetime string. Use the expanded property (date:<column_name>:start) to set this value.\\n\\t\\\"date:날짜:end\\\" TEXT, -- ISO-8601 date or datetime string, can be empty. Must be NULL if the date is a single date, and must be present if the date is a range. Use the expanded property (date:<column_name>:end) to set this value.\\n\\t\\\"date:날짜:is_datetime\\\" INTEGER, -- 1 if the date is a datetime, 0 if it is a date, NULL defaults to 0. Use the expanded property (date:<column_name>:is_datetime) to set this value.\\n\\t\\\"상태\\\" TEXT, -- one of [\\\"💡 아이디어\\\", \\\"🔄 진행중\\\", \\\"✅ 완료\\\", \\\"📦 보관\\\"]\\n\\t\\\"태그\\\" TEXT, -- JSON array with zero or more of [\\\"세컨브레인\\\", \\\"Notion\\\", \\\"Obsidian\\\", \\\"자동화\\\", \\\"AI\\\", \\\"워크플로우\\\", \\\"온톨로지\\\", \\\"Claude\\\"]\\n\\t\\\"중요도\\\" TEXT, -- one of [\\\"⭐⭐⭐ 핵심\\\", \\\"⭐⭐ 중요\\\", \\\"⭐ 참고\\\", \\\"보관\\\"]\\n\\t\\\"다음 액션\\\" TEXT, -- \\\"__YES__\\\" = true, \\\"__NO__\\\" = false, NULL defaults to false\\n\\t\\\"대화 제목\\\" TEXT\\n)\\n</sqlite-table>\\n</data-source>\\n</data-sources>\\nHere are the Database's Views:\\nYou can use the \\\"view\\\" tool on the URL of any View to see its full configuration.\\n<views>\\n<view url=\\\"{{view://45d8fd26-13b7-47f0-ab6a-cb8163d82f77}}\\\">\\n{\\\"dataSourceUrl\\\":\\\"{{collection://d012343e-b2a2-461e-944b-6f166e91d8e9}}\\\",\\\"displayProperties\\\":[\\\"대화 제목\\\",\\\"관련 프로젝트\\\",\\\"날짜\\\",\\\"다음 액션\\\",\\\"상태\\\",\\\"요약\\\",\\\"주제\\\",\\\"중요도\\\",\\\"키워드\\\",\\\"태그\\\"],\\\"name\\\":\\\"Default view\\\",\\\"type\\\":\\\"table\\\"}\\n</view>\\n</views>\\n</database>\"}",
+              "uuid": "46f43ca5-c284-426d-9a31-b465e48ecbb0"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"metadata\": {\n    \"type\": \"database\"\n  },\n  \"title\": \"\\ud83d\\udcac Claude \\ub300\\ud654 \\uc544\\uce74\\uc774\\ube0c\",\n  \"url\": \"https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15\",\n  \"text\": \"<database url=\\\"{{https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15}}\\\" inline=\\\"false\\\">\\nThe title of this Database is: \\ud83d\\udcac Claude \\ub300\\ud654 \\uc544\\uce74\\uc774\\ube0c\\n<ancestor-path>\\n<parent-page url=\\\"{{https://www.notion.so/2496b7b50b23802da04fdafb113c4d4c}}\\\" title=\\\"\\uc138\\ucee8\\ube0c\\ub808\\uc778 \\uc704\\ud0a4\\\"/>\\n<ancestor-2-data-source url=\\\"{{collection://1cc6b7b5-0b23-803e-87c2-000b76f9c172}}\\\" name=\\\"My Cal\\\"/>\\n<ancestor-3-database url=\\\"{{https://www.notion.so/1cc6b7b50b238019a8aedf1648664acc}}\\\" title=\\\"\\\"/>\\n<ancestor-4-page url=\\\"{{https://www.notion.so/1cc6b7b50b2380c59fc6ca6f2f77ba0c}}\\\" title=\\\"\\ube60\\ub978\\uba54\\ubaa8\\\"/>\\n</ancestor-path>\\nHere are the Database's Data Sources:\\nYou can use the \\\"view\\\" tool on the URL of any Data Source to see its full schema configuration.\\n<data-sources>\\n<data-source url=\\\"{{collection://d012343e-b2a2-461e-944b-6f166e91d8e9}}\\\">\\nThe title of this Data Source is: \\ud83d\\udcac Claude \\ub300\\ud654 \\uc544\\uce74\\uc774\\ube0c\\n\\nHere is the database's configurable state:\\n<data-source-state>\\n{\\\"name\\\":\\\"\\ud83d\\udcac Claude \\ub300\\ud654 \\uc544\\uce74\\uc774\\ube0c\\\",\\\"schema\\\":{\\\"\\uad00\\ub828 \\ud504\\ub85c\\uc81d\\ud2b8\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uad00\\ub828 \\ud504\\ub85c\\uc81d\\ud2b8\\\",\\\"type\\\":\\\"text\\\"},\\\"\\ub0a0\\uc9dc\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ub0a0\\uc9dc\\\",\\\"type\\\":\\\"date\\\"},\\\"\\ub2e4\\uc74c \\uc561\\uc158\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ub2e4\\uc74c \\uc561\\uc158\\\",\\\"type\\\":\\\"checkbox\\\"},\\\"\\ub300\\ud654 \\uc81c\\ubaa9\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ub300\\ud654 \\uc81c\\ubaa9\\\",\\\"type\\\":\\\"title\\\"},\\\"\\uc0c1\\ud0dc\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc0c1\\ud0dc\\\",\\\"options\\\":[{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud83d\\udca1 \\uc544\\uc774\\ub514\\uc5b4\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/MzA1ZGNjYjQtNDg3Zi00YzZkLWJlZmItNmI5OGE1ZGI3YTA0\\\"},{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud83d\\udd04 \\uc9c4\\ud589\\uc911\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/YzkyYjk2YmMtZDcyMy00NDIzLWFkMTUtNzFmZDczNzIyNDRk\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\u2705 \\uc644\\ub8cc\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/OTZiMGY5NmUtNGUzOC00ZDNkLTg0OTUtMzMwZTE3YmU2ODFj\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud83d\\udce6 \\ubcf4\\uad00\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/NGI4NjA3NjQtMjYwNy00NmY4LTgzOTYtZDg4YmNiNDZhZmEx\\\"}],\\\"type\\\":\\\"select\\\"},\\\"\\uc694\\uc57d\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc694\\uc57d\\\",\\\"type\\\":\\\"text\\\"},\\\"\\uc8fc\\uc81c\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc8fc\\uc81c\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc9c0\\uc2dd\\uad00\\ub9ac\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTcyNjE0MDAtYTczOS00MzExLWFjYWEtOGMyMmM0NGUxYzdh\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uac1c\\ubc1c/\\ucf54\\ub529\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTE4N2VjOTktNGUyMi00N2MwLThiNmQtODg3NzY4MGY3NzMw\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc0dd\\uc0b0\\uc131\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjBlNDU2ZjQtZjIyYS00ODllLWI5NDgtMzhmNGMyMmZlM2Rj\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ubd84\\uc11d/\\ub9ac\\uc11c\\uce58\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjZiYzcwYWUtYWZkMC00N2YwLWEzYTAtMWU1ZWIwNWRhYzYy\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ucc3d\\uc791/\\uae00\\uc4f0\\uae30\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWIxZGI5ZGQtYzgyZC00Njg2LWJhOTEtN2Q3YThiMDgyYmFj\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc544\\uc774\\ub514\\uc5b4\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OWJkMTFlN2YtNDBhMy00Y2Y2LWE1ODQtYmZhZDdlZTQ2ZjM5\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud559\\uc2b5\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWRlNzUwZTEtMTA0Yy00NWMzLTlkYTEtYzQwYTEwMjcwMzhm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uae30\\ud0c0\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTkwMTg3ZjQtYTdkMi00NTNmLWI1YTktMjU4MjYxOTRlNDE5\\\"}],\\\"type\\\":\\\"select\\\"},\\\"\\uc911\\uc694\\ub3c4\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc911\\uc694\\ub3c4\\\",\\\"options\\\":[{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\u2b50\\u2b50\\u2b50 \\ud575\\uc2ec\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/OWMzZTFlMGMtYjJhOS00MGFmLTkzMDAtNDg0YWNjYmRmZWMz\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\u2b50\\u2b50 \\uc911\\uc694\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/MDJlNjYxMWQtODljNC00ZDFjLWEyMGUtZDg3ODQ2Y2I5MDk1\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\u2b50 \\ucc38\\uace0\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YmJlOTM0NGEtMGJlYy00ODJlLTliNzktM2I5ZTEyYzBiNjlm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ubcf4\\uad00\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YWZjNTQzZTUtNjg4MC00ZGY2LWJlODgtN2ZhOGQyMGYyZDY2\\\"}],\\\"type\\\":\\\"select\\\"},\\\"\\ud0a4\\uc6cc\\ub4dc\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud0a4\\uc6cc\\ub4dc\\\",\\\"type\\\":\\\"text\\\"},\\\"\\ud0dc\\uadf8\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud0dc\\uadf8\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc138\\ucee8\\ube0c\\ub808\\uc778\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZWNmODNkODctNGQxNC00NTQ5LTk4ZDQtOWFjMDk4M2ZjYjMw\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Notion\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YTdjODAzMzctMGZkZi00YzhkLWE4OTMtMWZmMjBkZTFhYTM4\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Obsidian\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YzFiMjQwY2YtZTg5NC00YTZmLWExMjktN2QzOTdhNTBiMjg2\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc790\\ub3d9\\ud654\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/OWJiZTFjNWQtY2QwMS00NTIyLWIzMGEtMGVlMzE2MDA4MGMz\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"AI\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZDBiYTVkZjAtY2E0Yi00NzZhLTk0YTctNjIzYTgyZjIyODI1\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc6cc\\ud06c\\ud50c\\ub85c\\uc6b0\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTNhYjdiOWYtYjgwYy00YmNjLTllMDctYzZmYzFjZTFhMGZh\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc628\\ud1a8\\ub85c\\uc9c0\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTEzYjEzNDgtZTkxYi00NDJiLWI3MDYtZmY5Mjk1NGY5OGQ4\\\"},{\\\"color\\\":\\\"default\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Claude\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/NDYyOTljM2ItMDk5ZC00Y2Q0LWE2NzMtNDFlMDM3ZjE4MGM0\\\"}],\\\"type\\\":\\\"multi_select\\\"}},\\\"url\\\":\\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\"}\\n</data-source-state>\\n\\nHere is the SQLite table definition for this data source.\\n<sqlite-table>\\nCREATE TABLE IF NOT EXISTS \\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\" (\\n\\turl TEXT UNIQUE,\\n\\tcreatedTime TEXT, -- ISO-8601 datetime string, automatically set. This is the canonical time for when the page was created.\\n\\t\\\"\\ud0a4\\uc6cc\\ub4dc\\\" TEXT,\\n\\t\\\"\\uc694\\uc57d\\\" TEXT,\\n\\t\\\"\\uc8fc\\uc81c\\\" TEXT, -- one of [\\\"\\uc9c0\\uc2dd\\uad00\\ub9ac\\\", \\\"\\uac1c\\ubc1c/\\ucf54\\ub529\\\", \\\"\\uc0dd\\uc0b0\\uc131\\\", \\\"\\ubd84\\uc11d/\\ub9ac\\uc11c\\uce58\\\", \\\"\\ucc3d\\uc791/\\uae00\\uc4f0\\uae30\\\", \\\"\\uc544\\uc774\\ub514\\uc5b4\\\", \\\"\\ud559\\uc2b5\\\", \\\"\\uae30\\ud0c0\\\"]\\n\\t\\\"\\uad00\\ub828 \\ud504\\ub85c\\uc81d\\ud2b8\\\" TEXT,\\n\\t\\\"date:\\ub0a0\\uc9dc:start\\\" TEXT, -- ISO-8601 date or datetime string. Use the expanded property (date:<column_name>:start) to set this value.\\n\\t\\\"date:\\ub0a0\\uc9dc:end\\\" TEXT, -- ISO-8601 date or datetime string, can be empty. Must be NULL if the date is a single date, and must be present if the date is a range. Use the expanded property (date:<column_name>:end) to set this value.\\n\\t\\\"date:\\ub0a0\\uc9dc:is_datetime\\\" INTEGER, -- 1 if the date is a datetime, 0 if it is a date, NULL defaults to 0. Use the expanded property (date:<column_name>:is_datetime) to set this value.\\n\\t\\\"\\uc0c1\\ud0dc\\\" TEXT, -- one of [\\\"\\ud83d\\udca1 \\uc544\\uc774\\ub514\\uc5b4\\\", \\\"\\ud83d\\udd04 \\uc9c4\\ud589\\uc911\\\", \\\"\\u2705 \\uc644\\ub8cc\\\", \\\"\\ud83d\\udce6 \\ubcf4\\uad00\\\"]\\n\\t\\\"\\ud0dc\\uadf8\\\" TEXT, -- JSON array with zero or more of [\\\"\\uc138\\ucee8\\ube0c\\ub808\\uc778\\\", \\\"Notion\\\", \\\"Obsidian\\\", \\\"\\uc790\\ub3d9\\ud654\\\", \\\"AI\\\", \\\"\\uc6cc\\ud06c\\ud50c\\ub85c\\uc6b0\\\", \\\"\\uc628\\ud1a8\\ub85c\\uc9c0\\\", \\\"Claude\\\"]\\n\\t\\\"\\uc911\\uc694\\ub3c4\\\" TEXT, -- one of [\\\"\\u2b50\\u2b50\\u2b50 \\ud575\\uc2ec\\\", \\\"\\u2b50\\u2b50 \\uc911\\uc694\\\", \\\"\\u2b50 \\ucc38\\uace0\\\", \\\"\\ubcf4\\uad00\\\"]\\n\\t\\\"\\ub2e4\\uc74c \\uc561\\uc158\\\" TEXT, -- \\\"__YES__\\\" = true, \\\"__NO__\\\" = false, NULL defaults to false\\n\\t\\\"\\ub300\\ud654 \\uc81c\\ubaa9\\\" TEXT\\n)\\n</sqlite-table>\\n</data-source>\\n</data-sources>\\nHere are the Database's Views:\\nYou can use the \\\"view\\\" tool on the URL of any View to see its full configuration.\\n<views>\\n<view url=\\\"{{view://45d8fd26-13b7-47f0-ab6a-cb8163d82f77}}\\\">\\n{\\\"dataSourceUrl\\\":\\\"{{collection://d012343e-b2a2-461e-944b-6f166e91d8e9}}\\\",\\\"displayProperties\\\":[\\\"\\ub300\\ud654 \\uc81c\\ubaa9\\\",\\\"\\uad00\\ub828 \\ud504\\ub85c\\uc81d\\ud2b8\\\",\\\"\\ub0a0\\uc9dc\\\",\\\"\\ub2e4\\uc74c \\uc561\\uc158\\\",\\\"\\uc0c1\\ud0dc\\\",\\\"\\uc694\\uc57d\\\",\\\"\\uc8fc\\uc81c\\\",\\\"\\uc911\\uc694\\ub3c4\\\",\\\"\\ud0a4\\uc6cc\\ub4dc\\\",\\\"\\ud0dc\\uadf8\\\"],\\\"name\\\":\\\"Default view\\\",\\\"type\\\":\\\"table\\\"}\\n</view>\\n</views>\\n</database>\"\n}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:18:08.970634Z",
+          "stop_timestamp": "2026-01-24T21:18:17.259092Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "좋습니다. 데이터베이스 스키마를 확인했습니다. 이제 페이지를 생성하겠습니다.\n\nProperties:\n- 대화 제목 (title): \"Postgres Best Practices가 Vibe Coder 정체성에 미치는 영향\"\n- 주제 (select): \"개발/코딩\" (주요), 하지만 하나만 선택 가능하므로 \"학습\"도 고려\n- 태그 (multi_select): [\"AI\", \"자동화\", \"Claude\"] - PostgreSQL, AgentSkills, DatabaseDesign, HR자동화는 현재 옵션에 없으므로 기존 태그 사용\n- 중요도 (select): \"⭐⭐⭐ 핵심\"\n- 상태 (select): \"✅ 완료\"\n- date:날짜:start: 오늘 날짜\n- 요약: 간단한 요약\n- 키워드: \"PostgreSQL, Agent Skills, Database Design, HR 자동화, 정체성\"\n- 관련 프로젝트: \"HR 자동화 SaaS\"\n- 다음 액션: \"__YES__\" (Claude Code에 Agent Skills 설치 필요)\n\nContent는 대화를 구조화해서 Notion Markdown으로 작성하겠습니다.",
+          "summaries": [
+            {
+              "summary": "노션 페이지 생성하며 스키마 구조화 중입니다."
+            },
+            {
+              "summary": "노션 페이지 생성을 위해 스키마 검증 및 콘텐츠 구조화했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:18:17.316904Z",
+          "stop_timestamp": "2026-01-24T21:18:18.019464Z",
+          "flags": null,
+          "type": "text",
+          "text": "완벽합니다! 데이터베이스 스키마를 확인했으니 이제 저장하겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-01-24T21:18:18.488170Z",
+          "stop_timestamp": "2026-01-24T21:19:10.461469Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01QExKXDsYqmrvtP3VzYjscx",
+          "name": "Notion:notion-create-pages",
+          "input": {
+            "parent": {
+              "data_source_id": "d012343e-b2a2-461e-944b-6f166e91d8e9"
+            },
+            "pages": [
+              {
+                "properties": {
+                  "대화 제목": "Postgres Best Practices가 Vibe Coder 정체성에 미치는 영향",
+                  "주제": "학습",
+                  "태그": "[\"AI\", \"자동화\", \"Claude\"]",
+                  "중요도": "⭐⭐⭐ 핵심",
+                  "상태": "✅ 완료",
+                  "date:날짜:start": "2026-01-25",
+                  "date:날짜:is_datetime": 0,
+                  "요약": "Supabase의 Postgres Best Practices Agent Skills가 SW 백그라운드 없는 HR 전문가에서 AI 에이전트 활용 HR 혁신가로의 전환 경로를 제시. 기술적 한계 없이 인문학적 통찰을 시스템화하는 번역기 역할.",
+                  "키워드": "PostgreSQL, Agent Skills, Database Design, HR 자동화, 정체성, Vibe Coder",
+                  "관련 프로젝트": "HR 자동화 SaaS",
+                  "다음 액션": "__YES__"
+                },
+                "content": "# 대화 컨텍스트\n\n- **날짜**: 2026년 1월 25일\n- **트리거**: Supabase Postgres Best Practices for AI Agents 블로그 글 분석 요청\n- **핵심 질문**: \"나의 정체성에 어떤 영향이 있을지 설명해줘\"\n\n---\n\n# 핵심 발견: Supabase Agent Skills란?\n\n**Supabase의 \"Postgres Best Practices for AI Agents\"는:**\n\n1. AI 에이전트(Claude Code, Cursor 등)가 PostgreSQL을 더 효율적으로 다룰 수 있도록 돕는 **구조화된 지식 시스템**\n2. **8개 카테고리**에 걸친 성능 최적화 규칙을 영향도별로 우선순위화 (CRITICAL/HIGH/MEDIUM/LOW)\n3. **LLM이 이해하기 쉬운 형태**로 재구성된 베스트 프랙티스 가이드\n4. Claude Code, Cursor 등에 플러그인으로 설치 가능한 **Agent Skill 포맷**\n\n---\n\n# 정체성에 미치는 세 가지 영향\n\n## 1. \"Vibe Coder\"의 진화 경로 제시\n\n**현재 위치**: SW 백그라운드 없는 HR 전문가  \n**Agent Skills 활용**: 기술적 세부사항을 AI가 처리  \n**도달 지점**: 성능 최적화된 HR SaaS 플랫폼 창업자\n\n### 핵심 전환\n\n```\n\"SW 백그라운드 없음\" = 약점 ❌\n              ↓\n\"SW 백그라운드 없음\" = 차별점 ✅\n```\n\n- DB 인덱싱, 쿼리 최적화, 스키마 설계를 직접 공부하지 않아도\n- Claude Code가 Postgres Best Practices를 자동 적용해서 코드 생성\n- **\"사람 이해(HR)\"에만 집중**, \"시스템 최적화\"는 Agent에게 위임\n\n---\n\n## 2. 온톨로지 기반 HR 시스템의 기술적 기반\n\n현재 구축 중인 시스템:\n- 리더십 역량 온톨로지\n- 스킬 관계 매트릭스\n- AI 전환 역량 프레임워크\n\n### Before (혼자 작업)\n\n- \"이 관계를 어떻게 테이블로 만들지?\"\n- \"쿼리 성능이 느려지면 어떻게 하지?\"\n- \"정규화를 어느 수준까지 해야 하지?\"\n\n### After (Agent Skills 활용)\n\n```bash\nClaude Code: \"온톨로지 기반 역량 평가 시스템 DB 설계해줘\"\n→ Agent가 Postgres Best Practices 자동 적용\n→ 인덱스, 외래키, 정규화, 성능 최적화 완료\n→ 당신은 \"역량 간 관계 로직\"에만 집중\n```\n\n---\n\n## 3. \"한 번 하면 영원히 자동화\" 철학의 기술적 보증\n\n핵심 철학: **\"do it once, automate it forever\"**\n\n하지만 \"잘못 자동화된 것\" = 영원한 기술부채\n\n**Postgres Best Practices Agent Skills가 제공하는 것:**\n\n- 처음부터 **확장 가능한(scalable)** DB 설계\n- 처음부터 **성능 최적화된** 쿼리 생성  \n- 처음부터 **보안이 고려된(RLS)** 테이블 구조\n\n→ **\"한 번 제대로\" 만들 수 있게 도와주는 가이드레일**\n\n---\n\n# 5-6년 후 창업을 위한 전략적 의미\n\n## CSP의 HR SaaS 창업 로드맵\n\n### Phase 1 (현재): LG PRI 프로토타입 구축\n- Agent Skills로 성능 최적화된 MVP 빠르게 제작\n- 기술부채 없는 깔끔한 아키텍처\n\n### Phase 2 (3년 후): 중소기업 대상 SaaS 베타\n- Postgres 기반 멀티테넌트 구조\n- Agent가 자동 생성한 RLS 정책으로 데이터 격리\n\n### Phase 3 (5-6년 후): 독립 창업\n- 이미 검증된 DB 아키텍처\n- AI 에이전트가 지속적으로 최적화해주는 시스템\n- **\"HR 도메인 혁신\"에만 집중**\n\n---\n\n# 철학적 의미: 사람 이해를 시스템으로 구현\n\n```\n심리학 + 철학\n      ↓\n역량 온톨로지 설계 (당신의 역할)\n      ↓\nPostgres Best Practices Agent Skills\n      ↓\n효율적인 DB 구조 + 성능 최적화 (Agent의 역할)\n      ↓\nHR 자동화 SaaS 플랫폼\n```\n\n**\"심리학이 코드가 되고, 철학이 알고리즘이 되는 과정\"**\n\nAgent Skills는 당신의 **\"인문학적 통찰\"**이 **\"기술적 한계\"** 없이 시스템화되도록 돕는 **번역기**입니다.\n\n---\n\n# 즉각적인 액션 아이템\n\n## 1. Claude Code에 Supabase Agent Skills 설치\n\n```bash\n/plugin marketplace add supabase/agent-skills\n/plugin install postgres-best-practices@supabase-agent-skills\n```\n\n## 2. 현재 프로젝트에 적용 실험\n\n- 리더십 역량 DB 스키마 재설계 요청\n- Agent가 Best Practices 적용하는 과정 관찰  \n- 온톨로지 로직과 Agent의 최적화가 결합되는 순간 경험\n\n## 3. 학습 포인트\n\n- PostgreSQL 인덱싱 전략\n- Row Level Security (RLS) 설계\n- 멀티테넌트 아키텍처 패턴\n- 성능 최적화 쿼리 작성법\n\n---\n\n# 핵심 인사이트 (한 문장 요약)\n\n> **\"SW 전문가가 되는 것이 아니라, AI 에이전트를 제대로 활용하는 HR 혁신가가 되는 경로를 명확히 보여주는 기술적 전환점\"**\n\n---\n\n# 관련 리소스\n\n- **원본 URL**: https://supabase.com/blog/postgres-best-practices-for-ai-agents\n- **GitHub Repository**: https://github.com/supabase/agent-skills\n- **Skill 경로**: `/skills/postgres-best-practices`\n\n---\n\n# 다음 단계\n\n- [ ] Claude Code에 Agent Skills 설치\n- [ ] 현재 리더십 역량 DB 스키마 분석\n- [ ] Agent에게 최적화 버전 요청 및 비교\n- [ ] 성능 차이 측정 및 학습"
+              }
+            ]
+          },
+          "message": "Notion-create-pages",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-create-pages-9bba1491271484792ee54d5d59332dce",
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01QExKXDsYqmrvtP3VzYjscx",
+          "name": "Notion:notion-create-pages",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"pages\":[{\"id\":\"2f26b7b5-0b23-8140-a083-c94e73aa7fd5\",\"url\":\"https://www.notion.so/2f26b7b50b238140a083c94e73aa7fd5\",\"properties\":{\"대화 제목\":\"Postgres Best Practices가 Vibe Coder 정체성에 미치는 영향\",\"주제\":\"학습\",\"태그\":\"[\\\"AI\\\", \\\"자동화\\\", \\\"Claude\\\"]\",\"중요도\":\"⭐⭐⭐ 핵심\",\"상태\":\"✅ 완료\",\"date:날짜:start\":\"2026-01-25\",\"date:날짜:is_datetime\":0,\"요약\":\"Supabase의 Postgres Best Practices Agent Skills가 SW 백그라운드 없는 HR 전문가에서 AI 에이전트 활용 HR 혁신가로의 전환 경로를 제시. 기술적 한계 없이 인문학적 통찰을 시스템화하는 번역기 역할.\",\"키워드\":\"PostgreSQL, Agent Skills, Database Design, HR 자동화, 정체성, Vibe Coder\",\"관련 프로젝트\":\"HR 자동화 SaaS\",\"다음 액션\":\"__YES__\"}}]}",
+              "uuid": "267ea5a7-d258-4ca1-9f7e-a0e17cec3005"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"pages\": [\n    {\n      \"id\": \"2f26b7b5-0b23-8140-a083-c94e73aa7fd5\",\n      \"url\": \"https://www.notion.so/2f26b7b50b238140a083c94e73aa7fd5\",\n      \"properties\": {\n        \"\\ub300\\ud654 \\uc81c\\ubaa9\": \"Postgres Best Practices\\uac00 Vibe Coder \\uc815\\uccb4\\uc131\\uc5d0 \\ubbf8\\uce58\\ub294 \\uc601\\ud5a5\",\n        \"\\uc8fc\\uc81c\": \"\\ud559\\uc2b5\",\n        \"\\ud0dc\\uadf8\": \"[\\\"AI\\\", \\\"\\uc790\\ub3d9\\ud654\\\", \\\"Claude\\\"]\",\n        \"\\uc911\\uc694\\ub3c4\": \"\\u2b50\\u2b50\\u2b50 \\ud575\\uc2ec\",\n        \"\\uc0c1\\ud0dc\": \"\\u2705 \\uc644\\ub8cc\",\n        \"date:\\ub0a0\\uc9dc:start\": \"2026-01-25\",\n        \"date:\\ub0a0\\uc9dc:is_datetime\": 0,\n        \"\\uc694\\uc57d\": \"Supabase\\uc758 Postgres Best Practices Agent Skills\\uac00 SW \\ubc31\\uadf8\\ub77c\\uc6b4\\ub4dc \\uc5c6\\ub294 HR \\uc804\\ubb38\\uac00\\uc5d0\\uc11c AI \\uc5d0\\uc774\\uc804\\ud2b8 \\ud65c\\uc6a9 HR \\ud601\\uc2e0\\uac00\\ub85c\\uc758 \\uc804\\ud658 \\uacbd\\ub85c\\ub97c \\uc81c\\uc2dc. \\uae30\\uc220\\uc801 \\ud55c\\uacc4 \\uc5c6\\uc774 \\uc778\\ubb38\\ud559\\uc801 \\ud1b5\\ucc30\\uc744 \\uc2dc\\uc2a4\\ud15c\\ud654\\ud558\\ub294 \\ubc88\\uc5ed\\uae30 \\uc5ed\\ud560.\",\n        \"\\ud0a4\\uc6cc\\ub4dc\": \"PostgreSQL, Agent Skills, Database Design, HR \\uc790\\ub3d9\\ud654, \\uc815\\uccb4\\uc131, Vibe Coder\",\n        \"\\uad00\\ub828 \\ud504\\ub85c\\uc81d\\ud2b8\": \"HR \\uc790\\ub3d9\\ud654 SaaS\",\n        \"\\ub2e4\\uc74c \\uc561\\uc158\": \"__YES__\"\n      }\n    }\n  ]\n}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:19:16.045525Z",
+          "stop_timestamp": "2026-01-24T21:19:17.122077Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "성공적으로 Notion에 페이지가 생성되었습니다! 이제 사용자에게 확인 메시지와 함께 링크를 제공하겠습니다.",
+          "summaries": [
+            {
+              "summary": "노션 페이지 생성을 완료하고 사용자에게 확인했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T21:19:17.215295Z",
+          "stop_timestamp": "2026-01-24T21:19:24.141198Z",
+          "flags": null,
+          "type": "text",
+          "text": "✅ **Notion \"💬 Claude 대화 아카이브\"에 저장 완료!**\n\n---\n\n## 📋 저장된 내용\n\n**제목**: Postgres Best Practices가 Vibe Coder 정체성에 미치는 영향\n\n**주요 구성**:\n- 대화 컨텍스트 및 트리거\n- Supabase Agent Skills 핵심 발견\n- 정체성에 미치는 세 가지 영향 분석\n- 5-6년 후 창업 로드맵\n- 철학적 의미 해석\n- 즉각적인 액션 아이템\n\n**메타데이터**:\n- 주제: 학습\n- 태그: AI, 자동화, Claude\n- 중요도: ⭐⭐⭐ 핵심\n- 상태: ✅ 완료\n- 다음 액션: ✓ (Claude Code Agent Skills 설치)\n\n---\n\n## 🔗 Notion 페이지 바로가기\n\n**👉 [Postgres Best Practices가 Vibe Coder 정체성에 미치는 영향](https://www.notion.so/2f26b7b50b238140a083c94e73aa7fd5)**\n\n---\n\n세컨브레인에 완벽하게 아카이빙되었습니다! 🎉",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-24T21:19:24.187120Z",
+      "updated_at": "2026-01-24T21:19:24.187120Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bf1de-c631-7481-a972-deebdaf21efb"
+    }
+  ]
+}

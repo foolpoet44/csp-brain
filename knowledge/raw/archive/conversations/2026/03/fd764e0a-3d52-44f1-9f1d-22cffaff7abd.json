@@ -1,0 +1,57 @@
+﻿{
+  "uuid": "fd764e0a-3d52-44f1-9f1d-22cffaff7abd",
+  "name": "이미지 내용 설명 요청",
+  "summary": "**Conversation Overview**\n\nThe person asked Claude to explain the contents of an image in simple terms. The image contained information about \"Skill 2.0,\" a framework for effectively using the Skill system within Claude Code. Claude provided a structured explanation in Korean, breaking down the key concepts from the image.\n\nThe explanation covered three main areas: the structural understanding that a Skill is not a single file but a folder-based package containing references, templates, and validation scripts; the \"Gotchas\" approach, which emphasizes documenting anti-patterns and past mistakes rather than positive instructions, as negative pattern blocking is more effective for AI workflows; and the Skill Creator concept, which applies unit-testing logic to Skills themselves through benchmarking, multi-agent validation, and A/B comparison. Claude used an analogy comparing the Gotchas methodology to onboarding documentation in HR, where a record of past mistakes accelerates learning more effectively than prescriptive guides. The conversation was entirely task-focused with no personal details shared by the person.",
+  "created_at": "2026-03-18T23:20:25.482653Z",
+  "updated_at": "2026-03-18T23:20:48.242459Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d0340-1b60-75be-9ee6-0c11c5b54b4a",
+      "text": "이미지의 내용을 쉽게 설명해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-03-18T23:20:26.973350Z",
+          "stop_timestamp": "2026-03-18T23:20:26.973350Z",
+          "flags": null,
+          "type": "text",
+          "text": "이미지의 내용을 쉽게 설명해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-18T23:20:27.009526Z",
+      "updated_at": "2026-03-18T23:20:27.009526Z",
+      "attachments": [],
+      "files": [
+        {
+          "file_uuid": "019d033f-eb9f-725c-8d08-bee45180f00c",
+          "file_name": "1773876013310_image.png"
+        }
+      ],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d0340-1b60-7dc5-81d3-c6530a1e445f",
+      "text": " # Skill 2.0의 핵심 원리: 쉽게 풀어쓰기\n\n## 한 줄 요약부터\n\n> \"Skills를 잘 쓰는 것 자체가 하나의 스킬이다.\" — Thariq, Claude Code 창시자\n\n이 이미지는 Claude Code의 **Skill 시스템을 제대로 활용하는 방법**에 대한 인사이트를 담고 있어요.\n\n---\n\n## PHASE 01 — 문제 인식: 10분 vs 10시간의 간극\n\n### Skill은 파일 하나가 아니다\n\n많은 사람들이 `SKILL.md` 하나만 만들면 끝이라고 생각해요. 하지만 실제로는 **폴더 단위 구조**입니다.\n\n```\nskill/\n├── references/api.md    // 함수 시그니처 분리\n├── assets/              // 출력 템플릿 보관\n└── scripts/             // 검증 스크립트 포함 (자체 테스트)\n```\n\n즉, Skill은 **레퍼런스 + 템플릿 + 검증 스크립트**가 함께 있는 패키지예요.\n\n---\n\n## PHASE 02 — 해결책: 오답 노트 접근법\n\n핵심 철학이 여기 있어요. **\"이렇게 하라\"보다 \"이건 하지 마라\"가 더 강하게 동작한다.**\n\n### 02 Gotchas 섹션 (오답 노트)\n- `GOTCHAS.md` 파일에 **반복 실수 패턴**을 축적\n- AI가 자꾸 같은 실수를 반복한다면, 그걸 명시적으로 금지 패턴으로 기록\n- 긍정 지시보다 **부정 패턴 차단**이 더 효과적\n\n### 03 Skill Creator (유닛 테스트 개념)\nSkill 자체를 테스트하는 구조예요.\n- **Benchmark**: 모델 업데이트 후 변화 추적\n- **Multi-agent**: 컨텍스트 오염 없는 병렬 검증\n- **Comparator**: Skill 적용 전후 블라인드 A/B 비교\n\n### 04 복리로 돌아오는 10시간\nGotchas를 쌓고 eval을 붙이는 데 10시간이 걸리지만, **이후 Skill이 실행될 때마다 복리로 돌아온다**는 투자 논리예요.\n\n---\n\n## CSP 관점에서 한 줄 정리\n\n이건 결국 **HR의 온보딩 문서와 같은 논리**예요. \"잘 하는 법\"보다 **\"이전 사람들이 틀렸던 것\"을 모은 오답 노트**가 신규 입사자를 더 빠르게 성장시키죠. Skill 2.0은 그 원리를 AI 워크플로우에 적용한 겁니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-18T23:20:28.780703Z",
+          "stop_timestamp": "2026-03-18T23:20:48.133394Z",
+          "flags": null,
+          "type": "text",
+          "text": " # Skill 2.0의 핵심 원리: 쉽게 풀어쓰기\n\n## 한 줄 요약부터\n\n> \"Skills를 잘 쓰는 것 자체가 하나의 스킬이다.\" — Thariq, Claude Code 창시자\n\n이 이미지는 Claude Code의 **Skill 시스템을 제대로 활용하는 방법**에 대한 인사이트를 담고 있어요.\n\n---\n\n## PHASE 01 — 문제 인식: 10분 vs 10시간의 간극\n\n### Skill은 파일 하나가 아니다\n\n많은 사람들이 `SKILL.md` 하나만 만들면 끝이라고 생각해요. 하지만 실제로는 **폴더 단위 구조**입니다.\n\n```\nskill/\n├── references/api.md    // 함수 시그니처 분리\n├── assets/              // 출력 템플릿 보관\n└── scripts/             // 검증 스크립트 포함 (자체 테스트)\n```\n\n즉, Skill은 **레퍼런스 + 템플릿 + 검증 스크립트**가 함께 있는 패키지예요.\n\n---\n\n## PHASE 02 — 해결책: 오답 노트 접근법\n\n핵심 철학이 여기 있어요. **\"이렇게 하라\"보다 \"이건 하지 마라\"가 더 강하게 동작한다.**\n\n### 02 Gotchas 섹션 (오답 노트)\n- `GOTCHAS.md` 파일에 **반복 실수 패턴**을 축적\n- AI가 자꾸 같은 실수를 반복한다면, 그걸 명시적으로 금지 패턴으로 기록\n- 긍정 지시보다 **부정 패턴 차단**이 더 효과적\n\n### 03 Skill Creator (유닛 테스트 개념)\nSkill 자체를 테스트하는 구조예요.\n- **Benchmark**: 모델 업데이트 후 변화 추적\n- **Multi-agent**: 컨텍스트 오염 없는 병렬 검증\n- **Comparator**: Skill 적용 전후 블라인드 A/B 비교\n\n### 04 복리로 돌아오는 10시간\nGotchas를 쌓고 eval을 붙이는 데 10시간이 걸리지만, **이후 Skill이 실행될 때마다 복리로 돌아온다**는 투자 논리예요.\n\n---\n\n## CSP 관점에서 한 줄 정리\n\n이건 결국 **HR의 온보딩 문서와 같은 논리**예요. \"잘 하는 법\"보다 **\"이전 사람들이 틀렸던 것\"을 모은 오답 노트**가 신규 입사자를 더 빠르게 성장시키죠. Skill 2.0은 그 원리를 AI 워크플로우에 적용한 겁니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-18T23:20:48.224047Z",
+      "updated_at": "2026-03-18T23:20:48.224047Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d0340-1b60-75be-9ee6-0c11c5b54b4a"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+﻿{
+  "uuid": "31f7ea84-1969-4500-acbb-1a40b835e16a",
+  "name": "Korean font configuration in matplotlib",
+  "summary": "**Conversation Overview**\n\nThe user encountered a Python syntax error when trying to set up Korean font display in matplotlib using `plt.rc(font, family='Malgun Gothic')`. Claude identified that the issue was `font` not being enclosed in quotes, causing Python to interpret it as an undefined variable rather than a string parameter. Claude provided the corrected syntax `plt.rc('font', family='Malgun Gothic')` and explained that the first parameter must be a string.\n\nClaude offered a comprehensive solution including a complete code example that incorporated both the font setting and an additional line `plt.rc('axes', unicode_minus=False)` to prevent minus sign display issues common when using Korean fonts in matplotlib. The response also included alternative Korean font options for different operating systems, noting 'Malgun Gothic', '굴림', and '돋움' for Windows, 'AppleGothic' for Mac, and 'NanumGothic' for Linux. This suggests the user is working on data visualization projects that require Korean text display, likely involving matplotlib plotting with Korean labels, titles, or annotations.",
+  "created_at": "2025-10-18T01:29:31.752199Z",
+  "updated_at": "2025-10-18T01:29:40.196668Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "bef5ecbc-975d-48e9-8445-114438d27e01",
+      "text": "구문오류plt.rc(font, family='Malgun Gothic')\n\n```python\n\n```",
+      "content": [
+        {
+          "start_timestamp": "2025-10-18T01:29:33.092041Z",
+          "stop_timestamp": "2025-10-18T01:29:33.092041Z",
+          "flags": null,
+          "type": "text",
+          "text": "구문오류plt.rc(font, family='Malgun Gothic')\n\n```python\n\n```",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2025-10-18T01:29:33.096682Z",
+      "updated_at": "2025-10-18T01:29:33.096682Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "c07fe4f6-557d-4e25-a447-f4909f081000",
+      "text": " 이 구문 오류는 `font`를 문자열로 감싸지 않아서 발생합니다. 올바른 코드는 다음과 같습니다:\n\n```python\nplt.rc('font', family='Malgun Gothic')\n```\n\n**전체 예시:**\n\n```python\nimport matplotlib.pyplot as plt\n\n# 한글 폰트 설정\nplt.rc('font', family='Malgun Gothic')\n\n# 마이너스 기호 깨짐 방지\nplt.rc('axes', unicode_minus=False)\n\n# 이제 한글이 정상적으로 표시됩니다\nplt.plot([1, 2, 3], [1, 2, 3])\nplt.title('한글 제목')\nplt.xlabel('x축')\nplt.ylabel('y축')\nplt.show()\n```\n\n**주요 차이점:**\n- ❌ `plt.rc(font, family='Malgun Gothic')` - font가 변수로 인식됨\n- ✅ `plt.rc('font', family='Malgun Gothic')` - 'font'를 문자열로 전달\n\n**다른 한글 폰트 옵션:**\n- Windows: `'Malgun Gothic'`, `'굴림'`, `'돋움'`\n- Mac: `'AppleGothic'`\n- Linux: `'NanumGothic'`",
+      "content": [
+        {
+          "start_timestamp": "2025-10-18T01:29:34.762750Z",
+          "stop_timestamp": "2025-10-18T01:29:39.898658Z",
+          "flags": null,
+          "type": "text",
+          "text": " 이 구문 오류는 `font`를 문자열로 감싸지 않아서 발생합니다. 올바른 코드는 다음과 같습니다:\n\n```python\nplt.rc('font', family='Malgun Gothic')\n```\n\n**전체 예시:**\n\n```python\nimport matplotlib.pyplot as plt\n\n# 한글 폰트 설정\nplt.rc('font', family='Malgun Gothic')\n\n# 마이너스 기호 깨짐 방지\nplt.rc('axes', unicode_minus=False)\n\n# 이제 한글이 정상적으로 표시됩니다\nplt.plot([1, 2, 3], [1, 2, 3])\nplt.title('한글 제목')\nplt.xlabel('x축')\nplt.ylabel('y축')\nplt.show()\n```\n\n**주요 차이점:**\n- ❌ `plt.rc(font, family='Malgun Gothic')` - font가 변수로 인식됨\n- ✅ `plt.rc('font', family='Malgun Gothic')` - 'font'를 문자열로 전달\n\n**다른 한글 폰트 옵션:**\n- Windows: `'Malgun Gothic'`, `'굴림'`, `'돋움'`\n- Mac: `'AppleGothic'`\n- Linux: `'NanumGothic'`",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2025-10-18T01:29:40.196668Z",
+      "updated_at": "2025-10-18T01:29:40.196668Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "bef5ecbc-975d-48e9-8445-114438d27e01"
+    }
+  ]
+}

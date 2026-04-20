@@ -1,0 +1,543 @@
+﻿{
+  "uuid": "49c9cd55-c894-4932-8d6d-eea7b5fd09d6",
+  "name": "Claude Code 기초 문서 작성",
+  "summary": "**Conversation Overview**\n\nThe user requested a comprehensive beginner's guide for Claude Code in Korean, asking for a document that explains basic usage methods with examples. Claude created a detailed markdown guide covering Claude Code, which is an AI coding tool that operates directly in developers' terminals. The document explains that Claude Code allows developers to give natural language instructions for programming tasks, with Claude writing code, editing files, and executing commands.\n\nThe guide covers installation requirements (Node.js 18+), setup through npm global installation, and two main usage modes: interactive mode for ongoing conversations within project directories, and headless mode using the -p flag for immediate command execution. Claude documented practical examples including React component creation, Express.js API endpoint development, and project initialization workflows. The guide also explains advanced features like custom slash commands created in .claude/commands directories, MCP (Model Context Protocol) integrations with external services, and best practices such as using CLAUDE.md files for project context, progressive development approaches, and clear instruction formatting.\n\nThe user demonstrated familiarity with development workflows and requested practical, actionable content rather than theoretical explanations. Claude structured the guide with a comprehensive table of contents, step-by-step installation instructions, real-world coding scenarios, troubleshooting sections, and specific examples of how to integrate Claude Code with Git workflows and CI/CD pipelines. The document emphasizes hands-on usage patterns and includes specific command syntax, file structures, and configuration examples that developers can immediately implement in their projects.",
+  "created_at": "2025-09-11T23:25:15.100953Z",
+  "updated_at": "2025-09-11T23:30:42.532843Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "430566a0-ac18-4c47-a3e5-1691d507a5fd",
+      "text": "클로드 코드 사용하는 기초적인 방법을 예를 들어 설명하는 문서를 만들어",
+      "content": [
+        {
+          "start_timestamp": "2025-09-11T23:25:16.260387Z",
+          "stop_timestamp": "2025-09-11T23:25:16.260387Z",
+          "flags": null,
+          "type": "text",
+          "text": "클로드 코드 사용하는 기초적인 방법을 예를 들어 설명하는 문서를 만들어",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2025-09-11T23:25:16.264716Z",
+      "updated_at": "2025-09-11T23:25:16.264716Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "f09dc84b-040f-4545-8e2d-02e0a91ad48b",
+      "text": " Claude Code 사용법에 대한 기초 문서를 만들어드리겠습니다. 먼저 최신 정보를 확인해보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\nClaude Code의 최신 문서를 확인해보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n이제 Claude Code 사용법에 대한 기초 문서를 작성하겠습니다.\n```\nViewing artifacts created via the Analysis Tool web feature preview isn’t yet supported on mobile.\n```\n\nClaude Code의 기초 사용법 가이드를 작성했습니다! 이 문서는 다음과 같은 내용을 포함합니다:\n\n**주요 포함 내용:**\n- Claude Code 개요와 특징\n- 설치 방법 (Node.js 18+ 필요, npm으로 글로벌 설치)\n- 대화형 모드와 헤드리스 모드(-p 플래그) 사용법\n- 파일 편집, 버그 수정, Git 작업 등 주요 기능들\n- 실제 개발 시나리오별 예제 (React 컴포넌트, API 엔드포인트, 프로젝트 초기화)\n- 커스텀 슬래시 명령어 생성 방법\n- CLAUDE.md 파일 활용, 컨텍스트 관리, Git 통합 등 모범 사례\n\n이 가이드는 Claude Code를 처음 사용하는 개발자들이 단계별로 학습할 수 있도록 구성했으며, 실용적인 예제와 팁들을 통해 실제 개발 환경에서 바로 활용할 수 있도록 했습니다.\n\n추가로 궁금한 부분이나 특정 사용 사례에 대한 더 자세한 설명이 필요하시면 언제든 말씀해 주세요!",
+      "content": [
+        {
+          "start_timestamp": "2025-09-11T23:25:17.355008Z",
+          "stop_timestamp": "2025-09-11T23:25:18.164084Z",
+          "flags": null,
+          "type": "text",
+          "text": " Claude Code 사용법에 대한 기초 문서를 만들어드리겠습니다. 먼저 최신 정보를 확인해보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2025-09-11T23:25:18.401338Z",
+          "stop_timestamp": "2025-09-11T23:25:18.637796Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "web_fetch",
+          "input": {
+            "url": "https://docs.anthropic.com/en/docs/claude-code"
+          },
+          "message": "Fetching: https://docs.anthropic.com/en/docs/claude-code",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"error_type\": \"PERMISSIONS_ERROR\", \"error_message\": \"This URL cannot be fetched because it was not provided by the user nor did it appear in any search/fetch results\"}",
+              "uuid": "d7d168e9-759e-4f38-9efd-09bb6c5fd57f"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": "Failed to fetch: https://docs.anthropic.com/en/docs/claude-code",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+          "icon_name": null,
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "https://docs.anthropic.com/en/docs/claude-code",
+              "subtitles": null,
+              "url": "https://docs.anthropic.com/en/docs/claude-code",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+              "source": "anthropic"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2025-09-11T23:25:19.926635Z",
+          "stop_timestamp": "2025-09-11T23:25:20.200717Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "web_search",
+          "input": {
+            "query": "Claude Code command line tool documentation"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "CLI reference - Anthropic",
+              "url": "https://docs.anthropic.com/en/docs/claude-code/cli-reference",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "anthropic.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+                "site_name": "Anthropic"
+              },
+              "is_missing": false,
+              "text": "Customize Claude Code’s behavior with these command-line flags: The --output-format json flag is particularly useful for scripting and automation, allowing you to parse Claude’s responses programmatically. For detailed information about print mode (-p) including output formats, streaming, verbose logging, and programmatic usage, see the SDK documentation.\n\nComplete reference for Claude Code command-line interface, including commands and flags.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://docs.anthropic.com/en/docs/claude-code/cli-reference"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How I use Claude Code (+ my best tips)",
+              "url": "https://www.builder.io/blog/claude-code",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "builder.io",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=builder.io",
+                "site_name": "Builder.io"
+              },
+              "is_missing": false,
+              "text": "Claude Code hooks are shell commands that execute at various points in Claude Code&#x27;s lifecycle - like PreToolUse (before tool execution), PostToolUse (after tool completion), Notification (when Claude sends notifications), and Stop (when Claude finishes responding).\n\nI switched from Cursor's agents to Claude Code weeks ago and I'm not going back. Here's how I use it and my best practical tips\n\nThere's a solution though. Every time I open Claude Code, I hit Command+C and run claude --dangerously-skip-permissions. It's not as dangerous as it sounds — think of it as Cursor's old yolo mode. Could a rogue agent theoretically run a destructive command? Sure. Have I seen it happen in weeks of usage? Never. Your call on the risk tolerance, but I sleep fine at night. One of the cooler slash commands is /install-github-app. After you run it, Claude will automatically reviews your PRs. This is actually useful because as you use more AI tools, your PR volume increases. And honestly? Claude often finds bugs that humans miss. Humans nitpick variable names. Claude finds actual logic errors and security issues. The key is customizing the review prompt. Out of the box, it's way too verbose and comments on every little thing. Claude will add a claude-code-review.yml file with a prompt already in it.\n\nClaude Code hooks are shell commands that execute at various points in Claude Code's lifecycle - like PreToolUse (before tool execution), PostToolUse (after tool completion), Notification (when Claude sends notifications), and Stop (when Claude finishes responding). The hooks receive JSON data via stdin containing session information and can control execution flow through exit codes or JSON output. For example, you can create hooks that automatically format code after file modifications, validate inputs before allowing edits, or send custom notifications. The matcher field supports exact strings (like \"Edit\") or regex patterns (like \"Edit|Write\" or \"Notebook.*\") to specify which tools trigger the hook. You can also use the interactive /hooks command in Claude Code to configure hooks through a menu interface, which is often easier than editing JSON directly.\n\nHere's the real difference: we have a React component at Builder that's 18,000 lines long. (Don't @ me about code organization, I know.) No AI agent has ever successfully updated this file except Claude Code. When using Cursor, I still find a lot of little hiccups. It has trouble resolving patches, has to rewrite files often, and really struggles to update extremely large files. This isn't just about file size, Claude Code works great with complex tasks. I find it gets stuck incredibly rarely (I'm not even sure if I've noticed it at all). With Cursor, I feel like I have to babysit it more, and when it gets stuck, I have to stop it and realize maybe this wasn't a good task to ask. Claude is also exceptionally good at navigating large codebases, searching for patterns, understanding relationships between different parts of the code, components, shared state, stuff like that.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "age": "July 16, 2025",
+                "url": "https://www.builder.io/blog/claude-code"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code: Deep coding at terminal velocity \\ Anthropic",
+              "url": "https://www.anthropic.com/claude-code",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "anthropic.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+                "site_name": "Anthropic"
+              },
+              "is_missing": false,
+              "text": "Stop bouncing between tools. Claude Code integrates with GitHub, GitLab, and your command line tools to handle the entire workflow—reading issues, writing code, running tests, and submitting PRs—all from your terminal while you grab coffee. Claude Code’s understanding of your codebase ...\n\nUnleash Claude’s raw power directly in your terminal. Search million-line codebases instantly. Turn hours-long workflows into a single command. Your tools. Your workflow. Your codebase, evolving at thought speed. ... Watch as Claude Code tackles an unfamiliar Next.js project, builds new functionality, creates tests, and fixes what’s broken—all from the command line. Join Boris and Cat as they show you what coding feels like when you’re not doing it alone. Claude Code embeds Claude Opus 4.1—the same model our researchers and engineers use—right in your terminal. It has deep codebase awareness and the ability to edit files and run commands directly in your environment. ... Claude works directly in VS Code and JetBrains, seeing your entire codebase instead of just isolated snippets. It understands your project structure and existing patterns, making suggestions that actually fit and presenting them directly in your code files.\n\nStop bouncing between tools. Claude Code integrates with GitHub, GitLab, and your command line tools to handle the entire workflow—reading issues, writing code, running tests, and submitting PRs—all from your terminal while you grab coffee. Claude Code’s understanding of your codebase and dependencies enables it to make powerful, multi-file edits that actually work. ... I'm an infra and backend guy, but with Claude 3.5 Sonnet being so good, I now feel like I'm an everything guy. ... Claude Code has dramatically accelerated our team's coding efficiency. I can now write EDA code in a notebook—pulling data, training a model, and evaluating it with basic metrics—and then ask Claude to convert that into a Metaflow pipeline. This process saves 1-2 days of routine (and often boring!) work per model. ... Claude Code marks a threshold moment for AI in software development.\n\nClaude Code runs in your terminal and works alongside your preferred IDE and development tools without requiring you to change your workflow. Claude Code can also use command line tools (like Git) and MCP servers (like GitHub) to extend its own capabilities using your tools. Yes. Claude Code runs locally in your terminal and talks directly to model APIs without requiring a backend server or remote code index. It also asks for permission before making changes to your files or running commands. Claude Code works with Claude Opus 4.1, Claude Sonnet 4, and Claude Haiku 3.5 models. Enterprise users can run Claude Code using models in existing Amazon Bedrock or Google Cloud Vertex AI instances. Claude Code works on macOS, Linux, and Windows. See full system requirements. When used with an Anthropic Console account, Claude Code consumes API tokens at standard API pricing.\n\nTransform hours of debugging into seconds with a single command. Experience coding at thought-speed with Claude's AI that understands your entire codebase—no more context switching, just breakthrough results.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.anthropic.com/claude-code"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - hesreallyhim/awesome-claude-code: A curated list of awesome commands, files, and workflows for Claude Code",
+              "url": "https://github.com/hesreallyhim/awesome-claude-code",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "TSK - AI Agent Task Manager and ... Rust CLI tool that lets you delegate development tasks to AI agents running in sandboxed Docker environments. Multiple agents work in parallel, returning git branches for human review. Statusline configurations and customizations for Claude Code&#x27;s status bar functionality · ccstatusline by sirmalloc ⚖️ MIT A highly customizable status line formatter for Claude Code CLI that displays model info, git branch, token usage, and other metrics in your terminal. claude-code-statusline by rz1989s ⚖️ MIT Enhanced 4-line statusline for Claude Code with themes, cost tra\n\nTSK - AI Agent Task Manager and Sandbox by dtormoen ⚖️ MIT A Rust CLI tool that lets you delegate development tasks to AI agents running in sandboxed Docker environments. Multiple agents work in parallel, returning git branches for human review. Statusline configurations and customizations for Claude Code's status bar functionality · ccstatusline by sirmalloc ⚖️ MIT A highly customizable status line formatter for Claude Code CLI that displays model info, git branch, token usage, and other metrics in your terminal. claude-code-statusline by rz1989s ⚖️ MIT Enhanced 4-line statusline for Claude Code with themes, cost tracking, and MCP server monitoring · claude-powerline by Owloops ⚖️ MIT A vim-style powerline statusline for Claude Code with real-time usage tracking, git integration, custom themes, and more · Hooks are a brand new API for Claude Code that allows users to activate commands and run scripts at different points in Claude's agentic lifecycle.\n\nSimone by Helmi ⚖️ MIT A broader project management workflow for Claude Code that encompasses not just a set of commands, but a system of documents, guidelines, and processes to facilitate project planning and execution. Slash-commands megalist by wcygan A pretty stunning list (88 at the time of this post!) of slash-commands ranging from agent orchestration, code review, project management, security, documentation, self-assessment, almost anything you can dream of. Tooling denotes applications that are built on top of Claude Code and consist of more components than slash-commands and CLAUDE.md files · ccexp by nyatinte ⚖️ MIT Interactive CLI tool for discovering and managing Claude Code configuration files and slash commands with a beautiful terminal UI. cchistory by eckardt ⚖️ MIT Like the shell history command but for your Claude Code sessions.\n\nGuitar by soramimi ⚖️ GPL-2.0 Serves as development guide for Guitar Git GUI Client with build commands for various platforms, code style guidelines for contributing, and project structure explanation. Network Chronicles by Fimeg ⚖️ MIT Presents detailed implementation plan for AI-driven game characters with technical specifications for LLM integration, character guidelines, and service discovery mechanics. Note Companion by different-ai ⚖️ MIT Provides detailed styling isolation techniques for Obsidian plugins using Tailwind with custom prefix to prevent style conflicts and practical troubleshooting steps. Pareto Mac by ParetoSecurity ⚖️ GPL-3.0 Serves as development guide for Mac security audit tool with build instructions, contribution guidelines, testing procedures, and workflow documentation. SteadyStart by steadycursor Clear and direct instructives about style, permissions, Claude's \"role\", communications, and documentation of Claude Code sessions for other team members to stay a\n\nclaude-code-statusline by rz1989s ⚖️ MIT Enhanced 4-line statusline for Claude Code with themes, cost tracking, and MCP server monitoring · Claude Code PM by Ran Aroussi ⚖️ MIT Really comprehensive and feature-packed project-management workflow for Claude Code. Numerous specialized agents, slash-commands, and strong documentation. ▪ Workflows & Knowledge Guides ▪ Tooling ▫ IDE Integrations ▫ Usage Monitors ▫ Orchestrators ▪ Statusline ▪ Hooks ▪ Slash-Commands ▫ Version Control & Git ▫ Code Analysis & Testing ▫ Context Loading & Priming ▫ Documentation & Changelogs ▫ CI / Deployment ▫ Project & Task Management ▫ Miscellaneous ▪ CLAUDE.md Files ▫ Language-Specific ▫ Domain-Specific ▫ Project Scaffolding & MCP ▪ Official Documentation · A workflow is a tightly coupled set of Claude Code-native resources that facilitate specific projects ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/hesreallyhim/awesome-claude-code"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code overview - Anthropic",
+              "url": "https://docs.anthropic.com/en/docs/claude-code/overview",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "anthropic.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+                "site_name": "Anthropic"
+              },
+              "is_missing": false,
+              "text": "Learn about Claude Code, Anthropic&#x27;s agentic coding tool that lives in your terminal and helps you turn ideas into code faster than ever before.\n\nAutomate tedious tasks: Fix fiddly lint issues, resolve merge conflicts, and write release notes. Do all this in a single command from your developer machines, or automatically in CI. Works in your terminal: Not another chat window. Not another IDE. Claude Code meets you where you already work, with the tools you already love. Takes action: Claude Code can directly edit files, run commands, and create commits. Need more? MCP lets Claude read your design docs in Google Drive, update your tickets in Jira, or use your custom developer tooling. Unix philosophy: Claude Code is composable and scriptable. tail -f app.log | claude -p \"Slack me if you see any anomalies appear in this log stream\" works. Your CI can run claude -p \"If there are new text strings, translate them into French and raise a PR for @lang-fr-team to review\". Enterprise-ready: Use Anthropic’s API, or host on AWS or GCP.\n\nLearn about Claude Code, Anthropic’s agentic coding tool that lives in your terminal and helps you turn ideas into code faster than ever before. ... # Install Claude Code npm install -g @anthropic-ai/claude-code # Navigate to your project cd your-awesome-project # Start coding with Claude claude # You'll be prompted to log in on first use · That’s it! You’re ready to start coding with Claude. Continue with Quickstart (5 mins) → · (Got specific setup needs or hit issues? See advanced setup or troubleshooting.) Build features from descriptions: Tell Claude what you want to build in plain English. It will make a plan, write the code, and ensure it works. Debug and fix issues: Describe a bug or paste an error message. Claude Code will analyze your codebase, identify the problem, and implement a fix. Navigate any codebase: Ask anything about your team’s codebase, and get a thoughtful answer back.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://docs.anthropic.com/en/docs/claude-code/overview"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - anthropics/claude-code: Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
+              "url": "https://github.com/anthropics/claude-code",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Use it in your terminal, IDE, or tag @claude on Github. Learn more in the official documentation. ... Navigate to your project directory and run claude. We welcome your feedback. Use the /bug command to report issues directly within Claude Code, or file a GitHub issue.\n\nClaude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands. - anthropics/claude-code",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/anthropics/claude-code"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "20 Claude Code CLI Commands to Make Your 10x Productive",
+              "url": "https://apidog.com/blog/claude-code-cli-commands/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "apidog.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=apidog.com",
+                "site_name": "Apidog"
+              },
+              "is_missing": false,
+              "text": "The Claude Code CLI is not just another chatbot; it&#x27;s an agentic coding partner that can understand your codebase, execute commands, and even learn your project&#x27;s intricacies. It&#x27;s a tool designed to augment your intelligence, automate the mundane, and free you up to focus on what truly matters: ...\n\nIn the era of Claude Code, Cursor and Loveable AI, the landscape of software development is undergoing a seismic shift. The traditional image of a developer hunched over a keyboard, manually typing every line of code, is rapidly being replaced by a more collaborative and intelligent workflow. At the heart of this revolution is the rise of AI-powered coding assistants, and Anthropic's Claude Code CLI stands out as a particularly powerful tool for developers who live in the terminal. While graphical user interfaces have their place, the command-line interface remains the undisputed champion for speed, efficiency, and automation in the hands of a skilled developer. The Claude Code CLI is not just another chatbot; it's an agentic coding partner that can understand your codebase, execute commands, and even learn your project's intricacies. It's a tool designed to augment your intelligence, automate the mundane, and free you up to focus on what truly matters: solving complex problems and bui\n\nThe Claude Code CLI is more than just a collection of commands; it's a new way of interacting with your code. It's a shift from a monologue, where you dictate every instruction to the computer, to a dialogue, where you collaborate with an intelligent partner to achieve your goals. By mastering the commands and workflows outlined in this guide, you're not just learning a new tool; you're embracing the future of software development. A future where you can spend less time on tedious and repetitive tasks, and more time on the creative and challenging work that you love. A future where your productivity is not just enhanced, but multiplied. So, dive in, start experimenting, and discover what it's like to have a 10x developer as your personal coding assistant. The conversation is just beginning. ... Want a great API Testing tool that generates beautiful API Documentation?\n\nUncover the ultimate showdown between Claude Code and Codex CLI in this detailed 2025 comparison. Examine their core features, performance metrics, and real-world applications to determine the superior AI tool for developers. ... Discover comprehensive software documentation strategies that transform development workflows.\n\nThis is one of the most powerful features of the Claude Code CLI. You can create your own custom slash commands to automate your personal workflows. How it works: You create markdown files in a .claude/commands directory (either in your project or your home directory). The name of the file becomes the name of the command. ... Run all the unit tests and report the results. Now, you can simply type /project:test in your Claude session to execute your custom command. Productivity Boost: This allows you to create a personalized set of tools that are perfectly tailored to your workflow. You can create commands for running tests, deploying to staging, generating boilerplate code, and anything else you can imagine. This is the ultimate productivity hack for developers who want to automate their repetitive tasks. The Model Context Protocol (MCP) is a system that allows you to connect Claude to other tools and services.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "age": "June 20, 2025",
+                "url": "https://apidog.com/blog/claude-code-cli-commands/"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Cooking with Claude Code: The Complete Guide - Sid Bharath",
+              "url": "https://www.siddharthbharath.com/claude-code-the-complete-guide/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "siddharthbharath.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=siddharthbharath.com",
+                "site_name": "Sid Bharath"
+              },
+              "is_missing": false,
+              "text": "Setting up a sub-agent is easy, Claude does it for you! Just use the /agents command, follow the instructions, and tell Claude what kind of sub-agent you need. You’ll see them show up in a new agent folder as markdown files. Feel free to edit these files. This is also a great place to add ...\n\nClaude Code is a CLI (Command Line Interface) that uses Anthropic’s latest models, Sonnet 4 and Opus 4.1, to generate code for you. You give it instructions in your terminal, and the built-in coding agent with its tools executes those commands. If you’ve tried Codex by OpenAI or Jules by Google, it’s kinda like that, but man is it good. Like really, really good. I myself am (or was) a Cursor user for the longest time. And then I tried Claude Code when it came out and haven’t looked back. In this tutorial, we’re going to learn how to use it by building a complete personal finance tracker web app. Along the way, I’ll introduce you to all the features, usage patterns, and tips and tricks to getting the most out of it. Follow along for best results. If you’re a visual learner, here’s a video – ... Hello Claude my old friend, I’ve come to code with you again.\n\nTell Claude to Do it For You – Simply tell Claude to update the documentation when you’ve finished a big feature or refactor as it has the full context of the work it just finished. You can also automate this with hooks or custom commands (more on this later). Quality and Code Standards – Embed comprehensive quality standards directly in your doc files to ensure consistent code quality. Onboarding New Team Members: New developers can get up to speed by having Claude explain the codebase · When you start a new chat with Claude, it pulls your Claude.md files into its context window. A context window is the maximum amount of text (measured in tokens) a model can consider at once when generating a response. As you chat with it, the conversation history is stored in this context window, along with any other files it reads, code it generates, and tool results.\n\nYou ↔ Main Claude (coordinator) ├── Code Reviewer (quality specialist) ├── Test Engineer (testing specialist) └── Documentation Writer (technical writing specialist) As our main Claude builds the feature, it intelligently routes requests to appropriate sub-agents based on context analysis, but you can also call agents explicitly when needed. Each sub-agent maintains its own conversation history and context, so your main chat with Claude doesn’t get filled with the context of the sub-agent. You can also limit their access to certain tools. Setting up a sub-agent is easy, Claude does it for you! Just use the /agents command, follow the instructions, and tell Claude what kind of sub-agent you need. You’ll see them show up in a new agent folder as markdown files. Feel free to edit these files. This is also a great place to add more context or documentation.\n\nCheck for security vulnerabilities 6. Validate performance implications 7. Confirm documentation is updated Use our established code quality checklist and update CLAUDE.md with any new patterns discovered. Custom commands stored in .claude/commands/ are automatically shared when team members clone your repository. This creates consistent workflows across your entire development team. Now you can simply type /review to execute the workflow anytime during development. MCP is Anthropic’s open standard for connecting AI assistants to external tools and data sources. Think of it as the universal connector that allows Claude Code to interact with any system in your development workflow – Jira, GitHub, whatever. For more information about what MCP is and how it works, see my full tutorial here. ... # Web search capabilities claude mcp add brave-search -s project -- npx @modelcontextprotocol/server-brave-search ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "age": "July 8, 2025",
+                "url": "https://www.siddharthbharath.com/claude-code-the-complete-guide/"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code Best Practices \\ Anthropic",
+              "url": "https://www.anthropic.com/engineering/claude-code-best-practices",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "anthropic.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+                "site_name": "Anthropic"
+              },
+              "is_missing": false,
+              "text": "Claude Code functions as both an MCP server and client. As a client, it can connect to any number of MCP servers to access their tools in three ways: In project config (available when running Claude Code in that directory) ... In a checked-in .mcp.json file (available to anyone working in your ...\n\nClaude Code is a command line tool for agentic coding. This post covers tips and tricks that have proven effective for using Claude Code across various codebases, languages, and environments. We recently released Claude Code, a command line tool for agentic coding. Developed as a research project, Claude Code gives Anthropic engineers and researchers a more native way to integrate Claude into their coding workflows. Claude Code is intentionally low-level and unopinionated, providing close to raw model access without forcing specific workflows. This design philosophy creates a flexible, customizable, scriptable, and safe power tool. While powerful, this flexibility presents a learning curve for engineers new to agentic coding tools—at least until they develop their own best practices. This post outlines general patterns that have proven effective, both for Anthropic's internal teams and for external engineers using Claude Code across various codebases, languages, and environments.\n\nThough Claude Code occasionally solves problems perfectly on the first attempt, using these correction tools generally produces better solutions faster. During long sessions, Claude's context window can fill with irrelevant conversation, file contents, and commands. This can reduce performance and sometimes distract Claude. Use the /clear command frequently between tasks to reset the context window. For large tasks with multiple steps or requiring exhaustive solutions—like code migrations, fixing numerous lint errors, or running complex build scripts—improve performance by having Claude use a Markdown file (or even a GitHub issue!) as a checklist and working scratchpad: For example, to fix a large number of lint issues, you can do the following: Tell Claude to run the lint command and write all resulting errors (with filenames and line numbers) to a Markdown checklist ·\n\nA blog post covering tips and tricks that have proven effective for using Claude Code across various codebases, languages, and environments.\n\nClaude Code functions as both an MCP server and client. As a client, it can connect to any number of MCP servers to access their tools in three ways: In project config (available when running Claude Code in that directory) ... In a checked-in .mcp.json file (available to anyone working in your codebase). For example, you can add Puppeteer and Sentry servers to your .mcp.json, so that every engineer working on your repo can use these out of the box. When working with MCP, it can also be helpful to launch Claude with the --mcp-debug flag to help identify configuration issues. For repeated workflows—debugging loops, log analysis, etc.—store prompt templates in Markdown files within the .claude/commands folder. These become available through the slash commands menu when you type /. You can check these commands into git to make them available for the rest of your team.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.anthropic.com/engineering/claude-code-best-practices"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code: Best Practices and Pro Tips",
+              "url": "https://htdocs.dev/posts/claude-code-best-practices-and-pro-tips/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "htdocs.dev",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=htdocs.dev",
+                "site_name": "Htdocs"
+              },
+              "is_missing": false,
+              "text": "Have CC use version control Instruct Claude Code to use Git commands. &gt; Checkout a new branch named &#x27;feature-xyz&#x27; and commit these changes. Have CC commit often Ask Claude Code to commit changes after every significant modification. This makes it easier to roll back if needed.\n\nThis guide provides tips and tricks for effectively using Claude Code, a command-line tool for agentic coding. Claude Code (often invoked as claude or cc) can be used similarly to other bash-based command-line interfaces. Use CC as a bash CLI You can perform many standard command-line operations. For example, to checkout a new branch and lint the project: claude \"checkout a new branch and lint this project\" Pass command line arguments to CC Arguments passed to claude on startup will be run. For instance: ... Use claude -p for headless mode The -p flag allows Claude Code to run in headless mode, meaning it will output the result directly to the terminal without entering the interactive interface. ... Chain CC with other CLIs You can pipe the output of other commands into Claude Code or vice-versa. Pipe data into CC For example, to analyze a CSV file: cat data.csv | claude -p \"Who won the most games?\"\n\nHave CC use version control Instruct Claude Code to use Git commands. > Checkout a new branch named 'feature-xyz' and commit these changes. Have CC commit often Ask Claude Code to commit changes after every significant modification. This makes it easier to roll back if needed. > Commit the changes with the message \"Implement feature X\". Have CC write your commit messages Claude Code can often write very good, descriptive commit messages. Revert more often Don’t be afraid to use git revert or git reset if Claude makes extensive unwanted changes. Sometimes it’s faster to revert to a known good state and try a more specific prompt. Install GitHub CLI (gh) Claude Code can use the gh CLI for interactions with GitHub, such as creating pull requests or viewing issues. Or use GitHub via MCP Alternatively, you can configure and use the GitHub MCP server for interactions with GitHub.\n\nCLAUDE.md is a special file that Claude Code automatically pulls into context when starting a conversation. Use CLAUDE.md files This file is an ideal place for documenting: ... Repository etiquette (e.g., branch naming, merge vs. rebase) Developer environment setup (e.g., pyenv use, which compilers work) Any unexpected behaviors or warnings particular to the project ... # Bash commands npm run build: Build the project npm run typecheck: Run the typechecker # Code style - Use ES modules (import/export) syntax, not CommonJS (require) - Destructure imports when possible (eg. import { foo } from 'bar') # Workflow - Be sure to typecheck when you're done making a series of code changes - Prefer running single tests, and not the whole test suite, for performance ... The root of your repo. Any parent of the directory where you run claude. Any child of the directory where you run claude.\n\nAsk CC to review PRs You can provide Claude Code with the context of a pull request (e.g., by pasting a link or using the gh CLI or MCP) and ask it to perform a code review. Effectively managing context is key to getting the most out of Claude Code. Be aware of upcoming auto-compact Keep an eye on the context left indicator (often in the bottom right of the UI). This tells you how much of the conversation history can be retained before Claude starts automatically compacting (summarizing) older parts. Proactively compact at checkpoints When you reach a natural breakpoint in your workflow (e.g., after a feature is complete, a bug is fixed, or a commit is made), and you see the context window getting full, consider manually compacting the context using the /compact command. This gives you more control over the summarization. ... Consider /clear vs /compact If the current conversation thread has gone too far off track or contains a lot of irrelevant information for the next task, /clear mi",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://htdocs.dev/posts/claude-code-best-practices-and-pro-tips/"
+              }
+            },
+            {
+              "type": "text",
+              "text": "<system>You only have 19 searches left this turn</system>\n\n",
+              "uuid": "33caaa76-9720-433c-ae76-ad9e877f2c60"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2025-09-11T23:25:22.893314Z",
+          "stop_timestamp": "2025-09-11T23:25:23.232563Z",
+          "flags": null,
+          "type": "text",
+          "text": "Claude Code의 최신 문서를 확인해보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2025-09-11T23:25:23.470381Z",
+          "stop_timestamp": "2025-09-11T23:25:23.764534Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "web_fetch",
+          "input": {
+            "url": "https://docs.anthropic.com/en/docs/claude-code/overview"
+          },
+          "message": "Fetching: https://docs.anthropic.com/en/docs/claude-code/overview",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Claude Code overview - Anthropic",
+              "url": "https://docs.anthropic.com/en/docs/claude-code/overview",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "anthropic.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+                "site_name": "anthropic"
+              },
+              "is_missing": false,
+              "text": "Claude Code overview\nLearn about Claude Code, Anthropic’s agentic coding tool that lives in your terminal and helps you turn ideas into code faster than ever before.\nGet started in 30 seconds\nPrerequisites: [Node.js 18 or newer](https://nodejs.org/en/download/)\nThat’s it! You’re ready to start coding with Claude. [Continue with Quickstart (5 mins) →](/en/docs/claude-code/quickstart)\n(Got specific setup needs or hit issues? See [advanced setup](/en/docs/claude-code/setup) or [troubleshooting](/en/docs/claude-code/troubleshooting).)\nWhat Claude Code does for you\n- Build features from descriptions: Tell Claude what you want to build in plain English. It will make a plan, write the code, and ensure it works.\n- Debug and fix issues: Describe a bug or paste an error message. Claude Code will analyze your codebase, identify the problem, and implement a fix.\n- Navigate any codebase: Ask anything about your team’s codebase, and get a thoughtful answer back. Claude Code maintains awareness of your entire project structure, can find up-to-date information from the web, and with\n[MCP](/en/docs/claude-code/mcp)can pull from external datasources like Google Drive, Figma, and Slack. - Automate tedious tasks: Fix fiddly lint issues, resolve merge conflicts, and write release notes. Do all this in a single command from your developer machines, or automatically in CI.\nWhy developers love Claude Code\n- Works in your terminal: Not another chat window. Not another IDE. Claude Code meets you where you already work, with the tools you already love.\n- Takes action: Claude Code can directly edit files, run commands, and create commits. Need more?\n[MCP](/en/docs/claude-code/mcp)lets Claude read your design docs in Google Drive, update your tickets in Jira, or use your custom developer tooling. - Unix philosophy: Claude Code is composable and scriptable.\ntail -f app.log | claude -p \"Slack me if you see any anomalies appear in this log stream\"\nworks. Your CI can runclaude -p \"If there are new text strings, translate them into French and raise a PR for @lang-fr-team to review\"\n. - Enterprise-ready: Use Anthropic’s API, or host on AWS or GCP. Enterprise-grade\n[security](/en/docs/claude-code/security),[privacy](/en/docs/claude-code/data-usage), and[compliance](https://trust.anthropic.com/)is built-in.\nNext steps\nQuickstart\nSee Claude Code in action with practical examples\nCommon workflows\nStep-by-step guides for common workflows\nTroubleshooting\nSolutions for common issues with Claude Code\nIDE setup\nAdd Claude Code to your IDE\nAdditional resources\nHost on AWS or GCP\nConfigure Claude Code with Amazon Bedrock or Google Vertex AI\nSettings\nCustomize Claude Code for your workflow\nCommands\nLearn about CLI commands and controls\nReference implementation\nClone our development container reference implementation\nSecurity\nDiscover Claude Code’s safeguards and best practices for safe usage\nPrivacy and data usage\nUnderstand how Claude Code handles your data",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "mime_type": "text/html; charset=utf-8",
+                "content_type": "html",
+                "destination_url": "https://docs.anthropic.com/en/docs/claude-code/overview"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Fetched: Claude Code overview - Anthropic",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+          "icon_name": null,
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "Claude Code overview - Anthropic",
+              "subtitles": null,
+              "url": "https://docs.anthropic.com/en/docs/claude-code/overview",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+              "source": "anthropic"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2025-09-11T23:25:25.440463Z",
+          "stop_timestamp": "2025-09-11T23:25:26.068433Z",
+          "flags": null,
+          "type": "text",
+          "text": "이제 Claude Code 사용법에 대한 기초 문서를 작성하겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2025-09-11T23:25:26.249826Z",
+          "stop_timestamp": "2025-09-11T23:26:14.720508Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "artifacts",
+          "input": {
+            "id": "claude_code_guide",
+            "type": "text/markdown",
+            "title": "Claude Code 기초 사용법 가이드",
+            "command": "create",
+            "content": "# Claude Code 기초 사용법 가이드\n\n## 목차\n1. [Claude Code란?](#claude-code란)\n2. [설치하기](#설치하기)\n3. [기본 설정](#기본-설정)\n4. [기본 사용법](#기본-사용법)\n5. [주요 기능](#주요-기능)\n6. [실용적인 예제](#실용적인-예제)\n7. [커스텀 명령어 만들기](#커스텀-명령어-만들기)\n8. [팁과 모범 사례](#팁과-모범-사례)\n\n## Claude Code란?\n\nClaude Code는 개발자의 터미널에서 직접 작동하는 AI 코딩 도구입니다. 자연어로 프로그래밍 작업을 지시하면 Claude가 코드를 작성하고, 파일을 편집하며, 명령어를 실행합니다.\n\n**주요 특징:**\n- 터미널에서 직접 작동\n- 전체 코드베이스 이해\n- 파일 편집 및 명령어 실행 가능\n- Git과 같은 개발 도구와 통합\n- 스크립트 및 자동화 지원\n\n## 설치하기\n\n**사전 요구사항:**\n- Node.js 18 이상\n\n**설치 명령어:**\n```bash\nnpm install -g @anthropic-ai/claude-code\n```\n\n**설치 확인:**\n```bash\nclaude --version\n```\n\n## 기본 설정\n\n**1. 첫 실행:**\n```bash\nclaude\n```\n처음 실행 시 Anthropic 계정으로 로그인하라는 안내가 나타납니다.\n\n**2. 프로젝트 디렉토리에서 실행:**\n```bash\ncd your-project\nclaude\n```\n\n## 기본 사용법\n\n### 대화형 모드\n\n프로젝트 디렉토리에서 `claude`를 실행하면 대화형 세션이 시작됩니다:\n\n```bash\n$ claude\nClaude Code는 이제 프로젝트를 분석할 준비가 되었습니다.\n어떤 도움이 필요하신가요?\n\n> 이 프로젝트의 구조를 설명해주세요\n```\n\n### 헤드리스 모드 (-p 플래그)\n\n즉석에서 명령을 실행하고 결과를 받는 모드:\n\n```bash\nclaude -p \"README.md 파일을 만들어주세요\"\n```\n\n### 파이프라인과 함께 사용\n\n다른 CLI 도구와 함께 사용할 수 있습니다:\n\n```bash\n# 로그 분석\ntail -f app.log | claude -p \"에러가 있으면 알려주세요\"\n\n# CSV 분석\ncat sales.csv | claude -p \"월별 매출 트렌드를 분석해주세요\"\n```\n\n## 주요 기능\n\n### 1. 파일 편집\n```\n> login.js 파일을 만들어서 JWT 토큰 기반 인증 로직을 구현해주세요\n```\n\n### 2. 버그 수정\n```\n> 이 에러를 수정해주세요: TypeError: Cannot read property 'name' of undefined\n```\n\n### 3. 코드 리팩토링\n```\n> utils.js 파일의 함수들을 ES6 모듈 문법으로 리팩토링해주세요\n```\n\n### 4. 테스트 작성\n```\n> auth.js 파일에 대한 Jest 테스트를 작성해주세요\n```\n\n### 5. Git 작업\n```\n> 새 브랜치를 만들고 현재 변경사항을 커밋해주세요\n```\n\n## 실용적인 예제\n\n### 예제 1: React 컴포넌트 생성\n\n```\n> 사용자 프로필을 보여주는 React 컴포넌트를 만들어주세요. \n  아바타, 이름, 이메일, 편집 버튼이 있어야 합니다.\n```\n\n**결과:**\nClaude가 `UserProfile.jsx` 파일을 생성하고 필요한 CSS와 props 타입도 함께 작성해줍니다.\n\n### 예제 2: API 엔드포인트 생성\n\n```\n> Express.js로 사용자 CRUD API를 만들어주세요. \n  MongoDB와 연결하고 인증 미들웨어도 포함해주세요.\n```\n\n**결과:**\n- `routes/users.js` 생성\n- 데이터베이스 연결 코드 작성\n- 인증 미들웨어 구현\n- 에러 핸들링 추가\n\n### 예제 3: 프로젝트 초기 설정\n\n```\n> Node.js Express 프로젝트를 초기화하고 ESLint, Prettier, \n  환경변수 설정을 해주세요.\n```\n\n**결과:**\n- `package.json` 설정\n- `.eslintrc.js` 생성\n- `.prettierrc` 생성\n- `.env.example` 파일 생성\n\n## 커스텀 명령어 만들기\n\n### 1. 슬래시 명령어 디렉토리 생성\n\n```bash\nmkdir -p .claude/commands\n```\n\n### 2. 커스텀 명령어 파일 생성\n\n`.claude/commands/test.md` 파일을 생성:\n\n```markdown\n# Test Runner\n\n모든 테스트를 실행하고 결과를 요약해주세요.\n\n## 실행할 명령어:\n1. `npm test`\n2. 실패한 테스트가 있으면 상세 내용 표시\n3. 테스트 커버리지 리포트 생성\n```\n\n### 3. 명령어 사용\n\n```\n> /test\n```\n\n이제 `/test`를 입력하면 정의한 워크플로우가 실행됩니다.\n\n### 4. 더 복잡한 예제\n\n`.claude/commands/deploy.md`:\n\n```markdown\n# Deploy to Staging\n\n스테이징 환경에 배포하는 전체 프로세스를 실행합니다.\n\n## 단계:\n1. 모든 테스트 실행 (`npm test`)\n2. 빌드 실행 (`npm run build`)\n3. 스테이징 브랜치로 체크아웃\n4. 변경사항 병합\n5. 배포 스크립트 실행 (`npm run deploy:staging`)\n6. 배포 결과 확인\n```\n\n## 팁과 모범 사례\n\n### 1. CLAUDE.md 파일 사용\n\n프로젝트 루트에 `CLAUDE.md` 파일을 만들어 프로젝트 정보를 제공:\n\n```markdown\n# 프로젝트 정보\n\n## 기술 스택\n- Node.js + Express\n- React + TypeScript\n- MongoDB\n- JWT 인증\n\n## 코드 스타일\n- ES6 모듈 사용\n- Prettier + ESLint\n- 2 스페이스 들여쓰기\n\n## 주요 명령어\n- `npm start`: 개발 서버 시작\n- `npm test`: 테스트 실행\n- `npm run build`: 프로덕션 빌드\n```\n\n### 2. 컨텍스트 관리\n\n**자주 정리하기:**\n```\n> /clear\n```\n\n**중요한 지점에서 요약:**\n```\n> /compact\n```\n\n### 3. Git 버전 관리 활용\n\n```\n> 변경사항을 커밋하고 의미있는 커밋 메시지를 작성해주세요\n```\n\n```\n> feature-user-auth 브랜치를 생성하고 체크아웃해주세요\n```\n\n### 4. 오류 처리\n\nClaude가 실수를 하면:\n```\n> 이전 변경사항을 되돌리고 다시 시도해주세요\n```\n\n### 5. 점진적 개발\n\n큰 기능을 작은 단위로 나누어 요청:\n\n```\n❌ 나쁜 예:\n> 전자상거래 사이트를 만들어주세요\n\n✅ 좋은 예:\n> 먼저 상품 목록을 보여주는 컴포넌트를 만들어주세요\n> 이제 상품 상세 페이지를 추가해주세요\n> 장바구니 기능을 구현해주세요\n```\n\n### 6. 명확한 지시사항\n\n```\n❌ 모호한 예:\n> 데이터베이스를 설정해주세요\n\n✅ 명확한 예:\n> MongoDB를 사용해서 users 컬렉션을 만들고, \n  name, email, password 필드가 있는 스키마를 정의해주세요.\n  Mongoose ODM을 사용해주세요.\n```\n\n### 7. 테스트와 함께 개발\n\n```\n> UserService 클래스를 만들고 해당 단위 테스트도 함께 작성해주세요\n```\n\n## 고급 기능\n\n### MCP (Model Context Protocol)\n\n외부 서비스와 연결:\n\n```bash\n# GitHub 연결\nclaude mcp add github\n\n# Slack 연결  \nclaude mcp add slack\n\n# Google Drive 연결\nclaude mcp add google-drive\n```\n\n### 훅(Hooks) 사용\n\n특정 시점에 자동으로 실행되는 스크립트 설정:\n\n```bash\n# 파일 편집 후 자동으로 포매팅\nclaude hooks add --event PostEdit --command \"npm run format\"\n```\n\n### CI/CD 통합\n\n```bash\n# GitHub Actions에서 사용\nclaude -p \"새로운 번역 문자열이 있으면 번역하고 PR을 만들어주세요\"\n```\n\n## 문제 해결\n\n### 일반적인 문제들\n\n**1. 권한 오류:**\n```bash\nclaude --dangerously-skip-permissions\n```\n\n**2. 성능 저하:**\n- `/clear` 명령어로 컨텍스트 정리\n- 더 구체적인 요청으로 범위 축소\n\n**3. 파일 찾기 실패:**\n- 올바른 프로젝트 디렉토리에 있는지 확인\n- 파일 경로를 명시적으로 제공\n\n**4. 버그 신고:**\n```\n> /bug 상세한 문제 설명\n```\n\n이 가이드를 통해 Claude Code의 기본 사용법을 익히고, 점진적으로 고급 기능들을 활용해보세요. Claude Code는 개발 워크플로우를 혁신적으로 개선할 수 있는 강력한 도구입니다.",
+            "version_uuid": "b0fa11c1-9f2b-4782-8bf6-7c7459688af8"
+          },
+          "message": "artifacts",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "artifacts",
+          "content": [
+            {
+              "type": "text",
+              "text": "OK",
+              "uuid": "497e415f-ef3a-4026-8ff6-5fe50452e38d"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2025-09-11T23:26:16.390754Z",
+          "stop_timestamp": "2025-09-11T23:26:25.122436Z",
+          "flags": null,
+          "type": "text",
+          "text": "Claude Code의 기초 사용법 가이드를 작성했습니다! 이 문서는 다음과 같은 내용을 포함합니다:\n\n**주요 포함 내용:**\n- Claude Code 개요와 특징\n- 설치 방법 (Node.js 18+ 필요, npm으로 글로벌 설치)\n- 대화형 모드와 헤드리스 모드(-p 플래그) 사용법\n- 파일 편집, 버그 수정, Git 작업 등 주요 기능들\n- 실제 개발 시나리오별 예제 (React 컴포넌트, API 엔드포인트, 프로젝트 초기화)\n- 커스텀 슬래시 명령어 생성 방법\n- CLAUDE.md 파일 활용, 컨텍스트 관리, Git 통합 등 모범 사례\n\n이 가이드는 Claude Code를 처음 사용하는 개발자들이 단계별로 학습할 수 있도록 구성했으며, 실용적인 예제와 팁들을 통해 실제 개발 환경에서 바로 활용할 수 있도록 했습니다.\n\n추가로 궁금한 부분이나 특정 사용 사례에 대한 더 자세한 설명이 필요하시면 언제든 말씀해 주세요!",
+          "citations": [
+            {
+              "uuid": "60a5a99a-bbd0-4607-81aa-8467584a4dd4",
+              "start_index": 74,
+              "end_index": 92,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://docs.anthropic.com/en/docs/claude-code/overview"
+              }
+            },
+            {
+              "uuid": "7c827707-04bd-4dc7-8aab-63c3fb9facbb",
+              "start_index": 95,
+              "end_index": 131,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://docs.anthropic.com/en/docs/claude-code/overview"
+              }
+            },
+            {
+              "uuid": "bc7d726f-1e75-47f2-8fc3-97b832c34632",
+              "start_index": 164,
+              "end_index": 193,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://docs.anthropic.com/en/docs/claude-code/overview"
+              }
+            },
+            {
+              "uuid": "d3dc3ab5-cf18-4a15-8a93-af459271a720",
+              "start_index": 164,
+              "end_index": 193,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.anthropic.com/engineering/claude-code-best-practices"
+              }
+            },
+            {
+              "uuid": "b5765703-13df-4c57-885b-8bc3a47ec0ed",
+              "start_index": 247,
+              "end_index": 264,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://apidog.com/blog/claude-code-cli-commands/"
+              }
+            },
+            {
+              "uuid": "d081feb4-3aea-4b0b-a426-9ad79ceb379a",
+              "start_index": 247,
+              "end_index": 264,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.anthropic.com/engineering/claude-code-best-practices"
+              }
+            },
+            {
+              "uuid": "15387332-d399-4fbf-a00d-a47cc8d074bd",
+              "start_index": 267,
+              "end_index": 307,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.anthropic.com/engineering/claude-code-best-practices"
+              }
+            },
+            {
+              "uuid": "9813b7df-a592-4c09-ad02-6c3ee92b7393",
+              "start_index": 267,
+              "end_index": 307,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://htdocs.dev/posts/claude-code-best-practices-and-pro-tips/"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2025-09-11T23:26:25.179632Z",
+      "updated_at": "2025-09-11T23:26:25.179632Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "430566a0-ac18-4c47-a3e5-1691d507a5fd"
+    }
+  ]
+}

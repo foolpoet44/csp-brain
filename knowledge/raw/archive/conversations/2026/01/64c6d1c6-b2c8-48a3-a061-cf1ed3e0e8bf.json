@@ -1,0 +1,74 @@
+﻿{
+  "uuid": "64c6d1c6-b2c8-48a3-a061-cf1ed3e0e8bf",
+  "name": "OAuth 토큰 만료 오류 해결",
+  "summary": "**Conversation Overview**\n\nThe user reported a Notion MCP integration authentication error, receiving a 401 error with the message \"OAuth token has expired. Please obtain a new token or refresh your existing token.\" The system prompted them to run /login to resolve the issue. Claude diagnosed this as an expired OAuth token requiring re-authentication with Notion and provided two potential solution paths. The first method involved using the Claude.ai web interface by navigating to Settings → Integrations, disconnecting the existing Notion connection, and reconnecting it. The second method was for users who had manually configured their MCP server, requiring them to obtain a new OAuth token from the Notion developer console and update their MCP configuration file. Claude requested clarification about whether the user was using Claude.ai's integrated Notion connection or had set up a local MCP server directly, as this would determine the appropriate resolution approach. The conversation was conducted in Korean, indicating the user's language preference.\n\n**Tool Knowledge**\n\nWhen Notion MCP returns a 401 authentication error with \"OAuth token has expired,\" it indicates the OAuth connection needs complete re-establishment rather than just a simple refresh. For Claude.ai integrated users, the resolution requires fully disconnecting and reconnecting through Settings → Integrations rather than attempting token refresh. For manual MCP server configurations, the expired token must be replaced entirely in the configuration file with a newly generated token from Notion's developer console, as refresh tokens may not be properly configured in custom setups.",
+  "created_at": "2026-01-03T23:23:41.553569Z",
+  "updated_at": "2026-01-03T23:24:02.667629Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019b862c-8bf1-7282-8453-dc0daf3f6b16",
+      "text": "아래와 같은 에러 메시지 이후 작동이 안되는 상태 설명:\nAPI Error: 401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"OAuth token has expired. Please obtain a new token or refresh your existing token.\"},\"request_id\":\"req_011CWmJewVkucz4gUQMzZoWN\"} · Please run /login",
+      "content": [
+        {
+          "start_timestamp": "2026-01-03T23:23:45.090042Z",
+          "stop_timestamp": "2026-01-03T23:23:45.090042Z",
+          "flags": null,
+          "type": "text",
+          "text": "아래와 같은 에러 메시지 이후 작동이 안되는 상태 설명:\nAPI Error: 401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"OAuth token has expired. Please obtain a new token or refresh your existing token.\"},\"request_id\":\"req_011CWmJewVkucz4gUQMzZoWN\"} · Please run /login",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-03T23:23:45.098832Z",
+      "updated_at": "2026-01-03T23:23:45.098832Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019b862c-8bf1-7282-8453-dc0e5dd149a1",
+      "text": "사용자가 Notion MCP에서 인증 에러가 발생했다고 보고하고 있습니다. 에러 메시지를 보면:\n- 401 authentication_error\n- \"OAuth token has expired. Please obtain a new token or refresh your existing token.\"\n- \"/login을 실행하라\"는 안내\n\n이것은 Notion과의 OAuth 토큰이 만료되어서 재인증이 필요한 상황입니다.\n\n사용자의 프로필을 보면:\n- Notion MCP 통합을 활발히 사용 중\n- 대화 자동 아카이빙 시스템을 구축\n- 기술적 배경이 있는 개발자\n\n대응 방법:\n1. 문제를 명확히 설명\n2. 해결 방법 제시 (재인증 필요)\n3. 단계별 가이드 제공\n\n사용자가 한국어 선호하는 것으로 보이므로 한국어로 응답하는 것이 좋겠습니다.안녕하세요! Notion MCP 인증 토큰이 만료된 상황이네요. 이 문제를 해결하려면 재인증이 필요합니다.\n\n## 🔧 해결 방법\n\n### 1️⃣ 현재 상태 확인\n먼저 Notion 연결 상태를 확인해볼까요?\n\n### 2️⃣ 재인증 필요\nOAuth 토큰이 만료되어 Notion과의 연결이 끊어진 상태입니다. 다음 중 한 가지 방법으로 해결할 수 있습니다:\n\n**방법 A: Claude.ai 웹 인터페이스에서**\n1. 설정(Settings) → Integrations로 이동\n2. Notion 연결 끊기\n3. Notion 다시 연결하기\n\n**방법 B: 토큰 수동 갱신** (만약 MCP 서버를 직접 설정한 경우)\n1. Notion 개발자 콘솔에서 새 OAuth 토큰 발급\n2. MCP 설정 파일에 새 토큰 업데이트\n\n### 3️⃣ 연결 테스트\n재인증 후 간단한 테스트를 해볼까요?\n\n---\n\n**어떤 방법으로 진행하시겠어요?**\n\n- Claude.ai에서 Notion을 통합 연결하여 사용 중이신가요?\n- 아니면 로컬에서 MCP 서버를 직접 설정하신 건가요?\n\n설정 방식을 알려주시면 더 구체적인 해결 방법을 안내해드리겠습니다! 🚀",
+      "content": [
+        {
+          "start_timestamp": "2026-01-03T23:23:48.698378Z",
+          "stop_timestamp": "2026-01-03T23:23:54.325339Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 Notion MCP에서 인증 에러가 발생했다고 보고하고 있습니다. 에러 메시지를 보면:\n- 401 authentication_error\n- \"OAuth token has expired. Please obtain a new token or refresh your existing token.\"\n- \"/login을 실행하라\"는 안내\n\n이것은 Notion과의 OAuth 토큰이 만료되어서 재인증이 필요한 상황입니다.\n\n사용자의 프로필을 보면:\n- Notion MCP 통합을 활발히 사용 중\n- 대화 자동 아카이빙 시스템을 구축\n- 기술적 배경이 있는 개발자\n\n대응 방법:\n1. 문제를 명확히 설명\n2. 해결 방법 제시 (재인증 필요)\n3. 단계별 가이드 제공\n\n사용자가 한국어 선호하는 것으로 보이므로 한국어로 응답하는 것이 좋겠습니다.",
+          "summaries": [
+            {
+              "summary": "생각해보기: OAuth 토큰 만료로 인한 API 인증 오류 해결 방법"
+            },
+            {
+              "summary": "Diagnosing Notion OAuth 토큰 만료 문제 해결 중"
+            },
+            {
+              "summary": "Diagnosed OAuth expiration issue and formulated step-by-step resolution."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-03T23:23:54.327482Z",
+          "stop_timestamp": "2026-01-03T23:24:02.605812Z",
+          "flags": null,
+          "type": "text",
+          "text": "안녕하세요! Notion MCP 인증 토큰이 만료된 상황이네요. 이 문제를 해결하려면 재인증이 필요합니다.\n\n## 🔧 해결 방법\n\n### 1️⃣ 현재 상태 확인\n먼저 Notion 연결 상태를 확인해볼까요?\n\n### 2️⃣ 재인증 필요\nOAuth 토큰이 만료되어 Notion과의 연결이 끊어진 상태입니다. 다음 중 한 가지 방법으로 해결할 수 있습니다:\n\n**방법 A: Claude.ai 웹 인터페이스에서**\n1. 설정(Settings) → Integrations로 이동\n2. Notion 연결 끊기\n3. Notion 다시 연결하기\n\n**방법 B: 토큰 수동 갱신** (만약 MCP 서버를 직접 설정한 경우)\n1. Notion 개발자 콘솔에서 새 OAuth 토큰 발급\n2. MCP 설정 파일에 새 토큰 업데이트\n\n### 3️⃣ 연결 테스트\n재인증 후 간단한 테스트를 해볼까요?\n\n---\n\n**어떤 방법으로 진행하시겠어요?**\n\n- Claude.ai에서 Notion을 통합 연결하여 사용 중이신가요?\n- 아니면 로컬에서 MCP 서버를 직접 설정하신 건가요?\n\n설정 방식을 알려주시면 더 구체적인 해결 방법을 안내해드리겠습니다! 🚀",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-03T23:24:02.667629Z",
+      "updated_at": "2026-01-03T23:24:02.667629Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019b862c-8bf1-7282-8453-dc0daf3f6b16"
+    }
+  ]
+}

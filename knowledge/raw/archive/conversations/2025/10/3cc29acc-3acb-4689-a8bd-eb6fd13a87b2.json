@@ -1,0 +1,888 @@
+﻿{
+  "uuid": "3cc29acc-3acb-4689-a8bd-eb6fd13a87b2",
+  "name": "Excel data dashboard design",
+  "summary": "**Conversation Overview**\n\nThe user requested analysis of an Excel file containing 2025 leadership evaluation results for a Korean organization. Claude analyzed the file \"25년_리더십평가_결과_육성공유_251016.xlsx\" which contained leadership assessment data for 152 employees across various departments within a production technology institute. The user specifically asked for insights and a dashboard proposal, then requested a follow-up analysis focusing on departmental performance based on peer evaluation scores.\n\nClaude performed comprehensive data analysis including statistical summaries, competency assessments across 17 leadership dimensions, and comparative analysis between different evaluator groups (supervisors, peers, subordinates, and self-assessments). The analysis revealed that while overall leadership scores were strong (averaging 88.9 points), there were consistent weaknesses in talent acquisition enthusiasm, strategic thinking, and talent development across all departments. The user demonstrated familiarity with Korean business terminology and organizational structures, using terms like \"사업부/담당\" (business division/department) and showing interest in detailed competency-based analysis.\n\nFor the departmental analysis, Claude identified six major departments with sufficient sample sizes and ranked them by peer evaluation scores. Smart Factory Business Department emerged as the top performer (93.94 points), while PRI Manufacturing S&P Center ranked lowest (85.76 points). The analysis revealed common organizational strengths in principle-centered leadership and customer focus, but universal weaknesses in talent management and strategic thinking capabilities. Claude created interactive dashboards using Plotly and comprehensive markdown reports with specific recommendations for each department, including immediate action plans for underperforming units and best practice sharing from top performers.\n\n**Tool Knowledge**\n\nWhen working with Korean Excel files containing leadership assessment data, Claude successfully used pandas to read multi-sheet Excel files with Korean column headers and sheet names. The analysis required handling Korean text encoding properly using 'utf-8' encoding when writing output files. For data visualization, Plotly proved effective for creating multi-subplot dashboards that could handle Korean text in titles and labels, though font specification was important for proper Korean character rendering using \"Malgun Gothic, sans-serif\" in the layout configuration.\n\nThe analysis workflow involved first exploring all sheet names using pd.ExcelFile() to identify the correct data sheet, then performing data cleaning to remove outliers (scores below 50 points), and calculating composite scores from multiple evaluator perspectives. When creating the departmental analysis, filtering for departments with at least 5 members provided statistically meaningful comparisons. The radar chart visualization using Scatterpolar was particularly effective for comparing competency profiles between top and bottom performing departments, allowing clear visual identification of strengths and improvement areas across the 17 leadership dimensions.",
+  "created_at": "2025-10-17T22:37:17.429202Z",
+  "updated_at": "2025-10-17T22:50:19.958816Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "5b5f137a-f1ad-4dd7-9494-67b5bc2c6a7a",
+      "text": "엑셀시트의 내용을 분석하고 인사이트 있는 대시보드 초안을 제안해봐",
+      "content": [
+        {
+          "start_timestamp": "2025-10-17T22:37:18.812180Z",
+          "stop_timestamp": "2025-10-17T22:37:18.812180Z",
+          "flags": null,
+          "type": "text",
+          "text": "엑셀시트의 내용을 분석하고 인사이트 있는 대시보드 초안을 제안해봐",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2025-10-17T22:37:18.817638Z",
+      "updated_at": "2025-10-17T22:37:18.817638Z",
+      "attachments": [],
+      "files": [
+        {
+          "file_uuid": "2fa73ace-014a-462b-b969-fc558edfa5db",
+          "file_name": "★`25년 리더십평가 결과_육성공유_251016.xlsx"
+        }
+      ],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "4ed095b8-fe03-4b39-811e-56c42c63fc08",
+      "text": " 엑셀 파일을 먼저 확인해보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n이제 엑셀 데이터 분석을 바탕으로 인사이트 있는 대시보드를 만들어보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n완성했습니다! 2025년 리더십 평가 데이터를 분석하여 인사이트 있는 대시보드와 리포트를 만들었습니다.\n\n## 📊 생성된 자료\n\n### 1. [인터랙티브 대시보드](computer:///mnt/user-data/outputs/leadership_dashboard.html)\n6개의 핵심 차트로 구성된 시각화 대시보드:\n- 종합 점수 분포도\n- 평가자별 비교\n- 17개 역량별 상세 점수\n- 직책별 분포\n- 본인-타인 평가 갭 분석\n- 역량 카테고리별 강점/약점\n\n### 2. [인사이트 리포트](computer:///mnt/user-data/outputs/insights_report.md)\n상세한 분석 및 전략적 제언\n\n## 🎯 핵심 발견사항\n\n**강점 TOP 3:**\n- 🥇 원칙 중시 (94.6점)\n- 🥈 고객 가치 최우선 (91.1점)\n- 🥉 타인 존중 (90.9점)\n\n**개선 필요 TOP 3:**\n- 🔴 인재 확보 열의 (85.8점)\n- 🔴 전략적 사고/행동 (85.9점)\n- 🔴 인재의 지속 성장 관심 (86.0점)\n\n**카테고리별 분석:**\n- 자기개발 (90.5점) ⭐ 최고\n- 조직관리 (86.7점) ⚠️ 가장 낮음 → **핵심 개선 영역**\n\n전반적으로 우수한 수준이나, **인재 육성**과 **전략적 사고** 영역의 강화가 필요합니다!",
+      "content": [
+        {
+          "start_timestamp": "2025-10-17T22:37:21.041498Z",
+          "stop_timestamp": "2025-10-17T22:37:21.368696Z",
+          "flags": null,
+          "type": "text",
+          "text": " 엑셀 파일을 먼저 확인해보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2025-10-17T22:37:21.607903Z",
+          "stop_timestamp": "2025-10-17T22:37:26.428799Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "bash_tool",
+          "input": {
+            "command": "cd /mnt/user-data/uploads && python3 << 'EOF'\nimport pandas as pd\nimport openpyxl\n\n# 엑셀 파일 열기\nfile_path = '__25년_리더십평가_결과_육성공유_251016.xlsx'\n\n# 모든 시트 이름 확인\nxl_file = pd.ExcelFile(file_path)\nprint(\"시트 목록:\")\nprint(xl_file.sheet_names)\nprint(\"\\n\" + \"=\"*80 + \"\\n\")\n\n# 각 시트의 내용 미리보기\nfor sheet_name in xl_file.sheet_names:\n    print(f\"\\n[{sheet_name}] 시트 내용:\")\n    print(\"-\" * 80)\n    df = pd.read_excel(file_path, sheet_name=sheet_name, nrows=10)\n    print(f\"행 수: {len(pd.read_excel(file_path, sheet_name=sheet_name))}\")\n    print(f\"열 수: {len(df.columns)}\")\n    print(f\"\\n컬럼명:\\n{list(df.columns)}\")\n    print(f\"\\n상위 5행:\\n{df.head()}\")\n    print(\"\\n\" + \"=\"*80)\n\nEOF\n",
+            "description": "엑셀 파일의 구조와 내용 파악"
+          },
+          "message": "엑셀 파일의 구조와 내용 파악",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cd /mnt/user-data/uploads && python3 << 'EOF'\\nimport pandas as pd\\nimport openpyxl\\n\\n# \\uc5d1\\uc140 \\ud30c\\uc77c \\uc5f4\\uae30\\nfile_path = '__25\\ub144_\\ub9ac\\ub354\\uc2ed\\ud3c9\\uac00_\\uacb0\\uacfc_\\uc721\\uc131\\uacf5\\uc720_251016.xlsx'\\n\\n# \\ubaa8\\ub4e0 \\uc2dc\\ud2b8 \\uc774\\ub984 \\ud655\\uc778\\nxl_file = pd.ExcelFile(file_path)\\nprint(\\\"\\uc2dc\\ud2b8 \\ubaa9\\ub85d:\\\")\\nprint(xl_file.sheet_names)\\nprint(\\\"\\\\n\\\" + \\\"=\\\"*80 + \\\"\\\\n\\\")\\n\\n# \\uac01 \\uc2dc\\ud2b8\\uc758 \\ub0b4\\uc6a9 \\ubbf8\\ub9ac\\ubcf4\\uae30\\nfor sheet_name in xl_file.sheet_names:\\n    print(f\\\"\\\\n[{sheet_name}] \\uc2dc\\ud2b8 \\ub0b4\\uc6a9:\\\")\\n    print(\\\"-\\\" * 80)\\n    df = pd.read_excel(file_path, sheet_name=sheet_name, nrows=10)\\n    print(f\\\"\\ud589 \\uc218: {len(pd.read_excel(file_path, sheet_name=sheet_name))}\\\")\\n    print(f\\\"\\uc5f4 \\uc218: {len(df.columns)}\\\")\\n    print(f\\\"\\\\n\\uceec\\ub7fc\\uba85:\\\\n{list(df.columns)}\\\")\\n    print(f\\\"\\\\n\\uc0c1\\uc704 5\\ud589:\\\\n{df.head()}\\\")\\n    print(\\\"\\\\n\\\" + \\\"=\\\"*80)\\n\\nEOF\\n\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"시트 목록:\\n['(raw)국내']\\n\\n================================================================================\\n\\n\\n[(raw)국내] 시트 내용:\\n--------------------------------------------------------------------------------\\n행 수: 153\\n열 수: 119\\n\\n컬럼명:\\n['관리조직', '차수명', '사번', '조직명', '상위조직', '성명', '본부/법인', '사업부/담당', '사업부_2', '팀\\\\n(25/10/14기준)', '현회사입사일', '현직책임명일', '직책', 'FSE', '9-block', '상사', '동료', '구성원', '관리조직별 대상인원', '관리조직별\\\\n상사평균', '상사 사번', '상사 성명', '상사의\\\\n평가인원', '상사의\\\\n평균', '상사_Calibration', '1:1:1 종합점수\\\\n(상사 Calibration)', '원점수\\\\n1:1:1 \\\\n종합점수', '상사평균', '동료평균', '구성원 평균', '`24\\\\n리더십', '`23\\\\n리더십', '`22\\\\n리더십', '본인 평균', '타인_고객 가치 최우선', '타인_트렌드 센싱', '타인_통찰력', '타인_전략적 사고/행동', '타인_높은 목표 도전', '타인_결단력', '타인_추진력', '타인_협업과 팀웍', '타인_인재 확보 열의', '타인_인재의 지속 성장 관심', '타인_성과/역량에 따른 엄정한 인사', '타인_모티베이션', '타인_커뮤니케이션', '타인_지속학습', '타인_자기 성찰', '타인_타인 존중', '타인_원칙 중시', '상사_고객 가치 최우선', '상사_트렌드 센싱', '상사_통찰력', '상사_전략적 사고/행동', '상사_높은 목표 도전', '상사_결단력', '상사_추진력', '상사_협업과 팀웍', '상사_인재 확보 열의', '상사_인재의 지속 성장 관심', '상사_성과/역량에 따른 엄정한 인사', '상사_모티베이션', '상사_커뮤니케이션', '상사_지속학습', '상사_자기 성찰', '상사_타인 존중', '상사_원칙 중시', '동료_고객 가치 최우선', '동료_트렌드 센싱', '동료_통찰력', '동료_전략적 사고/행동', '동료_높은 목표 도전', '동료_결단력', '동료_추진력', '동료_협업과 팀웍', '동료_인재 확보 열의', '동료_인재의 지속 성장 관심', '동료_성과/역량에 따른 엄정한 인사', '동료_모티베이션', '동료_커뮤니케이션', '동료_지속학습', '동료_자기 성찰', '동료_타인 존중', '동료_원칙 중시', '구성원_고객 가치 최우선', '구성원_트렌드 센싱', '구성원_통찰력', '구성원_전략적 사고/행동', '구성원_높은 목표 도전', '구성원_결단력', '구성원_추진력', '구성원_협업과 팀웍', '구성원_인재 확보 열의', '구성원_인재의 지속 성장 관심', '구성원_성과/역량에 따른 엄정한 인사', '구성원_모티베이션', '구성원_커뮤니케이션', '구성원_지속학습', '구성원_자기 성찰', '구성원_타인 존중', '구성원_원칙 중시', '본인_고객 가치 최우선', '본인_트렌드 센싱', '본인_통찰력', '본인_전략적 사고/행동', '본인_높은 목표 도전', '본인_결단력', '본인_추진력', '본인_협업과 팀웍', '본인_인재 확보 열의', '본인_인재의 지속 성장 관심', '본인_성과/역량에 따른 엄정한 인사', '본인_모티베이션', '본인_커뮤니케이션', '본인_지속학습', '본인_자기 성찰', '본인_타인 존중', '본인_원칙 중시']\\n\\n상위 5행:\\n      관리조직         차수명      사번  ... 본인_자기 성찰 본인_타인 존중 본인_원칙 중시\\n0  09. 생기원  ① 조직책임자 차수  246467  ...    100.0    100.0    100.0\\n1  09. 생기원  ① 조직책임자 차수  237928  ...     85.7     85.7     85.7\\n2  09. 생기원  ① 조직책임자 차수  285910  ...     85.7    100.0    100.0\\n3  09. 생기원  ① 조직책임자 차수  139127  ...     85.7    100.0     85.7\\n4  09. 생기원  ① 조직책임자 차수  254905  ...     85.7     71.4     85.7\\n\\n[5 rows x 119 columns]\\n\\n================================================================================\\n\",\"stderr\":\"\"}",
+              "uuid": "dcc47e20-e8fa-4bcb-b9c5-31bcf67ef669"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"시트 목록:\\n['(raw)국내']\\n\\n================================================================================\\n\\n\\n[(raw)국내] 시트 내용:\\n--------------------------------------------------------------------------------\\n행 수: 153\\n열 수: 119\\n\\n컬럼명:\\n['관리조직', '차수명', '사번', '조직명', '상위조직', '성명', '본부/법인', '사업부/담당', '사업부_2', '팀\\\\n(25/10/14기준)', '현회사입사일', '현직책임명일', '직책', 'FSE', '9-block', '상사', '동료', '구성원', '관리조직별 대상인원', '관리조직별\\\\n상사평균', '상사 사번', '상사 성명', '상사의\\\\n평가인원', '상사의\\\\n평균', '상사_Calibration', '1:1:1 종합점수\\\\n(상사 Calibration)', '원점수\\\\n1:1:1 \\\\n종합점수', '상사평균', '동료평균', '구성원 평균', '`24\\\\n리더십', '`23\\\\n리더십', '`22\\\\n리더십', '본인 평균', '타인_고객 가치 최우선', '타인_트렌드 센싱', '타인_통찰력', '타인_전략적 사고/행동', '타인_높은 목표 도전', '타인_결단력', '타인_추진력', '타인_협업과 팀웍', '타인_인재 확보 열의', '타인_인재의 지속 성장 관심', '타인_성과/역량에 따른 엄정한 인사', '타인_모티베이션', '타인_커뮤니케이션', '타인_지속학습', '타인_자기 성찰', '타인_타인 존중', '타인_원칙 중시', '상사_고객 가치 최우선', '상사_트렌드 센싱', '상사_통찰력', '상사_전략적 사고/행동', '상사_높은 목표 도전', '상사_결단력', '상사_추진력', '상사_협업과 팀웍', '상사_인재 확보 열의', '상사_인재의 지속 성장 관심', '상사_성과/역량에 따른 엄정한 인사', '상사_모티베이션', '상사_커뮤니케이션', '상사_지속학습', '상사_자기 성찰', '상사_타인 존중', '상사_원칙 중시', '동료_고객 가치 최우선', '동료_트렌드 센싱', '동료_통찰력', '동료_전략적 사고/행동', '동료_높은 목표 도전', '동료_결단력', '동료_추진력', '동료_협업과 팀웍', '동료_인재 확보 열의', '동료_인재의 지속 성장 관심', '동료_성과/역량에 따른 엄정한 인사', '동료_모티베이션', '동료_커뮤니케이션', '동료_지속학습', '동료_자기 성찰', '동료_타인 존중', '동료_원칙 중시', '구성원_고객 가치 최우선', '구성원_트렌드 센싱', '구성원_통찰력', '구성원_전략적 사고/행동', '구성원_높은 목표 도전', '구성원_결단력', '구성원_추진력', '구성원_협업과 팀웍', '구성원_인재 확보 열의', '구성원_인재의 지속 성장 관심', '구성원_성과/역량에 따른 엄정한 인사', '구성원_모티베이션', '구성원_커뮤니케이션', '구성원_지속학습', '구성원_자기 성찰', '구성원_타인 존중', '구성원_원칙 중시', '본인_고객 가치 최우선', '본인_트렌드 센싱', '본인_통찰력', '본인_전략적 사고/행동', '본인_높은 목표 도전', '본인_결단력', '본인_추진력', '본인_협업과 팀웍', '본인_인재 확보 열의', '본인_인재의 지속 성장 관심', '본인_성과/역량에 따른 엄정한 인사', '본인_모티베이션', '본인_커뮤니케이션', '본인_지속학습', '본인_자기 성찰', '본인_타인 존중', '본인_원칙 중시']\\n\\n상위 5행:\\n      관리조직         차수명      사번  ... 본인_자기 성찰 본인_타인 존중 본인_원칙 중시\\n0  09. 생기원  ① 조직책임자 차수  246467  ...    100.0    100.0    100.0\\n1  09. 생기원  ① 조직책임자 차수  237928  ...     85.7     85.7     85.7\\n2  09. 생기원  ① 조직책임자 차수  285910  ...     85.7    100.0    100.0\\n3  09. 생기원  ① 조직책임자 차수  139127  ...     85.7    100.0     85.7\\n4  09. 생기원  ① 조직책임자 차수  254905  ...     85.7     71.4     85.7\\n\\n[5 rows x 119 columns]\\n\\n================================================================================\\n\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-10-17T22:37:32.201089Z",
+          "stop_timestamp": "2025-10-17T22:37:40.283177Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "bash_tool",
+          "input": {
+            "command": "cd /mnt/user-data/uploads && python3 << 'EOF'\nimport pandas as pd\nimport numpy as np\n\n# 데이터 로드\ndf = pd.read_excel('__25년_리더십평가_결과_육성공유_251016.xlsx', sheet_name='(raw)국내')\n\nprint(\"=== 기본 통계 ===\")\nprint(f\"총 인원: {len(df)}명\")\nprint(f\"\\n조직 분포:\")\nprint(df['관리조직'].value_counts())\nprint(f\"\\n직책 분포:\")\nprint(df['직책'].value_counts())\nprint(f\"\\n9-block 분포:\")\nprint(df['9-block'].value_counts())\n\nprint(\"\\n=== 평가 점수 통계 ===\")\nscore_cols = ['1:1:1 종합점수\\n(상사 Calibration)', '상사평균', '동료평균', '구성원 평균', '본인 평균']\nfor col in score_cols:\n    if col in df.columns:\n        col_name = col.replace('\\n', ' ')\n        print(f\"\\n{col_name}:\")\n        print(f\"  평균: {df[col].mean():.2f}\")\n        print(f\"  중위값: {df[col].median():.2f}\")\n        print(f\"  최소: {df[col].min():.2f}\")\n        print(f\"  최대: {df[col].max():.2f}\")\n        print(f\"  표준편차: {df[col].std():.2f}\")\n\nprint(\"\\n=== 역량별 평가 (타인 평균) ===\")\ncompetency_cols = [col for col in df.columns if col.startswith('타인_')]\nfor col in competency_cols[:5]:  # 처음 5개만\n    competency_name = col.replace('타인_', '')\n    print(f\"{competency_name}: {df[col].mean():.2f}\")\n\nprint(\"\\n=== 연도별 리더십 점수 ===\")\nfor year in ['`24\\n리더십', '`23\\n리더십', '`22\\n리더십']:\n    if year in df.columns:\n        non_null = df[year].notna().sum()\n        if non_null > 0:\n            print(f\"{year.replace(chr(10), ' ')}: 평균 {df[year].mean():.2f} ({non_null}명)\")\n\nEOF\n",
+            "description": "데이터 통계 분석"
+          },
+          "message": "데이터 통계 분석",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cd /mnt/user-data/uploads && python3 << 'EOF'\\nimport pandas as pd\\nimport numpy as np\\n\\n# \\ub370\\uc774\\ud130 \\ub85c\\ub4dc\\ndf = pd.read_excel('__25\\ub144_\\ub9ac\\ub354\\uc2ed\\ud3c9\\uac00_\\uacb0\\uacfc_\\uc721\\uc131\\uacf5\\uc720_251016.xlsx', sheet_name='(raw)\\uad6d\\ub0b4')\\n\\nprint(\\\"=== \\uae30\\ubcf8 \\ud1b5\\uacc4 ===\\\")\\nprint(f\\\"\\ucd1d \\uc778\\uc6d0: {len(df)}\\uba85\\\")\\nprint(f\\\"\\\\n\\uc870\\uc9c1 \\ubd84\\ud3ec:\\\")\\nprint(df['\\uad00\\ub9ac\\uc870\\uc9c1'].value_counts())\\nprint(f\\\"\\\\n\\uc9c1\\ucc45 \\ubd84\\ud3ec:\\\")\\nprint(df['\\uc9c1\\ucc45'].value_counts())\\nprint(f\\\"\\\\n9-block \\ubd84\\ud3ec:\\\")\\nprint(df['9-block'].value_counts())\\n\\nprint(\\\"\\\\n=== \\ud3c9\\uac00 \\uc810\\uc218 \\ud1b5\\uacc4 ===\\\")\\nscore_cols = ['1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)', '\\uc0c1\\uc0ac\\ud3c9\\uade0', '\\ub3d9\\ub8cc\\ud3c9\\uade0', '\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0', '\\ubcf8\\uc778 \\ud3c9\\uade0']\\nfor col in score_cols:\\n    if col in df.columns:\\n        col_name = col.replace('\\\\n', ' ')\\n        print(f\\\"\\\\n{col_name}:\\\")\\n        print(f\\\"  \\ud3c9\\uade0: {df[col].mean():.2f}\\\")\\n        print(f\\\"  \\uc911\\uc704\\uac12: {df[col].median():.2f}\\\")\\n        print(f\\\"  \\ucd5c\\uc18c: {df[col].min():.2f}\\\")\\n        print(f\\\"  \\ucd5c\\ub300: {df[col].max():.2f}\\\")\\n        print(f\\\"  \\ud45c\\uc900\\ud3b8\\ucc28: {df[col].std():.2f}\\\")\\n\\nprint(\\\"\\\\n=== \\uc5ed\\ub7c9\\ubcc4 \\ud3c9\\uac00 (\\ud0c0\\uc778 \\ud3c9\\uade0) ===\\\")\\ncompetency_cols = [col for col in df.columns if col.startswith('\\ud0c0\\uc778_')]\\nfor col in competency_cols[:5]:  # \\ucc98\\uc74c 5\\uac1c\\ub9cc\\n    competency_name = col.replace('\\ud0c0\\uc778_', '')\\n    print(f\\\"{competency_name}: {df[col].mean():.2f}\\\")\\n\\nprint(\\\"\\\\n=== \\uc5f0\\ub3c4\\ubcc4 \\ub9ac\\ub354\\uc2ed \\uc810\\uc218 ===\\\")\\nfor year in ['`24\\\\n\\ub9ac\\ub354\\uc2ed', '`23\\\\n\\ub9ac\\ub354\\uc2ed', '`22\\\\n\\ub9ac\\ub354\\uc2ed']:\\n    if year in df.columns:\\n        non_null = df[year].notna().sum()\\n        if non_null > 0:\\n            print(f\\\"{year.replace(chr(10), ' ')}: \\ud3c9\\uade0 {df[year].mean():.2f} ({non_null}\\uba85)\\\")\\n\\nEOF\\n\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":1,\"stdout\":\"=== 기본 통계 ===\\n총 인원: 153명\\n\\n조직 분포:\\n관리조직\\n09. 생기원    150\\nName: count, dtype: int64\\n\\n직책 분포:\\n직책\\n팀장                           66\\nTask Leader                  59\\nLeader                       11\\n파트장                           6\\n실장                            4\\nBL                            2\\nTechnical Account Manager     2\\n12                            1\\nName: count, dtype: int64\\n\\n9-block 분포:\\n9-block\\nY     150\\n14      1\\nName: count, dtype: int64\\n\\n=== 평가 점수 통계 ===\\n\\n1:1:1 종합점수 (상사 Calibration):\\n  평균: 88.90\\n  중위값: 89.62\\n  최소: 25.00\\n  최대: 96.74\\n  표준편차: 6.39\\n\\n상사평균:\\n  평균: 89.11\\n  중위값: 88.22\\n  최소: 41.00\\n  최대: 99.16\\n  표준편차: 8.47\\n\\n동료평균:\\n  평균: 89.87\\n  중위값: 90.97\\n  최소: 42.00\\n  최대: 98.31\\n  표준편차: 6.49\\n\\n구성원 평균:\\n  평균: 88.10\\n  중위값: 90.15\\n  최소: 43.00\\n  최대: 98.24\\n  표준편차: 8.21\\n\\n본인 평균:\\n  평균: 88.17\\n  중위값: 88.22\\n  최소: 50.00\\n  최대: 99.16\\n  표준편차: 7.85\\n\\n=== 역량별 평가 (타인 평균) ===\\n고객 가치 최우선: 91.11\\n트렌드 센싱: 89.85\\n통찰력: 89.86\\n전략적 사고/행동: 85.92\\n높은 목표 도전: 89.18\\n\\n=== 연도별 리더십 점수 ===\\n\",\"stderr\":\"Traceback (most recent call last):\\n  File \\\"<stdin>\\\", line 39, in <module>\\n  File \\\"/usr/local/lib/python3.12/dist-packages/pandas/core/series.py\\\", line 6570, in mean\\n    return NDFrame.mean(self, axis, skipna, numeric_only, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.12/dist-packages/pandas/core/generic.py\\\", line 12485, in mean\\n    return self._stat_function(\\n           ^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.12/dist-packages/pandas/core/generic.py\\\", line 12442, in _stat_function\\n    return self._reduce(\\n           ^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.12/dist-packages/pandas/core/series.py\\\", line 6478, in _reduce\\n    return op(delegate, skipna=skipna, **kwds)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.12/dist-packages/pandas/core/nanops.py\\\", line 147, in f\\n    result = alt(values, axis=axis, skipna=skipna, **kwds)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.12/dist-packages/pandas/core/nanops.py\\\", line 404, in new_func\\n    result = func(values, axis=axis, skipna=skipna, mask=mask, **kwargs)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.12/dist-packages/pandas/core/nanops.py\\\", line 719, in nanmean\\n    the_sum = values.sum(axis, dtype=dtype_sum)\\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.12/dist-packages/numpy/_core/_methods.py\\\", line 51, in _sum\\n    return umr_sum(a, axis, dtype, out, keepdims, initial, where)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nTypeError: can only concatenate str (not \\\"int\\\") to str\\n\"}",
+              "uuid": "b631e3b3-771c-42ab-8f1e-274cbf785c0a"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"plaintext\", \"code\": \"Traceback (most recent call last):\\n  File \\\"<stdin>\\\", line 39, in <module>\\n  File \\\"/usr/local/lib/python3.12/dist-packages/pandas/core/series.py\\\", line 6570, in mean\\n    return NDFrame.mean(self, axis, skipna, numeric_only, **kwargs)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.12/dist-packages/pandas/core/generic.py\\\", line 12485, in mean\\n    return self._stat_function(\\n           ^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.12/dist-packages/pandas/core/generic.py\\\", line 12442, in _stat_function\\n    return self._reduce(\\n           ^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.12/dist-packages/pandas/core/series.py\\\", line 6478, in _reduce\\n    return op(delegate, skipna=skipna, **kwds)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.12/dist-packages/pandas/core/nanops.py\\\", line 147, in f\\n    result = alt(values, axis=axis, skipna=skipna, **kwds)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.12/dist-packages/pandas/core/nanops.py\\\", line 404, in new_func\\n    result = func(values, axis=axis, skipna=skipna, mask=mask, **kwargs)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.12/dist-packages/pandas/core/nanops.py\\\", line 719, in nanmean\\n    the_sum = values.sum(axis, dtype=dtype_sum)\\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/usr/local/lib/python3.12/dist-packages/numpy/_core/_methods.py\\\", line 51, in _sum\\n    return umr_sum(a, axis, dtype, out, keepdims, initial, where)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nTypeError: can only concatenate str (not \\\"int\\\") to str\\n\"}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-10-17T22:37:44.091377Z",
+          "stop_timestamp": "2025-10-17T22:37:55.825028Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "bash_tool",
+          "input": {
+            "command": "cd /mnt/user-data/uploads && python3 << 'EOF'\nimport pandas as pd\nimport numpy as np\n\n# 데이터 로드\ndf = pd.read_excel('__25년_리더십평가_결과_육성공유_251016.xlsx', sheet_name='(raw)국내')\n\n# 리더십 역량 17개 항목\ncompetencies = [\n    '고객 가치 최우선', '트렌드 센싱', '통찰력', '전략적 사고/행동', \n    '높은 목표 도전', '결단력', '추진력', '협업과 팀웍',\n    '인재 확보 열의', '인재의 지속 성장 관심', '성과/역량에 따른 엄정한 인사',\n    '모티베이션', '커뮤니케이션', '지속학습', '자기 성찰', '타인 존중', '원칙 중시'\n]\n\nprint(\"=== 역량별 평가 점수 (타인 평가 기준) ===\")\ncomp_scores = []\nfor comp in competencies:\n    col_name = f'타인_{comp}'\n    if col_name in df.columns:\n        avg_score = df[col_name].mean()\n        comp_scores.append({'역량': comp, '평균': avg_score})\n        print(f\"{comp:20s}: {avg_score:.2f}\")\n\ncomp_df = pd.DataFrame(comp_scores).sort_values('평균', ascending=False)\nprint(\"\\n=== 역량별 순위 (높은 순) ===\")\nfor idx, row in comp_df.iterrows():\n    print(f\"{row['역량']:20s}: {row['평균']:.2f}\")\n\nprint(\"\\n=== 평가자별 점수 차이 분석 ===\")\ndf['본인_타인차이'] = df['본인 평균'] - df['상사평균']\ndf['상사_동료차이'] = df['상사평균'] - df['동료평균']\ndf['상사_구성원차이'] = df['상사평균'] - df['구성원 평균']\n\nprint(f\"본인-상사 평균 차이: {df['본인_타인차이'].mean():.2f} (본인이 {'높게' if df['본인_타인차이'].mean() > 0 else '낮게'} 평가)\")\nprint(f\"상사-동료 평균 차이: {df['상사_동료차이'].mean():.2f}\")\nprint(f\"상사-구성원 평균 차이: {df['상사_구성원차이'].mean():.2f}\")\n\nprint(\"\\n=== 조직별 평균 점수 ===\")\norg_stats = df.groupby('본부/법인').agg({\n    '1:1:1 종합점수\\n(상사 Calibration)': 'mean',\n    '상사평균': 'mean',\n    '동료평균': 'mean',\n    '구성원 평균': 'mean'\n}).round(2)\nprint(org_stats.head(10))\n\nprint(\"\\n=== FSE 등급별 평균 점수 ===\")\nfse_stats = df.groupby('FSE').agg({\n    '1:1:1 종합점수\\n(상사 Calibration)': ['mean', 'count']\n}).round(2)\nprint(fse_stats)\n\nEOF\n",
+            "description": "역량 및 조직별 상세 분석"
+          },
+          "message": "역량 및 조직별 상세 분석",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cd /mnt/user-data/uploads && python3 << 'EOF'\\nimport pandas as pd\\nimport numpy as np\\n\\n# \\ub370\\uc774\\ud130 \\ub85c\\ub4dc\\ndf = pd.read_excel('__25\\ub144_\\ub9ac\\ub354\\uc2ed\\ud3c9\\uac00_\\uacb0\\uacfc_\\uc721\\uc131\\uacf5\\uc720_251016.xlsx', sheet_name='(raw)\\uad6d\\ub0b4')\\n\\n# \\ub9ac\\ub354\\uc2ed \\uc5ed\\ub7c9 17\\uac1c \\ud56d\\ubaa9\\ncompetencies = [\\n    '\\uace0\\uac1d \\uac00\\uce58 \\ucd5c\\uc6b0\\uc120', '\\ud2b8\\ub80c\\ub4dc \\uc13c\\uc2f1', '\\ud1b5\\ucc30\\ub825', '\\uc804\\ub7b5\\uc801 \\uc0ac\\uace0/\\ud589\\ub3d9', \\n    '\\ub192\\uc740 \\ubaa9\\ud45c \\ub3c4\\uc804', '\\uacb0\\ub2e8\\ub825', '\\ucd94\\uc9c4\\ub825', '\\ud611\\uc5c5\\uacfc \\ud300\\uc6cd',\\n    '\\uc778\\uc7ac \\ud655\\ubcf4 \\uc5f4\\uc758', '\\uc778\\uc7ac\\uc758 \\uc9c0\\uc18d \\uc131\\uc7a5 \\uad00\\uc2ec', '\\uc131\\uacfc/\\uc5ed\\ub7c9\\uc5d0 \\ub530\\ub978 \\uc5c4\\uc815\\ud55c \\uc778\\uc0ac',\\n    '\\ubaa8\\ud2f0\\ubca0\\uc774\\uc158', '\\ucee4\\ubba4\\ub2c8\\ucf00\\uc774\\uc158', '\\uc9c0\\uc18d\\ud559\\uc2b5', '\\uc790\\uae30 \\uc131\\ucc30', '\\ud0c0\\uc778 \\uc874\\uc911', '\\uc6d0\\uce59 \\uc911\\uc2dc'\\n]\\n\\nprint(\\\"=== \\uc5ed\\ub7c9\\ubcc4 \\ud3c9\\uac00 \\uc810\\uc218 (\\ud0c0\\uc778 \\ud3c9\\uac00 \\uae30\\uc900) ===\\\")\\ncomp_scores = []\\nfor comp in competencies:\\n    col_name = f'\\ud0c0\\uc778_{comp}'\\n    if col_name in df.columns:\\n        avg_score = df[col_name].mean()\\n        comp_scores.append({'\\uc5ed\\ub7c9': comp, '\\ud3c9\\uade0': avg_score})\\n        print(f\\\"{comp:20s}: {avg_score:.2f}\\\")\\n\\ncomp_df = pd.DataFrame(comp_scores).sort_values('\\ud3c9\\uade0', ascending=False)\\nprint(\\\"\\\\n=== \\uc5ed\\ub7c9\\ubcc4 \\uc21c\\uc704 (\\ub192\\uc740 \\uc21c) ===\\\")\\nfor idx, row in comp_df.iterrows():\\n    print(f\\\"{row['\\uc5ed\\ub7c9']:20s}: {row['\\ud3c9\\uade0']:.2f}\\\")\\n\\nprint(\\\"\\\\n=== \\ud3c9\\uac00\\uc790\\ubcc4 \\uc810\\uc218 \\ucc28\\uc774 \\ubd84\\uc11d ===\\\")\\ndf['\\ubcf8\\uc778_\\ud0c0\\uc778\\ucc28\\uc774'] = df['\\ubcf8\\uc778 \\ud3c9\\uade0'] - df['\\uc0c1\\uc0ac\\ud3c9\\uade0']\\ndf['\\uc0c1\\uc0ac_\\ub3d9\\ub8cc\\ucc28\\uc774'] = df['\\uc0c1\\uc0ac\\ud3c9\\uade0'] - df['\\ub3d9\\ub8cc\\ud3c9\\uade0']\\ndf['\\uc0c1\\uc0ac_\\uad6c\\uc131\\uc6d0\\ucc28\\uc774'] = df['\\uc0c1\\uc0ac\\ud3c9\\uade0'] - df['\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0']\\n\\nprint(f\\\"\\ubcf8\\uc778-\\uc0c1\\uc0ac \\ud3c9\\uade0 \\ucc28\\uc774: {df['\\ubcf8\\uc778_\\ud0c0\\uc778\\ucc28\\uc774'].mean():.2f} (\\ubcf8\\uc778\\uc774 {'\\ub192\\uac8c' if df['\\ubcf8\\uc778_\\ud0c0\\uc778\\ucc28\\uc774'].mean() > 0 else '\\ub0ae\\uac8c'} \\ud3c9\\uac00)\\\")\\nprint(f\\\"\\uc0c1\\uc0ac-\\ub3d9\\ub8cc \\ud3c9\\uade0 \\ucc28\\uc774: {df['\\uc0c1\\uc0ac_\\ub3d9\\ub8cc\\ucc28\\uc774'].mean():.2f}\\\")\\nprint(f\\\"\\uc0c1\\uc0ac-\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0 \\ucc28\\uc774: {df['\\uc0c1\\uc0ac_\\uad6c\\uc131\\uc6d0\\ucc28\\uc774'].mean():.2f}\\\")\\n\\nprint(\\\"\\\\n=== \\uc870\\uc9c1\\ubcc4 \\ud3c9\\uade0 \\uc810\\uc218 ===\\\")\\norg_stats = df.groupby('\\ubcf8\\ubd80/\\ubc95\\uc778').agg({\\n    '1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)': 'mean',\\n    '\\uc0c1\\uc0ac\\ud3c9\\uade0': 'mean',\\n    '\\ub3d9\\ub8cc\\ud3c9\\uade0': 'mean',\\n    '\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0': 'mean'\\n}).round(2)\\nprint(org_stats.head(10))\\n\\nprint(\\\"\\\\n=== FSE \\ub4f1\\uae09\\ubcc4 \\ud3c9\\uade0 \\uc810\\uc218 ===\\\")\\nfse_stats = df.groupby('FSE').agg({\\n    '1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)': ['mean', 'count']\\n}).round(2)\\nprint(fse_stats)\\n\\nEOF\\n\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"=== 역량별 평가 점수 (타인 평가 기준) ===\\n고객 가치 최우선           : 91.11\\n트렌드 센싱              : 89.85\\n통찰력                 : 89.86\\n전략적 사고/행동           : 85.92\\n높은 목표 도전            : 89.18\\n결단력                 : 88.13\\n추진력                 : 90.58\\n협업과 팀웍              : 89.19\\n인재 확보 열의            : 85.82\\n인재의 지속 성장 관심        : 85.97\\n성과/역량에 따른 엄정한 인사    : 89.31\\n모티베이션               : 87.29\\n커뮤니케이션              : 89.87\\n지속학습                : 89.58\\n자기 성찰               : 87.70\\n타인 존중               : 90.86\\n원칙 중시               : 94.58\\n\\n=== 역량별 순위 (높은 순) ===\\n원칙 중시               : 94.58\\n고객 가치 최우선           : 91.11\\n타인 존중               : 90.86\\n추진력                 : 90.58\\n커뮤니케이션              : 89.87\\n통찰력                 : 89.86\\n트렌드 센싱              : 89.85\\n지속학습                : 89.58\\n성과/역량에 따른 엄정한 인사    : 89.31\\n협업과 팀웍              : 89.19\\n높은 목표 도전            : 89.18\\n결단력                 : 88.13\\n자기 성찰               : 87.70\\n모티베이션               : 87.29\\n인재의 지속 성장 관심        : 85.97\\n전략적 사고/행동           : 85.92\\n인재 확보 열의            : 85.82\\n\\n=== 평가자별 점수 차이 분석 ===\\n본인-상사 평균 차이: -0.94 (본인이 낮게 평가)\\n상사-동료 평균 차이: -0.76\\n상사-구성원 평균 차이: 1.01\\n\\n=== 조직별 평균 점수 ===\\n       1:1:1 종합점수\\\\n(상사 Calibration)   상사평균   동료평균  구성원 평균\\n본부/법인                                                    \\n5                             25.00  41.00  42.00    43.0\\n생산기술원                         89.33  89.43  90.19    88.4\\n\\n=== FSE 등급별 평균 점수 ===\\n    1:1:1 종합점수\\\\n(상사 Calibration)      \\n                            mean count\\nFSE                                   \\n13                         25.00     1\\nNO                         89.33   150\\n\",\"stderr\":\"\"}",
+              "uuid": "3d2558f0-1cc0-41fc-b5fc-5f21aa060a16"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"=== 역량별 평가 점수 (타인 평가 기준) ===\\n고객 가치 최우선           : 91.11\\n트렌드 센싱              : 89.85\\n통찰력                 : 89.86\\n전략적 사고/행동           : 85.92\\n높은 목표 도전            : 89.18\\n결단력                 : 88.13\\n추진력                 : 90.58\\n협업과 팀웍              : 89.19\\n인재 확보 열의            : 85.82\\n인재의 지속 성장 관심        : 85.97\\n성과/역량에 따른 엄정한 인사    : 89.31\\n모티베이션               : 87.29\\n커뮤니케이션              : 89.87\\n지속학습                : 89.58\\n자기 성찰               : 87.70\\n타인 존중               : 90.86\\n원칙 중시               : 94.58\\n\\n=== 역량별 순위 (높은 순) ===\\n원칙 중시               : 94.58\\n고객 가치 최우선           : 91.11\\n타인 존중               : 90.86\\n추진력                 : 90.58\\n커뮤니케이션              : 89.87\\n통찰력                 : 89.86\\n트렌드 센싱              : 89.85\\n지속학습                : 89.58\\n성과/역량에 따른 엄정한 인사    : 89.31\\n협업과 팀웍              : 89.19\\n높은 목표 도전            : 89.18\\n결단력                 : 88.13\\n자기 성찰               : 87.70\\n모티베이션               : 87.29\\n인재의 지속 성장 관심        : 85.97\\n전략적 사고/행동           : 85.92\\n인재 확보 열의            : 85.82\\n\\n=== 평가자별 점수 차이 분석 ===\\n본인-상사 평균 차이: -0.94 (본인이 낮게 평가)\\n상사-동료 평균 차이: -0.76\\n상사-구성원 평균 차이: 1.01\\n\\n=== 조직별 평균 점수 ===\\n       1:1:1 종합점수\\\\n(상사 Calibration)   상사평균   동료평균  구성원 평균\\n본부/법인                                                    \\n5                             25.00  41.00  42.00    43.0\\n생산기술원                         89.33  89.43  90.19    88.4\\n\\n=== FSE 등급별 평균 점수 ===\\n    1:1:1 종합점수\\\\n(상사 Calibration)      \\n                            mean count\\nFSE                                   \\n13                         25.00     1\\nNO                         89.33   150\\n\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-10-17T22:37:59.793250Z",
+          "stop_timestamp": "2025-10-17T22:38:00.543424Z",
+          "flags": null,
+          "type": "text",
+          "text": "이제 엑셀 데이터 분석을 바탕으로 인사이트 있는 대시보드를 만들어보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2025-10-17T22:38:00.722311Z",
+          "stop_timestamp": "2025-10-17T22:38:27.724704Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "bash_tool",
+          "input": {
+            "command": "cd /home/claude && python3 << 'EOF'\nimport pandas as pd\nimport plotly.graph_objects as go\nfrom plotly.subplots import make_subplots\nimport plotly.express as px\n\n# 데이터 로드\ndf = pd.read_excel('/mnt/user-data/uploads/__25년_리더십평가_결과_육성공유_251016.xlsx', sheet_name='(raw)국내')\n\n# 이상치 제거 (점수가 50점 미만인 케이스)\ndf_clean = df[df['1:1:1 종합점수\\n(상사 Calibration)'] >= 50].copy()\n\n# 17개 리더십 역량\ncompetencies = [\n    '고객 가치 최우선', '트렌드 센싱', '통찰력', '전략적 사고/행동', \n    '높은 목표 도전', '결단력', '추진력', '협업과 팀웍',\n    '인재 확보 열의', '인재의 지속 성장 관심', '성과/역량에 따른 엄정한 인사',\n    '모티베이션', '커뮤니케이션', '지속학습', '자기 성찰', '타인 존중', '원칙 중시'\n]\n\n# 서브플롯 생성\nfig = make_subplots(\n    rows=3, cols=2,\n    subplot_titles=(\n        '1. 리더십 종합 점수 분포',\n        '2. 평가자별 평균 점수 비교',\n        '3. 17개 역량별 평균 점수 (타인 평가)',\n        '4. 직책별 평균 점수',\n        '5. 본인-타인 평가 갭 분석',\n        '6. 역량 카테고리별 강점/약점'\n    ),\n    specs=[\n        [{\"type\": \"histogram\"}, {\"type\": \"bar\"}],\n        [{\"type\": \"bar\"}, {\"type\": \"box\"}],\n        [{\"type\": \"scatter\"}, {\"type\": \"bar\"}]\n    ],\n    vertical_spacing=0.12,\n    horizontal_spacing=0.12\n)\n\n# 1. 종합 점수 분포\nfig.add_trace(\n    go.Histogram(\n        x=df_clean['1:1:1 종합점수\\n(상사 Calibration)'],\n        nbinsx=20,\n        name='점수 분포',\n        marker_color='lightblue',\n        showlegend=False\n    ),\n    row=1, col=1\n)\n\n# 2. 평가자별 평균 점수\nevaluator_scores = {\n    '상사': df_clean['상사평균'].mean(),\n    '동료': df_clean['동료평균'].mean(),\n    '구성원': df_clean['구성원 평균'].mean(),\n    '본인': df_clean['본인 평균'].mean()\n}\nfig.add_trace(\n    go.Bar(\n        x=list(evaluator_scores.keys()),\n        y=list(evaluator_scores.values()),\n        text=[f'{v:.1f}' for v in evaluator_scores.values()],\n        textposition='outside',\n        marker_color=['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A'],\n        showlegend=False\n    ),\n    row=1, col=2\n)\n\n# 3. 17개 역량별 점수\ncomp_scores = []\nfor comp in competencies:\n    col_name = f'타인_{comp}'\n    if col_name in df_clean.columns:\n        comp_scores.append({\n            '역량': comp,\n            '점수': df_clean[col_name].mean()\n        })\n\ncomp_df = pd.DataFrame(comp_scores).sort_values('점수', ascending=True)\ncolors = ['#FF6B6B' if score < 87 else '#FFA500' if score < 90 else '#4ECDC4' \n          for score in comp_df['점수']]\n\nfig.add_trace(\n    go.Bar(\n        y=comp_df['역량'],\n        x=comp_df['점수'],\n        orientation='h',\n        text=[f'{v:.1f}' for v in comp_df['점수']],\n        textposition='outside',\n        marker_color=colors,\n        showlegend=False\n    ),\n    row=2, col=1\n)\n\n# 4. 직책별 평균 점수\nposition_stats = df_clean.groupby('직책').agg({\n    '1:1:1 종합점수\\n(상사 Calibration)': 'mean',\n    '사번': 'count'\n}).reset_index()\nposition_stats.columns = ['직책', '평균점수', '인원수']\nposition_stats = position_stats[position_stats['인원수'] >= 5].sort_values('평균점수')\n\nfig.add_trace(\n    go.Box(\n        x=df_clean['직책'],\n        y=df_clean['1:1:1 종합점수\\n(상사 Calibration)'],\n        marker_color='lightgreen',\n        showlegend=False\n    ),\n    row=2, col=2\n)\n\n# 5. 본인-타인 평가 갭\ndf_clean['본인타인갭'] = df_clean['본인 평균'] - df_clean['상사평균']\nfig.add_trace(\n    go.Scatter(\n        x=df_clean['상사평균'],\n        y=df_clean['본인타인갭'],\n        mode='markers',\n        marker=dict(\n            size=8,\n            color=df_clean['본인타인갭'],\n            colorscale='RdYlGn_r',\n            showscale=True,\n            colorbar=dict(title=\"갭\", x=0.46)\n        ),\n        showlegend=False\n    ),\n    row=3, col=1\n)\nfig.add_hline(y=0, line_dash=\"dash\", line_color=\"gray\", row=3, col=1)\n\n# 6. 역량 카테고리별 분석\ncategories = {\n    '전략적 사고': ['고객 가치 최우선', '트렌드 센싱', '통찰력', '전략적 사고/행동'],\n    '실행력': ['높은 목표 도전', '결단력', '추진력'],\n    '조직관리': ['협업과 팀웍', '인재 확보 열의', '인재의 지속 성장 관심', '성과/역량에 따른 엄정한 인사', '모티베이션'],\n    '자기개발': ['커뮤니케이션', '지속학습', '자기 성찰', '타인 존중', '원칙 중시']\n}\n\ncat_scores = []\nfor cat_name, comps in categories.items():\n    scores = []\n    for comp in comps:\n        col_name = f'타인_{comp}'\n        if col_name in df_clean.columns:\n            scores.append(df_clean[col_name].mean())\n    cat_scores.append({'카테고리': cat_name, '평균': sum(scores)/len(scores)})\n\ncat_df = pd.DataFrame(cat_scores).sort_values('평균')\nfig.add_trace(\n    go.Bar(\n        x=cat_df['카테고리'],\n        y=cat_df['평균'],\n        text=[f'{v:.1f}' for v in cat_df['평균']],\n        textposition='outside',\n        marker_color=['#FF6B6B', '#FFA500', '#4ECDC4', '#45B7D1'],\n        showlegend=False\n    ),\n    row=3, col=2\n)\n\n# 레이아웃 업데이트\nfig.update_xaxes(title_text=\"점수\", row=1, col=1)\nfig.update_yaxes(title_text=\"인원수\", row=1, col=1)\nfig.update_yaxes(title_text=\"평균 점수\", row=1, col=2, range=[80, 95])\nfig.update_xaxes(title_text=\"점수\", row=2, col=1, range=[80, 100])\nfig.update_xaxes(title_text=\"직책\", row=2, col=2)\nfig.update_yaxes(title_text=\"점수\", row=2, col=2)\nfig.update_xaxes(title_text=\"상사 평가 점수\", row=3, col=1)\nfig.update_yaxes(title_text=\"본인-상사 갭\", row=3, col=1)\nfig.update_yaxes(title_text=\"평균 점수\", row=3, col=2, range=[85, 92])\n\nfig.update_layout(\n    height=1400,\n    title_text=\"<b>2025 리더십 평가 결과 대시보드</b><br><sub>생산기술원 | 152명 분석</sub>\",\n    title_font_size=24,\n    showlegend=False,\n    font=dict(family=\"Malgun Gothic, sans-serif\", size=10)\n)\n\nfig.write_html('/home/claude/leadership_dashboard.html')\nprint(\"대시보드 생성 완료!\")\n\nEOF\n",
+            "description": "인터랙티브 대시보드 생성"
+          },
+          "message": "인터랙티브 대시보드 생성",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cd /home/claude && python3 << 'EOF'\\nimport pandas as pd\\nimport plotly.graph_objects as go\\nfrom plotly.subplots import make_subplots\\nimport plotly.express as px\\n\\n# \\ub370\\uc774\\ud130 \\ub85c\\ub4dc\\ndf = pd.read_excel('/mnt/user-data/uploads/__25\\ub144_\\ub9ac\\ub354\\uc2ed\\ud3c9\\uac00_\\uacb0\\uacfc_\\uc721\\uc131\\uacf5\\uc720_251016.xlsx', sheet_name='(raw)\\uad6d\\ub0b4')\\n\\n# \\uc774\\uc0c1\\uce58 \\uc81c\\uac70 (\\uc810\\uc218\\uac00 50\\uc810 \\ubbf8\\ub9cc\\uc778 \\ucf00\\uc774\\uc2a4)\\ndf_clean = df[df['1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)'] >= 50].copy()\\n\\n# 17\\uac1c \\ub9ac\\ub354\\uc2ed \\uc5ed\\ub7c9\\ncompetencies = [\\n    '\\uace0\\uac1d \\uac00\\uce58 \\ucd5c\\uc6b0\\uc120', '\\ud2b8\\ub80c\\ub4dc \\uc13c\\uc2f1', '\\ud1b5\\ucc30\\ub825', '\\uc804\\ub7b5\\uc801 \\uc0ac\\uace0/\\ud589\\ub3d9', \\n    '\\ub192\\uc740 \\ubaa9\\ud45c \\ub3c4\\uc804', '\\uacb0\\ub2e8\\ub825', '\\ucd94\\uc9c4\\ub825', '\\ud611\\uc5c5\\uacfc \\ud300\\uc6cd',\\n    '\\uc778\\uc7ac \\ud655\\ubcf4 \\uc5f4\\uc758', '\\uc778\\uc7ac\\uc758 \\uc9c0\\uc18d \\uc131\\uc7a5 \\uad00\\uc2ec', '\\uc131\\uacfc/\\uc5ed\\ub7c9\\uc5d0 \\ub530\\ub978 \\uc5c4\\uc815\\ud55c \\uc778\\uc0ac',\\n    '\\ubaa8\\ud2f0\\ubca0\\uc774\\uc158', '\\ucee4\\ubba4\\ub2c8\\ucf00\\uc774\\uc158', '\\uc9c0\\uc18d\\ud559\\uc2b5', '\\uc790\\uae30 \\uc131\\ucc30', '\\ud0c0\\uc778 \\uc874\\uc911', '\\uc6d0\\uce59 \\uc911\\uc2dc'\\n]\\n\\n# \\uc11c\\ube0c\\ud50c\\ub86f \\uc0dd\\uc131\\nfig = make_subplots(\\n    rows=3, cols=2,\\n    subplot_titles=(\\n        '1. \\ub9ac\\ub354\\uc2ed \\uc885\\ud569 \\uc810\\uc218 \\ubd84\\ud3ec',\\n        '2. \\ud3c9\\uac00\\uc790\\ubcc4 \\ud3c9\\uade0 \\uc810\\uc218 \\ube44\\uad50',\\n        '3. 17\\uac1c \\uc5ed\\ub7c9\\ubcc4 \\ud3c9\\uade0 \\uc810\\uc218 (\\ud0c0\\uc778 \\ud3c9\\uac00)',\\n        '4. \\uc9c1\\ucc45\\ubcc4 \\ud3c9\\uade0 \\uc810\\uc218',\\n        '5. \\ubcf8\\uc778-\\ud0c0\\uc778 \\ud3c9\\uac00 \\uac2d \\ubd84\\uc11d',\\n        '6. \\uc5ed\\ub7c9 \\uce74\\ud14c\\uace0\\ub9ac\\ubcc4 \\uac15\\uc810/\\uc57d\\uc810'\\n    ),\\n    specs=[\\n        [{\\\"type\\\": \\\"histogram\\\"}, {\\\"type\\\": \\\"bar\\\"}],\\n        [{\\\"type\\\": \\\"bar\\\"}, {\\\"type\\\": \\\"box\\\"}],\\n        [{\\\"type\\\": \\\"scatter\\\"}, {\\\"type\\\": \\\"bar\\\"}]\\n    ],\\n    vertical_spacing=0.12,\\n    horizontal_spacing=0.12\\n)\\n\\n# 1. \\uc885\\ud569 \\uc810\\uc218 \\ubd84\\ud3ec\\nfig.add_trace(\\n    go.Histogram(\\n        x=df_clean['1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)'],\\n        nbinsx=20,\\n        name='\\uc810\\uc218 \\ubd84\\ud3ec',\\n        marker_color='lightblue',\\n        showlegend=False\\n    ),\\n    row=1, col=1\\n)\\n\\n# 2. \\ud3c9\\uac00\\uc790\\ubcc4 \\ud3c9\\uade0 \\uc810\\uc218\\nevaluator_scores = {\\n    '\\uc0c1\\uc0ac': df_clean['\\uc0c1\\uc0ac\\ud3c9\\uade0'].mean(),\\n    '\\ub3d9\\ub8cc': df_clean['\\ub3d9\\ub8cc\\ud3c9\\uade0'].mean(),\\n    '\\uad6c\\uc131\\uc6d0': df_clean['\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0'].mean(),\\n    '\\ubcf8\\uc778': df_clean['\\ubcf8\\uc778 \\ud3c9\\uade0'].mean()\\n}\\nfig.add_trace(\\n    go.Bar(\\n        x=list(evaluator_scores.keys()),\\n        y=list(evaluator_scores.values()),\\n        text=[f'{v:.1f}' for v in evaluator_scores.values()],\\n        textposition='outside',\\n        marker_color=['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A'],\\n        showlegend=False\\n    ),\\n    row=1, col=2\\n)\\n\\n# 3. 17\\uac1c \\uc5ed\\ub7c9\\ubcc4 \\uc810\\uc218\\ncomp_scores = []\\nfor comp in competencies:\\n    col_name = f'\\ud0c0\\uc778_{comp}'\\n    if col_name in df_clean.columns:\\n        comp_scores.append({\\n            '\\uc5ed\\ub7c9': comp,\\n            '\\uc810\\uc218': df_clean[col_name].mean()\\n        })\\n\\ncomp_df = pd.DataFrame(comp_scores).sort_values('\\uc810\\uc218', ascending=True)\\ncolors = ['#FF6B6B' if score < 87 else '#FFA500' if score < 90 else '#4ECDC4' \\n          for score in comp_df['\\uc810\\uc218']]\\n\\nfig.add_trace(\\n    go.Bar(\\n        y=comp_df['\\uc5ed\\ub7c9'],\\n        x=comp_df['\\uc810\\uc218'],\\n        orientation='h',\\n        text=[f'{v:.1f}' for v in comp_df['\\uc810\\uc218']],\\n        textposition='outside',\\n        marker_color=colors,\\n        showlegend=False\\n    ),\\n    row=2, col=1\\n)\\n\\n# 4. \\uc9c1\\ucc45\\ubcc4 \\ud3c9\\uade0 \\uc810\\uc218\\nposition_stats = df_clean.groupby('\\uc9c1\\ucc45').agg({\\n    '1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)': 'mean',\\n    '\\uc0ac\\ubc88': 'count'\\n}).reset_index()\\nposition_stats.columns = ['\\uc9c1\\ucc45', '\\ud3c9\\uade0\\uc810\\uc218', '\\uc778\\uc6d0\\uc218']\\nposition_stats = position_stats[position_stats['\\uc778\\uc6d0\\uc218'] >= 5].sort_values('\\ud3c9\\uade0\\uc810\\uc218')\\n\\nfig.add_trace(\\n    go.Box(\\n        x=df_clean['\\uc9c1\\ucc45'],\\n        y=df_clean['1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)'],\\n        marker_color='lightgreen',\\n        showlegend=False\\n    ),\\n    row=2, col=2\\n)\\n\\n# 5. \\ubcf8\\uc778-\\ud0c0\\uc778 \\ud3c9\\uac00 \\uac2d\\ndf_clean['\\ubcf8\\uc778\\ud0c0\\uc778\\uac2d'] = df_clean['\\ubcf8\\uc778 \\ud3c9\\uade0'] - df_clean['\\uc0c1\\uc0ac\\ud3c9\\uade0']\\nfig.add_trace(\\n    go.Scatter(\\n        x=df_clean['\\uc0c1\\uc0ac\\ud3c9\\uade0'],\\n        y=df_clean['\\ubcf8\\uc778\\ud0c0\\uc778\\uac2d'],\\n        mode='markers',\\n        marker=dict(\\n            size=8,\\n            color=df_clean['\\ubcf8\\uc778\\ud0c0\\uc778\\uac2d'],\\n            colorscale='RdYlGn_r',\\n            showscale=True,\\n            colorbar=dict(title=\\\"\\uac2d\\\", x=0.46)\\n        ),\\n        showlegend=False\\n    ),\\n    row=3, col=1\\n)\\nfig.add_hline(y=0, line_dash=\\\"dash\\\", line_color=\\\"gray\\\", row=3, col=1)\\n\\n# 6. \\uc5ed\\ub7c9 \\uce74\\ud14c\\uace0\\ub9ac\\ubcc4 \\ubd84\\uc11d\\ncategories = {\\n    '\\uc804\\ub7b5\\uc801 \\uc0ac\\uace0': ['\\uace0\\uac1d \\uac00\\uce58 \\ucd5c\\uc6b0\\uc120', '\\ud2b8\\ub80c\\ub4dc \\uc13c\\uc2f1', '\\ud1b5\\ucc30\\ub825', '\\uc804\\ub7b5\\uc801 \\uc0ac\\uace0/\\ud589\\ub3d9'],\\n    '\\uc2e4\\ud589\\ub825': ['\\ub192\\uc740 \\ubaa9\\ud45c \\ub3c4\\uc804', '\\uacb0\\ub2e8\\ub825', '\\ucd94\\uc9c4\\ub825'],\\n    '\\uc870\\uc9c1\\uad00\\ub9ac': ['\\ud611\\uc5c5\\uacfc \\ud300\\uc6cd', '\\uc778\\uc7ac \\ud655\\ubcf4 \\uc5f4\\uc758', '\\uc778\\uc7ac\\uc758 \\uc9c0\\uc18d \\uc131\\uc7a5 \\uad00\\uc2ec', '\\uc131\\uacfc/\\uc5ed\\ub7c9\\uc5d0 \\ub530\\ub978 \\uc5c4\\uc815\\ud55c \\uc778\\uc0ac', '\\ubaa8\\ud2f0\\ubca0\\uc774\\uc158'],\\n    '\\uc790\\uae30\\uac1c\\ubc1c': ['\\ucee4\\ubba4\\ub2c8\\ucf00\\uc774\\uc158', '\\uc9c0\\uc18d\\ud559\\uc2b5', '\\uc790\\uae30 \\uc131\\ucc30', '\\ud0c0\\uc778 \\uc874\\uc911', '\\uc6d0\\uce59 \\uc911\\uc2dc']\\n}\\n\\ncat_scores = []\\nfor cat_name, comps in categories.items():\\n    scores = []\\n    for comp in comps:\\n        col_name = f'\\ud0c0\\uc778_{comp}'\\n        if col_name in df_clean.columns:\\n            scores.append(df_clean[col_name].mean())\\n    cat_scores.append({'\\uce74\\ud14c\\uace0\\ub9ac': cat_name, '\\ud3c9\\uade0': sum(scores)/len(scores)})\\n\\ncat_df = pd.DataFrame(cat_scores).sort_values('\\ud3c9\\uade0')\\nfig.add_trace(\\n    go.Bar(\\n        x=cat_df['\\uce74\\ud14c\\uace0\\ub9ac'],\\n        y=cat_df['\\ud3c9\\uade0'],\\n        text=[f'{v:.1f}' for v in cat_df['\\ud3c9\\uade0']],\\n        textposition='outside',\\n        marker_color=['#FF6B6B', '#FFA500', '#4ECDC4', '#45B7D1'],\\n        showlegend=False\\n    ),\\n    row=3, col=2\\n)\\n\\n# \\ub808\\uc774\\uc544\\uc6c3 \\uc5c5\\ub370\\uc774\\ud2b8\\nfig.update_xaxes(title_text=\\\"\\uc810\\uc218\\\", row=1, col=1)\\nfig.update_yaxes(title_text=\\\"\\uc778\\uc6d0\\uc218\\\", row=1, col=1)\\nfig.update_yaxes(title_text=\\\"\\ud3c9\\uade0 \\uc810\\uc218\\\", row=1, col=2, range=[80, 95])\\nfig.update_xaxes(title_text=\\\"\\uc810\\uc218\\\", row=2, col=1, range=[80, 100])\\nfig.update_xaxes(title_text=\\\"\\uc9c1\\ucc45\\\", row=2, col=2)\\nfig.update_yaxes(title_text=\\\"\\uc810\\uc218\\\", row=2, col=2)\\nfig.update_xaxes(title_text=\\\"\\uc0c1\\uc0ac \\ud3c9\\uac00 \\uc810\\uc218\\\", row=3, col=1)\\nfig.update_yaxes(title_text=\\\"\\ubcf8\\uc778-\\uc0c1\\uc0ac \\uac2d\\\", row=3, col=1)\\nfig.update_yaxes(title_text=\\\"\\ud3c9\\uade0 \\uc810\\uc218\\\", row=3, col=2, range=[85, 92])\\n\\nfig.update_layout(\\n    height=1400,\\n    title_text=\\\"<b>2025 \\ub9ac\\ub354\\uc2ed \\ud3c9\\uac00 \\uacb0\\uacfc \\ub300\\uc2dc\\ubcf4\\ub4dc</b><br><sub>\\uc0dd\\uc0b0\\uae30\\uc220\\uc6d0 | 152\\uba85 \\ubd84\\uc11d</sub>\\\",\\n    title_font_size=24,\\n    showlegend=False,\\n    font=dict(family=\\\"Malgun Gothic, sans-serif\\\", size=10)\\n)\\n\\nfig.write_html('/home/claude/leadership_dashboard.html')\\nprint(\\\"\\ub300\\uc2dc\\ubcf4\\ub4dc \\uc0dd\\uc131 \\uc644\\ub8cc!\\\")\\n\\nEOF\\n\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":1,\"stdout\":\"\",\"stderr\":\"Traceback (most recent call last):\\n  File \\\"<stdin>\\\", line 2, in <module>\\nModuleNotFoundError: No module named 'plotly'\\n\"}",
+              "uuid": "44298736-a762-4581-b54f-44b89aed0afb"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"plaintext\", \"code\": \"Traceback (most recent call last):\\n  File \\\"<stdin>\\\", line 2, in <module>\\nModuleNotFoundError: No module named 'plotly'\\n\"}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-10-17T22:38:30.926461Z",
+          "stop_timestamp": "2025-10-17T22:38:31.603956Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "bash_tool",
+          "input": {
+            "command": "pip install plotly kaleido --break-system-packages -q",
+            "description": "plotly 설치"
+          },
+          "message": "plotly 설치",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"pip install plotly kaleido --break-system-packages -q\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"\",\"stderr\":\"\"}",
+              "uuid": "6b3a80b5-3457-4bd6-8189-616aa693315f"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-10-17T22:38:45.827293Z",
+          "stop_timestamp": "2025-10-17T22:39:04.027872Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "bash_tool",
+          "input": {
+            "command": "cd /home/claude && python3 << 'EOF'\nimport pandas as pd\nimport plotly.graph_objects as go\nfrom plotly.subplots import make_subplots\nimport plotly.express as px\n\n# 데이터 로드\ndf = pd.read_excel('/mnt/user-data/uploads/__25년_리더십평가_결과_육성공유_251016.xlsx', sheet_name='(raw)국내')\n\n# 이상치 제거 (점수가 50점 미만인 케이스)\ndf_clean = df[df['1:1:1 종합점수\\n(상사 Calibration)'] >= 50].copy()\n\nprint(f\"분석 대상: {len(df_clean)}명\")\n\n# 17개 리더십 역량\ncompetencies = [\n    '고객 가치 최우선', '트렌드 센싱', '통찰력', '전략적 사고/행동', \n    '높은 목표 도전', '결단력', '추진력', '협업과 팀웍',\n    '인재 확보 열의', '인재의 지속 성장 관심', '성과/역량에 따른 엄정한 인사',\n    '모티베이션', '커뮤니케이션', '지속학습', '자기 성찰', '타인 존중', '원칙 중시'\n]\n\n# 서브플롯 생성\nfig = make_subplots(\n    rows=3, cols=2,\n    subplot_titles=(\n        '1. 리더십 종합 점수 분포',\n        '2. 평가자별 평균 점수 비교',\n        '3. 17개 역량별 평균 점수 (타인 평가)',\n        '4. 직책별 평균 점수',\n        '5. 본인-타인 평가 갭 분석',\n        '6. 역량 카테고리별 강점/약점'\n    ),\n    specs=[\n        [{\"type\": \"histogram\"}, {\"type\": \"bar\"}],\n        [{\"type\": \"bar\"}, {\"type\": \"box\"}],\n        [{\"type\": \"scatter\"}, {\"type\": \"bar\"}]\n    ],\n    vertical_spacing=0.12,\n    horizontal_spacing=0.12\n)\n\n# 1. 종합 점수 분포\nfig.add_trace(\n    go.Histogram(\n        x=df_clean['1:1:1 종합점수\\n(상사 Calibration)'],\n        nbinsx=20,\n        name='점수 분포',\n        marker_color='lightblue',\n        showlegend=False\n    ),\n    row=1, col=1\n)\n\n# 2. 평가자별 평균 점수\nevaluator_scores = {\n    '상사': df_clean['상사평균'].mean(),\n    '동료': df_clean['동료평균'].mean(),\n    '구성원': df_clean['구성원 평균'].mean(),\n    '본인': df_clean['본인 평균'].mean()\n}\nfig.add_trace(\n    go.Bar(\n        x=list(evaluator_scores.keys()),\n        y=list(evaluator_scores.values()),\n        text=[f'{v:.1f}' for v in evaluator_scores.values()],\n        textposition='outside',\n        marker_color=['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A'],\n        showlegend=False\n    ),\n    row=1, col=2\n)\n\n# 3. 17개 역량별 점수\ncomp_scores = []\nfor comp in competencies:\n    col_name = f'타인_{comp}'\n    if col_name in df_clean.columns:\n        comp_scores.append({\n            '역량': comp,\n            '점수': df_clean[col_name].mean()\n        })\n\ncomp_df = pd.DataFrame(comp_scores).sort_values('점수', ascending=True)\ncolors = ['#FF6B6B' if score < 87 else '#FFA500' if score < 90 else '#4ECDC4' \n          for score in comp_df['점수']]\n\nfig.add_trace(\n    go.Bar(\n        y=comp_df['역량'],\n        x=comp_df['점수'],\n        orientation='h',\n        text=[f'{v:.1f}' for v in comp_df['점수']],\n        textposition='outside',\n        marker_color=colors,\n        showlegend=False\n    ),\n    row=2, col=1\n)\n\n# 4. 직책별 평균 점수 (Box plot)\nfig.add_trace(\n    go.Box(\n        x=df_clean['직책'],\n        y=df_clean['1:1:1 종합점수\\n(상사 Calibration)'],\n        marker_color='lightgreen',\n        showlegend=False\n    ),\n    row=2, col=2\n)\n\n# 5. 본인-타인 평가 갭\ndf_clean['본인타인갭'] = df_clean['본인 평균'] - df_clean['상사평균']\nfig.add_trace(\n    go.Scatter(\n        x=df_clean['상사평균'],\n        y=df_clean['본인타인갭'],\n        mode='markers',\n        marker=dict(\n            size=8,\n            color=df_clean['본인타인갭'],\n            colorscale='RdYlGn_r',\n            showscale=True,\n            colorbar=dict(title=\"갭\", x=0.46)\n        ),\n        showlegend=False\n    ),\n    row=3, col=1\n)\nfig.add_hline(y=0, line_dash=\"dash\", line_color=\"gray\", row=3, col=1)\n\n# 6. 역량 카테고리별 분석\ncategories = {\n    '전략적 사고': ['고객 가치 최우선', '트렌드 센싱', '통찰력', '전략적 사고/행동'],\n    '실행력': ['높은 목표 도전', '결단력', '추진력'],\n    '조직관리': ['협업과 팀웍', '인재 확보 열의', '인재의 지속 성장 관심', '성과/역량에 따른 엄정한 인사', '모티베이션'],\n    '자기개발': ['커뮤니케이션', '지속학습', '자기 성찰', '타인 존중', '원칙 중시']\n}\n\ncat_scores = []\nfor cat_name, comps in categories.items():\n    scores = []\n    for comp in comps:\n        col_name = f'타인_{comp}'\n        if col_name in df_clean.columns:\n            scores.append(df_clean[col_name].mean())\n    cat_scores.append({'카테고리': cat_name, '평균': sum(scores)/len(scores)})\n\ncat_df = pd.DataFrame(cat_scores).sort_values('평균')\nfig.add_trace(\n    go.Bar(\n        x=cat_df['카테고리'],\n        y=cat_df['평균'],\n        text=[f'{v:.1f}' for v in cat_df['평균']],\n        textposition='outside',\n        marker_color=['#FF6B6B', '#FFA500', '#4ECDC4', '#45B7D1'],\n        showlegend=False\n    ),\n    row=3, col=2\n)\n\n# 레이아웃 업데이트\nfig.update_xaxes(title_text=\"점수\", row=1, col=1)\nfig.update_yaxes(title_text=\"인원수\", row=1, col=1)\nfig.update_yaxes(title_text=\"평균 점수\", row=1, col=2, range=[80, 95])\nfig.update_xaxes(title_text=\"점수\", row=2, col=1, range=[80, 100])\nfig.update_xaxes(title_text=\"직책\", row=2, col=2)\nfig.update_yaxes(title_text=\"점수\", row=2, col=2)\nfig.update_xaxes(title_text=\"상사 평가 점수\", row=3, col=1)\nfig.update_yaxes(title_text=\"본인-상사 갭\", row=3, col=1)\nfig.update_yaxes(title_text=\"평균 점수\", row=3, col=2, range=[85, 92])\n\nfig.update_layout(\n    height=1400,\n    title_text=\"<b>2025 리더십 평가 결과 대시보드</b><br><sub>생산기술원 | 152명 분석</sub>\",\n    title_font_size=24,\n    showlegend=False,\n    font=dict(size=10)\n)\n\nfig.write_html('/home/claude/leadership_dashboard.html')\nprint(\"✅ 대시보드 생성 완료!\")\n\nEOF\n",
+            "description": "대시보드 HTML 생성"
+          },
+          "message": "대시보드 HTML 생성",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cd /home/claude && python3 << 'EOF'\\nimport pandas as pd\\nimport plotly.graph_objects as go\\nfrom plotly.subplots import make_subplots\\nimport plotly.express as px\\n\\n# \\ub370\\uc774\\ud130 \\ub85c\\ub4dc\\ndf = pd.read_excel('/mnt/user-data/uploads/__25\\ub144_\\ub9ac\\ub354\\uc2ed\\ud3c9\\uac00_\\uacb0\\uacfc_\\uc721\\uc131\\uacf5\\uc720_251016.xlsx', sheet_name='(raw)\\uad6d\\ub0b4')\\n\\n# \\uc774\\uc0c1\\uce58 \\uc81c\\uac70 (\\uc810\\uc218\\uac00 50\\uc810 \\ubbf8\\ub9cc\\uc778 \\ucf00\\uc774\\uc2a4)\\ndf_clean = df[df['1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)'] >= 50].copy()\\n\\nprint(f\\\"\\ubd84\\uc11d \\ub300\\uc0c1: {len(df_clean)}\\uba85\\\")\\n\\n# 17\\uac1c \\ub9ac\\ub354\\uc2ed \\uc5ed\\ub7c9\\ncompetencies = [\\n    '\\uace0\\uac1d \\uac00\\uce58 \\ucd5c\\uc6b0\\uc120', '\\ud2b8\\ub80c\\ub4dc \\uc13c\\uc2f1', '\\ud1b5\\ucc30\\ub825', '\\uc804\\ub7b5\\uc801 \\uc0ac\\uace0/\\ud589\\ub3d9', \\n    '\\ub192\\uc740 \\ubaa9\\ud45c \\ub3c4\\uc804', '\\uacb0\\ub2e8\\ub825', '\\ucd94\\uc9c4\\ub825', '\\ud611\\uc5c5\\uacfc \\ud300\\uc6cd',\\n    '\\uc778\\uc7ac \\ud655\\ubcf4 \\uc5f4\\uc758', '\\uc778\\uc7ac\\uc758 \\uc9c0\\uc18d \\uc131\\uc7a5 \\uad00\\uc2ec', '\\uc131\\uacfc/\\uc5ed\\ub7c9\\uc5d0 \\ub530\\ub978 \\uc5c4\\uc815\\ud55c \\uc778\\uc0ac',\\n    '\\ubaa8\\ud2f0\\ubca0\\uc774\\uc158', '\\ucee4\\ubba4\\ub2c8\\ucf00\\uc774\\uc158', '\\uc9c0\\uc18d\\ud559\\uc2b5', '\\uc790\\uae30 \\uc131\\ucc30', '\\ud0c0\\uc778 \\uc874\\uc911', '\\uc6d0\\uce59 \\uc911\\uc2dc'\\n]\\n\\n# \\uc11c\\ube0c\\ud50c\\ub86f \\uc0dd\\uc131\\nfig = make_subplots(\\n    rows=3, cols=2,\\n    subplot_titles=(\\n        '1. \\ub9ac\\ub354\\uc2ed \\uc885\\ud569 \\uc810\\uc218 \\ubd84\\ud3ec',\\n        '2. \\ud3c9\\uac00\\uc790\\ubcc4 \\ud3c9\\uade0 \\uc810\\uc218 \\ube44\\uad50',\\n        '3. 17\\uac1c \\uc5ed\\ub7c9\\ubcc4 \\ud3c9\\uade0 \\uc810\\uc218 (\\ud0c0\\uc778 \\ud3c9\\uac00)',\\n        '4. \\uc9c1\\ucc45\\ubcc4 \\ud3c9\\uade0 \\uc810\\uc218',\\n        '5. \\ubcf8\\uc778-\\ud0c0\\uc778 \\ud3c9\\uac00 \\uac2d \\ubd84\\uc11d',\\n        '6. \\uc5ed\\ub7c9 \\uce74\\ud14c\\uace0\\ub9ac\\ubcc4 \\uac15\\uc810/\\uc57d\\uc810'\\n    ),\\n    specs=[\\n        [{\\\"type\\\": \\\"histogram\\\"}, {\\\"type\\\": \\\"bar\\\"}],\\n        [{\\\"type\\\": \\\"bar\\\"}, {\\\"type\\\": \\\"box\\\"}],\\n        [{\\\"type\\\": \\\"scatter\\\"}, {\\\"type\\\": \\\"bar\\\"}]\\n    ],\\n    vertical_spacing=0.12,\\n    horizontal_spacing=0.12\\n)\\n\\n# 1. \\uc885\\ud569 \\uc810\\uc218 \\ubd84\\ud3ec\\nfig.add_trace(\\n    go.Histogram(\\n        x=df_clean['1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)'],\\n        nbinsx=20,\\n        name='\\uc810\\uc218 \\ubd84\\ud3ec',\\n        marker_color='lightblue',\\n        showlegend=False\\n    ),\\n    row=1, col=1\\n)\\n\\n# 2. \\ud3c9\\uac00\\uc790\\ubcc4 \\ud3c9\\uade0 \\uc810\\uc218\\nevaluator_scores = {\\n    '\\uc0c1\\uc0ac': df_clean['\\uc0c1\\uc0ac\\ud3c9\\uade0'].mean(),\\n    '\\ub3d9\\ub8cc': df_clean['\\ub3d9\\ub8cc\\ud3c9\\uade0'].mean(),\\n    '\\uad6c\\uc131\\uc6d0': df_clean['\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0'].mean(),\\n    '\\ubcf8\\uc778': df_clean['\\ubcf8\\uc778 \\ud3c9\\uade0'].mean()\\n}\\nfig.add_trace(\\n    go.Bar(\\n        x=list(evaluator_scores.keys()),\\n        y=list(evaluator_scores.values()),\\n        text=[f'{v:.1f}' for v in evaluator_scores.values()],\\n        textposition='outside',\\n        marker_color=['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A'],\\n        showlegend=False\\n    ),\\n    row=1, col=2\\n)\\n\\n# 3. 17\\uac1c \\uc5ed\\ub7c9\\ubcc4 \\uc810\\uc218\\ncomp_scores = []\\nfor comp in competencies:\\n    col_name = f'\\ud0c0\\uc778_{comp}'\\n    if col_name in df_clean.columns:\\n        comp_scores.append({\\n            '\\uc5ed\\ub7c9': comp,\\n            '\\uc810\\uc218': df_clean[col_name].mean()\\n        })\\n\\ncomp_df = pd.DataFrame(comp_scores).sort_values('\\uc810\\uc218', ascending=True)\\ncolors = ['#FF6B6B' if score < 87 else '#FFA500' if score < 90 else '#4ECDC4' \\n          for score in comp_df['\\uc810\\uc218']]\\n\\nfig.add_trace(\\n    go.Bar(\\n        y=comp_df['\\uc5ed\\ub7c9'],\\n        x=comp_df['\\uc810\\uc218'],\\n        orientation='h',\\n        text=[f'{v:.1f}' for v in comp_df['\\uc810\\uc218']],\\n        textposition='outside',\\n        marker_color=colors,\\n        showlegend=False\\n    ),\\n    row=2, col=1\\n)\\n\\n# 4. \\uc9c1\\ucc45\\ubcc4 \\ud3c9\\uade0 \\uc810\\uc218 (Box plot)\\nfig.add_trace(\\n    go.Box(\\n        x=df_clean['\\uc9c1\\ucc45'],\\n        y=df_clean['1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)'],\\n        marker_color='lightgreen',\\n        showlegend=False\\n    ),\\n    row=2, col=2\\n)\\n\\n# 5. \\ubcf8\\uc778-\\ud0c0\\uc778 \\ud3c9\\uac00 \\uac2d\\ndf_clean['\\ubcf8\\uc778\\ud0c0\\uc778\\uac2d'] = df_clean['\\ubcf8\\uc778 \\ud3c9\\uade0'] - df_clean['\\uc0c1\\uc0ac\\ud3c9\\uade0']\\nfig.add_trace(\\n    go.Scatter(\\n        x=df_clean['\\uc0c1\\uc0ac\\ud3c9\\uade0'],\\n        y=df_clean['\\ubcf8\\uc778\\ud0c0\\uc778\\uac2d'],\\n        mode='markers',\\n        marker=dict(\\n            size=8,\\n            color=df_clean['\\ubcf8\\uc778\\ud0c0\\uc778\\uac2d'],\\n            colorscale='RdYlGn_r',\\n            showscale=True,\\n            colorbar=dict(title=\\\"\\uac2d\\\", x=0.46)\\n        ),\\n        showlegend=False\\n    ),\\n    row=3, col=1\\n)\\nfig.add_hline(y=0, line_dash=\\\"dash\\\", line_color=\\\"gray\\\", row=3, col=1)\\n\\n# 6. \\uc5ed\\ub7c9 \\uce74\\ud14c\\uace0\\ub9ac\\ubcc4 \\ubd84\\uc11d\\ncategories = {\\n    '\\uc804\\ub7b5\\uc801 \\uc0ac\\uace0': ['\\uace0\\uac1d \\uac00\\uce58 \\ucd5c\\uc6b0\\uc120', '\\ud2b8\\ub80c\\ub4dc \\uc13c\\uc2f1', '\\ud1b5\\ucc30\\ub825', '\\uc804\\ub7b5\\uc801 \\uc0ac\\uace0/\\ud589\\ub3d9'],\\n    '\\uc2e4\\ud589\\ub825': ['\\ub192\\uc740 \\ubaa9\\ud45c \\ub3c4\\uc804', '\\uacb0\\ub2e8\\ub825', '\\ucd94\\uc9c4\\ub825'],\\n    '\\uc870\\uc9c1\\uad00\\ub9ac': ['\\ud611\\uc5c5\\uacfc \\ud300\\uc6cd', '\\uc778\\uc7ac \\ud655\\ubcf4 \\uc5f4\\uc758', '\\uc778\\uc7ac\\uc758 \\uc9c0\\uc18d \\uc131\\uc7a5 \\uad00\\uc2ec', '\\uc131\\uacfc/\\uc5ed\\ub7c9\\uc5d0 \\ub530\\ub978 \\uc5c4\\uc815\\ud55c \\uc778\\uc0ac', '\\ubaa8\\ud2f0\\ubca0\\uc774\\uc158'],\\n    '\\uc790\\uae30\\uac1c\\ubc1c': ['\\ucee4\\ubba4\\ub2c8\\ucf00\\uc774\\uc158', '\\uc9c0\\uc18d\\ud559\\uc2b5', '\\uc790\\uae30 \\uc131\\ucc30', '\\ud0c0\\uc778 \\uc874\\uc911', '\\uc6d0\\uce59 \\uc911\\uc2dc']\\n}\\n\\ncat_scores = []\\nfor cat_name, comps in categories.items():\\n    scores = []\\n    for comp in comps:\\n        col_name = f'\\ud0c0\\uc778_{comp}'\\n        if col_name in df_clean.columns:\\n            scores.append(df_clean[col_name].mean())\\n    cat_scores.append({'\\uce74\\ud14c\\uace0\\ub9ac': cat_name, '\\ud3c9\\uade0': sum(scores)/len(scores)})\\n\\ncat_df = pd.DataFrame(cat_scores).sort_values('\\ud3c9\\uade0')\\nfig.add_trace(\\n    go.Bar(\\n        x=cat_df['\\uce74\\ud14c\\uace0\\ub9ac'],\\n        y=cat_df['\\ud3c9\\uade0'],\\n        text=[f'{v:.1f}' for v in cat_df['\\ud3c9\\uade0']],\\n        textposition='outside',\\n        marker_color=['#FF6B6B', '#FFA500', '#4ECDC4', '#45B7D1'],\\n        showlegend=False\\n    ),\\n    row=3, col=2\\n)\\n\\n# \\ub808\\uc774\\uc544\\uc6c3 \\uc5c5\\ub370\\uc774\\ud2b8\\nfig.update_xaxes(title_text=\\\"\\uc810\\uc218\\\", row=1, col=1)\\nfig.update_yaxes(title_text=\\\"\\uc778\\uc6d0\\uc218\\\", row=1, col=1)\\nfig.update_yaxes(title_text=\\\"\\ud3c9\\uade0 \\uc810\\uc218\\\", row=1, col=2, range=[80, 95])\\nfig.update_xaxes(title_text=\\\"\\uc810\\uc218\\\", row=2, col=1, range=[80, 100])\\nfig.update_xaxes(title_text=\\\"\\uc9c1\\ucc45\\\", row=2, col=2)\\nfig.update_yaxes(title_text=\\\"\\uc810\\uc218\\\", row=2, col=2)\\nfig.update_xaxes(title_text=\\\"\\uc0c1\\uc0ac \\ud3c9\\uac00 \\uc810\\uc218\\\", row=3, col=1)\\nfig.update_yaxes(title_text=\\\"\\ubcf8\\uc778-\\uc0c1\\uc0ac \\uac2d\\\", row=3, col=1)\\nfig.update_yaxes(title_text=\\\"\\ud3c9\\uade0 \\uc810\\uc218\\\", row=3, col=2, range=[85, 92])\\n\\nfig.update_layout(\\n    height=1400,\\n    title_text=\\\"<b>2025 \\ub9ac\\ub354\\uc2ed \\ud3c9\\uac00 \\uacb0\\uacfc \\ub300\\uc2dc\\ubcf4\\ub4dc</b><br><sub>\\uc0dd\\uc0b0\\uae30\\uc220\\uc6d0 | 152\\uba85 \\ubd84\\uc11d</sub>\\\",\\n    title_font_size=24,\\n    showlegend=False,\\n    font=dict(size=10)\\n)\\n\\nfig.write_html('/home/claude/leadership_dashboard.html')\\nprint(\\\"\\u2705 \\ub300\\uc2dc\\ubcf4\\ub4dc \\uc0dd\\uc131 \\uc644\\ub8cc!\\\")\\n\\nEOF\\n\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"분석 대상: 150명\\n✅ 대시보드 생성 완료!\\n\",\"stderr\":\"\"}",
+              "uuid": "d3e20938-edd9-48d6-90ed-a9488deb710a"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"분석 대상: 150명\\n✅ 대시보드 생성 완료!\\n\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-10-17T22:39:08.240211Z",
+          "stop_timestamp": "2025-10-17T22:39:45.940001Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "bash_tool",
+          "input": {
+            "command": "cd /home/claude && python3 << 'EOF'\nimport pandas as pd\n\n# 데이터 로드\ndf = pd.read_excel('/mnt/user-data/uploads/__25년_리더십평가_결과_육성공유_251016.xlsx', sheet_name='(raw)국내')\ndf_clean = df[df['1:1:1 종합점수\\n(상사 Calibration)'] >= 50].copy()\n\n# 주요 인사이트 텍스트 생성\ninsights_md = \"\"\"# 📊 2025 리더십 평가 결과 인사이트 리포트\n\n## 📌 핵심 요약 (Key Findings)\n\n### 1️⃣ **전반적 평가 수준: 우수** ✅\n- **평균 종합 점수: 88.9점** (152명 대상)\n- 대부분의 리더가 85점 이상의 높은 평가를 받음\n- 평가 분포가 85-95점 구간에 집중되어 있어 전반적으로 안정적인 리더십 수준\n\n---\n\n## 🎯 주요 발견사항\n\n### 2️⃣ **강점 역량 TOP 5** 💪\n1. **원칙 중시** (94.6점) ⭐\n2. **고객 가치 최우선** (91.1점)\n3. **타인 존중** (90.9점)\n4. **추진력** (90.6점)\n5. **커뮤니케이션** (89.9점)\n\n**→ 시사점**: 조직의 기본 가치와 윤리, 고객 중심 사고가 매우 강함\n\n### 3️⃣ **개선 필요 역량 TOP 5** ⚠️\n1. **인재 확보 열의** (85.8점) 🔴\n2. **전략적 사고/행동** (85.9점) 🔴\n3. **인재의 지속 성장 관심** (86.0점) 🔴\n4. **모티베이션** (87.3점) 🟠\n5. **자기 성찰** (87.7점) 🟠\n\n**→ 시사점**: 인재 관리와 전략적 사고 영역에서 개선 여지가 있음\n\n---\n\n### 4️⃣ **평가자 간 차이 분석** 📊\n\n```\n상사 평균:    89.1점\n동료 평균:    89.9점  ⬆️ (가장 높음)\n구성원 평균:  88.1점\n본인 평균:    88.2점  ⬇️ (가장 낮음)\n```\n\n**주요 관찰**:\n- **동료가 가장 후하게 평가** (89.9점)\n- **본인 평가가 가장 낮음** (88.2점) → 겸손한 자기 평가 경향\n- 본인-상사 차이: **-0.94점** → 리더들이 스스로를 다소 엄격하게 평가\n- 상사-구성원 차이: **+1.01점** → 상사가 구성원보다 다소 높게 평가\n\n---\n\n### 5️⃣ **역량 카테고리별 분석** 📈\n\n| 카테고리 | 평균 점수 | 평가 |\n|---------|----------|------|\n| **자기개발** | 90.5점 | ⭐ 우수 |\n| **전략적 사고** | 89.2점 | ✅ 양호 |\n| **실행력** | 89.3점 | ✅ 양호 |\n| **조직관리** | 86.7점 | ⚠️ 개선 필요 |\n\n**→ 시사점**: \n- 자기개발 역량은 강점이나, **조직관리 역량(특히 인재 육성)**이 상대적 약점\n- 실무 추진은 잘하나 **사람 관리와 육성**에 더 집중 필요\n\n---\n\n### 6️⃣ **직책별 특징** 👔\n\n- **팀장** (66명): 가장 많은 비중, 평균적인 분포\n- **Task Leader** (59명): 두 번째로 많은 그룹\n- **Leader** (11명): 소수 그룹\n- 직책 간 점수 편차는 크지 않음 → 직급과 무관하게 고른 역량 수준\n\n---\n\n## 💡 전략적 제언 (Strategic Recommendations)\n\n### 🎯 단기 액션 (3-6개월)\n1. **인재 확보 및 육성 프로그램 강화**\n   - 채용 역량 워크샵 실시\n   - 멘토링 프로그램 의무화\n   \n2. **전략적 사고 역량 개발**\n   - 전략 기획 교육 과정 운영\n   - 타 조직 벤치마킹 세션\n\n3. **코칭 스킬 향상 교육**\n   - 구성원 동기부여 기법\n   - 1-on-1 면담 스킬\n\n### 🎯 중장기 전략 (6-12개월)\n1. **리더십 육성 체계 고도화**\n   - High Performer 대상 심화 과정\n   - 개선 필요 역량 맞춤형 프로그램\n\n2. **조직 문화 개선**\n   - 인재 육성을 평가에 더 강하게 반영\n   - 전략적 사고를 촉진하는 의사결정 프로세스 도입\n\n3. **360도 피드백 문화 정착**\n   - 본인-타인 갭이 큰 리더 대상 코칭\n   - 자기 인식 향상 프로그램\n\n---\n\n## 📋 추가 분석 권장사항\n\n1. **고성과자 vs 저성과자 비교 분석**\n   - 상위 20% vs 하위 20% 역량 패턴 분석\n   \n2. **조직별 심층 분석**\n   - 사업부/팀별 강점/약점 파악\n   \n3. **시계열 분석**\n   - 2022-2025년 변화 추이 분석\n   - 개선된 역량과 정체된 역량 구분\n\n4. **상관관계 분석**\n   - 특정 역량과 종합 점수 간 상관성\n   - 어떤 역량이 성과에 가장 큰 영향을 미치는가?\n\n---\n\n## 🎬 결론\n\n생산기술원의 리더십은 **전반적으로 우수한 수준**이나, **인재 육성과 전략적 사고** 영역에서 \n개선의 여지가 있습니다. 특히 조직의 미래를 위해 **인재 확보 열의와 성장 관심**을 높이는 것이 \n가장 중요한 과제로 보입니다.\n\n**실행 추진력**과 **윤리/원칙**은 강점이므로, 이를 기반으로 **사람 중심 리더십**을 \n더욱 강화한다면 조직 역량이 한 단계 도약할 수 있을 것입니다.\n\"\"\"\n\nwith open('/home/claude/insights_report.md', 'w', encoding='utf-8') as f:\n    f.write(insights_md)\n\nprint(\"✅ 인사이트 리포트 생성 완료!\")\nprint(\"\\n주요 인사이트:\")\nprint(\"- 평균 종합 점수: 88.9점 (우수)\")\nprint(\"- 강점: 원칙 중시(94.6), 고객 가치(91.1), 타인 존중(90.9)\")\nprint(\"- 약점: 인재 확보(85.8), 전략적 사고(85.9), 인재 성장(86.0)\")\nprint(\"- 카테고리: 조직관리(86.7) < 실행력(89.3) < 전략사고(89.2) < 자기개발(90.5)\")\n\nEOF\n",
+            "description": "인사이트 리포트 생성"
+          },
+          "message": "인사이트 리포트 생성",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cd /home/claude && python3 << 'EOF'\\nimport pandas as pd\\n\\n# \\ub370\\uc774\\ud130 \\ub85c\\ub4dc\\ndf = pd.read_excel('/mnt/user-data/uploads/__25\\ub144_\\ub9ac\\ub354\\uc2ed\\ud3c9\\uac00_\\uacb0\\uacfc_\\uc721\\uc131\\uacf5\\uc720_251016.xlsx', sheet_name='(raw)\\uad6d\\ub0b4')\\ndf_clean = df[df['1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)'] >= 50].copy()\\n\\n# \\uc8fc\\uc694 \\uc778\\uc0ac\\uc774\\ud2b8 \\ud14d\\uc2a4\\ud2b8 \\uc0dd\\uc131\\ninsights_md = \\\"\\\"\\\"# \\ud83d\\udcca 2025 \\ub9ac\\ub354\\uc2ed \\ud3c9\\uac00 \\uacb0\\uacfc \\uc778\\uc0ac\\uc774\\ud2b8 \\ub9ac\\ud3ec\\ud2b8\\n\\n## \\ud83d\\udccc \\ud575\\uc2ec \\uc694\\uc57d (Key Findings)\\n\\n### 1\\ufe0f\\u20e3 **\\uc804\\ubc18\\uc801 \\ud3c9\\uac00 \\uc218\\uc900: \\uc6b0\\uc218** \\u2705\\n- **\\ud3c9\\uade0 \\uc885\\ud569 \\uc810\\uc218: 88.9\\uc810** (152\\uba85 \\ub300\\uc0c1)\\n- \\ub300\\ubd80\\ubd84\\uc758 \\ub9ac\\ub354\\uac00 85\\uc810 \\uc774\\uc0c1\\uc758 \\ub192\\uc740 \\ud3c9\\uac00\\ub97c \\ubc1b\\uc74c\\n- \\ud3c9\\uac00 \\ubd84\\ud3ec\\uac00 85-95\\uc810 \\uad6c\\uac04\\uc5d0 \\uc9d1\\uc911\\ub418\\uc5b4 \\uc788\\uc5b4 \\uc804\\ubc18\\uc801\\uc73c\\ub85c \\uc548\\uc815\\uc801\\uc778 \\ub9ac\\ub354\\uc2ed \\uc218\\uc900\\n\\n---\\n\\n## \\ud83c\\udfaf \\uc8fc\\uc694 \\ubc1c\\uacac\\uc0ac\\ud56d\\n\\n### 2\\ufe0f\\u20e3 **\\uac15\\uc810 \\uc5ed\\ub7c9 TOP 5** \\ud83d\\udcaa\\n1. **\\uc6d0\\uce59 \\uc911\\uc2dc** (94.6\\uc810) \\u2b50\\n2. **\\uace0\\uac1d \\uac00\\uce58 \\ucd5c\\uc6b0\\uc120** (91.1\\uc810)\\n3. **\\ud0c0\\uc778 \\uc874\\uc911** (90.9\\uc810)\\n4. **\\ucd94\\uc9c4\\ub825** (90.6\\uc810)\\n5. **\\ucee4\\ubba4\\ub2c8\\ucf00\\uc774\\uc158** (89.9\\uc810)\\n\\n**\\u2192 \\uc2dc\\uc0ac\\uc810**: \\uc870\\uc9c1\\uc758 \\uae30\\ubcf8 \\uac00\\uce58\\uc640 \\uc724\\ub9ac, \\uace0\\uac1d \\uc911\\uc2ec \\uc0ac\\uace0\\uac00 \\ub9e4\\uc6b0 \\uac15\\ud568\\n\\n### 3\\ufe0f\\u20e3 **\\uac1c\\uc120 \\ud544\\uc694 \\uc5ed\\ub7c9 TOP 5** \\u26a0\\ufe0f\\n1. **\\uc778\\uc7ac \\ud655\\ubcf4 \\uc5f4\\uc758** (85.8\\uc810) \\ud83d\\udd34\\n2. **\\uc804\\ub7b5\\uc801 \\uc0ac\\uace0/\\ud589\\ub3d9** (85.9\\uc810) \\ud83d\\udd34\\n3. **\\uc778\\uc7ac\\uc758 \\uc9c0\\uc18d \\uc131\\uc7a5 \\uad00\\uc2ec** (86.0\\uc810) \\ud83d\\udd34\\n4. **\\ubaa8\\ud2f0\\ubca0\\uc774\\uc158** (87.3\\uc810) \\ud83d\\udfe0\\n5. **\\uc790\\uae30 \\uc131\\ucc30** (87.7\\uc810) \\ud83d\\udfe0\\n\\n**\\u2192 \\uc2dc\\uc0ac\\uc810**: \\uc778\\uc7ac \\uad00\\ub9ac\\uc640 \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0 \\uc601\\uc5ed\\uc5d0\\uc11c \\uac1c\\uc120 \\uc5ec\\uc9c0\\uac00 \\uc788\\uc74c\\n\\n---\\n\\n### 4\\ufe0f\\u20e3 **\\ud3c9\\uac00\\uc790 \\uac04 \\ucc28\\uc774 \\ubd84\\uc11d** \\ud83d\\udcca\\n\\n```\\n\\uc0c1\\uc0ac \\ud3c9\\uade0:    89.1\\uc810\\n\\ub3d9\\ub8cc \\ud3c9\\uade0:    89.9\\uc810  \\u2b06\\ufe0f (\\uac00\\uc7a5 \\ub192\\uc74c)\\n\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0:  88.1\\uc810\\n\\ubcf8\\uc778 \\ud3c9\\uade0:    88.2\\uc810  \\u2b07\\ufe0f (\\uac00\\uc7a5 \\ub0ae\\uc74c)\\n```\\n\\n**\\uc8fc\\uc694 \\uad00\\ucc30**:\\n- **\\ub3d9\\ub8cc\\uac00 \\uac00\\uc7a5 \\ud6c4\\ud558\\uac8c \\ud3c9\\uac00** (89.9\\uc810)\\n- **\\ubcf8\\uc778 \\ud3c9\\uac00\\uac00 \\uac00\\uc7a5 \\ub0ae\\uc74c** (88.2\\uc810) \\u2192 \\uacb8\\uc190\\ud55c \\uc790\\uae30 \\ud3c9\\uac00 \\uacbd\\ud5a5\\n- \\ubcf8\\uc778-\\uc0c1\\uc0ac \\ucc28\\uc774: **-0.94\\uc810** \\u2192 \\ub9ac\\ub354\\ub4e4\\uc774 \\uc2a4\\uc2a4\\ub85c\\ub97c \\ub2e4\\uc18c \\uc5c4\\uaca9\\ud558\\uac8c \\ud3c9\\uac00\\n- \\uc0c1\\uc0ac-\\uad6c\\uc131\\uc6d0 \\ucc28\\uc774: **+1.01\\uc810** \\u2192 \\uc0c1\\uc0ac\\uac00 \\uad6c\\uc131\\uc6d0\\ubcf4\\ub2e4 \\ub2e4\\uc18c \\ub192\\uac8c \\ud3c9\\uac00\\n\\n---\\n\\n### 5\\ufe0f\\u20e3 **\\uc5ed\\ub7c9 \\uce74\\ud14c\\uace0\\ub9ac\\ubcc4 \\ubd84\\uc11d** \\ud83d\\udcc8\\n\\n| \\uce74\\ud14c\\uace0\\ub9ac | \\ud3c9\\uade0 \\uc810\\uc218 | \\ud3c9\\uac00 |\\n|---------|----------|------|\\n| **\\uc790\\uae30\\uac1c\\ubc1c** | 90.5\\uc810 | \\u2b50 \\uc6b0\\uc218 |\\n| **\\uc804\\ub7b5\\uc801 \\uc0ac\\uace0** | 89.2\\uc810 | \\u2705 \\uc591\\ud638 |\\n| **\\uc2e4\\ud589\\ub825** | 89.3\\uc810 | \\u2705 \\uc591\\ud638 |\\n| **\\uc870\\uc9c1\\uad00\\ub9ac** | 86.7\\uc810 | \\u26a0\\ufe0f \\uac1c\\uc120 \\ud544\\uc694 |\\n\\n**\\u2192 \\uc2dc\\uc0ac\\uc810**: \\n- \\uc790\\uae30\\uac1c\\ubc1c \\uc5ed\\ub7c9\\uc740 \\uac15\\uc810\\uc774\\ub098, **\\uc870\\uc9c1\\uad00\\ub9ac \\uc5ed\\ub7c9(\\ud2b9\\ud788 \\uc778\\uc7ac \\uc721\\uc131)**\\uc774 \\uc0c1\\ub300\\uc801 \\uc57d\\uc810\\n- \\uc2e4\\ubb34 \\ucd94\\uc9c4\\uc740 \\uc798\\ud558\\ub098 **\\uc0ac\\ub78c \\uad00\\ub9ac\\uc640 \\uc721\\uc131**\\uc5d0 \\ub354 \\uc9d1\\uc911 \\ud544\\uc694\\n\\n---\\n\\n### 6\\ufe0f\\u20e3 **\\uc9c1\\ucc45\\ubcc4 \\ud2b9\\uc9d5** \\ud83d\\udc54\\n\\n- **\\ud300\\uc7a5** (66\\uba85): \\uac00\\uc7a5 \\ub9ce\\uc740 \\ube44\\uc911, \\ud3c9\\uade0\\uc801\\uc778 \\ubd84\\ud3ec\\n- **Task Leader** (59\\uba85): \\ub450 \\ubc88\\uc9f8\\ub85c \\ub9ce\\uc740 \\uadf8\\ub8f9\\n- **Leader** (11\\uba85): \\uc18c\\uc218 \\uadf8\\ub8f9\\n- \\uc9c1\\ucc45 \\uac04 \\uc810\\uc218 \\ud3b8\\ucc28\\ub294 \\ud06c\\uc9c0 \\uc54a\\uc74c \\u2192 \\uc9c1\\uae09\\uacfc \\ubb34\\uad00\\ud558\\uac8c \\uace0\\ub978 \\uc5ed\\ub7c9 \\uc218\\uc900\\n\\n---\\n\\n## \\ud83d\\udca1 \\uc804\\ub7b5\\uc801 \\uc81c\\uc5b8 (Strategic Recommendations)\\n\\n### \\ud83c\\udfaf \\ub2e8\\uae30 \\uc561\\uc158 (3-6\\uac1c\\uc6d4)\\n1. **\\uc778\\uc7ac \\ud655\\ubcf4 \\ubc0f \\uc721\\uc131 \\ud504\\ub85c\\uadf8\\ub7a8 \\uac15\\ud654**\\n   - \\ucc44\\uc6a9 \\uc5ed\\ub7c9 \\uc6cc\\ud06c\\uc0f5 \\uc2e4\\uc2dc\\n   - \\uba58\\ud1a0\\ub9c1 \\ud504\\ub85c\\uadf8\\ub7a8 \\uc758\\ubb34\\ud654\\n   \\n2. **\\uc804\\ub7b5\\uc801 \\uc0ac\\uace0 \\uc5ed\\ub7c9 \\uac1c\\ubc1c**\\n   - \\uc804\\ub7b5 \\uae30\\ud68d \\uad50\\uc721 \\uacfc\\uc815 \\uc6b4\\uc601\\n   - \\ud0c0 \\uc870\\uc9c1 \\ubca4\\uce58\\ub9c8\\ud0b9 \\uc138\\uc158\\n\\n3. **\\ucf54\\uce6d \\uc2a4\\ud0ac \\ud5a5\\uc0c1 \\uad50\\uc721**\\n   - \\uad6c\\uc131\\uc6d0 \\ub3d9\\uae30\\ubd80\\uc5ec \\uae30\\ubc95\\n   - 1-on-1 \\uba74\\ub2f4 \\uc2a4\\ud0ac\\n\\n### \\ud83c\\udfaf \\uc911\\uc7a5\\uae30 \\uc804\\ub7b5 (6-12\\uac1c\\uc6d4)\\n1. **\\ub9ac\\ub354\\uc2ed \\uc721\\uc131 \\uccb4\\uacc4 \\uace0\\ub3c4\\ud654**\\n   - High Performer \\ub300\\uc0c1 \\uc2ec\\ud654 \\uacfc\\uc815\\n   - \\uac1c\\uc120 \\ud544\\uc694 \\uc5ed\\ub7c9 \\ub9de\\ucda4\\ud615 \\ud504\\ub85c\\uadf8\\ub7a8\\n\\n2. **\\uc870\\uc9c1 \\ubb38\\ud654 \\uac1c\\uc120**\\n   - \\uc778\\uc7ac \\uc721\\uc131\\uc744 \\ud3c9\\uac00\\uc5d0 \\ub354 \\uac15\\ud558\\uac8c \\ubc18\\uc601\\n   - \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0\\ub97c \\ucd09\\uc9c4\\ud558\\ub294 \\uc758\\uc0ac\\uacb0\\uc815 \\ud504\\ub85c\\uc138\\uc2a4 \\ub3c4\\uc785\\n\\n3. **360\\ub3c4 \\ud53c\\ub4dc\\ubc31 \\ubb38\\ud654 \\uc815\\ucc29**\\n   - \\ubcf8\\uc778-\\ud0c0\\uc778 \\uac2d\\uc774 \\ud070 \\ub9ac\\ub354 \\ub300\\uc0c1 \\ucf54\\uce6d\\n   - \\uc790\\uae30 \\uc778\\uc2dd \\ud5a5\\uc0c1 \\ud504\\ub85c\\uadf8\\ub7a8\\n\\n---\\n\\n## \\ud83d\\udccb \\ucd94\\uac00 \\ubd84\\uc11d \\uad8c\\uc7a5\\uc0ac\\ud56d\\n\\n1. **\\uace0\\uc131\\uacfc\\uc790 vs \\uc800\\uc131\\uacfc\\uc790 \\ube44\\uad50 \\ubd84\\uc11d**\\n   - \\uc0c1\\uc704 20% vs \\ud558\\uc704 20% \\uc5ed\\ub7c9 \\ud328\\ud134 \\ubd84\\uc11d\\n   \\n2. **\\uc870\\uc9c1\\ubcc4 \\uc2ec\\uce35 \\ubd84\\uc11d**\\n   - \\uc0ac\\uc5c5\\ubd80/\\ud300\\ubcc4 \\uac15\\uc810/\\uc57d\\uc810 \\ud30c\\uc545\\n   \\n3. **\\uc2dc\\uacc4\\uc5f4 \\ubd84\\uc11d**\\n   - 2022-2025\\ub144 \\ubcc0\\ud654 \\ucd94\\uc774 \\ubd84\\uc11d\\n   - \\uac1c\\uc120\\ub41c \\uc5ed\\ub7c9\\uacfc \\uc815\\uccb4\\ub41c \\uc5ed\\ub7c9 \\uad6c\\ubd84\\n\\n4. **\\uc0c1\\uad00\\uad00\\uacc4 \\ubd84\\uc11d**\\n   - \\ud2b9\\uc815 \\uc5ed\\ub7c9\\uacfc \\uc885\\ud569 \\uc810\\uc218 \\uac04 \\uc0c1\\uad00\\uc131\\n   - \\uc5b4\\ub5a4 \\uc5ed\\ub7c9\\uc774 \\uc131\\uacfc\\uc5d0 \\uac00\\uc7a5 \\ud070 \\uc601\\ud5a5\\uc744 \\ubbf8\\uce58\\ub294\\uac00?\\n\\n---\\n\\n## \\ud83c\\udfac \\uacb0\\ub860\\n\\n\\uc0dd\\uc0b0\\uae30\\uc220\\uc6d0\\uc758 \\ub9ac\\ub354\\uc2ed\\uc740 **\\uc804\\ubc18\\uc801\\uc73c\\ub85c \\uc6b0\\uc218\\ud55c \\uc218\\uc900**\\uc774\\ub098, **\\uc778\\uc7ac \\uc721\\uc131\\uacfc \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0** \\uc601\\uc5ed\\uc5d0\\uc11c \\n\\uac1c\\uc120\\uc758 \\uc5ec\\uc9c0\\uac00 \\uc788\\uc2b5\\ub2c8\\ub2e4. \\ud2b9\\ud788 \\uc870\\uc9c1\\uc758 \\ubbf8\\ub798\\ub97c \\uc704\\ud574 **\\uc778\\uc7ac \\ud655\\ubcf4 \\uc5f4\\uc758\\uc640 \\uc131\\uc7a5 \\uad00\\uc2ec**\\uc744 \\ub192\\uc774\\ub294 \\uac83\\uc774 \\n\\uac00\\uc7a5 \\uc911\\uc694\\ud55c \\uacfc\\uc81c\\ub85c \\ubcf4\\uc785\\ub2c8\\ub2e4.\\n\\n**\\uc2e4\\ud589 \\ucd94\\uc9c4\\ub825**\\uacfc **\\uc724\\ub9ac/\\uc6d0\\uce59**\\uc740 \\uac15\\uc810\\uc774\\ubbc0\\ub85c, \\uc774\\ub97c \\uae30\\ubc18\\uc73c\\ub85c **\\uc0ac\\ub78c \\uc911\\uc2ec \\ub9ac\\ub354\\uc2ed**\\uc744 \\n\\ub354\\uc6b1 \\uac15\\ud654\\ud55c\\ub2e4\\uba74 \\uc870\\uc9c1 \\uc5ed\\ub7c9\\uc774 \\ud55c \\ub2e8\\uacc4 \\ub3c4\\uc57d\\ud560 \\uc218 \\uc788\\uc744 \\uac83\\uc785\\ub2c8\\ub2e4.\\n\\\"\\\"\\\"\\n\\nwith open('/home/claude/insights_report.md', 'w', encoding='utf-8') as f:\\n    f.write(insights_md)\\n\\nprint(\\\"\\u2705 \\uc778\\uc0ac\\uc774\\ud2b8 \\ub9ac\\ud3ec\\ud2b8 \\uc0dd\\uc131 \\uc644\\ub8cc!\\\")\\nprint(\\\"\\\\n\\uc8fc\\uc694 \\uc778\\uc0ac\\uc774\\ud2b8:\\\")\\nprint(\\\"- \\ud3c9\\uade0 \\uc885\\ud569 \\uc810\\uc218: 88.9\\uc810 (\\uc6b0\\uc218)\\\")\\nprint(\\\"- \\uac15\\uc810: \\uc6d0\\uce59 \\uc911\\uc2dc(94.6), \\uace0\\uac1d \\uac00\\uce58(91.1), \\ud0c0\\uc778 \\uc874\\uc911(90.9)\\\")\\nprint(\\\"- \\uc57d\\uc810: \\uc778\\uc7ac \\ud655\\ubcf4(85.8), \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0(85.9), \\uc778\\uc7ac \\uc131\\uc7a5(86.0)\\\")\\nprint(\\\"- \\uce74\\ud14c\\uace0\\ub9ac: \\uc870\\uc9c1\\uad00\\ub9ac(86.7) < \\uc2e4\\ud589\\ub825(89.3) < \\uc804\\ub7b5\\uc0ac\\uace0(89.2) < \\uc790\\uae30\\uac1c\\ubc1c(90.5)\\\")\\n\\nEOF\\n\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"✅ 인사이트 리포트 생성 완료!\\n\\n주요 인사이트:\\n- 평균 종합 점수: 88.9점 (우수)\\n- 강점: 원칙 중시(94.6), 고객 가치(91.1), 타인 존중(90.9)\\n- 약점: 인재 확보(85.8), 전략적 사고(85.9), 인재 성장(86.0)\\n- 카테고리: 조직관리(86.7) < 실행력(89.3) < 전략사고(89.2) < 자기개발(90.5)\\n\",\"stderr\":\"\"}",
+              "uuid": "cfaeb523-9579-4816-8cca-692988bdbb88"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"✅ 인사이트 리포트 생성 완료!\\n\\n주요 인사이트:\\n- 평균 종합 점수: 88.9점 (우수)\\n- 강점: 원칙 중시(94.6), 고객 가치(91.1), 타인 존중(90.9)\\n- 약점: 인재 확보(85.8), 전략적 사고(85.9), 인재 성장(86.0)\\n- 카테고리: 조직관리(86.7) < 실행력(89.3) < 전략사고(89.2) < 자기개발(90.5)\\n\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-10-17T22:39:49.924436Z",
+          "stop_timestamp": "2025-10-17T22:39:50.714139Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "bash_tool",
+          "input": {
+            "command": "cp /home/claude/leadership_dashboard.html /mnt/user-data/outputs/ && cp /home/claude/insights_report.md /mnt/user-data/outputs/",
+            "description": "파일 복사"
+          },
+          "message": "파일 복사",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cp /home/claude/leadership_dashboard.html /mnt/user-data/outputs/ && cp /home/claude/insights_report.md /mnt/user-data/outputs/\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"\",\"stderr\":\"\"}",
+              "uuid": "58a29755-d996-4949-987e-373584ccdad4"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-10-17T22:39:53.899796Z",
+          "stop_timestamp": "2025-10-17T22:40:01.988367Z",
+          "flags": null,
+          "type": "text",
+          "text": "완성했습니다! 2025년 리더십 평가 데이터를 분석하여 인사이트 있는 대시보드와 리포트를 만들었습니다.\n\n## 📊 생성된 자료\n\n### 1. [인터랙티브 대시보드](computer:///mnt/user-data/outputs/leadership_dashboard.html)\n6개의 핵심 차트로 구성된 시각화 대시보드:\n- 종합 점수 분포도\n- 평가자별 비교\n- 17개 역량별 상세 점수\n- 직책별 분포\n- 본인-타인 평가 갭 분석\n- 역량 카테고리별 강점/약점\n\n### 2. [인사이트 리포트](computer:///mnt/user-data/outputs/insights_report.md)\n상세한 분석 및 전략적 제언\n\n## 🎯 핵심 발견사항\n\n**강점 TOP 3:**\n- 🥇 원칙 중시 (94.6점)\n- 🥈 고객 가치 최우선 (91.1점)\n- 🥉 타인 존중 (90.9점)\n\n**개선 필요 TOP 3:**\n- 🔴 인재 확보 열의 (85.8점)\n- 🔴 전략적 사고/행동 (85.9점)\n- 🔴 인재의 지속 성장 관심 (86.0점)\n\n**카테고리별 분석:**\n- 자기개발 (90.5점) ⭐ 최고\n- 조직관리 (86.7점) ⚠️ 가장 낮음 → **핵심 개선 영역**\n\n전반적으로 우수한 수준이나, **인재 육성**과 **전략적 사고** 영역의 강화가 필요합니다!",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2025-10-17T22:40:02.136621Z",
+      "updated_at": "2025-10-17T22:40:02.136621Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "5b5f137a-f1ad-4dd7-9494-67b5bc2c6a7a"
+    },
+    {
+      "uuid": "a508d9c5-7270-4e1f-b2e5-673ea30ee4b9",
+      "text": "사업부/담당 기준으로 조직별 평가 점수를 분석해줘. 점수 기준은 타인평가임",
+      "content": [
+        {
+          "start_timestamp": "2025-10-17T22:47:41.687604Z",
+          "stop_timestamp": "2025-10-17T22:47:41.687604Z",
+          "flags": null,
+          "type": "text",
+          "text": "사업부/담당 기준으로 조직별 평가 점수를 분석해줘. 점수 기준은 타인평가임",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2025-10-17T22:47:41.692573Z",
+      "updated_at": "2025-10-17T22:47:41.692573Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "4ed095b8-fe03-4b39-811e-56c42c63fc08"
+    },
+    {
+      "uuid": "44115ad7-f6d4-4ad9-a2aa-3dd459a8a858",
+      "text": " \n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n완료했습니다! 사업부/담당별 리더십 평가를 타인 평가 기준으로 상세히 분석했습니다.\n\n## 📊 생성된 분석 자료\n\n### 1. [사업부별 대시보드](computer:///mnt/user-data/outputs/dept_analysis.html)\n4개의 핵심 차트:\n- 사업부별 타인 평가 점수 비교\n- 평가자별(상사/동료/구성원) 점수 비교\n- 조직별 점수 분포 (박스플롯)\n- 1등 vs 꼴등 조직 역량 레이더 차트\n\n### 2. [상세 분석 리포트](computer:///mnt/user-data/outputs/dept_analysis_report.md)\n각 조직별 심층 분석 및 맞춤형 제언\n\n## 🎯 핵심 발견사항\n\n### 📈 조직별 순위 (타인 평가 기준)\n\n```\n🥇 1위: Smart Factory사업담당  93.94점 (전체 대비 +4.60점)\n🥈 2위: PRI 장비기술센터       90.69점 (전체 대비 +1.35점)\n🥉 3위: 생산혁신센터           89.78점 (전체 대비 +0.44점)\n   4위: PRI 선행공법연구센터   89.56점 (전체 대비 +0.22점)\n   5위: PRI 오퍼레이션담당     88.43점 (전체 대비 -0.91점)\n🔴 6위: PRI 제조S&P센터       85.76점 (전체 대비 -3.58점)\n```\n\n### 🔍 주요 인사이트\n\n**공통 강점:**\n- 모든 조직이 **원칙 중시** 역량 최고 (90점 이상)\n- 고객 가치, 추진력도 전반적으로 우수\n\n**공통 약점:**\n- **인재 확보 열의** - 전 조직 하위권 (80-92점대)\n- **전략적 사고/행동** - 대부분 최하위 (80-93점대)\n- **인재 성장 관심** - 지속적 약점\n\n**특이사항:**\n- **Smart Factory**: 압도적 1위, 모든 역량 우수\n- **PRI 제조S&P센터**: 집중 지원 필요 (전략적 사고 80점대)\n- **평가자 간 격차**: 오퍼레이션담당은 상사 평가 높으나 구성원 평가 낮음\n\n전사 차원에서 **인재 육성**과 **전략적 사고** 역량 강화가 가장 시급한 과제입니다!",
+      "content": [
+        {
+          "start_timestamp": "2025-10-17T22:47:43.933400Z",
+          "stop_timestamp": "2025-10-17T22:47:43.933400Z",
+          "flags": null,
+          "type": "text",
+          "text": " ",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2025-10-17T22:47:44.183888Z",
+          "stop_timestamp": "2025-10-17T22:47:57.036028Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "bash_tool",
+          "input": {
+            "command": "cd /home/claude && python3 << 'EOF'\nimport pandas as pd\nimport numpy as np\n\n# 데이터 로드\ndf = pd.read_excel('/mnt/user-data/uploads/__25년_리더십평가_결과_육성공유_251016.xlsx', sheet_name='(raw)국내')\n\n# 이상치 제거\ndf_clean = df[df['1:1:1 종합점수\\n(상사 Calibration)'] >= 50].copy()\n\nprint(\"=\" * 80)\nprint(\"📊 사업부/담당별 리더십 평가 분석 (타인 평가 기준)\")\nprint(\"=\" * 80)\n\n# 사업부/담당별 기본 통계\nprint(\"\\n1️⃣  사업부/담당별 인원 현황\")\nprint(\"-\" * 80)\ndept_count = df_clean['사업부/담당'].value_counts().sort_values(ascending=False)\nprint(dept_count)\nprint(f\"\\n총 사업부/담당 수: {len(dept_count)}개\")\n\n# 타인 평가 = (상사 + 동료 + 구성원) / 3\ndf_clean['타인평가_평균'] = (df_clean['상사평균'] + df_clean['동료평균'] + df_clean['구성원 평균']) / 3\n\n# 사업부/담당별 상세 분석\nprint(\"\\n\" + \"=\" * 80)\nprint(\"2️⃣  사업부/담당별 타인 평가 점수 (5명 이상 조직)\")\nprint(\"=\" * 80)\n\ndept_stats = df_clean.groupby('사업부/담당').agg({\n    '사번': 'count',\n    '타인평가_평균': ['mean', 'std', 'min', 'max'],\n    '상사평균': 'mean',\n    '동료평균': 'mean',\n    '구성원 평균': 'mean'\n}).round(2)\n\ndept_stats.columns = ['인원수', '타인평가_평균', '표준편차', '최소', '최대', '상사평균', '동료평균', '구성원평균']\ndept_stats = dept_stats[dept_stats['인원수'] >= 5].sort_values('타인평가_평균', ascending=False)\n\nprint(dept_stats.to_string())\n\n# 전체 평균과 비교\noverall_avg = df_clean['타인평가_평균'].mean()\nprint(f\"\\n전체 평균: {overall_avg:.2f}점\")\n\nprint(\"\\n\" + \"=\" * 80)\nprint(\"3️⃣  상위 5개 사업부/담당 (타인 평가 기준)\")\nprint(\"=\" * 80)\ntop5 = dept_stats.head(5)\nfor idx, (dept, row) in enumerate(top5.iterrows(), 1):\n    diff = row['타인평가_평균'] - overall_avg\n    print(f\"{idx}. {dept:30s} | {row['타인평가_평균']:.2f}점 ({row['인원수']:.0f}명) | 전체 대비 {diff:+.2f}점\")\n\nprint(\"\\n\" + \"=\" * 80)\nprint(\"4️⃣  하위 5개 사업부/담당 (타인 평가 기준)\")\nprint(\"=\" * 80)\nbottom5 = dept_stats.tail(5).sort_values('타인평가_평균')\nfor idx, (dept, row) in enumerate(bottom5.iterrows(), 1):\n    diff = row['타인평가_평균'] - overall_avg\n    print(f\"{idx}. {dept:30s} | {row['타인평가_평균']:.2f}점 ({row['인원수']:.0f}명) | 전체 대비 {diff:+.2f}점\")\n\nEOF\n",
+            "description": "사업부/담당별 타인평가 분석"
+          },
+          "message": "사업부/담당별 타인평가 분석",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cd /home/claude && python3 << 'EOF'\\nimport pandas as pd\\nimport numpy as np\\n\\n# \\ub370\\uc774\\ud130 \\ub85c\\ub4dc\\ndf = pd.read_excel('/mnt/user-data/uploads/__25\\ub144_\\ub9ac\\ub354\\uc2ed\\ud3c9\\uac00_\\uacb0\\uacfc_\\uc721\\uc131\\uacf5\\uc720_251016.xlsx', sheet_name='(raw)\\uad6d\\ub0b4')\\n\\n# \\uc774\\uc0c1\\uce58 \\uc81c\\uac70\\ndf_clean = df[df['1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)'] >= 50].copy()\\n\\nprint(\\\"=\\\" * 80)\\nprint(\\\"\\ud83d\\udcca \\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9\\ubcc4 \\ub9ac\\ub354\\uc2ed \\ud3c9\\uac00 \\ubd84\\uc11d (\\ud0c0\\uc778 \\ud3c9\\uac00 \\uae30\\uc900)\\\")\\nprint(\\\"=\\\" * 80)\\n\\n# \\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9\\ubcc4 \\uae30\\ubcf8 \\ud1b5\\uacc4\\nprint(\\\"\\\\n1\\ufe0f\\u20e3  \\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9\\ubcc4 \\uc778\\uc6d0 \\ud604\\ud669\\\")\\nprint(\\\"-\\\" * 80)\\ndept_count = df_clean['\\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9'].value_counts().sort_values(ascending=False)\\nprint(dept_count)\\nprint(f\\\"\\\\n\\ucd1d \\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9 \\uc218: {len(dept_count)}\\uac1c\\\")\\n\\n# \\ud0c0\\uc778 \\ud3c9\\uac00 = (\\uc0c1\\uc0ac + \\ub3d9\\ub8cc + \\uad6c\\uc131\\uc6d0) / 3\\ndf_clean['\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0'] = (df_clean['\\uc0c1\\uc0ac\\ud3c9\\uade0'] + df_clean['\\ub3d9\\ub8cc\\ud3c9\\uade0'] + df_clean['\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0']) / 3\\n\\n# \\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9\\ubcc4 \\uc0c1\\uc138 \\ubd84\\uc11d\\nprint(\\\"\\\\n\\\" + \\\"=\\\" * 80)\\nprint(\\\"2\\ufe0f\\u20e3  \\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9\\ubcc4 \\ud0c0\\uc778 \\ud3c9\\uac00 \\uc810\\uc218 (5\\uba85 \\uc774\\uc0c1 \\uc870\\uc9c1)\\\")\\nprint(\\\"=\\\" * 80)\\n\\ndept_stats = df_clean.groupby('\\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9').agg({\\n    '\\uc0ac\\ubc88': 'count',\\n    '\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0': ['mean', 'std', 'min', 'max'],\\n    '\\uc0c1\\uc0ac\\ud3c9\\uade0': 'mean',\\n    '\\ub3d9\\ub8cc\\ud3c9\\uade0': 'mean',\\n    '\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0': 'mean'\\n}).round(2)\\n\\ndept_stats.columns = ['\\uc778\\uc6d0\\uc218', '\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0', '\\ud45c\\uc900\\ud3b8\\ucc28', '\\ucd5c\\uc18c', '\\ucd5c\\ub300', '\\uc0c1\\uc0ac\\ud3c9\\uade0', '\\ub3d9\\ub8cc\\ud3c9\\uade0', '\\uad6c\\uc131\\uc6d0\\ud3c9\\uade0']\\ndept_stats = dept_stats[dept_stats['\\uc778\\uc6d0\\uc218'] >= 5].sort_values('\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0', ascending=False)\\n\\nprint(dept_stats.to_string())\\n\\n# \\uc804\\uccb4 \\ud3c9\\uade0\\uacfc \\ube44\\uad50\\noverall_avg = df_clean['\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0'].mean()\\nprint(f\\\"\\\\n\\uc804\\uccb4 \\ud3c9\\uade0: {overall_avg:.2f}\\uc810\\\")\\n\\nprint(\\\"\\\\n\\\" + \\\"=\\\" * 80)\\nprint(\\\"3\\ufe0f\\u20e3  \\uc0c1\\uc704 5\\uac1c \\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9 (\\ud0c0\\uc778 \\ud3c9\\uac00 \\uae30\\uc900)\\\")\\nprint(\\\"=\\\" * 80)\\ntop5 = dept_stats.head(5)\\nfor idx, (dept, row) in enumerate(top5.iterrows(), 1):\\n    diff = row['\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0'] - overall_avg\\n    print(f\\\"{idx}. {dept:30s} | {row['\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0']:.2f}\\uc810 ({row['\\uc778\\uc6d0\\uc218']:.0f}\\uba85) | \\uc804\\uccb4 \\ub300\\ube44 {diff:+.2f}\\uc810\\\")\\n\\nprint(\\\"\\\\n\\\" + \\\"=\\\" * 80)\\nprint(\\\"4\\ufe0f\\u20e3  \\ud558\\uc704 5\\uac1c \\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9 (\\ud0c0\\uc778 \\ud3c9\\uac00 \\uae30\\uc900)\\\")\\nprint(\\\"=\\\" * 80)\\nbottom5 = dept_stats.tail(5).sort_values('\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0')\\nfor idx, (dept, row) in enumerate(bottom5.iterrows(), 1):\\n    diff = row['\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0'] - overall_avg\\n    print(f\\\"{idx}. {dept:30s} | {row['\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0']:.2f}\\uc810 ({row['\\uc778\\uc6d0\\uc218']:.0f}\\uba85) | \\uc804\\uccb4 \\ub300\\ube44 {diff:+.2f}\\uc810\\\")\\n\\nEOF\\n\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"================================================================================\\n📊 사업부/담당별 리더십 평가 분석 (타인 평가 기준)\\n================================================================================\\n\\n1️⃣  사업부/담당별 인원 현황\\n--------------------------------------------------------------------------------\\n사업부/담당\\n생산혁신센터               46\\nPRI 장비기술센터           40\\nPRI 선행공법연구센터         23\\nPRI 제조S&P센터          17\\nPRI 오퍼레이션담당          13\\nSmart Factory사업담당     7\\nPRI 전략담당              4\\nName: count, dtype: int64\\n\\n총 사업부/담당 수: 7개\\n\\n================================================================================\\n2️⃣  사업부/담당별 타인 평가 점수 (5명 이상 조직)\\n================================================================================\\n                   인원수  타인평가_평균  표준편차     최소     최대   상사평균   동료평균  구성원평균\\n사업부/담당                                                                  \\nSmart Factory사업담당    7    93.94  1.83  91.99  96.46  98.20  88.90  94.73\\nPRI 장비기술센터          40    90.69  3.76  78.32  96.78  93.25  91.09  87.74\\n생산혁신센터              46    89.78  3.72  80.85  96.32  86.78  91.07  91.51\\nPRI 선행공법연구센터        23    89.56  3.55  82.60  96.25  88.48  92.80  87.39\\nPRI 오퍼레이션담당         13    88.43  4.64  79.91  93.52  93.79  86.01  85.49\\nPRI 제조S&P센터         17    85.76  4.27  73.68  92.33  84.56  88.22  84.49\\n\\n전체 평균: 89.34점\\n\\n================================================================================\\n3️⃣  상위 5개 사업부/담당 (타인 평가 기준)\\n================================================================================\\n1. Smart Factory사업담당              | 93.94점 (7명) | 전체 대비 +4.60점\\n2. PRI 장비기술센터                     | 90.69점 (40명) | 전체 대비 +1.35점\\n3. 생산혁신센터                         | 89.78점 (46명) | 전체 대비 +0.44점\\n4. PRI 선행공법연구센터                   | 89.56점 (23명) | 전체 대비 +0.22점\\n5. PRI 오퍼레이션담당                    | 88.43점 (13명) | 전체 대비 -0.91점\\n\\n================================================================================\\n4️⃣  하위 5개 사업부/담당 (타인 평가 기준)\\n================================================================================\\n1. PRI 제조S&P센터                    | 85.76점 (17명) | 전체 대비 -3.58점\\n2. PRI 오퍼레이션담당                    | 88.43점 (13명) | 전체 대비 -0.91점\\n3. PRI 선행공법연구센터                   | 89.56점 (23명) | 전체 대비 +0.22점\\n4. 생산혁신센터                         | 89.78점 (46명) | 전체 대비 +0.44점\\n5. PRI 장비기술센터                     | 90.69점 (40명) | 전체 대비 +1.35점\\n\",\"stderr\":\"\"}",
+              "uuid": "dda0d7f3-d355-47ac-9662-bf810ed1dfb3"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"================================================================================\\n📊 사업부/담당별 리더십 평가 분석 (타인 평가 기준)\\n================================================================================\\n\\n1️⃣  사업부/담당별 인원 현황\\n--------------------------------------------------------------------------------\\n사업부/담당\\n생산혁신센터               46\\nPRI 장비기술센터           40\\nPRI 선행공법연구센터         23\\nPRI 제조S&P센터          17\\nPRI 오퍼레이션담당          13\\nSmart Factory사업담당     7\\nPRI 전략담당              4\\nName: count, dtype: int64\\n\\n총 사업부/담당 수: 7개\\n\\n================================================================================\\n2️⃣  사업부/담당별 타인 평가 점수 (5명 이상 조직)\\n================================================================================\\n                   인원수  타인평가_평균  표준편차     최소     최대   상사평균   동료평균  구성원평균\\n사업부/담당                                                                  \\nSmart Factory사업담당    7    93.94  1.83  91.99  96.46  98.20  88.90  94.73\\nPRI 장비기술센터          40    90.69  3.76  78.32  96.78  93.25  91.09  87.74\\n생산혁신센터              46    89.78  3.72  80.85  96.32  86.78  91.07  91.51\\nPRI 선행공법연구센터        23    89.56  3.55  82.60  96.25  88.48  92.80  87.39\\nPRI 오퍼레이션담당         13    88.43  4.64  79.91  93.52  93.79  86.01  85.49\\nPRI 제조S&P센터         17    85.76  4.27  73.68  92.33  84.56  88.22  84.49\\n\\n전체 평균: 89.34점\\n\\n================================================================================\\n3️⃣  상위 5개 사업부/담당 (타인 평가 기준)\\n================================================================================\\n1. Smart Factory사업담당              | 93.94점 (7명) | 전체 대비 +4.60점\\n2. PRI 장비기술센터                     | 90.69점 (40명) | 전체 대비 +1.35점\\n3. 생산혁신센터                         | 89.78점 (46명) | 전체 대비 +0.44점\\n4. PRI 선행공법연구센터                   | 89.56점 (23명) | 전체 대비 +0.22점\\n5. PRI 오퍼레이션담당                    | 88.43점 (13명) | 전체 대비 -0.91점\\n\\n================================================================================\\n4️⃣  하위 5개 사업부/담당 (타인 평가 기준)\\n================================================================================\\n1. PRI 제조S&P센터                    | 85.76점 (17명) | 전체 대비 -3.58점\\n2. PRI 오퍼레이션담당                    | 88.43점 (13명) | 전체 대비 -0.91점\\n3. PRI 선행공법연구센터                   | 89.56점 (23명) | 전체 대비 +0.22점\\n4. 생산혁신센터                         | 89.78점 (46명) | 전체 대비 +0.44점\\n5. PRI 장비기술센터                     | 90.69점 (40명) | 전체 대비 +1.35점\\n\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-10-17T22:48:03.719839Z",
+          "stop_timestamp": "2025-10-17T22:48:29.193641Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "bash_tool",
+          "input": {
+            "command": "cd /home/claude && python3 << 'EOF'\nimport pandas as pd\nimport plotly.graph_objects as go\nfrom plotly.subplots import make_subplots\n\n# 데이터 로드\ndf = pd.read_excel('/mnt/user-data/uploads/__25년_리더십평가_결과_육성공유_251016.xlsx', sheet_name='(raw)국내')\ndf_clean = df[df['1:1:1 종합점수\\n(상사 Calibration)'] >= 50].copy()\n\n# 타인 평가 평균 계산\ndf_clean['타인평가_평균'] = (df_clean['상사평균'] + df_clean['동료평균'] + df_clean['구성원 평균']) / 3\n\n# 17개 리더십 역량\ncompetencies = [\n    '고객 가치 최우선', '트렌드 센싱', '통찰력', '전략적 사고/행동', \n    '높은 목표 도전', '결단력', '추진력', '협업과 팀웍',\n    '인재 확보 열의', '인재의 지속 성장 관심', '성과/역량에 따른 엄정한 인사',\n    '모티베이션', '커뮤니케이션', '지속학습', '자기 성찰', '타인 존중', '원칙 중시'\n]\n\n# 사업부별 통계 (5명 이상)\ndept_stats = df_clean.groupby('사업부/담당').agg({\n    '사번': 'count',\n    '타인평가_평균': 'mean',\n    '상사평균': 'mean',\n    '동료평균': 'mean',\n    '구성원 평균': 'mean'\n}).round(2)\ndept_stats.columns = ['인원수', '타인평가', '상사평균', '동료평균', '구성원평균']\ndept_stats = dept_stats[dept_stats['인원수'] >= 5].sort_values('타인평가', ascending=False)\n\n# 서브플롯 생성\nfig = make_subplots(\n    rows=2, cols=2,\n    subplot_titles=(\n        '1. 사업부/담당별 타인 평가 점수 (평균)',\n        '2. 평가자별 점수 비교 (사업부별)',\n        '3. 사업부/담당별 점수 분포 (박스플롯)',\n        '4. 상위/하위 조직 역량 비교 (레이더 차트)'\n    ),\n    specs=[\n        [{\"type\": \"bar\"}, {\"type\": \"bar\"}],\n        [{\"type\": \"box\"}, {\"type\": \"scatterpolar\"}]\n    ],\n    vertical_spacing=0.15,\n    horizontal_spacing=0.12\n)\n\n# 1. 사업부별 타인 평가 점수\ncolors_dept = ['#2ecc71' if score >= 90 else '#f39c12' if score >= 88 else '#e74c3c' \n               for score in dept_stats['타인평가']]\n\nfig.add_trace(\n    go.Bar(\n        x=dept_stats.index,\n        y=dept_stats['타인평가'],\n        text=[f'{v:.1f}<br>({int(n)}명)' for v, n in zip(dept_stats['타인평가'], dept_stats['인원수'])],\n        textposition='outside',\n        marker_color=colors_dept,\n        showlegend=False\n    ),\n    row=1, col=1\n)\n\n# 전체 평균선 추가\noverall_avg = df_clean['타인평가_평균'].mean()\nfig.add_hline(y=overall_avg, line_dash=\"dash\", line_color=\"red\", \n              annotation_text=f\"전체 평균: {overall_avg:.1f}\", row=1, col=1)\n\n# 2. 평가자별 점수 비교\ndept_list = dept_stats.index.tolist()\nevaluator_types = ['상사평균', '동료평균', '구성원평균']\ncolors_eval = ['#FF6B6B', '#4ECDC4', '#45B7D1']\n\nfor i, eval_type in enumerate(evaluator_types):\n    fig.add_trace(\n        go.Bar(\n            name=eval_type.replace('평균', ''),\n            x=dept_list,\n            y=dept_stats[eval_type],\n            marker_color=colors_eval[i]\n        ),\n        row=1, col=2\n    )\n\n# 3. 박스플롯 (조직별 점수 분포)\nfor dept in dept_list:\n    dept_data = df_clean[df_clean['사업부/담당'] == dept]['타인평가_평균']\n    fig.add_trace(\n        go.Box(\n            y=dept_data,\n            name=dept,\n            boxmean='sd',\n            showlegend=False\n        ),\n        row=2, col=1\n    )\n\n# 4. 레이더 차트 (상위 vs 하위 조직 역량 비교)\ntop_dept = dept_stats.index[0]  # 1등 조직\nbottom_dept = dept_stats.index[-1]  # 꼴등 조직\n\ntop_scores = []\nbottom_scores = []\nfor comp in competencies:\n    col_name = f'타인_{comp}'\n    if col_name in df_clean.columns:\n        top_scores.append(df_clean[df_clean['사업부/담당'] == top_dept][col_name].mean())\n        bottom_scores.append(df_clean[df_clean['사업부/담당'] == bottom_dept][col_name].mean())\n\nfig.add_trace(\n    go.Scatterpolar(\n        r=top_scores,\n        theta=competencies,\n        fill='toself',\n        name=f'{top_dept}<br>({dept_stats.loc[top_dept, \"타인평가\"]:.1f}점)',\n        line_color='#2ecc71'\n    ),\n    row=2, col=2\n)\n\nfig.add_trace(\n    go.Scatterpolar(\n        r=bottom_scores,\n        theta=competencies,\n        fill='toself',\n        name=f'{bottom_dept}<br>({dept_stats.loc[bottom_dept, \"타인평가\"]:.1f}점)',\n        line_color='#e74c3c'\n    ),\n    row=2, col=2\n)\n\n# 레이아웃 업데이트\nfig.update_xaxes(tickangle=-45, row=1, col=1)\nfig.update_yaxes(title_text=\"점수\", range=[80, 100], row=1, col=1)\nfig.update_xaxes(tickangle=-45, row=1, col=2)\nfig.update_yaxes(title_text=\"점수\", range=[80, 100], row=1, col=2)\nfig.update_xaxes(tickangle=-45, row=2, col=1)\nfig.update_yaxes(title_text=\"점수\", range=[70, 100], row=2, col=1)\n\nfig.update_layout(\n    height=1000,\n    title_text=\"<b>사업부/담당별 리더십 평가 분석</b><br><sub>타인 평가 기준 (상사+동료+구성원 평균)</sub>\",\n    title_font_size=22,\n    showlegend=True,\n    legend=dict(orientation=\"h\", yanchor=\"bottom\", y=-0.15, xanchor=\"center\", x=0.5),\n    font=dict(size=10)\n)\n\nfig.write_html('/home/claude/dept_analysis.html')\nprint(\"✅ 사업부별 분석 대시보드 생성 완료!\")\n\nEOF\n",
+            "description": "사업부별 시각화 대시보드 생성"
+          },
+          "message": "사업부별 시각화 대시보드 생성",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cd /home/claude && python3 << 'EOF'\\nimport pandas as pd\\nimport plotly.graph_objects as go\\nfrom plotly.subplots import make_subplots\\n\\n# \\ub370\\uc774\\ud130 \\ub85c\\ub4dc\\ndf = pd.read_excel('/mnt/user-data/uploads/__25\\ub144_\\ub9ac\\ub354\\uc2ed\\ud3c9\\uac00_\\uacb0\\uacfc_\\uc721\\uc131\\uacf5\\uc720_251016.xlsx', sheet_name='(raw)\\uad6d\\ub0b4')\\ndf_clean = df[df['1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)'] >= 50].copy()\\n\\n# \\ud0c0\\uc778 \\ud3c9\\uac00 \\ud3c9\\uade0 \\uacc4\\uc0b0\\ndf_clean['\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0'] = (df_clean['\\uc0c1\\uc0ac\\ud3c9\\uade0'] + df_clean['\\ub3d9\\ub8cc\\ud3c9\\uade0'] + df_clean['\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0']) / 3\\n\\n# 17\\uac1c \\ub9ac\\ub354\\uc2ed \\uc5ed\\ub7c9\\ncompetencies = [\\n    '\\uace0\\uac1d \\uac00\\uce58 \\ucd5c\\uc6b0\\uc120', '\\ud2b8\\ub80c\\ub4dc \\uc13c\\uc2f1', '\\ud1b5\\ucc30\\ub825', '\\uc804\\ub7b5\\uc801 \\uc0ac\\uace0/\\ud589\\ub3d9', \\n    '\\ub192\\uc740 \\ubaa9\\ud45c \\ub3c4\\uc804', '\\uacb0\\ub2e8\\ub825', '\\ucd94\\uc9c4\\ub825', '\\ud611\\uc5c5\\uacfc \\ud300\\uc6cd',\\n    '\\uc778\\uc7ac \\ud655\\ubcf4 \\uc5f4\\uc758', '\\uc778\\uc7ac\\uc758 \\uc9c0\\uc18d \\uc131\\uc7a5 \\uad00\\uc2ec', '\\uc131\\uacfc/\\uc5ed\\ub7c9\\uc5d0 \\ub530\\ub978 \\uc5c4\\uc815\\ud55c \\uc778\\uc0ac',\\n    '\\ubaa8\\ud2f0\\ubca0\\uc774\\uc158', '\\ucee4\\ubba4\\ub2c8\\ucf00\\uc774\\uc158', '\\uc9c0\\uc18d\\ud559\\uc2b5', '\\uc790\\uae30 \\uc131\\ucc30', '\\ud0c0\\uc778 \\uc874\\uc911', '\\uc6d0\\uce59 \\uc911\\uc2dc'\\n]\\n\\n# \\uc0ac\\uc5c5\\ubd80\\ubcc4 \\ud1b5\\uacc4 (5\\uba85 \\uc774\\uc0c1)\\ndept_stats = df_clean.groupby('\\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9').agg({\\n    '\\uc0ac\\ubc88': 'count',\\n    '\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0': 'mean',\\n    '\\uc0c1\\uc0ac\\ud3c9\\uade0': 'mean',\\n    '\\ub3d9\\ub8cc\\ud3c9\\uade0': 'mean',\\n    '\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0': 'mean'\\n}).round(2)\\ndept_stats.columns = ['\\uc778\\uc6d0\\uc218', '\\ud0c0\\uc778\\ud3c9\\uac00', '\\uc0c1\\uc0ac\\ud3c9\\uade0', '\\ub3d9\\ub8cc\\ud3c9\\uade0', '\\uad6c\\uc131\\uc6d0\\ud3c9\\uade0']\\ndept_stats = dept_stats[dept_stats['\\uc778\\uc6d0\\uc218'] >= 5].sort_values('\\ud0c0\\uc778\\ud3c9\\uac00', ascending=False)\\n\\n# \\uc11c\\ube0c\\ud50c\\ub86f \\uc0dd\\uc131\\nfig = make_subplots(\\n    rows=2, cols=2,\\n    subplot_titles=(\\n        '1. \\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9\\ubcc4 \\ud0c0\\uc778 \\ud3c9\\uac00 \\uc810\\uc218 (\\ud3c9\\uade0)',\\n        '2. \\ud3c9\\uac00\\uc790\\ubcc4 \\uc810\\uc218 \\ube44\\uad50 (\\uc0ac\\uc5c5\\ubd80\\ubcc4)',\\n        '3. \\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9\\ubcc4 \\uc810\\uc218 \\ubd84\\ud3ec (\\ubc15\\uc2a4\\ud50c\\ub86f)',\\n        '4. \\uc0c1\\uc704/\\ud558\\uc704 \\uc870\\uc9c1 \\uc5ed\\ub7c9 \\ube44\\uad50 (\\ub808\\uc774\\ub354 \\ucc28\\ud2b8)'\\n    ),\\n    specs=[\\n        [{\\\"type\\\": \\\"bar\\\"}, {\\\"type\\\": \\\"bar\\\"}],\\n        [{\\\"type\\\": \\\"box\\\"}, {\\\"type\\\": \\\"scatterpolar\\\"}]\\n    ],\\n    vertical_spacing=0.15,\\n    horizontal_spacing=0.12\\n)\\n\\n# 1. \\uc0ac\\uc5c5\\ubd80\\ubcc4 \\ud0c0\\uc778 \\ud3c9\\uac00 \\uc810\\uc218\\ncolors_dept = ['#2ecc71' if score >= 90 else '#f39c12' if score >= 88 else '#e74c3c' \\n               for score in dept_stats['\\ud0c0\\uc778\\ud3c9\\uac00']]\\n\\nfig.add_trace(\\n    go.Bar(\\n        x=dept_stats.index,\\n        y=dept_stats['\\ud0c0\\uc778\\ud3c9\\uac00'],\\n        text=[f'{v:.1f}<br>({int(n)}\\uba85)' for v, n in zip(dept_stats['\\ud0c0\\uc778\\ud3c9\\uac00'], dept_stats['\\uc778\\uc6d0\\uc218'])],\\n        textposition='outside',\\n        marker_color=colors_dept,\\n        showlegend=False\\n    ),\\n    row=1, col=1\\n)\\n\\n# \\uc804\\uccb4 \\ud3c9\\uade0\\uc120 \\ucd94\\uac00\\noverall_avg = df_clean['\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0'].mean()\\nfig.add_hline(y=overall_avg, line_dash=\\\"dash\\\", line_color=\\\"red\\\", \\n              annotation_text=f\\\"\\uc804\\uccb4 \\ud3c9\\uade0: {overall_avg:.1f}\\\", row=1, col=1)\\n\\n# 2. \\ud3c9\\uac00\\uc790\\ubcc4 \\uc810\\uc218 \\ube44\\uad50\\ndept_list = dept_stats.index.tolist()\\nevaluator_types = ['\\uc0c1\\uc0ac\\ud3c9\\uade0', '\\ub3d9\\ub8cc\\ud3c9\\uade0', '\\uad6c\\uc131\\uc6d0\\ud3c9\\uade0']\\ncolors_eval = ['#FF6B6B', '#4ECDC4', '#45B7D1']\\n\\nfor i, eval_type in enumerate(evaluator_types):\\n    fig.add_trace(\\n        go.Bar(\\n            name=eval_type.replace('\\ud3c9\\uade0', ''),\\n            x=dept_list,\\n            y=dept_stats[eval_type],\\n            marker_color=colors_eval[i]\\n        ),\\n        row=1, col=2\\n    )\\n\\n# 3. \\ubc15\\uc2a4\\ud50c\\ub86f (\\uc870\\uc9c1\\ubcc4 \\uc810\\uc218 \\ubd84\\ud3ec)\\nfor dept in dept_list:\\n    dept_data = df_clean[df_clean['\\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9'] == dept]['\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0']\\n    fig.add_trace(\\n        go.Box(\\n            y=dept_data,\\n            name=dept,\\n            boxmean='sd',\\n            showlegend=False\\n        ),\\n        row=2, col=1\\n    )\\n\\n# 4. \\ub808\\uc774\\ub354 \\ucc28\\ud2b8 (\\uc0c1\\uc704 vs \\ud558\\uc704 \\uc870\\uc9c1 \\uc5ed\\ub7c9 \\ube44\\uad50)\\ntop_dept = dept_stats.index[0]  # 1\\ub4f1 \\uc870\\uc9c1\\nbottom_dept = dept_stats.index[-1]  # \\uaf34\\ub4f1 \\uc870\\uc9c1\\n\\ntop_scores = []\\nbottom_scores = []\\nfor comp in competencies:\\n    col_name = f'\\ud0c0\\uc778_{comp}'\\n    if col_name in df_clean.columns:\\n        top_scores.append(df_clean[df_clean['\\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9'] == top_dept][col_name].mean())\\n        bottom_scores.append(df_clean[df_clean['\\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9'] == bottom_dept][col_name].mean())\\n\\nfig.add_trace(\\n    go.Scatterpolar(\\n        r=top_scores,\\n        theta=competencies,\\n        fill='toself',\\n        name=f'{top_dept}<br>({dept_stats.loc[top_dept, \\\"\\ud0c0\\uc778\\ud3c9\\uac00\\\"]:.1f}\\uc810)',\\n        line_color='#2ecc71'\\n    ),\\n    row=2, col=2\\n)\\n\\nfig.add_trace(\\n    go.Scatterpolar(\\n        r=bottom_scores,\\n        theta=competencies,\\n        fill='toself',\\n        name=f'{bottom_dept}<br>({dept_stats.loc[bottom_dept, \\\"\\ud0c0\\uc778\\ud3c9\\uac00\\\"]:.1f}\\uc810)',\\n        line_color='#e74c3c'\\n    ),\\n    row=2, col=2\\n)\\n\\n# \\ub808\\uc774\\uc544\\uc6c3 \\uc5c5\\ub370\\uc774\\ud2b8\\nfig.update_xaxes(tickangle=-45, row=1, col=1)\\nfig.update_yaxes(title_text=\\\"\\uc810\\uc218\\\", range=[80, 100], row=1, col=1)\\nfig.update_xaxes(tickangle=-45, row=1, col=2)\\nfig.update_yaxes(title_text=\\\"\\uc810\\uc218\\\", range=[80, 100], row=1, col=2)\\nfig.update_xaxes(tickangle=-45, row=2, col=1)\\nfig.update_yaxes(title_text=\\\"\\uc810\\uc218\\\", range=[70, 100], row=2, col=1)\\n\\nfig.update_layout(\\n    height=1000,\\n    title_text=\\\"<b>\\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9\\ubcc4 \\ub9ac\\ub354\\uc2ed \\ud3c9\\uac00 \\ubd84\\uc11d</b><br><sub>\\ud0c0\\uc778 \\ud3c9\\uac00 \\uae30\\uc900 (\\uc0c1\\uc0ac+\\ub3d9\\ub8cc+\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0)</sub>\\\",\\n    title_font_size=22,\\n    showlegend=True,\\n    legend=dict(orientation=\\\"h\\\", yanchor=\\\"bottom\\\", y=-0.15, xanchor=\\\"center\\\", x=0.5),\\n    font=dict(size=10)\\n)\\n\\nfig.write_html('/home/claude/dept_analysis.html')\\nprint(\\\"\\u2705 \\uc0ac\\uc5c5\\ubd80\\ubcc4 \\ubd84\\uc11d \\ub300\\uc2dc\\ubcf4\\ub4dc \\uc0dd\\uc131 \\uc644\\ub8cc!\\\")\\n\\nEOF\\n\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"✅ 사업부별 분석 대시보드 생성 완료!\\n\",\"stderr\":\"\"}",
+              "uuid": "4f681ef7-1dbe-41f2-b8a9-b584a11f23d5"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"✅ 사업부별 분석 대시보드 생성 완료!\\n\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-10-17T22:48:33.189736Z",
+          "stop_timestamp": "2025-10-17T22:48:44.324827Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "bash_tool",
+          "input": {
+            "command": "cd /home/claude && python3 << 'EOF'\nimport pandas as pd\n\n# 데이터 로드\ndf = pd.read_excel('/mnt/user-data/uploads/__25년_리더십평가_결과_육성공유_251016.xlsx', sheet_name='(raw)국내')\ndf_clean = df[df['1:1:1 종합점수\\n(상사 Calibration)'] >= 50].copy()\n\n# 타인 평가 평균\ndf_clean['타인평가_평균'] = (df_clean['상사평균'] + df_clean['동료평균'] + df_clean['구성원 평균']) / 3\n\n# 17개 역량\ncompetencies = [\n    '고객 가치 최우선', '트렌드 센싱', '통찰력', '전략적 사고/행동', \n    '높은 목표 도전', '결단력', '추진력', '협업과 팀웍',\n    '인재 확보 열의', '인재의 지속 성장 관심', '성과/역량에 따른 엄정한 인사',\n    '모티베이션', '커뮤니케이션', '지속학습', '자기 성찰', '타인 존중', '원칙 중시'\n]\n\n# 사업부별 역량 분석\nprint(\"=\" * 80)\nprint(\"📊 사업부/담당별 역량 상세 분석 (타인 평가)\")\nprint(\"=\" * 80)\n\ndept_list = df_clean['사업부/담당'].value_counts()\ndept_list = dept_list[dept_list >= 5].index.tolist()\n\nfor dept in dept_list:\n    dept_data = df_clean[df_clean['사업부/담당'] == dept]\n    \n    print(f\"\\n{'=' * 80}\")\n    print(f\"🏢 {dept} ({len(dept_data)}명)\")\n    print(f\"{'=' * 80}\")\n    print(f\"타인 평가 평균: {dept_data['타인평가_평균'].mean():.2f}점\")\n    print(f\"  - 상사: {dept_data['상사평균'].mean():.2f}점\")\n    print(f\"  - 동료: {dept_data['동료평균'].mean():.2f}점\")\n    print(f\"  - 구성원: {dept_data['구성원 평균'].mean():.2f}점\")\n    \n    # 역량별 점수\n    comp_scores = []\n    for comp in competencies:\n        col_name = f'타인_{comp}'\n        if col_name in dept_data.columns:\n            comp_scores.append({\n                '역량': comp,\n                '점수': dept_data[col_name].mean()\n            })\n    \n    comp_df = pd.DataFrame(comp_scores).sort_values('점수', ascending=False)\n    \n    print(f\"\\n[강점 역량 TOP 5]\")\n    for idx, row in comp_df.head(5).iterrows():\n        print(f\"  ✅ {row['역량']:25s}: {row['점수']:.2f}점\")\n    \n    print(f\"\\n[개선 필요 역량 TOP 5]\")\n    for idx, row in comp_df.tail(5).iterrows():\n        print(f\"  ⚠️  {row['역량']:25s}: {row['점수']:.2f}점\")\n\nprint(\"\\n\" + \"=\" * 80)\nprint(\"✅ 사업부별 역량 분석 완료!\")\nprint(\"=\" * 80)\n\nEOF\n",
+            "description": "사업부별 상세 역량 분석"
+          },
+          "message": "사업부별 상세 역량 분석",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cd /home/claude && python3 << 'EOF'\\nimport pandas as pd\\n\\n# \\ub370\\uc774\\ud130 \\ub85c\\ub4dc\\ndf = pd.read_excel('/mnt/user-data/uploads/__25\\ub144_\\ub9ac\\ub354\\uc2ed\\ud3c9\\uac00_\\uacb0\\uacfc_\\uc721\\uc131\\uacf5\\uc720_251016.xlsx', sheet_name='(raw)\\uad6d\\ub0b4')\\ndf_clean = df[df['1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)'] >= 50].copy()\\n\\n# \\ud0c0\\uc778 \\ud3c9\\uac00 \\ud3c9\\uade0\\ndf_clean['\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0'] = (df_clean['\\uc0c1\\uc0ac\\ud3c9\\uade0'] + df_clean['\\ub3d9\\ub8cc\\ud3c9\\uade0'] + df_clean['\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0']) / 3\\n\\n# 17\\uac1c \\uc5ed\\ub7c9\\ncompetencies = [\\n    '\\uace0\\uac1d \\uac00\\uce58 \\ucd5c\\uc6b0\\uc120', '\\ud2b8\\ub80c\\ub4dc \\uc13c\\uc2f1', '\\ud1b5\\ucc30\\ub825', '\\uc804\\ub7b5\\uc801 \\uc0ac\\uace0/\\ud589\\ub3d9', \\n    '\\ub192\\uc740 \\ubaa9\\ud45c \\ub3c4\\uc804', '\\uacb0\\ub2e8\\ub825', '\\ucd94\\uc9c4\\ub825', '\\ud611\\uc5c5\\uacfc \\ud300\\uc6cd',\\n    '\\uc778\\uc7ac \\ud655\\ubcf4 \\uc5f4\\uc758', '\\uc778\\uc7ac\\uc758 \\uc9c0\\uc18d \\uc131\\uc7a5 \\uad00\\uc2ec', '\\uc131\\uacfc/\\uc5ed\\ub7c9\\uc5d0 \\ub530\\ub978 \\uc5c4\\uc815\\ud55c \\uc778\\uc0ac',\\n    '\\ubaa8\\ud2f0\\ubca0\\uc774\\uc158', '\\ucee4\\ubba4\\ub2c8\\ucf00\\uc774\\uc158', '\\uc9c0\\uc18d\\ud559\\uc2b5', '\\uc790\\uae30 \\uc131\\ucc30', '\\ud0c0\\uc778 \\uc874\\uc911', '\\uc6d0\\uce59 \\uc911\\uc2dc'\\n]\\n\\n# \\uc0ac\\uc5c5\\ubd80\\ubcc4 \\uc5ed\\ub7c9 \\ubd84\\uc11d\\nprint(\\\"=\\\" * 80)\\nprint(\\\"\\ud83d\\udcca \\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9\\ubcc4 \\uc5ed\\ub7c9 \\uc0c1\\uc138 \\ubd84\\uc11d (\\ud0c0\\uc778 \\ud3c9\\uac00)\\\")\\nprint(\\\"=\\\" * 80)\\n\\ndept_list = df_clean['\\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9'].value_counts()\\ndept_list = dept_list[dept_list >= 5].index.tolist()\\n\\nfor dept in dept_list:\\n    dept_data = df_clean[df_clean['\\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9'] == dept]\\n    \\n    print(f\\\"\\\\n{'=' * 80}\\\")\\n    print(f\\\"\\ud83c\\udfe2 {dept} ({len(dept_data)}\\uba85)\\\")\\n    print(f\\\"{'=' * 80}\\\")\\n    print(f\\\"\\ud0c0\\uc778 \\ud3c9\\uac00 \\ud3c9\\uade0: {dept_data['\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0'].mean():.2f}\\uc810\\\")\\n    print(f\\\"  - \\uc0c1\\uc0ac: {dept_data['\\uc0c1\\uc0ac\\ud3c9\\uade0'].mean():.2f}\\uc810\\\")\\n    print(f\\\"  - \\ub3d9\\ub8cc: {dept_data['\\ub3d9\\ub8cc\\ud3c9\\uade0'].mean():.2f}\\uc810\\\")\\n    print(f\\\"  - \\uad6c\\uc131\\uc6d0: {dept_data['\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0'].mean():.2f}\\uc810\\\")\\n    \\n    # \\uc5ed\\ub7c9\\ubcc4 \\uc810\\uc218\\n    comp_scores = []\\n    for comp in competencies:\\n        col_name = f'\\ud0c0\\uc778_{comp}'\\n        if col_name in dept_data.columns:\\n            comp_scores.append({\\n                '\\uc5ed\\ub7c9': comp,\\n                '\\uc810\\uc218': dept_data[col_name].mean()\\n            })\\n    \\n    comp_df = pd.DataFrame(comp_scores).sort_values('\\uc810\\uc218', ascending=False)\\n    \\n    print(f\\\"\\\\n[\\uac15\\uc810 \\uc5ed\\ub7c9 TOP 5]\\\")\\n    for idx, row in comp_df.head(5).iterrows():\\n        print(f\\\"  \\u2705 {row['\\uc5ed\\ub7c9']:25s}: {row['\\uc810\\uc218']:.2f}\\uc810\\\")\\n    \\n    print(f\\\"\\\\n[\\uac1c\\uc120 \\ud544\\uc694 \\uc5ed\\ub7c9 TOP 5]\\\")\\n    for idx, row in comp_df.tail(5).iterrows():\\n        print(f\\\"  \\u26a0\\ufe0f  {row['\\uc5ed\\ub7c9']:25s}: {row['\\uc810\\uc218']:.2f}\\uc810\\\")\\n\\nprint(\\\"\\\\n\\\" + \\\"=\\\" * 80)\\nprint(\\\"\\u2705 \\uc0ac\\uc5c5\\ubd80\\ubcc4 \\uc5ed\\ub7c9 \\ubd84\\uc11d \\uc644\\ub8cc!\\\")\\nprint(\\\"=\\\" * 80)\\n\\nEOF\\n\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"================================================================================\\n📊 사업부/담당별 역량 상세 분석 (타인 평가)\\n================================================================================\\n\\n================================================================================\\n🏢 생산혁신센터 (46명)\\n================================================================================\\n타인 평가 평균: 89.78점\\n  - 상사: 86.78점\\n  - 동료: 91.07점\\n  - 구성원: 91.51점\\n\\n[강점 역량 TOP 5]\\n  ✅ 원칙 중시                    : 95.44점\\n  ✅ 타인 존중                    : 91.37점\\n  ✅ 추진력                      : 91.11점\\n  ✅ 고객 가치 최우선                : 90.90점\\n  ✅ 협업과 팀웍                   : 90.39점\\n\\n[개선 필요 역량 TOP 5]\\n  ⚠️  모티베이션                    : 88.69점\\n  ⚠️  자기 성찰                    : 88.60점\\n  ⚠️  전략적 사고/행동                : 86.42점\\n  ⚠️  인재의 지속 성장 관심             : 86.31점\\n  ⚠️  인재 확보 열의                 : 85.99점\\n\\n================================================================================\\n🏢 PRI 장비기술센터 (40명)\\n================================================================================\\n타인 평가 평균: 90.69점\\n  - 상사: 93.25점\\n  - 동료: 91.09점\\n  - 구성원: 87.74점\\n\\n[강점 역량 TOP 5]\\n  ✅ 원칙 중시                    : 94.94점\\n  ✅ 추진력                      : 93.34점\\n  ✅ 고객 가치 최우선                : 92.67점\\n  ✅ 트렌드 센싱                   : 92.35점\\n  ✅ 지속학습                     : 92.24점\\n\\n[개선 필요 역량 TOP 5]\\n  ⚠️  자기 성찰                    : 89.25점\\n  ⚠️  모티베이션                    : 88.84점\\n  ⚠️  인재의 지속 성장 관심             : 87.97점\\n  ⚠️  전략적 사고/행동                : 87.79점\\n  ⚠️  인재 확보 열의                 : 87.20점\\n\\n================================================================================\\n🏢 PRI 선행공법연구센터 (23명)\\n================================================================================\\n타인 평가 평균: 89.56점\\n  - 상사: 88.48점\\n  - 동료: 92.80점\\n  - 구성원: 87.39점\\n\\n[강점 역량 TOP 5]\\n  ✅ 원칙 중시                    : 95.70점\\n  ✅ 타인 존중                    : 92.60점\\n  ✅ 고객 가치 최우선                : 92.49점\\n  ✅ 트렌드 센싱                   : 90.82점\\n  ✅ 지속학습                     : 90.62점\\n\\n[개선 필요 역량 TOP 5]\\n  ⚠️  인재 확보 열의                 : 88.14점\\n  ⚠️  결단력                      : 87.67점\\n  ⚠️  인재의 지속 성장 관심             : 87.02점\\n  ⚠️  모티베이션                    : 86.94점\\n  ⚠️  전략적 사고/행동                : 85.87점\\n\\n================================================================================\\n🏢 PRI 제조S&P센터 (17명)\\n================================================================================\\n타인 평가 평균: 85.76점\\n  - 상사: 84.56점\\n  - 동료: 88.22점\\n  - 구성원: 84.49점\\n\\n[강점 역량 TOP 5]\\n  ✅ 원칙 중시                    : 92.56점\\n  ✅ 타인 존중                    : 90.99점\\n  ✅ 커뮤니케이션                   : 89.04점\\n  ✅ 추진력                      : 87.56점\\n  ✅ 성과/역량에 따른 엄정한 인사         : 87.31점\\n\\n[개선 필요 역량 TOP 5]\\n  ⚠️  결단력                      : 83.39점\\n  ⚠️  모티베이션                    : 82.46점\\n  ⚠️  인재의 지속 성장 관심             : 81.98점\\n  ⚠️  인재 확보 열의                 : 80.97점\\n  ⚠️  전략적 사고/행동                : 80.62점\\n\\n================================================================================\\n🏢 PRI 오퍼레이션담당 (13명)\\n================================================================================\\n타인 평가 평균: 88.43점\\n  - 상사: 93.79점\\n  - 동료: 86.01점\\n  - 구성원: 85.49점\\n\\n[강점 역량 TOP 5]\\n  ✅ 원칙 중시                    : 94.45점\\n  ✅ 고객 가치 최우선                : 92.80점\\n  ✅ 통찰력                      : 91.05점\\n  ✅ 트렌드 센싱                   : 89.99점\\n  ✅ 추진력                      : 89.65점\\n\\n[개선 필요 역량 TOP 5]\\n  ⚠️  전략적 사고/행동                : 86.27점\\n  ⚠️  자기 성찰                    : 85.84점\\n  ⚠️  모티베이션                    : 85.73점\\n  ⚠️  인재의 지속 성장 관심             : 85.33점\\n  ⚠️  인재 확보 열의                 : 84.52점\\n\\n================================================================================\\n🏢 Smart Factory사업담당 (7명)\\n================================================================================\\n타인 평가 평균: 93.94점\\n  - 상사: 98.20점\\n  - 동료: 88.90점\\n  - 구성원: 94.73점\\n\\n[강점 역량 TOP 5]\\n  ✅ 원칙 중시                    : 96.60점\\n  ✅ 고객 가치 최우선                : 95.69점\\n  ✅ 추진력                      : 95.67점\\n  ✅ 통찰력                      : 95.56점\\n  ✅ 커뮤니케이션                   : 95.39점\\n\\n[개선 필요 역량 TOP 5]\\n  ⚠️  전략적 사고/행동                : 93.39점\\n  ⚠️  인재 확보 열의                 : 92.54점\\n  ⚠️  인재의 지속 성장 관심             : 91.67점\\n  ⚠️  지속학습                     : 91.37점\\n  ⚠️  자기 성찰                    : 89.80점\\n\\n================================================================================\\n✅ 사업부별 역량 분석 완료!\\n================================================================================\\n\",\"stderr\":\"\"}",
+              "uuid": "1d3cf6bb-8ec4-4cbe-a281-9a974f607947"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"================================================================================\\n📊 사업부/담당별 역량 상세 분석 (타인 평가)\\n================================================================================\\n\\n================================================================================\\n🏢 생산혁신센터 (46명)\\n================================================================================\\n타인 평가 평균: 89.78점\\n  - 상사: 86.78점\\n  - 동료: 91.07점\\n  - 구성원: 91.51점\\n\\n[강점 역량 TOP 5]\\n  ✅ 원칙 중시                    : 95.44점\\n  ✅ 타인 존중                    : 91.37점\\n  ✅ 추진력                      : 91.11점\\n  ✅ 고객 가치 최우선                : 90.90점\\n  ✅ 협업과 팀웍                   : 90.39점\\n\\n[개선 필요 역량 TOP 5]\\n  ⚠️  모티베이션                    : 88.69점\\n  ⚠️  자기 성찰                    : 88.60점\\n  ⚠️  전략적 사고/행동                : 86.42점\\n  ⚠️  인재의 지속 성장 관심             : 86.31점\\n  ⚠️  인재 확보 열의                 : 85.99점\\n\\n================================================================================\\n🏢 PRI 장비기술센터 (40명)\\n================================================================================\\n타인 평가 평균: 90.69점\\n  - 상사: 93.25점\\n  - 동료: 91.09점\\n  - 구성원: 87.74점\\n\\n[강점 역량 TOP 5]\\n  ✅ 원칙 중시                    : 94.94점\\n  ✅ 추진력                      : 93.34점\\n  ✅ 고객 가치 최우선                : 92.67점\\n  ✅ 트렌드 센싱                   : 92.35점\\n  ✅ 지속학습                     : 92.24점\\n\\n[개선 필요 역량 TOP 5]\\n  ⚠️  자기 성찰                    : 89.25점\\n  ⚠️  모티베이션                    : 88.84점\\n  ⚠️  인재의 지속 성장 관심             : 87.97점\\n  ⚠️  전략적 사고/행동                : 87.79점\\n  ⚠️  인재 확보 열의                 : 87.20점\\n\\n================================================================================\\n🏢 PRI 선행공법연구센터 (23명)\\n================================================================================\\n타인 평가 평균: 89.56점\\n  - 상사: 88.48점\\n  - 동료: 92.80점\\n  - 구성원: 87.39점\\n\\n[강점 역량 TOP 5]\\n  ✅ 원칙 중시                    : 95.70점\\n  ✅ 타인 존중                    : 92.60점\\n  ✅ 고객 가치 최우선                : 92.49점\\n  ✅ 트렌드 센싱                   : 90.82점\\n  ✅ 지속학습                     : 90.62점\\n\\n[개선 필요 역량 TOP 5]\\n  ⚠️  인재 확보 열의                 : 88.14점\\n  ⚠️  결단력                      : 87.67점\\n  ⚠️  인재의 지속 성장 관심             : 87.02점\\n  ⚠️  모티베이션                    : 86.94점\\n  ⚠️  전략적 사고/행동                : 85.87점\\n\\n================================================================================\\n🏢 PRI 제조S&P센터 (17명)\\n================================================================================\\n타인 평가 평균: 85.76점\\n  - 상사: 84.56점\\n  - 동료: 88.22점\\n  - 구성원: 84.49점\\n\\n[강점 역량 TOP 5]\\n  ✅ 원칙 중시                    : 92.56점\\n  ✅ 타인 존중                    : 90.99점\\n  ✅ 커뮤니케이션                   : 89.04점\\n  ✅ 추진력                      : 87.56점\\n  ✅ 성과/역량에 따른 엄정한 인사         : 87.31점\\n\\n[개선 필요 역량 TOP 5]\\n  ⚠️  결단력                      : 83.39점\\n  ⚠️  모티베이션                    : 82.46점\\n  ⚠️  인재의 지속 성장 관심             : 81.98점\\n  ⚠️  인재 확보 열의                 : 80.97점\\n  ⚠️  전략적 사고/행동                : 80.62점\\n\\n================================================================================\\n🏢 PRI 오퍼레이션담당 (13명)\\n================================================================================\\n타인 평가 평균: 88.43점\\n  - 상사: 93.79점\\n  - 동료: 86.01점\\n  - 구성원: 85.49점\\n\\n[강점 역량 TOP 5]\\n  ✅ 원칙 중시                    : 94.45점\\n  ✅ 고객 가치 최우선                : 92.80점\\n  ✅ 통찰력                      : 91.05점\\n  ✅ 트렌드 센싱                   : 89.99점\\n  ✅ 추진력                      : 89.65점\\n\\n[개선 필요 역량 TOP 5]\\n  ⚠️  전략적 사고/행동                : 86.27점\\n  ⚠️  자기 성찰                    : 85.84점\\n  ⚠️  모티베이션                    : 85.73점\\n  ⚠️  인재의 지속 성장 관심             : 85.33점\\n  ⚠️  인재 확보 열의                 : 84.52점\\n\\n================================================================================\\n🏢 Smart Factory사업담당 (7명)\\n================================================================================\\n타인 평가 평균: 93.94점\\n  - 상사: 98.20점\\n  - 동료: 88.90점\\n  - 구성원: 94.73점\\n\\n[강점 역량 TOP 5]\\n  ✅ 원칙 중시                    : 96.60점\\n  ✅ 고객 가치 최우선                : 95.69점\\n  ✅ 추진력                      : 95.67점\\n  ✅ 통찰력                      : 95.56점\\n  ✅ 커뮤니케이션                   : 95.39점\\n\\n[개선 필요 역량 TOP 5]\\n  ⚠️  전략적 사고/행동                : 93.39점\\n  ⚠️  인재 확보 열의                 : 92.54점\\n  ⚠️  인재의 지속 성장 관심             : 91.67점\\n  ⚠️  지속학습                     : 91.37점\\n  ⚠️  자기 성찰                    : 89.80점\\n\\n================================================================================\\n✅ 사업부별 역량 분석 완료!\\n================================================================================\\n\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-10-17T22:48:48.309105Z",
+          "stop_timestamp": "2025-10-17T22:49:57.760083Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "bash_tool",
+          "input": {
+            "command": "cd /home/claude && python3 << 'EOF'\nimport pandas as pd\n\n# 데이터 로드\ndf = pd.read_excel('/mnt/user-data/uploads/__25년_리더십평가_결과_육성공유_251016.xlsx', sheet_name='(raw)국내')\ndf_clean = df[df['1:1:1 종합점수\\n(상사 Calibration)'] >= 50].copy()\ndf_clean['타인평가_평균'] = (df_clean['상사평균'] + df_clean['동료평균'] + df_clean['구성원 평균']) / 3\n\n# 인사이트 리포트 생성\nreport = \"\"\"# 📊 사업부/담당별 리더십 평가 분석 리포트\n## 타인 평가 기준 (상사+동료+구성원 평균)\n\n---\n\n## 🎯 핵심 요약 (Executive Summary)\n\n### 조직 현황\n- **분석 대상**: 6개 사업부/담당 (5명 이상 조직)\n- **총 인원**: 150명\n- **전체 평균**: 89.34점\n\n### 조직별 성과 개요\n```\n🥇 1등: Smart Factory사업담당    93.94점 (7명)  ⭐ 전체 대비 +4.60점\n🥈 2등: PRI 장비기술센터         90.69점 (40명) ⭐ 전체 대비 +1.35점  \n🥉 3등: 생산혁신센터             89.78점 (46명) ✅ 전체 대비 +0.44점\n4위: PRI 선행공법연구센터        89.56점 (23명) ✅ 전체 대비 +0.22점\n5위: PRI 오퍼레이션담당          88.43점 (13명) ⚠️  전체 대비 -0.91점\n6위: PRI 제조S&P센터            85.76점 (17명) 🔴 전체 대비 -3.58점\n```\n\n---\n\n## 📈 상세 분석\n\n### 1️⃣ Smart Factory사업담당 (93.94점, 1위) 🥇\n\n**전반적 특징**\n- 모든 사업부 중 **압도적 1위** (전체 평균 대비 +4.60점)\n- 특히 **상사 평가가 매우 높음** (98.20점)\n- 소수 정예 조직(7명)으로 높은 응집력\n\n**강점 역량**\n1. 원칙 중시 (96.60점)\n2. 고객 가치 최우선 (95.69점)\n3. 추진력 (95.67점)\n4. 통찰력 (95.56점)\n5. 커뮤니케이션 (95.39점)\n\n**특이사항**\n- 개선 필요 역량도 **90점 이상**으로 전반적으로 매우 우수\n- 전략적 사고(93.39), 인재 확보(92.54)도 타 조직 대비 높은 수준\n\n**시사점**\n- ✨ **롤모델 조직**: 타 조직의 벤치마킹 대상\n- 성공 요인 분석 및 베스트 프랙티스 공유 필요\n\n---\n\n### 2️⃣ PRI 장비기술센터 (90.69점, 2위) 🥈\n\n**전반적 특징**\n- **최대 규모** 조직(40명) 중 가장 높은 점수\n- 상사 평가(93.25) > 동료 평가(91.09) > 구성원 평가(87.74)\n- 평가자 간 편차 존재 (상사와 구성원 간 5.51점 차이)\n\n**강점 역량**\n1. 원칙 중시 (94.94점)\n2. 추진력 (93.34점)\n3. 고객 가치 최우선 (92.67점)\n4. 트렌드 센싱 (92.35점)\n5. 지속학습 (92.24점)\n\n**개선 필요 역량**\n- 인재 확보 열의 (87.20점) 🔴\n- 전략적 사고/행동 (87.79점)\n- 인재의 지속 성장 관심 (87.97점)\n\n**시사점**\n- 기술 중심 조직답게 **학습과 트렌드 파악**에 강점\n- 구성원 평가가 낮은 편 → **상향 소통** 강화 필요\n- **인재 육성** 영역에 집중 투자 필요\n\n---\n\n### 3️⃣ 생산혁신센터 (89.78점, 3위) 🥉\n\n**전반적 특징**\n- **최대 규모** 조직(46명)\n- 구성원 평가(91.51) > 동료 평가(91.07) > 상사 평가(86.78)\n- 구성원이 리더십을 가장 높게 평가하는 조직\n\n**강점 역량**\n1. 원칙 중시 (95.44점)\n2. 타인 존중 (91.37점)\n3. 추진력 (91.11점)\n4. 고객 가치 최우선 (90.90점)\n5. 협업과 팀웍 (90.39점)\n\n**개선 필요 역량**\n- 인재 확보 열의 (85.99점) 🔴\n- 인재의 지속 성장 관심 (86.31점) 🔴\n- 전략적 사고/행동 (86.42점)\n\n**시사점**\n- **구성원과의 관계**가 매우 좋은 조직 (상향 평가 높음)\n- 협업과 팀워크 강점 → **조직 문화**가 건강함\n- 전략적 사고와 인재 육성에 투자 필요\n\n---\n\n### 4️⃣ PRI 선행공법연구센터 (89.56점, 4위)\n\n**전반적 특징**\n- 동료 평가(92.80) > 상사 평가(88.48) > 구성원 평가(87.39)\n- 동료 간 평가가 가장 높음 → **수평적 협업**이 좋음\n\n**강점 역량**\n1. 원칙 중시 (95.70점)\n2. 타인 존중 (92.60점)\n3. 고객 가치 최우선 (92.49점)\n4. 트렌드 센싱 (90.82점)\n5. 지속학습 (90.62점)\n\n**개선 필요 역량**\n- 전략적 사고/행동 (85.87점) 🔴\n- 모티베이션 (86.94점)\n- 인재의 지속 성장 관심 (87.02점)\n\n**시사점**\n- 선행 연구 조직답게 **트렌드와 학습**에 강점\n- **동료 평가 최고** → 수평적 소통 우수\n- 전략적 사고력 향상과 구성원 동기부여 필요\n\n---\n\n### 5️⃣ PRI 오퍼레이션담당 (88.43점, 5위) ⚠️\n\n**전반적 특징**\n- 상사 평가(93.79) >> 동료 평가(86.01), 구성원 평가(85.49)\n- **평가자 간 가장 큰 편차** (상사와 구성원 간 8.30점 차이)\n- 상사는 높게 평가하나 구성원 만족도는 상대적으로 낮음\n\n**강점 역량**\n1. 원칙 중시 (94.45점)\n2. 고객 가치 최우선 (92.80점)\n3. 통찰력 (91.05점)\n4. 트렌드 센싱 (89.99점)\n5. 추진력 (89.65점)\n\n**개선 필요 역량**\n- 인재 확보 열의 (84.52점) 🔴\n- 인재의 지속 성장 관심 (85.33점) 🔴\n- 모티베이션 (85.73점)\n\n**시사점**\n- ⚠️ **상향 소통은 좋으나 하향 소통 개선** 필요\n- 구성원 동기부여와 육성에 더 많은 관심 필요\n- 리더-구성원 간 인식 격차 해소가 최우선 과제\n\n---\n\n### 6️⃣ PRI 제조S&P센터 (85.76점, 6위) 🔴\n\n**전반적 특징**\n- **전체 평균 대비 -3.58점**으로 가장 낮음\n- 모든 평가자가 상대적으로 낮게 평가\n- 집중적인 리더십 개발 지원 필요\n\n**강점 역량**\n1. 원칙 중시 (92.56점)\n2. 타인 존중 (90.99점)\n3. 커뮤니케이션 (89.04점)\n4. 추진력 (87.56점)\n5. 성과/역량에 따른 엄정한 인사 (87.31점)\n\n**개선 필요 역량 (심각)**\n- 전략적 사고/행동 (80.62점) 🔴🔴\n- 인재 확보 열의 (80.97점) 🔴🔴\n- 인재의 지속 성장 관심 (81.98점) 🔴🔴\n- 모티베이션 (82.46점) 🔴\n- 결단력 (83.39점) 🔴\n\n**시사점**\n- 🚨 **긴급 개선 필요** 조직\n- 전략적 사고와 인재 육성이 **80점대 초반**으로 매우 낮음\n- 집중적인 리더십 코칭 및 교육 프로그램 필요\n- 타 우수 조직과의 교차 학습 권장\n\n---\n\n## 🔍 조직 간 공통점 분석\n\n### 모든 조직의 공통 강점 ✅\n1. **원칙 중시** - 모든 조직에서 1-2위 (90점 이상)\n2. **고객 가치 최우선** - 대부분 TOP 5 내\n3. **추진력** - 실행력이 전반적으로 우수\n\n### 모든 조직의 공통 약점 ⚠️\n1. **인재 확보 열의** - 6개 조직 모두 하위권 (80-87점)\n2. **전략적 사고/행동** - 대부분 최하위 (80-93점)\n3. **인재의 지속 성장 관심** - 모든 조직에서 하위권\n\n---\n\n## 💡 전략적 제언\n\n### 🎯 조직별 맞춤 전략\n\n#### 1. Smart Factory사업담당 (1위)\n- ✨ **Best Practice 확산**: 성공 요인을 분석하여 전사 공유\n- 리더십 우수 사례집 제작 및 타 조직 멘토링 역할\n- 지속적 우수성 유지 프로그램\n\n#### 2. PRI 장비기술센터 (2위)\n- 🎯 **상-하 소통 강화**: 구성원 평가가 낮은 이유 파악\n- 1-on-1 미팅 정례화\n- 인재 육성 집중 프로그램 (워크샵, 멘토링)\n\n#### 3. 생산혁신센터 (3위)\n- 💪 **강점 활용**: 구성원 만족도가 높은 문화 유지\n- 전략적 사고 향상 교육 (전략 기획 워크샵)\n- 채용 및 육성 역량 강화 프로그램\n\n#### 4. PRI 선행공법연구센터 (4위)\n- 🔬 **연구 → 실행**: 전략적 사고를 실행으로 연결하는 훈련\n- 동료 협업 문화를 구성원 육성으로 확장\n- 리더십 코칭 (모티베이션 스킬)\n\n#### 5. PRI 오퍼레이션담당 (5위)\n- ⚠️ **긴급: 상-하 격차 해소**\n  - 구성원 대상 설문/면담으로 원인 파악\n  - 리더 대상 코칭 스킬 교육\n  - 팀 빌딩 활동 강화\n- 인재 육성 KPI 설정 및 관리\n\n#### 6. PRI 제조S&P센터 (6위)\n- 🚨 **집중 지원 조직**\n  - 외부 리더십 전문가 코칭 (6개월 과정)\n  - 전략적 사고 집중 교육\n  - 우수 조직과 Job Shadowing\n  - 월 1회 진도 점검 및 피드백\n\n---\n\n## 📊 전사 차원 Action Plan\n\n### 즉시 실행 (1개월 내)\n1. **PRI 제조S&P센터 긴급 지원 계획** 수립\n2. Smart Factory사업담당 Best Practice 세미나 개최\n3. 전 조직 리더 대상 \"인재 확보 및 육성\" 워크샵\n\n### 단기 (3개월 내)\n1. 평가자 간 격차가 큰 조직 심층 면담 실시\n2. 전략적 사고 역량 개발 프로그램 (전사)\n3. 조직별 맞춤형 코칭 프로그램 시작\n\n### 중기 (6개월 내)\n1. 조직별 개선 진도 중간 점검\n2. 우수 조직-개선 조직 간 크로스 멘토링\n3. 차기 평가 때 개선도 측정\n\n---\n\n## 🎬 결론\n\n생산기술원의 리더십은 **조직 간 편차**가 존재합니다. \n\n- **우수 조직(1-3위)**은 전사적 벤치마크 대상\n- **중위권 조직(4-5위)**은 특정 영역(소통, 전략) 집중 개선\n- **하위 조직(6위)**은 집중적 지원과 단계적 개선 전략 필요\n\n**공통 개선 과제**는 명확합니다:\n1. 🎯 인재 확보 및 육성 역량\n2. 🎯 전략적 사고 및 행동\n3. 🎯 구성원 동기부여 능력\n\n이 3가지 영역에 **전사 차원의 체계적 투자**가 이루어진다면, \n전체 리더십 수준이 한 단계 도약할 것으로 기대됩니다.\n\"\"\"\n\nwith open('/home/claude/dept_analysis_report.md', 'w', encoding='utf-8') as f:\n    f.write(report)\n\nprint(\"✅ 사업부별 분석 리포트 생성 완료!\")\n\nEOF\n",
+            "description": "사업부별 상세 리포트 작성"
+          },
+          "message": "사업부별 상세 리포트 작성",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cd /home/claude && python3 << 'EOF'\\nimport pandas as pd\\n\\n# \\ub370\\uc774\\ud130 \\ub85c\\ub4dc\\ndf = pd.read_excel('/mnt/user-data/uploads/__25\\ub144_\\ub9ac\\ub354\\uc2ed\\ud3c9\\uac00_\\uacb0\\uacfc_\\uc721\\uc131\\uacf5\\uc720_251016.xlsx', sheet_name='(raw)\\uad6d\\ub0b4')\\ndf_clean = df[df['1:1:1 \\uc885\\ud569\\uc810\\uc218\\\\n(\\uc0c1\\uc0ac Calibration)'] >= 50].copy()\\ndf_clean['\\ud0c0\\uc778\\ud3c9\\uac00_\\ud3c9\\uade0'] = (df_clean['\\uc0c1\\uc0ac\\ud3c9\\uade0'] + df_clean['\\ub3d9\\ub8cc\\ud3c9\\uade0'] + df_clean['\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0']) / 3\\n\\n# \\uc778\\uc0ac\\uc774\\ud2b8 \\ub9ac\\ud3ec\\ud2b8 \\uc0dd\\uc131\\nreport = \\\"\\\"\\\"# \\ud83d\\udcca \\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9\\ubcc4 \\ub9ac\\ub354\\uc2ed \\ud3c9\\uac00 \\ubd84\\uc11d \\ub9ac\\ud3ec\\ud2b8\\n## \\ud0c0\\uc778 \\ud3c9\\uac00 \\uae30\\uc900 (\\uc0c1\\uc0ac+\\ub3d9\\ub8cc+\\uad6c\\uc131\\uc6d0 \\ud3c9\\uade0)\\n\\n---\\n\\n## \\ud83c\\udfaf \\ud575\\uc2ec \\uc694\\uc57d (Executive Summary)\\n\\n### \\uc870\\uc9c1 \\ud604\\ud669\\n- **\\ubd84\\uc11d \\ub300\\uc0c1**: 6\\uac1c \\uc0ac\\uc5c5\\ubd80/\\ub2f4\\ub2f9 (5\\uba85 \\uc774\\uc0c1 \\uc870\\uc9c1)\\n- **\\ucd1d \\uc778\\uc6d0**: 150\\uba85\\n- **\\uc804\\uccb4 \\ud3c9\\uade0**: 89.34\\uc810\\n\\n### \\uc870\\uc9c1\\ubcc4 \\uc131\\uacfc \\uac1c\\uc694\\n```\\n\\ud83e\\udd47 1\\ub4f1: Smart Factory\\uc0ac\\uc5c5\\ub2f4\\ub2f9    93.94\\uc810 (7\\uba85)  \\u2b50 \\uc804\\uccb4 \\ub300\\ube44 +4.60\\uc810\\n\\ud83e\\udd48 2\\ub4f1: PRI \\uc7a5\\ube44\\uae30\\uc220\\uc13c\\ud130         90.69\\uc810 (40\\uba85) \\u2b50 \\uc804\\uccb4 \\ub300\\ube44 +1.35\\uc810  \\n\\ud83e\\udd49 3\\ub4f1: \\uc0dd\\uc0b0\\ud601\\uc2e0\\uc13c\\ud130             89.78\\uc810 (46\\uba85) \\u2705 \\uc804\\uccb4 \\ub300\\ube44 +0.44\\uc810\\n4\\uc704: PRI \\uc120\\ud589\\uacf5\\ubc95\\uc5f0\\uad6c\\uc13c\\ud130        89.56\\uc810 (23\\uba85) \\u2705 \\uc804\\uccb4 \\ub300\\ube44 +0.22\\uc810\\n5\\uc704: PRI \\uc624\\ud37c\\ub808\\uc774\\uc158\\ub2f4\\ub2f9          88.43\\uc810 (13\\uba85) \\u26a0\\ufe0f  \\uc804\\uccb4 \\ub300\\ube44 -0.91\\uc810\\n6\\uc704: PRI \\uc81c\\uc870S&P\\uc13c\\ud130            85.76\\uc810 (17\\uba85) \\ud83d\\udd34 \\uc804\\uccb4 \\ub300\\ube44 -3.58\\uc810\\n```\\n\\n---\\n\\n## \\ud83d\\udcc8 \\uc0c1\\uc138 \\ubd84\\uc11d\\n\\n### 1\\ufe0f\\u20e3 Smart Factory\\uc0ac\\uc5c5\\ub2f4\\ub2f9 (93.94\\uc810, 1\\uc704) \\ud83e\\udd47\\n\\n**\\uc804\\ubc18\\uc801 \\ud2b9\\uc9d5**\\n- \\ubaa8\\ub4e0 \\uc0ac\\uc5c5\\ubd80 \\uc911 **\\uc555\\ub3c4\\uc801 1\\uc704** (\\uc804\\uccb4 \\ud3c9\\uade0 \\ub300\\ube44 +4.60\\uc810)\\n- \\ud2b9\\ud788 **\\uc0c1\\uc0ac \\ud3c9\\uac00\\uac00 \\ub9e4\\uc6b0 \\ub192\\uc74c** (98.20\\uc810)\\n- \\uc18c\\uc218 \\uc815\\uc608 \\uc870\\uc9c1(7\\uba85)\\uc73c\\ub85c \\ub192\\uc740 \\uc751\\uc9d1\\ub825\\n\\n**\\uac15\\uc810 \\uc5ed\\ub7c9**\\n1. \\uc6d0\\uce59 \\uc911\\uc2dc (96.60\\uc810)\\n2. \\uace0\\uac1d \\uac00\\uce58 \\ucd5c\\uc6b0\\uc120 (95.69\\uc810)\\n3. \\ucd94\\uc9c4\\ub825 (95.67\\uc810)\\n4. \\ud1b5\\ucc30\\ub825 (95.56\\uc810)\\n5. \\ucee4\\ubba4\\ub2c8\\ucf00\\uc774\\uc158 (95.39\\uc810)\\n\\n**\\ud2b9\\uc774\\uc0ac\\ud56d**\\n- \\uac1c\\uc120 \\ud544\\uc694 \\uc5ed\\ub7c9\\ub3c4 **90\\uc810 \\uc774\\uc0c1**\\uc73c\\ub85c \\uc804\\ubc18\\uc801\\uc73c\\ub85c \\ub9e4\\uc6b0 \\uc6b0\\uc218\\n- \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0(93.39), \\uc778\\uc7ac \\ud655\\ubcf4(92.54)\\ub3c4 \\ud0c0 \\uc870\\uc9c1 \\ub300\\ube44 \\ub192\\uc740 \\uc218\\uc900\\n\\n**\\uc2dc\\uc0ac\\uc810**\\n- \\u2728 **\\ub864\\ubaa8\\ub378 \\uc870\\uc9c1**: \\ud0c0 \\uc870\\uc9c1\\uc758 \\ubca4\\uce58\\ub9c8\\ud0b9 \\ub300\\uc0c1\\n- \\uc131\\uacf5 \\uc694\\uc778 \\ubd84\\uc11d \\ubc0f \\ubca0\\uc2a4\\ud2b8 \\ud504\\ub799\\ud2f0\\uc2a4 \\uacf5\\uc720 \\ud544\\uc694\\n\\n---\\n\\n### 2\\ufe0f\\u20e3 PRI \\uc7a5\\ube44\\uae30\\uc220\\uc13c\\ud130 (90.69\\uc810, 2\\uc704) \\ud83e\\udd48\\n\\n**\\uc804\\ubc18\\uc801 \\ud2b9\\uc9d5**\\n- **\\ucd5c\\ub300 \\uaddc\\ubaa8** \\uc870\\uc9c1(40\\uba85) \\uc911 \\uac00\\uc7a5 \\ub192\\uc740 \\uc810\\uc218\\n- \\uc0c1\\uc0ac \\ud3c9\\uac00(93.25) > \\ub3d9\\ub8cc \\ud3c9\\uac00(91.09) > \\uad6c\\uc131\\uc6d0 \\ud3c9\\uac00(87.74)\\n- \\ud3c9\\uac00\\uc790 \\uac04 \\ud3b8\\ucc28 \\uc874\\uc7ac (\\uc0c1\\uc0ac\\uc640 \\uad6c\\uc131\\uc6d0 \\uac04 5.51\\uc810 \\ucc28\\uc774)\\n\\n**\\uac15\\uc810 \\uc5ed\\ub7c9**\\n1. \\uc6d0\\uce59 \\uc911\\uc2dc (94.94\\uc810)\\n2. \\ucd94\\uc9c4\\ub825 (93.34\\uc810)\\n3. \\uace0\\uac1d \\uac00\\uce58 \\ucd5c\\uc6b0\\uc120 (92.67\\uc810)\\n4. \\ud2b8\\ub80c\\ub4dc \\uc13c\\uc2f1 (92.35\\uc810)\\n5. \\uc9c0\\uc18d\\ud559\\uc2b5 (92.24\\uc810)\\n\\n**\\uac1c\\uc120 \\ud544\\uc694 \\uc5ed\\ub7c9**\\n- \\uc778\\uc7ac \\ud655\\ubcf4 \\uc5f4\\uc758 (87.20\\uc810) \\ud83d\\udd34\\n- \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0/\\ud589\\ub3d9 (87.79\\uc810)\\n- \\uc778\\uc7ac\\uc758 \\uc9c0\\uc18d \\uc131\\uc7a5 \\uad00\\uc2ec (87.97\\uc810)\\n\\n**\\uc2dc\\uc0ac\\uc810**\\n- \\uae30\\uc220 \\uc911\\uc2ec \\uc870\\uc9c1\\ub2f5\\uac8c **\\ud559\\uc2b5\\uacfc \\ud2b8\\ub80c\\ub4dc \\ud30c\\uc545**\\uc5d0 \\uac15\\uc810\\n- \\uad6c\\uc131\\uc6d0 \\ud3c9\\uac00\\uac00 \\ub0ae\\uc740 \\ud3b8 \\u2192 **\\uc0c1\\ud5a5 \\uc18c\\ud1b5** \\uac15\\ud654 \\ud544\\uc694\\n- **\\uc778\\uc7ac \\uc721\\uc131** \\uc601\\uc5ed\\uc5d0 \\uc9d1\\uc911 \\ud22c\\uc790 \\ud544\\uc694\\n\\n---\\n\\n### 3\\ufe0f\\u20e3 \\uc0dd\\uc0b0\\ud601\\uc2e0\\uc13c\\ud130 (89.78\\uc810, 3\\uc704) \\ud83e\\udd49\\n\\n**\\uc804\\ubc18\\uc801 \\ud2b9\\uc9d5**\\n- **\\ucd5c\\ub300 \\uaddc\\ubaa8** \\uc870\\uc9c1(46\\uba85)\\n- \\uad6c\\uc131\\uc6d0 \\ud3c9\\uac00(91.51) > \\ub3d9\\ub8cc \\ud3c9\\uac00(91.07) > \\uc0c1\\uc0ac \\ud3c9\\uac00(86.78)\\n- \\uad6c\\uc131\\uc6d0\\uc774 \\ub9ac\\ub354\\uc2ed\\uc744 \\uac00\\uc7a5 \\ub192\\uac8c \\ud3c9\\uac00\\ud558\\ub294 \\uc870\\uc9c1\\n\\n**\\uac15\\uc810 \\uc5ed\\ub7c9**\\n1. \\uc6d0\\uce59 \\uc911\\uc2dc (95.44\\uc810)\\n2. \\ud0c0\\uc778 \\uc874\\uc911 (91.37\\uc810)\\n3. \\ucd94\\uc9c4\\ub825 (91.11\\uc810)\\n4. \\uace0\\uac1d \\uac00\\uce58 \\ucd5c\\uc6b0\\uc120 (90.90\\uc810)\\n5. \\ud611\\uc5c5\\uacfc \\ud300\\uc6cd (90.39\\uc810)\\n\\n**\\uac1c\\uc120 \\ud544\\uc694 \\uc5ed\\ub7c9**\\n- \\uc778\\uc7ac \\ud655\\ubcf4 \\uc5f4\\uc758 (85.99\\uc810) \\ud83d\\udd34\\n- \\uc778\\uc7ac\\uc758 \\uc9c0\\uc18d \\uc131\\uc7a5 \\uad00\\uc2ec (86.31\\uc810) \\ud83d\\udd34\\n- \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0/\\ud589\\ub3d9 (86.42\\uc810)\\n\\n**\\uc2dc\\uc0ac\\uc810**\\n- **\\uad6c\\uc131\\uc6d0\\uacfc\\uc758 \\uad00\\uacc4**\\uac00 \\ub9e4\\uc6b0 \\uc88b\\uc740 \\uc870\\uc9c1 (\\uc0c1\\ud5a5 \\ud3c9\\uac00 \\ub192\\uc74c)\\n- \\ud611\\uc5c5\\uacfc \\ud300\\uc6cc\\ud06c \\uac15\\uc810 \\u2192 **\\uc870\\uc9c1 \\ubb38\\ud654**\\uac00 \\uac74\\uac15\\ud568\\n- \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0\\uc640 \\uc778\\uc7ac \\uc721\\uc131\\uc5d0 \\ud22c\\uc790 \\ud544\\uc694\\n\\n---\\n\\n### 4\\ufe0f\\u20e3 PRI \\uc120\\ud589\\uacf5\\ubc95\\uc5f0\\uad6c\\uc13c\\ud130 (89.56\\uc810, 4\\uc704)\\n\\n**\\uc804\\ubc18\\uc801 \\ud2b9\\uc9d5**\\n- \\ub3d9\\ub8cc \\ud3c9\\uac00(92.80) > \\uc0c1\\uc0ac \\ud3c9\\uac00(88.48) > \\uad6c\\uc131\\uc6d0 \\ud3c9\\uac00(87.39)\\n- \\ub3d9\\ub8cc \\uac04 \\ud3c9\\uac00\\uac00 \\uac00\\uc7a5 \\ub192\\uc74c \\u2192 **\\uc218\\ud3c9\\uc801 \\ud611\\uc5c5**\\uc774 \\uc88b\\uc74c\\n\\n**\\uac15\\uc810 \\uc5ed\\ub7c9**\\n1. \\uc6d0\\uce59 \\uc911\\uc2dc (95.70\\uc810)\\n2. \\ud0c0\\uc778 \\uc874\\uc911 (92.60\\uc810)\\n3. \\uace0\\uac1d \\uac00\\uce58 \\ucd5c\\uc6b0\\uc120 (92.49\\uc810)\\n4. \\ud2b8\\ub80c\\ub4dc \\uc13c\\uc2f1 (90.82\\uc810)\\n5. \\uc9c0\\uc18d\\ud559\\uc2b5 (90.62\\uc810)\\n\\n**\\uac1c\\uc120 \\ud544\\uc694 \\uc5ed\\ub7c9**\\n- \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0/\\ud589\\ub3d9 (85.87\\uc810) \\ud83d\\udd34\\n- \\ubaa8\\ud2f0\\ubca0\\uc774\\uc158 (86.94\\uc810)\\n- \\uc778\\uc7ac\\uc758 \\uc9c0\\uc18d \\uc131\\uc7a5 \\uad00\\uc2ec (87.02\\uc810)\\n\\n**\\uc2dc\\uc0ac\\uc810**\\n- \\uc120\\ud589 \\uc5f0\\uad6c \\uc870\\uc9c1\\ub2f5\\uac8c **\\ud2b8\\ub80c\\ub4dc\\uc640 \\ud559\\uc2b5**\\uc5d0 \\uac15\\uc810\\n- **\\ub3d9\\ub8cc \\ud3c9\\uac00 \\ucd5c\\uace0** \\u2192 \\uc218\\ud3c9\\uc801 \\uc18c\\ud1b5 \\uc6b0\\uc218\\n- \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0\\ub825 \\ud5a5\\uc0c1\\uacfc \\uad6c\\uc131\\uc6d0 \\ub3d9\\uae30\\ubd80\\uc5ec \\ud544\\uc694\\n\\n---\\n\\n### 5\\ufe0f\\u20e3 PRI \\uc624\\ud37c\\ub808\\uc774\\uc158\\ub2f4\\ub2f9 (88.43\\uc810, 5\\uc704) \\u26a0\\ufe0f\\n\\n**\\uc804\\ubc18\\uc801 \\ud2b9\\uc9d5**\\n- \\uc0c1\\uc0ac \\ud3c9\\uac00(93.79) >> \\ub3d9\\ub8cc \\ud3c9\\uac00(86.01), \\uad6c\\uc131\\uc6d0 \\ud3c9\\uac00(85.49)\\n- **\\ud3c9\\uac00\\uc790 \\uac04 \\uac00\\uc7a5 \\ud070 \\ud3b8\\ucc28** (\\uc0c1\\uc0ac\\uc640 \\uad6c\\uc131\\uc6d0 \\uac04 8.30\\uc810 \\ucc28\\uc774)\\n- \\uc0c1\\uc0ac\\ub294 \\ub192\\uac8c \\ud3c9\\uac00\\ud558\\ub098 \\uad6c\\uc131\\uc6d0 \\ub9cc\\uc871\\ub3c4\\ub294 \\uc0c1\\ub300\\uc801\\uc73c\\ub85c \\ub0ae\\uc74c\\n\\n**\\uac15\\uc810 \\uc5ed\\ub7c9**\\n1. \\uc6d0\\uce59 \\uc911\\uc2dc (94.45\\uc810)\\n2. \\uace0\\uac1d \\uac00\\uce58 \\ucd5c\\uc6b0\\uc120 (92.80\\uc810)\\n3. \\ud1b5\\ucc30\\ub825 (91.05\\uc810)\\n4. \\ud2b8\\ub80c\\ub4dc \\uc13c\\uc2f1 (89.99\\uc810)\\n5. \\ucd94\\uc9c4\\ub825 (89.65\\uc810)\\n\\n**\\uac1c\\uc120 \\ud544\\uc694 \\uc5ed\\ub7c9**\\n- \\uc778\\uc7ac \\ud655\\ubcf4 \\uc5f4\\uc758 (84.52\\uc810) \\ud83d\\udd34\\n- \\uc778\\uc7ac\\uc758 \\uc9c0\\uc18d \\uc131\\uc7a5 \\uad00\\uc2ec (85.33\\uc810) \\ud83d\\udd34\\n- \\ubaa8\\ud2f0\\ubca0\\uc774\\uc158 (85.73\\uc810)\\n\\n**\\uc2dc\\uc0ac\\uc810**\\n- \\u26a0\\ufe0f **\\uc0c1\\ud5a5 \\uc18c\\ud1b5\\uc740 \\uc88b\\uc73c\\ub098 \\ud558\\ud5a5 \\uc18c\\ud1b5 \\uac1c\\uc120** \\ud544\\uc694\\n- \\uad6c\\uc131\\uc6d0 \\ub3d9\\uae30\\ubd80\\uc5ec\\uc640 \\uc721\\uc131\\uc5d0 \\ub354 \\ub9ce\\uc740 \\uad00\\uc2ec \\ud544\\uc694\\n- \\ub9ac\\ub354-\\uad6c\\uc131\\uc6d0 \\uac04 \\uc778\\uc2dd \\uaca9\\ucc28 \\ud574\\uc18c\\uac00 \\ucd5c\\uc6b0\\uc120 \\uacfc\\uc81c\\n\\n---\\n\\n### 6\\ufe0f\\u20e3 PRI \\uc81c\\uc870S&P\\uc13c\\ud130 (85.76\\uc810, 6\\uc704) \\ud83d\\udd34\\n\\n**\\uc804\\ubc18\\uc801 \\ud2b9\\uc9d5**\\n- **\\uc804\\uccb4 \\ud3c9\\uade0 \\ub300\\ube44 -3.58\\uc810**\\uc73c\\ub85c \\uac00\\uc7a5 \\ub0ae\\uc74c\\n- \\ubaa8\\ub4e0 \\ud3c9\\uac00\\uc790\\uac00 \\uc0c1\\ub300\\uc801\\uc73c\\ub85c \\ub0ae\\uac8c \\ud3c9\\uac00\\n- \\uc9d1\\uc911\\uc801\\uc778 \\ub9ac\\ub354\\uc2ed \\uac1c\\ubc1c \\uc9c0\\uc6d0 \\ud544\\uc694\\n\\n**\\uac15\\uc810 \\uc5ed\\ub7c9**\\n1. \\uc6d0\\uce59 \\uc911\\uc2dc (92.56\\uc810)\\n2. \\ud0c0\\uc778 \\uc874\\uc911 (90.99\\uc810)\\n3. \\ucee4\\ubba4\\ub2c8\\ucf00\\uc774\\uc158 (89.04\\uc810)\\n4. \\ucd94\\uc9c4\\ub825 (87.56\\uc810)\\n5. \\uc131\\uacfc/\\uc5ed\\ub7c9\\uc5d0 \\ub530\\ub978 \\uc5c4\\uc815\\ud55c \\uc778\\uc0ac (87.31\\uc810)\\n\\n**\\uac1c\\uc120 \\ud544\\uc694 \\uc5ed\\ub7c9 (\\uc2ec\\uac01)**\\n- \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0/\\ud589\\ub3d9 (80.62\\uc810) \\ud83d\\udd34\\ud83d\\udd34\\n- \\uc778\\uc7ac \\ud655\\ubcf4 \\uc5f4\\uc758 (80.97\\uc810) \\ud83d\\udd34\\ud83d\\udd34\\n- \\uc778\\uc7ac\\uc758 \\uc9c0\\uc18d \\uc131\\uc7a5 \\uad00\\uc2ec (81.98\\uc810) \\ud83d\\udd34\\ud83d\\udd34\\n- \\ubaa8\\ud2f0\\ubca0\\uc774\\uc158 (82.46\\uc810) \\ud83d\\udd34\\n- \\uacb0\\ub2e8\\ub825 (83.39\\uc810) \\ud83d\\udd34\\n\\n**\\uc2dc\\uc0ac\\uc810**\\n- \\ud83d\\udea8 **\\uae34\\uae09 \\uac1c\\uc120 \\ud544\\uc694** \\uc870\\uc9c1\\n- \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0\\uc640 \\uc778\\uc7ac \\uc721\\uc131\\uc774 **80\\uc810\\ub300 \\ucd08\\ubc18**\\uc73c\\ub85c \\ub9e4\\uc6b0 \\ub0ae\\uc74c\\n- \\uc9d1\\uc911\\uc801\\uc778 \\ub9ac\\ub354\\uc2ed \\ucf54\\uce6d \\ubc0f \\uad50\\uc721 \\ud504\\ub85c\\uadf8\\ub7a8 \\ud544\\uc694\\n- \\ud0c0 \\uc6b0\\uc218 \\uc870\\uc9c1\\uacfc\\uc758 \\uad50\\ucc28 \\ud559\\uc2b5 \\uad8c\\uc7a5\\n\\n---\\n\\n## \\ud83d\\udd0d \\uc870\\uc9c1 \\uac04 \\uacf5\\ud1b5\\uc810 \\ubd84\\uc11d\\n\\n### \\ubaa8\\ub4e0 \\uc870\\uc9c1\\uc758 \\uacf5\\ud1b5 \\uac15\\uc810 \\u2705\\n1. **\\uc6d0\\uce59 \\uc911\\uc2dc** - \\ubaa8\\ub4e0 \\uc870\\uc9c1\\uc5d0\\uc11c 1-2\\uc704 (90\\uc810 \\uc774\\uc0c1)\\n2. **\\uace0\\uac1d \\uac00\\uce58 \\ucd5c\\uc6b0\\uc120** - \\ub300\\ubd80\\ubd84 TOP 5 \\ub0b4\\n3. **\\ucd94\\uc9c4\\ub825** - \\uc2e4\\ud589\\ub825\\uc774 \\uc804\\ubc18\\uc801\\uc73c\\ub85c \\uc6b0\\uc218\\n\\n### \\ubaa8\\ub4e0 \\uc870\\uc9c1\\uc758 \\uacf5\\ud1b5 \\uc57d\\uc810 \\u26a0\\ufe0f\\n1. **\\uc778\\uc7ac \\ud655\\ubcf4 \\uc5f4\\uc758** - 6\\uac1c \\uc870\\uc9c1 \\ubaa8\\ub450 \\ud558\\uc704\\uad8c (80-87\\uc810)\\n2. **\\uc804\\ub7b5\\uc801 \\uc0ac\\uace0/\\ud589\\ub3d9** - \\ub300\\ubd80\\ubd84 \\ucd5c\\ud558\\uc704 (80-93\\uc810)\\n3. **\\uc778\\uc7ac\\uc758 \\uc9c0\\uc18d \\uc131\\uc7a5 \\uad00\\uc2ec** - \\ubaa8\\ub4e0 \\uc870\\uc9c1\\uc5d0\\uc11c \\ud558\\uc704\\uad8c\\n\\n---\\n\\n## \\ud83d\\udca1 \\uc804\\ub7b5\\uc801 \\uc81c\\uc5b8\\n\\n### \\ud83c\\udfaf \\uc870\\uc9c1\\ubcc4 \\ub9de\\ucda4 \\uc804\\ub7b5\\n\\n#### 1. Smart Factory\\uc0ac\\uc5c5\\ub2f4\\ub2f9 (1\\uc704)\\n- \\u2728 **Best Practice \\ud655\\uc0b0**: \\uc131\\uacf5 \\uc694\\uc778\\uc744 \\ubd84\\uc11d\\ud558\\uc5ec \\uc804\\uc0ac \\uacf5\\uc720\\n- \\ub9ac\\ub354\\uc2ed \\uc6b0\\uc218 \\uc0ac\\ub840\\uc9d1 \\uc81c\\uc791 \\ubc0f \\ud0c0 \\uc870\\uc9c1 \\uba58\\ud1a0\\ub9c1 \\uc5ed\\ud560\\n- \\uc9c0\\uc18d\\uc801 \\uc6b0\\uc218\\uc131 \\uc720\\uc9c0 \\ud504\\ub85c\\uadf8\\ub7a8\\n\\n#### 2. PRI \\uc7a5\\ube44\\uae30\\uc220\\uc13c\\ud130 (2\\uc704)\\n- \\ud83c\\udfaf **\\uc0c1-\\ud558 \\uc18c\\ud1b5 \\uac15\\ud654**: \\uad6c\\uc131\\uc6d0 \\ud3c9\\uac00\\uac00 \\ub0ae\\uc740 \\uc774\\uc720 \\ud30c\\uc545\\n- 1-on-1 \\ubbf8\\ud305 \\uc815\\ub840\\ud654\\n- \\uc778\\uc7ac \\uc721\\uc131 \\uc9d1\\uc911 \\ud504\\ub85c\\uadf8\\ub7a8 (\\uc6cc\\ud06c\\uc0f5, \\uba58\\ud1a0\\ub9c1)\\n\\n#### 3. \\uc0dd\\uc0b0\\ud601\\uc2e0\\uc13c\\ud130 (3\\uc704)\\n- \\ud83d\\udcaa **\\uac15\\uc810 \\ud65c\\uc6a9**: \\uad6c\\uc131\\uc6d0 \\ub9cc\\uc871\\ub3c4\\uac00 \\ub192\\uc740 \\ubb38\\ud654 \\uc720\\uc9c0\\n- \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0 \\ud5a5\\uc0c1 \\uad50\\uc721 (\\uc804\\ub7b5 \\uae30\\ud68d \\uc6cc\\ud06c\\uc0f5)\\n- \\ucc44\\uc6a9 \\ubc0f \\uc721\\uc131 \\uc5ed\\ub7c9 \\uac15\\ud654 \\ud504\\ub85c\\uadf8\\ub7a8\\n\\n#### 4. PRI \\uc120\\ud589\\uacf5\\ubc95\\uc5f0\\uad6c\\uc13c\\ud130 (4\\uc704)\\n- \\ud83d\\udd2c **\\uc5f0\\uad6c \\u2192 \\uc2e4\\ud589**: \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0\\ub97c \\uc2e4\\ud589\\uc73c\\ub85c \\uc5f0\\uacb0\\ud558\\ub294 \\ud6c8\\ub828\\n- \\ub3d9\\ub8cc \\ud611\\uc5c5 \\ubb38\\ud654\\ub97c \\uad6c\\uc131\\uc6d0 \\uc721\\uc131\\uc73c\\ub85c \\ud655\\uc7a5\\n- \\ub9ac\\ub354\\uc2ed \\ucf54\\uce6d (\\ubaa8\\ud2f0\\ubca0\\uc774\\uc158 \\uc2a4\\ud0ac)\\n\\n#### 5. PRI \\uc624\\ud37c\\ub808\\uc774\\uc158\\ub2f4\\ub2f9 (5\\uc704)\\n- \\u26a0\\ufe0f **\\uae34\\uae09: \\uc0c1-\\ud558 \\uaca9\\ucc28 \\ud574\\uc18c**\\n  - \\uad6c\\uc131\\uc6d0 \\ub300\\uc0c1 \\uc124\\ubb38/\\uba74\\ub2f4\\uc73c\\ub85c \\uc6d0\\uc778 \\ud30c\\uc545\\n  - \\ub9ac\\ub354 \\ub300\\uc0c1 \\ucf54\\uce6d \\uc2a4\\ud0ac \\uad50\\uc721\\n  - \\ud300 \\ube4c\\ub529 \\ud65c\\ub3d9 \\uac15\\ud654\\n- \\uc778\\uc7ac \\uc721\\uc131 KPI \\uc124\\uc815 \\ubc0f \\uad00\\ub9ac\\n\\n#### 6. PRI \\uc81c\\uc870S&P\\uc13c\\ud130 (6\\uc704)\\n- \\ud83d\\udea8 **\\uc9d1\\uc911 \\uc9c0\\uc6d0 \\uc870\\uc9c1**\\n  - \\uc678\\ubd80 \\ub9ac\\ub354\\uc2ed \\uc804\\ubb38\\uac00 \\ucf54\\uce6d (6\\uac1c\\uc6d4 \\uacfc\\uc815)\\n  - \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0 \\uc9d1\\uc911 \\uad50\\uc721\\n  - \\uc6b0\\uc218 \\uc870\\uc9c1\\uacfc Job Shadowing\\n  - \\uc6d4 1\\ud68c \\uc9c4\\ub3c4 \\uc810\\uac80 \\ubc0f \\ud53c\\ub4dc\\ubc31\\n\\n---\\n\\n## \\ud83d\\udcca \\uc804\\uc0ac \\ucc28\\uc6d0 Action Plan\\n\\n### \\uc989\\uc2dc \\uc2e4\\ud589 (1\\uac1c\\uc6d4 \\ub0b4)\\n1. **PRI \\uc81c\\uc870S&P\\uc13c\\ud130 \\uae34\\uae09 \\uc9c0\\uc6d0 \\uacc4\\ud68d** \\uc218\\ub9bd\\n2. Smart Factory\\uc0ac\\uc5c5\\ub2f4\\ub2f9 Best Practice \\uc138\\ubbf8\\ub098 \\uac1c\\ucd5c\\n3. \\uc804 \\uc870\\uc9c1 \\ub9ac\\ub354 \\ub300\\uc0c1 \\\"\\uc778\\uc7ac \\ud655\\ubcf4 \\ubc0f \\uc721\\uc131\\\" \\uc6cc\\ud06c\\uc0f5\\n\\n### \\ub2e8\\uae30 (3\\uac1c\\uc6d4 \\ub0b4)\\n1. \\ud3c9\\uac00\\uc790 \\uac04 \\uaca9\\ucc28\\uac00 \\ud070 \\uc870\\uc9c1 \\uc2ec\\uce35 \\uba74\\ub2f4 \\uc2e4\\uc2dc\\n2. \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0 \\uc5ed\\ub7c9 \\uac1c\\ubc1c \\ud504\\ub85c\\uadf8\\ub7a8 (\\uc804\\uc0ac)\\n3. \\uc870\\uc9c1\\ubcc4 \\ub9de\\ucda4\\ud615 \\ucf54\\uce6d \\ud504\\ub85c\\uadf8\\ub7a8 \\uc2dc\\uc791\\n\\n### \\uc911\\uae30 (6\\uac1c\\uc6d4 \\ub0b4)\\n1. \\uc870\\uc9c1\\ubcc4 \\uac1c\\uc120 \\uc9c4\\ub3c4 \\uc911\\uac04 \\uc810\\uac80\\n2. \\uc6b0\\uc218 \\uc870\\uc9c1-\\uac1c\\uc120 \\uc870\\uc9c1 \\uac04 \\ud06c\\ub85c\\uc2a4 \\uba58\\ud1a0\\ub9c1\\n3. \\ucc28\\uae30 \\ud3c9\\uac00 \\ub54c \\uac1c\\uc120\\ub3c4 \\uce21\\uc815\\n\\n---\\n\\n## \\ud83c\\udfac \\uacb0\\ub860\\n\\n\\uc0dd\\uc0b0\\uae30\\uc220\\uc6d0\\uc758 \\ub9ac\\ub354\\uc2ed\\uc740 **\\uc870\\uc9c1 \\uac04 \\ud3b8\\ucc28**\\uac00 \\uc874\\uc7ac\\ud569\\ub2c8\\ub2e4. \\n\\n- **\\uc6b0\\uc218 \\uc870\\uc9c1(1-3\\uc704)**\\uc740 \\uc804\\uc0ac\\uc801 \\ubca4\\uce58\\ub9c8\\ud06c \\ub300\\uc0c1\\n- **\\uc911\\uc704\\uad8c \\uc870\\uc9c1(4-5\\uc704)**\\uc740 \\ud2b9\\uc815 \\uc601\\uc5ed(\\uc18c\\ud1b5, \\uc804\\ub7b5) \\uc9d1\\uc911 \\uac1c\\uc120\\n- **\\ud558\\uc704 \\uc870\\uc9c1(6\\uc704)**\\uc740 \\uc9d1\\uc911\\uc801 \\uc9c0\\uc6d0\\uacfc \\ub2e8\\uacc4\\uc801 \\uac1c\\uc120 \\uc804\\ub7b5 \\ud544\\uc694\\n\\n**\\uacf5\\ud1b5 \\uac1c\\uc120 \\uacfc\\uc81c**\\ub294 \\uba85\\ud655\\ud569\\ub2c8\\ub2e4:\\n1. \\ud83c\\udfaf \\uc778\\uc7ac \\ud655\\ubcf4 \\ubc0f \\uc721\\uc131 \\uc5ed\\ub7c9\\n2. \\ud83c\\udfaf \\uc804\\ub7b5\\uc801 \\uc0ac\\uace0 \\ubc0f \\ud589\\ub3d9\\n3. \\ud83c\\udfaf \\uad6c\\uc131\\uc6d0 \\ub3d9\\uae30\\ubd80\\uc5ec \\ub2a5\\ub825\\n\\n\\uc774 3\\uac00\\uc9c0 \\uc601\\uc5ed\\uc5d0 **\\uc804\\uc0ac \\ucc28\\uc6d0\\uc758 \\uccb4\\uacc4\\uc801 \\ud22c\\uc790**\\uac00 \\uc774\\ub8e8\\uc5b4\\uc9c4\\ub2e4\\uba74, \\n\\uc804\\uccb4 \\ub9ac\\ub354\\uc2ed \\uc218\\uc900\\uc774 \\ud55c \\ub2e8\\uacc4 \\ub3c4\\uc57d\\ud560 \\uac83\\uc73c\\ub85c \\uae30\\ub300\\ub429\\ub2c8\\ub2e4.\\n\\\"\\\"\\\"\\n\\nwith open('/home/claude/dept_analysis_report.md', 'w', encoding='utf-8') as f:\\n    f.write(report)\\n\\nprint(\\\"\\u2705 \\uc0ac\\uc5c5\\ubd80\\ubcc4 \\ubd84\\uc11d \\ub9ac\\ud3ec\\ud2b8 \\uc0dd\\uc131 \\uc644\\ub8cc!\\\")\\n\\nEOF\\n\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"✅ 사업부별 분석 리포트 생성 완료!\\n\",\"stderr\":\"\"}",
+              "uuid": "a943c64d-fa66-4bbf-8b44-3ef7e22f091c"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"✅ 사업부별 분석 리포트 생성 완료!\\n\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-10-17T22:50:01.978876Z",
+          "stop_timestamp": "2025-10-17T22:50:03.252136Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "bash_tool",
+          "input": {
+            "command": "cp /home/claude/dept_analysis.html /mnt/user-data/outputs/ && cp /home/claude/dept_analysis_report.md /mnt/user-data/outputs/",
+            "description": "결과물 복사"
+          },
+          "message": "결과물 복사",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cp /home/claude/dept_analysis.html /mnt/user-data/outputs/ && cp /home/claude/dept_analysis_report.md /mnt/user-data/outputs/\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"\",\"stderr\":\"\"}",
+              "uuid": "2df03c53-8c51-4a2b-bfb6-df042e59ea96"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-10-17T22:50:06.018098Z",
+          "stop_timestamp": "2025-10-17T22:50:19.855095Z",
+          "flags": null,
+          "type": "text",
+          "text": "완료했습니다! 사업부/담당별 리더십 평가를 타인 평가 기준으로 상세히 분석했습니다.\n\n## 📊 생성된 분석 자료\n\n### 1. [사업부별 대시보드](computer:///mnt/user-data/outputs/dept_analysis.html)\n4개의 핵심 차트:\n- 사업부별 타인 평가 점수 비교\n- 평가자별(상사/동료/구성원) 점수 비교\n- 조직별 점수 분포 (박스플롯)\n- 1등 vs 꼴등 조직 역량 레이더 차트\n\n### 2. [상세 분석 리포트](computer:///mnt/user-data/outputs/dept_analysis_report.md)\n각 조직별 심층 분석 및 맞춤형 제언\n\n## 🎯 핵심 발견사항\n\n### 📈 조직별 순위 (타인 평가 기준)\n\n```\n🥇 1위: Smart Factory사업담당  93.94점 (전체 대비 +4.60점)\n🥈 2위: PRI 장비기술센터       90.69점 (전체 대비 +1.35점)\n🥉 3위: 생산혁신센터           89.78점 (전체 대비 +0.44점)\n   4위: PRI 선행공법연구센터   89.56점 (전체 대비 +0.22점)\n   5위: PRI 오퍼레이션담당     88.43점 (전체 대비 -0.91점)\n🔴 6위: PRI 제조S&P센터       85.76점 (전체 대비 -3.58점)\n```\n\n### 🔍 주요 인사이트\n\n**공통 강점:**\n- 모든 조직이 **원칙 중시** 역량 최고 (90점 이상)\n- 고객 가치, 추진력도 전반적으로 우수\n\n**공통 약점:**\n- **인재 확보 열의** - 전 조직 하위권 (80-92점대)\n- **전략적 사고/행동** - 대부분 최하위 (80-93점대)\n- **인재 성장 관심** - 지속적 약점\n\n**특이사항:**\n- **Smart Factory**: 압도적 1위, 모든 역량 우수\n- **PRI 제조S&P센터**: 집중 지원 필요 (전략적 사고 80점대)\n- **평가자 간 격차**: 오퍼레이션담당은 상사 평가 높으나 구성원 평가 낮음\n\n전사 차원에서 **인재 육성**과 **전략적 사고** 역량 강화가 가장 시급한 과제입니다!",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2025-10-17T22:50:19.958816Z",
+      "updated_at": "2025-10-17T22:50:19.958816Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "a508d9c5-7270-4e1f-b2e5-673ea30ee4b9"
+    }
+  ]
+}

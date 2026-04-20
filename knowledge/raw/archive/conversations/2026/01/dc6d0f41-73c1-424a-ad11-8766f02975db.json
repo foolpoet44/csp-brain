@@ -1,0 +1,324 @@
+﻿{
+  "uuid": "dc6d0f41-73c1-424a-ad11-8766f02975db",
+  "name": "Claude 코드의 서브에이전트 사용법",
+  "summary": "**Conversation Overview**\n\nThe user asked for a comprehensive explanation of subagents in Claude Code, including their functionality and usage methods. Claude provided an extensive technical guide covering subagents as specialized AI assistants that Claude Code can invoke for specific tasks, each operating with independent context windows and domain-specific intelligence. The explanation detailed three built-in subagents (General-Purpose, Explore, and Plan agents), methods for creating custom subagents both collaboratively with Claude and manually through markdown files in `.claude/agents/` directories, and various invocation methods including automatic selection, explicit calling, and parallel execution.\n\nClaude tailored the examples specifically to the user's background as a CSP (Creative Solution Provider) with experience in HR, psychology, analysis, and full-stack development who operates DX education programs and has particular interest in AI tools and HR automation. The guide included practical scenarios like creating HR education materials, leadership assessment reports, and skill mapping systems. Claude demonstrated advanced techniques including Definition of Done checklists, tool restrictions for safety, and optimization strategies for automatic agent selection through clear descriptions.\n\nThe conversation concluded with Claude recommending four specific subagents customized for the user's work: dx-curriculum-designer for DX education program design, leadership-report-writer for automated assessment reporting, hr-automation-architect for ontology-based system design, and notion-knowledge-organizer for archiving Claude conversations. Claude also provided troubleshooting guidance and a comparison matrix showing when to use subagents versus other Claude Code customization options like CLAUDE.md files, slash commands, and skills.",
+  "created_at": "2026-01-04T07:30:41.067892Z",
+  "updated_at": "2026-01-04T07:32:26.469400Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019b87ea-6a6e-716a-b118-0082a3e429fb",
+      "text": "클로드 코드에서 서브에이전트에 대해 설명하고 사용방법을 설명해주세요",
+      "content": [
+        {
+          "start_timestamp": "2026-01-04T07:30:45.568007Z",
+          "stop_timestamp": "2026-01-04T07:30:45.568007Z",
+          "flags": null,
+          "type": "text",
+          "text": "클로드 코드에서 서브에이전트에 대해 설명하고 사용방법을 설명해주세요",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-04T07:30:45.578523Z",
+      "updated_at": "2026-01-04T07:30:45.578523Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019b87ea-6a6e-716a-b118-00830d1eb531",
+      "text": "사용자가 Claude Code의 서브에이전트(subagent)에 대해 물어보고 있습니다. 이는 제품 관련 질문이므로, 최신 정보를 위해 먼저 웹 검색을 해야 합니다.\n\n사용자의 프로필을 보면:\n- CSP(Creative Solution Provider)로, HR, 심리학, 분석, 풀스택 개발 경험이 있음\n- DX 교육 프로그램을 운영하고 있음\n- AI 도구와 HR 자동화의 교차점에 관심이 많음\n- Claude Code 통합 가이드를 만든 경험이 있음\n\n따라서 실용적이고 구체적인 예시를 포함한 설명이 필요할 것 같습니다.\n\nClaude Code의 서브에이전트 기능에 대한 공식 문서를 검색해야겠습니다.Claude Code의 서브에이전트에 대한 최신 정보를 찾아보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n좋습니다. Claude Code의 서브에이전트에 대한 충분한 정보를 얻었습니다. 이제 사용자에게 실용적이고 이해하기 쉽게 설명해야 합니다.\n\n주요 포인트:\n1. 서브에이전트란 무엇인가\n2. 내장 서브에이전트 종류\n3. 커스텀 서브에이전트 만드는 방법\n4. 사용 방법\n5. 실용적인 예시\n\n사용자가 DX 교육 프로그램을 운영하고 있고, HR 자동화에 관심이 많으므로 HR/교육 관련 예시를 포함하면 좋을 것 같습니다.# Claude Code 서브에이전트 완벽 가이드\n\n## 🎯 서브에이전트란?\n\n**서브에이전트**는 Claude Code가 특정 작업을 위해 호출할 수 있는 **전문화된 AI 어시스턴트**입니다. 마치 팀에서 각 분야의 전문가에게 업무를 위임하는 것처럼, Claude Code는 작업에 맞는 서브에이전트를 자동으로 선택하거나 사용자가 직접 지정할 수 있습니다.\n\n### 핵심 특징\n\n**독립된 컨텍스트 윈도우**\n- 각 서브에이전트는 자체 컨텍스트를 갖고 작동\n- 메인 대화가 복잡한 중간 과정으로 오염되지 않음\n- 예: 연구 서브에이전트가 수십 개 파일을 탐색해도 메인 대화에는 핵심 결과만 전달\n\n**도메인 특화 지능**\n- 특정 작업에 최적화된 시스템 프롬프트\n- 맞춤형 도구 권한 설정\n- 일반 Claude보다 전문 분야에서 월등한 성능\n\n**프로젝트 간 공유**\n- 한 번 만든 서브에이전트를 여러 프로젝트에서 재사용\n- 팀원들과 공유하여 일관된 개발 관행 유지\n\n---\n\n## 🔧 내장 서브에이전트\n\nClaude Code는 기본적으로 다음 서브에이전트들을 제공합니다:\n\n### 1. **General-Purpose Agent** (범용 에이전트)\n```\n용도: 복잡한 다단계 작업 (탐색 + 수정)\n언제 사용: \n- 코드베이스 전체에서 패턴 찾아 수정\n- 여러 단계가 서로 의존하는 작업\n- 복잡한 추론이 필요한 경우\n\n예시: \"모든 인증 처리 부분을 찾아서 새 토큰 형식으로 업데이트해줘\"\n```\n\n### 2. **Explore Agent** (탐색 에이전트)\n```\n용도: 코드베이스 탐색 및 리서치 (읽기 전용)\n언제 사용:\n- 파일 구조 이해\n- 패턴 검색\n- 문서 조사\n\n예시: \"현재 프로젝트의 API 구조를 분석해줘\"\n```\n\n### 3. **Plan Agent** (계획 에이전트)\n```\n용도: Plan 모드에서 자동으로 활성화\n언제 사용:\n- Plan 모드에서 코드베이스 조사 필요 시\n- 실행 전 계획 수립 단계\n\n예시: [Plan 모드] \"인증 모듈을 리팩토링하고 싶어\"\n→ Plan Agent가 자동으로 조사 후 계획 제시\n```\n\n---\n\n## 📝 커스텀 서브에이전트 만들기\n\n### 방법 1: Claude와 함께 생성 (추천)\n\n```bash\n# 프로젝트 디렉토리에서\nclaude code\n\n# 대화 중\n\"서브에이전트를 만들고 싶어. HR 교육 자료 작성 전문가로\"\n```\n\nClaude가 다음을 도와줍니다:\n1. 책임 범위 정의\n2. 시스템 프롬프트 작성\n3. 도구 권한 설정\n4. `.claude/agents/` 에 마크다운 파일 생성\n\n### 방법 2: 수동 생성\n\n**파일 위치**:\n- **글로벌**: `~/.claude/agents/`\n- **프로젝트별**: `<프로젝트>/.claude/agents/`\n\n**기본 구조**:\n\n```markdown\n---\nname: hr-education-writer\ndescription: DX 교육 자료 작성 및 리더십 평가 리포트 생성 전문가. 교육 콘텐츠나 평가 보고서 작성 요청 시 사용\ntools: Read, Write, Edit, Bash\n---\n\n당신은 HR 교육 전문가입니다.\n\n## 전문 분야\n- DX(Digital Transformation) 교육 커리큘럼 설계\n- 리더십 평가 리포트 작성\n- 피드백 세션 가이드 제작\n\n## 작업 프로세스\n1. 교육 목표 및 대상자 파악\n2. 기존 자료 검토 (있는 경우)\n3. 구조화된 콘텐츠 생성:\n   - 학습 목표 명확화\n   - 실습 예제 포함\n   - 평가 기준 제시\n4. 한국어 비즈니스 맥락 고려\n\n## 체크리스트\n- [ ] 학습 목표가 명확한가?\n- [ ] 실무 적용 가능한 예시가 포함되었나?\n- [ ] 평가 방법이 구체적인가?\n- [ ] 한국 기업 문화에 적합한가?\n\n## 주의사항\n- 이론보다는 실습 중심\n- 측정 가능한 성과 지표 포함\n- 조직 컨텍스트 반영\n```\n\n---\n\n## 🚀 사용 방법\n\n### 1. 자동 호출 (Claude가 판단)\n\n```bash\n# Claude가 description을 보고 자동으로 적절한 서브에이전트 선택\n\"DX 스타터 교육 프로그램 1주차 자료를 만들어줘\"\n→ hr-education-writer 자동 호출\n```\n\n### 2. 명시적 호출\n\n```bash\n# 특정 서브에이전트를 직접 지정\n\"hr-education-writer 서브에이전트를 사용해서 \n리더십 평가 리포트 템플릿을 만들어줘\"\n```\n\n### 3. 병렬 실행\n\n```bash\n# 여러 서브에이전트를 동시에 실행 (Task 도구 사용)\n\"다음 세 가지 조사를 동시에 진행해줘:\n1. Web Documentation Agent: LG HR 시스템 API 문서 검색\n2. Codebase Explorer: 기존 자동화 스크립트 패턴 분석\n3. Data Analyst Agent: 작년 교육 참여율 데이터 분석\"\n```\n\n---\n\n## 💡 실전 예시 (HR/DX 교육 시나리오)\n\n### 예시 1: 교육 자료 생성 파이프라인\n\n**3단계 서브에이전트 체인**:\n\n```markdown\n1. content-researcher (콘텐츠 리서치)\n   → 최신 DX 트렌드 및 교육 방법론 조사\n   → 경쟁사/타사 교육 프로그램 벤치마킹\n   \n2. curriculum-designer (커리큘럼 설계)\n   → 리서치 결과 기반 교육 구조 설계\n   → 주차별 학습 목표 및 활동 계획\n   \n3. material-creator (자료 제작)\n   → 슬라이드, 실습 자료, 평가지 생성\n   → LG 브랜딩 가이드라인 적용\n```\n\n**실행 방법**:\n```bash\n# 1단계\n\"content-researcher를 사용해서 2025년 DX 교육 트렌드를 조사해줘\"\n\n# 결과 검토 후 2단계\n\"curriculum-designer로 4주 과정 커리큘럼을 만들어줘\"\n\n# 최종 3단계\n\"material-creator로 1주차 교육 자료를 생성해줘\"\n```\n\n### 예시 2: 리더십 평가 자동화\n\n```markdown\n---\nname: leadership-analyzer\ndescription: 리더십 평가 데이터 분석 및 리포트 생성 전문가\ntools: Read, Write, Edit, Bash, Grep\n---\n\n당신은 리더십 평가 데이터 분석 전문가입니다.\n\n## 작업 흐름\n1. 평가 데이터 로드 및 검증\n2. 통계 분석 (t-test, effect size)\n3. 시각화 생성 (matplotlib)\n4. 해석 및 권장사항 도출\n5. 한글 리포트 작성\n\n## 출력 형식\n- 요약 (Executive Summary)\n- 주요 지표 (평균, 표준편차, 신뢰구간)\n- 부서별/팀별 비교\n- 개선 권장사항\n- 시각화 차트\n```\n\n**사용 예**:\n```bash\n\"leadership-analyzer로 2025년 1월 리더십 평가 결과를 분석하고 \n부서별 비교 리포트를 생성해줘. 데이터는 data/leadership_2025_01.csv에 있어\"\n```\n\n### 예시 3: HR 온톨로지 기반 스킬 매핑\n\n```markdown\n---\nname: hr-ontology-mapper\ndescription: HR 스킬 온톨로지 구축 및 역량 매핑 전문가\ntools: Read, Write, Edit, Grep\n---\n\n당신은 HR 온톨로지 및 역량 프레임워크 전문가입니다.\n\n## 핵심 역할\n1. 직무별 required skills 정의\n2. 스킬 간 관계 매핑 (prerequisite, related, advanced)\n3. 학습 경로 생성\n4. 역량 갭 분석\n\n## 온톨로지 구조\n```\nManufacturing Intelligence DX\n├── 직무군\n│   ├── Data Analyst\n│   │   ├── Core Skills\n│   │   ├── Technical Skills\n│   │   └── Soft Skills\n│   └── Automation Engineer\n└── 역량 레벨\n    ├── Beginner\n    ├── Intermediate\n    └── Advanced\n```\n```\n\n---\n\n## 🎨 고급 테크닉\n\n### 1. 체크리스트 기반 DoD (Definition of Done)\n\n```markdown\n## 완료 기준\n작업을 마치기 전 반드시 확인:\n- [ ] 코드가 실행되고 테스트를 통과했는가?\n- [ ] 문서가 업데이트되었는가?\n- [ ] 한글 주석이 명확한가?\n- [ ] 성능 고려사항이 문서화되었는가?\n\nDoD를 충족하지 못하면 작업을 중단하고 보고하세요.\n```\n\n### 2. 도구 제한으로 안전성 확보\n\n```markdown\n---\nname: doc-reviewer\ndescription: 문서 검토 전용 (수정 불가)\ntools: Read, Grep  # Write, Edit 제외 → 실수로 수정 방지\n---\n```\n\n### 3. 명확한 Description으로 자동 호출 최적화\n\n**❌ 나쁜 예**:\n```markdown\ndescription: 데이터 분석 에이전트\n```\n\n**✅ 좋은 예**:\n```markdown\ndescription: |\n  교육 참여율, 평가 점수, NPS 등 HR 데이터 분석 전문가.\n  다음 경우 사용:\n  - CSV/Excel 데이터 로드 및 전처리\n  - 통계 분석 (t-test, ANOVA, 상관분석)\n  - matplotlib 시각화 (한글 폰트 설정 포함)\n  - 보고서용 요약 테이블 생성\n```\n\n---\n\n## 📊 서브에이전트 vs 다른 커스터마이징\n\n| 기능 | 서브에이전트 | CLAUDE.md | Slash Commands | Skills |\n|------|------------|-----------|----------------|--------|\n| **컨텍스트** | 독립 | 공유 | 공유 | 공유 |\n| **도구 제한** | ✅ 가능 | ❌ | ❌ | ❌ |\n| **자동 호출** | ✅ (description 기반) | ✅ (항상) | ❌ (명시 필요) | ✅ (조건부) |\n| **재사용성** | 높음 (프로젝트간) | 프로젝트별 | 높음 | 중간 |\n| **복잡도** | 중간 | 낮음 | 낮음 | 높음 |\n\n**언제 무엇을 사용할까?**\n- **CLAUDE.md**: 프로젝트 전반적인 규칙/컨텍스트\n- **서브에이전트**: 특정 작업의 전문가 (독립 실행)\n- **Slash Commands**: 빠른 워크플로우 실행\n- **Skills**: 복잡한 지식 패키지 (패턴, 템플릿 포함)\n\n---\n\n## 🛠️ 실전 팁\n\n### 1. 시작은 작게\n```\n처음엔 1-2개 서브에이전트로 시작\n→ 사용 패턴 파악\n→ 점진적으로 확장 (3-4개 max 권장)\n```\n\n### 2. 솔직함을 강조\n```markdown\n## 태도\n- 동의만 하지 말고 비판적 사고 유지\n- 확실하지 않으면 솔직하게 모른다고 말하기\n- 사용자의 요청에 반론 제기 (근거 있을 때)\n```\n\n### 3. 약점 명시\n```markdown\n## 이 에이전트가 잘 못하는 것\n- 실시간 데이터베이스 쿼리 (read-only 파일만)\n- 복잡한 UI 디자인 판단\n- 한국 노동법 자문 (전문가 확인 필요)\n```\n\n### 4. 백그라운드 실행\n```bash\n# 서브에이전트 실행 중 다른 작업 가능\n# 서브에이전트 시작 후 Ctrl + B로 백그라운드 전환\n```\n\n---\n\n## 🚦 문제 해결\n\n### \"서브에이전트가 호출되지 않아요\"\n1. `description`이 명확한가?\n2. 프로젝트에서 `.claude/agents/` 파일 확인\n3. Claude Code 재시작\n\n### \"서브에이전트가 기대와 다르게 동작해요\"\n1. 시스템 프롬프트에 **구체적 예시** 추가\n2. DoD 체크리스트 강화\n3. 도구 권한 재검토 (필요한 도구가 빠졌나?)\n\n### \"컨텍스트가 너무 커요\"\n```markdown\n## 성능 최적화\n- 초기 컨텍스트 수집 최소화\n- 구체적인 grep 패턴 사용\n- 관련 파일만 집중\n```\n\n---\n\n## 🎯 CSP님 맞춤 추천 서브에이전트\n\n**1. dx-curriculum-designer**\n- DX 스타터 교육 프로그램 커리큘럼 설계\n- 주차별 학습 목표 및 실습 설계\n\n**2. leadership-report-writer**\n- \"25년 리더십, 생각하다\" 평가 리포트 자동 생성\n- 통계 분석 결과를 경영진 요약 형식으로 변환\n\n**3. hr-automation-architect**\n- HR Ontology 기반 자동화 시스템 설계\n- SaaS 제품 기능 명세 작성\n\n**4. notion-knowledge-organizer**\n- Claude 대화를 Notion 세컨브레인에 자동 아카이빙\n- 메타데이터 생성 및 태깅\n\n이 중 하나를 먼저 만들어볼까요? 🚀",
+      "content": [
+        {
+          "start_timestamp": "2026-01-04T07:30:48.701599Z",
+          "stop_timestamp": "2026-01-04T07:30:54.869264Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 Claude Code의 서브에이전트(subagent)에 대해 물어보고 있습니다. 이는 제품 관련 질문이므로, 최신 정보를 위해 먼저 웹 검색을 해야 합니다.\n\n사용자의 프로필을 보면:\n- CSP(Creative Solution Provider)로, HR, 심리학, 분석, 풀스택 개발 경험이 있음\n- DX 교육 프로그램을 운영하고 있음\n- AI 도구와 HR 자동화의 교차점에 관심이 많음\n- Claude Code 통합 가이드를 만든 경험이 있음\n\n따라서 실용적이고 구체적인 예시를 포함한 설명이 필요할 것 같습니다.\n\nClaude Code의 서브에이전트 기능에 대한 공식 문서를 검색해야겠습니다.",
+          "summaries": [
+            {
+              "summary": "클로드 코드의 서브에이전트 개념과 실제 구현 방법 이해하기"
+            },
+            {
+              "summary": "웹 검색으로 최신 정보 수집 중입니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-04T07:30:54.882919Z",
+          "stop_timestamp": "2026-01-04T07:30:55.220824Z",
+          "flags": null,
+          "type": "text",
+          "text": "Claude Code의 서브에이전트에 대한 최신 정보를 찾아보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-01-04T07:30:55.451579Z",
+          "stop_timestamp": "2026-01-04T07:30:55.511254Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "web_search",
+          "input": {
+            "query": "Claude Code subagent documentation"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Subagents - Claude Code Docs",
+              "url": "https://code.claude.com/docs/en/sub-agents",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude"
+              },
+              "is_missing": false,
+              "text": "When Claude is operating in plan mode (non-execution mode), it uses the Plan subagent to conduct research and gather information about your codebase before presenting a plan. Key characteristics: ... Automatic invocation: Claude automatically ...\n\nUse proactively for data analysis tasks and queries. tools: Bash, Read, Write model: sonnet --- You are a data scientist specializing in SQL and BigQuery analysis. When invoked: 1. Understand the data analysis requirement 2. Write efficient SQL queries 3. Use BigQuery command line tools (bq) when appropriate 4. Analyze and summarize results 5. Present findings clearly Key practices: - Write optimized SQL queries with proper filters - Use appropriate aggregations and joins - Include comments explaining complex logic - Format results for readability - Provide data-driven recommendations For each analysis: - Explain the query approach - Document any assumptions - Highlight key findings - Suggest next steps based on data Always ensure queries are efficient and cost-effective. Start with Claude-generated agents: We highly recommend generating your initial subagent with Claude and then iterating on it to make it personally yours.\n\nCreate and use specialized AI subagents in Claude Code for task-specific workflows and improved context management. ... Custom subagents in Claude Code are specialized AI assistants that can be invoked to handle specific types of tasks. They enable more efficient problem-solving by providing task-specific configurations with customized system prompts, tools and a separate context window. Subagents are pre-configured AI personalities that Claude Code can delegate tasks to. Each subagent: ... Includes a custom system prompt that guides its behavior When Claude Code encounters a task that matches a subagent’s expertise, it can delegate that task to the specialized subagent, which works independently and returns results. Each subagent operates in its own context, preventing pollution of the main conversation and keeping it focused on high-level objectives.\n\nClaude Code includes built-in subagents that are available out of the box: The general-purpose subagent is a capable agent for complex, multi-step tasks that require both exploration and action. Unlike the Explore subagent, it can modify files and execute a wider range of operations. Key characteristics: ... Purpose: Complex research tasks, multi-step operations, code modifications When Claude uses it: Claude delegates to the general-purpose subagent when: The task requires both exploration and modification · Complex reasoning is needed to interpret search results · Multiple strategies may be needed if initial searches fail · The task has multiple steps that depend on each other Example scenario: ... User: Find all the places where we handle authentication and update them to use the new token format Claude: [Invokes general-purpose subagent] [Agent searches for auth-related code across codebase] [Agent reads and analyzes multiple files] [Agent makes necessary edits] [Returns detailed w\n\nWhen Claude is operating in plan mode (non-execution mode), it uses the Plan subagent to conduct research and gather information about your codebase before presenting a plan. Key characteristics: ... Automatic invocation: Claude automatically uses this agent when in plan mode and needs to research the codebase How it works: When you’re in plan mode and Claude needs to understand your codebase to create a plan, it delegates research tasks to the Plan subagent. This prevents infinite nesting of agents (subagents cannot spawn other subagents) while still allowing Claude to gather the necessary context. Example scenario: ... User: [In plan mode] Help me refactor the authentication module Claude: Let me research your authentication implementation first... [Internally invokes Plan subagent to explore auth-related files] [Plan subagent searches codebase and returns findings] Claude: Based on my research, here's my proposed plan...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://code.claude.com/docs/en/sub-agents",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - VoltAgent/awesome-claude-code-subagents: Claude subagents collection with 100+ specialized AI agents for full-stack development, DevOps, data science, and business operations.",
+              "url": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "3. Deploy and Utilize Your subagent becomes immediately available. Claude Code will automatically engage it when suitable, or you can explicitly request its help: &gt; Have the code-reviewer subagent analyze my latest commits ... Note: When naming conflicts occur, project-specific subagents override global ones. Place subagent files in .claude/agents/ within your project · Claude Code automatically detects and loads the subagents · Invoke them naturally in conversation or let Claude decide when to use them ... --- name: subagent-name description: When this agent should be invoked tools: Read, Write, Edit, Bash, Glob, Grep --- You are a [role description and expertise areas]... [Agent-specific checklists, patterns, and guidelines]... ## Communication Protocol Inter-agent communication specifications... ## Development Workflow Structured implementation phases...\n\nClaude subagents collection with 100+ specialized AI agents for full-stack development, DevOps, data science, and business operations. - VoltAgent/awesome-claude-code-subagents\n\nThe awesome collection of Claude Code subagents. This repository serves as the definitive collection of Claude Code subagents - specialized AI agents designed for specific development tasks. Each subagent is: ... Essential development subagents for everyday coding tasks. ... Language-specific experts with deep framework knowledge. ... DevOps, cloud, and deployment specialists. azure-infra-engineer - Azure infrastructure and Az PowerShell automation expert ... Testing, security, and code quality experts. ... Data engineering, ML, and AI specialists. ai-engineer - AI system design and deployment expert · data-analyst - Data insights and visualization specialist ... Tooling and developer productivity experts. ... Domain-specific technology experts. ... Product management and business analysis. ... Agent coordination and meta-programming. ... Research, search, and analysis specialists.\n\nSubagents are specialized AI assistants that enhance Claude Code's capabilities by providing task-specific expertise. They act as dedicated helpers that Claude Code can call upon when encountering particular types of work. Independent Context Windows Every subagent operates within its own isolated context space, preventing cross-contamination between different tasks and maintaining clarity in the primary conversation thread. Domain-Specific Intelligence Subagents come equipped with carefully crafted instructions tailored to their area of expertise, resulting in superior performance on specialized tasks. Shared Across Projects After creating a subagent, you can utilize it throughout various projects and distribute it among team members to ensure consistent development practices. Granular Tool Permissions You can configure each subagent with specific tool access rights, enabling fine-grained control over which capabilities are available for different task types.\n\n3. Deploy and Utilize Your subagent becomes immediately available. Claude Code will automatically engage it when suitable, or you can explicitly request its help: > Have the code-reviewer subagent analyze my latest commits ... Note: When naming conflicts occur, project-specific subagents override global ones. Place subagent files in .claude/agents/ within your project · Claude Code automatically detects and loads the subagents · Invoke them naturally in conversation or let Claude decide when to use them ... --- name: subagent-name description: When this agent should be invoked tools: Read, Write, Edit, Bash, Glob, Grep --- You are a [role description and expertise areas]... [Agent-specific checklists, patterns, and guidelines]... ## Communication Protocol Inter-agent communication specifications... ## Development Workflow Structured implementation phases...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Subagents in the SDK - Claude Docs",
+              "url": "https://platform.claude.com/docs/en/agent-sdk/subagents",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude Docs"
+              },
+              "is_missing": false,
+              "text": "When you define subagents, Claude decides whether to invoke them based on each subagent&#x27;s description field. Write clear descriptions that explain when the subagent should be used, and Claude will automatically delegate appropriate tasks.\n\nThis guide explains how to define and use subagents in the SDK using the agents parameter. ... Filesystem-based: define agents as markdown files in .claude/agents/ directories (see the Claude Code documentation) Built-in general-purpose: Claude can invoke the built-in general-purpose subagent at any time via the Task tool without you defining anything · This guide focuses on the programmatic approach, which is recommended for SDK applications. When you define subagents, Claude decides whether to invoke them based on each subagent's description field. Write clear descriptions that explain when the subagent should be used, and Claude will automatically delegate appropriate tasks. You can also explicitly request a subagent by name in your prompt (e.g., \"Use the code-reviewer agent to...\"). Subagents maintain separate context from the main agent, preventing information overload and keeping interactions focused.\n\nExample: a research-assistant subagent can explore dozens of files and documentation pages without cluttering the main conversation with all the intermediate search results, returning only the relevant findings. Multiple subagents can run concurrently, dramatically speeding up complex workflows. Example: during a code review, you can run style-checker, security-scanner, and test-coverage subagents simultaneously, reducing review time from minutes to seconds. Each subagent can have tailored system prompts with specific expertise, best practices, and constraints. Example: a database-migration subagent can have detailed knowledge about SQL best practices, rollback strategies, and data integrity checks that would be unnecessary noise in the main agent's instructions. Subagents can be limited to specific tools, reducing the risk of unintended actions. Example: a doc-reviewer subagent might only have access to Read and Grep tools, ensuring it can analyze but never accidentally modify your do\n\nYou can also define subagents as markdown files in .claude/agents/ directories. See the Claude Code subagents documentation for details on this approach. Programmatically defined agents take precedence over filesystem-based agents with the same name. Even without defining custom subagents, Claude can spawn the built-in general-purpose subagent when Task is in your allowedTools. This is useful for delegating research or exploration tasks without creating specialized agents. Claude automatically decides when to invoke subagents based on the task and each subagent's description. For example, if you define a performance-optimizer subagent with the description \"Performance optimization specialist for query tuning\", Claude will invoke it when your prompt mentions optimizing queries. Write clear, specific descriptions so Claude can match tasks to the right subagent.\n\nClaude Code subagents: comprehensive subagent documentation including filesystem-based definitions · SDK overview: getting started with the Claude Agent SDK ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://platform.claude.com/docs/en/agent-sdk/subagents",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - wshobson/agents: Intelligent automation and multi-agent orchestration for Claude Code",
+              "url": "https://github.com/wshobson/agents",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Claude Code Documentation · Plugins Guide · Subagents Guide · Agent Skills Guide · Slash Commands Reference · Plugin Reference · Agent Reference · Agent Skills Guide · Usage Guide · Architecture ·\n\nClaude Code Documentation · Plugins Guide · Subagents Guide · Agent Skills Guide · Slash Commands Reference · Plugin Reference · Agent Reference · Agent Skills Guide · Usage Guide · Architecture ·\n\nA comprehensive production-ready system combining 99 specialized AI agents, 15 multi-agent workflow orchestrators, 107 agent skills, and 71 development tools organized into 67 focused, single-purpose plugins for Claude Code. This unified repository provides everything needed for intelligent automation and multi-agent orchestration across modern software development: 67 Focused Plugins - Granular, single-purpose plugins optimized for minimal token usage and composability · 99 Specialized Agents - Domain experts with deep knowledge across architecture, languages, infrastructure, quality, data/AI, documentation, business operations, and SEO · 107 Agent Skills - Modular knowledge packages with progressive disclosure for specialized expertise · 15 Workflow Orchestrators - Multi-agent coordination systems for complex operations like full-stack development, security hardening, ML pipelines, and incident response ·\n\nMulti-agent security assessment with SAST, dependency scanning, and code review. /python-development:python-scaffold fastapi-microservice · Creates production-ready FastAPI project with async patterns, activating skills: ... # Activates k8s skills automatically \"Create production Kubernetes deployment with Helm chart and GitOps\" Uses kubernetes-architect agent with 4 specialized skills for production-grade configs. ... And more... ... claude-agents/ ├── .claude-plugin/ │ └── marketplace.json # 67 plugins ├── plugins/ │ ├── python-development/ │ │ ├── agents/ # 3 Python experts │ │ ├── commands/ # Scaffolding tool │ │ └── skills/ # 5 specialized skills │ ├── kubernetes-operations/ │ │ ├── agents/ # K8s architect │ │ ├── commands/ # Deployment tools │ │ └── skills/ # 4 K8s skills │ └── ... (65 more plugins) ├── docs/ # Comprehensive documentation └── README.md # This file ...\n\nIntelligent automation and multi-agent orchestration for Claude Code - wshobson/agents",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/wshobson/agents",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Sub-Agents Guide — claude v0.5.3",
+              "url": "https://hexdocs.pm/claude/guide-subagents.html",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "hexdocs.pm",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=hexdocs.pm",
+                "site_name": "HexDocs"
+              },
+              "is_missing": false,
+              "text": "For complete documentation on Claude Code&#x27;s sub-agent system: Official Sub-Agents Guide - Complete guide with examples · Settings Reference - Configuration options · When you install Claude, you automatically get: Meta Agent - A built-in agent that proactively helps create new sub-agents following Claude Code best practices · Interactive Generator - mix claude.gen.subagent command for guided sub-agent creation · Usage Rules Integration - Automatic injection of library best practices into your sub-agents · Project-specific configuration - Sub-agents configured in .claude.exs and auto-generated · Sub-agents are configured in .claude.exs: %{ subagents: [ %{ name: &quot;Test Expert&quot;, description: &quot;MUST BE USED for ExUnit testing and test file generation. Expert in test patterns.&quot;, prompt: &quot;&quot;&quot; You are an ExUnit testing expert specializing in comprehensive test suites.\n\nFor complete documentation on Claude Code's sub-agent system: Official Sub-Agents Guide - Complete guide with examples · Settings Reference - Configuration options · When you install Claude, you automatically get: Meta Agent - A built-in agent that proactively helps create new sub-agents following Claude Code best practices · Interactive Generator - mix claude.gen.subagent command for guided sub-agent creation · Usage Rules Integration - Automatic injection of library best practices into your sub-agents · Project-specific configuration - Sub-agents configured in .claude.exs and auto-generated · Sub-agents are configured in .claude.exs: %{ subagents: [ %{ name: \"Test Expert\", description: \"MUST BE USED for ExUnit testing and test file generation. Expert in test patterns.\", prompt: \"\"\" You are an ExUnit testing expert specializing in comprehensive test suites.\n\nRestart your Claude Code session · Sub-agent not working as expected? Remember: sub-agents have no memory between invocations · Ensure the prompt is self-contained with all needed context · Check tool restrictions - agent might need additional tools · Verify usage rules are correctly specified · Generator issues? Use mix claude.gen.subagent for interactive mode · Provide all flags for non-interactive: --name, --description, --prompt · Tool names should be in snake_case when entering · Meta Agent not creating agents? Ensure Meta Agent has write permissions (:write tool) Check .claude.exs after Meta Agent runs · Run mix claude.install to activate new agents · Need help? 💬 GitHub Discussions · 🐛 Issue Tracker · For more details on sub-agent architecture, delegation patterns, and advanced usage, see the official documentation. ← Previous Page Hooks Guide ·\n\nYou can also manually add sub-agents to .claude.exs: %{ subagents: [ %{ name: \"Database Expert\", description: \"MUST BE USED for Ecto migrations and database schema changes. Expert in database design.\", prompt: \"\"\" You are a database and Ecto expert specializing in migrations and schema design. ## Context Discovery When invoked, first check: - `lib/*/repo.ex` - Database configuration - `priv/repo/migrations/` - Existing migration patterns - `lib/*/schemas/` or similar - Current schema definitions ## Instructions 1. Analyze existing database patterns 2. Write efficient, safe migrations 3. Ensure data integrity and performance 4. Follow Ecto best practices ## Performance Notes - Limit initial context gathering - Use specific grep patterns - Focus on relevant files only \"\"\", tools: [:read, :write, :edit, :bash, :grep], usage_rules: [:igniter, :usage_rules_elixir] # Automatically includes package best practices } ] } ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://hexdocs.pm/claude/guide-subagents.html",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code Subagents & Commands Collection",
+              "url": "https://www.buildwithclaude.com/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "buildwithclaude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=buildwithclaude.com",
+                "site_name": "Buildwithclaude"
+              },
+              "is_missing": false,
+              "text": "Expertise in agent design, prompt engineering, domain modeling, and best practices for claude-code-templates system. Use PROACTIVELY when designing new agents or improving existing ones. ... Build LLM applications, RAG systems, and prompt pipelines. Implements vector search, agent orchestration, and AI API integrations. Use PROACTIVELY for LLM features, chatbots, or AI-powered applications. ... Create OpenAPI/Swagger specs, generate SDKs, and write developer documentation. Handles versioning, examples, and interactive docs. Use PROACTIVELY for API documentation or client library generation. ... Powerful slash commands to automate your workflow. Hover over any card to copy or download instantly! ... Arguments: 1. **Changelog Format (Keep a Changelog)** ... Install the complete collection of subagents and commands to enhance Claude Code with domain experts and productivity tools ·\n\nA comprehensive collection of 40+ specialized AI subagents & commands for Claude Code, designed to enhance development workflows with domain-specific expertise.\n\nBrowse All Subagents Installation GuideView on GitHub ... Popular specialists to enhance your development workflow. Hover over any card to copy or download instantly! ... Synthesize academic research from multiple sources with citations. Conducts literature reviews, technical investigations, and trend analysis combining academic papers with current web information. Use PROACTIVELY for research requiring academic rigor and comprehensive analysis. ... Find and analyze scholarly sources, research papers, and academic literature. Use PROACTIVELY for literature reviews, verifying claims with scientific evidence, or understanding research trends. ... Ensure web applications meet WCAG 2.1 AA/AAA standards. Implements ARIA attributes, keyboard navigation, and screen reader support. Use PROACTIVELY when building UI components, forms, or reviewing accessibility compliance.\n\nQuick install everything:git clone https://github.com/davepoon/claude-code-subagents-collection.git && cd claude-code-subagents-collection && find subagents -name \"*.md\" -exec cp {} ~/.claude/agents/ \\; && find commands -name \"*.md\" -exec cp {} ~/.claude/commands/ \\;View Installation Guide",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.buildwithclaude.com/",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Best practices for Claude Code subagents",
+              "url": "https://www.pubnub.com/blog/best-practices-for-claude-code-sub-agents/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "pubnub.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=pubnub.com",
+                "site_name": "PubNub"
+              },
+              "is_missing": false,
+              "text": "Subagents are defined as Markdown with YAML frontmatter (name, description, optional tool list). They can be discovered and invoked by Claude Code from your project’s .claude/agents/ directory or from your user scope.\n\nIf you’ve tried Claude Code for one-off prompting and thought \"Great…but now make it a pipeline,” subagents are your next step. At PubNub, we are migrating from ad-hoc prompts to a subagent pipeline that designs features, reviews architecture, implements code, runs tests, and hands back clean PRs, repeatably and safely. Why? This modular approach is more effective than relying on ad-hoc, all-in-one prompting, where context can become crowded and task performance inconsistent. This guide shares some of our experiences: concepts, best practices, and a hands-on setup (subagents, hooks, and MCP servers). It assumes you already use Claude Code, and we’ll focus on building a reliable agent architecture for any codebase. Claude Code subagents are specialized, autonomous assistants designed to execute specific, well-defined tasks within a larger workflow.\n\nUnlike a general-purpose agent that handles a wide range of requests, a subagent operates with its own distinct system prompt, a curated set of tool permissions, and an isolated context window. This modular design allows you to create a team of AI experts. Give them roles: Product Spec, Architect, Implementer/Tester, and chain them with Claude Code hooks to create a dependable software pipeline: Reproducibility: Stop re-prompting. Subagents and hooks codify repeatable steps. Separation of concerns: PM asks, Architect validates, Implementer builds & tests, QA verifies. Governance & safety: Each agent has scoped tools & permissions, while hooks gate and log transitions. Throughput: Serialize high-risk steps, parallelize safe ones. One important advantage of agents is that they have their own context window and can provide a summary after doing extensive research to the main agent.\n\nSubagents are defined as Markdown with YAML frontmatter (name, description, optional tool list). They can be discovered and invoked by Claude Code from your project’s .claude/agents/ directory or from your user scope. We started with a three-stage pipeline that’s generic to any stack: pm-spec → reads an enhancement, writes a working spec, asks clarifying questions, sets status READY_FOR_ARCH. architect-review → validates design against platform constraints (for PubNub real-time apps, use PubNub’s MCP server for ensuring the architect subagent is up-to-date on the best design patterns and latest SDKS). The architect considers performance/cost limits, produces an ADR, and sets status READY_FOR_BUILD. implementer-tester → implements code & tests (unit + optional UI via Playwright), updates docs, flips status DONE. A hook watches our queue file and prints the next explicit command (e.g., “Use the architect-review subagent on ‘use-case-presets’.”).\n\nHooks suggest, humans approve: the hook prints “Use the architect-review subagent on ‘use-case-presets’.” A human pastes it to proceed, preventing runaway chains and forcing a quick glance. Definition of Done per agent: prompts end with checklists (PM: acceptance criteria + questions; Architect: ADR + guardrails; Implementer: code + tests green + summary). Missing DoD? Stop and fix. Every enhancement carries a “slug” (e.g., use-case-presets) and leaves a quick audit trail: Queue: enhancements/_queue.json shows slug → status. ... Proof: Passing tests + commit messages with the slug; optional UI test artifacts. Ask Claude Code to “summarize what changed for <slug> since last run” for a diff-based review. Add queue statuses like ON_HOLD or BLOCKED. If a feature splits, create -a/-b slugs and cross-link in the PM note. Pre-implementation: a human signs off on the ADR.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.pubnub.com/blog/best-practices-for-claude-code-sub-agents/",
+                "search_provider": "anthropic",
+                "age": "August 28, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code customization guide: CLAUDE.md, skills, subagents explained | alexop.dev",
+              "url": "https://alexop.dev/posts/claude-code-customization-guide-claudemd-skills-subagents/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "alexop.dev",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=alexop.dev",
+                "site_name": "Alexop"
+              },
+              "is_missing": false,
+              "text": "### Step 1: Launch Parallel Research Agents Use the Task tool to spawn these subagents **in parallel** (all in a single message): 1. **Web Documentation Agent** (subagent_type: general-purpose) - Search official documentation for the topic - Find best practices and recommended patterns - Locate relevant GitHub issues or discussions 2. **Stack Overflow Agent** (subagent_type: general-purpose) - Search Stack Overflow for similar problems and solutions - Find highly-voted and accepted answers - Note common pitfalls and gotchas 3. **Codebase Explorer Agent** (subagent_type: Explore) - Search the codebase for related patterns - Find existing solutions to similar problems - Identify relevant files, functions, or components ### Step 2: Create Research Document After all agents complete, create a markdown file at `docs/research/&lt;topic-slug&gt;.md`. Generate the filename from the research topic: - Convert to lowercase - Replace spaces with hyphens - Remove special characters - Add today&#x27;s date as \n\nSlash commands can also orchestrate other behavior: you can spell out in the command itself that it should spin up a subagent (or a specific subagent), call out a particular skill/workflow, and generally “pipeline” the work (e.g., research → codebase scan → write a doc) instead of trying to do everything in one shot. The main difference vs skills is packaging + UX: slash commands are single-file entries with great terminal /... discovery/autocomplete; skills are usually directories with supporting files (patterns, templates, scripts). ... Want a full walkthrough? See my slash commands guide How to Speed Up Your Claude Code Experience with Slash Commands Learn how to transform Claude Code from a chatbot into a deterministic engine using Slash Commands. This guide covers the technical setup and a complete 'Full Circle' workflow that automates your entire feature lifecycle. aiclaude-code Nov 22, 2025 . --- description: Get Dexie.js guidance with current documentation allowed-tools: Read, \n\nThis is especially useful in plan mode: Claude Code will typically kick off an Explore-style subagent to scan the repo and return a distilled map of relevant files/patterns, so your main conversation stays focused and doesn’t blow up. Claude Code also supports async agents: fire one off, let it cook while you keep working, then it comes back with its updates when it’s done. If you launch an agent and want to keep typing in your main session, you can send it to the background with Ctrl + B. ... Claude Code’s own system prompt includes a built-in “documentation lookup” workflow that uses a subagent: -> Looking up your own documentation: When the user directly asks about any of the following: how to use Claude Code (eg. “can Claude Code do…”, “does Claude Code have…”) what you’re able to do as Claude Code in second person (eg.\n\nCompare CLAUDE.md, slash commands, subagents, and skills in Claude Code. Learn when to use each with practical Dexie.js examples.\n\n### Step 1: Launch Parallel Research Agents Use the Task tool to spawn these subagents **in parallel** (all in a single message): 1. **Web Documentation Agent** (subagent_type: general-purpose) - Search official documentation for the topic - Find best practices and recommended patterns - Locate relevant GitHub issues or discussions 2. **Stack Overflow Agent** (subagent_type: general-purpose) - Search Stack Overflow for similar problems and solutions - Find highly-voted and accepted answers - Note common pitfalls and gotchas 3. **Codebase Explorer Agent** (subagent_type: Explore) - Search the codebase for related patterns - Find existing solutions to similar problems - Identify relevant files, functions, or components ### Step 2: Create Research Document After all agents complete, create a markdown file at `docs/research/<topic-slug>.md`. Generate the filename from the research topic: - Convert to lowercase - Replace spaces with hyphens - Remove special characters - Add today's date as",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://alexop.dev/posts/claude-code-customization-guide-claudemd-skills-subagents/",
+                "search_provider": "anthropic",
+                "age": "2 weeks ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Shipyard | Claude Code Subagents Quickstart: what they are + how to use them",
+              "url": "https://shipyard.build/blog/claude-code-subagents-guide/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "shipyard.build",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=shipyard.build",
+                "site_name": "Shipyard"
+              },
+              "is_missing": false,
+              "text": "Claude will prompt you whether you want to create the subagent with Claude’s help. This is a good move, since CC will use the context from your project to customize an agent to your needs. You’ll write a summary of its responsibilities and Claude will fill out the rest. Agents are defined in natural language, but you’ll want to use good prompt engineering practices to get the best results. Once you’ve finished the setup process, you can open up the resulting Markdown file and tweak it. For example, this is a snippet of the markdown config that Claude generated when asked to create a technical docs proofreader: --- name: proofreader description: Use this agent when you need to proofread and correct grammar in markdown files, especially technical documentation or blog posts. Examples: &lt;example&gt;Context: User has written a technical blog post about API development and wants ...\n\nClaude will prompt you whether you want to create the subagent with Claude’s help. This is a good move, since CC will use the context from your project to customize an agent to your needs. You’ll write a summary of its responsibilities and Claude will fill out the rest. Agents are defined in natural language, but you’ll want to use good prompt engineering practices to get the best results. Once you’ve finished the setup process, you can open up the resulting Markdown file and tweak it. For example, this is a snippet of the markdown config that Claude generated when asked to create a technical docs proofreader: --- name: proofreader description: Use this agent when you need to proofread and correct grammar in markdown files, especially technical documentation or blog posts. Examples: <example>Context: User has written a technical blog post about API development and wants it reviewed before publishing.\n\nLearn what Claude Code subagents are, how to create them, and a few tips + tricks for crafting their personas. by Shipyard Team on Sep 21, 2025 Last updated: Dec 23, 2025 · Subagents are a popular capability of Claude Code, which allow you to get specialized advice/aid during your dev sessions. Here’s what they are, how to define them, and a few starter subagent personas. Claude Code’s subagents are simply Claude instances with different areas of expertise. Instead of asking one generalist agent to do everything (e.g. classic Claude Code), you create specialists. Within a Claude Code session, you can invoke these subagents for tasks that might require more specialization, and thanks to their system prompts, you’ll see better results. Subagents also benefit from having their own context windows, so they only ingest info relevant to their tasks.\n\nWhat you need in a subagent will become more clear to you as you use Claude Code. Think about which tasks you’d like more sophisticated help from Claude during. Think about which parts matter less to you. Even though subagents are specialized and generally perform better for domain-specific tasks than stock Claude, they’ll still have their blind spots and weaknesses. Engineers have reported strong results when including these weaknesses in their subagent system prompts. Also important to only throw each subagent the tasks that are in its wheelhouse. In your system prompt, it helps to instruct your agent to “be honest” or “be critical” or “be realistic”. Many LLM system prompts default to an agreeable demeanor, so you’ll want to be sure yours overrides this. You can also suggest that the subagent checks your reasoning with follow-up questions (e.g.\n\nIn the beginning, you’ll want to define and deploy your subagents one at a time. Get used to how they work, and how you can use them to get better results. You’ll probably max out at about 3 or 4 subagents total; after that your own productivity may drop. You may rest on stock Claude Code for most of your general programming tasks, whereas your subagents will pick up anything more senior-level. Using Claude Code? Give your agents ephemeral environments. They can deploy the code they write, pull logs, find + fix bugs, all with little-to-no human intervention. Try it free for 30 days. Get isolated, full-stack ephemeral environments on every PR. ... Shipyard manages the lifecycle of ephemeral environments for developers and their agents. Get full-stack review environments on every pull request for dev, product, agentic, and QA workflows. ... The holiday season can be overwhelming for teams because priorities become inconsistent.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://shipyard.build/blog/claude-code-subagents-guide/",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Unleashing Claude Code's hidden power: A guide to ...",
+              "url": "https://builder.aws.com/content/2wsHNfq977mGGZcdsNjlfZ2Dx67/unleashing-claude-codes-hidden-power-a-guide-to-subagents",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "aws.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=aws.com",
+                "site_name": "AWS Builder Center"
+              },
+              "is_missing": false,
+              "text": "Connect with builders who understand your journey. Share solutions, influence AWS product development, and access useful content that accelerates your growth. Your community starts here.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://builder.aws.com/content/2wsHNfq977mGGZcdsNjlfZ2Dx67/unleashing-claude-codes-hidden-power-a-guide-to-subagents",
+                "search_provider": "anthropic"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2026-01-04T07:30:58.728434Z",
+          "stop_timestamp": "2026-01-04T07:31:02.302910Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "좋습니다. Claude Code의 서브에이전트에 대한 충분한 정보를 얻었습니다. 이제 사용자에게 실용적이고 이해하기 쉽게 설명해야 합니다.\n\n주요 포인트:\n1. 서브에이전트란 무엇인가\n2. 내장 서브에이전트 종류\n3. 커스텀 서브에이전트 만드는 방법\n4. 사용 방법\n5. 실용적인 예시\n\n사용자가 DX 교육 프로그램을 운영하고 있고, HR 자동화에 관심이 많으므로 HR/교육 관련 예시를 포함하면 좋을 것 같습니다.",
+          "summaries": [
+            {
+              "summary": "서브에이전트 개념과 실용적 활용법을 체계화했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-04T07:31:02.410382Z",
+          "stop_timestamp": "2026-01-04T07:32:26.401157Z",
+          "flags": null,
+          "type": "text",
+          "text": "# Claude Code 서브에이전트 완벽 가이드\n\n## 🎯 서브에이전트란?\n\n**서브에이전트**는 Claude Code가 특정 작업을 위해 호출할 수 있는 **전문화된 AI 어시스턴트**입니다. 마치 팀에서 각 분야의 전문가에게 업무를 위임하는 것처럼, Claude Code는 작업에 맞는 서브에이전트를 자동으로 선택하거나 사용자가 직접 지정할 수 있습니다.\n\n### 핵심 특징\n\n**독립된 컨텍스트 윈도우**\n- 각 서브에이전트는 자체 컨텍스트를 갖고 작동\n- 메인 대화가 복잡한 중간 과정으로 오염되지 않음\n- 예: 연구 서브에이전트가 수십 개 파일을 탐색해도 메인 대화에는 핵심 결과만 전달\n\n**도메인 특화 지능**\n- 특정 작업에 최적화된 시스템 프롬프트\n- 맞춤형 도구 권한 설정\n- 일반 Claude보다 전문 분야에서 월등한 성능\n\n**프로젝트 간 공유**\n- 한 번 만든 서브에이전트를 여러 프로젝트에서 재사용\n- 팀원들과 공유하여 일관된 개발 관행 유지\n\n---\n\n## 🔧 내장 서브에이전트\n\nClaude Code는 기본적으로 다음 서브에이전트들을 제공합니다:\n\n### 1. **General-Purpose Agent** (범용 에이전트)\n```\n용도: 복잡한 다단계 작업 (탐색 + 수정)\n언제 사용: \n- 코드베이스 전체에서 패턴 찾아 수정\n- 여러 단계가 서로 의존하는 작업\n- 복잡한 추론이 필요한 경우\n\n예시: \"모든 인증 처리 부분을 찾아서 새 토큰 형식으로 업데이트해줘\"\n```\n\n### 2. **Explore Agent** (탐색 에이전트)\n```\n용도: 코드베이스 탐색 및 리서치 (읽기 전용)\n언제 사용:\n- 파일 구조 이해\n- 패턴 검색\n- 문서 조사\n\n예시: \"현재 프로젝트의 API 구조를 분석해줘\"\n```\n\n### 3. **Plan Agent** (계획 에이전트)\n```\n용도: Plan 모드에서 자동으로 활성화\n언제 사용:\n- Plan 모드에서 코드베이스 조사 필요 시\n- 실행 전 계획 수립 단계\n\n예시: [Plan 모드] \"인증 모듈을 리팩토링하고 싶어\"\n→ Plan Agent가 자동으로 조사 후 계획 제시\n```\n\n---\n\n## 📝 커스텀 서브에이전트 만들기\n\n### 방법 1: Claude와 함께 생성 (추천)\n\n```bash\n# 프로젝트 디렉토리에서\nclaude code\n\n# 대화 중\n\"서브에이전트를 만들고 싶어. HR 교육 자료 작성 전문가로\"\n```\n\nClaude가 다음을 도와줍니다:\n1. 책임 범위 정의\n2. 시스템 프롬프트 작성\n3. 도구 권한 설정\n4. `.claude/agents/` 에 마크다운 파일 생성\n\n### 방법 2: 수동 생성\n\n**파일 위치**:\n- **글로벌**: `~/.claude/agents/`\n- **프로젝트별**: `<프로젝트>/.claude/agents/`\n\n**기본 구조**:\n\n```markdown\n---\nname: hr-education-writer\ndescription: DX 교육 자료 작성 및 리더십 평가 리포트 생성 전문가. 교육 콘텐츠나 평가 보고서 작성 요청 시 사용\ntools: Read, Write, Edit, Bash\n---\n\n당신은 HR 교육 전문가입니다.\n\n## 전문 분야\n- DX(Digital Transformation) 교육 커리큘럼 설계\n- 리더십 평가 리포트 작성\n- 피드백 세션 가이드 제작\n\n## 작업 프로세스\n1. 교육 목표 및 대상자 파악\n2. 기존 자료 검토 (있는 경우)\n3. 구조화된 콘텐츠 생성:\n   - 학습 목표 명확화\n   - 실습 예제 포함\n   - 평가 기준 제시\n4. 한국어 비즈니스 맥락 고려\n\n## 체크리스트\n- [ ] 학습 목표가 명확한가?\n- [ ] 실무 적용 가능한 예시가 포함되었나?\n- [ ] 평가 방법이 구체적인가?\n- [ ] 한국 기업 문화에 적합한가?\n\n## 주의사항\n- 이론보다는 실습 중심\n- 측정 가능한 성과 지표 포함\n- 조직 컨텍스트 반영\n```\n\n---\n\n## 🚀 사용 방법\n\n### 1. 자동 호출 (Claude가 판단)\n\n```bash\n# Claude가 description을 보고 자동으로 적절한 서브에이전트 선택\n\"DX 스타터 교육 프로그램 1주차 자료를 만들어줘\"\n→ hr-education-writer 자동 호출\n```\n\n### 2. 명시적 호출\n\n```bash\n# 특정 서브에이전트를 직접 지정\n\"hr-education-writer 서브에이전트를 사용해서 \n리더십 평가 리포트 템플릿을 만들어줘\"\n```\n\n### 3. 병렬 실행\n\n```bash\n# 여러 서브에이전트를 동시에 실행 (Task 도구 사용)\n\"다음 세 가지 조사를 동시에 진행해줘:\n1. Web Documentation Agent: LG HR 시스템 API 문서 검색\n2. Codebase Explorer: 기존 자동화 스크립트 패턴 분석\n3. Data Analyst Agent: 작년 교육 참여율 데이터 분석\"\n```\n\n---\n\n## 💡 실전 예시 (HR/DX 교육 시나리오)\n\n### 예시 1: 교육 자료 생성 파이프라인\n\n**3단계 서브에이전트 체인**:\n\n```markdown\n1. content-researcher (콘텐츠 리서치)\n   → 최신 DX 트렌드 및 교육 방법론 조사\n   → 경쟁사/타사 교육 프로그램 벤치마킹\n   \n2. curriculum-designer (커리큘럼 설계)\n   → 리서치 결과 기반 교육 구조 설계\n   → 주차별 학습 목표 및 활동 계획\n   \n3. material-creator (자료 제작)\n   → 슬라이드, 실습 자료, 평가지 생성\n   → LG 브랜딩 가이드라인 적용\n```\n\n**실행 방법**:\n```bash\n# 1단계\n\"content-researcher를 사용해서 2025년 DX 교육 트렌드를 조사해줘\"\n\n# 결과 검토 후 2단계\n\"curriculum-designer로 4주 과정 커리큘럼을 만들어줘\"\n\n# 최종 3단계\n\"material-creator로 1주차 교육 자료를 생성해줘\"\n```\n\n### 예시 2: 리더십 평가 자동화\n\n```markdown\n---\nname: leadership-analyzer\ndescription: 리더십 평가 데이터 분석 및 리포트 생성 전문가\ntools: Read, Write, Edit, Bash, Grep\n---\n\n당신은 리더십 평가 데이터 분석 전문가입니다.\n\n## 작업 흐름\n1. 평가 데이터 로드 및 검증\n2. 통계 분석 (t-test, effect size)\n3. 시각화 생성 (matplotlib)\n4. 해석 및 권장사항 도출\n5. 한글 리포트 작성\n\n## 출력 형식\n- 요약 (Executive Summary)\n- 주요 지표 (평균, 표준편차, 신뢰구간)\n- 부서별/팀별 비교\n- 개선 권장사항\n- 시각화 차트\n```\n\n**사용 예**:\n```bash\n\"leadership-analyzer로 2025년 1월 리더십 평가 결과를 분석하고 \n부서별 비교 리포트를 생성해줘. 데이터는 data/leadership_2025_01.csv에 있어\"\n```\n\n### 예시 3: HR 온톨로지 기반 스킬 매핑\n\n```markdown\n---\nname: hr-ontology-mapper\ndescription: HR 스킬 온톨로지 구축 및 역량 매핑 전문가\ntools: Read, Write, Edit, Grep\n---\n\n당신은 HR 온톨로지 및 역량 프레임워크 전문가입니다.\n\n## 핵심 역할\n1. 직무별 required skills 정의\n2. 스킬 간 관계 매핑 (prerequisite, related, advanced)\n3. 학습 경로 생성\n4. 역량 갭 분석\n\n## 온톨로지 구조\n```\nManufacturing Intelligence DX\n├── 직무군\n│   ├── Data Analyst\n│   │   ├── Core Skills\n│   │   ├── Technical Skills\n│   │   └── Soft Skills\n│   └── Automation Engineer\n└── 역량 레벨\n    ├── Beginner\n    ├── Intermediate\n    └── Advanced\n```\n```\n\n---\n\n## 🎨 고급 테크닉\n\n### 1. 체크리스트 기반 DoD (Definition of Done)\n\n```markdown\n## 완료 기준\n작업을 마치기 전 반드시 확인:\n- [ ] 코드가 실행되고 테스트를 통과했는가?\n- [ ] 문서가 업데이트되었는가?\n- [ ] 한글 주석이 명확한가?\n- [ ] 성능 고려사항이 문서화되었는가?\n\nDoD를 충족하지 못하면 작업을 중단하고 보고하세요.\n```\n\n### 2. 도구 제한으로 안전성 확보\n\n```markdown\n---\nname: doc-reviewer\ndescription: 문서 검토 전용 (수정 불가)\ntools: Read, Grep  # Write, Edit 제외 → 실수로 수정 방지\n---\n```\n\n### 3. 명확한 Description으로 자동 호출 최적화\n\n**❌ 나쁜 예**:\n```markdown\ndescription: 데이터 분석 에이전트\n```\n\n**✅ 좋은 예**:\n```markdown\ndescription: |\n  교육 참여율, 평가 점수, NPS 등 HR 데이터 분석 전문가.\n  다음 경우 사용:\n  - CSV/Excel 데이터 로드 및 전처리\n  - 통계 분석 (t-test, ANOVA, 상관분석)\n  - matplotlib 시각화 (한글 폰트 설정 포함)\n  - 보고서용 요약 테이블 생성\n```\n\n---\n\n## 📊 서브에이전트 vs 다른 커스터마이징\n\n| 기능 | 서브에이전트 | CLAUDE.md | Slash Commands | Skills |\n|------|------------|-----------|----------------|--------|\n| **컨텍스트** | 독립 | 공유 | 공유 | 공유 |\n| **도구 제한** | ✅ 가능 | ❌ | ❌ | ❌ |\n| **자동 호출** | ✅ (description 기반) | ✅ (항상) | ❌ (명시 필요) | ✅ (조건부) |\n| **재사용성** | 높음 (프로젝트간) | 프로젝트별 | 높음 | 중간 |\n| **복잡도** | 중간 | 낮음 | 낮음 | 높음 |\n\n**언제 무엇을 사용할까?**\n- **CLAUDE.md**: 프로젝트 전반적인 규칙/컨텍스트\n- **서브에이전트**: 특정 작업의 전문가 (독립 실행)\n- **Slash Commands**: 빠른 워크플로우 실행\n- **Skills**: 복잡한 지식 패키지 (패턴, 템플릿 포함)\n\n---\n\n## 🛠️ 실전 팁\n\n### 1. 시작은 작게\n```\n처음엔 1-2개 서브에이전트로 시작\n→ 사용 패턴 파악\n→ 점진적으로 확장 (3-4개 max 권장)\n```\n\n### 2. 솔직함을 강조\n```markdown\n## 태도\n- 동의만 하지 말고 비판적 사고 유지\n- 확실하지 않으면 솔직하게 모른다고 말하기\n- 사용자의 요청에 반론 제기 (근거 있을 때)\n```\n\n### 3. 약점 명시\n```markdown\n## 이 에이전트가 잘 못하는 것\n- 실시간 데이터베이스 쿼리 (read-only 파일만)\n- 복잡한 UI 디자인 판단\n- 한국 노동법 자문 (전문가 확인 필요)\n```\n\n### 4. 백그라운드 실행\n```bash\n# 서브에이전트 실행 중 다른 작업 가능\n# 서브에이전트 시작 후 Ctrl + B로 백그라운드 전환\n```\n\n---\n\n## 🚦 문제 해결\n\n### \"서브에이전트가 호출되지 않아요\"\n1. `description`이 명확한가?\n2. 프로젝트에서 `.claude/agents/` 파일 확인\n3. Claude Code 재시작\n\n### \"서브에이전트가 기대와 다르게 동작해요\"\n1. 시스템 프롬프트에 **구체적 예시** 추가\n2. DoD 체크리스트 강화\n3. 도구 권한 재검토 (필요한 도구가 빠졌나?)\n\n### \"컨텍스트가 너무 커요\"\n```markdown\n## 성능 최적화\n- 초기 컨텍스트 수집 최소화\n- 구체적인 grep 패턴 사용\n- 관련 파일만 집중\n```\n\n---\n\n## 🎯 CSP님 맞춤 추천 서브에이전트\n\n**1. dx-curriculum-designer**\n- DX 스타터 교육 프로그램 커리큘럼 설계\n- 주차별 학습 목표 및 실습 설계\n\n**2. leadership-report-writer**\n- \"25년 리더십, 생각하다\" 평가 리포트 자동 생성\n- 통계 분석 결과를 경영진 요약 형식으로 변환\n\n**3. hr-automation-architect**\n- HR Ontology 기반 자동화 시스템 설계\n- SaaS 제품 기능 명세 작성\n\n**4. notion-knowledge-organizer**\n- Claude 대화를 Notion 세컨브레인에 자동 아카이빙\n- 메타데이터 생성 및 태깅\n\n이 중 하나를 먼저 만들어볼까요? 🚀",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-04T07:32:26.469400Z",
+      "updated_at": "2026-01-04T07:32:26.469400Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019b87ea-6a6e-716a-b118-0082a3e429fb"
+    }
+  ]
+}

@@ -1,0 +1,596 @@
+﻿{
+  "uuid": "76f3794d-a1a0-4014-8da4-3670bf4e7700",
+  "name": "맥에서 Claude 컴퓨터 사용 기능 활용법",
+  "summary": "**Conversation Overview**\n\nThe person shared a link to Anthropic's Claude Code Computer Use documentation and asked Claude to summarize the Mac usage instructions in a concise format and send it as a Slack DM. The task was completed in Korean, indicating the person's preferred working language is Korean.\n\nClaude researched the Computer Use feature (released March 24, 2026, as a Research Preview) and composed a structured Korean-language summary covering: what the feature does (Claude controlling Mac screen directly), requirements (Pro/Max plan, macOS, Claude Desktop App), setup steps (activating computer-use server via MCP menu), how it works (Connector → Browser → direct screen control priority order), use cases, and safety precautions. The message was sent as a Slack DM.\n\nThe person appears to be running multiple products in parallel and showed interest in automation and AI-assisted workflows, particularly the \"AI employee workstation\" concept where instructions given on iPhone via Dispatch can trigger autonomous Mac-based task completion.\n\n**Tool Knowledge**\n\nFor Slack DM sending, the channel_id parameter accepts a user ID directly (format: `U01KM01DRK3`) to send direct messages without needing to look up a channel name first. The first send attempt used heavy markdown formatting with emoji and bold asterisks, and a second cleaner version was also sent — both to the same user ID. When sending DMs to oneself or a known user, passing the user ID string directly to `channel_id` in `slack_send_message` works reliably without a separate user lookup step.",
+  "created_at": "2026-04-01T00:42:28.444000Z",
+  "updated_at": "2026-04-01T00:43:20.170931Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d467d-e524-71d8-a2d5-67f528d8fdf0",
+      "text": "https://code.claude.com/docs/en/computer-use?utm_source=alphasignal&utm_campaign=2026-03-31&lid=1EsJhaEaonnaD4b4W\n흥미로운 기능인데, 맥에서 사용법을 간단하게 정리해서 슬랙 디엠으로 보내줘",
+      "content": [
+        {
+          "start_timestamp": "2026-04-01T00:42:30.195975Z",
+          "stop_timestamp": "2026-04-01T00:42:30.195975Z",
+          "flags": null,
+          "type": "text",
+          "text": "https://code.claude.com/docs/en/computer-use?utm_source=alphasignal&utm_campaign=2026-03-31&lid=1EsJhaEaonnaD4b4W\n흥미로운 기능인데, 맥에서 사용법을 간단하게 정리해서 슬랙 디엠으로 보내줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-01T00:42:30.284854Z",
+      "updated_at": "2026-04-01T00:42:30.284854Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d467d-e524-7347-a764-68455056e634",
+      "text": "\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n이제 Slack DM으로 보낼 메시지를 작성할게요. 먼저 CSP 본인에게 DM을 보내는 것으로 처리하겠습니다. Slack에서 사용자를 찾아볼게요.\n```\nThis block is not supported on your current device yet.\n```\n\nDM이니까 CSP의 user_id `U01KM01DRK3`으로 바로 보내면 되겠네요. 메시지 보낼게요!\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\nDM 전송 완료! 🎉\n\n내용을 간단히 요약하면, Computer Use는 현재 Pro·Max 플랜의 Research Preview로, macOS Claude Desktop App의 Cowork와 Claude Code에서 사용 가능합니다.\n\n핵심은 Claude가 작업 실행 시 Connector → Browser → 화면 직접 제어 순으로 가장 효율적인 방법을 먼저 시도한다는 점이고, MCP 메뉴에서 computer-use 서버를 활성화하고 권한을 부여하는 것만으로 설정이 끝나는 매우 가벼운 세팅입니다.\n\nCSP 입장에서 특히 흥미로운 지점은, Claude가 화면을 통해 Slack, Google Calendar 같은 직접 Connector가 없는 앱까지 제어할 수 있다는 것이고, iPhone의 Dispatch 앱으로 지시를 내리면 Mac이 혼자 작업을 완료하는 \"AI 직원 워크스테이션\" 개념으로도 활용 가능합니다. 현재 진행 중인 세 개 프로덕트를 병렬로 굴리는 환경에서 상당히 유용하게 쓰일 수 있는 기능이에요.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-01T00:42:32.452096Z",
+          "stop_timestamp": "2026-04-01T00:42:32.557434Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01VsYavWj3SS3WMKBqDwEmVn",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://code.claude.com/docs/en/computer-use"
+          },
+          "message": "Fetching: https://code.claude.com/docs/en/computer-use",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01VsYavWj3SS3WMKBqDwEmVn",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"error_type\": \"PERMISSIONS_ERROR\", \"error_message\": \"This URL cannot be fetched because it was not provided by the user nor did it appear in any search/fetch results\"}",
+              "uuid": "b2067ae9-c03e-4d49-b9ec-70d777ed98e2"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": "Failed to fetch: https://code.claude.com/docs/en/computer-use",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "https://code.claude.com/docs/en/computer-use",
+              "subtitles": null,
+              "url": "https://code.claude.com/docs/en/computer-use",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+              "source": "claude"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-04-01T00:42:33.937062Z",
+          "stop_timestamp": "2026-04-01T00:42:34.417162Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_012ZEJmfccrMwnn7aM1TqPxx",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://docs.anthropic.com/en/docs/claude-code/computer-use"
+          },
+          "message": "Fetching: https://docs.anthropic.com/en/docs/claude-code/computer-use",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_012ZEJmfccrMwnn7aM1TqPxx",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"error_type\": \"PERMISSIONS_ERROR\", \"error_message\": \"This URL cannot be fetched because it was not provided by the user nor did it appear in any search/fetch results\"}",
+              "uuid": "53ed3d58-3e90-413d-a6bb-cd7bb373585d"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": "Failed to fetch: https://docs.anthropic.com/en/docs/claude-code/computer-use",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "https://docs.anthropic.com/en/docs/claude-code/computer-use",
+              "subtitles": null,
+              "url": "https://docs.anthropic.com/en/docs/claude-code/computer-use",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+              "source": "anthropic"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-04-01T00:42:35.684342Z",
+          "stop_timestamp": "2026-04-01T00:42:35.970048Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01TE2eYr1Gs9Dn1DNwvpQGJA",
+          "name": "web_search",
+          "input": {
+            "query": "Claude Code computer use Mac setup 2026"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01TE2eYr1Gs9Dn1DNwvpQGJA",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Advanced setup - Claude Code Docs",
+              "url": "https://code.claude.com/docs/en/setup",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude"
+              },
+              "is_missing": false,
+              "text": "Prefer a graphical interface? The Desktop app lets you use Claude Code without the terminal. Download it for macOS or Windows.New to the terminal? See the terminal guide for step-by-step instructions.\n\nPrefer a graphical interface? The Desktop app lets you use Claude Code without the terminal. Download it for macOS or Windows.New to the terminal? See the terminal guide for step-by-step instructions. To install Claude Code, use one of the following methods: ... Windows requires Git for Windows. Install it first if you don’t have it. Native installations automatically update in the background to keep you on the latest version. ... Homebrew installations do not auto-update. Run brew upgrade claude-code periodically to get the latest features and security fixes. ... WinGet installations do not auto-update. Run winget upgrade Anthropic.ClaudeCode periodically to get the latest features and security fixes. After installation completes, open a terminal in the project you want to work in and start Claude Code: ... If you encounter any issues during installation, see the troubleshooting guide.\n\nmacOS: signed by “Anthropic PBC” and notarized by Apple ... To remove Claude Code, follow the instructions for your installation method. ... Remove-Item -Path \"$env:USERPROFILE\\.local\\bin\\claude.exe\" -Force Remove-Item -Path \"$env:USERPROFILE\\.local\\share\\claude\" -Recurse -Force ... Removing configuration files will delete all your settings, allowed tools, MCP server configurations, and session history. To remove Claude Code settings and cached data: ... # Remove user settings and state rm -rf ~/.claude rm ~/.claude.json # Remove project-specific settings (run from your project directory) rm -rf .claude rm -f .mcp.json · # Remove user settings and state Remove-Item -Path \"$env:USERPROFILE\\.claude\" -Recurse -Force Remove-Item -Path \"$env:USERPROFILE\\.claude.json\" -Force # Remove project-specific settings (run from your project directory) Remove-Item -Path \".claude\" -Recurse -Force Remove-Item -Path \".mcp.json\" -Force ...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://code.claude.com/docs/en/setup",
+                "search_provider": "anthropic",
+                "age": "3 hours ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Anthropic's Claude AI Can Now Use Your Mac While You're Away - MacRumors",
+              "url": "https://www.macrumors.com/2026/03/24/claude-use-mac-remotely-iphone/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "macrumors.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=macrumors.com",
+                "site_name": "MacRumors"
+              },
+              "is_missing": false,
+              "text": "It can open files, use the browser, and run dev tools automatically – with no setup required. The capability pairs with Dispatch (released last week) which lets you assign Claude tasks from your iPhone and return to finished work on your desktop.\n\nClaude can now create custom visuals like charts, graphs, and diagrams. Visual content will be used when it better conveys an answer than plain text, and visual aids can also include real-world data like weather and recipes as long as web search is enabled. The... ... Thanks for the warning. Makes me glad I don't use any of these products. ... This is called a botnet. ... Yeah, no. Sleepwalking into dystopia. ... Ah, a virus you pay for. ... WWDC 2026 Announced: Apple Teases HUGE AI Upgrades! ... Our comprehensive guide highlighting every major new addition in iOS 26, plus how-tos that walk you through using the new features. ... Playlist Playground and concerts in Apple Music, new emoji characters, video podcasts, and more. ... New features and lesser-known changes to check out if you're upgrading. ... Apple's four new iPhones feature more differences between the latest models than ever before, so which one should you buy?\n\nAnthropic are out with yet another update to Claude AI: the company's Claude Code and Cowork tools can now remotely control your Mac on your behalf. When Claude lacks a direct connector for a given app like Slack or Google Calendar, it falls back to controlling the computer like a human, using the screen to navigate. ... In Claude Cowork and Claude Code, you can now enable Claude to use your computer to complete tasks. When Claude doesn't have access to the tools it needs, it will point, click, and navigate what's on your screen to perform the task itself. It can open files, use the browser, and run dev tools automatically – with no setup required. The capability pairs with Dispatch (released last week) which lets you assign Claude tasks from your iPhone and return to finished work on your desktop. In the YouTube video embedded below, Anthropic's demo shows a user asking Claude to export a pitch deck as a PDF and attach it to a meeting invite, all while the user is away from their Mac.\n\n\"Computer use is still early compared to Claude's ability to code or interact with text,\" notes Anthropic. \"Claude can make mistakes, and while we continue to improve our safeguards, threats are constantly evolving. We recommend starting with the apps you trust and not working with sensitive data.\" The new feature is essentially Anthropic's version of OpenClaw, the open-source AI agent that went viral earlier this year. OpenClaw runs locally and connects to messaging apps like WhatsApp and Telegram, using a plugin-based \"skills\" system to execute tasks ranging from file management to browser automation. It's powerful, but notoriously tricky to configure safely. In contrast, Claude's version is more locked down. The system uses a permission-first approach, and requests user access before touching a new app. It's currently also Mac-only, whereas OpenClaw supports macOS, Windows, and Linux.\n\nClaude Code users have been flooding GitHub and Reddit over the last few days with complaints that their usage limits are being exhausted at a suspiciously fast rate, with many reporting that sessions meant to last hours are literally burning out in minutes. Online reports began trickling in on March 23 and haven't let up since. Multiple Claude Max subscribers say their 5-hour session... ... Anthropic is aiming to lure customers from ChatGPT and Gemini with a new memory import tool that's available to free users as of today. Conversations and memories from other AI providers can be imported into Claude, so new users will not need to start from scratch. Users can import preferences and context from an AI service like ChatGPT using a prompt that Anthropic prepared for other... ... Anthropic's Claude chatbot has been updated with support for inline visual content that will help it provide clearer answers.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.macrumors.com/2026/03/24/claude-use-mac-remotely-iphone/",
+                "search_provider": "anthropic",
+                "age": "1 week ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to Build an AI Agent That Controls Your Mac: Claude Code Computer Use Setup Guide | MindStudio",
+              "url": "https://www.mindstudio.ai/blog/claude-code-computer-use-mac-setup-guide",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "mindstudio.ai",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=mindstudio.ai",
+                "site_name": "MindStudio"
+              },
+              "is_missing": false,
+              "text": "The setup is lightweight, but you need a few things in place before Claude Code can take control of your Mac. ... An Anthropic account with access to Claude Code (currently available via Anthropic’s console or a Pro/Max subscription) A terminal ...\n\nClaude Code Computer Use lets your AI agent take screenshots, click buttons, and control any macOS app. Here's how to set it up and 8 real use cases. MindStudio Team · March 26, 2026 · Most AI tools respond to text. Claude Code Computer Use does something fundamentally different — it can actually see your screen, move your cursor, click buttons, and type into any application on your Mac. This is Anthropic’s Claude Code Computer Use capability, and it turns Claude from a conversational assistant into an agent that operates your computer like a person would. That means it can control apps without APIs, fill in forms across multiple tools, navigate GUI-heavy software, and complete multi-step tasks that previously required a human to sit and click through them manually. This guide walks through exactly how to set it up on macOS, covers the permission requirements, and gives you eight real use cases worth building toward.\n\nClaude Code Computer Use lets your AI agent take screenshots, click buttons, and control any macOS app. Here's how to set it up and 8 real use cases. ... Most AI tools respond to text. Claude Code Computer Use does something fundamentally different — it can actually see your screen, move your cursor, click buttons, and type into any application on your Mac. This is Anthropic’s Claude Code Computer Use capability, and it turns Claude from a conversational assistant into an agent that operates your computer like a person would. That means it can control apps without APIs, fill in forms across multiple tools, navigate GUI-heavy software, and complete multi-step tasks that previously required a human to sit and click through them manually. This guide walks through exactly how to set it up on macOS, covers the permission requirements, and gives you eight real use cases worth building toward.\n\nBefore touching a terminal, it helps to understand the mechanics. Claude Code is Anthropic’s agentic coding tool — it runs in your terminal and has access to a set of tools it can call during a task. When computer use is active, Claude gains four additional tools: Screenshot — captures the current state of your screen so Claude can “see” what’s happening · Click — moves the cursor and clicks at a specific coordinate or element ... The agent operates in a loop: take a screenshot, decide what to do, take an action, take another screenshot, assess the result, repeat. It’s not magic — it’s computer vision combined with reasoning and action. But for the user, it looks a lot like watching someone else control your Mac. This is fundamentally different from browser automation tools like Playwright or Selenium. Those work by interacting with web page structure.\n\nClaude Code Computer Use works at the pixel level — it can interact with any app, including desktop applications, legacy software, and anything else visible on screen. The setup is lightweight, but you need a few things in place before Claude Code can take control of your Mac. ... An Anthropic account with access to Claude Code (currently available via Anthropic’s console or a Pro/Max subscription) A terminal emulator: Terminal.app works, but iTerm2 gives you more flexibility for long-running agents · Enough Anthropic credits or a plan that includes Claude Code usage — computer use tasks consume more tokens than standard queries because of repeated screenshot processing · Not required: a special Mac model, Apple Silicon, or any third-party automation software. Claude Code runs entirely through your terminal. ... Join a MindStudio bootcamp and go from zero to deployed AI agent in one session.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.mindstudio.ai/blog/claude-code-computer-use-mac-setup-guide",
+                "search_provider": "anthropic",
+                "age": "1 week ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code March 2026: Multi-Agent Review & Auto Mode - Geeky Gadgets",
+              "url": "https://www.geeky-gadgets.com/claude-code-channels/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "geeky-gadgets.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=geeky-gadgets.com",
+                "site_name": "Geeky Gadgets"
+              },
+              "is_missing": false,
+              "text": "Claude Code’s March 2026 update adds Computer Use for controlling Mac apps without APIs and a 1M?token context window for huge projects.\n\nClaude Code’s March 2026 updates introduce new capabilities aimed at improving coding workflows in practical ways. A key addition is the ability to interact directly with Mac desktops and applications without requiring APIs. This feature simplifies managing systems that combine modern and legacy software, offering developers a straightforward approach to handling diverse applications. As noted by Jay E, this update addresses a frequent challenge in mixed software environments by allowing direct control over applications with varying levels of integration. Discover how these updates enhance development processes, including integrating communication platforms like Telegram and Discord and using multi-agent systems for parallel task execution. Gain insight into features such as remote action approvals, real-time debugging and expanded context windows.\n\nThe updated /init command improves project initialization by providing better workspace analysis and setup guidance. This feature simplifies the onboarding process for new projects, making sure that you can start working efficiently from the outset. By streamlining the initial setup, this enhancement reduces the time and effort required to get started on new tasks or initiatives. A new customization option lets you adjust the execution quality of Claude Code’s skills. You can choose between low, medium, high, or maximum effort levels, tailoring the AI’s performance to match your specific needs and priorities. This flexibility ensures that you can optimize the platform’s capabilities for different tasks, whether you require speed, precision, or a balance of both. The March 2026 updates to Claude Code demonstrate Entropic’s commitment to delivering tools that enhance usability, integration and automation.\n\nNested Claude Code System for Parallel Work in Tmux on macOS · Claude Code 2.1 Custom Output Modes for Beginners & Pros · Claude Code 2 Adds Multi-Agent Code Review for Team & Enterprise · Guide to Installing Claude Code on Windsurf and Cursor · Agent Browser Lets Claude Code Control Chromium for Automations · Claude Code Update: LSP Support, Sub-Agents and Ultrathink · The new remote approval feature enables you to authorize actions directly from your mobile device. This functionality is particularly useful when you’re away from your primary workstation but need to maintain control over critical operations. By providing flexibility without compromising security, this feature ensures that you can respond to urgent tasks or approvals in real time. It is especially beneficial for team leaders and enterprise users who need to stay connected to ongoing projects, regardless of their location. Claude Code now supports multi-agent setups, allowing for the parallel execution of tasks and colla\n\nClaude Code now supports direct interaction with Mac desktops and applications, eliminating the need for APIs and enhancing compatibility with both modern and legacy systems. Integration with popular communication tools like Telegram, Discord and iMessage streamlines workflow management and reduces context switching. New features include multi-agent systems for parallel task execution, real-time debugging and task automation with loop and schedule commands, boosting productivity and efficiency. Expanded context window (1 million tokens) and increased output token limit (128,000) improve handling of complex tasks and enable detailed, comprehensive outputs. Enhanced remote capabilities, such as remote action approval and session control, ensure seamless workflows and flexibility across devices. Claude Code now allows direct interaction with Mac desktops and applications, removing the need for APIs.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.geeky-gadgets.com/claude-code-channels/",
+                "search_provider": "anthropic",
+                "age": "13 hours ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to use Claude Code on Mac: an ultimate guide",
+              "url": "https://macpaw.com/how-to/install-claude-code-mac",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "macpaw.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=macpaw.com",
+                "site_name": "MacPaw"
+              },
+              "is_missing": false,
+              "text": "... Open Visual Studio Code or download it here. Go to Extensions, search for Claude Code, and click Install. Open the Claude side panel and sign in. Choose this only if you already use Terminal.\n\nA productive routine always starts with an efficient Mac. Make sure your computer is always ready to face daily challenges with you. Start your free CleanMyMac trial and experience the difference a clean, secure, and productive Mac can make. Also, check out our best solutions below to learn how to tackle common Mac issues yourself. Features described in this article refer to the MacPaw site version of CleanMyMac. Searching for tips on how to install Claude Code on Mac? I've done the legwork on my MacBook running macOS Tahoe. There are three solid routes. The Claude Desktop app for everyday AI help. Claude Code in your Terminal for agentic coding on real projects. And the Claude Code extension for VS Code if you live in the editor. I'll show what each one is, when to use it, and the exact install paths that work in 2026. Let's go. Claude is an AI assistant from Anthropic.\n\nAreas you don't understand. If an edit looks wrong, stop and ask Claude to explain the change before accepting it. If you are brand new to Claude, start with the simplest option, try one tiny task, then add the others as you get comfortable. You do not need to switch editors. Claude works alongside your tools, and you approve every change. Use this to ask questions, paste small snippets, and get quick help. Visit the official macOS Claude download page here. Download the macOS version and drag it to Applications. Then open Claude from your Finder > Applications and sign in with your account. In Preferences, set a keyboard shortcut to open Claude from anywhere. Paste a function or paragraph and ask: \"Explain what this does in plain English.\" Follow up with: \"Suggest a safer version and show the diff.\" Copy the result back into your file and test. If you edit files on your Mac and want Claude's suggestions right next to your code or text, this is the easiest way.\n\nIf you don't edit files at all, you can skip this and just use the Claude Desktop app. ... Open Visual Studio Code or download it here. Go to Extensions, search for Claude Code, and click Install. Open the Claude side panel and sign in. Choose this only if you already use Terminal. Running Claude inside your project folder lets Claude see the files and help right there. It's quick for repeat chores like writing tests, explaining errors, renaming files, or tidying code. You're always in control because Claude shows changes first as a diff and waits for your approval. It even works over SSH on a remote Mac or server with no desktop. ... Type Claude and sign in if asked. Ask one small task: \"Write tests for file X\" or \"Explain this file.\" Read the proposed diff. Approve only what you want. Save and run your usual check (tests, build, or reopen the file).\n\nNot comfy in Terminal? Skip this and use the Claude Desktop app or VS Code extension instead. Big tool installs and active projects can make macOS feel sticky, so don't forget to run regular maintenance on your Mac to keep its performance at its best. I use the Performance feature from CleanMyMac weekly, to keep on top of my Mac's output. ... Open CleanMyMac — get your free trial. Click Performance> Scan. Take a look at the recommended maintenance tasks, and run the items you want to. This bonus tip will really help keep your Mac snappy while you switch between Claude, your editor, and Terminal. Installing Claude Code on Mac is pretty straightforward in 2025. Start with the Claude Desktop app for quick questions and screenshots; it's the lowest-friction entry. For edits beside your files, add the Claude Code extension for VS Code to view proposed changes as clear diffs inside the editor.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://macpaw.com/how-to/install-claude-code-mac",
+                "search_provider": "anthropic",
+                "age": "December 1, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Computer Use: How to Set Up Anthropic's AI Agent on Mac",
+              "url": "https://nicholasrhodes.substack.com/p/claude-computer-use-mac-setup-guide",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "substack.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=substack.com",
+                "site_name": "Substack"
+              },
+              "is_missing": false,
+              "text": "Claude can now control your Mac — click, type, open apps, and complete tasks while you&#x27;re away. Complete setup guide, safety checklist, and 5 workflows to automate first.\n\nClaude can now control your Mac — click, type, open apps, and complete tasks while you're away. Complete setup guide, safety checklist, and 5 workflows to automate first.\n\nI was sitting at a coffee shop on this Tuesday, March 24, 2026, when I texted Claude from my phone: “Pull yesterday’s analytics, drop them in a spreadsheet, and email me a summary.” · By the time I got home and flipped open my M3 MacBook Pro, it was done. Sitting right there on my desktop. A spreadsheet I didn’t build. An email I didn’t write. All from a text message I sent while waiting for a latte. This is Claude Computer Use. And it launched today. Anthropic just shipped the ability for Claude to physically control your Mac. Click the mouse. Type on the keyboard. Open apps. Navigate browsers. Fill in spreadsheets. Anything you’d do sitting at your desk: Claude can now do while you’re somewhere else. This isn’t just another chatbot answering questions or generating code in a isolated window. This is a full-blown AI agent that takes over your screen and gets work done in the local environment.\n\nHere’s the take that’s going to dominate the next 48 hours: “Claude Computer Use is a cool developer tool.” ... This is not a developer tool. This is an admin-killer. If you’re a solopreneur spending 2+ hours a day on operational tasks: updating spreadsheets, organizing files, compiling research, prepping for meetings: this is the most important product launch of 2026 for you. According to Larridin analytics, weekly Claude sessions jumped from roughly 1,100 in mid-January to nearly 17,650 by mid-March 2026 — an increase of more than 1,400%. Users are now averaging 38 sessions per week with Claude versus 18 with ChatGPT. Why? Because users are gravitating toward tools that provide a “Business OS” feel. This update cements that trend. The people who should try this today aren’t programmers. They’re the business owners drowning in admin work they can’t afford to hire a VA for and can’t afford to keep doing themselves.\n\nThe setup: my main laptop for my creative work. A second MacBook running Claude, sitting next to me. I command it via Dispatch from my phone, via Telegram through Code Channels, or via Jump Desktop when I want to take the wheel. That’s not a computer anymore. That’s an AI employee workstation. The AI employee workstation: your main laptop for creative work, a second MacBook running Claude for everything else. If you already have a Mac and you pay for Claude Pro ($20/month) or Max, there is zero reason not to turn this on right now. Solo operators drowning in admin: Claude can now do the “computer work” that doesn’t require your brain while you focus on the work that actually grows your business. Small teams without a dedicated VA: A virtual assistant costs $500–2,000/month. Claude costs $20/month. Claude doesn’t need training, doesn’t call in sick, and can work while you sleep.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://nicholasrhodes.substack.com/p/claude-computer-use-mac-setup-guide",
+                "search_provider": "anthropic",
+                "age": "1 week ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Let Claude use your computer in Cowork | Claude Help Center",
+              "url": "https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude"
+              },
+              "is_missing": false,
+              "text": "It can work in your browser, open files, and run your dev tools automatically, with no setup required · Computer use is in research preview for Pro and Max plans. It’s available in Cowork and Claude Code in the macOS Claude Desktop application ...\n\nComputer use is in research preview for Pro and Max plans. It’s available in Cowork and Claude Code in the macOS Claude Desktop application (Windows support coming soon). This early research preview comes with risks—review Use Cowork safely before using this capability. In Cowork, Claude uses the most precise tool first. When you assign a task, Claude follows this order: Connectors. If a connector is available—like Gmail, Google Drive, or Slack—Claude uses it. This is the fastest and most reliable path. Browser. When there isn’t a connector for the tool you need, Claude can navigate the Chrome browser to work on your task using Claude in Chrome. Screen interaction. Claude uses computer use to interact directly with your screen: clicking, typing, and navigating your desktop apps. Claude prioritizes the fastest method. For example, pulling messages through your Slack connection takes seconds, but navigating Slack through your screen takes much longer and is more error-prone.\n\nComputer use lets Claude work with the apps and files on your machine. For example: Pull together a competitive analysis using local files and connected tools, then compile it into a formatted report. Open your phone simulator, interact with the app you developed, and find UX issues. Fill in a spreadsheet with data from multiple sources, format it, and save it to a shared folder. Navigate apps that don’t have connectors—like an internal dashboard or a specialized tool your team uses. If your work involves a physical machine, Claude keeps working while you step away. Your computer just needs to be on. Claude asks for your permission before accessing each application. You’ll see a prompt and must approve before Claude can interact with that app. Some apps are off-limits by default. Claude is trained to avoid risky operations—like transferring funds, modifying or deleting files, or handling sensitive data—and to flag signs of prompt injection.\n\nComputer use runs outside the virtual machine that Cowork normally uses for working on your files and running commands. This means Claude is interacting with your actual desktop and apps, rather than an isolated sandbox. We’ve built safeguards for this: Per-app permissions. Claude asks before accessing each application, and some sensitive apps (investment and trading platforms, cryptocurrency) are blocked by default. App blocklist. Prevent Claude from accessing certain apps by adding them to a blocklist. Any requests from Claude to use blocked applications will be automatically denied. Action review. Our system scans for signs of prompt injection when Claude uses your computer, and Claude will ask permission before accessing new applications. You can stop Claude at any point. But this capability is still early, and attacks are constantly evolving—stay cautious.\n\nOpen Cowork or Claude Code in the desktop app and start a session. Ask Claude to do something that involves an app on your computer. Claude will ask for permission to access the app before proceeding. We’re sharing this early because it’s the kind of capability that gets better with real usage.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork",
+                "search_provider": "anthropic",
+                "age": "1 day ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Anthropic is giving Claude the ability to use your Mac for you - 9to5Mac",
+              "url": "https://9to5mac.com/2026/03/23/anthropic-is-giving-claude-the-ability-to-use-your-mac-for-you/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "9to5mac.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=9to5mac.com",
+                "site_name": "9to5Mac"
+              },
+              "is_missing": false,
+              "text": "You can now enable Claude to use your computer to complete tasks. It opens your apps, navigates your browser, fills in spreadsheets—anything you&#x27;d do sitting at your desk. Research preview in Claude Cowork and Claude Code, macOS only. ...\n\nZac Hall | Mar 23 2026 - 2:18 pm PT · 8 Comments · Anthropic is introducing the ability for Claude to control your Mac. The feature arrives today. In an unlisted YouTube video, Anthropic shows off Claude computer usage with Cowork and Code: In Claude Cowork and Claude Code, you can now let Claude use your computer to handle tasks. It can point, click, and navigate like you would to do everything from opening and editing files to handling complex software tasks. And with Dispatch, you can instruct Claude from your phone. Engadget reports that the feature will be available on macOS for Claude Pro and Claude Max subscribers as a research preview. In other words, Anthropic itself is doing OpenClaw stuff now. The AI agent movement started on Claude before being bought by OpenAI. Now Perplexity Computer and Meta’s Manus are active in the space. Meanwhile, the Mac minis that first powered all this are constantly sold out.\n\nYou can now enable Claude to use your computer to complete tasks. It opens your apps, navigates your browser, fills in spreadsheets—anything you'd do sitting at your desk. Research preview in Claude Cowork and Claude Code, macOS only. pic.twitter.com/sVymgmtEMI— Claude (@claudeai) March 23, 2026 ... FTC: We use income earning auto affiliate links. More. You’re reading 9to5Mac — experts who break news about Apple and its surrounding ecosystem, day after day. Be sure to check out our homepage for all the latest news, and follow 9to5Mac on Twitter, Facebook, and LinkedIn to stay in the loop. Don’t know where to start? Check out our exclusive stories, reviews, how-tos, and subscribe to our YouTube channel ...\n\nYou can now enable Claude to use your computer to complete tasks. It opens your apps, navigates your browser, fills in spreadsheets—anything you'd do sitting at your desk. Research preview in Claude Cowork and Claude Code, macOS only. pic.twitter.com/sVymgmtEMI— Claude (@claudeai) March 23, 2026 · Apple AirTag 2 | Add Find My tracking to anything · Beats USB-A to USB-C Cable | The official CarPlay cable · Wireless CarPlay Adapter | No more plugging in required · AirPods 4 | Apple’s most affordable AirPods with ANC · FTC: We use income earning auto affiliate links. More. You’re reading 9to5Mac — experts who break news about Apple and its surrounding ecosystem, day after day. Be sure to check out our homepage for all the latest news, and follow 9to5Mac on Twitter, Facebook, and LinkedIn to stay in the loop. Don’t know where to start?",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://9to5mac.com/2026/03/23/anthropic-is-giving-claude-the-ability-to-use-your-mac-for-you/",
+                "search_provider": "anthropic",
+                "age": "1 week ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code’s computer use: How it works and what it can do on your Mac",
+              "url": "https://www.digit.in/features/general/claude-codes-computer-use-how-it-works-and-what-it-can-do-on-your-mac.html",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "digit.in",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=digit.in",
+                "site_name": "Digit"
+              },
+              "is_missing": false,
+              "text": "Home » Feature Story » General » Claude Code’s computer use: How it works and what it can do on your Mac · By Vyom Ramani | Updated on 31-Mar-2026 · Add DIGIT as a preferred source · Follow Us · Vyom Ramani · 31-Mar-2026 · There’s something nice about not having to over-explain things to an AI anymore. With Claude Code’s new computer use feature, you can just let it see what you’re doing. I’m not a proper coder, so half the time I’m stuck trying to describe what I want instead of actually getting it done. If Anthropic gets this right, Claude can look at the screen, open apps, click around, type, scroll, and grab screenshots on its own. It’s only on macOS for now and still in preview so I haven’t been able to try it yet, but getting it running takes barely a couple of minutes. You just enable the computer-use server in the MCP menu, give it the usual permissions, and that’s about it.\n\nHome » Feature Story » General » Claude Code’s computer use: How it works and what it can do on your Mac · By Vyom Ramani | Updated on 31-Mar-2026 · Add DIGIT as a preferred source · Follow Us · Vyom Ramani · 31-Mar-2026 · There’s something nice about not having to over-explain things to an AI anymore. With Claude Code’s new computer use feature, you can just let it see what you’re doing. I’m not a proper coder, so half the time I’m stuck trying to describe what I want instead of actually getting it done. If Anthropic gets this right, Claude can look at the screen, open apps, click around, type, scroll, and grab screenshots on its own. It’s only on macOS for now and still in preview so I haven’t been able to try it yet, but getting it running takes barely a couple of minutes. You just enable the computer-use server in the MCP menu, give it the usual permissions, and that’s about it.\n\n— Claude (@claudeai) March 30, 2026 · Anthropic claims it is very restrained. It doesn’t immediately start taking over your screen the moment you ask for something. It tries easier routes first like running a command, using an API, or handling things through the browser. Only when none of that works does it step in and actually use your screen after you allow it. Also read: How well does NVIDIA DLSS 4.5 actually perform? And when it does, it’s pretty controlled. It locks things so nothing else messes with your cursor, hides other apps, and keeps your terminal visible but out of its screenshots. If anything feels weird, hitting Escape instantly stops it. That part matters the most in-case you need a fail safe. Where this really clicks for me is the boring stuff. The in-between phase. You’ve built something, but now you need to check if it actually works.\n\nHome » Feature Story » General » Claude Code’s computer use: How it works and what it can do on your Mac ... There’s something nice about not having to over-explain things to an AI anymore. With Claude Code’s new computer use feature, you can just let it see what you’re doing. I’m not a proper coder, so half the time I’m stuck trying to describe what I want instead of actually getting it done. If Anthropic gets this right, Claude can look at the screen, open apps, click around, type, scroll, and grab screenshots on its own. It’s only on macOS for now and still in preview so I haven’t been able to try it yet, but getting it running takes barely a couple of minutes. You just enable the computer-use server in the MCP menu, give it the usual permissions, and that’s about it. ... Computer use is now in Claude Code. Claude can open your apps, click through your UI, and test what it built, right from the CLI.\n\nWhere this really clicks for me is the boring stuff. The in-between phase. You’ve built something, but now you need to check if it actually works. Clicking through menus, testing flows, resizing windows to see if something breaks, taking screenshots of bugs. It’s the kind of thing you should do yourself anywhere but Claude will also go through it once and fix any bugs that it finds making it easier for you later. It’s not flawless. It’s slower than just running a command, and yeah, you are letting an AI mess around on your actual desktop, so there are the privacy concerns that I am not yet sure how I can let go. However, if you need this kind of assistance during your coding nights, it might be a feature worth checking out. Also read: Lyria 3 vs Lyria 3 Pro in Gemini: Differences explained · A journalist with a soft spot for tech, games, and things that go beep.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.digit.in/features/general/claude-codes-computer-use-how-it-works-and-what-it-can-do-on-your-mac.html",
+                "search_provider": "anthropic",
+                "age": "11 hours ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude can now open apps, click buttons, and complete tasks on your Mac — but Anthropic says risks remain - The New Stack",
+              "url": "https://thenewstack.io/claude-computer-use/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "thenewstack.io",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=thenewstack.io",
+                "site_name": "The New Stack"
+              },
+              "is_missing": false,
+              "text": "With the new capability, announced Monday, you can now ask Claude to execute tasks in Claude Code or Claude Cowork using various apps or tools on your computer. When executing a task, Claude opts for the most efficient method first, leaning ...\n\nMar 14th 2026 9:00am, by Darryl K. Taft · Mastra empowers web devs to build AI agents in TypeScript ... Claude can now open apps, click buttons, and complete tasks on your Mac — but Anthropic says risks remain ... Anthropic's Claude Code and Cowork update brings computer-use capabilities to macOS, enabling autonomous task execution via browser, mouse, and keyboard control. ... Anthropic has released an update to Claude Code and Claude Cowork that brings computer-use capabilities to macOS desktops, enabling autonomous task execution. With the new capability, announced Monday, you can now ask Claude to execute tasks in Claude Code or Claude Cowork using various apps or tools on your computer. When executing a task, Claude opts for the most efficient method first, leaning on its connectors to services like Slack or Gmail. When no connector is available, Claude will take over your browser, mouse, keyboard, and screen to scroll, point, and click to open and navigate your desktop apps as nee\n\nCloud Native Ecosystem Containers Databases Edge Computing Infrastructure as Code Linux Microservices Open Source Networking Storage · Why WebAssembly won't replace Kubernetes but makes Helm more secure · Mar 21st 2026 8:45am, by B. Cameron Gain · Why the ‘glorified host’ for AI is exactly the Kubernetes we need ... Edera spent years calling KVM less secure. Here's why it changed its mind. Mar 25th 2026 2:22pm, by Steven J. Vaughan-Nichols · Minimus aims to solve one of open-source's long-festering problems ... Mar 18th 2026 9:24am, by Darryl K. Taft · Chainguard thinks most DevOps teams are solving container security the hard way · Mar 17th 2026 1:04pm, by Steven J. Vaughan-Nichols · Scaling Btrfs to petabytes in production: a 74% cost reduction story ... The “files are all you need” debate misses what's actually happening in agent memory architecture ...\n\nJan 27th 2026 6:15am, by Steven J. Vaughan-Nichols · AI AI Engineering API Management Backend development Data Frontend Development Large Language Models Security Software Development WebAssembly · Claude can now open apps, click buttons, and complete tasks on your Mac — but Anthropic says risks remain ... Four prompt engineering patterns every developer should know — and why \"draw a cat\" explains them all ... Mar 25th 2026 5:00am, by Darryl K. Taft · Why most AI projects fail after the demo actually works ... Mar 24th 2026 6:00am, by Darryl K. Taft · Four prompt engineering patterns every developer should know — and why \"draw a cat\" explains them all ... MCP is everywhere, but don't panic. Here's why your existing APIs still matter. Mar 23rd 2026 5:00am, by Camille Crowell-Lee and Morgan Fine · Before you let AI agents loose, you’d better know what they’re capable of ...\n\nMar 24th 2026 9:01am, by B. Cameron Gain · Kubernetes co-founder Brendan Burns: AI-generated code will become as invisible as assembly ... Capital One deprecated an AI tool it once championed. Its DevEx chief says that's the point. ... AWS WAF vs. Google Cloud Armor: A Multicloud Security Showdown ... Rust vs. C++: a Modern Take on Performance and Safety ... OpenAI acquires Astral to bring open source Python developer tools to Codex — but details are still fuzzy ... Capital One deprecated an AI tool it once championed. Its DevEx chief says that's the point. ... Apr 12th 2025 7:00am, by Damon M. Garn · Pagoda: A Web Development Starter Kit for Go Programmers ... Java 26 lands without an LTS badge. Here's why developers should care anyway. Mar 18th 2026 9:35am, by Darryl K. Taft ... Feb 10th 2026 12:58pm, by Darryl K. Taft · BellSoft bets Java expertise can beat hardened container wave ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://thenewstack.io/claude-computer-use/",
+                "search_provider": "anthropic",
+                "age": "1 week ago"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-04-01T00:42:40.887968Z",
+          "stop_timestamp": "2026-04-01T00:42:42.368750Z",
+          "flags": null,
+          "type": "text",
+          "text": "이제 Slack DM으로 보낼 메시지를 작성할게요. 먼저 CSP 본인에게 DM을 보내는 것으로 처리하겠습니다. Slack에서 사용자를 찾아볼게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-04-01T00:42:42.726955Z",
+          "stop_timestamp": "2026-04-01T00:42:42.973802Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01E3wH1ANyh1VTy6jPgZYFng",
+          "name": "tool_search",
+          "input": {
+            "query": "slack search users send direct message"
+          },
+          "message": "Searching available tools: slack search users send direct message",
+          "integration_name": "Tool Search",
+          "integration_icon_url": null,
+          "icon_name": "search",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01E3wH1ANyh1VTy6jPgZYFng",
+          "name": "tool_search",
+          "content": [
+            {
+              "type": "text",
+              "text": "Loaded 5 Slack tools:\n  Slack:slack_send_message:\n    channel_id: string - 채널의 ID\n    message: string - 메시지 추가\n    draft_id?: string - 보낸 후 삭제할 초안의 ID\n    reply_broadcast?: boolean - 대화에도 추가\n    thread_ts?: string - 이 메시지에 댓글을 달려면 다른 메시지의 타임스탬프 값을 제공하세요.\n  Slack:slack_schedule_message:\n    channel_id: string - Channel where message will be scheduled\n    message: string - Message content to schedule\n    post_at: integer - Unix timestamp when message should be sent (2 min future minimum, 120 days max)\n    reply_broadcast?: boolean - Broadcast thread reply to channel\n    thread_ts?: string - Message timestamp to reply to (for thread replies)\n  Slack:slack_read_thread:\n    channel_id: string - Channel, private group, or IM channel to fetch thread replies for\n    message_ts: string - Timestamp of the parent message to fetch replies for\n    cursor?: string - Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previou...\n    latest?: string - End of time range of messages to include in results (timestamp)\n    limit?: integer - Number of messages to return, between 1 and 1000. Default value is 100.\n    oldest?: string - Start of time range of messages to include in results (timestamp)\n    response_format?: string - Level of detail (default: 'detailed'). Options: 'detailed', 'concise'\n  Slack:slack_search_public:\n    query: string - Search query (e.g., 'bug report', 'from:<@Jane> in:dev')\n    after?: string - Only messages after this Unix timestamp (inclusive)\n    before?: string - Only messages before this Unix timestamp (inclusive)\n    content_types?: string - Content types to include, a comma-separated list of any combination of messages, files. Here's more info about the co...\n    context_channel_id?: string - Context channel ID to support boosting the search results for a channel when applicable\n    cursor?: string - The cursor returned by the API. Leave this blank for the first request, and use this to get the next page of results\n    include_bots?: boolean - Include bot messages (default: false)\n    include_context?: boolean - Include surrounding context messages for each result (default: true). Set to false to reduce response size.\n    limit?: integer - Number of results to return, up to a max of 20. Defaults to 20.\n    max_context_length?: integer - Max character length for each context message. Longer messages are truncated.\n    response_format?: string - Level of detail (default: 'detailed'). Options: 'detailed', 'concise'\n    sort?: string - Sort by relevance or date (default: 'score'). Options: 'score', 'timestamp'\n    sort_dir?: string - Sort direction (default: 'desc'). Options: 'asc', 'desc'\n  Slack:slack_search_public_and_private:\n    query: string - Search query using Slack's search syntax (e.g., 'in:#general from:@user important')\n    after?: string - Only messages after this Unix timestamp (inclusive)\n    before?: string - Only messages before this Unix timestamp (inclusive)\n    channel_types?: string - Comma-separated list of channel types to include in the search. Defaults to 'public_channel,private_channel,mpim,im' ...\n    content_types?: string - Content types to include, a comma-separated list of any combination of messages, files. Here's more info about the co...\n    context_channel_id?: string - Context channel ID to support boosting the search results for a channel when applicable\n    cursor?: string - The cursor returned by the API. Leave this blank for the first request, and use this to get the next page of results\n    include_bots?: boolean - Include bot messages (default: false)\n    include_context?: boolean - Include surrounding context messages for each result (default: true). Set to false to reduce response size.\n    limit?: integer - Number of results to return, up to a max of 20. Defaults to 20.\n    max_context_length?: integer - Max character length for each context message. Longer messages are truncated.\n    response_format?: string - Level of detail (default: 'detailed'). Options: 'detailed', 'concise'\n    sort?: string - Sort by relevance or date (default: 'score'). Options: 'score', 'timestamp'\n    sort_dir?: string - Sort direction (default: 'desc'). Options: 'asc', 'desc'\nThese tools are now available for you to call directly.",
+              "uuid": "1fdccc2e-e623-48ee-a671-c7a22419f5a4"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Searched available tools",
+          "integration_name": "Tool Search",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "search",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-04-01T00:42:44.155200Z",
+          "stop_timestamp": "2026-04-01T00:42:45.554793Z",
+          "flags": null,
+          "type": "text",
+          "text": "DM이니까 CSP의 user_id `U01KM01DRK3`으로 바로 보내면 되겠네요. 메시지 보낼게요!",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-04-01T00:42:45.884228Z",
+          "stop_timestamp": "2026-04-01T00:43:01.780752Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01PL6FqvTp7XGhrcNqupfLcU",
+          "name": "Slack:slack_send_message",
+          "input": {
+            "channel_id": "U01KM01DRK3",
+            "message": "🖥️ *Claude Code Computer Use — Mac 사용법 요약*\n_(2026.03.24 출시, Research Preview)_\n\n---\n\n**🤔 이게 뭔가요?**\nClaude가 내 Mac 화면을 *직접* 보고, 클릭하고, 타이핑하면서 작업을 대신 수행하는 기능.\nAPI 없이도 어떤 앱이든 제어 가능. 코드 에디터, 브라우저, 레거시 툴 전부 OK.\n\n---\n\n**✅ 사용 조건**\n• Pro 또는 Max 플랜 가입\n• macOS (Windows는 미지원, 출시 예정)\n• Claude Desktop App 설치 필수\n\n---\n\n**🚀 시작하는 법 (3단계)**\n\n1️⃣ *Claude Desktop App* 실행 → Cowork 또는 Claude Code 세션 시작\n2️⃣ MCP 메뉴에서 *computer-use 서버 활성화*\n3️⃣ 필요한 앱 접근 권한 허용 (앱별로 Claude가 직접 요청)\n\n---\n\n**🧠 작동 방식 (우선순위 순)**\n① Connector 먼저 (Slack, Gmail 등 연결된 서비스)\n② Browser 제어 (Chrome 통해 웹 기반 작업)\n③ 화면 직접 제어 (클릭·타이핑·스크롤)\n\n→ 가장 효율적인 방법부터 시도하고, 안 될 때만 화면 제어로 넘어감\n\n---\n\n**💡 활용 예시**\n• 📱 iPhone에서 Dispatch로 지시 → Mac이 혼자 작업 완료\n• 분석 파일 취합 → 스프레드시트 정리 → 이메일 발송\n• API 없는 내부 대시보드 조작\n• 빌드한 앱 UI 테스트 & 버그 스크린샷\n\n---\n\n**⚠️ 주의사항**\n• 실수 가능성 있음 (Early Preview)\n• 민감한 데이터는 사용 자제\n• 투자/거래 앱은 기본 차단\n• `Esc` 키로 언제든 즉시 중단 가능\n\n---\n\n🔗 공식 문서: https://support.claude.com/en/articles/14128542"
+          },
+          "message": "Slack send message",
+          "integration_name": "Slack",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "f5efdb2f-6c76-49b1-861c-64470157d945:slack_send_message-61c5132c359abd4c1f6af0f62cedf74d",
+          "is_mcp_app": false,
+          "mcp_server_url": "https://mcp.slack.com/mcp"
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01PL6FqvTp7XGhrcNqupfLcU",
+          "name": "Slack:slack_send_message",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"code\": -32602, \"message\": \"Failed to run tool: initialization_failed: Validation for parameter `message` failed: invalid_blocks\", \"data\": null, \"request_id\": \"req_011CZc88yRUCbFzem8naQ4iC\"}",
+              "uuid": "fa858594-f501-4ef4-a732-b1a9384bc43e"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Slack",
+          "mcp_server_url": "https://mcp.slack.com/mcp",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-04-01T00:43:04.979887Z",
+          "stop_timestamp": "2026-04-01T00:43:09.970104Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_011ipw2VkFikgebLmGzAqHcS",
+          "name": "Slack:slack_send_message",
+          "input": {
+            "channel_id": "U01KM01DRK3",
+            "message": "🖥️ *Claude Code Computer Use — Mac 사용법 요약*\n_(2026.03.24 출시, Research Preview)_\n\n*이게 뭔가요?*\nClaude가 내 Mac 화면을 직접 보고, 클릭하고, 타이핑하면서 작업을 대신 수행. API 없이도 어떤 앱이든 제어 가능.\n\n*사용 조건*\n• Pro 또는 Max 플랜\n• macOS 전용 (Windows 미지원)\n• Claude Desktop App 필수\n\n*시작하는 법 (3단계)*\n1. Claude Desktop App 실행 → Cowork 또는 Claude Code 세션 시작\n2. MCP 메뉴에서 computer-use 서버 활성화\n3. 앱별 접근 권한 허용 (Claude가 직접 요청함)\n\n*작동 우선순위*\nConnector (Slack·Gmail 등) → Browser 제어 → 화면 직접 클릭/타이핑\n가장 빠른 방법부터 시도하고, 안 될 때만 화면 제어로 넘어감\n\n*활용 예시*\n• iPhone Dispatch로 지시 → Mac이 혼자 작업 완료\n• 파일 취합 → 스프레드시트 정리 → 이메일 발송\n• API 없는 내부 대시보드 조작\n• 빌드한 앱 UI 자동 테스트\n\n*주의사항*\n• Early Preview라 실수 가능성 있음\n• 민감 데이터 사용 자제\n• 투자/거래 앱 기본 차단됨\n• Esc 키로 언제든 즉시 중단 가능\n\n🔗 공식 문서: https://support.claude.com/en/articles/14128542"
+          },
+          "message": "Slack send message",
+          "integration_name": "Slack",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "f5efdb2f-6c76-49b1-861c-64470157d945:slack_send_message-61c5132c359abd4c1f6af0f62cedf74d",
+          "is_mcp_app": false,
+          "mcp_server_url": "https://mcp.slack.com/mcp"
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_011ipw2VkFikgebLmGzAqHcS",
+          "name": "Slack:slack_send_message",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"message_link\":\"https:\\/\\/dks-work-space.slack.com\\/archives\\/D01K58C3AGM\\/p1775004190838229\",\"message_context\":{\"message_ts\":\"1775004190.838229\",\"channel_id\":\"D01K58C3AGM\"}}",
+              "uuid": "dd624e10-9829-4c1b-a286-13e2e154e5eb"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Slack",
+          "mcp_server_url": "https://mcp.slack.com/mcp",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"message_link\": \"https://dks-work-space.slack.com/archives/D01K58C3AGM/p1775004190838229\",\n  \"message_context\": {\n    \"message_ts\": \"1775004190.838229\",\n    \"channel_id\": \"D01K58C3AGM\"\n  }\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-04-01T00:43:11.940124Z",
+          "stop_timestamp": "2026-04-01T00:43:19.610605Z",
+          "flags": null,
+          "type": "text",
+          "text": "DM 전송 완료! 🎉\n\n내용을 간단히 요약하면, Computer Use는 현재 Pro·Max 플랜의 Research Preview로, macOS Claude Desktop App의 Cowork와 Claude Code에서 사용 가능합니다.\n\n핵심은 Claude가 작업 실행 시 Connector → Browser → 화면 직접 제어 순으로 가장 효율적인 방법을 먼저 시도한다는 점이고, MCP 메뉴에서 computer-use 서버를 활성화하고 권한을 부여하는 것만으로 설정이 끝나는 매우 가벼운 세팅입니다.\n\nCSP 입장에서 특히 흥미로운 지점은, Claude가 화면을 통해 Slack, Google Calendar 같은 직접 Connector가 없는 앱까지 제어할 수 있다는 것이고, iPhone의 Dispatch 앱으로 지시를 내리면 Mac이 혼자 작업을 완료하는 \"AI 직원 워크스테이션\" 개념으로도 활용 가능합니다. 현재 진행 중인 세 개 프로덕트를 병렬로 굴리는 환경에서 상당히 유용하게 쓰일 수 있는 기능이에요.",
+          "citations": [
+            {
+              "uuid": "9cff6e3d-e31d-4075-9845-cdaea986b557",
+              "start_index": 27,
+              "end_index": 128,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork"
+              }
+            },
+            {
+              "uuid": "454bf0e7-fcc6-4aab-95a5-c2c4b059eae8",
+              "start_index": 138,
+              "end_index": 206,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork"
+              }
+            },
+            {
+              "uuid": "e998cb91-674e-45d6-9dbc-cf9c80c282fd",
+              "start_index": 215,
+              "end_index": 278,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.digit.in/features/general/claude-codes-computer-use-how-it-works-and-what-it-can-do-on-your-mac.html"
+              }
+            },
+            {
+              "uuid": "47948ecc-2128-453c-963b-2768b1088a01",
+              "start_index": 306,
+              "end_index": 376,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.macrumors.com/2026/03/24/claude-use-mac-remotely-iphone/"
+              }
+            },
+            {
+              "uuid": "a80bad6b-1dbc-43ae-90b7-d644699fe948",
+              "start_index": 383,
+              "end_index": 446,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://nicholasrhodes.substack.com/p/claude-computer-use-mac-setup-guide"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-01T00:43:20.154079Z",
+      "updated_at": "2026-04-01T00:43:20.154079Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d467d-e524-71d8-a2d5-67f528d8fdf0"
+    }
+  ]
+}

@@ -1,0 +1,747 @@
+﻿{
+  "uuid": "08ee4271-9402-43fc-b13e-404f8c4397a0",
+  "name": "Eigent 리포지토리 기능 정리",
+  "summary": "**Conversation Overview**\n\nThe user requested detailed information about the Eigent repository, a multi-agent AI workforce platform. Claude provided a comprehensive analysis explaining Eigent as a paradigm shift in work methodology, implementing AI agents that specialize in different domains (Developer, Search, Document, Multi-Modal) and work in parallel while maintaining human-in-the-loop oversight. The user then asked for specific examples of what could be accomplished with Eigent's cloud version, leading to detailed practical scenarios including leadership evaluation automation, market research, document processing, and content generation. The conversation culminated with the user requesting an in-depth explanation of Context Engineering concepts from Eigent's technical roadmap.\n\nClaude provided extensive technical explanations of four key Context Engineering components: Prompt Caching (storing frequently used system prompts to reduce token costs by up to 96%), System Prompt Optimization (eliminating redundancy and structuring instructions for clarity), Toolkit Docstring Optimization (providing clear, example-rich documentation for AI tools to reduce errors), and Context Compression (summarizing and selectively retaining information to work within AI model limitations). Throughout the discussion, Claude connected these technical concepts to practical HR automation scenarios, demonstrating how these optimizations could dramatically reduce costs and improve efficiency in real-world applications like leadership assessment programs and educational management systems.\n\nThe user showed particular interest in understanding how these technical concepts could be applied to HR automation and SaaS development, with Claude providing concrete examples of token savings, error reduction, and workflow optimization that would be relevant for someone developing HR technology solutions.",
+  "created_at": "2026-01-24T02:45:21.803592Z",
+  "updated_at": "2026-01-24T03:03:18.443203Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019bede4-5785-71d1-82c5-16474b9d1ca7",
+      "text": "https://github.com/eigent-ai/eigent 리포를 확인하고 이 리포를 통해 할 수 있는 일을 정리해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-01-24T02:45:23.506540Z",
+          "stop_timestamp": "2026-01-24T02:45:23.506540Z",
+          "flags": null,
+          "type": "text",
+          "text": "https://github.com/eigent-ai/eigent 리포를 확인하고 이 리포를 통해 할 수 있는 일을 정리해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-24T02:45:23.514467Z",
+      "updated_at": "2026-01-24T02:45:23.514467Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019bede4-5785-71d1-82c5-164837e55e8d",
+      "text": "사용자가 GitHub 리포지토리를 확인하고 싶어하는군요. 브라우저 도구를 사용해서 해당 리포를 방문하고 내용을 파악해야 합니다.\n\n먼저 tabs_context_mcp를 호출해서 현재 탭 상태를 확인하고, 새 탭을 만들어서 GitHub 리포를 방문해야겠습니다.GitHub 리포지토리를 확인해드리겠습니다. 먼저 브라우저 탭을 설정하겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n좋습니다. 탭이 있으니 이제 GitHub 리포로 이동하겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n브라우저 확장 프로그램과의 연결이 끊어졌네요. 이 경우 웹 검색 도구를 사용해서 리포지토리 정보를 찾아야겠습니다.브라우저 연결이 끊어져서 웹 검색으로 리포지토리 정보를 찾아보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n좋습니다! 검색 결과로 Eigent에 대한 충분한 정보를 얻었네요. 이제 README나 더 자세한 기술 문서를 가져와서 정리해보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n정보를 충분히 수집했습니다. 이제 사용자가 요청한 대로 Eigent 리포지토리를 통해 할 수 있는 일을 정리하겠습니다. 사용자 선호도에 따라 인문학적, 에세이 스타일로 설명하되 실용적인 정보를 전달해야 합니다.# Eigent: 멀티 에이전트 워크포스의 철학적 이해와 실용적 활용\n\n## 본질: \"일하는 방식의 패러다임 전환\"\n\nEigent는 단순한 AI 도구가 아닙니다. 이것은 **\"AI 노동력\"**이라는 새로운 존재론적 개념을 구현한 첫 번째 시도입니다. 우리가 \"일한다\"는 것의 의미를 재정의하는 도구이죠.\n\n전통적으로 우리는 \"나 혼자\" 일하거나, \"다른 사람과 협업\"했습니다. Eigent는 여기에 세 번째 차원을 추가합니다: **\"나의 AI 팀과 함께 일하기\"**. 마치 자신만의 전문가 팀을 고용한 것처럼요.\n\n## 핵심 개념: Multi-Agent Workforce\n\n### 1. **철학적 기반: 분업과 협업의 AI적 구현**\n\nEigent는 Adam Smith의 핀 공장 이론을 AI 시대로 가져왔습니다:\n\n- **Developer Agent**: 코드를 작성하고 실행하는 전문가\n- **Search Agent**: 웹을 검색하고 정보를 추출하는 리서처\n- **Document Agent**: 문서를 생성하고 관리하는 작가\n- **Multi-Modal Agent**: 이미지와 오디오를 처리하는 크리에이터\n\n각 에이전트는 자신의 전문 영역에서 탁월하며, **동시에 병렬로 작업**합니다. 이것이 단순 챗봇과의 결정적 차이입니다.\n\n### 2. **실존적 특징: Human-in-the-Loop**\n\n흥미로운 점은 Eigent가 불확실성을 만났을 때 **스스로 멈추고 인간에게 질문한다**는 것입니다. 이는 AI의 자율성과 인간의 판단력을 조화시키는 설계 철학을 보여줍니다. \n\n완전 자동화가 아니라 **증강된 협업(Augmented Collaboration)**을 지향하는 거죠.\n\n## 실용적 활용: 당신이 할 수 있는 일들\n\n### 📊 **비즈니스 인텔리전스 자동화**\n\n```\n예시: \"내 은행 거래 CSV 파일로 Q2 재무제표를 만들어줘. \n      투자자들에게 보여줄 차트가 포함된 HTML 보고서로.\"\n```\n\n**작동 원리**:\n- Document Agent가 CSV를 분석\n- Developer Agent가 차트 생성 스크립트 작성\n- 여러 에이전트가 병렬로 시각화 작업\n- 최종 HTML 보고서 생성\n\n**당신의 HR 업무에 적용하면**:\n- 리더십 평가 데이터 → 자동 보고서 생성\n- 교육 프로그램 효과성 분석 → 시각화\n- 조직 진단 결과 → 인터랙티브 대시보드\n\n### 🔍 **시장 조사 및 리서치 자동화**\n\n```\n예시: \"영국 헬스케어 산업을 분석해서 우리 회사 계획을 지원할 \n      종합 보고서를 만들어줘. 상위 5-10개 기회를 식별하고\n      Slack #product-test 채널에 완료 메시지 보내줘.\"\n```\n\n**멀티 에이전트 협업**:\n1. Search Agent: 시장 데이터 수집\n2. Document Agent: 정보 구조화\n3. Developer Agent: 데이터 시각화\n4. 통합 에이전트: Slack 연동\n\n**HR 자동화 SaaS 개발에 적용**:\n- 경쟁사 HR 솔루션 분석\n- 시장 트렌드 자동 모니터링\n- 잠재 고객 페르소나 리서치\n- 가격 전략 분석\n\n### 📄 **문서 처리 및 관리**\n\n```\n예시: \"Documents 폴더의 mydocs를 스캔해서 \n      중복 파일을 찾아 유사성별로 그룹화해줘.\"\n```\n\n**실제 활용**:\n- PDF 서명 자동화\n- 문서 템플릿 자동 생성\n- 계약서 버전 관리\n- 콘텐츠 정리 및 아카이빙\n\n### 🌐 **웹 자동화 및 SEO**\n\n```\n예시: \"우리 웹사이트 camel-ai.org의 SEO 감사를 실행하고\n      실행 가능한 권장사항이 포함된 최적화 보고서를 작성해줘.\"\n```\n\n## 기술적 아키텍처: 왜 이게 가능한가?\n\n### **MCP (Model Context Protocol) 통합**\n\nEigent의 진정한 힘은 **도구 생태계**에 있습니다:\n\n- 브라우저 자동화\n- 코드 실행\n- Notion 연동\n- Google Suite (Drive, Docs, Sheets)\n- Slack 메시징\n- 터미널 명령 실행\n\n**그리고 가장 중요한 것**: 당신만의 커스텀 MCP 도구를 추가할 수 있습니다. 즉, **내부 API나 회사 특화 기능을 AI 에이전트에 장착**할 수 있다는 뜻입니다.\n\n### **CAMEL-AI 프레임워크 기반**\n\nCAMEL (Communicative Agents for \"Mind\" Exploration of Large Scale Language Model Society)은 멀티 에이전트 시스템 연구의 최전선입니다. Eigent는 이 학술적 기반 위에 실용적 구현을 올린 것입니다.\n\n## 배포 방식: 세 가지 선택지\n\n### ☁️ **클라우드 버전**\n- 즉시 사용 가능\n- 인프라 관리 불필요\n- 프리미엄 지원\n\n### 🏠 **셀프 호스팅**\n- 데이터 프라이버시 완전 제어\n- 커스터마이징 가능\n- 비용 통제\n- **100% 오픈소스**\n\n### 🏢 **엔터프라이즈**\n- SSO 통합\n- 전담 지원\n- SLA 협상\n\n## CSP님의 비전과의 연결점\n\n당신이 준비 중인 **HR 자동화 SaaS**와 Eigent의 연결고리:\n\n### 1. **온톨로지 기반 시스템과의 시너지**\n- Eigent의 MCP를 활용해 HR 온톨로지 API 연동\n- 스킬 매핑 자동화\n- 역량 평가 데이터 처리 자동화\n\n### 2. **리더십 평가 자동화**\n- 평가 데이터 수집 → 분석 → 보고서 생성 파이프라인\n- 다면 피드백 자동 취합\n- 개인별 맞춤 리포트 대량 생성\n\n### 3. **DX 교육 관리**\n- 학습자 진도 추적\n- 효과성 분석 대시보드\n- 자동 수료증 발급\n\n### 4. **개발 가속화**\n- \"Vibe coder\"로서 신속한 프로토타입 제작\n- Developer Agent를 활용한 코드 생성/리뷰\n- 시스템 통합 테스트 자동화\n\n## 실행 방법 (간단 버전)\n\n```bash\n# 로컬에서 바로 시작\ngit clone https://github.com/eigent-ai/eigent.git\ncd eigent\nnpm install\nnpm run dev\n```\n\n## 철학적 성찰: 이것이 의미하는 것\n\nEigent는 단순한 \"생산성 도구\"를 넘어, **일의 본질에 대한 질문**을 던집니다:\n\n> \"나는 무엇을 직접 해야 하고, 무엇을 위임할 수 있는가?\"\n> \"AI 팀과 협업한다는 것은 어떤 의미인가?\"\n> \"인간 고유의 가치는 무엇인가?\"\n\n당신의 17년 HR 경험과 결합되면, 이것은 **사람과 AI가 함께 성장하는 조직**을 만드는 도구가 될 수 있습니다.\n\n---\n\n더 깊이 탐구하고 싶은 특정 사용 사례나 기술적 측면이 있다면 말씀해주세요. 함께 당신의 HR SaaS 비전과 Eigent를 연결하는 구체적인 로드맵을 그려볼 수 있습니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-01-24T02:45:29.614636Z",
+          "stop_timestamp": "2026-01-24T02:45:31.971223Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 GitHub 리포지토리를 확인하고 싶어하는군요. 브라우저 도구를 사용해서 해당 리포를 방문하고 내용을 파악해야 합니다.\n\n먼저 tabs_context_mcp를 호출해서 현재 탭 상태를 확인하고, 새 탭을 만들어서 GitHub 리포를 방문해야겠습니다.",
+          "summaries": [
+            {
+              "summary": "이 리포지토리의 기능과 활용 가능성을 파악하고 정리하기"
+            },
+            {
+              "summary": "GitHub 리포지토리 접근 계획을 수립했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T02:45:32.034583Z",
+          "stop_timestamp": "2026-01-24T02:45:32.629344Z",
+          "flags": null,
+          "type": "text",
+          "text": "GitHub 리포지토리를 확인해드리겠습니다. 먼저 브라우저 탭을 설정하겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-01-24T02:45:33.101177Z",
+          "stop_timestamp": "2026-01-24T02:45:33.339122Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01DQfo1Eak4ujNwLJGUiDFZM",
+          "name": "Claude in Chrome:tabs_context_mcp",
+          "input": {
+            "createIfEmpty": true
+          },
+          "message": "tabs_context_mcp",
+          "integration_name": "Claude in Chrome",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01DQfo1Eak4ujNwLJGUiDFZM",
+          "name": "Claude in Chrome:tabs_context_mcp",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"availableTabs\":[{\"tabId\":1082813178,\"title\":\"New Tab\",\"url\":\"chrome://newtab\"}],\"tabGroupId\":1806186224}",
+              "uuid": "dff203a4-163b-4857-9618-9360da5c41d6"
+            },
+            {
+              "type": "text",
+              "text": "\n\nTab Context:\n- Available tabs:\n  • tabId 1082813178: \"New Tab\" (chrome://newtab)",
+              "uuid": "5bb06e40-f8d8-410c-8c33-522aa325d594"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Claude in Chrome",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2026-01-24T02:45:40.572775Z",
+          "stop_timestamp": "2026-01-24T02:45:41.272878Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "좋습니다. 탭이 있으니 이제 GitHub 리포로 이동하겠습니다.",
+          "summaries": [],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T02:45:41.666008Z",
+          "stop_timestamp": "2026-01-24T02:45:42.012192Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01FaqFUwmuqBDVgaHioX6UF4",
+          "name": "Claude in Chrome:navigate",
+          "input": {
+            "tabId": 1082813178,
+            "url": "https://github.com/eigent-ai/eigent"
+          },
+          "message": "navigate",
+          "integration_name": "Claude in Chrome",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01FaqFUwmuqBDVgaHioX6UF4",
+          "name": "Claude in Chrome:navigate",
+          "content": [
+            {
+              "type": "text",
+              "text": "⚠️ **Claude in Chrome Extension Disconnected**\n\nThe connection to Claude in Chrome was lost.\n\n**To reconnect:**\n1. Restart Chrome completely (close all windows)\n2. If that doesn't work, also restart Claude Desktop\n\nIf the issue persists, verify the extension is logged in.",
+              "uuid": "edcf81d6-e0d5-474f-9e78-d2e0d8d7bf51"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Claude in Chrome",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2026-01-24T02:46:45.372696Z",
+          "stop_timestamp": "2026-01-24T02:46:46.562352Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "브라우저 확장 프로그램과의 연결이 끊어졌네요. 이 경우 웹 검색 도구를 사용해서 리포지토리 정보를 찾아야겠습니다.",
+          "summaries": [
+            {
+              "summary": "브라우저 연결 끊김으로 웹 검색 도구 활용 결정했다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T02:46:46.671791Z",
+          "stop_timestamp": "2026-01-24T02:46:47.248060Z",
+          "flags": null,
+          "type": "text",
+          "text": "브라우저 연결이 끊어져서 웹 검색으로 리포지토리 정보를 찾아보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-01-24T02:46:47.414518Z",
+          "stop_timestamp": "2026-01-24T02:46:47.578617Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01XbjAimdrjBvfeMkWh53Ebr",
+          "name": "web_search",
+          "input": {
+            "query": "eigent-ai eigent github"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01XbjAimdrjBvfeMkWh53Ebr",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "GitHub - eigent-ai/eigent: Eigent: The Open Source Cowork Desktop to Unlock Your Exceptional Productivity.",
+              "url": "https://github.com/eigent-ai/eigent",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Eigent is the open source Cowork desktop application, empowering you to build, manage, and deploy a custom AI workforce that can turn your most complex workflows into automated tasks.\n\nEigent is the open source Cowork desktop application, empowering you to build, manage, and deploy a custom AI workforce that can turn your most complex workflows into automated tasks. As a leading open-source Cowork product, Eigent brings together the best of open-source collaboration and AI-powered automation. Built on CAMEL-AI's acclaimed open-source project, our system introduces a Multi-Agent Workforce that boosts productivity through parallel execution, customization, and privacy protection. ✅ Zero Setup - No technical configuration required · ✅ Multi-Agent Coordination - Handle complex multi-agent workflows ... 🔓 Build in Public — Eigent is 100% open source from day one. Every feature, every commit, every decision is transparent. We believe the best AI tools should be built openly with the community, not behind closed doors. The recommended way to run Eigent — fully standalone with complete control over your data, no cloud account required.\n\nFor teams who prefer managed infrastructure, we also offer a cloud platform. The fastest way to experience Eigent's multi-agent AI capabilities without setup complexity. We'll host the models, APIs, and cloud storage, ensuring Eigent runs flawlessly. Instant Access - Start building multi-agent workflows in minutes. Managed Infrastructure - We handle scaling, updates, and maintenance. Premium Support - Subscribe and get priority assistance from our engineering team. ... Unlock the full potential of exceptional productivity with Eigent's open-source Cowork powerful features — built for seamless integration, smarter task execution, and boundless automation. Employs a team of specialized AI agents that collaborate to solve complex tasks. Eigent's open-source Cowork dynamically breaks down tasks and activates multiple agents to work in parallel. ... Developer Agent: Writes and executes code, runs terminal commands.\n\nTo support the launch of our new Workforce Multiagent product, please run a thorough SEO audit on our official website (https://www.camel-ai.org/) and deliver a detailed optimization report with actionable recommendations. Prompt: I have a folder named mydocs inside my Documents directory ... I have a folder named mydocs inside my Documents directory. Please scan it and identify all files that are exact or near duplicates — including those with identical content, file size, or format (even if file names or extensions differ). List them clearly, grouped by similarity. Prompt: Please add this signature image to the Signature Areas in the PDF ... Please add this signature image to the Signature Areas in the PDF. You could install the CLI tool ‘tesseract’ (needed for reliable location of ‘Signature Areas’ via OCR) to help finish this task. Eigent open-source Cowork desktop is built on modern, reliable technologies that ensure scalability, performance, and extensibility.\n\nEigent is built on top of CAMEL-AI.org's research and infrastructures. Sponsoring CAMEL-AI.org will make Eigent better. This repository is licensed under the Apache License 2.0. For more information please contact info@eigent.ai · GitHub Issues: Report bugs, request features, and track development. Submit an issue · Discord: Get real-time support, chat with the community, and stay updated. Join us · X (Twitter): Follow for updates, AI insights, and key announcements.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/eigent-ai/eigent",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Eigent AI · GitHub",
+              "url": "https://github.com/eigent-ai",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Eigent is the world&#x27;s first multi-agent workforce built with CAMEL framwork to unlock your exceptional productivity. We are dedicated to advancing multi-agent infrastructures and AI Agent research and development while democratizing AGI for all.\n\nEigent is the world's first multi-agent workforce built with CAMEL framwork to unlock your exceptional productivity. We are dedicated to advancing multi-agent infrastructures and AI Agent research and development while democratizing AGI for all. We believe in building trust and embracing all forms of open-source collaborations. Your creative contributions help drive the innovation of Eigent. Explore our GitHub issues and projects to dive in and show us what you’ve got 🤝❤️ Contribution Guideline · Eigent is built on top of CAMEL-AI.org's research and infrastructures. Sponsoring CAMEL-AI.org will make Eigent better. For more information please contact info@eigent.ai · GitHub Issues: Report bugs, request features, and track development. Submit an issue · Discord: Get real-time support, chat with the community, and stay updated. Join us · X (Twitter): Follow for updates, AI insights, and key announcements.\n\nEigent: The Open Source Cowork Desktop to Unlock Your Exceptional Productivity. ... This organization has no public members. You must be a member to see who’s a part of this organization. ... There was an error while loading. Please reload this page. ... There was an error while loading. Please reload this page.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/eigent-ai",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "eigent/server/README_EN.md at main · eigent-ai/eigent",
+              "url": "https://github.com/eigent-ai/eigent/blob/main/server/README_EN.md",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Eigent: The Open Source Cowork Desktop to Unlock Your Exceptional Productivity. - eigent/server/README_EN.md at main · eigent-ai/eigent\n\nEigent: The Open Source Cowork Desktop to Unlock Your Exceptional Productivity. - eigent/server/README_EN.md at main · eigent-ai/eigent\n\n# List running containers docker ps # Stop/Start API container (keep DB) docker stop eigent_api docker start eigent_api # Stop/Start all (API + DB) docker compose stop docker compose start # View logs docker logs -f eigent_api | cat docker logs -f eigent_postgres | cat · You can run the API locally with hot-reload while keeping the database in Docker: # Stop API in container, keep DB docker stop eigent_api # Initialize database (first-time or when DB schema changes) cd server uv run alembic upgrade head # Run locally (provide DB connection string) export database_url=postgresql://postgres:123456@localhost:5432/eigent uv run uvicorn main:api --reload --port 3001 --host 0.0.0.0 ... uv run pybabel extract -F babel.cfg -o messages.pot . uv run pybabel init -i messages.pot -d lang -l zh_CN uv run pybabel compile -d lang -l zh_CN ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/eigent-ai/eigent/blob/main/server/README_EN.md",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Open Source Cowork: the open source cowork desktop | Eigent AI",
+              "url": "https://eigent.ai/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "eigent.ai",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=eigent.ai",
+                "site_name": "Eigent AI"
+              },
+              "is_missing": false,
+              "text": "Open Source Cowork is a desktop multi-agent workforce that connects to your context and can control the browser and desktop apps to automate real work.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://eigent.ai/",
+                "search_provider": "anthropic",
+                "age": "July 29, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Eigent - Overview - Z.AI DEVELOPER DOCUMENT",
+              "url": "https://docs.z.ai/devpack/tool/eigent",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "z.ai",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=z.ai",
+                "site_name": "Z"
+              },
+              "is_missing": false,
+              "text": "Visit eigent.ai and download the latest version for your platform (macOS 11+ or Windows). macOS: Open the downloaded .dmg file and drag Eigent into your Applications folder · Windows: Run the downloaded .exe installer and follow the on-screen ...\n\nCode review and optimization Your Eigent agents are now powered by Z.AI’s GLM models and ready to assist with your development tasks.\n\nVisit eigent.ai and download the latest version for your platform (macOS 11+ or Windows). macOS: Open the downloaded .dmg file and drag Eigent into your Applications folder · Windows: Run the downloaded .exe installer and follow the on-screen instructions · Open the application and log in to get started. For developers who want to run Eigent locally from source code.Prerequisites: Node.js >= 18.0.0, < 23.0.0 · Python >= 3.12, < 3.13 · Docker (recommended) or PostgreSQL 15 · Copy · git clone https://github.com/eigent-ai/eigent.git cd eigent · Copy · cd server cp .env.example .env docker compose up -d · In the project root directory, modify .env.development: Copy · VITE_BASE_URL=/api VITE_USE_LOCAL_PROXY=true VITE_PROXY_URL=http://localhost:3001 · Copy · npm install npm run dev · Launch Eigent and navigate to the Home Page, then click on the Settings tab.\n\nEigent is an open-source cowork agent that runs on your desktop. It is built with a multi-agent workforce architecture, supported by general abilities such as browser automation, terminal automation and MCPs. This design enables agents in Eigent to perform tasks much like human workers operating in real desktop environments, without the need for deep API integrations or constant workflow reconfiguration. Eigent works seamlessly with the GLM Coding Plan, delivering high-performance AI capabilities at exceptional value. Christmas Deal: Enjoy 50% off your first GLM Coding Plan purchase, plus an extra 10%/20% off! Subscribe now. Using the GLM Coding Plan, you need to configure the dedicated Coding API https://api.z.ai/api/coding/paas/v4 instead of the General API https://api.z.ai/api/paas/v4 · Choose the installation method that best suits your needs: ...\n\nVisit eigent.ai and download the latest version for your platform (macOS 11+ or Windows). macOS: Open the downloaded .dmg file and drag Eigent into your Applications folder · Windows: Run the downloaded .exe installer and follow the on-screen instructions · Open the application and log in to get started. For developers who want to run Eigent locally from source code.Prerequisites: ... Launch Eigent and navigate to the Home Page, then click on the Settings tab. In the Settings menu, find and select the Models section, then scroll down to the Custom Model area and look for the Z.ai Config card. Click on the Z.ai Config card and fill in the following information: API Key: Enter your Z.AI API Key (obtain from Z.AI API Console) API Host: Enter https://api.z.ai/api/coding/paas/v4/ Model Type: Enter the model name (e.g., glm-4.7, glm-4.7, or glm-4.5-air) Click Save to apply your changes.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://docs.z.ai/devpack/tool/eigent",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "eigent/README_CN.md at main · eigent-ai/eigent",
+              "url": "https://github.com/eigent-ai/eigent/blob/main/README_CN.md",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Eigent 是全球首个 多智能体工作流 桌面应用程序，帮助您构建、管理和部署定制化的 AI 工作团队，将最复杂的工作流程转化为自动化任务。 · 基于 CAMEL-AI 广受赞誉的开源项目，我们的...\n\nEigent: The Open Source Cowork Desktop to Unlock Your Exceptional Productivity. - eigent/README_CN.md at main · eigent-ai/eigent\n\n为了支持我们新的多智能体产品发布，请对我们的官方网站 (https://www.camel-ai.org/) 进行全面的 SEO 审计，并提供带有可操作建议的详细优化报告。 · 提示： 我的 Documents 目录中有一个名为 mydocs 的文件夹... 我的 Documents 目录中有一个名为 mydocs 的文件夹。请扫描并识别所有完全或近似重复的文件——包括内容相同、文件大小或格式相同的文件（即使文件名或扩展名不同）。清晰列出它们，按相似性分组。 · 提示: 请将此签名图片添加到 PDF 中的签名区域 ... 请将此签名图片添加到 PDF 中的签名区域。你可以安装命令行工具 “tesseract”（该工具通过 OCR 技术可可靠定位“签名区域”），以帮助完成此任务。 ... 我们相信通过开源协作建立信任。您的创意贡献将推动 Eigent 的创新。探索我们的 GitHub 问题与项目，加入我们 🤝❤️ 贡献指南 ·\n\nEigent 是全球首个 多智能体工作流 桌面应用程序，帮助您构建、管理和部署定制化的 AI 工作团队，将最复杂的工作流程转化为自动化任务。 · 基于 CAMEL-AI 广受赞誉的开源项目，我们的系统引入了 多智能体工作流，通过并行执行、定制化和隐私保护 提升生产力。 ... 最快体验 Eigent 多智能体 AI 能力的方式是通过我们的云平台，适合希望无需复杂设置即可立即使用的团队和个人。我们将托管模型、API 和云存储，确保 Eigent 流畅运行。 · 即时访问 - 几分钟内开始构建多智能体工作流。 · 托管基础设施 - 我们负责扩展、更新和维护。 · 优先支持 - 订阅后获得工程团队的优先协助。 ... 适合偏好本地控制、数据隐私或定制的用户，此选项适用于需要以下功能的组织： ·\n\n通过 Eigent 的强大功能释放卓越生产力的全部潜力——专为无缝集成、智能任务执行和无边界自动化而设计。 · 部署一支专业 AI 智能体团队，协作解决复杂任务。Eigent 动态分解任务并激活多个智能体 并行工作。 ... Eigent 内置大量 模型上下文协议（MCP） 工具（用于网页浏览、代码执行、Notion、Google 套件、Slack 等），并允许您 安装自己的工具。为智能体配备适合您场景的工具——甚至集成内部 API 或自定义功能——以增强其能力。 · 如果任务卡住或遇到不确定性，Eigent 会自动请求人工输入。 · Eigent 完全开源。您可以下载、检查和修改代码，确保透明度并促进多智能体创新的社区驱动生态系统。 · 提示： 我们是两个网球爱好者，想去观看 2026 年棕榈泉的网球比赛...",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/eigent-ai/eigent/blob/main/README_CN.md",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "eigent/index.html at main · eigent-ai/eigent",
+              "url": "https://github.com/eigent-ai/eigent/blob/main/index.html",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Eigent: The Open Source Cowork Desktop to Unlock Your Exceptional Productivity. - eigent/index.html at main · eigent-ai/eigent\n\nEigent: The Open Source Cowork Desktop to Unlock Your Exceptional Productivity. - eigent/index.html at main · eigent-ai/eigent",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/eigent-ai/eigent/blob/main/index.html",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Releases · eigent-ai/eigent",
+              "url": "https://github.com/eigent-ai/eigent/releases",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Eigent: The Open Source Cowork Desktop to Unlock Your Exceptional Productivity. - Releases · eigent-ai/eigent\n\nEigent: The Open Source Cowork Desktop to Unlock Your Exceptional Productivity. - eigent-ai/eigent\n\nThis commit was created on GitHub.com and signed with GitHub’s verified signature. ... Learn about vigilant mode. ... There was an error while loading. Please reload this page. ... There was an error while loading. Please reload this page. ... There was an error while loading. Please reload this page. ... There was an error while loading. Please reload this page. ... There was an error while loading. Please reload this page. ... There was an error while loading. Please reload this page. ... There was an error while loading. Please reload this page. ... There was an error while loading. Please reload this page. ... This commit was created on GitHub.com and signed with GitHub’s verified signature. ... Learn about vigilant mode. ... There was an error while loading. Please reload this page. ... There was an error while loading. Please reload this page.\n\nThis commit was created on GitHub.com and signed with GitHub’s verified signature. ... Learn about vigilant mode. ... There was an error while loading. Please reload this page. ... There was an error while loading. Please reload this page. ... This commit was created on GitHub.com and signed with GitHub’s verified signature. ... Learn about vigilant mode. ... There was an error while loading. Please reload this page. ... There was an error while loading. Please reload this page. ... This commit was created on GitHub.com and signed with GitHub’s verified signature. ... Learn about vigilant mode. ... There was an error while loading. Please reload this page. ... There was an error while loading. Please reload this page. ... This commit was created on GitHub.com and signed with GitHub’s verified signature. ... Learn about vigilant mode. ... There was an error while loading.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/eigent-ai/eigent/releases",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "eigent-ai/eigent",
+              "url": "https://github.com/eigent-ai/eigent/issues",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Eigent: The Open Source Cowork Desktop to Unlock Your Exceptional Productivity. - eigent-ai/eigent",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/eigent-ai/eigent/issues",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Eigent How-To: Setting Up Your First Custom MCP Server",
+              "url": "https://www.camel-ai.org/blogs/eigent-how-to-setting-up-your-first-custom-mcp-server",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "camel-ai.org",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=camel-ai.org",
+                "site_name": "Camel-ai"
+              },
+              "is_missing": false,
+              "text": "Some examples of technical workflows Eigent can simplify include: GitHub automation with AI agents: Reviewing code changes, summarizing pull requests, triaging issues. Release note generation: Automatically compiling highlights of what’s new ...\n\nTable of ContentsIntroductionStep 1: Open Eigent and Navigate to MCP & Tools SettingsStep 2: Add a Custom MCP Server via JSON ConfigurationStep 3: Configure the GitHub MCP Server Settings (Include Your PAT)Step 4: Add a GitHub-Focused Worker (Agent) Using the New MCP ServerStep 5: Prompt the Agent to Summarize Pull Requests · In open source projects, time is precious. Maintainers juggle bug fixes, feature requests, community support, and documentation, all while trying to keep code secure and releases organized. One repetitive but crucial task is reviewing pull requests and preparing release updates. It’s necessary, but it eats up hours that could be spent innovating. What if automation could handle the grunt work for you? That’s where Eigent step in. Eigent is the world’s first Multi-agent Workforce desktop application, empowering you to build, manage, and deploy a custom AI workforce that can turn your most complex workflows into automated tasks..\n\nWhat can Eigent do for you? For first-time readers, consider Eigent as a flexible agentic assistant. You can create different “workers” (AI agents) with domain-specific skills (e.g. coding, documentation, DevOps) and have them collaborate on tasks. Some examples of technical workflows Eigent can simplify include: GitHub automation with AI agents: Reviewing code changes, summarizing pull requests, triaging issues. Release note generation: Automatically compiling highlights of what’s new in each release. Documentation and code analysis: Extracting key points from docs or codebases, suggesting improvements. Open-source workflows: Keeping track of project activity, generating reports for contributors, etc. In this guide, we’ll show you how to configure a custom GitHub MCP server inside Eigent and set up an agent workflow that: ... Generates a short social post (e.g.\n\nOnce you have Eigent running, begin by opening the Settings panel. In the Settings, find and click on the “MCP & Tools” section. This is where you can configure external tools and servers for your AI agents. We’ll use this area to add a new custom MCP server for GitHub tasks. Eigent’s Settings interface. Navigate to the MCP & Tools tab to configure external AI tools and servers. In the MCP & Tools tab, you’ll see a list of available tools and any configured MCP servers. By default, Eigent might include some basic tools (e.g. web search, code execution). To add our own, look for an “Add MCP Server” button (usually a + or a labeled button) and click it. This will open a dialog where you can input a JSON configuration for the new server. Add a custom MCP server by pasting the JSON configuration · Eigent allows advanced users to add custom agent servers by providing a JSON config.\n\nCreate a new Worker and assign the GitHub MCP server · Now that the MCP server is configured, we need to create a Worker that uses this server. In Eigent, a “Worker” is essentially an AI agent persona that can carry out tasks using a specified toolset or MCP server. Navigate back to the main Workforce or Agents screen (often the home screen showing your AI workers). Look for an “Add Worker” or “+” button to create a new agent. When the Add Worker dialog appears, enter a name and description for your new agent. For example, name it “GitHub MCP” and describe it as “Helps around GitHub Tasks”. Most importantly, assign the Agent Tool to the MCP server we just added (it might appear in a dropdown as “sequential-thinking” or whatever name you gave it). This ensures your new worker will utilize the GitHub-enabled sequential thinking agent.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.camel-ai.org/blogs/eigent-how-to-setting-up-your-first-custom-mcp-server",
+                "search_provider": "anthropic"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2026-01-24T02:46:53.587826Z",
+          "stop_timestamp": "2026-01-24T02:46:54.942177Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "좋습니다! 검색 결과로 Eigent에 대한 충분한 정보를 얻었네요. 이제 README나 더 자세한 기술 문서를 가져와서 정리해보겠습니다.",
+          "summaries": [],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T02:46:55.330594Z",
+          "stop_timestamp": "2026-01-24T02:46:55.502484Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_017MJcZJKLjHyqfg3jv7WdDU",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://github.com/eigent-ai/eigent"
+          },
+          "message": "Fetching: https://github.com/eigent-ai/eigent",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_017MJcZJKLjHyqfg3jv7WdDU",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "GitHub - eigent-ai/eigent: Eigent: The World's First Multi-agent Workforce to Unlock Your Exceptional Productivity.",
+              "url": "https://github.com/eigent-ai/eigent",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "github"
+              },
+              "is_missing": false,
+              "text": "GitHub - eigent-ai/eigent: Eigent: The World's First Multi-agent Workforce to Unlock Your Exceptional Productivity.\n\n\n\n[Skip to content](#start-of-content)\n\n\n\n\n\n\n\n\n\n\n\n\n## Navigation Menu\n\nToggle navigation\n\n[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Feigent-ai%2Feigent)\n\nAppearance settings\n\n* Platform\n\n  + [GitHub Copilot\n\n    Write better code with AI](https://github.com/features/copilot)\n  + [GitHub Spark\n    New\n\n    Build and deploy intelligent apps](https://github.com/features/spark)\n  + [GitHub Models\n    New\n\n    Manage and compare prompts](https://github.com/features/models)\n  + [GitHub Advanced Security\n\n    Find and fix vulnerabilities](https://github.com/security/advanced-security)\n  + [Actions\n\n    Automate any workflow](https://github.com/features/actions)\n\n  + [Codespaces\n\n    Instant dev environments](https://github.com/features/codespaces)\n  + [Issues\n\n    Plan and track work](https://github.com/features/issues)\n  + [Code Review\n\n    Manage code changes](https://github.com/features/code-review)\n  + [Discussions\n\n    Collaborate outside of code](https://github.com/features/discussions)\n  + [Code Search\n\n    Find more, search less](https://github.com/features/code-search)\n\n  Explore\n  + [Why GitHub](https://github.com/why-github)\n  + [Documentation](https://docs.github.com)\n  + [GitHub Skills](https://skills.github.com)\n  + [Blog](https://github.blog)\n\n  Integrations\n  + [GitHub Marketplace](https://github.com/marketplace)\n  + [MCP Registry](https://github.com/mcp)\n\n  [View all features](https://github.com/features)\n* Solutions\n\n  By company size\n  + [Enterprises](https://github.com/enterprise)\n  + [Small and medium teams](https://github.com/team)\n  + [Startups](https://github.com/enterprise/startups)\n  + [Nonprofits](/solutions/industry/nonprofits)\n\n  By use case\n  + [App Modernization](/solutions/use-case/app-modernization)\n  + [DevSecOps](/solutions/use-case/devsecops)\n  + [DevOps](/solutions/use-case/devops)\n  + [CI/CD](/solutions/use-case/ci-cd)\n  + [View all use cases](/solutions/use-case)\n\n  By industry\n  + [Healthcare](/solutions/industry/healthcare)\n  + [Financial services](/solutions/industry/financial-services)\n  + [Manufacturing](/solutions/industry/manufacturing)\n  + [Government](/solutions/industry/government)\n  + [View all industries](/solutions/industry)\n\n  [View all solutions](/solutions)\n* Resources\n\n  Topics\n  + [AI](/resources/articles?topic=ai)\n  + [DevOps](/resources/articles?topic=devops)\n  + [Security](/resources/articles?topic=security)\n  + [Software Development](/resources/articles?topic=software-development)\n  + [View all](/resources/articles)\n\n  Explore\n  + [Learning Pathways](https://resources.github.com/learn/pathways)\n  + [Events & Webinars](https://github.com/resources/events)\n  + [Ebooks & Whitepapers](https://github.com/resources/whitepapers)\n  + [Customer Stories](https://github.com/customer-stories)\n  + [Partners](https://github.com/partners)\n  + [Executive Insights](https://github.com/solutions/executive-insights)\n* Open Source\n\n  + [GitHub Sponsors\n\n    Fund open source developers](/sponsors)\n\n  + [The ReadME Project\n\n    GitHub community articles](https://github.com/readme)\n\n  Repositories\n  + [Topics](https://github.com/topics)\n  + [Trending](https://github.com/trending)\n  + [Collections](https://github.com/collections)\n* Enterprise\n\n  + [Enterprise platform\n\n    AI-powered developer platform](/enterprise)\n\n  Available add-ons\n  + [GitHub Advanced Security\n\n    Enterprise-grade security features](https://github.com/security/advanced-security)\n  + [Copilot for business\n\n    Enterprise-grade AI features](/features/copilot/copilot-business)\n  + [Premium Support\n\n    Enterprise-grade 24/7 support](/premium-support)\n* [Pricing](https://github.com/pricing)\n\nSearch or jump to...\n\n\n# Search code, repositories, users, issues, pull requests...\n\nSearch\n\nClear\n\n[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)\n\n# Provide feedback\n\nWe read every piece of feedback, and take your input very seriously.\n\n\nInclude my email address so I can be contacted\n\nCancel\n Submit feedback\n\n\n\n\n\n# Saved searches\n\n## Use saved searches to filter your results more quickly\n\nName\n\nQuery\n\nTo see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).\n\nCancel\n Create saved search\n\n[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Feigent-ai%2Feigent)\n\n[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=eigent-ai%2Feigent)\n\nAppearance settings\n\nResetting focus\n\nYou signed in with another tab or window. Reload to refresh your session.\nYou signed out in another tab or window. Reload to refresh your session.\nYou switched accounts on another tab or window. Reload to refresh your session.\n \n\n\nDismiss alert\n\n{{ message }}\n\n[eigent-ai](/eigent-ai) \n/\n**[eigent](/eigent-ai/eigent)**\nPublic\n\n* [Notifications](/login?return_to=%2Feigent-ai%2Feigent) You must be signed in to change notification settings\n* [Fork\n  367](/login?return_to=%2Feigent-ai%2Feigent)\n* [Star\n   2.5k](/login?return_to=%2Feigent-ai%2Feigent)\n\nEigent: The World's First Multi-agent Workforce to Unlock Your Exceptional Productivity.\n\n[www.eigent.ai](https://www.eigent.ai \"https://www.eigent.ai\")\n\n### License\n\n[View license](/eigent-ai/eigent/blob/main/LICENSE)\n\n[2.5k\nstars](/eigent-ai/eigent/stargazers) [367\nforks](/eigent-ai/eigent/forks) [Branches](/eigent-ai/eigent/branches) [Tags](/eigent-ai/eigent/tags) [Activity](/eigent-ai/eigent/activity)\n\n[Star](/login?return_to=%2Feigent-ai%2Feigent)\n\n[Notifications](/login?return_to=%2Feigent-ai%2Feigent) You must be signed in to change notification settings\n\n* [Code](/eigent-ai/eigent)\n* [Issues\n  57](/eigent-ai/eigent/issues)\n* [Pull requests\n  14](/eigent-ai/eigent/pulls)\n* [Discussions](/eigent-ai/eigent/discussions)\n* [Actions](/eigent-ai/eigent/actions)\n* [Projects\n  0](/eigent-ai/eigent/projects)\n* [Security\n\n\n  ### Uh oh!\n\n  There was an error while loading. Please reload this page.](/eigent-ai/eigent/security)\n* [Insights](/eigent-ai/eigent/pulse)\n\nAdditional navigation options\n\n\n* [Code](/eigent-ai/eigent)\n* [Issues](/eigent-ai/eigent/issues)\n* [Pull requests](/eigent-ai/eigent/pulls)\n* [Discussions](/eigent-ai/eigent/discussions)\n* [Actions](/eigent-ai/eigent/actions)\n* [Projects](/eigent-ai/eigent/projects)\n* [Security](/eigent-ai/eigent/security)\n* [Insights](/eigent-ai/eigent/pulse)\n\n# eigent-ai/eigent\n\nmain\n\n[Branches](/eigent-ai/eigent/branches)[Tags](/eigent-ai/eigent/tags)\n\nGo to file\n\nCode\n\nOpen more actions menu\n\n## Folders and files\n\n| Name | | Name | Last commit message | Last commit date |\n| --- | --- | --- | --- | --- |\n| Latest commit   History[1,588 Commits](/eigent-ai/eigent/commits/main/) | | |\n| [.github](/eigent-ai/eigent/tree/main/.github \".github\") | | [.github](/eigent-ai/eigent/tree/main/.github \".github\") |  |  |\n| [.vscode](/eigent-ai/eigent/tree/main/.vscode \".vscode\") | | [.vscode](/eigent-ai/eigent/tree/main/.vscode \".vscode\") |  |  |\n| [backend](/eigent-ai/eigent/tree/main/backend \"backend\") | | [backend](/eigent-ai/eigent/tree/main/backend \"backend\") |  |  |\n| [build](/eigent-ai/eigent/tree/main/build \"build\") | | [build](/eigent-ai/eigent/tree/main/build \"build\") |  |  |\n| [config](/eigent-ai/eigent/tree/main/config \"config\") | | [config](/eigent-ai/eigent/tree/main/config \"config\") |  |  |\n| [docs](/eigent-ai/eigent/tree/main/docs \"docs\") | | [docs](/eigent-ai/eigent/tree/main/docs \"docs\") |  |  |\n| [electron](/eigent-ai/eigent/tree/main/electron \"electron\") | | [electron](/eigent-ai/eigent/tree/main/electron \"electron\") |  |  |\n| [package/@stackframe](/eigent-ai/eigent/tree/main/package/%40stackframe \"This path skips through empty directories\") | | [package/@stackframe](/eigent-ai/eigent/tree/main/package/%40stackframe \"This path skips through empty directories\") |  |  |\n| [public](/eigent-ai/eigent/tree/main/public \"public\") | | [public](/eigent-ai/eigent/tree/main/public \"public\") |  |  |\n| [resources/scripts](/eigent-ai/eigent/tree/main/resources/scripts \"This path skips through empty directories\") | | [resources/scripts](/eigent-ai/eigent/tree/main/resources/scripts \"This path skips through empty directories\") |  |  |\n| [server](/eigent-ai/eigent/tree/main/server \"server\") | | [server](/eigent-ai/eigent/tree/main/server \"server\") |  |  |\n| [src](/eigent-ai/eigent/tree/main/src \"src\") | | [src](/eigent-ai/eigent/tree/main/src \"src\") |  |  |\n| [test](/eigent-ai/eigent/tree/main/test \"test\") | | [test](/eigent-ai/eigent/tree/main/test \"test\") |  |  |\n| [utils](/eigent-ai/eigent/tree/main/utils \"utils\") | | [utils](/eigent-ai/eigent/tree/main/utils \"utils\") |  |  |\n| [.env.development](/eigent-ai/eigent/blob/main/.env.development \".env.development\") | | [.env.development](/eigent-ai/eigent/blob/main/.env.development \".env.development\") |  |  |\n| [.gitattributes](/eigent-ai/eigent/blob/main/.gitattributes \".gitattributes\") | | [.gitattributes](/eigent-ai/eigent/blob/main/.gitattributes \".gitattributes\") |  |  |\n| [.gitignore](/eigent-ai/eigent/blob/main/.gitignore \".gitignore\") | | [.gitignore](/eigent-ai/eigent/blob/main/.gitignore \".gitignore\") |  |  |\n| [.npmrc](/eigent-ai/eigent/blob/main/.npmrc \".npmrc\") | | [.npmrc](/eigent-ai/eigent/blob/main/.npmrc \".npmrc\") |  |  |\n| [CONTRIBUTING.md](/eigent-ai/eigent/blob/main/CONTRIBUTING.md \"CONTRIBUTING.md\") | | [CONTRIBUTING.md](/eigent-ai/eigent/blob/main/CONTRIBUTING.md \"CONTRIBUTING.md\") |  |  |\n| [LICENSE](/eigent-ai/eigent/blob/main/LICENSE \"LICENSE\") | | [LICENSE](/eigent-ai/eigent/blob/main/LICENSE \"LICENSE\") |  |  |\n| [README.md](/eigent-ai/eigent/blob/main/README.md \"README.md\") | | [README.md](/eigent-ai/eigent/blob/main/README.md \"README.md\") |  |  |\n| [README\\_CN.md](/eigent-ai/eigent/blob/main/README_CN.md \"README_CN.md\") | | [README\\_CN.md](/eigent-ai/eigent/blob/main/README_CN.md \"README_CN.md\") |  |  |\n| [SECURITY.md](/eigent-ai/eigent/blob/main/SECURITY.md \"SECURITY.md\") | | [SECURITY.md](/eigent-ai/eigent/blob/main/SECURITY.md \"SECURITY.md\") |  |  |\n| [components.json](/eigent-ai/eigent/blob/main/components.json \"components.json\") | | [components.json](/eigent-ai/eigent/blob/main/components.json \"components.json\") |  |  |\n| [electron-builder.json](/eigent-ai/eigent/blob/main/electron-builder.json \"electron-builder.json\") | | [electron-builder.json](/eigent-ai/eigent/blob/main/electron-builder.json \"electron-builder.json\") |  |  |\n| [entitlements.mac.plist](/eigent-ai/eigent/blob/main/entitlements.mac.plist \"entitlements.mac.plist\") | | [entitlements.mac.plist](/eigent-ai/eigent/blob/main/entitlements.mac.plist \"entitlements.mac.plist\") |  |  |\n| [index.html](/eigent-ai/eigent/blob/main/index.html \"index.html\") | | [index.html](/eigent-ai/eigent/blob/main/index.html \"index.html\") |  |  |\n| [package.json](/eigent-ai/eigent/blob/main/package.json \"package.json\") | | [package.json](/eigent-ai/eigent/blob/main/package.json \"package.json\") |  |  |\n| [postcss.config.cjs](/eigent-ai/eigent/blob/main/postcss.config.cjs \"postcss.config.cjs\") | | [postcss.config.cjs](/eigent-ai/eigent/blob/main/postcss.config.cjs \"postcss.config.cjs\") |  |  |\n| [tailwind.config.js](/eigent-ai/eigent/blob/main/tailwind.config.js \"tailwind.config.js\") | | [tailwind.config.js](/eigent-ai/eigent/blob/main/tailwind.config.js \"tailwind.config.js\") |  |  |\n| [tsconfig.json](/eigent-ai/eigent/blob/main/tsconfig.json \"tsconfig.json\") | | [tsconfig.json](/eigent-ai/eigent/blob/main/tsconfig.json \"tsconfig.json\") |  |  |\n| [tsconfig.node.json](/eigent-ai/eigent/blob/main/tsconfig.node.json \"tsconfig.node.json\") | | [tsconfig.node.json](/eigent-ai/eigent/blob/main/tsconfig.node.json \"tsconfig.node.json\") |  |  |\n| [vite.config.ts](/eigent-ai/eigent/blob/main/vite.config.ts \"vite.config.ts\") | | [vite.config.ts](/eigent-ai/eigent/blob/main/vite.config.ts \"vite.config.ts\") |  |  |\n| [vitest.config.ts](/eigent-ai/eigent/blob/main/vitest.config.ts \"vitest.config.ts\") | | [vitest.config.ts](/eigent-ai/eigent/blob/main/vitest.config.ts \"vitest.config.ts\") |  |  |\n| View all files | | |\n\n## Repository files navigation\n\n* [README](#)\n* [Contributing](#)\n* [License](#)\n* [Security](#)\n\n[![](https://camo.githubusercontent.com/cca4e91883a417cb607b233de7607501d276f93ab40f27992c9310868de94b48/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f686561642e706e67)](https://www.eigent.ai)\n\n[![](https://camo.githubusercontent.com/f92002cd56dd7a8913bd91e1c7f46837b161eb31ecd4685392503c678fd25adc/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f736570657261746f722e706e67)](https://www.eigent.ai)\n\n### Eigent: The World's First Multi-agent Workforce to Unlock Your Exceptional Productivity\n\n[![](https://camo.githubusercontent.com/89d4cd754642dcb086c3729337c837e8c4a08e745b7b71ec8ceca8268b57e6ee/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f776e6c6f6164253230456967656e742d3336334146353f7374796c653d706c6173746963)](https://www.eigent.ai/download)\n[![](https://camo.githubusercontent.com/67bca555694d695efe7ef0edde82ddfa636e056fe04738104df45f3f35163a0d/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f656967656e742d61693f636f6c6f723d463546344630266c6162656c436f6c6f723d67726179267374796c653d706c6173746963266c6f676f3d676974687562)](https://github.com/eigent-ai/eigent)\n[![](https://camo.githubusercontent.com/cacfa54bff472188e343322e60e894b8ec292e6a075d6009fbdceaa0d506ff7c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d253430456967656e745f41492d77686974653f6c6162656c436f6c6f723d67726179266c6f676f3d78266c6f676f436f6c6f723d7768697465267374796c653d706c6173746963)](https://x.com/Eigent_AI)\n[![](https://camo.githubusercontent.com/399e0aa1add64c6e54ae943ee795ba5068ed2bd6083558dddac5c2f6cc980120/68747470733a2f2f696d672e736869656c64732e696f2f646973636f72642f313038323438363635373637383331313435343f6c6f676f3d646973636f7264266c6162656c436f6c6f723d253230253233353436326562266c6f676f436f6c6f723d25323025323366356635663526636f6c6f723d253230253233353436326562)](https://discord.camel-ai.org/)  \n[![Reddit](https://camo.githubusercontent.com/5640d0f843423470a26d02e66757f058cd8b570e7d0fd76209d95caff5edd89c/68747470733a2f2f696d672e736869656c64732e696f2f7265646469742f7375627265646469742d73756273637269626572732f43616d656c41493f7374796c653d706c6173746963266c6f676f3d726564646974266c6162656c3d7225324643414d454c266c6162656c436f6c6f723d7768697465)](https://www.reddit.com/r/CamelAI/)\n[![Wechat](https://camo.githubusercontent.com/eb7bdbc7fce7de870f023a3e69b40a86fca3762f82e639845c1ce6c5dd940df8/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5765436861742d43616d656c41494f72672d627269676874677265656e3f6c6f676f3d776563686174266c6f676f436f6c6f723d7768697465)](https://ghli.org/camel/wechat.png)\n[![](https://camo.githubusercontent.com/3c23f7e8b9409463c31c4cce99e208b686b17c74ab8dd6a68312b01902814ae7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d53706f6e736f7225323043414d454c2d2d41492d3164316431643f6c6f676f3d676974687562266c6f676f436f6c6f723d7768697465267374796c653d706c6173746963)](https://github.com/sponsors/camel-ai)\n[![](https://camo.githubusercontent.com/59359552c69a926458ac301dfb306b86db9dfd91e4a621316c00486beba8f8fd/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d4275696c742d2d776974682d2d43414d454c2d3443313945382e7376673f6c6f676f3d646174613a696d6167652f7376672b786d6c3b6261736536342c50484e325a79423361575230614430694d6a51344969426f5a576c6e61485139496a49334d694967646d6c6c64304a76654430694d434177494449304f4341794e7a496949475a7062477739496d3576626d5569494868746247357a50534a6f644852774f693876643364334c6e637a4c6d39795a7938794d4441774c334e325a79492b436a78775958526f49475139496b30344c6a677a4d544533494445344c6a55344e6a564d4d43417a4d4334344d6a5933517a55754e4459324f5449674d7a55754d44517a4d6941784e5334784d7a6b7849444d344c6a67794e5467674d6a51754f4445784e43417a4e6934794f545535517a4d774c6a59354f4467674e4441754f544d304d53417a4f5334324e7a4179494451774c6a497a4d544d674e4451754d5455314f5341304d4334774f544134517a517a4c6a51314e5341304e79347a4f546b30494451794c6a51334d7a63674e7a41754f5455314f4341304e4334784e545535494445774e6934334d544a444e4455754f444d34494445304d6934304e6a67674e7a45754e7a63774f4341784e6a59754f445934494467304c6a55794e6a6b674d5463304c6a55354f4577334e6934774d444179494449794d4577344e4334314d6a5935494449334d6b67784d4467754f54453454446b344c6a41774d4449674d6a4977544445774f4334354d5467674d5463304c6a55354f4577784d6a6b754f545130494449334d6b67784e5451754e7a55325444457a4e4334784e5341784e7a51754e546b34534445344e7934784d7a644d4d5459324c6a557a4d5341794e7a4a494d546b784c6a63324d3077794d5449754d7a5935494445334e4334314f54684d4d6a4932494449794d4577794d5449754d7a5935494449334d6b67794d7a63754e6a4178544449304f4334774d4445674d6a49775444497a4e7934784f4341784e7a51754e546b34517a497a4f5334794f444d674d5459354c6a45784e7941794e4441754e444178494445324e6934354e7a59674d6a51784c6a67774e6941784e6a45754d544131517a49304f53347a4e7a55674d5449354c6a51344d5341794d7a55754d446333494445774d7934354d4445674d6a49324c6a59324e7941354e4334304f44524d4d6a41324c6a51344d5341334d7934344d6a4e444d546b334c6a5931494459304c6a6b324f444d674d5467794c6a55784d5341324e4334314e445933494445334d6934344d7a6b674e7a49754e5455344d554d784e6a55754e7a4934494463344c6a51304e7a63674d5459784c6a63774d5341334f4334334e7a4933494445314e4334334e5459674e7a49754e5455344d554d784e5445754f444579494463774c6a41794f4445674d5451304c6a557a4e5341324d5334304f4467354944457a4e4334354f5445674e544d754e54677a4e304d784d6a55754d7a4535494451314c6a55334d6a4d674d5441344c6a51354e7941304f4334354e445531494445774d6934784f446b674e5455754e6a6b784f5577334d7934314f544d78494467304c6a4d324e4452574e7934324d6a4d304f5577334f5334784d6a637a494442444e6a41754f5441304d69417a4c6a59314e444d7a4944497a4c6a67774d6a45674f5334314e6a4d774f5341784f5334334e6a55674d5441754e5463314d554d784e5334334d6a6335494445784c6a55344e7941784d4334334f544d33494445324c6a4d7a4e7a63674f4334344d7a45784e7941784f4334314f445931576949675a6d6c736244306964326870644755694c7a344b50484268644767675a4430695454517a4c6a49774d7a67674d5467754e7a45344e3077304f5334774f5445794944457a4c6a41304f544e4d4e5451754f5463344e7941784f4334334d546733544451354c6a41354d5449674d6a51754f4449304d6b77304d7934794d444d34494445344c6a63784f4464614969426d615778735053496a4e454d784f5555344969382b436a777663335a6e50676f3d)](https://github.com/camel-ai/camel)\n[![](https://camo.githubusercontent.com/df16b22572287f8717a1cc658386588a698f809d319feee7763f433c7034a382/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a6f696e25323055732d79656c6c6f773f7374796c653d706c6173746963)](https://eigent-ai.notion.site/eigent-ai-careers)\n\n---\n\n**English** · [简体中文](/eigent-ai/eigent/blob/main/README_CN.md) · [Official Site](https://www.eigent.ai) · [Documents](https://docs.eigent.ai) · [Feedback](https://github.com/eigent-ai/eigent/issues)\n\n  \n\n**Eigent** is the world’s first **Multi-agent Workforce** desktop application, empowering you to build, manage, and deploy a custom AI workforce that can turn your most complex workflows into automated tasks.\n\nBuilt on [CAMEL-AI](https://www.camel-ai.org)'s acclaimed open-source project, our system introduces a **Multi-Agent Workforce** that **boosts productivity** through parallel execution, customization, and privacy protection.\n\n### ⭐ 100% Open Source - 🥇 Local Deployment - 🏆 MCP Integration\n\n* ✅ **Zero Setup** - No technical configuration required\n* ✅ **Multi-Agent Coordination** - Handle complex multi-agent workflows\n* ✅ **Enterprise Feature** - SSO/Access control\n* ✅ **Local Deploymen**t\n* ✅ **Open Source**\n* ✅ **Custom Model Support**\n* ✅ **MCP Integration**\n\n  \n\n[![](https://camo.githubusercontent.com/435d683645f1c146ad69fe6eb5731af0b9bb7e5bc229f0ce9eed04a56027b454/68747470733a2f2f63616d656c2d61692e6769746875622e696f2f63616d656c5f61737365742f67726170686963732f6a6f696e5f75732e706e67)](https://eigent-ai.notion.site/eigent-ai-careers)\n\n`Table of contents`\n\n#### TOC\n\n* [🚀 Getting Started](#-getting-started)\n  + [☁️ Cloud Version](#%EF%B8%8F-cloud-version)\n  + [🏠 Self-Hosting (Community Edition)](#-self-hosting-community-edition)\n  + [🏢 Enterprise](#-enterprise)\n* [✨ Key features](#-key-features)\n  + [🏭 Workforce](#-workforce)\n  + [🧠 Comprehensive Model Support](#-comprehensive-model-support)\n  + [🔌 MCP Tools Integration (MCP)](#-mcp-tools-integration-mcp)\n  + [✋ Human-in-the-Loop](#-human-in-the-loop)\n  + [👐 100% Open Source](#-100-open-source)\n* [🧩 Use Cases](#-use-cases)\n* [🛠️ Tech Stack](#-tech-stack)\n  + [Backend](#backend)\n  + [Frontend](#frontend)\n* [🌟 Staying ahead](#staying-ahead)\n* [🗺️ Roadmap](#-roadmap)\n* [📖 Contributing](#-contributing)\n  + [Main Contributors](#main-contributors)\n  + [Distinguished amabssador](#distinguished-amabssador)\n* [Ecosystem](#ecosystem)\n* [📄 Open Source License](#-open-source-license)\n* [🌐 Community & contact](#-community--contact)\n\n#### \n\n  \n\n## **🚀 Getting Started**\n\nThere are three ways to get started with Eigent:\n\n### ☁️ Cloud Version\n\nThe fastest way to experience Eigent's multi-agent AI capabilities is through our cloud platform, perfect for teams and individuals who want immediate access without setup complexity. We'll host the models, APIs, and cloud storage, ensuring Eigent runs flawlessly.\n\n* **Instant Access** - Start building multi-agent workflows in minutes.\n* **Managed Infrastructure** - We handle scaling, updates, and maintenance.\n* **Premium Support** - Subscribe and get priority assistance from our engineering team.\n\n  \n\n[![image-public-beta](https://camo.githubusercontent.com/8807e88a4c97025d15618a2854be2742e62a617428462fb72d8561430fa4882b/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f62616e6e65722e706e67)](https://www.eigent.ai/download)\n\n[Get started at Eigent.ai →](https://www.eigent.ai/download)\n\n### 🏠 Self-Hosting (Community Edition)\n\nFor users who prefer local control, data privacy, or customization, this option is ideal for organizations requiring:\n\n* **Data Privacy** - Keep sensitive data within your infrastructure.\n* **Customization** - Modify and extend the platform to fit your needs.\n* **Cost Control** - Avoid recurring cloud fees for large-scale deployments.\n\n#### 1. Prerequisites\n\n* Node.js (version 18-22) and npm\n\n#### 2. Quick Start\n\n```\ngit clone https://github.com/eigent-ai/eigent.git\ncd eigent\nnpm install\nnpm run dev\n```\n\n#### 3. Local Development (Use the version that is completely separated from the cloud service)\n\n[server/README\\_EN.md](/eigent-ai/eigent/blob/main/server/README_EN.md)\n\n### 🏢 Enterprise\n\nFor organizations requiring maximum security, customization, and control:\n\n* **Commercial License** - [Check our license →](/eigent-ai/eigent/blob/main/LICENSE)\n* **Exclusive Features** (like SSO & custom development)\n* **Scalable Enterprise Deployment**\n* **Negotiated SLAs** & implementation services\n\n📧 For further details, please contact us at [info@eigent.ai](mailto:info@eigent.ai).\n\n## **✨ Key features**\n\nUnlock the full potential of exceptional productivity with Eigent’s powerful features—built for seamless integration, smarter task execution, and boundless automation.\n\n### 🏭 Workforce\n\nEmploys a team of specialized AI agents that collaborate to solve complex tasks. Eigent dynamically breaks down tasks and activates multiple agents to work **in parallel.**\n\nEigent pre-defined the following agent workers:\n\n* **Developer Agent:** Writes and executes code, runs terminal commands.\n* **Search Agent:** Searches the web and extracts content.\n* **Document Agent:** Creates and manages documents.\n* **Multi-Modal Agent:** Processes images and audio.\n\n[![Workforce](https://camo.githubusercontent.com/4e58130ed1a582639044bad98b1235d1e388615ef70779dbdfe669a7f2affd84/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f6769662f666561747572655f64796e616d69635f776f726b666f7263652e676966)](https://camo.githubusercontent.com/4e58130ed1a582639044bad98b1235d1e388615ef70779dbdfe669a7f2affd84/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f6769662f666561747572655f64796e616d69635f776f726b666f7263652e676966)\n\n  \n\n### 🧠 Comprehensive Model Support\n\nDeploy Eigent locally with your preferred models.\n\n[![Model](https://camo.githubusercontent.com/efc5eb4e3d527e62974817983ba68d6b1d6edde54b0f205ce44071a0acc46b05/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f6769662f666561747572655f6c6f63616c5f6d6f64656c2e676966)](https://camo.githubusercontent.com/efc5eb4e3d527e62974817983ba68d6b1d6edde54b0f205ce44071a0acc46b05/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f6769662f666561747572655f6c6f63616c5f6d6f64656c2e676966)\n\n  \n\n### 🔌 MCP Tools Integration (MCP)\n\nEigent comes with massive built-in **Model Context Protocol (MCP)** tools (for web browsing, code execution, Notion, Google suite, Slack etc.), and also lets you **install your own tools**. Equip agents with exactly the right tools for your scenarios – even integrate internal APIs or custom functions – to enhance their capabilities.\n\n[![MCP](https://camo.githubusercontent.com/fd7191e878e378fe70b2cc704b0d6769740bbc882c22178ea17eaba2ff11addd/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f6769662f666561747572655f6164645f6d6370732e676966)](https://camo.githubusercontent.com/fd7191e878e378fe70b2cc704b0d6769740bbc882c22178ea17eaba2ff11addd/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f6769662f666561747572655f6164645f6d6370732e676966)\n\n  \n\n### ✋ Human-in-the-Loop\n\nIf a task gets stuck or encounters uncertainty, Eigent will automatically request human input.\n\n[![Human-in-the-loop](https://camo.githubusercontent.com/86ddf52fdcfe798c304874a96be4134135df09de9cb59ddca6bc1231a3f02f41/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f6769662f666561747572655f68756d616e5f696e5f7468655f6c6f6f702e676966)](https://camo.githubusercontent.com/86ddf52fdcfe798c304874a96be4134135df09de9cb59ddca6bc1231a3f02f41/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f6769662f666561747572655f68756d616e5f696e5f7468655f6c6f6f702e676966)\n\n  \n\n### 👐 100% Open Source\n\nEigent is completely open-sourced. You can download, inspect, and modify the code, ensuring transparency and fostering a community-driven ecosystem for multi-agent innovation.\n\n[![Opensource](https://camo.githubusercontent.com/d12d2eb5104c8ecc74ae78f222398df6eed2262c5fb41086886bb18a7c9283f7/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f6f70656e736f757263652e706e67)](https://camo.githubusercontent.com/d12d2eb5104c8ecc74ae78f222398df6eed2262c5fb41086886bb18a7c9283f7/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f6f70656e736f757263652e706e67)\n\n  \n\n## 🧩 Use Cases\n\n### 1. Palm Springs Tennis Trip Itinerary with Slack Summary [Replay ▶️](https://www.eigent.ai/download?share_token=IjE3NTM0MzUxNTEzMzctNzExMyI.aIeysw.MUeG6ZcBxI1GqvPDvn4dcv-CDWw__1753435151337-7113)\n\n**Prompt:** `We are two tennis fans and want to go see the tennis tournament ...` \n  \nWe are two tennis fans and want to go see the tennis tournament in Palm Springs 2026. I live in SF - please prepare a detailed itinerary with flights, hotels, things to do for 3 days - around the time semifinal/finals are happening. We like hiking, vegan food and spas. Our budget is $5K. The itinerary should be a detailed timeline of time, activity, cost, other details and if applicable a link to buy tickets/make reservations etc. for the item. Some preferences .Spa access would be nice but not necessary. When you finish this task, please generate a html report about this trip; write a summary of this plan and send text summary and report html link to slack #tennis-trip-sf channel.\n  \n\n### 2. Generate Q2 Report from CSV Bank Data [Replay ▶️](https://www.eigent.ai/download?share_token=IjE3NTM1MjY4OTE4MDgtODczOSI.aIjJmQ.WTdoX9mATwrcBr_w53BmGEHPo8U__1753526891808-8739)\n\n**Prompt:** `Please help me prepare a Q2 financial statement based on my bank ...` \n  \nPlease help me prepare a Q2 financial statement based on my bank transfer record file bank\\_transacation.csv in my desktop to a html report with chart to investors how much we have spent.\n  \n\n### 3. UK Healthcare Market Research Report Automation [Replay ▶️](https://www.eigent.ai/download?share_token=IjE3NTMzOTM1NTg3OTctODcwNyI.aIey-Q.Jh9QXzYrRYarY0kz_qsgoj3ewX0__1753393558797-8707)\n\n**Prompt:** `Analyze the UK healthcare industry to support the planning ...` \n  \nAnalyze the UK healthcare industry to support the planning of my next company. Provide a comprehensive market overview, including current trends, growth projections, and relevant regulations. Identify the top 5–10 major opportunities, gaps, or underserved segments within the market. Present all findings in a well-structured, professional HTML report. Then send a message to slack #eigentr-product-test channel when this task is done to align the report content with my teammates.\n  \n\n### 4. German Electric Skateboard Market Feasibility [Replay ▶️](https://www.eigent.ai/download?share_token=IjE3NTM2NTI4MjY3ODctNjk2Ig.aIjGiA.t-qIXxk_BZ4ENqa-yVIm0wMVyXU__1753652826787-696)\n\n**Prompt:** `We are a company that produces high-end electric skateboards ...` \n  \nWe are a company that produces high-end electric skateboards, and we are considering entering the German market. Please prepare a detailed market entry feasibility report for me. The report needs to cover the following aspects:\n1. Market Size & Regulations: Research the market size, annual growth rate, key players, and market share for Personal Light Electric Vehicles (PLEVs) in Germany. Simultaneously, provide a detailed breakdown and summary of German laws and regulations concerning the use of electric skateboards on public roads, including certification requirements (such as ABE certification) and insurance policies.\n2. Consumer Profile: Analyze the profile of potential German consumers, including their age, income level, primary usage scenarios (commuting, recreation), key purchasing decision drivers (price, performance, brand, design), and the channels they typically use to gather information (forums, social media, offline retail stores).\n3. Channels & Distribution: Investigate Germany’s mainstream online electronics sales platforms (e.g., Amazon.de, MediaMarkt.de) and high-end sporting goods offline retail chains. List the top 5 potential online and offline distribution partners and find the contact information for their purchasing departments, if possible.\n4. Costing & Pricing: Based on the product cost structure in my Product\\_Cost.csv file on my desktop, and taking into account German customs duties, Value Added Tax (VAT), logistics and warehousing costs, and potential marketing expenses, estimate a Manufacturer’s Suggested Retail Price (MSRP) and analyze its competitiveness in the market.\n5. Comprehensive Report & Presentation: Summarize all research findings into an HTML report file. The content should include data charts, key findings, and a final market entry strategy recommendation (Recommended / Not Recommended / Recommended with Conditions).\n  \n\n### 5. SEO Audit for Workforce Multiagent Launch [Replay ▶️](https://www.eigent.ai/download?share_token=IjE3NTM2OTk5NzExNDQtNTY5NiI.aIex0w.jc_NIPmfIf9e3zGt-oG9fbMi3K4__1753699971144-5696)\n\n**Prompt:** `To support the launch of our new Workforce Multiagent product ...` \n  \nTo support the launch of our new Workforce Multiagent product, please run a thorough SEO audit on our official website (https://www.camel-ai.org/) and deliver a detailed optimization report with actionable recommendations.\n  \n\n### 6. Identify Duplicate Files in Downloads [Replay ▶️](https://www.eigent.ai/download?share_token=IjE3NTM3NjAzODgxNzEtMjQ4Ig.aIhKLQ.epOG--0Nj0o4Bqjtdqm9OZdaqRQ__1753760388171-248)\n\n**Prompt:** `I have a folder named mydocs inside my Documents directory ...` \n  \nI have a folder named mydocs inside my Documents directory. Please scan it and identify all files that are exact or near duplicates — including those with identical content, file size, or format (even if file names or extensions differ). List them clearly, grouped by similarity.\n  \n\n### 7. Add Signature to PDF [Replay ▶️](https://www.eigent.ai/download?share_token=IjE3NTQwOTU0ODM0NTItNTY2MSI.aJCHrA.Mg5yPOFqj86H_GQvvRNditzepXc__1754095483452-5661)\n\n**Prompt:** `Please add this signature image to the Signature Areas in the PDF ...` \n  \nPlease add this signature image to the Signature Areas in the PDF. You could install the CLI tool ‘tesseract’ (needed for reliable location of ‘Signature Areas’ via OCR) to help finish this task.\n  \n\n## 🛠️ Tech Stack\n\n### Backend\n\n* **Framework:** FastAPI\n* **Package Manager:** uv\n* **Async Server:** Uvicorn\n* **Authentication:** OAuth 2.0, Passlib.\n* **Multi-agent framework:** CAMEL\n\n### Frontend\n\n* **Framework:** React\n* **Desktop App Framework:** Electron\n* **Language:** TypeScript\n* **UI:** Tailwind CSS, Radix UI, Lucide React, Framer Motion\n* **State Management:** Zustand\n* **Flow Editor:** React Flow\n\n## 🌟 Staying ahead\n\nImportant\n\n**Star Eigent**, You will receive all release notifications from GitHub without any delay ~ ⭐️\n\n[![](https://camo.githubusercontent.com/fd663585594dee91111f053b3b0a936db7286d65925fc8bd6329998a014da6cb/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f737461722d75732e676966)](https://camo.githubusercontent.com/fd663585594dee91111f053b3b0a936db7286d65925fc8bd6329998a014da6cb/68747470733a2f2f656967656e742d61692e6769746875622e696f2f2e6769746875622f6173736574732f737461722d75732e676966)\n\n## 🗺️ Roadmap\n\n| Topics | Issues | Discord Channel |\n| --- | --- | --- |\n| **Context Engineering** | - Prompt caching  - System prompt optimize  - Toolkit docstring optimize  - Context compression | [**Join Discord →**](https://discord.gg/D2e3rBWD) |\n| **Multi-modal Enhancement** | - More accurate image understanding when using browser  - Advanced video generation | [**Join Discord →**](https://discord.gg/kyapNCeJ) |\n| **Multi-agent system** | - Workforce support fixed workflow  - Workforce support multi-round conversion | [**Join Discord →**](https://discord.gg/bFRmPuDB) |\n| **Browser Toolkit** | - BrowseCamp integration  - Benchmark improvement  - Forbid repeated page visiting  - Automatic cache button clicking | [**Join Discord →**](https://discord.gg/NF73ze5v) |\n| **Document Toolkit** | - Support dynamic file editing | [**Join Discord →**](https://discord.gg/4yAWJxYr) |\n| **Terminal Toolkit** | - Benchmark improvement  - Terminal-Bench integration | [**Join Discord →**](https://discord.gg/FjQfnsrV) |\n| **Environment & RL** | - Environment design  - Data-generation  - RL framework integration (VERL, TRL, OpenRLHF) | [**Join Discord →**](https://discord.gg/MaVZXEn8) |\n\n## [🤝 Contributing](https://github.com/eigent-ai/eigent/blob/main/CONTRIBUTING.md)\n\nWe believe in building trust and embracing all forms of open-source collaborations. Your creative contributions help drive the innovation of `Eigent`. Explore our GitHub issues and projects to dive in and show us what you’ve got 🤝❤️ [Contribution Guideline](https://github.com/eigent-ai/eigent/blob/main/CONTRIBUTING.md)\n\n## [❤️ Sponsor](https://github.com/sponsors/camel-ai)\n\nEigent is built on top of [CAMEL-AI.org](https://github.com/camel-ai)'s research and infrastructures. [Sponsoring CAMEL-AI.org](https://github.com/sponsors/camel-ai) will make `Eigent` better.\n\n## **📄 Open Source License**\n\nThis repository is licensed under the [**Eigent Open Source License**](/eigent-ai/eigent/blob/main/LICENSE), based on Apache 2.0 with additional conditions.\n\n## 🌐 Community & Contact\n\nFor more information please contact [info@eigent.ai](mailto:info@eigent.ai)\n\n* **GitHub Issues:** Report bugs, request features, and track development. [Submit an issue](https://github.com/eigent-ai/eigent/issues)\n* **Discord:** Get real-time support, chat with the community, and stay updated. [Join us](https://discord.camel-ai.org/)\n* **X (Twitter):** Follow for updates, AI insights, and key announcements. [Follow us](https://x.com/Eigent_AI)\n* **WeChat Community:** Scan the QR code below to add our WeChat assistant, and join our WeChat community group.\n\n[![](/eigent-ai/eigent/raw/main/src/assets/wechat_qr.jpg)](/eigent-ai/eigent/blob/main/src/assets/wechat_qr.jpg)\n\n## About\n\nEigent: The World's First Multi-agent Workforce to Unlock Your Exceptional Productivity.\n\n[www.eigent.ai](https://www.eigent.ai \"https://www.eigent.ai\")\n\n### Resources\n\n[Readme](#readme-ov-file)\n\n### License\n\n[View license](#License-1-ov-file)\n\n### Contributing\n\n[Contributing](#contributing-ov-file)\n\n### Security policy\n\n[Security policy](#security-ov-file)\n\n### Uh oh!\n\nThere was an error while loading. Please reload this page.\n\n[Activity](/eigent-ai/eigent/activity)\n\n[Custom properties](/eigent-ai/eigent/custom-properties)\n\n### Stars\n\n[**2.5k**\nstars](/eigent-ai/eigent/stargazers)\n\n### Watchers\n\n[**22**\nwatching](/eigent-ai/eigent/watchers)\n\n### Forks\n\n[**367**\nforks](/eigent-ai/eigent/forks)\n\n[Report repository](/contact/report-content?content_url=https%3A%2F%2Fgithub.com%2Feigent-ai%2Feigent&report=eigent-ai+%28user%29)\n\n## [Releases 15](/eigent-ai/eigent/releases)\n\n[0.0.73\n\nLatest\n\nNov 27, 2025](/eigent-ai/eigent/releases/tag/v0.0.73)\n\n[+ 14 releases](/eigent-ai/eigent/releases)\n\n## [Packages 0](/orgs/eigent-ai/packages?repo_name=eigent)\n\nNo packages published\n\n### Uh oh!\n\nThere was an error while loading. Please reload this page.\n\n## [Contributors 21](/eigent-ai/eigent/graphs/contributors)\n\n### Uh oh!\n\nThere was an error while loading. Please reload this page.\n\n[+ 7 contributors](/eigent-ai/eigent/graphs/contributors)\n\n## Languages\n\n* [TypeScript\n  61.8%](/eigent-ai/eigent/search?l=typescript)\n* [Python\n  34.1%](/eigent-ai/eigent/search?l=python)\n* [JavaScript\n  2.0%](/eigent-ai/eigent/search?l=javascript)\n* [CSS\n  1.5%](/eigent-ai/eigent/search?l=css)\n* [PowerShell\n  0.2%](/eigent-ai/eigent/search?l=powershell)\n* [Shell\n  0.2%](/eigent-ai/eigent/search?l=shell)\n* Other\n  0.2%\n\n## Footer\n\n© 2025 GitHub, Inc.\n\n### Footer navigation\n\n* [Terms](https://docs.github.com/site-policy/github-terms/github-terms-of-service)\n* [Privacy](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement)\n* [Security](https://github.com/security)\n* [Status](https://www.githubstatus.com/)\n* [Community](https://github.community/)\n* [Docs](https://docs.github.com/)\n* [Contact](https://support.github.com?tags=dotcom-footer)\n* Manage cookies\n* Do not share my personal information\n\n\n\nYou can’t perform that action at this time.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "content_type": "html",
+                "mime_type": "text/html; charset=utf-8",
+                "destination_url": "https://github.com/eigent-ai/eigent"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Fetched: GitHub - eigent-ai/eigent: Eigent: The World's First Multi-agent Workforce to Unlock Your Exceptional Productivity.",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+          "icon_name": null,
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "GitHub - eigent-ai/eigent: Eigent: The World's First Multi-agent Workforce to Unlock Your Exceptional Productivity.",
+              "subtitles": null,
+              "url": "https://github.com/eigent-ai/eigent",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+              "source": "github"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2026-01-24T02:47:00.243768Z",
+          "stop_timestamp": "2026-01-24T02:47:02.540393Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "정보를 충분히 수집했습니다. 이제 사용자가 요청한 대로 Eigent 리포지토리를 통해 할 수 있는 일을 정리하겠습니다. 사용자 선호도에 따라 인문학적, 에세이 스타일로 설명하되 실용적인 정보를 전달해야 합니다.",
+          "summaries": [
+            {
+              "summary": "Gathered insights and synthesized Eigent repository capabilities."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T02:47:02.614686Z",
+          "stop_timestamp": "2026-01-24T02:47:54.262515Z",
+          "flags": null,
+          "type": "text",
+          "text": "# Eigent: 멀티 에이전트 워크포스의 철학적 이해와 실용적 활용\n\n## 본질: \"일하는 방식의 패러다임 전환\"\n\nEigent는 단순한 AI 도구가 아닙니다. 이것은 **\"AI 노동력\"**이라는 새로운 존재론적 개념을 구현한 첫 번째 시도입니다. 우리가 \"일한다\"는 것의 의미를 재정의하는 도구이죠.\n\n전통적으로 우리는 \"나 혼자\" 일하거나, \"다른 사람과 협업\"했습니다. Eigent는 여기에 세 번째 차원을 추가합니다: **\"나의 AI 팀과 함께 일하기\"**. 마치 자신만의 전문가 팀을 고용한 것처럼요.\n\n## 핵심 개념: Multi-Agent Workforce\n\n### 1. **철학적 기반: 분업과 협업의 AI적 구현**\n\nEigent는 Adam Smith의 핀 공장 이론을 AI 시대로 가져왔습니다:\n\n- **Developer Agent**: 코드를 작성하고 실행하는 전문가\n- **Search Agent**: 웹을 검색하고 정보를 추출하는 리서처\n- **Document Agent**: 문서를 생성하고 관리하는 작가\n- **Multi-Modal Agent**: 이미지와 오디오를 처리하는 크리에이터\n\n각 에이전트는 자신의 전문 영역에서 탁월하며, **동시에 병렬로 작업**합니다. 이것이 단순 챗봇과의 결정적 차이입니다.\n\n### 2. **실존적 특징: Human-in-the-Loop**\n\n흥미로운 점은 Eigent가 불확실성을 만났을 때 **스스로 멈추고 인간에게 질문한다**는 것입니다. 이는 AI의 자율성과 인간의 판단력을 조화시키는 설계 철학을 보여줍니다. \n\n완전 자동화가 아니라 **증강된 협업(Augmented Collaboration)**을 지향하는 거죠.\n\n## 실용적 활용: 당신이 할 수 있는 일들\n\n### 📊 **비즈니스 인텔리전스 자동화**\n\n```\n예시: \"내 은행 거래 CSV 파일로 Q2 재무제표를 만들어줘. \n      투자자들에게 보여줄 차트가 포함된 HTML 보고서로.\"\n```\n\n**작동 원리**:\n- Document Agent가 CSV를 분석\n- Developer Agent가 차트 생성 스크립트 작성\n- 여러 에이전트가 병렬로 시각화 작업\n- 최종 HTML 보고서 생성\n\n**당신의 HR 업무에 적용하면**:\n- 리더십 평가 데이터 → 자동 보고서 생성\n- 교육 프로그램 효과성 분석 → 시각화\n- 조직 진단 결과 → 인터랙티브 대시보드\n\n### 🔍 **시장 조사 및 리서치 자동화**\n\n```\n예시: \"영국 헬스케어 산업을 분석해서 우리 회사 계획을 지원할 \n      종합 보고서를 만들어줘. 상위 5-10개 기회를 식별하고\n      Slack #product-test 채널에 완료 메시지 보내줘.\"\n```\n\n**멀티 에이전트 협업**:\n1. Search Agent: 시장 데이터 수집\n2. Document Agent: 정보 구조화\n3. Developer Agent: 데이터 시각화\n4. 통합 에이전트: Slack 연동\n\n**HR 자동화 SaaS 개발에 적용**:\n- 경쟁사 HR 솔루션 분석\n- 시장 트렌드 자동 모니터링\n- 잠재 고객 페르소나 리서치\n- 가격 전략 분석\n\n### 📄 **문서 처리 및 관리**\n\n```\n예시: \"Documents 폴더의 mydocs를 스캔해서 \n      중복 파일을 찾아 유사성별로 그룹화해줘.\"\n```\n\n**실제 활용**:\n- PDF 서명 자동화\n- 문서 템플릿 자동 생성\n- 계약서 버전 관리\n- 콘텐츠 정리 및 아카이빙\n\n### 🌐 **웹 자동화 및 SEO**\n\n```\n예시: \"우리 웹사이트 camel-ai.org의 SEO 감사를 실행하고\n      실행 가능한 권장사항이 포함된 최적화 보고서를 작성해줘.\"\n```\n\n## 기술적 아키텍처: 왜 이게 가능한가?\n\n### **MCP (Model Context Protocol) 통합**\n\nEigent의 진정한 힘은 **도구 생태계**에 있습니다:\n\n- 브라우저 자동화\n- 코드 실행\n- Notion 연동\n- Google Suite (Drive, Docs, Sheets)\n- Slack 메시징\n- 터미널 명령 실행\n\n**그리고 가장 중요한 것**: 당신만의 커스텀 MCP 도구를 추가할 수 있습니다. 즉, **내부 API나 회사 특화 기능을 AI 에이전트에 장착**할 수 있다는 뜻입니다.\n\n### **CAMEL-AI 프레임워크 기반**\n\nCAMEL (Communicative Agents for \"Mind\" Exploration of Large Scale Language Model Society)은 멀티 에이전트 시스템 연구의 최전선입니다. Eigent는 이 학술적 기반 위에 실용적 구현을 올린 것입니다.\n\n## 배포 방식: 세 가지 선택지\n\n### ☁️ **클라우드 버전**\n- 즉시 사용 가능\n- 인프라 관리 불필요\n- 프리미엄 지원\n\n### 🏠 **셀프 호스팅**\n- 데이터 프라이버시 완전 제어\n- 커스터마이징 가능\n- 비용 통제\n- **100% 오픈소스**\n\n### 🏢 **엔터프라이즈**\n- SSO 통합\n- 전담 지원\n- SLA 협상\n\n## CSP님의 비전과의 연결점\n\n당신이 준비 중인 **HR 자동화 SaaS**와 Eigent의 연결고리:\n\n### 1. **온톨로지 기반 시스템과의 시너지**\n- Eigent의 MCP를 활용해 HR 온톨로지 API 연동\n- 스킬 매핑 자동화\n- 역량 평가 데이터 처리 자동화\n\n### 2. **리더십 평가 자동화**\n- 평가 데이터 수집 → 분석 → 보고서 생성 파이프라인\n- 다면 피드백 자동 취합\n- 개인별 맞춤 리포트 대량 생성\n\n### 3. **DX 교육 관리**\n- 학습자 진도 추적\n- 효과성 분석 대시보드\n- 자동 수료증 발급\n\n### 4. **개발 가속화**\n- \"Vibe coder\"로서 신속한 프로토타입 제작\n- Developer Agent를 활용한 코드 생성/리뷰\n- 시스템 통합 테스트 자동화\n\n## 실행 방법 (간단 버전)\n\n```bash\n# 로컬에서 바로 시작\ngit clone https://github.com/eigent-ai/eigent.git\ncd eigent\nnpm install\nnpm run dev\n```\n\n## 철학적 성찰: 이것이 의미하는 것\n\nEigent는 단순한 \"생산성 도구\"를 넘어, **일의 본질에 대한 질문**을 던집니다:\n\n> \"나는 무엇을 직접 해야 하고, 무엇을 위임할 수 있는가?\"\n> \"AI 팀과 협업한다는 것은 어떤 의미인가?\"\n> \"인간 고유의 가치는 무엇인가?\"\n\n당신의 17년 HR 경험과 결합되면, 이것은 **사람과 AI가 함께 성장하는 조직**을 만드는 도구가 될 수 있습니다.\n\n---\n\n더 깊이 탐구하고 싶은 특정 사용 사례나 기술적 측면이 있다면 말씀해주세요. 함께 당신의 HR SaaS 비전과 Eigent를 연결하는 구체적인 로드맵을 그려볼 수 있습니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-24T02:47:54.305955Z",
+      "updated_at": "2026-01-24T02:47:54.305955Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bede4-5785-71d1-82c5-16474b9d1ca7"
+    },
+    {
+      "uuid": "019bede8-ea50-76d3-93c6-c6931e6d2455",
+      "text": "얘를 클라우드 버전으로 설치해서 할 수 있는 일들을 브리핑해봐",
+      "content": [
+        {
+          "start_timestamp": "2026-01-24T02:50:23.273018Z",
+          "stop_timestamp": "2026-01-24T02:50:23.273018Z",
+          "flags": null,
+          "type": "text",
+          "text": "얘를 클라우드 버전으로 설치해서 할 수 있는 일들을 브리핑해봐",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-24T02:50:23.279835Z",
+      "updated_at": "2026-01-24T02:50:23.279835Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bede4-5785-71d1-82c5-164837e55e8d"
+    },
+    {
+      "uuid": "019bede8-ea50-76d3-93c6-c694b2804929",
+      "text": "CSP님이 Eigent의 클라우드 버전으로 할 수 있는 실용적인 일들을 알고 싶어하시는군요. 이분의 맥락을 고려하면:\n\n1. HR 자동화 SaaS 개발자\n2. 17년 LG 경력의 리더십 평가 전문가\n3. \"Vibe coder\" - 빠른 프로토타입 선호\n4. Notion 세컨브레인 사용자\n5. 생산성 자동화에 관심\n\n클라우드 버전의 장점은:\n- 즉시 사용 가능 (설치/설정 불필요)\n- 인프라 관리 불필요\n- 모델/API 호스팅 제공\n- 빠른 시작\n\nCSP님께 실용적이고 즉시 적용 가능한 사용 사례들을 브리핑해야 합니다. 에세이적 설명을 좋아하시지만, 이건 브리핑이니까 구조화되면서도 인사이트가 있는 형태로 작성하겠습니다.# Eigent 클라우드 버전 실전 브리핑\n\n## 🎯 핵심 전제: \"설치 없이 5분 안에 AI 팀 고용\"\n\n클라우드 버전의 본질적 가치는 **즉시성**입니다. 기술 설정 없이 바로 멀티 에이전트 워크포스를 사용할 수 있다는 것. 마치 프리랜서 플랫폼에서 전문가를 고용하듯, AI 전문가 팀을 즉시 배치할 수 있습니다.\n\n---\n\n## 📋 CSP님이 **오늘 당장** 할 수 있는 10가지 실전 작업\n\n### 1️⃣ **리더십 평가 보고서 자동 생성**\n\n**시나리오**:\n```\n\"25년 리더십, 생각하다\" 프로그램의 평가 데이터(Excel)를 업로드하고,\n개인별 맞춤 피드백 보고서를 100개 자동 생성해줘.\n각 보고서는 강점, 개선영역, 액션 플랜을 포함하고\nPDF로 저장한 후 파일명은 \"이름_리더십평가_2025.pdf\"로 해줘.\n```\n\n**작동 방식**:\n- Document Agent: Excel 데이터 분석\n- Developer Agent: 보고서 템플릿 생성 스크립트\n- Multi-Modal Agent: 차트/그래프 시각화\n- **병렬 처리로 100개 보고서 동시 생성**\n\n**예상 시간**: 수작업 20시간 → AI 15분\n\n---\n\n### 2️⃣ **경쟁사 HR SaaS 시장 조사**\n\n**프롬프트**:\n```\n글로벌 HR 자동화 SaaS 시장을 분석해줘:\n1. 상위 10개 플레이어 식별 (Workday, SAP SuccessFactors 등)\n2. 각각의 핵심 기능, 가격 모델, 타겟 고객\n3. 시장 갭 및 미충족 니즈 5가지\n4. 한국 시장 특수성 고려한 기회 영역\n5. HTML 보고서로 정리하고 Notion에 자동 저장\n```\n\n**결과물**:\n- 종합 시장 분석 보고서\n- 경쟁 포지셔닝 매트릭스\n- 실행 가능한 인사이트\n\n**CSP님 가치**: 5-6년 후 런칭을 위한 시장 인텔리전스 축적\n\n---\n\n### 3️⃣ **DX Starter 교육 자동화**\n\n**실행 예시**:\n```\n우리 DX Starter 프로그램의 학습자 진도 데이터(CSV)를 분석하고:\n- 모듈별 완료율 시각화\n- 낙오 위험군 식별 (진도율 30% 이하)\n- 개인별 독려 이메일 초안 작성\n- Slack으로 담당자에게 알림 전송\n- 주간 대시보드 HTML 생성\n```\n\n**자동화 효과**:\n- 실시간 모니터링\n- 선제적 개입 가능\n- 행정 업무 80% 감소\n\n---\n\n### 4️⃣ **Notion 세컨브레인 정리 자동화**\n\n**CSP님 특화 작업**:\n```\n내 Notion 워크스페이스를 스캔해서:\n- 태그 없는 페이지 찾아서 자동 태그 추천\n- 중복 콘텐츠 식별 및 통합 제안\n- 관련 페이지 자동 링크 생성\n- \"💬 Claude 대화 아카이브\" DB와 연결 가능한 페이지 매핑\n- 온톨로지 구조 시각화 (Mermaid 다이어그램)\n```\n\n**철학적 가치**: 세컨브레인이 단순 저장소가 아니라 **살아있는 지식 네트워크**가 됨\n\n---\n\n### 5️⃣ **HR 온톨로지 자동 구축**\n\n**실전 프롬프트**:\n```\nESCO API에서 디지털 스킬 온톨로지 데이터를 가져와서:\n1. 제조업 맥락에 맞게 필터링\n2. 역량-과제-학습경로 관계 매핑\n3. SQL 스키마 설계 및 ERD 생성\n4. 샘플 데이터 100개 생성\n5. Python 데이터 모델 코드 작성\n```\n\n**산출물**:\n- 즉시 사용 가능한 DB 스키마\n- 데이터 모델 코드\n- 문서화\n\n**개발 가속화**: 2주 설계 작업 → 2시간\n\n---\n\n### 6️⃣ **PowerPoint 자동 생성 (당신의 기존 프로젝트 연계)**\n\n**시나리오**:\n```\n\"25년 리더십, 생각하다\" 프로그램 소개 PPT를 만들어줘:\n- 슬라이드 1: 타이틀 (LG 브랜드 컬러 적용)\n- 슬라이드 2-5: 프로그램 목적, 구조, 대상, 기대효과\n- 슬라이드 6-10: 각 모듈 상세 (아이콘 포함)\n- 슬라이드 11: 일정 타임라인 (Gantt 차트)\n- 슬라이드 12: 문의처\n템플릿은 corporate-modern 스타일로.\n```\n\n**기술 스택 활용**:\n- Document Agent가 python-pptx 라이브러리 사용\n- 기존 PowerPoint 자동화 프로젝트와 통합 가능\n\n---\n\n### 7️⃣ **이메일 배치 발송 자동화**\n\n**Gmail/Outlook 연동**:\n```\n리더십 평가 참여자 100명에게 개인화된 초대 이메일 발송:\n- 엑셀에서 이름, 이메일, 부서 정보 읽기\n- 각 사람에게 맞춤 인사말 (부서별 다른 메시지)\n- 평가 링크 개인화 (UTM 파라미터 포함)\n- 발송 시간 분산 (스팸 방지)\n- 발송 로그 CSV로 저장\n```\n\n**Human-in-the-Loop**: \n발송 전 첫 5개 이메일 미리보기 → 승인 → 나머지 자동 발송\n\n---\n\n### 8️⃣ **재무 데이터 분석 및 시각화**\n\n**투자 전략 지원**:\n```\n내 포트폴리오 CSV를 분석해서:\n- 자산 배분 현황 원그래프\n- 월별 수익률 추이 선그래프\n- 섹터별 퍼포먼스 히트맵\n- 리밸런싱 추천 (목표 비율 대비)\n- HTML 대시보드 생성 (매주 자동 업데이트)\n```\n\n**CSP님 관심사**: 한국 채권 시장, 미국 국채 상품 분석에 활용\n\n---\n\n### 9️⃣ **GitHub 자동화 (코드 리뷰 지원)**\n\n**Vibe Coder 가속화**:\n```\n내 eigent-ai/eigent 포크 저장소에서:\n- 최근 커밋 변경사항 요약\n- Pull Request에 자동 코멘트 (코드 품질 체크)\n- Issue 트리아징 (버그/기능요청 분류)\n- Release Note 자동 생성\n- README 업데이트 제안\n```\n\n**MCP GitHub 연동**으로 가능\n\n---\n\n### 🔟 **멀티 플랫폼 콘텐츠 재가공**\n\n**지식 재사용 극대화**:\n```\n내 Claude 대화 아카이브에서 \"HR 자동화\" 주제 대화를 찾아서:\n1. 핵심 인사이트 10개 추출\n2. LinkedIn 포스트 3개 초안 작성 (각 300자)\n3. 블로그 글 1개 (1500자, SEO 최적화)\n4. 트위터 스레드 (10개 트윗)\n5. Notion에 콘텐츠 캘린더 생성\n```\n\n**개인 브랜딩**: 전문성을 콘텐츠로 자동 전환\n\n---\n\n## 🚀 클라우드 버전 특화 장점\n\n### ✅ **즉시 시작**\n- 회원가입 → 5분 후 첫 작업 실행\n- 기술 장벽 제로\n\n### ✅ **모델 걱정 없음**\n- OpenAI, Anthropic, Google 등 최신 모델 자동 제공\n- API 키 관리 불필요\n\n### ✅ **인프라 관리 불필요**\n- 스케일링 자동\n- 업데이트 자동 적용\n\n### ✅ **협업 용이**\n- 팀원 초대 간편\n- 작업 히스토리 공유\n\n---\n\n## 💡 CSP님 맥락에서의 전략적 활용\n\n### **단기 (지금 당장)**\n1. 반복 업무 자동화로 시간 확보\n2. 데이터 분석 속도 10배 향상\n3. 보고서 생성 자동화\n\n### **중기 (1-2년)**\n1. HR SaaS 프로토타입 개발 가속화\n2. 온톨로지 시스템 구축 자동화\n3. 고객 데모용 자동화 시나리오 개발\n\n### **장기 (5-6년 런칭 준비)**\n1. Eigent MCP 방식을 자사 제품에 통합\n2. 멀티 에이전트 아키텍처 학습\n3. 오픈소스 기여로 네트워크 구축\n\n---\n\n## 🎓 시작하기\n\n**1단계**: [eigent.ai](https://www.eigent.ai/download) 접속 → 회원가입  \n**2단계**: 위 10가지 중 하나 선택해서 프롬프트 입력  \n**3단계**: 결과 확인하며 반복 개선  \n\n**첫 번째 추천 작업**: #4 (Notion 정리) - CSP님의 세컨브레인 시스템과 즉시 연동 가능\n\n---\n\n## 🤔 철학적 질문: \"이게 나의 일을 대체하는가?\"\n\n아닙니다. Eigent는 **당신을 증강**합니다.\n\n17년 HR 경험은 \"무엇을 평가해야 하는가\"를 아는 것입니다.  \nEigent는 \"그 평가를 어떻게 효율적으로 실행하는가\"를 해결합니다.\n\n당신의 전문성은 **전략과 판단**에 집중하고,  \nEigent는 **실행과 자동화**를 담당합니다.\n\n결과: **더 높은 차원의 HR 전문가**가 됩니다.\n\n---\n\n어떤 작업부터 시작해보고 싶으신가요? 구체적인 프롬프트 예시를 더 드릴 수 있습니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-01-24T02:50:28.836638Z",
+          "stop_timestamp": "2026-01-24T02:50:35.811513Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "CSP님이 Eigent의 클라우드 버전으로 할 수 있는 실용적인 일들을 알고 싶어하시는군요. 이분의 맥락을 고려하면:\n\n1. HR 자동화 SaaS 개발자\n2. 17년 LG 경력의 리더십 평가 전문가\n3. \"Vibe coder\" - 빠른 프로토타입 선호\n4. Notion 세컨브레인 사용자\n5. 생산성 자동화에 관심\n\n클라우드 버전의 장점은:\n- 즉시 사용 가능 (설치/설정 불필요)\n- 인프라 관리 불필요\n- 모델/API 호스팅 제공\n- 빠른 시작\n\nCSP님께 실용적이고 즉시 적용 가능한 사용 사례들을 브리핑해야 합니다. 에세이적 설명을 좋아하시지만, 이건 브리핑이니까 구조화되면서도 인사이트가 있는 형태로 작성하겠습니다.",
+          "summaries": [
+            {
+              "summary": "생각해보기: 클라우드 버전 설치로 가능한 기능들 정리하기"
+            },
+            {
+              "summary": "클라우드 버전의 실용적 이점들을 종합하고 있습니다."
+            },
+            {
+              "summary": "사용자 맥락 분석해 실용적 클라우드 활용 사례 구성했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T02:50:35.849685Z",
+          "stop_timestamp": "2026-01-24T02:51:46.350620Z",
+          "flags": null,
+          "type": "text",
+          "text": "# Eigent 클라우드 버전 실전 브리핑\n\n## 🎯 핵심 전제: \"설치 없이 5분 안에 AI 팀 고용\"\n\n클라우드 버전의 본질적 가치는 **즉시성**입니다. 기술 설정 없이 바로 멀티 에이전트 워크포스를 사용할 수 있다는 것. 마치 프리랜서 플랫폼에서 전문가를 고용하듯, AI 전문가 팀을 즉시 배치할 수 있습니다.\n\n---\n\n## 📋 CSP님이 **오늘 당장** 할 수 있는 10가지 실전 작업\n\n### 1️⃣ **리더십 평가 보고서 자동 생성**\n\n**시나리오**:\n```\n\"25년 리더십, 생각하다\" 프로그램의 평가 데이터(Excel)를 업로드하고,\n개인별 맞춤 피드백 보고서를 100개 자동 생성해줘.\n각 보고서는 강점, 개선영역, 액션 플랜을 포함하고\nPDF로 저장한 후 파일명은 \"이름_리더십평가_2025.pdf\"로 해줘.\n```\n\n**작동 방식**:\n- Document Agent: Excel 데이터 분석\n- Developer Agent: 보고서 템플릿 생성 스크립트\n- Multi-Modal Agent: 차트/그래프 시각화\n- **병렬 처리로 100개 보고서 동시 생성**\n\n**예상 시간**: 수작업 20시간 → AI 15분\n\n---\n\n### 2️⃣ **경쟁사 HR SaaS 시장 조사**\n\n**프롬프트**:\n```\n글로벌 HR 자동화 SaaS 시장을 분석해줘:\n1. 상위 10개 플레이어 식별 (Workday, SAP SuccessFactors 등)\n2. 각각의 핵심 기능, 가격 모델, 타겟 고객\n3. 시장 갭 및 미충족 니즈 5가지\n4. 한국 시장 특수성 고려한 기회 영역\n5. HTML 보고서로 정리하고 Notion에 자동 저장\n```\n\n**결과물**:\n- 종합 시장 분석 보고서\n- 경쟁 포지셔닝 매트릭스\n- 실행 가능한 인사이트\n\n**CSP님 가치**: 5-6년 후 런칭을 위한 시장 인텔리전스 축적\n\n---\n\n### 3️⃣ **DX Starter 교육 자동화**\n\n**실행 예시**:\n```\n우리 DX Starter 프로그램의 학습자 진도 데이터(CSV)를 분석하고:\n- 모듈별 완료율 시각화\n- 낙오 위험군 식별 (진도율 30% 이하)\n- 개인별 독려 이메일 초안 작성\n- Slack으로 담당자에게 알림 전송\n- 주간 대시보드 HTML 생성\n```\n\n**자동화 효과**:\n- 실시간 모니터링\n- 선제적 개입 가능\n- 행정 업무 80% 감소\n\n---\n\n### 4️⃣ **Notion 세컨브레인 정리 자동화**\n\n**CSP님 특화 작업**:\n```\n내 Notion 워크스페이스를 스캔해서:\n- 태그 없는 페이지 찾아서 자동 태그 추천\n- 중복 콘텐츠 식별 및 통합 제안\n- 관련 페이지 자동 링크 생성\n- \"💬 Claude 대화 아카이브\" DB와 연결 가능한 페이지 매핑\n- 온톨로지 구조 시각화 (Mermaid 다이어그램)\n```\n\n**철학적 가치**: 세컨브레인이 단순 저장소가 아니라 **살아있는 지식 네트워크**가 됨\n\n---\n\n### 5️⃣ **HR 온톨로지 자동 구축**\n\n**실전 프롬프트**:\n```\nESCO API에서 디지털 스킬 온톨로지 데이터를 가져와서:\n1. 제조업 맥락에 맞게 필터링\n2. 역량-과제-학습경로 관계 매핑\n3. SQL 스키마 설계 및 ERD 생성\n4. 샘플 데이터 100개 생성\n5. Python 데이터 모델 코드 작성\n```\n\n**산출물**:\n- 즉시 사용 가능한 DB 스키마\n- 데이터 모델 코드\n- 문서화\n\n**개발 가속화**: 2주 설계 작업 → 2시간\n\n---\n\n### 6️⃣ **PowerPoint 자동 생성 (당신의 기존 프로젝트 연계)**\n\n**시나리오**:\n```\n\"25년 리더십, 생각하다\" 프로그램 소개 PPT를 만들어줘:\n- 슬라이드 1: 타이틀 (LG 브랜드 컬러 적용)\n- 슬라이드 2-5: 프로그램 목적, 구조, 대상, 기대효과\n- 슬라이드 6-10: 각 모듈 상세 (아이콘 포함)\n- 슬라이드 11: 일정 타임라인 (Gantt 차트)\n- 슬라이드 12: 문의처\n템플릿은 corporate-modern 스타일로.\n```\n\n**기술 스택 활용**:\n- Document Agent가 python-pptx 라이브러리 사용\n- 기존 PowerPoint 자동화 프로젝트와 통합 가능\n\n---\n\n### 7️⃣ **이메일 배치 발송 자동화**\n\n**Gmail/Outlook 연동**:\n```\n리더십 평가 참여자 100명에게 개인화된 초대 이메일 발송:\n- 엑셀에서 이름, 이메일, 부서 정보 읽기\n- 각 사람에게 맞춤 인사말 (부서별 다른 메시지)\n- 평가 링크 개인화 (UTM 파라미터 포함)\n- 발송 시간 분산 (스팸 방지)\n- 발송 로그 CSV로 저장\n```\n\n**Human-in-the-Loop**: \n발송 전 첫 5개 이메일 미리보기 → 승인 → 나머지 자동 발송\n\n---\n\n### 8️⃣ **재무 데이터 분석 및 시각화**\n\n**투자 전략 지원**:\n```\n내 포트폴리오 CSV를 분석해서:\n- 자산 배분 현황 원그래프\n- 월별 수익률 추이 선그래프\n- 섹터별 퍼포먼스 히트맵\n- 리밸런싱 추천 (목표 비율 대비)\n- HTML 대시보드 생성 (매주 자동 업데이트)\n```\n\n**CSP님 관심사**: 한국 채권 시장, 미국 국채 상품 분석에 활용\n\n---\n\n### 9️⃣ **GitHub 자동화 (코드 리뷰 지원)**\n\n**Vibe Coder 가속화**:\n```\n내 eigent-ai/eigent 포크 저장소에서:\n- 최근 커밋 변경사항 요약\n- Pull Request에 자동 코멘트 (코드 품질 체크)\n- Issue 트리아징 (버그/기능요청 분류)\n- Release Note 자동 생성\n- README 업데이트 제안\n```\n\n**MCP GitHub 연동**으로 가능\n\n---\n\n### 🔟 **멀티 플랫폼 콘텐츠 재가공**\n\n**지식 재사용 극대화**:\n```\n내 Claude 대화 아카이브에서 \"HR 자동화\" 주제 대화를 찾아서:\n1. 핵심 인사이트 10개 추출\n2. LinkedIn 포스트 3개 초안 작성 (각 300자)\n3. 블로그 글 1개 (1500자, SEO 최적화)\n4. 트위터 스레드 (10개 트윗)\n5. Notion에 콘텐츠 캘린더 생성\n```\n\n**개인 브랜딩**: 전문성을 콘텐츠로 자동 전환\n\n---\n\n## 🚀 클라우드 버전 특화 장점\n\n### ✅ **즉시 시작**\n- 회원가입 → 5분 후 첫 작업 실행\n- 기술 장벽 제로\n\n### ✅ **모델 걱정 없음**\n- OpenAI, Anthropic, Google 등 최신 모델 자동 제공\n- API 키 관리 불필요\n\n### ✅ **인프라 관리 불필요**\n- 스케일링 자동\n- 업데이트 자동 적용\n\n### ✅ **협업 용이**\n- 팀원 초대 간편\n- 작업 히스토리 공유\n\n---\n\n## 💡 CSP님 맥락에서의 전략적 활용\n\n### **단기 (지금 당장)**\n1. 반복 업무 자동화로 시간 확보\n2. 데이터 분석 속도 10배 향상\n3. 보고서 생성 자동화\n\n### **중기 (1-2년)**\n1. HR SaaS 프로토타입 개발 가속화\n2. 온톨로지 시스템 구축 자동화\n3. 고객 데모용 자동화 시나리오 개발\n\n### **장기 (5-6년 런칭 준비)**\n1. Eigent MCP 방식을 자사 제품에 통합\n2. 멀티 에이전트 아키텍처 학습\n3. 오픈소스 기여로 네트워크 구축\n\n---\n\n## 🎓 시작하기\n\n**1단계**: [eigent.ai](https://www.eigent.ai/download) 접속 → 회원가입  \n**2단계**: 위 10가지 중 하나 선택해서 프롬프트 입력  \n**3단계**: 결과 확인하며 반복 개선  \n\n**첫 번째 추천 작업**: #4 (Notion 정리) - CSP님의 세컨브레인 시스템과 즉시 연동 가능\n\n---\n\n## 🤔 철학적 질문: \"이게 나의 일을 대체하는가?\"\n\n아닙니다. Eigent는 **당신을 증강**합니다.\n\n17년 HR 경험은 \"무엇을 평가해야 하는가\"를 아는 것입니다.  \nEigent는 \"그 평가를 어떻게 효율적으로 실행하는가\"를 해결합니다.\n\n당신의 전문성은 **전략과 판단**에 집중하고,  \nEigent는 **실행과 자동화**를 담당합니다.\n\n결과: **더 높은 차원의 HR 전문가**가 됩니다.\n\n---\n\n어떤 작업부터 시작해보고 싶으신가요? 구체적인 프롬프트 예시를 더 드릴 수 있습니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-24T02:51:46.404035Z",
+      "updated_at": "2026-01-24T02:51:46.404035Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bede8-ea50-76d3-93c6-c6931e6d2455"
+    },
+    {
+      "uuid": "019beded-c6b3-728b-8829-3476feafdaab",
+      "text": "구체적인 예시를 제안해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-01-24T02:55:41.817089Z",
+          "stop_timestamp": "2026-01-24T02:55:41.817089Z",
+          "flags": null,
+          "type": "text",
+          "text": "구체적인 예시를 제안해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-24T02:55:41.822180Z",
+      "updated_at": "2026-01-24T02:55:41.822180Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bede8-ea50-76d3-93c6-c694b2804929"
+    },
+    {
+      "uuid": "019beded-c6b3-728b-8829-3477b5651898",
+      "text": "CSP님이 구체적인 예시를 원하시니, 실제로 바로 실행 가능한 프롬프트와 시나리오를 제공해야 한다. CSP님의 맥락을 고려하면:\n\n1. 17년 HR 경험 at LG PRI\n2. 리더십 평가, 피드백 시스템 전문가\n3. DX 교육 관리\n4. \"25년 리더십, 생각하다\" 프로그램 운영\n5. HR 자동화 SaaS 준비 중\n6. Notion 세컨브레인 사용자\n7. Vibe coder (기술적 이해도 있음)\n8. 온톨로지 기반 시스템 개발 중\n\n가장 실용적이고 즉시 가치를 볼 수 있는 예시들을 단계별로 제시해야 한다. 각 예시는:\n- 정확한 프롬프트\n- 필요한 사전 준비\n- 예상 결과물\n- 후속 활용 방법\n- 주의사항\n\n난이도를 점진적으로 높여가면서 제시하는 것이 좋겠다.# Eigent 클라우드 버전 - 실전 프롬프트 가이드\n\n## 🎯 난이도별 단계적 접근\n\nCSP님의 실제 업무 맥락에 맞춘 **바로 실행 가능한** 프롬프트를 단계별로 제시합니다.\n\n---\n\n## 🥉 LEVEL 1: 워밍업 (첫 30분)\n\n### 예시 1: Notion 페이지 자동 정리\n\n**사전 준비**:\n- Eigent에서 Notion MCP 연결 (Settings → MCP & Tools)\n- Notion 권한 승인\n\n**프롬프트**:\n```\n내 Notion 워크스페이스의 \"💬 Claude 대화 아카이브\" 데이터베이스를 분석해줘:\n\n1. 최근 30일간 저장된 대화 중 \"개발/코딩\" 주제 찾기\n2. 각 대화의 핵심 키워드 3개씩 추출\n3. 태그가 없는 페이지에 자동으로 태그 추가\n4. 결과를 표로 정리해서 보여주고\n5. 변경사항을 Notion에 반영할지 물어봐\n\n참고: 데이터베이스 URL은 https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15\n```\n\n**예상 결과**:\n```\n┌─────────────────────────┬──────────────────────┬─────────────────┐\n│ 페이지 제목              │ 추출된 키워드         │ 추천 태그        │\n├─────────────────────────┼──────────────────────┼─────────────────┤\n│ Python 에러 해결        │ API, 디버깅, FastAPI │ Python, 개발    │\n│ Notion 자동화 구축      │ MCP, 연동, 스크립트  │ Notion, 자동화  │\n└─────────────────────────┴──────────────────────┴─────────────────┘\n\n총 15개 페이지를 분석했습니다. \n8개 페이지에 태그를 추가하시겠습니까? (yes/no)\n```\n\n**Human-in-the-Loop 시점**: \n태그 추가 전 사용자 확인 → 안전한 첫 경험\n\n---\n\n### 예시 2: 간단한 데이터 분석 및 시각화\n\n**사전 준비**:\n샘플 CSV 파일 생성 (또는 실제 데이터 사용)\n\n**프롬프트**:\n```\n다음 교육 참여 데이터를 분석해줘:\n\n[CSV 데이터 붙여넣기 또는 파일 업로드]\n\n과정명,참여자수,완료율,만족도\nDX기초,45,78%,4.2\n리더십역량,32,65%,4.5\n디지털전환,28,82%,4.8\n데이터분석,51,71%,4.3\n\n다음을 수행해줘:\n1. 완료율 평균 계산\n2. 과정별 막대 그래프 생성 (완료율, 만족도)\n3. 개선이 필요한 과정 2개 추천 (근거 포함)\n4. HTML 보고서 생성\n5. 보고서 파일 다운로드 링크 제공\n```\n\n**예상 산출물**:\n- 평균 완료율: 74%\n- 시각화 차트 (PNG 또는 HTML 내장)\n- 분석 코멘트: \"리더십역량 과정은 만족도는 높으나 완료율이 낮음 → 학습 기간 연장 고려\"\n- 다운로드 가능한 HTML 보고서\n\n**학습 포인트**: \n데이터 → 인사이트 → 시각화의 전체 파이프라인 체험\n\n---\n\n## 🥈 LEVEL 2: 실무 적용 (첫 1주일)\n\n### 예시 3: 리더십 평가 개인 피드백 레터 생성\n\n**사전 준비**:\n- 평가 데이터 Excel 파일 (이름, 역량별 점수, 강점, 개선영역)\n\n**프롬프트**:\n```\n첨부한 리더십_평가_데이터.xlsx 파일을 기반으로 \n개인별 피드백 레터를 생성해줘.\n\n템플릿 구조:\n---\n[이름]님께,\n\n2025년 리더십 평가 결과를 안내드립니다.\n\n**종합 점수**: [점수]/100\n**강점 역량**: [상위 3개 역량]\n**개선 역량**: [하위 2개 역량]\n\n**상세 피드백**:\n[각 역량별 해석 및 조언 3-4문장]\n\n**액션 플랜**:\n1. [구체적 개선 행동 1]\n2. [구체적 개선 행동 2]\n3. [구체적 개선 행동 3]\n\n**추천 학습 자료**:\n- [역량별 추천 과정/도서]\n\n2025년 성장을 응원합니다.\nLG PRI 인재개발팀\n---\n\n조건:\n- 총 50명분 생성\n- 각 레터는 개인 맞춤형이어야 함\n- Markdown 형식으로 저장\n- 파일명: \"피드백레터_{이름}.md\"\n- 생성 완료 후 ZIP 파일로 압축\n\n첫 3개만 먼저 보여주고 확인받은 후 나머지 진행해줘.\n```\n\n**기대 효과**:\n- 수작업 50시간 → AI 20분\n- 일관된 품질의 피드백\n- 개인화된 액션 플랜\n\n**Human-in-the-Loop**:\n샘플 3개 검토 → 톤앤매너 조정 → 전체 생성\n\n---\n\n### 예시 4: 경쟁사 HR Tech 벤치마킹\n\n**프롬프트**:\n```\n한국 시장의 HR SaaS 경쟁 환경을 분석하고 전략 보고서를 작성해줘:\n\n**1단계: 시장 플레이어 식별**\n- 국내 HR SaaS 상위 10개 기업 찾기\n- 각 기업의 핵심 제품, 타겟 고객, 가격 정책\n- 최근 1년 펀딩 뉴스나 M&A 동향\n\n**2단계: 기능 매트릭스 작성**\n다음 기능별로 제공 여부 조사:\n- 리더십 평가/다면평가\n- 역량 관리 (스킬 온톨로지)\n- 학습 관리 (LMS)\n- 성과 관리 (OKR/KPI)\n- 조직 진단\n- AI 기능 (자동화, 분석)\n\n**3단계: 갭 분석**\n- 한국 기업들이 겪는 미충족 니즈 5가지\n- 글로벌 솔루션 대비 로컬 솔루션의 약점\n- 특히 \"제조업\" 섹터의 특수 요구사항\n\n**4단계: 포지셔닝 제안**\n- 내가 진입할 수 있는 틈새 시장 3가지\n- 각 시장의 예상 규모, 진입 난이도, 차별화 포인트\n\n**산출물**:\n- 경쟁사 비교표 (HTML 테이블)\n- 포지셔닝 맵 (이미지)\n- 전략 요약 (2페이지 PDF)\n- 전체 상세 보고서 (Notion 페이지로 저장)\n\nNotion 저장 위치: \"프로젝트\" 폴더 하위에 \"HR SaaS 시장분석_2025\" 페이지 생성\n```\n\n**예상 소요 시간**:\n- 수동 리서치: 2-3주\n- Eigent 활용: 2-3시간\n\n**후속 활용**:\n- 투자 피칭 자료\n- 제품 로드맵 우선순위 설정\n- 마케팅 메시지 개발\n\n---\n\n### 예시 5: DX 교육 대시보드 자동화\n\n**사전 준비**:\n- Google Sheets에 학습자 진도 데이터 연동\n- 또는 CSV 업로드\n\n**프롬프트**:\n```\nDX Starter 교육 프로그램의 실시간 모니터링 대시보드를 만들어줘.\n\n**데이터 소스**: 첨부한 dx_learner_progress.csv\n(컬럼: 학습자ID, 이름, 부서, 모듈1~5 완료율, 마지막 접속일, 총 학습시간)\n\n**대시보드 구성**:\n\n1. **전체 현황 카드**\n   - 총 등록자 수\n   - 평균 진도율\n   - 완료자 수 (100% 달성)\n   - 낙오 위험군 (2주간 미접속)\n\n2. **모듈별 완료율 차트**\n   - 가로 막대 그래프\n   - 각 모듈당 완료자 수 표시\n\n3. **부서별 진도 비교**\n   - 히트맵 형식\n   - 부서 x 모듈별 평균 완료율\n\n4. **위험군 리스트**\n   - 표 형식\n   - 이름, 부서, 진도율, 마지막 접속일\n   - 진도율 30% 미만자만 표시\n\n5. **자동 액션**\n   - 위험군에게 독려 메일 초안 작성 (개인별)\n   - Slack #dx-education 채널에 주간 요약 포스팅\n\n**기술 요구사항**:\n- HTML + Chart.js 사용\n- 반응형 디자인 (모바일 뷰 지원)\n- 매주 월요일 오전 9시 자동 업데이트 (cron 설정)\n- 보고서 URL을 Notion \"DX 교육 관리\" 페이지에 임베드\n\n첫 버전 대시보드를 먼저 보여주고 피드백 받은 후 자동화 설정할게.\n```\n\n**Human-in-the-Loop 포인트**:\n1. 대시보드 레이아웃 확인\n2. 위험군 기준 조정 (30% → 50%?)\n3. 메일 톤앤매너 검토\n4. 자동화 승인\n\n---\n\n## 🥇 LEVEL 3: 고급 자동화 (1개월 후)\n\n### 예시 6: HR 온톨로지 데이터 파이프라인 구축\n\n**프롬프트**:\n```\n제조업 특화 HR 스킬 온톨로지 시스템을 구축해줘.\n\n**Phase 1: 데이터 수집**\n1. ESCO API에서 디지털 스킬 카테고리 전체 가져오기\n   - API 엔드포인트: https://ec.europa.eu/esco/api/\n   - 필터: occupation type = \"occupation\", 섹터 = \"manufacturing\"\n\n2. 한국산업인력공단 NCS 데이터 크롤링\n   - URL: https://www.ncs.go.kr\n   - 타겟: \"생산관리\", \"품질관리\", \"스마트제조\" 직무\n\n**Phase 2: 데이터 정제 및 매핑**\n1. ESCO 스킬 → NCS 능력단위 매핑 (유사도 기반)\n2. 중복 제거 및 통합\n3. 계층 구조 재구성:\n   - Level 1: 직무군 (예: 생산관리)\n   - Level 2: 직무 (예: 공정관리)\n   - Level 3: 능력단위 (예: 공정분석)\n   - Level 4: 스킬 (예: 데이터 분석, Python)\n\n**Phase 3: 관계 정의**\n- 스킬 → 학습자원 매핑\n- 스킬 → 과제 매핑\n- 선수 스킬 관계 (prerequisite)\n- 스킬 클러스터 생성\n\n**Phase 4: 데이터베이스 구축**\n1. PostgreSQL 스키마 설계 (ERD 생성)\n2. 샘플 데이터 1000개 생성\n3. SQLAlchemy ORM 모델 코드 작성 (Python)\n4. 초기 데이터 마이그레이션 스크립트\n\n**Phase 5: 시각화**\n- 온톨로지 그래프 (Mermaid 다이어그램)\n- 대시보드 (Streamlit 앱)\n\n**산출물**:\n1. 정제된 스킬 데이터 (JSON, CSV)\n2. ERD 이미지\n3. Python 코드 (모델, 마이그레이션)\n4. 온톨로지 문서 (Notion 페이지)\n5. 시각화 대시보드 (Streamlit 배포 URL)\n\n각 Phase 완료 후 결과를 보여주고 다음 단계 진행 여부를 물어봐줘.\n```\n\n**예상 가치**:\n- 2-3주 작업 → 1일 완료\n- 즉시 활용 가능한 코드베이스\n- 제품 MVP의 핵심 엔진 완성\n\n---\n\n### 예시 7: 멀티 채널 콘텐츠 자동 생산\n\n**프롬프트**:\n```\n내 Notion \"💬 Claude 대화 아카이브\"에서 지난 3개월간 \n\"HR 자동화\" 관련 대화를 분석해서 콘텐츠 시리즈를 만들어줘.\n\n**Step 1: 인사이트 추출**\n- 대화에서 언급된 핵심 개념 20개 추출\n- 각 개념의 빈도수 및 맥락 분석\n- Top 10 인사이트 선정\n\n**Step 2: 콘텐츠 생성**\n\nA. LinkedIn 포스트 시리즈 (5개)\n   - 각 300-400자\n   - 스토리텔링 톤\n   - 해시태그 5개씩\n   - 이미지 제안 (DALL-E 프롬프트 포함)\n   - 게시 요일: 월/수/금 오전 9시\n\nB. 블로그 글 (1개, 심화)\n   - 1500-2000자\n   - 제목: SEO 최적화 (키워드: HR 자동화, AI, 온톨로지)\n   - 구조: 문제정의 → 솔루션 → 사례 → 행동촉구\n   - Meta description, OG 태그 포함\n\nC. Twitter/X 스레드 (1개)\n   - 10개 트윗\n   - 각 트윗 280자 이내\n   - 첫 트윗: Hook (질문형)\n   - 마지막 트윗: CTA (블로그 링크)\n\n**Step 3: 콘텐츠 캘린더**\n- Notion \"콘텐츠 관리\" DB에 자동 입력\n- 속성: 게시일, 채널, 상태(초안), 주제, 키워드\n- 2주간의 발행 일정\n\n**Step 4: 자동화 설정**\n- Slack #marketing 채널에 \"콘텐츠 준비 완료\" 알림\n- 각 게시일 D-1에 리마인더 발송\n\n모든 콘텐츠를 먼저 보여주고, \nCSP님이 선택한 것만 Notion에 저장할게요.\n```\n\n**전략적 가치**:\n- 전문성을 콘텐츠 자산으로 전환\n- 퍼스널 브랜딩 자동화\n- 잠재 고객 유입 채널 구축\n\n---\n\n## 🎯 보너스: 복합 워크플로우 예시\n\n### 예시 8: End-to-End 리더십 프로그램 자동화\n\n**프롬프트**:\n```\n\"25년 리더십, 생각하다\" 프로그램의 전체 운영을 자동화해줘.\n\n**입력 데이터**:\n- 참여자 명단 (Google Sheets)\n- 평가 설문 결과 (Typeform → CSV)\n- 학습 자료 (Notion 페이지 링크들)\n\n**자동화 워크플로우**:\n\n1️⃣ **사전 준비 단계**\n   - 참여자에게 웰컴 이메일 발송 (캘린더 초대 첨부)\n   - Slack 비공개 채널 자동 생성 및 초대\n   - Notion 개인 워크스페이스 페이지 생성\n\n2️⃣ **진행 중 모니터링**\n   - 매주 월요일: 학습 진도 체크 (Notion 페이지 조회수 기반)\n   - 수요일: 중간 설문 발송 (Typeform)\n   - 금요일: 주간 요약 리포트 (Slack 포스팅)\n\n3️⃣ **평가 단계**\n   - Typeform 결과 자동 수집\n   - 개인별 피드백 레터 생성 (앞서 예시 3 활용)\n   - 강점/개선영역 시각화 차트 (레이더 차트)\n\n4️⃣ **사후 관리**\n   - 3개월 후 Follow-up 설문 자동 발송\n   - 변화 추적 리포트 (Before/After 비교)\n   - 우수 사례 자동 식별 및 문서화\n\n5️⃣ **종합 보고**\n   - 경영진 보고용 대시보드 (HTML)\n   - 프로그램 효과성 분석 (ROI 계산)\n   - 다음 기수 개선안 도출\n\n**기술 스택**:\n- Google Sheets API (참여자 데이터)\n- Notion API (페이지 생성/조회)\n- Slack API (메시지 발송)\n- Gmail API (이메일 발송)\n- Typeform Webhook (실시간 응답 수신)\n\n**Human-in-the-Loop 포인트**:\n- 이메일 템플릿 최종 승인 (1회만)\n- 주간 리포트 검토 후 발송 승인\n- 경영진 보고서 최종 검토\n\n각 단계별로 테스트 실행 → 검증 → 본 실행 순으로 진행할게요.\n첫 주는 파일럿으로 소그룹(5명)만 대상으로 해볼까요?\n```\n\n**ROI 계산**:\n- 기존: 프로그램당 행정 업무 40시간\n- 자동화 후: 5시간 (모니터링만)\n- **시간 절감: 87.5%**\n\n---\n\n## 💡 프롬프트 작성 공식\n\nCSP님이 직접 프롬프트를 만들 때 참고할 템플릿:\n\n```\n[목적] 명확히 정의\n\n[입력 데이터]\n- 데이터 소스 명시\n- 파일 형식 및 컬럼 설명\n\n[처리 단계]\n1. [구체적 액션 1]\n2. [구체적 액션 2]\n...\n\n[산출물]\n- 형식: (HTML/PDF/CSV 등)\n- 저장 위치: (Notion/로컬/Drive 등)\n- 네이밍 규칙\n\n[검증 포인트]\n- Human-in-the-Loop 시점 명시\n- 샘플 확인 후 진행\n\n[선택사항]\n- 자동화 스케줄\n- 알림 설정\n```\n\n---\n\n## 🚀 실행 순서 추천\n\n**Week 1**: 예시 1, 2 (워밍업)  \n**Week 2**: 예시 3, 4 (실무 적용)  \n**Week 3**: 예시 5, 6 (자동화 구축)  \n**Week 4**: 예시 7, 8 (통합 워크플로우)\n\n각 예시마다 **결과를 Notion에 아카이빙**하면서 자신만의 프롬프트 라이브러리를 구축하세요.\n\n---\n\n## 🎓 다음 단계\n\n이 예시들을 실행하면서:\n1. 성공한 프롬프트 패턴 수집\n2. 실패한 부분 분석 (왜 작동 안 했는지)\n3. 자신만의 \"프롬프트 스타일\" 개발\n\n**목표**: 3개월 후 CSP님만의 \"HR 자동화 프롬프트 라이브러리\" 완성 → 이것 자체가 제품 MVP가 될 수 있습니다.\n\n어떤 예시부터 시작해보고 싶으신가요? 더 구체적인 데이터 구조나 조건을 말씀해주시면 프롬프트를 더 정교하게 만들어드릴 수 있습니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-01-24T02:55:46.182378Z",
+          "stop_timestamp": "2026-01-24T02:55:53.742792Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "CSP님이 구체적인 예시를 원하시니, 실제로 바로 실행 가능한 프롬프트와 시나리오를 제공해야 한다. CSP님의 맥락을 고려하면:\n\n1. 17년 HR 경험 at LG PRI\n2. 리더십 평가, 피드백 시스템 전문가\n3. DX 교육 관리\n4. \"25년 리더십, 생각하다\" 프로그램 운영\n5. HR 자동화 SaaS 준비 중\n6. Notion 세컨브레인 사용자\n7. Vibe coder (기술적 이해도 있음)\n8. 온톨로지 기반 시스템 개발 중\n\n가장 실용적이고 즉시 가치를 볼 수 있는 예시들을 단계별로 제시해야 한다. 각 예시는:\n- 정확한 프롬프트\n- 필요한 사전 준비\n- 예상 결과물\n- 후속 활용 방법\n- 주의사항\n\n난이도를 점진적으로 높여가면서 제시하는 것이 좋겠다.",
+          "summaries": [
+            {
+              "summary": "구체적인 예시를 제안하는 것에 대해 생각 중입니다."
+            },
+            {
+              "summary": "CSP님의 맥락을 고려하여 실행 가능한 예시 구성 중."
+            },
+            {
+              "summary": "사용자 맥락 고려하여 실행 가능한 예시 구성 중"
+            },
+            {
+              "summary": "사용자 맥락을 분석하여 실행 가능한 단계별 예시를 구성했다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T02:55:53.743086Z",
+          "stop_timestamp": "2026-01-24T02:57:56.044434Z",
+          "flags": null,
+          "type": "text",
+          "text": "# Eigent 클라우드 버전 - 실전 프롬프트 가이드\n\n## 🎯 난이도별 단계적 접근\n\nCSP님의 실제 업무 맥락에 맞춘 **바로 실행 가능한** 프롬프트를 단계별로 제시합니다.\n\n---\n\n## 🥉 LEVEL 1: 워밍업 (첫 30분)\n\n### 예시 1: Notion 페이지 자동 정리\n\n**사전 준비**:\n- Eigent에서 Notion MCP 연결 (Settings → MCP & Tools)\n- Notion 권한 승인\n\n**프롬프트**:\n```\n내 Notion 워크스페이스의 \"💬 Claude 대화 아카이브\" 데이터베이스를 분석해줘:\n\n1. 최근 30일간 저장된 대화 중 \"개발/코딩\" 주제 찾기\n2. 각 대화의 핵심 키워드 3개씩 추출\n3. 태그가 없는 페이지에 자동으로 태그 추가\n4. 결과를 표로 정리해서 보여주고\n5. 변경사항을 Notion에 반영할지 물어봐\n\n참고: 데이터베이스 URL은 https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15\n```\n\n**예상 결과**:\n```\n┌─────────────────────────┬──────────────────────┬─────────────────┐\n│ 페이지 제목              │ 추출된 키워드         │ 추천 태그        │\n├─────────────────────────┼──────────────────────┼─────────────────┤\n│ Python 에러 해결        │ API, 디버깅, FastAPI │ Python, 개발    │\n│ Notion 자동화 구축      │ MCP, 연동, 스크립트  │ Notion, 자동화  │\n└─────────────────────────┴──────────────────────┴─────────────────┘\n\n총 15개 페이지를 분석했습니다. \n8개 페이지에 태그를 추가하시겠습니까? (yes/no)\n```\n\n**Human-in-the-Loop 시점**: \n태그 추가 전 사용자 확인 → 안전한 첫 경험\n\n---\n\n### 예시 2: 간단한 데이터 분석 및 시각화\n\n**사전 준비**:\n샘플 CSV 파일 생성 (또는 실제 데이터 사용)\n\n**프롬프트**:\n```\n다음 교육 참여 데이터를 분석해줘:\n\n[CSV 데이터 붙여넣기 또는 파일 업로드]\n\n과정명,참여자수,완료율,만족도\nDX기초,45,78%,4.2\n리더십역량,32,65%,4.5\n디지털전환,28,82%,4.8\n데이터분석,51,71%,4.3\n\n다음을 수행해줘:\n1. 완료율 평균 계산\n2. 과정별 막대 그래프 생성 (완료율, 만족도)\n3. 개선이 필요한 과정 2개 추천 (근거 포함)\n4. HTML 보고서 생성\n5. 보고서 파일 다운로드 링크 제공\n```\n\n**예상 산출물**:\n- 평균 완료율: 74%\n- 시각화 차트 (PNG 또는 HTML 내장)\n- 분석 코멘트: \"리더십역량 과정은 만족도는 높으나 완료율이 낮음 → 학습 기간 연장 고려\"\n- 다운로드 가능한 HTML 보고서\n\n**학습 포인트**: \n데이터 → 인사이트 → 시각화의 전체 파이프라인 체험\n\n---\n\n## 🥈 LEVEL 2: 실무 적용 (첫 1주일)\n\n### 예시 3: 리더십 평가 개인 피드백 레터 생성\n\n**사전 준비**:\n- 평가 데이터 Excel 파일 (이름, 역량별 점수, 강점, 개선영역)\n\n**프롬프트**:\n```\n첨부한 리더십_평가_데이터.xlsx 파일을 기반으로 \n개인별 피드백 레터를 생성해줘.\n\n템플릿 구조:\n---\n[이름]님께,\n\n2025년 리더십 평가 결과를 안내드립니다.\n\n**종합 점수**: [점수]/100\n**강점 역량**: [상위 3개 역량]\n**개선 역량**: [하위 2개 역량]\n\n**상세 피드백**:\n[각 역량별 해석 및 조언 3-4문장]\n\n**액션 플랜**:\n1. [구체적 개선 행동 1]\n2. [구체적 개선 행동 2]\n3. [구체적 개선 행동 3]\n\n**추천 학습 자료**:\n- [역량별 추천 과정/도서]\n\n2025년 성장을 응원합니다.\nLG PRI 인재개발팀\n---\n\n조건:\n- 총 50명분 생성\n- 각 레터는 개인 맞춤형이어야 함\n- Markdown 형식으로 저장\n- 파일명: \"피드백레터_{이름}.md\"\n- 생성 완료 후 ZIP 파일로 압축\n\n첫 3개만 먼저 보여주고 확인받은 후 나머지 진행해줘.\n```\n\n**기대 효과**:\n- 수작업 50시간 → AI 20분\n- 일관된 품질의 피드백\n- 개인화된 액션 플랜\n\n**Human-in-the-Loop**:\n샘플 3개 검토 → 톤앤매너 조정 → 전체 생성\n\n---\n\n### 예시 4: 경쟁사 HR Tech 벤치마킹\n\n**프롬프트**:\n```\n한국 시장의 HR SaaS 경쟁 환경을 분석하고 전략 보고서를 작성해줘:\n\n**1단계: 시장 플레이어 식별**\n- 국내 HR SaaS 상위 10개 기업 찾기\n- 각 기업의 핵심 제품, 타겟 고객, 가격 정책\n- 최근 1년 펀딩 뉴스나 M&A 동향\n\n**2단계: 기능 매트릭스 작성**\n다음 기능별로 제공 여부 조사:\n- 리더십 평가/다면평가\n- 역량 관리 (스킬 온톨로지)\n- 학습 관리 (LMS)\n- 성과 관리 (OKR/KPI)\n- 조직 진단\n- AI 기능 (자동화, 분석)\n\n**3단계: 갭 분석**\n- 한국 기업들이 겪는 미충족 니즈 5가지\n- 글로벌 솔루션 대비 로컬 솔루션의 약점\n- 특히 \"제조업\" 섹터의 특수 요구사항\n\n**4단계: 포지셔닝 제안**\n- 내가 진입할 수 있는 틈새 시장 3가지\n- 각 시장의 예상 규모, 진입 난이도, 차별화 포인트\n\n**산출물**:\n- 경쟁사 비교표 (HTML 테이블)\n- 포지셔닝 맵 (이미지)\n- 전략 요약 (2페이지 PDF)\n- 전체 상세 보고서 (Notion 페이지로 저장)\n\nNotion 저장 위치: \"프로젝트\" 폴더 하위에 \"HR SaaS 시장분석_2025\" 페이지 생성\n```\n\n**예상 소요 시간**:\n- 수동 리서치: 2-3주\n- Eigent 활용: 2-3시간\n\n**후속 활용**:\n- 투자 피칭 자료\n- 제품 로드맵 우선순위 설정\n- 마케팅 메시지 개발\n\n---\n\n### 예시 5: DX 교육 대시보드 자동화\n\n**사전 준비**:\n- Google Sheets에 학습자 진도 데이터 연동\n- 또는 CSV 업로드\n\n**프롬프트**:\n```\nDX Starter 교육 프로그램의 실시간 모니터링 대시보드를 만들어줘.\n\n**데이터 소스**: 첨부한 dx_learner_progress.csv\n(컬럼: 학습자ID, 이름, 부서, 모듈1~5 완료율, 마지막 접속일, 총 학습시간)\n\n**대시보드 구성**:\n\n1. **전체 현황 카드**\n   - 총 등록자 수\n   - 평균 진도율\n   - 완료자 수 (100% 달성)\n   - 낙오 위험군 (2주간 미접속)\n\n2. **모듈별 완료율 차트**\n   - 가로 막대 그래프\n   - 각 모듈당 완료자 수 표시\n\n3. **부서별 진도 비교**\n   - 히트맵 형식\n   - 부서 x 모듈별 평균 완료율\n\n4. **위험군 리스트**\n   - 표 형식\n   - 이름, 부서, 진도율, 마지막 접속일\n   - 진도율 30% 미만자만 표시\n\n5. **자동 액션**\n   - 위험군에게 독려 메일 초안 작성 (개인별)\n   - Slack #dx-education 채널에 주간 요약 포스팅\n\n**기술 요구사항**:\n- HTML + Chart.js 사용\n- 반응형 디자인 (모바일 뷰 지원)\n- 매주 월요일 오전 9시 자동 업데이트 (cron 설정)\n- 보고서 URL을 Notion \"DX 교육 관리\" 페이지에 임베드\n\n첫 버전 대시보드를 먼저 보여주고 피드백 받은 후 자동화 설정할게.\n```\n\n**Human-in-the-Loop 포인트**:\n1. 대시보드 레이아웃 확인\n2. 위험군 기준 조정 (30% → 50%?)\n3. 메일 톤앤매너 검토\n4. 자동화 승인\n\n---\n\n## 🥇 LEVEL 3: 고급 자동화 (1개월 후)\n\n### 예시 6: HR 온톨로지 데이터 파이프라인 구축\n\n**프롬프트**:\n```\n제조업 특화 HR 스킬 온톨로지 시스템을 구축해줘.\n\n**Phase 1: 데이터 수집**\n1. ESCO API에서 디지털 스킬 카테고리 전체 가져오기\n   - API 엔드포인트: https://ec.europa.eu/esco/api/\n   - 필터: occupation type = \"occupation\", 섹터 = \"manufacturing\"\n\n2. 한국산업인력공단 NCS 데이터 크롤링\n   - URL: https://www.ncs.go.kr\n   - 타겟: \"생산관리\", \"품질관리\", \"스마트제조\" 직무\n\n**Phase 2: 데이터 정제 및 매핑**\n1. ESCO 스킬 → NCS 능력단위 매핑 (유사도 기반)\n2. 중복 제거 및 통합\n3. 계층 구조 재구성:\n   - Level 1: 직무군 (예: 생산관리)\n   - Level 2: 직무 (예: 공정관리)\n   - Level 3: 능력단위 (예: 공정분석)\n   - Level 4: 스킬 (예: 데이터 분석, Python)\n\n**Phase 3: 관계 정의**\n- 스킬 → 학습자원 매핑\n- 스킬 → 과제 매핑\n- 선수 스킬 관계 (prerequisite)\n- 스킬 클러스터 생성\n\n**Phase 4: 데이터베이스 구축**\n1. PostgreSQL 스키마 설계 (ERD 생성)\n2. 샘플 데이터 1000개 생성\n3. SQLAlchemy ORM 모델 코드 작성 (Python)\n4. 초기 데이터 마이그레이션 스크립트\n\n**Phase 5: 시각화**\n- 온톨로지 그래프 (Mermaid 다이어그램)\n- 대시보드 (Streamlit 앱)\n\n**산출물**:\n1. 정제된 스킬 데이터 (JSON, CSV)\n2. ERD 이미지\n3. Python 코드 (모델, 마이그레이션)\n4. 온톨로지 문서 (Notion 페이지)\n5. 시각화 대시보드 (Streamlit 배포 URL)\n\n각 Phase 완료 후 결과를 보여주고 다음 단계 진행 여부를 물어봐줘.\n```\n\n**예상 가치**:\n- 2-3주 작업 → 1일 완료\n- 즉시 활용 가능한 코드베이스\n- 제품 MVP의 핵심 엔진 완성\n\n---\n\n### 예시 7: 멀티 채널 콘텐츠 자동 생산\n\n**프롬프트**:\n```\n내 Notion \"💬 Claude 대화 아카이브\"에서 지난 3개월간 \n\"HR 자동화\" 관련 대화를 분석해서 콘텐츠 시리즈를 만들어줘.\n\n**Step 1: 인사이트 추출**\n- 대화에서 언급된 핵심 개념 20개 추출\n- 각 개념의 빈도수 및 맥락 분석\n- Top 10 인사이트 선정\n\n**Step 2: 콘텐츠 생성**\n\nA. LinkedIn 포스트 시리즈 (5개)\n   - 각 300-400자\n   - 스토리텔링 톤\n   - 해시태그 5개씩\n   - 이미지 제안 (DALL-E 프롬프트 포함)\n   - 게시 요일: 월/수/금 오전 9시\n\nB. 블로그 글 (1개, 심화)\n   - 1500-2000자\n   - 제목: SEO 최적화 (키워드: HR 자동화, AI, 온톨로지)\n   - 구조: 문제정의 → 솔루션 → 사례 → 행동촉구\n   - Meta description, OG 태그 포함\n\nC. Twitter/X 스레드 (1개)\n   - 10개 트윗\n   - 각 트윗 280자 이내\n   - 첫 트윗: Hook (질문형)\n   - 마지막 트윗: CTA (블로그 링크)\n\n**Step 3: 콘텐츠 캘린더**\n- Notion \"콘텐츠 관리\" DB에 자동 입력\n- 속성: 게시일, 채널, 상태(초안), 주제, 키워드\n- 2주간의 발행 일정\n\n**Step 4: 자동화 설정**\n- Slack #marketing 채널에 \"콘텐츠 준비 완료\" 알림\n- 각 게시일 D-1에 리마인더 발송\n\n모든 콘텐츠를 먼저 보여주고, \nCSP님이 선택한 것만 Notion에 저장할게요.\n```\n\n**전략적 가치**:\n- 전문성을 콘텐츠 자산으로 전환\n- 퍼스널 브랜딩 자동화\n- 잠재 고객 유입 채널 구축\n\n---\n\n## 🎯 보너스: 복합 워크플로우 예시\n\n### 예시 8: End-to-End 리더십 프로그램 자동화\n\n**프롬프트**:\n```\n\"25년 리더십, 생각하다\" 프로그램의 전체 운영을 자동화해줘.\n\n**입력 데이터**:\n- 참여자 명단 (Google Sheets)\n- 평가 설문 결과 (Typeform → CSV)\n- 학습 자료 (Notion 페이지 링크들)\n\n**자동화 워크플로우**:\n\n1️⃣ **사전 준비 단계**\n   - 참여자에게 웰컴 이메일 발송 (캘린더 초대 첨부)\n   - Slack 비공개 채널 자동 생성 및 초대\n   - Notion 개인 워크스페이스 페이지 생성\n\n2️⃣ **진행 중 모니터링**\n   - 매주 월요일: 학습 진도 체크 (Notion 페이지 조회수 기반)\n   - 수요일: 중간 설문 발송 (Typeform)\n   - 금요일: 주간 요약 리포트 (Slack 포스팅)\n\n3️⃣ **평가 단계**\n   - Typeform 결과 자동 수집\n   - 개인별 피드백 레터 생성 (앞서 예시 3 활용)\n   - 강점/개선영역 시각화 차트 (레이더 차트)\n\n4️⃣ **사후 관리**\n   - 3개월 후 Follow-up 설문 자동 발송\n   - 변화 추적 리포트 (Before/After 비교)\n   - 우수 사례 자동 식별 및 문서화\n\n5️⃣ **종합 보고**\n   - 경영진 보고용 대시보드 (HTML)\n   - 프로그램 효과성 분석 (ROI 계산)\n   - 다음 기수 개선안 도출\n\n**기술 스택**:\n- Google Sheets API (참여자 데이터)\n- Notion API (페이지 생성/조회)\n- Slack API (메시지 발송)\n- Gmail API (이메일 발송)\n- Typeform Webhook (실시간 응답 수신)\n\n**Human-in-the-Loop 포인트**:\n- 이메일 템플릿 최종 승인 (1회만)\n- 주간 리포트 검토 후 발송 승인\n- 경영진 보고서 최종 검토\n\n각 단계별로 테스트 실행 → 검증 → 본 실행 순으로 진행할게요.\n첫 주는 파일럿으로 소그룹(5명)만 대상으로 해볼까요?\n```\n\n**ROI 계산**:\n- 기존: 프로그램당 행정 업무 40시간\n- 자동화 후: 5시간 (모니터링만)\n- **시간 절감: 87.5%**\n\n---\n\n## 💡 프롬프트 작성 공식\n\nCSP님이 직접 프롬프트를 만들 때 참고할 템플릿:\n\n```\n[목적] 명확히 정의\n\n[입력 데이터]\n- 데이터 소스 명시\n- 파일 형식 및 컬럼 설명\n\n[처리 단계]\n1. [구체적 액션 1]\n2. [구체적 액션 2]\n...\n\n[산출물]\n- 형식: (HTML/PDF/CSV 등)\n- 저장 위치: (Notion/로컬/Drive 등)\n- 네이밍 규칙\n\n[검증 포인트]\n- Human-in-the-Loop 시점 명시\n- 샘플 확인 후 진행\n\n[선택사항]\n- 자동화 스케줄\n- 알림 설정\n```\n\n---\n\n## 🚀 실행 순서 추천\n\n**Week 1**: 예시 1, 2 (워밍업)  \n**Week 2**: 예시 3, 4 (실무 적용)  \n**Week 3**: 예시 5, 6 (자동화 구축)  \n**Week 4**: 예시 7, 8 (통합 워크플로우)\n\n각 예시마다 **결과를 Notion에 아카이빙**하면서 자신만의 프롬프트 라이브러리를 구축하세요.\n\n---\n\n## 🎓 다음 단계\n\n이 예시들을 실행하면서:\n1. 성공한 프롬프트 패턴 수집\n2. 실패한 부분 분석 (왜 작동 안 했는지)\n3. 자신만의 \"프롬프트 스타일\" 개발\n\n**목표**: 3개월 후 CSP님만의 \"HR 자동화 프롬프트 라이브러리\" 완성 → 이것 자체가 제품 MVP가 될 수 있습니다.\n\n어떤 예시부터 시작해보고 싶으신가요? 더 구체적인 데이터 구조나 조건을 말씀해주시면 프롬프트를 더 정교하게 만들어드릴 수 있습니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-24T02:57:56.100128Z",
+      "updated_at": "2026-01-24T02:57:56.100128Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019beded-c6b3-728b-8829-3476feafdaab"
+    },
+    {
+      "uuid": "019bedf2-74b1-75e0-92a2-01dc7a604b7d",
+      "text": "아래 내용을 상세하게 설명해줘 :\n컨텍스트 엔지니어링- 프롬프트 캐싱 - 시스템 프롬프트 최적화 - 툴킷 문서 문자열 최적화 - 컨텍스트 압축",
+      "content": [
+        {
+          "start_timestamp": "2026-01-24T03:00:48.596989Z",
+          "stop_timestamp": "2026-01-24T03:00:48.596989Z",
+          "flags": null,
+          "type": "text",
+          "text": "아래 내용을 상세하게 설명해줘 :\n컨텍스트 엔지니어링- 프롬프트 캐싱 - 시스템 프롬프트 최적화 - 툴킷 문서 문자열 최적화 - 컨텍스트 압축",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-24T03:00:48.599687Z",
+      "updated_at": "2026-01-24T03:00:48.599687Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019beded-c6b3-728b-8829-3477b5651898"
+    },
+    {
+      "uuid": "019bedf2-74b1-75e0-92a2-01dd82118fd2",
+      "text": "사용자가 Eigent의 로드맵에 나온 \"Context Engineering\" 항목에 대해 상세한 설명을 요청했습니다. 이는 멀티 에이전트 시스템에서 매우 중요한 기술적 개념들입니다. CSP님의 배경(인문학, 철학, 심리학적 설명 선호, SW 백그라운드 없음)을 고려해서 철학적/개념적 접근과 실용적 활용을 결합해서 설명해야 합니다.\n\n각 항목을 다음 관점에서 설명하겠습니다:\n1. 본질적 의미 (철학적 이해)\n2. 기술적 작동 원리 (비유를 통한 설명)\n3. 실무적 가치 (CSP님의 HR 업무 맥락)\n4. 구체적 예시\n\n네 가지 주제:\n1. 프롬프트 캐싱 (Prompt Caching)\n2. 시스템 프롬프트 최적화 (System Prompt Optimization)\n3. 툴킷 문서 문자열 최적화 (Toolkit Docstring Optimization)\n4. 컨텍스트 압축 (Context Compression)\n\n이들은 모두 \"컨텍스트 엔지니어링\"이라는 큰 범주에 속하는데, 이는 AI가 효율적으로 작동하도록 \"맥락(context)\"을 설계하고 관리하는 기술입니다.# 컨텍스트 엔지니어링: AI의 \"기억력\"과 \"이해력\" 설계하기\n\n## 🎭 본질적 이해: \"컨텍스트\"란 무엇인가?\n\n### 철학적 전제\n\n컨텍스트(Context)는 **\"의미의 토양\"**입니다. 같은 단어도 맥락에 따라 다른 의미를 갖죠.\n\n- \"사과\" → 과일? 사죄?\n- \"리더십\" → CEO의 리더십? 팀장의 리더십? 오케스트라 지휘자의 리더십?\n\nAI에게 컨텍스트는 **\"지금 이 순간 무엇을 알고 있는가\"**의 전부입니다. 인간은 장기 기억이 있지만, AI는 대화창에 보이는 텍스트만이 전부입니다. \n\n**컨텍스트 엔지니어링**은 이 제한된 \"지금 여기\"를 최대한 효율적이고 풍부하게 만드는 기술입니다.\n\n### 왜 중요한가?\n\nEigent 같은 멀티 에이전트 시스템에서는:\n- Developer Agent가 \"지금 어떤 코드를 작성 중인지\"\n- Search Agent가 \"이미 검색한 내용이 무엇인지\"\n- Document Agent가 \"문서의 어디까지 작성했는지\"\n\n이 모든 것이 **컨텍스트**입니다. 이걸 잘못 관리하면:\n- 같은 작업 반복 (비효율)\n- 정보 손실 (품질 저하)\n- 비용 폭증 (토큰 낭비)\n\n---\n\n## 1️⃣ 프롬프트 캐싱 (Prompt Caching)\n\n### 🧠 핵심 개념: \"자주 쓰는 건 외워두기\"\n\n**비유**: 매일 출근길\n- **캐싱 없음**: 매일 아침 집에서 회사까지 GPS로 경로 검색\n- **캐싱 있음**: 첫날만 검색하고, 이후엔 기억에서 바로 출발\n\nAI도 마찬가지입니다. 매번 똑같은 시스템 프롬프트를 다시 읽는 건 낭비죠.\n\n### 기술적 작동 원리\n\n```\n┌─────────────────────────────────────┐\n│ 시스템 프롬프트 (항상 동일)         │ ← 캐싱 대상\n│ \"당신은 HR 전문가입니다...\"         │\n│ \"리더십 평가 규칙은...\"             │\n│ (2000 토큰)                         │\n├─────────────────────────────────────┤\n│ 사용자 질문 (매번 변경)             │ ← 새로 처리\n│ \"김철수의 평가 결과는?\"             │\n│ (50 토큰)                           │\n└─────────────────────────────────────┘\n\n캐싱 전: 2050 토큰 × 100회 = 205,000 토큰\n캐싱 후: 2000 토큰(1회 저장) + 50 토큰 × 100회 = 7,000 토큰\n절감율: 96.6%\n```\n\n### 실무 적용 예시\n\n**CSP님의 \"25년 리더십, 생각하다\" 프로그램**\n\n캐싱 대상:\n```\n시스템 프롬프트 (변하지 않음):\n- 평가 프레임워크 설명 (1000 토큰)\n- 역량 정의 및 평가 기준 (800 토큰)\n- 피드백 작성 가이드라인 (500 토큰)\n- 회사 가치 및 리더십 철학 (300 토큰)\n총: 2600 토큰 → 1회만 전송\n\n동적 부분 (매번 변경):\n- 개인 평가 데이터 (100 토큰)\n- 구체적 질문 (50 토큰)\n```\n\n**효과**:\n- 100명 평가 시 토큰 비용 97% 절감\n- 응답 속도 50% 향상\n- 동일한 평가 기준 일관성 보장\n\n### Anthropic의 실제 구현\n\nClaude API에서는 이미 이 기능을 제공합니다:\n\n```python\n# 캐싱 활성화 예시\nresponse = anthropic.messages.create(\n    model=\"claude-sonnet-4-20250514\",\n    max_tokens=1024,\n    system=[\n        {\n            \"type\": \"text\",\n            \"text\": \"평가 프레임워크...\",  # 이 부분이 캐싱됨\n            \"cache_control\": {\"type\": \"ephemeral\"}\n        }\n    ],\n    messages=[...]\n)\n```\n\n---\n\n## 2️⃣ 시스템 프롬프트 최적화 (System Prompt Optimization)\n\n### 🎯 핵심 개념: \"핵심만 간결하게\"\n\n**비유**: 업무 지시서\n- **최적화 전**: \"이 작업은 매우 중요하며, 신중하게, 꼼꼼하게, 정확하게, 빠뜨리지 말고, 확실하게...\" (불필요한 수식어 과다)\n- **최적화 후**: \"평가 기준: 1) 정확성 2) 완전성\" (명확하고 간결)\n\n### 최적화 전략\n\n#### A. **중복 제거**\n\n**Before**:\n```\n당신은 HR 전문가입니다. \n당신은 리더십 평가를 수행합니다.\n당신은 17년의 경험을 가진 전문가입니다.\n당신은 LG에서 근무했습니다.\n당신은...\n(500 토큰)\n```\n\n**After**:\n```\n역할: LG PRI 출신 17년차 HR 리더십 평가 전문가\n(20 토큰, 96% 감축)\n```\n\n#### B. **구조화**\n\n**Before**:\n```\n평가할 때는 전략적 사고와 실행력과 소통능력과 \n변화관리와 코칭을 봐야 하고 각각 20점씩이며 \n총점은 100점이고...\n(장황한 단락)\n```\n\n**After**:\n```\n평가 영역 (각 20점):\n1. 전략적 사고\n2. 실행력\n3. 소통능력\n4. 변화관리\n5. 코칭\n\n(구조화된 리스트)\n```\n\n#### C. **예시 기반 학습 (Few-shot)**\n\n**Before**:\n```\n피드백을 작성할 때는 긍정적이면서도 \n건설적이어야 하며, 구체적인 사례를 들고,\n개선 방향을 제시하며...\n(추상적 설명 300 토큰)\n```\n\n**After**:\n```\n예시:\n입력: 전략적사고 18점, 실행력 12점\n출력: \"전략 수립 역량이 우수합니다(상위 10%). \n실행 단계에서 추진력 강화가 필요합니다. \n권장: 프로젝트 관리 교육 이수\"\n\n(구체적 예시 1개로 100 토큰)\n```\n\n### CSP님 HR 업무 적용\n\n**DX Starter 프로그램 자동화**\n\n최적화 전:\n```\n당신은 디지털 전환 교육을 담당하는 전문가입니다.\n학습자들의 진도를 모니터링하고 분석해야 합니다.\n낙오자가 발생하지 않도록 주의 깊게 살펴야 하며...\n(총 800 토큰의 장황한 설명)\n```\n\n최적화 후:\n```\nRole: DX 교육 담당자\nTask: 진도 모니터링 → 위험군 식별 → 개입\nCriteria: 2주 미접속 OR 진도 30% 미만 = 위험군\nOutput: 독려 메일 초안 (예시 참조)\n\n예시:\n[이름]님, DX 모듈2가 멈춰있네요. \n목표일(3/15)까지 [남은일수]일입니다.\n도움이 필요하시면 연락 주세요.\n\n(총 150 토큰, 81% 절감)\n```\n\n---\n\n## 3️⃣ 툴킷 문서 문자열 최적화 (Toolkit Docstring Optimization)\n\n### 🔧 핵심 개념: \"도구 사용법을 명확하게\"\n\n**비유**: IKEA 조립 설명서\n- **나쁜 설명서**: \"부품 A를 사용하여 적절한 방법으로 결합하시오\"\n- **좋은 설명서**: \"부품 A(긴 나사) → 구멍 B → 시계방향 3바퀴\"\n\nAI 에이전트에게 도구(tool)는 외부 기능입니다. Eigent의 경우:\n- 브라우저 제어\n- 파일 생성\n- API 호출\n- 데이터베이스 쿼리\n\n각 도구의 **사용법 설명(docstring)**이 명확해야 에이전트가 올바르게 사용합니다.\n\n### 문제점: 불명확한 Docstring\n\n**Before**:\n```python\ndef send_email(recipient, subject, body, attachments=None):\n    \"\"\"\n    이메일을 발송하는 함수입니다.\n    여러 수신자에게 보낼 수 있으며, \n    첨부 파일도 가능합니다.\n    \"\"\"\n    ...\n```\n\n**AI의 혼란**:\n- \"여러 수신자\"는 리스트? 쉼표 구분 문자열?\n- 첨부 파일 형식은? 경로? 바이너리?\n- 필수 파라미터는 뭐지?\n\n**결과**: 에이전트가 잘못 사용 → 에러 → 재시도 → 비효율\n\n### 최적화된 Docstring\n\n**After**:\n```python\ndef send_email(\n    recipient: str | list[str],\n    subject: str,\n    body: str,\n    attachments: list[str] | None = None\n):\n    \"\"\"\n    Gmail API를 통해 이메일 발송\n    \n    Args:\n        recipient: 수신자 이메일 (단일 또는 리스트)\n            - 단일: \"user@example.com\"\n            - 복수: [\"user1@example.com\", \"user2@example.com\"]\n        subject: 제목 (최대 200자)\n        body: 본문 (HTML 또는 Plain text)\n        attachments: 첨부 파일 경로 리스트 (선택)\n            - 예: [\"/path/to/file.pdf\", \"/path/to/image.png\"]\n            - 최대 25MB, 파일당 10MB 제한\n    \n    Returns:\n        dict: {\"message_id\": \"...\", \"status\": \"sent\"}\n    \n    Raises:\n        ValueError: recipient가 빈 문자열인 경우\n        FileSizeError: 첨부 파일이 10MB 초과인 경우\n    \n    Example:\n        >>> send_email(\n        ...     recipient=\"team@company.com\",\n        ...     subject=\"Weekly Report\",\n        ...     body=\"<h1>Report</h1><p>...</p>\",\n        ...     attachments=[\"/reports/week1.pdf\"]\n        ... )\n        {\"message_id\": \"abc123\", \"status\": \"sent\"}\n    \"\"\"\n    ...\n```\n\n### 최적화 효과\n\n| 항목 | Before | After | 개선 |\n|------|--------|-------|------|\n| 에러율 | 30% | 5% | -83% |\n| 재시도 횟수 | 평균 2.3회 | 0.2회 | -91% |\n| 토큰 낭비 | 높음 | 낮음 | 에러 재시도 감소로 절감 |\n\n### CSP님 실무 예시: Notion API 도구 최적화\n\n**Before**:\n```python\ndef create_notion_page(title, content, database_id):\n    \"\"\"Notion 페이지를 생성합니다.\"\"\"\n```\n\n**AI의 실패 케이스**:\n```\n에이전트: create_notion_page(\n    title=\"평가보고서\",\n    content=\"김철수님의 평가 결과...\",  # 마크다운? HTML?\n    database_id=\"5f2ff32ac1b8...\"  # 대시 포함? 제외?\n)\n→ ERROR: content must be Notion blocks format\n```\n\n**After**:\n```python\ndef create_notion_page(\n    title: str,\n    content: str,\n    database_id: str,\n    properties: dict | None = None\n):\n    \"\"\"\n    Notion 데이터베이스에 새 페이지 생성\n    \n    Args:\n        title: 페이지 제목 (최대 2000자)\n        content: 페이지 본문 (Notion Markdown 형식)\n            - 지원: # 제목, **굵게**, - 리스트\n            - 미지원: HTML 태그\n        database_id: DB ID (대시 포함/제외 모두 허용)\n            - 형식: \"5f2ff32a-c1b8-4981-988b-f5e0da6eeb15\"\n            - 또는: \"5f2ff32ac1b84981988bf5e0da6eeb15\"\n        properties: DB 속성값 (선택)\n            - 예: {\"주제\": \"개발\", \"중요도\": \"⭐⭐⭐\"}\n    \n    Returns:\n        dict: {\"page_id\": \"...\", \"url\": \"https://notion.so/...\"}\n    \n    Example:\n        >>> create_notion_page(\n        ...     title=\"평가보고서_김철수\",\n        ...     content=\"# 평가 결과\\n**강점**: ...\",\n        ...     database_id=\"5f2ff32ac1b84981988bf5e0da6eeb15\",\n        ...     properties={\"상태\": \"✅ 완료\"}\n        ... )\n    \"\"\"\n```\n\n**결과**: 에이전트가 첫 시도에 성공, 재작업 불필요\n\n---\n\n## 4️⃣ 컨텍스트 압축 (Context Compression)\n\n### 📦 핵심 개념: \"핵심만 남기고 버리기\"\n\n**비유**: 여행 짐 싸기\n- **압축 전**: 옷 30벌, 책 10권, 신발 5켤레 → 캐리어 3개 (무거움)\n- **압축 후**: 필수 옷 7벌, 전자책, 운동화 1켤레 → 배낭 1개 (가벼움)\n\nAI의 컨텍스트 윈도우는 **제한적**입니다:\n- Claude Sonnet: ~200K 토큰\n- GPT-4: ~128K 토큰\n\n긴 대화를 하다 보면 이 한계에 도달합니다. 그때 무엇을 남기고 버릴까?\n\n### 압축 전략\n\n#### A. **요약 (Summarization)**\n\n**Before** (10,000 토큰):\n```\n사용자: 리더십 평가 기준이 뭐였죠?\nAI: 전략적 사고, 실행력, 소통능력, 변화관리, 코칭입니다.\n사용자: 각각 몇 점이죠?\nAI: 각 20점씩, 총 100점입니다.\n사용자: 김철수 점수는?\nAI: 18, 15, 17, 14, 16점입니다.\n사용자: 평균은?\nAI: 80점입니다.\n...\n(50턴의 대화)\n```\n\n**After** (500 토큰):\n```\n대화 요약:\n- 평가 영역: 5개 (각 20점)\n- 김철수: 총점 80/100\n  - 강점: 전략적사고(18), 소통(17)\n  - 개선: 변화관리(14)\n- 다음 액션: 피드백 레터 작성 예정\n```\n\n#### B. **선택적 보존 (Selective Retention)**\n\n중요도에 따라 차등 보존:\n\n| 중요도 | 내용 유형 | 보존 방식 |\n|--------|----------|----------|\n| 높음 | 최종 결정, 핵심 데이터 | 전문 보존 |\n| 중간 | 중간 결과, 논의 과정 | 요약 보존 |\n| 낮음 | 시행착오, 에러 메시지 | 삭제 |\n\n**예시**:\n```\n[높음 - 전문 보존]\n최종 결정: 김철수 평가 80점, 승진 추천\n\n[중간 - 요약]\n논의: 변화관리 점수 14점 → 코칭 필요성 합의\n\n[낮음 - 삭제]\n(에러: CSV 파일 경로 오류 → 재시도 → 성공)\n```\n\n#### C. **청킹 (Chunking)**\n\n긴 문서를 의미 단위로 분할:\n\n**Before** (한 번에 전체 처리):\n```\n리더십평가보고서.pdf (15,000 토큰)\n→ 컨텍스트 윈도우 부족 → 에러\n```\n\n**After** (청크로 분할):\n```\nChunk 1: 요약 및 종합 점수 (500 토큰)\nChunk 2: 영역별 상세 평가 (3,000 토큰)\nChunk 3: 개선 계획 (1,000 토큰)\n\n필요시 관련 청크만 로드\n→ 효율적 메모리 사용\n```\n\n### 압축 알고리즘 예시\n\n#### **LLMLingua 방식**\n\n불필요한 단어 제거:\n\n**Before**:\n```\n김철수 님께서는 전략적 사고 영역에서 \n매우 우수한 성과를 보여주셨습니다. \n특히 장기 비전 수립과 관련하여...\n(100 토큰)\n```\n\n**After**:\n```\n김철수: 전략적사고 우수. \n장기비전 수립 강점.\n(20 토큰, 80% 압축)\n```\n\n#### **의미 기반 압축**\n\n임베딩을 사용한 유사 문장 통합:\n\n```\n문장1: \"전략적 사고 능력이 뛰어납니다\"\n문장2: \"전략 수립 역량이 우수합니다\"\n문장3: \"장기 비전 설정에 탁월합니다\"\n\n→ 유사도 90% 이상\n→ 통합: \"전략적 사고/비전 수립 역량 우수\"\n```\n\n### CSP님 실전 활용\n\n**시나리오**: 100명 리더십 평가 데이터 분석\n\n**문제**:\n- 100명 × 평균 500 토큰/명 = 50,000 토큰\n- Claude 윈도우 초과 가능성\n\n**해결책 1: 계층적 요약**\n```\nLevel 1: 개인별 요약 (100명 × 50 토큰 = 5,000 토큰)\nLevel 2: 부서별 평균 (10부서 × 100 토큰 = 1,000 토큰)\nLevel 3: 전사 종합 (500 토큰)\n\n최종 컨텍스트: 6,500 토큰 (87% 압축)\n```\n\n**해결책 2: 쿼리 기반 압축**\n```\n질문: \"변화관리 점수가 낮은 리더 10명은?\"\n\n→ 변화관리 관련 데이터만 로드\n→ 상위/하위 10명만 상세 보존\n→ 나머지는 점수만 보존\n\n결과: 2,000 토큰으로 충분\n```\n\n---\n\n## 🔗 네 가지 기법의 통합 활용\n\n실제 Eigent에서는 이 기법들이 **함께** 작동합니다.\n\n### 통합 예시: \"25년 리더십, 생각하다\" 전체 자동화\n\n```\n┌─────────────────────────────────────────────┐\n│ 1. 프롬프트 캐싱                             │\n│ - 평가 프레임워크 (1회 로드, 재사용)        │\n│ - 피드백 가이드라인 (1회 로드)             │\n│ 절감: 2,500 토큰 × 99회 = 247,500 토큰     │\n├─────────────────────────────────────────────┤\n│ 2. 시스템 프롬프트 최적화                   │\n│ - 장황한 설명 800 토큰 → 구조화 150 토큰   │\n│ 절감: 650 토큰 × 100회 = 65,000 토큰       │\n├─────────────────────────────────────────────┤\n│ 3. 툴킷 Docstring 최적화                    │\n│ - Notion API 에러 재시도 감소               │\n│ - 평균 재시도 2회 → 0.2회                  │\n│ 절감: 에러 처리 토큰 90% 감소               │\n├─────────────────────────────────────────────┤\n│ 4. 컨텍스트 압축                             │\n│ - 100명 데이터 50,000 토큰 → 6,500 토큰    │\n│ 절감: 43,500 토큰                          │\n└─────────────────────────────────────────────┘\n\n총 절감: ~350,000 토큰\n비용 절감: ~$3.50 (GPT-4 기준, 1회 실행)\n100회 실행 시: $350 절감\n```\n\n---\n\n## 💡 CSP님을 위한 실천 가이드\n\n### 당장 적용 가능한 3가지\n\n#### 1. **프롬프트 템플릿 라이브러리 구축**\n\nNotion에 \"프롬프트 템플릿\" 데이터베이스 생성:\n\n```\n템플릿 이름: 리더십_피드백_생성\n캐싱 영역: [평가기준 설명 2000자]\n동적 영역: [개인 데이터 삽입 위치]\n최적화 팁: \"구체적 예시 1개로 충분, 장황한 설명 제거\"\n```\n\n#### 2. **도구 사용법 문서화**\n\n자주 쓰는 도구마다 \"명확한 예시\" 추가:\n\n```\n도구: Notion 페이지 생성\n잘못된 사용: create_page(title=\"보고서\", content=\"...\")\n올바른 사용: create_page(\n    title=\"평가보고서_김철수_2025\",\n    content=\"# 평가 결과\\n## 강점\\n- 전략적사고...\",\n    database_id=\"5f2ff32ac1b8...\"\n)\n```\n\n#### 3. **대화 요약 습관**\n\n긴 작업 후 마무리:\n\n```\n프롬프트: \"지금까지 논의를 3줄로 요약해줘. \n다음 대화에서 참고할 수 있도록.\"\n\nAI 응답:\n1. 김철수 평가 완료 (80점, 승진 추천)\n2. 변화관리 코칭 계획 수립\n3. 다음: 박영희 평가 예정\n```\n\n---\n\n## 🎓 철학적 성찰: \"효율성의 미학\"\n\n컨텍스트 엔지니어링은 단순한 기술 최적화가 아닙니다. 이것은 **\"무엇이 본질인가?\"**를 끊임없이 묻는 철학적 실천입니다.\n\n- **프롬프트 캐싱**: 반복에서 핵심 찾기\n- **시스템 프롬프트 최적화**: 간결함의 힘\n- **Docstring 최적화**: 명확한 소통\n- **컨텍스트 압축**: 의미의 보존\n\nCSP님의 \"Vibe coder\" 정체성과 완벽하게 맞닿아 있습니다. \n기술 백그라운드 없이도, **\"어떻게 하면 더 명확하게 전달할까?\"**를 고민하는 것만으로도 \n탁월한 컨텍스트 엔지니어가 될 수 있습니다.\n\n---\n\n더 깊이 탐구하고 싶은 특정 기법이나, \nCSP님의 실제 프로젝트에 적용할 구체적 시나리오가 있다면 말씀해주세요.",
+      "content": [
+        {
+          "start_timestamp": "2026-01-24T03:00:53.261276Z",
+          "stop_timestamp": "2026-01-24T03:01:01.179982Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 Eigent의 로드맵에 나온 \"Context Engineering\" 항목에 대해 상세한 설명을 요청했습니다. 이는 멀티 에이전트 시스템에서 매우 중요한 기술적 개념들입니다. CSP님의 배경(인문학, 철학, 심리학적 설명 선호, SW 백그라운드 없음)을 고려해서 철학적/개념적 접근과 실용적 활용을 결합해서 설명해야 합니다.\n\n각 항목을 다음 관점에서 설명하겠습니다:\n1. 본질적 의미 (철학적 이해)\n2. 기술적 작동 원리 (비유를 통한 설명)\n3. 실무적 가치 (CSP님의 HR 업무 맥락)\n4. 구체적 예시\n\n네 가지 주제:\n1. 프롬프트 캐싱 (Prompt Caching)\n2. 시스템 프롬프트 최적화 (System Prompt Optimization)\n3. 툴킷 문서 문자열 최적화 (Toolkit Docstring Optimization)\n4. 컨텍스트 압축 (Context Compression)\n\n이들은 모두 \"컨텍스트 엔지니어링\"이라는 큰 범주에 속하는데, 이는 AI가 효율적으로 작동하도록 \"맥락(context)\"을 설계하고 관리하는 기술입니다.",
+          "summaries": [
+            {
+              "summary": "생각해보기: 컨텍스트 엔지니어링의 5가지 핵심 기법 상세 설명하기"
+            },
+            {
+              "summary": "철학적 개념과 기술적 원리를 결합하여 설명 준비 중."
+            },
+            {
+              "summary": "AI 에이전트 시스템을 위해 철학적·실무적 관점으로 맥락 설계 전략을 구성했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-24T03:01:01.238594Z",
+          "stop_timestamp": "2026-01-24T03:03:18.379925Z",
+          "flags": null,
+          "type": "text",
+          "text": "# 컨텍스트 엔지니어링: AI의 \"기억력\"과 \"이해력\" 설계하기\n\n## 🎭 본질적 이해: \"컨텍스트\"란 무엇인가?\n\n### 철학적 전제\n\n컨텍스트(Context)는 **\"의미의 토양\"**입니다. 같은 단어도 맥락에 따라 다른 의미를 갖죠.\n\n- \"사과\" → 과일? 사죄?\n- \"리더십\" → CEO의 리더십? 팀장의 리더십? 오케스트라 지휘자의 리더십?\n\nAI에게 컨텍스트는 **\"지금 이 순간 무엇을 알고 있는가\"**의 전부입니다. 인간은 장기 기억이 있지만, AI는 대화창에 보이는 텍스트만이 전부입니다. \n\n**컨텍스트 엔지니어링**은 이 제한된 \"지금 여기\"를 최대한 효율적이고 풍부하게 만드는 기술입니다.\n\n### 왜 중요한가?\n\nEigent 같은 멀티 에이전트 시스템에서는:\n- Developer Agent가 \"지금 어떤 코드를 작성 중인지\"\n- Search Agent가 \"이미 검색한 내용이 무엇인지\"\n- Document Agent가 \"문서의 어디까지 작성했는지\"\n\n이 모든 것이 **컨텍스트**입니다. 이걸 잘못 관리하면:\n- 같은 작업 반복 (비효율)\n- 정보 손실 (품질 저하)\n- 비용 폭증 (토큰 낭비)\n\n---\n\n## 1️⃣ 프롬프트 캐싱 (Prompt Caching)\n\n### 🧠 핵심 개념: \"자주 쓰는 건 외워두기\"\n\n**비유**: 매일 출근길\n- **캐싱 없음**: 매일 아침 집에서 회사까지 GPS로 경로 검색\n- **캐싱 있음**: 첫날만 검색하고, 이후엔 기억에서 바로 출발\n\nAI도 마찬가지입니다. 매번 똑같은 시스템 프롬프트를 다시 읽는 건 낭비죠.\n\n### 기술적 작동 원리\n\n```\n┌─────────────────────────────────────┐\n│ 시스템 프롬프트 (항상 동일)         │ ← 캐싱 대상\n│ \"당신은 HR 전문가입니다...\"         │\n│ \"리더십 평가 규칙은...\"             │\n│ (2000 토큰)                         │\n├─────────────────────────────────────┤\n│ 사용자 질문 (매번 변경)             │ ← 새로 처리\n│ \"김철수의 평가 결과는?\"             │\n│ (50 토큰)                           │\n└─────────────────────────────────────┘\n\n캐싱 전: 2050 토큰 × 100회 = 205,000 토큰\n캐싱 후: 2000 토큰(1회 저장) + 50 토큰 × 100회 = 7,000 토큰\n절감율: 96.6%\n```\n\n### 실무 적용 예시\n\n**CSP님의 \"25년 리더십, 생각하다\" 프로그램**\n\n캐싱 대상:\n```\n시스템 프롬프트 (변하지 않음):\n- 평가 프레임워크 설명 (1000 토큰)\n- 역량 정의 및 평가 기준 (800 토큰)\n- 피드백 작성 가이드라인 (500 토큰)\n- 회사 가치 및 리더십 철학 (300 토큰)\n총: 2600 토큰 → 1회만 전송\n\n동적 부분 (매번 변경):\n- 개인 평가 데이터 (100 토큰)\n- 구체적 질문 (50 토큰)\n```\n\n**효과**:\n- 100명 평가 시 토큰 비용 97% 절감\n- 응답 속도 50% 향상\n- 동일한 평가 기준 일관성 보장\n\n### Anthropic의 실제 구현\n\nClaude API에서는 이미 이 기능을 제공합니다:\n\n```python\n# 캐싱 활성화 예시\nresponse = anthropic.messages.create(\n    model=\"claude-sonnet-4-20250514\",\n    max_tokens=1024,\n    system=[\n        {\n            \"type\": \"text\",\n            \"text\": \"평가 프레임워크...\",  # 이 부분이 캐싱됨\n            \"cache_control\": {\"type\": \"ephemeral\"}\n        }\n    ],\n    messages=[...]\n)\n```\n\n---\n\n## 2️⃣ 시스템 프롬프트 최적화 (System Prompt Optimization)\n\n### 🎯 핵심 개념: \"핵심만 간결하게\"\n\n**비유**: 업무 지시서\n- **최적화 전**: \"이 작업은 매우 중요하며, 신중하게, 꼼꼼하게, 정확하게, 빠뜨리지 말고, 확실하게...\" (불필요한 수식어 과다)\n- **최적화 후**: \"평가 기준: 1) 정확성 2) 완전성\" (명확하고 간결)\n\n### 최적화 전략\n\n#### A. **중복 제거**\n\n**Before**:\n```\n당신은 HR 전문가입니다. \n당신은 리더십 평가를 수행합니다.\n당신은 17년의 경험을 가진 전문가입니다.\n당신은 LG에서 근무했습니다.\n당신은...\n(500 토큰)\n```\n\n**After**:\n```\n역할: LG PRI 출신 17년차 HR 리더십 평가 전문가\n(20 토큰, 96% 감축)\n```\n\n#### B. **구조화**\n\n**Before**:\n```\n평가할 때는 전략적 사고와 실행력과 소통능력과 \n변화관리와 코칭을 봐야 하고 각각 20점씩이며 \n총점은 100점이고...\n(장황한 단락)\n```\n\n**After**:\n```\n평가 영역 (각 20점):\n1. 전략적 사고\n2. 실행력\n3. 소통능력\n4. 변화관리\n5. 코칭\n\n(구조화된 리스트)\n```\n\n#### C. **예시 기반 학습 (Few-shot)**\n\n**Before**:\n```\n피드백을 작성할 때는 긍정적이면서도 \n건설적이어야 하며, 구체적인 사례를 들고,\n개선 방향을 제시하며...\n(추상적 설명 300 토큰)\n```\n\n**After**:\n```\n예시:\n입력: 전략적사고 18점, 실행력 12점\n출력: \"전략 수립 역량이 우수합니다(상위 10%). \n실행 단계에서 추진력 강화가 필요합니다. \n권장: 프로젝트 관리 교육 이수\"\n\n(구체적 예시 1개로 100 토큰)\n```\n\n### CSP님 HR 업무 적용\n\n**DX Starter 프로그램 자동화**\n\n최적화 전:\n```\n당신은 디지털 전환 교육을 담당하는 전문가입니다.\n학습자들의 진도를 모니터링하고 분석해야 합니다.\n낙오자가 발생하지 않도록 주의 깊게 살펴야 하며...\n(총 800 토큰의 장황한 설명)\n```\n\n최적화 후:\n```\nRole: DX 교육 담당자\nTask: 진도 모니터링 → 위험군 식별 → 개입\nCriteria: 2주 미접속 OR 진도 30% 미만 = 위험군\nOutput: 독려 메일 초안 (예시 참조)\n\n예시:\n[이름]님, DX 모듈2가 멈춰있네요. \n목표일(3/15)까지 [남은일수]일입니다.\n도움이 필요하시면 연락 주세요.\n\n(총 150 토큰, 81% 절감)\n```\n\n---\n\n## 3️⃣ 툴킷 문서 문자열 최적화 (Toolkit Docstring Optimization)\n\n### 🔧 핵심 개념: \"도구 사용법을 명확하게\"\n\n**비유**: IKEA 조립 설명서\n- **나쁜 설명서**: \"부품 A를 사용하여 적절한 방법으로 결합하시오\"\n- **좋은 설명서**: \"부품 A(긴 나사) → 구멍 B → 시계방향 3바퀴\"\n\nAI 에이전트에게 도구(tool)는 외부 기능입니다. Eigent의 경우:\n- 브라우저 제어\n- 파일 생성\n- API 호출\n- 데이터베이스 쿼리\n\n각 도구의 **사용법 설명(docstring)**이 명확해야 에이전트가 올바르게 사용합니다.\n\n### 문제점: 불명확한 Docstring\n\n**Before**:\n```python\ndef send_email(recipient, subject, body, attachments=None):\n    \"\"\"\n    이메일을 발송하는 함수입니다.\n    여러 수신자에게 보낼 수 있으며, \n    첨부 파일도 가능합니다.\n    \"\"\"\n    ...\n```\n\n**AI의 혼란**:\n- \"여러 수신자\"는 리스트? 쉼표 구분 문자열?\n- 첨부 파일 형식은? 경로? 바이너리?\n- 필수 파라미터는 뭐지?\n\n**결과**: 에이전트가 잘못 사용 → 에러 → 재시도 → 비효율\n\n### 최적화된 Docstring\n\n**After**:\n```python\ndef send_email(\n    recipient: str | list[str],\n    subject: str,\n    body: str,\n    attachments: list[str] | None = None\n):\n    \"\"\"\n    Gmail API를 통해 이메일 발송\n    \n    Args:\n        recipient: 수신자 이메일 (단일 또는 리스트)\n            - 단일: \"user@example.com\"\n            - 복수: [\"user1@example.com\", \"user2@example.com\"]\n        subject: 제목 (최대 200자)\n        body: 본문 (HTML 또는 Plain text)\n        attachments: 첨부 파일 경로 리스트 (선택)\n            - 예: [\"/path/to/file.pdf\", \"/path/to/image.png\"]\n            - 최대 25MB, 파일당 10MB 제한\n    \n    Returns:\n        dict: {\"message_id\": \"...\", \"status\": \"sent\"}\n    \n    Raises:\n        ValueError: recipient가 빈 문자열인 경우\n        FileSizeError: 첨부 파일이 10MB 초과인 경우\n    \n    Example:\n        >>> send_email(\n        ...     recipient=\"team@company.com\",\n        ...     subject=\"Weekly Report\",\n        ...     body=\"<h1>Report</h1><p>...</p>\",\n        ...     attachments=[\"/reports/week1.pdf\"]\n        ... )\n        {\"message_id\": \"abc123\", \"status\": \"sent\"}\n    \"\"\"\n    ...\n```\n\n### 최적화 효과\n\n| 항목 | Before | After | 개선 |\n|------|--------|-------|------|\n| 에러율 | 30% | 5% | -83% |\n| 재시도 횟수 | 평균 2.3회 | 0.2회 | -91% |\n| 토큰 낭비 | 높음 | 낮음 | 에러 재시도 감소로 절감 |\n\n### CSP님 실무 예시: Notion API 도구 최적화\n\n**Before**:\n```python\ndef create_notion_page(title, content, database_id):\n    \"\"\"Notion 페이지를 생성합니다.\"\"\"\n```\n\n**AI의 실패 케이스**:\n```\n에이전트: create_notion_page(\n    title=\"평가보고서\",\n    content=\"김철수님의 평가 결과...\",  # 마크다운? HTML?\n    database_id=\"5f2ff32ac1b8...\"  # 대시 포함? 제외?\n)\n→ ERROR: content must be Notion blocks format\n```\n\n**After**:\n```python\ndef create_notion_page(\n    title: str,\n    content: str,\n    database_id: str,\n    properties: dict | None = None\n):\n    \"\"\"\n    Notion 데이터베이스에 새 페이지 생성\n    \n    Args:\n        title: 페이지 제목 (최대 2000자)\n        content: 페이지 본문 (Notion Markdown 형식)\n            - 지원: # 제목, **굵게**, - 리스트\n            - 미지원: HTML 태그\n        database_id: DB ID (대시 포함/제외 모두 허용)\n            - 형식: \"5f2ff32a-c1b8-4981-988b-f5e0da6eeb15\"\n            - 또는: \"5f2ff32ac1b84981988bf5e0da6eeb15\"\n        properties: DB 속성값 (선택)\n            - 예: {\"주제\": \"개발\", \"중요도\": \"⭐⭐⭐\"}\n    \n    Returns:\n        dict: {\"page_id\": \"...\", \"url\": \"https://notion.so/...\"}\n    \n    Example:\n        >>> create_notion_page(\n        ...     title=\"평가보고서_김철수\",\n        ...     content=\"# 평가 결과\\n**강점**: ...\",\n        ...     database_id=\"5f2ff32ac1b84981988bf5e0da6eeb15\",\n        ...     properties={\"상태\": \"✅ 완료\"}\n        ... )\n    \"\"\"\n```\n\n**결과**: 에이전트가 첫 시도에 성공, 재작업 불필요\n\n---\n\n## 4️⃣ 컨텍스트 압축 (Context Compression)\n\n### 📦 핵심 개념: \"핵심만 남기고 버리기\"\n\n**비유**: 여행 짐 싸기\n- **압축 전**: 옷 30벌, 책 10권, 신발 5켤레 → 캐리어 3개 (무거움)\n- **압축 후**: 필수 옷 7벌, 전자책, 운동화 1켤레 → 배낭 1개 (가벼움)\n\nAI의 컨텍스트 윈도우는 **제한적**입니다:\n- Claude Sonnet: ~200K 토큰\n- GPT-4: ~128K 토큰\n\n긴 대화를 하다 보면 이 한계에 도달합니다. 그때 무엇을 남기고 버릴까?\n\n### 압축 전략\n\n#### A. **요약 (Summarization)**\n\n**Before** (10,000 토큰):\n```\n사용자: 리더십 평가 기준이 뭐였죠?\nAI: 전략적 사고, 실행력, 소통능력, 변화관리, 코칭입니다.\n사용자: 각각 몇 점이죠?\nAI: 각 20점씩, 총 100점입니다.\n사용자: 김철수 점수는?\nAI: 18, 15, 17, 14, 16점입니다.\n사용자: 평균은?\nAI: 80점입니다.\n...\n(50턴의 대화)\n```\n\n**After** (500 토큰):\n```\n대화 요약:\n- 평가 영역: 5개 (각 20점)\n- 김철수: 총점 80/100\n  - 강점: 전략적사고(18), 소통(17)\n  - 개선: 변화관리(14)\n- 다음 액션: 피드백 레터 작성 예정\n```\n\n#### B. **선택적 보존 (Selective Retention)**\n\n중요도에 따라 차등 보존:\n\n| 중요도 | 내용 유형 | 보존 방식 |\n|--------|----------|----------|\n| 높음 | 최종 결정, 핵심 데이터 | 전문 보존 |\n| 중간 | 중간 결과, 논의 과정 | 요약 보존 |\n| 낮음 | 시행착오, 에러 메시지 | 삭제 |\n\n**예시**:\n```\n[높음 - 전문 보존]\n최종 결정: 김철수 평가 80점, 승진 추천\n\n[중간 - 요약]\n논의: 변화관리 점수 14점 → 코칭 필요성 합의\n\n[낮음 - 삭제]\n(에러: CSV 파일 경로 오류 → 재시도 → 성공)\n```\n\n#### C. **청킹 (Chunking)**\n\n긴 문서를 의미 단위로 분할:\n\n**Before** (한 번에 전체 처리):\n```\n리더십평가보고서.pdf (15,000 토큰)\n→ 컨텍스트 윈도우 부족 → 에러\n```\n\n**After** (청크로 분할):\n```\nChunk 1: 요약 및 종합 점수 (500 토큰)\nChunk 2: 영역별 상세 평가 (3,000 토큰)\nChunk 3: 개선 계획 (1,000 토큰)\n\n필요시 관련 청크만 로드\n→ 효율적 메모리 사용\n```\n\n### 압축 알고리즘 예시\n\n#### **LLMLingua 방식**\n\n불필요한 단어 제거:\n\n**Before**:\n```\n김철수 님께서는 전략적 사고 영역에서 \n매우 우수한 성과를 보여주셨습니다. \n특히 장기 비전 수립과 관련하여...\n(100 토큰)\n```\n\n**After**:\n```\n김철수: 전략적사고 우수. \n장기비전 수립 강점.\n(20 토큰, 80% 압축)\n```\n\n#### **의미 기반 압축**\n\n임베딩을 사용한 유사 문장 통합:\n\n```\n문장1: \"전략적 사고 능력이 뛰어납니다\"\n문장2: \"전략 수립 역량이 우수합니다\"\n문장3: \"장기 비전 설정에 탁월합니다\"\n\n→ 유사도 90% 이상\n→ 통합: \"전략적 사고/비전 수립 역량 우수\"\n```\n\n### CSP님 실전 활용\n\n**시나리오**: 100명 리더십 평가 데이터 분석\n\n**문제**:\n- 100명 × 평균 500 토큰/명 = 50,000 토큰\n- Claude 윈도우 초과 가능성\n\n**해결책 1: 계층적 요약**\n```\nLevel 1: 개인별 요약 (100명 × 50 토큰 = 5,000 토큰)\nLevel 2: 부서별 평균 (10부서 × 100 토큰 = 1,000 토큰)\nLevel 3: 전사 종합 (500 토큰)\n\n최종 컨텍스트: 6,500 토큰 (87% 압축)\n```\n\n**해결책 2: 쿼리 기반 압축**\n```\n질문: \"변화관리 점수가 낮은 리더 10명은?\"\n\n→ 변화관리 관련 데이터만 로드\n→ 상위/하위 10명만 상세 보존\n→ 나머지는 점수만 보존\n\n결과: 2,000 토큰으로 충분\n```\n\n---\n\n## 🔗 네 가지 기법의 통합 활용\n\n실제 Eigent에서는 이 기법들이 **함께** 작동합니다.\n\n### 통합 예시: \"25년 리더십, 생각하다\" 전체 자동화\n\n```\n┌─────────────────────────────────────────────┐\n│ 1. 프롬프트 캐싱                             │\n│ - 평가 프레임워크 (1회 로드, 재사용)        │\n│ - 피드백 가이드라인 (1회 로드)             │\n│ 절감: 2,500 토큰 × 99회 = 247,500 토큰     │\n├─────────────────────────────────────────────┤\n│ 2. 시스템 프롬프트 최적화                   │\n│ - 장황한 설명 800 토큰 → 구조화 150 토큰   │\n│ 절감: 650 토큰 × 100회 = 65,000 토큰       │\n├─────────────────────────────────────────────┤\n│ 3. 툴킷 Docstring 최적화                    │\n│ - Notion API 에러 재시도 감소               │\n│ - 평균 재시도 2회 → 0.2회                  │\n│ 절감: 에러 처리 토큰 90% 감소               │\n├─────────────────────────────────────────────┤\n│ 4. 컨텍스트 압축                             │\n│ - 100명 데이터 50,000 토큰 → 6,500 토큰    │\n│ 절감: 43,500 토큰                          │\n└─────────────────────────────────────────────┘\n\n총 절감: ~350,000 토큰\n비용 절감: ~$3.50 (GPT-4 기준, 1회 실행)\n100회 실행 시: $350 절감\n```\n\n---\n\n## 💡 CSP님을 위한 실천 가이드\n\n### 당장 적용 가능한 3가지\n\n#### 1. **프롬프트 템플릿 라이브러리 구축**\n\nNotion에 \"프롬프트 템플릿\" 데이터베이스 생성:\n\n```\n템플릿 이름: 리더십_피드백_생성\n캐싱 영역: [평가기준 설명 2000자]\n동적 영역: [개인 데이터 삽입 위치]\n최적화 팁: \"구체적 예시 1개로 충분, 장황한 설명 제거\"\n```\n\n#### 2. **도구 사용법 문서화**\n\n자주 쓰는 도구마다 \"명확한 예시\" 추가:\n\n```\n도구: Notion 페이지 생성\n잘못된 사용: create_page(title=\"보고서\", content=\"...\")\n올바른 사용: create_page(\n    title=\"평가보고서_김철수_2025\",\n    content=\"# 평가 결과\\n## 강점\\n- 전략적사고...\",\n    database_id=\"5f2ff32ac1b8...\"\n)\n```\n\n#### 3. **대화 요약 습관**\n\n긴 작업 후 마무리:\n\n```\n프롬프트: \"지금까지 논의를 3줄로 요약해줘. \n다음 대화에서 참고할 수 있도록.\"\n\nAI 응답:\n1. 김철수 평가 완료 (80점, 승진 추천)\n2. 변화관리 코칭 계획 수립\n3. 다음: 박영희 평가 예정\n```\n\n---\n\n## 🎓 철학적 성찰: \"효율성의 미학\"\n\n컨텍스트 엔지니어링은 단순한 기술 최적화가 아닙니다. 이것은 **\"무엇이 본질인가?\"**를 끊임없이 묻는 철학적 실천입니다.\n\n- **프롬프트 캐싱**: 반복에서 핵심 찾기\n- **시스템 프롬프트 최적화**: 간결함의 힘\n- **Docstring 최적화**: 명확한 소통\n- **컨텍스트 압축**: 의미의 보존\n\nCSP님의 \"Vibe coder\" 정체성과 완벽하게 맞닿아 있습니다. \n기술 백그라운드 없이도, **\"어떻게 하면 더 명확하게 전달할까?\"**를 고민하는 것만으로도 \n탁월한 컨텍스트 엔지니어가 될 수 있습니다.\n\n---\n\n더 깊이 탐구하고 싶은 특정 기법이나, \nCSP님의 실제 프로젝트에 적용할 구체적 시나리오가 있다면 말씀해주세요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-24T03:03:18.443203Z",
+      "updated_at": "2026-01-24T03:03:18.443203Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bedf2-74b1-75e0-92a2-01dc7a604b7d"
+    }
+  ]
+}

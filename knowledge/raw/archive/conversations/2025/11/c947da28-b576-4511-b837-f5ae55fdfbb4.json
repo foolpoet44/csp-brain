@@ -1,0 +1,362 @@
+﻿{
+  "uuid": "c947da28-b576-4511-b837-f5ae55fdfbb4",
+  "name": "Automating tasks with Claude's native capabilities",
+  "summary": "**Conversation Overview**\n\nThe user requested specific examples of business process automation using only Claude's native skills. They communicated in Korean, indicating a preference for Korean-language interactions. Claude provided comprehensive automation case studies by first examining the capabilities of available native skills (docx, xlsx, pptx, and pdf) through their documentation files. The response included seven detailed automation scenarios: monthly executive reporting systems that flow from Excel analysis to Word reports to PowerPoint summaries, contract review workflows using document redlining and PDF generation, financial modeling automation with multi-year projections and scenario analysis, HR performance evaluation systems generating individual assessments and executive summaries, integrated quote-to-invoice workflows, marketing campaign performance reporting with automated dashboards, and project status reporting systems with risk identification. Each case study detailed specific skill applications, workflow sequences, and quantified benefits like 80-90% time savings and error reduction. The user demonstrated interest in practical, immediately implementable solutions that require no external programming or tools, focusing on real-world business applications that leverage Claude's document creation, spreadsheet analysis, presentation generation, and PDF manipulation capabilities.",
+  "created_at": "2025-11-03T23:12:00.219159Z",
+  "updated_at": "2025-11-03T23:13:10.770515Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "dc030fe5-bbab-49a6-baf6-c47a89f39151",
+      "text": "클로드 스킬의 네이티브 스킬만으로 업무 자동화를 적용하는 사례를 구체적으로 제시해줘",
+      "content": [
+        {
+          "start_timestamp": "2025-11-03T23:12:01.487523Z",
+          "stop_timestamp": "2025-11-03T23:12:01.487523Z",
+          "flags": null,
+          "type": "text",
+          "text": "클로드 스킬의 네이티브 스킬만으로 업무 자동화를 적용하는 사례를 구체적으로 제시해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2025-11-03T23:12:01.492486Z",
+      "updated_at": "2025-11-03T23:12:01.492486Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "5d975b78-b2b1-4232-b1b6-d553a35bb643",
+      "text": "사용자가 클로드 스킬의 네이티브 스킬만으로 업무 자동화를 적용하는 사례를 요청하고 있습니다. \n\n먼저 현재 사용 가능한 네이티브 스킬을 확인해보겠습니다:\n1. docx - 문서 생성 및 편집\n2. pdf - PDF 조작 및 처리\n3. pptx - 프레젠테이션 생성 및 편집\n4. xlsx - 스프레드시트 생성 및 분석\n5. skill-creator - 스킬 생성 가이드\n6. product-self-knowledge - Anthropic 제품 정보\n\n사용자가 요청한 것은 이러한 네이티브 스킬을 활용한 구체적인 업무 자동화 사례입니다. \n\n실제로 스킬 파일을 읽어서 어떤 기능들이 있는지 확인하고, 그를 바탕으로 구체적인 업무 자동화 사례를 제시하는 것이 좋겠습니다. 특히 docx, xlsx, pptx, pdf 스킬이 업무 자동화에 가장 많이 활용될 것 같습니다.\n\n각 스킬의 SKILL.md 파일을 읽어보겠습니다.클로드의 네이티브 스킬을 활용한 구체적인 업무 자동화 사례를 제시해드리겠습니다. 먼저 각 스킬의 기능을 확인해보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\ndocx 스킬의 기능을 확인했습니다. 이제 다른 스킬들도 확인해보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\nxlsx 스킬도 확인했습니다. 이제 pptx와 pdf 스킬도 확인해보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n좋습니다. pdf 스킬도 확인해보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n좋습니다. 이제 각 스킬의 기능을 파악했으니, 실제 업무 자동화 사례를 구체적으로 제시할 수 있습니다. 한국어로 답변을 작성하겠습니다.\n\n주요 네이티브 스킬:\n1. docx - 문서 생성/편집, 변경 추적, 주석 등\n2. xlsx - 스프레드시트 생성/분석, 수식, 시각화\n3. pptx - 프레젠테이션 생성/편집\n4. pdf - PDF 조작, 양식 작성, 병합/분할\n\n이를 바탕으로 구체적인 업무 자동화 사례들을 제시하겠습니다.네이티브 스킬만으로 구현할 수 있는 **구체적인 업무 자동화 사례**를 제시해드리겠습니다.\n\n---\n\n## 📊 **1. 월간 경영 보고서 자동 생성 시스템**\n\n### 자동화 흐름\n```\nExcel 데이터 → 분석 및 차트 생성 → Word 보고서 작성 → PowerPoint 요약본 생성\n```\n\n### 구체적 구현\n- **xlsx 스킬**: \n  - 매출 데이터 분석 및 전월 대비 증감률 계산\n  - 재무 비율 자동 계산 (ROI, 영업이익률 등)\n  - 차트 생성 (매출 추이, 부서별 성과)\n\n- **docx 스킬**: \n  - 분석 결과를 바탕으로 10-15페이지 보고서 자동 작성\n  - 표준 서식 적용 (회사 템플릿 유지)\n  - 주요 지표 테이블 삽입\n\n- **pptx 스킬**: \n  - 경영진용 요약 프레젠테이션 자동 생성 (5-7슬라이드)\n  - 핵심 KPI 시각화\n\n---\n\n## 📝 **2. 계약서 일괄 검토 및 수정 시스템**\n\n### 자동화 흐름\n```\n계약서 템플릿 → 변경사항 추적 → 검토 의견 추가 → PDF 배포용 생성\n```\n\n### 구체적 구현\n- **docx 스킬 (Redlining workflow)**:\n  - 100개 계약서의 특정 조항 일괄 수정\n  - 모든 변경사항을 추적 모드로 표시\n  - 법무팀 검토 의견을 주석으로 자동 추가\n  - 버전 관리 (v1.0 → v1.1)\n\n- **pdf 스킬**:\n  - 최종 승인된 계약서를 PDF로 변환\n  - 여러 계약서를 하나의 PDF로 병합\n\n---\n\n## 📈 **3. 재무 모델링 자동화 시스템**\n\n### 자동화 흐름\n```\n기초 데이터 입력 → 재무제표 자동 생성 → 시나리오 분석 → 투자자 보고서 생성\n```\n\n### 구체적 구현\n- **xlsx 스킬**:\n  - 3개년 재무제표 자동 생성 (손익계산서, 재무상태표, 현금흐름표)\n  - 시나리오 분석 (낙관/기본/비관)\n  - 색상 코딩 (입력값=파란색, 수식=검은색, 외부링크=빨간색)\n  - DCF 밸류에이션 모델 자동 계산\n  - 민감도 분석 테이블 생성\n\n- **pptx 스킬**:\n  - 투자자 IR 자료 자동 생성\n\n---\n\n## 📋 **4. HR 인사 평가 시스템 자동화**\n\n### 자동화 흐름\n```\n평가 데이터 수집 → 개인별 평가서 생성 → 등급 분포 분석 → 경영진 보고\n```\n\n### 구체적 구현\n- **xlsx 스킬**:\n  - 직원별 평가 점수 집계 및 상대평가 등급 산정\n  - 부서별/직급별 평가 분포 분석\n  - 급여 인상률 자동 계산\n\n- **docx 스킬**:\n  - 200명 직원에 대한 개인별 평가서 자동 생성\n  - 강점/개선점 자동 기재\n  - 목표 설정 템플릿 삽입\n\n- **pptx 스킬**:\n  - 인사위원회용 평가 결과 요약 프레젠테이션\n\n---\n\n## 🔄 **5. 견적서-계약서-청구서 연동 시스템**\n\n### 자동화 흐름\n```\n견적 데이터 → 견적서 생성 → 계약서 전환 → 청구서 발행\n```\n\n### 구체적 구현\n- **xlsx 스킬**:\n  - 제품/서비스별 단가 데이터베이스\n  - 할인율 자동 계산\n  - 부가세 자동 산정\n\n- **docx 스킬**:\n  - Excel 데이터 기반 견적서 자동 생성 (50건/일)\n  - 계약서 자동 작성 (고객정보, 금액 자동 입력)\n\n- **pdf 스킬**:\n  - PDF 양식에 데이터 자동 입력\n  - 청구서 일괄 생성 및 병합\n\n---\n\n## 📑 **6. 마케팅 캠페인 성과 보고 자동화**\n\n### 자동화 흐름\n```\n캠페인 데이터 → 성과 분석 → 대시보드 업데이트 → 주간 리포트 생성\n```\n\n### 구체적 구현\n- **xlsx 스킬**:\n  - 광고 채널별 ROI 자동 계산\n  - 전환율, CPA, ROAS 지표 산출\n  - 주간/월간 트렌드 차트 생성\n\n- **pptx 스킬**:\n  - 주간 마케팅 미팅용 자료 자동 생성 (15슬라이드)\n  - 채널별 성과 비교 슬라이드\n  - 개선 권고사항 자동 작성\n\n- **docx 스킬**:\n  - 상세 분석 리포트 작성\n\n---\n\n## 🎯 **7. 프로젝트 진행 상황 자동 보고 시스템**\n\n### 자동화 흐름\n```\n작업 데이터 → 진척률 계산 → 지연 위험 식별 → 보고서 생성\n```\n\n### 구체적 구현\n- **xlsx 스킬**:\n  - 간트 차트 자동 업데이트\n  - 일정 지연 위험 자동 식별 (빨간색 표시)\n  - 리소스 할당 분석\n\n- **pptx 스킬**:\n  - 주간 현황 브리핑 자료 자동 생성\n  - 마일스톤 달성 현황 시각화\n\n- **docx 스킬**:\n  - 프로젝트 현황 보고서 작성\n  - 이슈 및 리스크 목록 자동 정리\n\n---\n\n## 💡 **실제 적용 시 장점**\n\n1. **시간 절감**: 수작업 대비 80-90% 시간 단축\n2. **오류 감소**: 수식 자동 검증 및 일관성 유지\n3. **표준화**: 회사 템플릿 및 포맷 자동 적용\n4. **확장성**: 데이터 규모에 관계없이 동일한 프로세스 적용\n5. **추적 가능성**: 변경 이력 자동 기록 (docx redlining)\n\n이러한 자동화는 클로드와 대화하면서 즉시 실행할 수 있으며, 별도의 프로그래밍이나 외부 도구 없이 네이티브 스킬만으로 완성됩니다.\n\n구체적으로 어떤 사례를 더 자세히 설명해드릴까요?",
+      "content": [
+        {
+          "start_timestamp": "2025-11-03T23:12:03.304382Z",
+          "stop_timestamp": "2025-11-03T23:12:09.218859Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 클로드 스킬의 네이티브 스킬만으로 업무 자동화를 적용하는 사례를 요청하고 있습니다. \n\n먼저 현재 사용 가능한 네이티브 스킬을 확인해보겠습니다:\n1. docx - 문서 생성 및 편집\n2. pdf - PDF 조작 및 처리\n3. pptx - 프레젠테이션 생성 및 편집\n4. xlsx - 스프레드시트 생성 및 분석\n5. skill-creator - 스킬 생성 가이드\n6. product-self-knowledge - Anthropic 제품 정보\n\n사용자가 요청한 것은 이러한 네이티브 스킬을 활용한 구체적인 업무 자동화 사례입니다. \n\n실제로 스킬 파일을 읽어서 어떤 기능들이 있는지 확인하고, 그를 바탕으로 구체적인 업무 자동화 사례를 제시하는 것이 좋겠습니다. 특히 docx, xlsx, pptx, pdf 스킬이 업무 자동화에 가장 많이 활용될 것 같습니다.\n\n각 스킬의 SKILL.md 파일을 읽어보겠습니다.",
+          "summaries": [
+            {
+              "summary": "클로드의 네이티브 스킬로 업무 자동화 사례 구체화하기"
+            },
+            {
+              "summary": "네이티브 스킬 목록 검토하며 자동화 사례 구성 중"
+            },
+            {
+              "summary": "네이티브 스킬 기능을 파악하고 자동화 사례를 구성했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-11-03T23:12:09.335394Z",
+          "stop_timestamp": "2025-11-03T23:12:10.214806Z",
+          "flags": null,
+          "type": "text",
+          "text": "클로드의 네이티브 스킬을 활용한 구체적인 업무 자동화 사례를 제시해드리겠습니다. 먼저 각 스킬의 기능을 확인해보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2025-11-03T23:12:10.398201Z",
+          "stop_timestamp": "2025-11-03T23:12:11.507518Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "view",
+          "input": {
+            "path": "/mnt/skills/public/docx/SKILL.md",
+            "view_range": "[1, 50]",
+            "description": "docx 스킬의 기능 확인"
+          },
+          "message": "docx 스킬의 기능 확인",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "text",
+            "text": "docx 스킬의 기능 확인"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "view",
+          "content": [
+            {
+              "type": "text",
+              "text": "Here's the content of /mnt/skills/public/docx/SKILL.md (which has 197 lines total) with view_range=(1, 50):\n     1\t---\n     2\tname: docx\n     3\tdescription: \"Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction. When Claude needs to work with professional documents (.docx files) for: (1) Creating new documents, (2) Modifying or editing content, (3) Working with tracked changes, (4) Adding comments, or any other document tasks\"\n     4\tlicense: Proprietary. LICENSE.txt has complete terms\n     5\t---\n     6\t\n     7\t# DOCX creation, editing, and analysis\n     8\t\n     9\t## Overview\n    10\t\n    11\tA user may ask you to create, edit, or analyze the contents of a .docx file. A .docx file is essentially a ZIP archive containing XML files and other resources that you can read or edit. You have different tools and workflows available for different tasks.\n    12\t\n    13\t## Workflow Decision Tree\n    14\t\n    15\t### Reading/Analyzing Content\n    16\tUse \"Text extraction\" or \"Raw XML access\" sections below\n    17\t\n    18\t### Creating New Document\n    19\tUse \"Creating a new Word document\" workflow\n    20\t\n    21\t### Editing Existing Document\n    22\t- **Your own document + simple changes**\n    23\t  Use \"Basic OOXML editing\" workflow\n    24\t\n    25\t- **Someone else's document**\n    26\t  Use **\"Redlining workflow\"** (recommended default)\n    27\t\n    28\t- **Legal, academic, business, or government docs**\n    29\t  Use **\"Redlining workflow\"** (required)\n    30\t\n    31\t## Reading and analyzing content\n    32\t\n    33\t### Text extraction\n    34\tIf you just need to read the text contents of a document, you should convert the document to markdown using pandoc. Pandoc provides excellent support for preserving document structure and can show tracked changes:\n    35\t\n    36\t```bash\n    37\t# Convert document to markdown with tracked changes\n    38\tpandoc --track-changes=all path-to-file.docx -o output.md\n    39\t# Options: --track-changes=accept/reject/all\n    40\t```\n    41\t\n    42\t### Raw XML access\n    43\tYou need raw XML access for: comments, complex formatting, document structure, embedded media, and metadata. For any of these features, you'll need to unpack a document and read its raw XML contents.\n    44\t\n    45\t#### Unpacking a file\n    46\t`python ooxml/scripts/unpack.py <office_file> <output_directory>`\n    47\t\n    48\t#### Key file structures\n    49\t* `word/document.xml` - Main document contents\n    50\t* `word/comments.xml` - Comments referenced in document.xml\n",
+              "uuid": "eb1ea383-bf6c-43f8-9c5b-d3634d49b4a4"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-11-03T23:12:17.266841Z",
+          "stop_timestamp": "2025-11-03T23:12:17.350053Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "docx 스킬의 기능을 확인했습니다. 이제 다른 스킬들도 확인해보겠습니다.",
+          "summaries": [],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-11-03T23:12:17.675533Z",
+          "stop_timestamp": "2025-11-03T23:12:18.264934Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "view",
+          "input": {
+            "path": "/mnt/skills/public/xlsx/SKILL.md",
+            "view_range": "[1, 50]",
+            "description": "xlsx 스킬의 기능 확인"
+          },
+          "message": "xlsx 스킬의 기능 확인",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "text",
+            "text": "xlsx 스킬의 기능 확인"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "view",
+          "content": [
+            {
+              "type": "text",
+              "text": "Here's the content of /mnt/skills/public/xlsx/SKILL.md (which has 289 lines total) with view_range=(1, 50):\n     1\t---\n     2\tname: xlsx\n     3\tdescription: \"Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization. When Claude needs to work with spreadsheets (.xlsx, .xlsm, .csv, .tsv, etc) for: (1) Creating new spreadsheets with formulas and formatting, (2) Reading or analyzing data, (3) Modify existing spreadsheets while preserving formulas, (4) Data analysis and visualization in spreadsheets, or (5) Recalculating formulas\"\n     4\tlicense: Proprietary. LICENSE.txt has complete terms\n     5\t---\n     6\t\n     7\t# Requirements for Outputs\n     8\t\n     9\t## All Excel files\n    10\t\n    11\t### Zero Formula Errors\n    12\t- Every Excel model MUST be delivered with ZERO formula errors (#REF!, #DIV/0!, #VALUE!, #N/A, #NAME?)\n    13\t\n    14\t### Preserve Existing Templates (when updating templates)\n    15\t- Study and EXACTLY match existing format, style, and conventions when modifying files\n    16\t- Never impose standardized formatting on files with established patterns\n    17\t- Existing template conventions ALWAYS override these guidelines\n    18\t\n    19\t## Financial models\n    20\t\n    21\t### Color Coding Standards\n    22\tUnless otherwise stated by the user or existing template\n    23\t\n    24\t#### Industry-Standard Color Conventions\n    25\t- **Blue text (RGB: 0,0,255)**: Hardcoded inputs, and numbers users will change for scenarios\n    26\t- **Black text (RGB: 0,0,0)**: ALL formulas and calculations\n    27\t- **Green text (RGB: 0,128,0)**: Links pulling from other worksheets within same workbook\n    28\t- **Red text (RGB: 255,0,0)**: External links to other files\n    29\t- **Yellow background (RGB: 255,255,0)**: Key assumptions needing attention or cells that need to be updated\n    30\t\n    31\t### Number Formatting Standards\n    32\t\n    33\t#### Required Format Rules\n    34\t- **Years**: Format as text strings (e.g., \"2024\" not \"2,024\")\n    35\t- **Currency**: Use $#,##0 format; ALWAYS specify units in headers (\"Revenue ($mm)\")\n    36\t- **Zeros**: Use number formatting to make all zeros \"-\", including percentages (e.g., \"$#,##0;($#,##0);-\")\n    37\t- **Percentages**: Default to 0.0% format (one decimal)\n    38\t- **Multiples**: Format as 0.0x for valuation multiples (EV/EBITDA, P/E)\n    39\t- **Negative numbers**: Use parentheses (123) not minus -123\n    40\t\n    41\t### Formula Construction Rules\n    42\t\n    43\t#### Assumptions Placement\n    44\t- Place ALL assumptions (growth rates, margins, multiples, etc.) in separate assumption cells\n    45\t- Use cell references instead of hardcoded values in formulas\n    46\t- Example: Use =B5*(1+$B$6) instead of =B5*1.05\n    47\t\n    48\t#### Formula Error Prevention\n    49\t- Verify all cell references are correct\n    50\t- Check for off-by-one errors in ranges\n",
+              "uuid": "d7cfacf6-f107-4647-b6fb-09b6dabbf4ab"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-11-03T23:12:21.334382Z",
+          "stop_timestamp": "2025-11-03T23:12:21.826303Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "xlsx 스킬도 확인했습니다. 이제 pptx와 pdf 스킬도 확인해보겠습니다.",
+          "summaries": [],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-11-03T23:12:22.164772Z",
+          "stop_timestamp": "2025-11-03T23:12:22.741402Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "view",
+          "input": {
+            "path": "/mnt/skills/public/pptx/SKILL.md",
+            "view_range": "[1, 50]",
+            "description": "pptx 스킬의 기능 확인"
+          },
+          "message": "pptx 스킬의 기능 확인",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "text",
+            "text": "pptx 스킬의 기능 확인"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "view",
+          "content": [
+            {
+              "type": "text",
+              "text": "Here's the content of /mnt/skills/public/pptx/SKILL.md (which has 461 lines total) with view_range=(1, 50):\n     1\t---\n     2\tname: pptx\n     3\tdescription: \"Presentation creation, editing, and analysis. When Claude needs to work with presentations (.pptx files) for: (1) Creating new presentations, (2) Modifying or editing content, (3) Working with layouts, (4) Adding comments or speaker notes, or any other presentation tasks\"\n     4\tlicense: Proprietary. LICENSE.txt has complete terms\n     5\t---\n     6\t\n     7\t# PPTX creation, editing, and analysis\n     8\t\n     9\t## Overview\n    10\t\n    11\tCreate, edit, or analyze the contents of .pptx files when requested. A .pptx file is essentially a ZIP archive containing XML files and other resources. Different tools and workflows are available for different tasks.\n    12\t\n    13\t## Reading and analyzing content\n    14\t\n    15\t### Text extraction\n    16\t\n    17\tTo read just the text content of a presentation, convert the document to markdown:\n    18\t\n    19\t```bash\n    20\t# Convert document to markdown\n    21\tpython -m markitdown path-to-file.pptx\n    22\t```\n    23\t\n    24\t### Raw XML access\n    25\t\n    26\tUse raw XML access for: comments, speaker notes, slide layouts, animations, design elements, and complex formatting. To access these features, unpack a presentation and read its raw XML contents.\n    27\t\n    28\t#### Unpacking a file\n    29\t\n    30\t`python ooxml/scripts/unpack.py <office_file> <output_dir>`\n    31\t\n    32\t**Note**: The unpack.py script is located at `skills/pptx/ooxml/scripts/unpack.py` relative to the project root. If the script doesn't exist at this path, use `find . -name \"unpack.py\"` to locate it.\n    33\t\n    34\t#### Key file structures\n    35\t\n    36\t- `ppt/presentation.xml` - Main presentation metadata and slide references\n    37\t- `ppt/slides/slide{N}.xml` - Individual slide contents (slide1.xml, slide2.xml, etc.)\n    38\t- `ppt/notesSlides/notesSlide{N}.xml` - Speaker notes for each slide\n    39\t- `ppt/comments/modernComment_*.xml` - Comments for specific slides\n    40\t- `ppt/slideLayouts/` - Layout templates for slides\n    41\t- `ppt/slideMasters/` - Master slide templates\n    42\t- `ppt/theme/` - Theme and styling information\n    43\t- `ppt/media/` - Images and other media files\n    44\t\n    45\t#### Typography and color extraction\n    46\t\n    47\t**To emulate example designs**, analyze the presentation's typography and colors first using the methods below:\n    48\t\n    49\t1. **Read theme file**: Check `ppt/theme/theme1.xml` for colors (`<a:clrScheme>`) and fonts (`<a:fontScheme>`)\n    50\t2. **Sample slide content**: Examine `ppt/slides/slide1.xml` for actual font usage (`<a:rPr>`) and colors\n",
+              "uuid": "8aba580e-3357-4f2e-a6ae-458e4eed708f"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-11-03T23:12:26.142004Z",
+          "stop_timestamp": "2025-11-03T23:12:26.516625Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "좋습니다. pdf 스킬도 확인해보겠습니다.",
+          "summaries": [],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-11-03T23:12:26.801493Z",
+          "stop_timestamp": "2025-11-03T23:12:27.328949Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "view",
+          "input": {
+            "path": "/mnt/skills/public/pdf/SKILL.md",
+            "view_range": "[1, 50]",
+            "description": "pdf 스킬의 기능 확인"
+          },
+          "message": "pdf 스킬의 기능 확인",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": {
+            "type": "text",
+            "text": "pdf 스킬의 기능 확인"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "view",
+          "content": [
+            {
+              "type": "text",
+              "text": "Here's the content of /mnt/skills/public/pdf/SKILL.md (which has 295 lines total) with view_range=(1, 50):\n     1\t---\n     2\tname: pdf\n     3\tdescription: Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmatically process, generate, or analyze PDF documents at scale.\n     4\tlicense: Proprietary. LICENSE.txt has complete terms\n     5\t---\n     6\t\n     7\t# PDF Processing Guide\n     8\t\n     9\t## Overview\n    10\t\n    11\tThis guide covers essential PDF processing operations using Python libraries and command-line tools. For advanced features, JavaScript libraries, and detailed examples, see REFERENCE.md. If you need to fill out a PDF form, read FORMS.md and follow its instructions.\n    12\t\n    13\t## Quick Start\n    14\t\n    15\t```python\n    16\tfrom pypdf import PdfReader, PdfWriter\n    17\t\n    18\t# Read a PDF\n    19\treader = PdfReader(\"document.pdf\")\n    20\tprint(f\"Pages: {len(reader.pages)}\")\n    21\t\n    22\t# Extract text\n    23\ttext = \"\"\n    24\tfor page in reader.pages:\n    25\t    text += page.extract_text()\n    26\t```\n    27\t\n    28\t## Python Libraries\n    29\t\n    30\t### pypdf - Basic Operations\n    31\t\n    32\t#### Merge PDFs\n    33\t```python\n    34\tfrom pypdf import PdfWriter, PdfReader\n    35\t\n    36\twriter = PdfWriter()\n    37\tfor pdf_file in [\"doc1.pdf\", \"doc2.pdf\", \"doc3.pdf\"]:\n    38\t    reader = PdfReader(pdf_file)\n    39\t    for page in reader.pages:\n    40\t        writer.add_page(page)\n    41\t\n    42\twith open(\"merged.pdf\", \"wb\") as output:\n    43\t    writer.write(output)\n    44\t```\n    45\t\n    46\t#### Split PDF\n    47\t```python\n    48\treader = PdfReader(\"input.pdf\")\n    49\tfor i, page in enumerate(reader.pages):\n    50\t    writer = PdfWriter()\n",
+              "uuid": "ca83d646-addc-4b0b-bd14-35b84d8a1691"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-11-03T23:12:32.139787Z",
+          "stop_timestamp": "2025-11-03T23:12:35.685389Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "좋습니다. 이제 각 스킬의 기능을 파악했으니, 실제 업무 자동화 사례를 구체적으로 제시할 수 있습니다. 한국어로 답변을 작성하겠습니다.\n\n주요 네이티브 스킬:\n1. docx - 문서 생성/편집, 변경 추적, 주석 등\n2. xlsx - 스프레드시트 생성/분석, 수식, 시각화\n3. pptx - 프레젠테이션 생성/편집\n4. pdf - PDF 조작, 양식 작성, 병합/분할\n\n이를 바탕으로 구체적인 업무 자동화 사례들을 제시하겠습니다.",
+          "summaries": [
+            {
+              "summary": "분류한 네이티브 스킬로 구체적 자동화 사례 제시 준비."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-11-03T23:12:35.861562Z",
+          "stop_timestamp": "2025-11-03T23:13:10.568145Z",
+          "flags": null,
+          "type": "text",
+          "text": "네이티브 스킬만으로 구현할 수 있는 **구체적인 업무 자동화 사례**를 제시해드리겠습니다.\n\n---\n\n## 📊 **1. 월간 경영 보고서 자동 생성 시스템**\n\n### 자동화 흐름\n```\nExcel 데이터 → 분석 및 차트 생성 → Word 보고서 작성 → PowerPoint 요약본 생성\n```\n\n### 구체적 구현\n- **xlsx 스킬**: \n  - 매출 데이터 분석 및 전월 대비 증감률 계산\n  - 재무 비율 자동 계산 (ROI, 영업이익률 등)\n  - 차트 생성 (매출 추이, 부서별 성과)\n\n- **docx 스킬**: \n  - 분석 결과를 바탕으로 10-15페이지 보고서 자동 작성\n  - 표준 서식 적용 (회사 템플릿 유지)\n  - 주요 지표 테이블 삽입\n\n- **pptx 스킬**: \n  - 경영진용 요약 프레젠테이션 자동 생성 (5-7슬라이드)\n  - 핵심 KPI 시각화\n\n---\n\n## 📝 **2. 계약서 일괄 검토 및 수정 시스템**\n\n### 자동화 흐름\n```\n계약서 템플릿 → 변경사항 추적 → 검토 의견 추가 → PDF 배포용 생성\n```\n\n### 구체적 구현\n- **docx 스킬 (Redlining workflow)**:\n  - 100개 계약서의 특정 조항 일괄 수정\n  - 모든 변경사항을 추적 모드로 표시\n  - 법무팀 검토 의견을 주석으로 자동 추가\n  - 버전 관리 (v1.0 → v1.1)\n\n- **pdf 스킬**:\n  - 최종 승인된 계약서를 PDF로 변환\n  - 여러 계약서를 하나의 PDF로 병합\n\n---\n\n## 📈 **3. 재무 모델링 자동화 시스템**\n\n### 자동화 흐름\n```\n기초 데이터 입력 → 재무제표 자동 생성 → 시나리오 분석 → 투자자 보고서 생성\n```\n\n### 구체적 구현\n- **xlsx 스킬**:\n  - 3개년 재무제표 자동 생성 (손익계산서, 재무상태표, 현금흐름표)\n  - 시나리오 분석 (낙관/기본/비관)\n  - 색상 코딩 (입력값=파란색, 수식=검은색, 외부링크=빨간색)\n  - DCF 밸류에이션 모델 자동 계산\n  - 민감도 분석 테이블 생성\n\n- **pptx 스킬**:\n  - 투자자 IR 자료 자동 생성\n\n---\n\n## 📋 **4. HR 인사 평가 시스템 자동화**\n\n### 자동화 흐름\n```\n평가 데이터 수집 → 개인별 평가서 생성 → 등급 분포 분석 → 경영진 보고\n```\n\n### 구체적 구현\n- **xlsx 스킬**:\n  - 직원별 평가 점수 집계 및 상대평가 등급 산정\n  - 부서별/직급별 평가 분포 분석\n  - 급여 인상률 자동 계산\n\n- **docx 스킬**:\n  - 200명 직원에 대한 개인별 평가서 자동 생성\n  - 강점/개선점 자동 기재\n  - 목표 설정 템플릿 삽입\n\n- **pptx 스킬**:\n  - 인사위원회용 평가 결과 요약 프레젠테이션\n\n---\n\n## 🔄 **5. 견적서-계약서-청구서 연동 시스템**\n\n### 자동화 흐름\n```\n견적 데이터 → 견적서 생성 → 계약서 전환 → 청구서 발행\n```\n\n### 구체적 구현\n- **xlsx 스킬**:\n  - 제품/서비스별 단가 데이터베이스\n  - 할인율 자동 계산\n  - 부가세 자동 산정\n\n- **docx 스킬**:\n  - Excel 데이터 기반 견적서 자동 생성 (50건/일)\n  - 계약서 자동 작성 (고객정보, 금액 자동 입력)\n\n- **pdf 스킬**:\n  - PDF 양식에 데이터 자동 입력\n  - 청구서 일괄 생성 및 병합\n\n---\n\n## 📑 **6. 마케팅 캠페인 성과 보고 자동화**\n\n### 자동화 흐름\n```\n캠페인 데이터 → 성과 분석 → 대시보드 업데이트 → 주간 리포트 생성\n```\n\n### 구체적 구현\n- **xlsx 스킬**:\n  - 광고 채널별 ROI 자동 계산\n  - 전환율, CPA, ROAS 지표 산출\n  - 주간/월간 트렌드 차트 생성\n\n- **pptx 스킬**:\n  - 주간 마케팅 미팅용 자료 자동 생성 (15슬라이드)\n  - 채널별 성과 비교 슬라이드\n  - 개선 권고사항 자동 작성\n\n- **docx 스킬**:\n  - 상세 분석 리포트 작성\n\n---\n\n## 🎯 **7. 프로젝트 진행 상황 자동 보고 시스템**\n\n### 자동화 흐름\n```\n작업 데이터 → 진척률 계산 → 지연 위험 식별 → 보고서 생성\n```\n\n### 구체적 구현\n- **xlsx 스킬**:\n  - 간트 차트 자동 업데이트\n  - 일정 지연 위험 자동 식별 (빨간색 표시)\n  - 리소스 할당 분석\n\n- **pptx 스킬**:\n  - 주간 현황 브리핑 자료 자동 생성\n  - 마일스톤 달성 현황 시각화\n\n- **docx 스킬**:\n  - 프로젝트 현황 보고서 작성\n  - 이슈 및 리스크 목록 자동 정리\n\n---\n\n## 💡 **실제 적용 시 장점**\n\n1. **시간 절감**: 수작업 대비 80-90% 시간 단축\n2. **오류 감소**: 수식 자동 검증 및 일관성 유지\n3. **표준화**: 회사 템플릿 및 포맷 자동 적용\n4. **확장성**: 데이터 규모에 관계없이 동일한 프로세스 적용\n5. **추적 가능성**: 변경 이력 자동 기록 (docx redlining)\n\n이러한 자동화는 클로드와 대화하면서 즉시 실행할 수 있으며, 별도의 프로그래밍이나 외부 도구 없이 네이티브 스킬만으로 완성됩니다.\n\n구체적으로 어떤 사례를 더 자세히 설명해드릴까요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2025-11-03T23:13:10.770515Z",
+      "updated_at": "2025-11-03T23:13:10.770515Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "dc030fe5-bbab-49a6-baf6-c47a89f39151"
+    }
+  ]
+}

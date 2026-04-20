@@ -1,0 +1,1560 @@
+﻿{
+  "uuid": "6c978a3e-c33e-4096-ba1c-25025ff0d0b9",
+  "name": "Phase 1 수집 웹폼 Next.js + Supabase 세팅",
+  "summary": "",
+  "created_at": "2026-03-30T02:09:37.097654Z",
+  "updated_at": "2026-03-30T02:25:37.994089Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d3c80-f521-7aeb-8816-f5c600e67831",
+      "text": "https://www.notion.so/Phase-1-Sprint-DoD-3336b7b50b238146a199cfd090fe9f0e\n\"Phase 1 수집 웹폼 DoD 기준으로 Next.js + Supabase 세팅부터 시작해줘\"",
+      "content": [
+        {
+          "start_timestamp": "2026-03-30T02:09:38.746867Z",
+          "stop_timestamp": "2026-03-30T02:09:38.746867Z",
+          "flags": null,
+          "type": "text",
+          "text": "https://www.notion.so/Phase-1-Sprint-DoD-3336b7b50b238146a199cfd090fe9f0e\n\"Phase 1 수집 웹폼 DoD 기준으로 Next.js + Supabase 세팅부터 시작해줘\"",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-30T02:09:38.789601Z",
+      "updated_at": "2026-03-30T02:09:38.789601Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d3c80-f521-7041-9f5d-903014569159",
+      "text": "\n```\nThis block is not supported on your current device yet.\n```\n\n먼저 Notion에서 DoD 문서를 가져올게요.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\nDoD 문서 완전히 읽었습니다. 이제 세팅을 시작할게요.\n```\nThis block is not supported on your current device yet.\n```\n\nDoD 문서를 완전히 파악했습니다. 12개 항목 — A(Magic Link), B(주관식), C(Supabase 저장), D(익명/동의) — 을 기준으로 세팅을 시작하겠습니다.\n\n전체 프로젝트 구조를 먼저 스캐폴딩하고, 각 DoD 항목을 충족하는 코드를 단계적으로 작성할게요.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n이제 핵심 — Supabase 클라이언트, 타입, DB 마이그레이션을 작성합니다.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n이제 Server Actions를 작성합니다. DoD의 모든 서버 사이드 로직이 여기 집결됩니다.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\nDoD 문서를 완전히 읽고 세팅을 시작했습니다. 지금까지 완성된 파일들을 정리하면:\n\n**완성된 구조**\n\n```\npulse-check-webform/\n├── package.json                          (Next.js 14 + Supabase SSR)\n├── tsconfig.json / next.config.js\n├── tailwind.config.ts / postcss.config.js\n├── .env.local.example\n├── supabase/\n│   └── migrations/\n│       └── 001_initial_schema.sql        ← DoD C-1, C-2, D-1, D-2, D-3 전부 커버\n├── src/\n│   ├── types/index.ts                    ← 전체 타입 정의\n│   ├── lib/\n│   │   ├── supabase/client.ts            (브라우저 클라이언트)\n│   │   ├── supabase/server.ts            (서버 클라이언트)\n│   │   ├── crypto.ts                     ← DoD D-1: SHA-256 해싱\n│   │   └── questions.ts                  ← DoD B-1: 주관식 문항 4개 + 동의 텍스트\n│   └── app/\n│       ├── layout.tsx\n│       └── actions.ts                    ← DoD A-1, C-1, C-2, D-1, D-2, D-3 서버 액션\n```\n\n**DoD 매핑 현황**\n\n| DoD | 구현 위치 | 상태 |\n|-----|-----------|------|\n| A-1 Magic Link 발송 | `actions.ts → sendMagicLink()` | ✅ |\n| A-2 세션 생성 확인 | `auth/callback` route 필요 | 🔜 |\n| A-3 만료 링크 처리 | `auth/callback` 오류 처리 | 🔜 |\n| B-1 주관식 렌더링 | `questions.ts` + UI 컴포넌트 | 🔜 |\n| B-2 빈칸 유효성 | 폼 컴포넌트 | 🔜 |\n| B-3 완료 화면 | `/survey/complete` page | 🔜 |\n| C-1 DB INSERT | `actions.ts → submitSurvey()` | ✅ |\n| C-2 submitted_at | SQL + server action | ✅ |\n| C-3 네트워크 오류 처리 | UI 컴포넌트 | 🔜 |\n| D-1 직접식별자 미포함 | `crypto.ts → hashEmail()` | ✅ |\n| D-2 동의 저장 | `actions.ts` + consent_log | ✅ |\n| D-3 동의 없이 차단 | RLS 정책 + 서버 액션 양쪽 | ✅ |\n\n**다음 단계**는 UI 컴포넌트들 (Magic Link 페이지, 동의 화면, 설문 폼, 완료 화면, auth/callback route)을 이어서 만들면 됩니다. 계속 진행할까요? 아니면 먼저 Supabase 프로젝트 연결 (`NEXT_PUBLIC_SUPABASE_URL` 세팅)부터 하시겠어요?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-30T02:09:41.845589Z",
+          "stop_timestamp": "2026-03-30T02:09:42.692002Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_018MjqronHZUSCxa2GaywWxv",
+          "name": "view",
+          "input": {
+            "description": "Reading the Notion knowledge capture skill",
+            "path": "/mnt/skills/user/notion-knowledge-capture/SKILL.md"
+          },
+          "message": "Reading the Notion knowledge capture skill",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "text",
+            "text": "Reading the Notion knowledge capture skill"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_018MjqronHZUSCxa2GaywWxv",
+          "name": "view",
+          "content": [
+            {
+              "type": "text",
+              "text": "     1\t---\n     2\tname: notion-knowledge-capture\n     3\tdescription: Transforms conversations and discussions into structured documentation pages in Notion. Captures insights, decisions, and knowledge from chat context, formats appropriately, and saves to wikis or databases with proper organization and linking for easy discovery.\n     4\t---\n     5\t\n     6\t# Knowledge Capture\n     7\t\n     8\tTransforms conversations, discussions, and insights into structured documentation in your Notion workspace. Captures knowledge from chat context, formats it appropriately, and saves it to the right location with proper organization and linking.\n     9\t\n    10\t## Quick Start\n    11\t\n    12\tWhen asked to save information to Notion:\n    13\t\n    14\t1. **Extract content**: Identify key information from conversation context\n    15\t2. **Structure information**: Organize into appropriate documentation format\n    16\t3. **Determine location**: Use `Notion:notion-search` to find appropriate wiki page/database\n    17\t4. **Create page**: Use `Notion:notion-create-pages` to save content\n    18\t5. **Make discoverable**: Link from relevant hub pages, add to databases, or update wiki navigation so others can find it\n    19\t\n    20\t## Knowledge Capture Workflow\n    21\t\n    22\t### Step 1: Identify content to capture\n    23\t\n    24\t```\n    25\tFrom conversation context, extract:\n    26\t- Key concepts and definitions\n    27\t- Decisions made and rationale\n    28\t- How-to information and procedures\n    29\t- Important insights or learnings\n    30\t- Q&A pairs\n    31\t- Examples and use cases\n    32\t```\n    33\t\n    34\t### Step 2: Determine content type\n    35\t\n    36\t```\n    37\tClassify the knowledge:\n    38\t- Concept/Definition\n    39\t- How-to Guide\n    40\t- Decision Record\n    41\t- FAQ Entry\n    42\t- Meeting Summary\n    43\t- Learning/Post-mortem\n    44\t- Reference Documentation\n    45\t```\n    46\t\n    47\t\n    48\t### Step 3: Structure the content\n    49\t\n    50\t```\n    51\tFormat appropriately based on content type:\n    52\t- Use templates for consistency\n    53\t- Add clear headings and sections\n    54\t- Include examples where helpful\n    55\t- Add relevant metadata\n    56\t- Link to related pages\n    57\t```\n    58\t\n    59\t\n    60\t### Step 4: Determine destination\n    61\t\n    62\t```\n    63\tWhere to save:\n    64\t- Wiki page (general knowledge base)\n    65\t- Specific project page (project-specific knowledge)\n    66\t- Documentation database (structured docs)\n    67\t- FAQ database (questions and answers)\n    68\t- Decision log (architecture/product decisions)\n    69\t- Team wiki (team-specific knowledge)\n    70\t```\n    71\t\n    72\t### Step 5: Create the page\n    73\t\n    74\t```\n    75\tUse Notion:notion-create-pages:\n    76\t- Set appropriate title\n    77\t- Use structured content from template\n    78\t- Set properties if in database\n    79\t- Add tags/categories\n    80\t- Link to related pages\n    81\t```\n    82\t\n    83\t### Step 6: Make content discoverable\n    84\t\n    85\t```\n    86\tLink the new page so others can find it:\n    87\t\n    88\t1. Update hub/index pages:\n    89\t   - Add link to wiki table of contents page\n    90\t   - Add link from relevant project page\n    91\t   - Add link from category/topic page (e.g., \"Engineering Docs\")\n    92\t   \n    93\t2. If page is in a database:\n    94\t   - Set appropriate tags/categories\n    95\t   - Set status (e.g., \"Published\")\n    96\t   - Add to relevant views\n    97\t   \n    98\t3. Optionally update parent page:\n    99\t   - If saved under a project, add to project's \"Documentation\" section\n   100\t   - If in team wiki, ensure it's linked from team homepage\n   101\t\n   102\tExample:\n   103\tNotion:notion-update-page\n   104\tpage_id: \"team-wiki-homepage-id\"\n   105\tcommand: \"insert_content_after\"\n   106\tselection_with_ellipsis: \"## How-To Guides...\"\n   107\tnew_str: \"- <mention-page url='...'>How to Deploy to Production</mention-page>\"\n   108\t```\n   109\t\n   110\tThis step ensures the knowledge doesn't become \"orphaned\" - it's properly connected to your workspace's navigation structure.\n   111\t\n   112\t## Content Types\n   113\t\n   114\tChoose appropriate structure based on content:\n   115\t\n   116\t**Concept**: Overview → Definition → Characteristics → Examples → Use Cases → Related\n   117\t**How-To**: Overview → Prerequisites → Steps (numbered) → Verification → Troubleshooting → Related\n   118\t**Decision**: Context → Decision → Rationale → Options Considered → Consequences → Implementation\n   119\t**FAQ**: Short Answer → Detailed Explanation → Examples → When to Use → Related Questions\n   120\t**Learning**: What Happened → What Went Well → What Didn't → Root Causes → Learnings → Actions\n   121\t\n   122\t\n   123\t## Destination Patterns\n   124\t\n   125\t**General Wiki**: Standalone page → add to index → tag → link from related pages\n   126\t\n   127\t**Project Wiki**: Child of project page → link from project overview → tag with project name\n   128\t\n   129\t**Documentation Database**: Use properties (Title, Type, Category, Tags, Last Updated, Owner)\n   130\t\n   131\t**Decision Log Database**: Use properties (Decision, Date, Status, Domain, Deciders, Impact)\n   132\t\n   133\t**FAQ Database**: Use properties (Question, Category, Tags, Last Reviewed, Useful Count)\n   134\t\n   135\tSee [reference/database-best-practices.md](reference/database-best-practices.md) for database selection guide and individual schema files.\n   136\t\n   137\t## Content Extraction from Conversations\n   138\t\n   139\t**Chat Discussion**: Key points, conclusions, resources, action items, Q&A\n   140\t\n   141\t**Problem-Solving**: Problem statement, approaches tried, solution, why it worked, future considerations\n   142\t\n   143\t**Knowledge Sharing**: Concept explained, examples, best practices, common pitfalls, resources\n   144\t\n   145\t**Decision Discussion**: Question, options, trade-offs, decision, rationale, next steps\n   146\t\n   147\t## Formatting Best Practices\n   148\t\n   149\t**Structure**: Use `#` (title), `##` (sections), `###` (subsections) consistently\n   150\t\n   151\t**Writing**: Start with overview, use bullets, keep paragraphs short, add examples\n   152\t\n   153\t**Linking**: Link related pages, mention people, reference resources, create bidirectional links\n   154\t\n   155\t**Metadata**: Include date, author, tags, status\n   156\t\n   157\t**Searchability**: Clear titles, natural keywords, common search tags, image alt-text\n   158\t\n   159\t## Indexing and Organization\n   160\t\n   161\t**Wiki Index**: Organize by sections (Getting Started, How-To Guides, Reference, FAQs, Decisions) with page links\n   162\t\n   163\t**Category Pages**: Create landing pages with overview, doc links, and recent updates\n   164\t\n   165\t**Tagging Strategy**: Use consistent tags for technology/tools, topics, audience, and status\n   166\t\n   167\t## Update Management\n   168\t\n   169\t**Create New**: Content is substantive (>2 paragraphs), will be referenced multiple times, part of knowledge base, needs independent discovery\n   170\t\n   171\t**Update Existing**: Adding to existing topic, correcting info, expanding concept, updating for changes\n   172\t\n   173\t**Versioning**: Add update history section for significant changes (date, author, what changed, why)\n   174\t\n   175\t## Best Practices\n   176\t\n   177\t1. **Capture promptly**: Document while context is fresh\n   178\t2. **Structure consistently**: Use templates for similar content\n   179\t3. **Link extensively**: Connect related knowledge\n   180\t4. **Write for discovery**: Use searchable titles and tags\n   181\t5. **Include context**: Why this matters, when to use\n   182\t6. **Add examples**: Concrete examples aid understanding\n   183\t7. **Maintain**: Review and update periodically\n   184\t8. **Get feedback**: Ask if documentation is helpful\n   185\t\n   186\t## Advanced Features\n   187\t\n   188\t**Documentation databases**: See [reference/database-best-practices.md](reference/database-best-practices.md) for database schema patterns.\n   189\t\n   190\t## Common Issues\n   191\t\n   192\t**\"Not sure where to save\"**: Default to general wiki, can move later\n   193\t**\"Content is fragmentary\"**: Group related fragments into cohesive doc\n   194\t**\"Already exists\"**: Search first, update existing if appropriate\n   195\t**\"Too informal\"**: Clean up language while preserving insights\n   196\t\n   197\t## Examples\n   198\t\n   199\tSee [examples/](examples/) for complete workflows:\n   200\t- [examples/conversation-to-faq.md](examples/conversation-to-faq.md) - FAQ from Q&A\n   201\t- [examples/decision-capture.md](examples/decision-capture.md) - Decision record\n   202\t- [examples/how-to-guide.md](examples/how-to-guide.md) - How-to from discussion\n   203\t\n   204\t",
+              "uuid": "c8b68452-49e8-4de7-9747-5db30c59f510"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-30T02:09:47.484212Z",
+          "stop_timestamp": "2026-03-30T02:09:47.883401Z",
+          "flags": null,
+          "type": "text",
+          "text": "먼저 Notion에서 DoD 문서를 가져올게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-30T02:09:48.398659Z",
+          "stop_timestamp": "2026-03-30T02:09:49.404529Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01PrLFSphwADxEUUAWjjpMcr",
+          "name": "google_drive_fetch",
+          "input": {
+            "document_ids": [
+              "3336b7b50b238146a199cfd090fe9f0e"
+            ]
+          },
+          "message": "Fetching files",
+          "integration_name": "Google Drive",
+          "integration_icon_url": "https://www.gstatic.com/marketing-cms/assets/images/e8/4f/69d708b2455397d7b88b0312f7c5/google-drive.webp",
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01PrLFSphwADxEUUAWjjpMcr",
+          "name": "google_drive_fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "Error fetching document with ID `drive:///3336b7b50b238146a199cfd090fe9f0e`, error -32000",
+              "uuid": "a7487d56-347a-4937-96ff-561a83002cfb"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": "Fetched files",
+          "integration_name": "Google Drive",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.gstatic.com/marketing-cms/assets/images/e8/4f/69d708b2455397d7b88b0312f7c5/google-drive.webp",
+          "icon_name": null,
+          "display_content": {
+            "type": "rich_content",
+            "content": [
+              {
+                "title": "Error fetching drive:///3336b7b50b238146a199cfd090fe9f0e",
+                "subtitles": null,
+                "url": "https://docs.google.com/document/d/3336b7b50b238146a199cfd090fe9f0e/edit",
+                "resource_type": "Error",
+                "icon_url": "https://www.gstatic.com/marketing-cms/assets/images/e8/4f/69d708b2455397d7b88b0312f7c5/google-drive.webp",
+                "source": "Google Drive"
+              }
+            ]
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:09:50.977208Z",
+          "stop_timestamp": "2026-03-30T02:09:51.139276Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_015qx19BihavLdDoUMfyeyBH",
+          "name": "tool_search",
+          "input": {
+            "query": "notion fetch page"
+          },
+          "message": "Searching available tools: notion fetch page",
+          "integration_name": "Tool Search",
+          "integration_icon_url": null,
+          "icon_name": "search",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_015qx19BihavLdDoUMfyeyBH",
+          "name": "tool_search",
+          "content": [
+            {
+              "type": "text",
+              "text": "Loaded 5 Notion tools:\n  Notion:notion-get-comments:\n    page_id: string - Identifier for a Notion page.\n    discussion_id?: string - Fetch a specific discussion by ID or discussion URL (e.g., discussion://pageId/blockId/discussionId).\n    include_all_blocks?: boolean\n    include_resolved?: boolean\n  Notion:notion-fetch:\n    id: string - The ID or URL of the Notion page, database, or data source to fetch. Supports notion.so URLs, Notion Sites URLs (*.no...\n    include_discussions?: boolean\n    include_transcript?: boolean\n  Notion:notion-duplicate-page:\n    page_id: string - The ID of the page to duplicate. This is a v4 UUID, with or without dashes, and can be parsed from a Notion page URL.\n  Notion:notion-create-pages:\n    pages: array [object {properties, content, template_id, icon, cover}] - The pages to create.\n    parent: any - The parent under which the new pages will be created. This can be a page (page_id), a database page (database_id), or...\n  Notion:notion-search:\n    filters: object {created_date_range, created_by_user_ids} - Optionally provide filters to apply to the search results. Only valid when query_type is 'internal'.\n    query: string - Semantic search query over your entire Notion workspace and connected sources (Slack, Google Drive, Github, Jira, Mic...\n    content_search_mode?: string [workspace_search|ai_search]\n    data_source_url?: string - Optionally, provide the URL of a Data source to search. This will perform a semantic search over the pages in the Dat...\n    max_highlight_length?: integer - Maximum character length for result highlights (default 200). Set to 0 to omit highlights entirely.\n    page_size?: integer - Maximum number of results to return (default 10). Lower values reduce response size.\n    page_url?: string - Optionally, provide the URL or ID of a page to search within. This will perform a semantic search over the content wi...\n    query_type?: string [internal|user]\n    teamspace_id?: string - Optionally, provide the ID of a teamspace to restrict search results to. This will perform a search over content with...\nThese tools are now available for you to call directly.",
+              "uuid": "5ad832b9-a70c-4001-9815-d708895aa95f"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Searched available tools",
+          "integration_name": "Tool Search",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "search",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-30T02:09:52.758383Z",
+          "stop_timestamp": "2026-03-30T02:09:53.912962Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01Pg3abH9CYDZ9GRMVjfcMqi",
+          "name": "Notion:notion-fetch",
+          "input": {
+            "id": "https://www.notion.so/Phase-1-Sprint-DoD-3336b7b50b238146a199cfd090fe9f0e"
+          },
+          "message": "Notion-fetch",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-fetch-60feec32716c8799143ed51c780a8f47",
+          "is_mcp_app": false,
+          "mcp_server_url": "https://mcp.notion.com/mcp"
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01Pg3abH9CYDZ9GRMVjfcMqi",
+          "name": "Notion:notion-fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"metadata\":{\"type\":\"page\"},\"title\":\"🏃 🏃 Phase 1 Sprint — 수집 웹폼 DoD\",\"url\":\"https://www.notion.so/3336b7b50b238146a199cfd090fe9f0e\",\"text\":\"Here is the result of \\\"view\\\" for the Page with URL https://www.notion.so/3336b7b50b238146a199cfd090fe9f0e as of 2026-03-30T01:31:09.992Z:\\n<page url=\\\"https://www.notion.so/3336b7b50b238146a199cfd090fe9f0e\\\" icon=\\\"🏃\\\">\\n<ancestor-path>\\n<parent-page url=\\\"https://www.notion.so/3276b7b50b238192803cec566c05f482\\\" title=\\\"EX Intelligence — 프로젝트 고정 페이지\\\"/>\\n<ancestor-2-page url=\\\"https://www.notion.so/2496b7b50b23802da04fdafb113c4d4c\\\" title=\\\"세컨브레인 위키\\\"/>\\n<ancestor-3-data-source url=\\\"collection://1cc6b7b5-0b23-803e-87c2-000b76f9c172\\\" name=\\\"My Cal\\\"/>\\n<ancestor-4-database url=\\\"https://www.notion.so/1cc6b7b50b238019a8aedf1648664acc\\\" title=\\\"\\\"/>\\n<ancestor-5-page url=\\\"https://www.notion.so/1cc6b7b50b2380c59fc6ca6f2f77ba0c\\\" title=\\\"빠른메모\\\"/>\\n</ancestor-path>\\n<properties>\\n{\\\"title\\\":\\\"🏃 Phase 1 Sprint — 수집 웹폼 DoD\\\"}\\n</properties>\\n<content>\\n## 스프린트 개요 {color=\\\"blue\\\"}\\n<table header-row=\\\"true\\\">\\n<tr>\\n<td>항목</td>\\n<td>내용</td>\\n</tr>\\n<tr>\\n<td>스프린트 범위</td>\\n<td>Phase 1 — ② 수집 웹폼 단독</td>\\n</tr>\\n<tr>\\n<td>완료 기준</td>\\n<td>로컬 개발 환경에서 전 항목 작동 확인</td>\\n</tr>\\n<tr>\\n<td>독자</td>\\n<td>EXG팀 / 협업자 공유용</td>\\n</tr>\\n<tr>\\n<td>총 항목</td>\\n<td>12개 (4섹션 × 3항목)</td>\\n</tr>\\n<tr>\\n<td>태그 체계</td>\\n<td>`필수` `검증` `UX` `거버넌스`</td>\\n</tr>\\n<tr>\\n<td>기술 스택</td>\\n<td>Next.js + Supabase + Magic Link Auth</td>\\n</tr>\\n</table>\\n> **완료 선언 조건**: 12개 항목 전부 ✅ — 단 `거버넌스` 태그 2개는 절대 스킵 불가\\n---\\n## A. Magic Link 인증 {color=\\\"green\\\"}\\n- [ ] **A-1** `필수` 이메일 입력 → Magic Link 발송 확인\\n\\t- Supabase Auth OTP 이메일이 실제 수신됨\\n- [ ] **A-2** `검증` 링크 클릭 후 인증 세션 생성 확인\\n\\t- Supabase 대시보드 → Authentication → Users에서 세션 확인\\n- [ ] **A-3** `UX` 만료 링크 재접근 시 오류 처리 동작\\n\\t- \\\"링크가 만료됐습니다. 재발송 받으세요\\\" 안내 메시지 노출\\n---\\n## B. 주관식 문항 작동 {color=\\\"blue\\\"}\\n- [ ] **B-1** `필수` 주관식 문항 최소 1개 렌더링 확인\\n\\t- textarea 또는 동등한 입력 필드가 화면에 정상 노출됨\\n- [ ] **B-2** `UX` 빈 칸 제출 시 유효성 검사 동작\\n\\t- 필수 문항 미입력 시 제출 차단 또는 경고 메시지 노출\\n- [ ] **B-3** `UX` 제출 완료 후 확인 화면 노출\\n\\t- \\\"응답이 저장되었습니다\\\" 등 완료 상태 피드백 제공\\n---\\n## C. Supabase 저장 확인 {color=\\\"yellow\\\"}\\n- [ ] **C-1** `필수` 응답 제출 시 Supabase 테이블에 row 생성 확인\\n\\t- Table Editor → survey_responses 테이블에 신규 레코드 확인\\n- [ ] **C-2** `검증` 저장된 레코드에 submitted_at 타임스탬프 포함\\n\\t- 수집 시점 추적용 필드가 null 없이 저장됨\\n- [ ] **C-3** `UX` 네트워크 오류 시 사용자 안내 메시지 노출\\n\\t- 저장 실패 시 재시도 유도 — 데이터 소실 없이 복구 가능한 상태\\n---\\n## D. 익명 처리 로직 {color=\\\"red\\\"}\\n- [ ] **D-1** `필수` 저장된 레코드에 직접 식별자 미포함 확인\\n\\t- 이름·이메일이 응답 테이블에 저장되지 않고 hashed_id 또는 uuid만 존재\\n- [ ] **D-2** `거버넌스` 동의 절차 화면 노출 및 동의 여부 저장\\n\\t- 수집 목적·보존 기간 고지 후 consent_given = true 저장 확인\\n- [ ] **D-3** `거버넌스` 동의 없이 제출 시 저장 차단 확인\\n\\t- consent_given = false 상태에서 제출 버튼 비활성화 또는 DB insert 차단\\n---\\n## 완료 체크 {color=\\\"gray\\\"}\\n<table header-row=\\\"true\\\">\\n<tr>\\n<td>섹션</td>\\n<td>완료</td>\\n<td>비고</td>\\n</tr>\\n<tr>\\n<td>A. Magic Link 인증</td>\\n<td>☐ 0/3</td>\\n<td></td>\\n</tr>\\n<tr>\\n<td>B. 주관식 문항 작동</td>\\n<td>☐ 0/3</td>\\n<td></td>\\n</tr>\\n<tr>\\n<td>C. Supabase 저장 확인</td>\\n<td>☐ 0/3</td>\\n<td></td>\\n</tr>\\n<tr>\\n<td>D. 익명 처리 로직</td>\\n<td>☐ 0/3</td>\\n<td></td>\\n</tr>\\n<tr>\\n<td>**전체**</td>\\n<td>**☐ 0/12**</td>\\n<td></td>\\n</tr>\\n</table>\\n> ⚠️ **D-2, D-3은 거버넌스 항목** — 기술적으로 가장 간단하지만 빠지면 프로젝트 신뢰 기반 붕괴. 절대 스킵 불가.\\n---\\n## 다음 스텝\\n- 이 DoD 완료 후 → **Phase 1 ① DB 스키마 설계 DoD**로 이동\\n- 전체 Phase 1 완료 후 → **Phase 2 AI 분석 파이프라인** 진입 기준\\n---\\n## 이론 기반 (Why this matters)\\n이 웹폼은 단순한 입력창이 아니다. Edmondson(1999)의 심리적 안전감 연구가 말하는 \\\"발언에 대한 허용감\\\"을 시스템 레벨에서 구현하는 첫 번째 접점이다. D-2·D-3의 동의 설계가 없으면, 이 시스템은 Ansoff(1975)의 약한 시그널을 수집하는 도구가 아니라 König(2025)가 경고한 전자 감시 도구가 된다.\\n</content>\\n</page>\"}",
+              "uuid": "ec5e410a-2f75-4e5d-8dfb-c6de28494374"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": "https://mcp.notion.com/mcp",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"metadata\": {\n    \"type\": \"page\"\n  },\n  \"title\": \"🏃 🏃 Phase 1 Sprint — 수집 웹폼 DoD\",\n  \"url\": \"https://www.notion.so/3336b7b50b238146a199cfd090fe9f0e\",\n  \"text\": \"Here is the result of \\\"view\\\" for the Page with URL https://www.notion.so/3336b7b50b238146a199cfd090fe9f0e as of 2026-03-30T01:31:09.992Z:\\n<page url=\\\"https://www.notion.so/3336b7b50b238146a199cfd090fe9f0e\\\" icon=\\\"🏃\\\">\\n<ancestor-path>\\n<parent-page url=\\\"https://www.notion.so/3276b7b50b238192803cec566c05f482\\\" title=\\\"EX Intelligence — 프로젝트 고정 페이지\\\"/>\\n<ancestor-2-page url=\\\"https://www.notion.so/2496b7b50b23802da04fdafb113c4d4c\\\" title=\\\"세컨브레인 위키\\\"/>\\n<ancestor-3-data-source url=\\\"collection://1cc6b7b5-0b23-803e-87c2-000b76f9c172\\\" name=\\\"My Cal\\\"/>\\n<ancestor-4-database url=\\\"https://www.notion.so/1cc6b7b50b238019a8aedf1648664acc\\\" title=\\\"\\\"/>\\n<ancestor-5-page url=\\\"https://www.notion.so/1cc6b7b50b2380c59fc6ca6f2f77ba0c\\\" title=\\\"빠른메모\\\"/>\\n</ancestor-path>\\n<properties>\\n{\\\"title\\\":\\\"🏃 Phase 1 Sprint — 수집 웹폼 DoD\\\"}\\n</properties>\\n<content>\\n## 스프린트 개요 {color=\\\"blue\\\"}\\n<table header-row=\\\"true\\\">\\n<tr>\\n<td>항목</td>\\n<td>내용</td>\\n</tr>\\n<tr>\\n<td>스프린트 범위</td>\\n<td>Phase 1 — ② 수집 웹폼 단독</td>\\n</tr>\\n<tr>\\n<td>완료 기준</td>\\n<td>로컬 개발 환경에서 전 항목 작동 확인</td>\\n</tr>\\n<tr>\\n<td>독자</td>\\n<td>EXG팀 / 협업자 공유용</td>\\n</tr>\\n<tr>\\n<td>총 항목</td>\\n<td>12개 (4섹션 × 3항목)</td>\\n</tr>\\n<tr>\\n<td>태그 체계</td>\\n<td>`필수` `검증` `UX` `거버넌스`</td>\\n</tr>\\n<tr>\\n<td>기술 스택</td>\\n<td>Next.js + Supabase + Magic Link Auth</td>\\n</tr>\\n</table>\\n> **완료 선언 조건**: 12개 항목 전부 ✅ — 단 `거버넌스` 태그 2개는 절대 스킵 불가\\n---\\n## A. Magic Link 인증 {color=\\\"green\\\"}\\n- [ ] **A-1** `필수` 이메일 입력 → Magic Link 발송 확인\\n\\t- Supabase Auth OTP 이메일이 실제 수신됨\\n- [ ] **A-2** `검증` 링크 클릭 후 인증 세션 생성 확인\\n\\t- Supabase 대시보드 → Authentication → Users에서 세션 확인\\n- [ ] **A-3** `UX` 만료 링크 재접근 시 오류 처리 동작\\n\\t- \\\"링크가 만료됐습니다. 재발송 받으세요\\\" 안내 메시지 노출\\n---\\n## B. 주관식 문항 작동 {color=\\\"blue\\\"}\\n- [ ] **B-1** `필수` 주관식 문항 최소 1개 렌더링 확인\\n\\t- textarea 또는 동등한 입력 필드가 화면에 정상 노출됨\\n- [ ] **B-2** `UX` 빈 칸 제출 시 유효성 검사 동작\\n\\t- 필수 문항 미입력 시 제출 차단 또는 경고 메시지 노출\\n- [ ] **B-3** `UX` 제출 완료 후 확인 화면 노출\\n\\t- \\\"응답이 저장되었습니다\\\" 등 완료 상태 피드백 제공\\n---\\n## C. Supabase 저장 확인 {color=\\\"yellow\\\"}\\n- [ ] **C-1** `필수` 응답 제출 시 Supabase 테이블에 row 생성 확인\\n\\t- Table Editor → survey_responses 테이블에 신규 레코드 확인\\n- [ ] **C-2** `검증` 저장된 레코드에 submitted_at 타임스탬프 포함\\n\\t- 수집 시점 추적용 필드가 null 없이 저장됨\\n- [ ] **C-3** `UX` 네트워크 오류 시 사용자 안내 메시지 노출\\n\\t- 저장 실패 시 재시도 유도 — 데이터 소실 없이 복구 가능한 상태\\n---\\n## D. 익명 처리 로직 {color=\\\"red\\\"}\\n- [ ] **D-1** `필수` 저장된 레코드에 직접 식별자 미포함 확인\\n\\t- 이름·이메일이 응답 테이블에 저장되지 않고 hashed_id 또는 uuid만 존재\\n- [ ] **D-2** `거버넌스` 동의 절차 화면 노출 및 동의 여부 저장\\n\\t- 수집 목적·보존 기간 고지 후 consent_given = true 저장 확인\\n- [ ] **D-3** `거버넌스` 동의 없이 제출 시 저장 차단 확인\\n\\t- consent_given = false 상태에서 제출 버튼 비활성화 또는 DB insert 차단\\n---\\n## 완료 체크 {color=\\\"gray\\\"}\\n<table header-row=\\\"true\\\">\\n<tr>\\n<td>섹션</td>\\n<td>완료</td>\\n<td>비고</td>\\n</tr>\\n<tr>\\n<td>A. Magic Link 인증</td>\\n<td>☐ 0/3</td>\\n<td></td>\\n</tr>\\n<tr>\\n<td>B. 주관식 문항 작동</td>\\n<td>☐ 0/3</td>\\n<td></td>\\n</tr>\\n<tr>\\n<td>C. Supabase 저장 확인</td>\\n<td>☐ 0/3</td>\\n<td></td>\\n</tr>\\n<tr>\\n<td>D. 익명 처리 로직</td>\\n<td>☐ 0/3</td>\\n<td></td>\\n</tr>\\n<tr>\\n<td>**전체**</td>\\n<td>**☐ 0/12**</td>\\n<td></td>\\n</tr>\\n</table>\\n> ⚠️ **D-2, D-3은 거버넌스 항목** — 기술적으로 가장 간단하지만 빠지면 프로젝트 신뢰 기반 붕괴. 절대 스킵 불가.\\n---\\n## 다음 스텝\\n- 이 DoD 완료 후 → **Phase 1 ① DB 스키마 설계 DoD**로 이동\\n- 전체 Phase 1 완료 후 → **Phase 2 AI 분석 파이프라인** 진입 기준\\n---\\n## 이론 기반 (Why this matters)\\n이 웹폼은 단순한 입력창이 아니다. Edmondson(1999)의 심리적 안전감 연구가 말하는 \\\"발언에 대한 허용감\\\"을 시스템 레벨에서 구현하는 첫 번째 접점이다. D-2·D-3의 동의 설계가 없으면, 이 시스템은 Ansoff(1975)의 약한 시그널을 수집하는 도구가 아니라 König(2025)가 경고한 전자 감시 도구가 된다.\\n</content>\\n</page>\"\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:09:56.144042Z",
+          "stop_timestamp": "2026-03-30T02:09:57.018059Z",
+          "flags": null,
+          "type": "text",
+          "text": "DoD 문서 완전히 읽었습니다. 이제 세팅을 시작할게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-30T02:09:57.018059Z",
+          "stop_timestamp": "2026-03-30T02:09:58.185732Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01Ei9C2b4U4BKquxVif236ix",
+          "name": "view",
+          "input": {
+            "description": "Reading the frontend design skill for HTML/CSS patterns",
+            "path": "/mnt/skills/public/frontend-design/SKILL.md"
+          },
+          "message": "Reading the frontend design skill for HTML/CSS patterns",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "text",
+            "text": "Reading the frontend design skill for HTML/CSS patterns"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01Ei9C2b4U4BKquxVif236ix",
+          "name": "view",
+          "content": [
+            {
+              "type": "text",
+              "text": "     1\t---\n     2\tname: frontend-design\n     3\tdescription: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.\n     4\tlicense: Complete terms in LICENSE.txt\n     5\t---\n     6\t\n     7\tThis skill guides creation of distinctive, production-grade frontend interfaces that avoid generic \"AI slop\" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.\n     8\t\n     9\tThe user provides frontend requirements: a component, page, application, or interface to build. They may include context about the purpose, audience, or technical constraints.\n    10\t\n    11\t## Design Thinking\n    12\t\n    13\tBefore coding, understand the context and commit to a BOLD aesthetic direction:\n    14\t- **Purpose**: What problem does this interface solve? Who uses it?\n    15\t- **Tone**: Pick an extreme: brutally minimal, maximalist chaos, retro-futuristic, organic/natural, luxury/refined, playful/toy-like, editorial/magazine, brutalist/raw, art deco/geometric, soft/pastel, industrial/utilitarian, etc. There are so many flavors to choose from. Use these for inspiration but design one that is true to the aesthetic direction.\n    16\t- **Constraints**: Technical requirements (framework, performance, accessibility).\n    17\t- **Differentiation**: What makes this UNFORGETTABLE? What's the one thing someone will remember?\n    18\t\n    19\t**CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work - the key is intentionality, not intensity.\n    20\t\n    21\tThen implement working code (HTML/CSS/JS, React, Vue, etc.) that is:\n    22\t- Production-grade and functional\n    23\t- Visually striking and memorable\n    24\t- Cohesive with a clear aesthetic point-of-view\n    25\t- Meticulously refined in every detail\n    26\t\n    27\t## Frontend Aesthetics Guidelines\n    28\t\n    29\tFocus on:\n    30\t- **Typography**: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics; unexpected, characterful font choices. Pair a distinctive display font with a refined body font.\n    31\t- **Color & Theme**: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes.\n    32\t- **Motion**: Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML. Use Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions. Use scroll-triggering and hover states that surprise.\n    33\t- **Spatial Composition**: Unexpected layouts. Asymmetry. Overlap. Diagonal flow. Grid-breaking elements. Generous negative space OR controlled density.\n    34\t- **Backgrounds & Visual Details**: Create atmosphere and depth rather than defaulting to solid colors. Add contextual effects and textures that match the overall aesthetic. Apply creative forms like gradient meshes, noise textures, geometric patterns, layered transparencies, dramatic shadows, decorative borders, custom cursors, and grain overlays.\n    35\t\n    36\tNEVER use generic AI-generated aesthetics like overused font families (Inter, Roboto, Arial, system fonts), cliched color schemes (particularly purple gradients on white backgrounds), predictable layouts and component patterns, and cookie-cutter design that lacks context-specific character.\n    37\t\n    38\tInterpret creatively and make unexpected choices that feel genuinely designed for the context. No design should be the same. Vary between light and dark themes, different fonts, different aesthetics. NEVER converge on common choices (Space Grotesk, for example) across generations.\n    39\t\n    40\t**IMPORTANT**: Match implementation complexity to the aesthetic vision. Maximalist designs need elaborate code with extensive animations and effects. Minimalist or refined designs need restraint, precision, and careful attention to spacing, typography, and subtle details. Elegance comes from executing the vision well.\n    41\t\n    42\tRemember: Claude is capable of extraordinary creative work. Don't hold back, show what can truly be created when thinking outside the box and committing fully to a distinctive vision.\n    43\t",
+              "uuid": "7a7de63c-1664-4f30-843c-8e854e23b290"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-30T02:09:59.644087Z",
+          "stop_timestamp": "2026-03-30T02:10:02.680423Z",
+          "flags": null,
+          "type": "text",
+          "text": "DoD 문서를 완전히 파악했습니다. 12개 항목 — A(Magic Link), B(주관식), C(Supabase 저장), D(익명/동의) — 을 기준으로 세팅을 시작하겠습니다.\n\n전체 프로젝트 구조를 먼저 스캐폴딩하고, 각 DoD 항목을 충족하는 코드를 단계적으로 작성할게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-30T02:10:03.136339Z",
+          "stop_timestamp": "2026-03-30T02:10:05.935327Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01E556JPvfYMMVgn57k6M7FN",
+          "name": "bash_tool",
+          "input": {
+            "description": "Create Next.js project structure for Pulse Check web form",
+            "command": "\ncd /home/claude && \\\nmkdir -p pulse-check-webform && \\\ncd pulse-check-webform && \\\n# Create directory structure\nmkdir -p \\\n  src/app/survey \\\n  src/app/survey/complete \\\n  src/app/auth/callback \\\n  src/app/magic-link \\\n  src/components/survey \\\n  src/components/auth \\\n  src/components/ui \\\n  src/lib \\\n  src/types \\\n  supabase/migrations\n\necho \"✅ Directory structure created\"\nls -la src/app/\n"
+          },
+          "message": "Create Next.js project structure for Pulse Check web form",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "commandLine",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"\\ncd /home/claude && \\\\\\nmkdir -p pulse-check-webform && \\\\\\ncd pulse-check-webform && \\\\\\n# Create directory structure\\nmkdir -p \\\\\\n  src/app/survey \\\\\\n  src/app/survey/complete \\\\\\n  src/app/auth/callback \\\\\\n  src/app/magic-link \\\\\\n  src/components/survey \\\\\\n  src/components/auth \\\\\\n  src/components/ui \\\\\\n  src/lib \\\\\\n  src/types \\\\\\n  supabase/migrations\\n\\necho \\\"\\u2705 Directory structure created\\\"\\nls -la src/app/\\n\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01E556JPvfYMMVgn57k6M7FN",
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"✅ Directory structure created\\ntotal 20\\ndrwxr-xr-x 5 root root 4096 Mar 30 02:10 .\\ndrwxr-xr-x 6 root root 4096 Mar 30 02:10 ..\\ndrwxr-xr-x 3 root root 4096 Mar 30 02:10 auth\\ndrwxr-xr-x 2 root root 4096 Mar 30 02:10 magic-link\\ndrwxr-xr-x 3 root root 4096 Mar 30 02:10 survey\\n\",\"stderr\":\"\"}",
+              "uuid": "57a30055-471e-455d-a69d-d50c4606745a"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "commandLine",
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"✅ Directory structure created\\ntotal 20\\ndrwxr-xr-x 5 root root 4096 Mar 30 02:10 .\\ndrwxr-xr-x 6 root root 4096 Mar 30 02:10 ..\\ndrwxr-xr-x 3 root root 4096 Mar 30 02:10 auth\\ndrwxr-xr-x 2 root root 4096 Mar 30 02:10 magic-link\\ndrwxr-xr-x 3 root root 4096 Mar 30 02:10 survey\\n\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:10:07.510146Z",
+          "stop_timestamp": "2026-03-30T02:10:11.130449Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_011zHh2uGMKnGTv2wjgSyrUB",
+          "name": "create_file",
+          "input": {
+            "description": "package.json for Next.js + Supabase pulse check project",
+            "path": "/home/claude/pulse-check-webform/package.json",
+            "file_text": "{\n  \"name\": \"pulse-check-webform\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\": \"next build\",\n    \"start\": \"next start\",\n    \"lint\": \"next lint\",\n    \"type-check\": \"tsc --noEmit\"\n  },\n  \"dependencies\": {\n    \"next\": \"14.2.3\",\n    \"react\": \"^18\",\n    \"react-dom\": \"^18\",\n    \"@supabase/supabase-js\": \"^2.43.4\",\n    \"@supabase/ssr\": \"^0.3.0\",\n    \"zod\": \"^3.23.8\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^20\",\n    \"@types/react\": \"^18\",\n    \"@types/react-dom\": \"^18\",\n    \"typescript\": \"^5\",\n    \"tailwindcss\": \"^3.4.1\",\n    \"postcss\": \"^8\",\n    \"autoprefixer\": \"^10\",\n    \"eslint\": \"^8\",\n    \"eslint-config-next\": \"14.2.3\"\n  }\n}\n"
+          },
+          "message": "package.json for Next.js + Supabase pulse check project",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"json\", \"code\": \"{\\n  \\\"name\\\": \\\"pulse-check-webform\\\",\\n  \\\"version\\\": \\\"0.1.0\\\",\\n  \\\"private\\\": true,\\n  \\\"scripts\\\": {\\n    \\\"dev\\\": \\\"next dev\\\",\\n    \\\"build\\\": \\\"next build\\\",\\n    \\\"start\\\": \\\"next start\\\",\\n    \\\"lint\\\": \\\"next lint\\\",\\n    \\\"type-check\\\": \\\"tsc --noEmit\\\"\\n  },\\n  \\\"dependencies\\\": {\\n    \\\"next\\\": \\\"14.2.3\\\",\\n    \\\"react\\\": \\\"^18\\\",\\n    \\\"react-dom\\\": \\\"^18\\\",\\n    \\\"@supabase/supabase-js\\\": \\\"^2.43.4\\\",\\n    \\\"@supabase/ssr\\\": \\\"^0.3.0\\\",\\n    \\\"zod\\\": \\\"^3.23.8\\\"\\n  },\\n  \\\"devDependencies\\\": {\\n    \\\"@types/node\\\": \\\"^20\\\",\\n    \\\"@types/react\\\": \\\"^18\\\",\\n    \\\"@types/react-dom\\\": \\\"^18\\\",\\n    \\\"typescript\\\": \\\"^5\\\",\\n    \\\"tailwindcss\\\": \\\"^3.4.1\\\",\\n    \\\"postcss\\\": \\\"^8\\\",\\n    \\\"autoprefixer\\\": \\\"^10\\\",\\n    \\\"eslint\\\": \\\"^8\\\",\\n    \\\"eslint-config-next\\\": \\\"14.2.3\\\"\\n  }\\n}\\n\", \"filename\": \"/home/claude/pulse-check-webform/package.json\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_011zHh2uGMKnGTv2wjgSyrUB",
+          "name": "create_file",
+          "content": [
+            {
+              "type": "text",
+              "text": "File created successfully: /home/claude/pulse-check-webform/package.json",
+              "uuid": "1da42d7b-1df8-4f4b-928e-154483774d38"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "File created successfully: /home/claude/pulse-check-webform/package.json"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:10:13.522418Z",
+          "stop_timestamp": "2026-03-30T02:10:15.661273Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01PqL1TGyCpqaFArfp5M2GcX",
+          "name": "create_file",
+          "input": {
+            "description": "TypeScript config",
+            "file_text": "{\n  \"compilerOptions\": {\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"allowJs\": true,\n    \"skipLibCheck\": true,\n    \"strict\": true,\n    \"noEmit\": true,\n    \"esModuleInterop\": true,\n    \"module\": \"esnext\",\n    \"moduleResolution\": \"bundler\",\n    \"resolveJsonModule\": true,\n    \"isolatedModules\": true,\n    \"jsx\": \"preserve\",\n    \"incremental\": true,\n    \"plugins\": [{\"name\": \"next\"}],\n    \"paths\": {\"@/*\": [\"./src/*\"]}\n  },\n  \"include\": [\"next-env.d.ts\", \"**/*.ts\", \"**/*.tsx\", \".next/types/**/*.ts\"],\n  \"exclude\": [\"node_modules\"]\n}\n",
+            "path": "/home/claude/pulse-check-webform/tsconfig.json"
+          },
+          "message": "TypeScript config",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"json\", \"code\": \"{\\n  \\\"compilerOptions\\\": {\\n    \\\"lib\\\": [\\\"dom\\\", \\\"dom.iterable\\\", \\\"esnext\\\"],\\n    \\\"allowJs\\\": true,\\n    \\\"skipLibCheck\\\": true,\\n    \\\"strict\\\": true,\\n    \\\"noEmit\\\": true,\\n    \\\"esModuleInterop\\\": true,\\n    \\\"module\\\": \\\"esnext\\\",\\n    \\\"moduleResolution\\\": \\\"bundler\\\",\\n    \\\"resolveJsonModule\\\": true,\\n    \\\"isolatedModules\\\": true,\\n    \\\"jsx\\\": \\\"preserve\\\",\\n    \\\"incremental\\\": true,\\n    \\\"plugins\\\": [{\\\"name\\\": \\\"next\\\"}],\\n    \\\"paths\\\": {\\\"@/*\\\": [\\\"./src/*\\\"]}\\n  },\\n  \\\"include\\\": [\\\"next-env.d.ts\\\", \\\"**/*.ts\\\", \\\"**/*.tsx\\\", \\\".next/types/**/*.ts\\\"],\\n  \\\"exclude\\\": [\\\"node_modules\\\"]\\n}\\n\", \"filename\": \"/home/claude/pulse-check-webform/tsconfig.json\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01PqL1TGyCpqaFArfp5M2GcX",
+          "name": "create_file",
+          "content": [
+            {
+              "type": "text",
+              "text": "File created successfully: /home/claude/pulse-check-webform/tsconfig.json",
+              "uuid": "528a2534-5f14-4a2f-bbaa-31ae4968fe3b"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "File created successfully: /home/claude/pulse-check-webform/tsconfig.json"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:10:18.704180Z",
+          "stop_timestamp": "2026-03-30T02:10:19.584904Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01HLsXpYmVna1JWK81RsRv6u",
+          "name": "create_file",
+          "input": {
+            "description": "Next.js config",
+            "file_text": "/** @type {import('next').NextConfig} */\nconst nextConfig = {\n  experimental: {\n    serverActions: { allowedOrigins: ['localhost:3000'] },\n  },\n}\n\nmodule.exports = nextConfig\n",
+            "path": "/home/claude/pulse-check-webform/next.config.js"
+          },
+          "message": "Next.js config",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"javascript\", \"code\": \"/** @type {import('next').NextConfig} */\\nconst nextConfig = {\\n  experimental: {\\n    serverActions: { allowedOrigins: ['localhost:3000'] },\\n  },\\n}\\n\\nmodule.exports = nextConfig\\n\", \"filename\": \"/home/claude/pulse-check-webform/next.config.js\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01HLsXpYmVna1JWK81RsRv6u",
+          "name": "create_file",
+          "content": [
+            {
+              "type": "text",
+              "text": "File created successfully: /home/claude/pulse-check-webform/next.config.js",
+              "uuid": "f05ffbc1-9b64-4a4c-8b6e-0ac10714a9a9"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "File created successfully: /home/claude/pulse-check-webform/next.config.js"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:10:21.430211Z",
+          "stop_timestamp": "2026-03-30T02:10:23.860369Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01TLKGC1iVUAb8QYL6Yj6ECh",
+          "name": "create_file",
+          "input": {
+            "description": "Tailwind config",
+            "file_text": "/** @type {import('tailwindcss').Config} */\nmodule.exports = {\n  content: [\n    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',\n    './src/components/**/*.{js,ts,jsx,tsx,mdx}',\n    './src/app/**/*.{js,ts,jsx,tsx,mdx}',\n  ],\n  theme: {\n    extend: {\n      colors: {\n        brand: {\n          red: '#A50034',\n          'red-dark': '#7a0025',\n          'red-light': '#d4004a',\n        },\n      },\n      fontFamily: {\n        sans: ['Noto Sans KR', 'sans-serif'],\n      },\n    },\n  },\n  plugins: [],\n}\n",
+            "path": "/home/claude/pulse-check-webform/tailwind.config.ts"
+          },
+          "message": "Tailwind config",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"typescript\", \"code\": \"/** @type {import('tailwindcss').Config} */\\nmodule.exports = {\\n  content: [\\n    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',\\n    './src/components/**/*.{js,ts,jsx,tsx,mdx}',\\n    './src/app/**/*.{js,ts,jsx,tsx,mdx}',\\n  ],\\n  theme: {\\n    extend: {\\n      colors: {\\n        brand: {\\n          red: '#A50034',\\n          'red-dark': '#7a0025',\\n          'red-light': '#d4004a',\\n        },\\n      },\\n      fontFamily: {\\n        sans: ['Noto Sans KR', 'sans-serif'],\\n      },\\n    },\\n  },\\n  plugins: [],\\n}\\n\", \"filename\": \"/home/claude/pulse-check-webform/tailwind.config.ts\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01TLKGC1iVUAb8QYL6Yj6ECh",
+          "name": "create_file",
+          "content": [
+            {
+              "type": "text",
+              "text": "File created successfully: /home/claude/pulse-check-webform/tailwind.config.ts",
+              "uuid": "b03cee52-5c50-4102-97ac-0ebef1e37d9b"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "File created successfully: /home/claude/pulse-check-webform/tailwind.config.ts"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:10:25.725744Z",
+          "stop_timestamp": "2026-03-30T02:10:26.211169Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01FA973rtNgadc6MJoAC8GUb",
+          "name": "create_file",
+          "input": {
+            "description": "PostCSS config",
+            "file_text": "module.exports = {\n  plugins: {\n    tailwindcss: {},\n    autoprefixer: {},\n  },\n}\n",
+            "path": "/home/claude/pulse-check-webform/postcss.config.js"
+          },
+          "message": "PostCSS config",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"javascript\", \"code\": \"module.exports = {\\n  plugins: {\\n    tailwindcss: {},\\n    autoprefixer: {},\\n  },\\n}\\n\", \"filename\": \"/home/claude/pulse-check-webform/postcss.config.js\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01FA973rtNgadc6MJoAC8GUb",
+          "name": "create_file",
+          "content": [
+            {
+              "type": "text",
+              "text": "File created successfully: /home/claude/pulse-check-webform/postcss.config.js",
+              "uuid": "729e4b91-9737-42ad-bacb-9306c3e160c7"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "File created successfully: /home/claude/pulse-check-webform/postcss.config.js"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:10:27.853490Z",
+          "stop_timestamp": "2026-03-30T02:10:29.047644Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01AC2VYFYf4bV4raERBAiT1d",
+          "name": "create_file",
+          "input": {
+            "description": "Environment variables template",
+            "file_text": "# Supabase\nNEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co\nNEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here\n\n# Next.js\nNEXTAUTH_URL=http://localhost:3000\n",
+            "path": "/home/claude/pulse-check-webform/.env.local.example"
+          },
+          "message": "Environment variables template",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"plaintext\", \"code\": \"# Supabase\\nNEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co\\nNEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here\\n\\n# Next.js\\nNEXTAUTH_URL=http://localhost:3000\\n\", \"filename\": \"/home/claude/pulse-check-webform/.env.local.example\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01AC2VYFYf4bV4raERBAiT1d",
+          "name": "create_file",
+          "content": [
+            {
+              "type": "text",
+              "text": "File created successfully: /home/claude/pulse-check-webform/.env.local.example",
+              "uuid": "831a1f18-9d97-43f2-b44c-47740df3e8cb"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "File created successfully: /home/claude/pulse-check-webform/.env.local.example"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:10:30.591511Z",
+          "stop_timestamp": "2026-03-30T02:10:31.485968Z",
+          "flags": null,
+          "type": "text",
+          "text": "이제 핵심 — Supabase 클라이언트, 타입, DB 마이그레이션을 작성합니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-30T02:10:31.485968Z",
+          "stop_timestamp": "2026-03-30T02:10:39.922335Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01J4L3X1urFxfP9t7mfYJB74",
+          "name": "create_file",
+          "input": {
+            "description": "TypeScript types aligned with DoD schema requirements",
+            "file_text": "// DoD C-1: survey_responses 테이블 스키마\nexport interface SurveyResponse {\n  id: string\n  hashed_id: string          // DoD D-1: 직접 식별자 없이 해시만\n  session_token: string      // Magic Link 세션 연결용\n  consent_given: boolean     // DoD D-2: 동의 여부\n  consented_at: string | null\n  submitted_at: string       // DoD C-2: 타임스탬프\n  responses: QuestionResponse[]\n  created_at: string\n}\n\nexport interface QuestionResponse {\n  question_id: string\n  question_text: string\n  answer: string\n}\n\n// DoD B-1: 주관식 문항 타입\nexport interface SurveyQuestion {\n  id: string\n  text: string\n  type: 'text' | 'textarea'\n  required: boolean\n  placeholder?: string\n}\n\n// 폼 상태 타입\nexport interface SurveyFormState {\n  step: 'consent' | 'survey' | 'complete' | 'error'\n  consent: boolean\n  answers: Record<string, string>\n  errors: Record<string, string>\n  isSubmitting: boolean\n  submitError: string | null\n}\n\n// Magic Link 인증 상태\nexport interface AuthState {\n  email: string\n  sent: boolean\n  error: string | null\n  loading: boolean\n}\n\n// Supabase DB 타입\nexport type Database = {\n  public: {\n    Tables: {\n      survey_responses: {\n        Row: SurveyResponse\n        Insert: Omit<SurveyResponse, 'id' | 'created_at'>\n        Update: Partial<SurveyResponse>\n      }\n      consent_log: {\n        Row: {\n          id: string\n          hashed_id: string\n          consent_given: boolean\n          consented_at: string\n          ip_hash: string | null\n        }\n        Insert: Omit<ConsentLog, 'id'>\n        Update: Partial<ConsentLog>\n      }\n    }\n  }\n}\n\ninterface ConsentLog {\n  id: string\n  hashed_id: string\n  consent_given: boolean\n  consented_at: string\n  ip_hash: string | null\n}\n",
+            "path": "/home/claude/pulse-check-webform/src/types/index.ts"
+          },
+          "message": "TypeScript types aligned with DoD schema requirements",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"typescript\", \"code\": \"// DoD C-1: survey_responses \\ud14c\\uc774\\ube14 \\uc2a4\\ud0a4\\ub9c8\\nexport interface SurveyResponse {\\n  id: string\\n  hashed_id: string          // DoD D-1: \\uc9c1\\uc811 \\uc2dd\\ubcc4\\uc790 \\uc5c6\\uc774 \\ud574\\uc2dc\\ub9cc\\n  session_token: string      // Magic Link \\uc138\\uc158 \\uc5f0\\uacb0\\uc6a9\\n  consent_given: boolean     // DoD D-2: \\ub3d9\\uc758 \\uc5ec\\ubd80\\n  consented_at: string | null\\n  submitted_at: string       // DoD C-2: \\ud0c0\\uc784\\uc2a4\\ud0ec\\ud504\\n  responses: QuestionResponse[]\\n  created_at: string\\n}\\n\\nexport interface QuestionResponse {\\n  question_id: string\\n  question_text: string\\n  answer: string\\n}\\n\\n// DoD B-1: \\uc8fc\\uad00\\uc2dd \\ubb38\\ud56d \\ud0c0\\uc785\\nexport interface SurveyQuestion {\\n  id: string\\n  text: string\\n  type: 'text' | 'textarea'\\n  required: boolean\\n  placeholder?: string\\n}\\n\\n// \\ud3fc \\uc0c1\\ud0dc \\ud0c0\\uc785\\nexport interface SurveyFormState {\\n  step: 'consent' | 'survey' | 'complete' | 'error'\\n  consent: boolean\\n  answers: Record<string, string>\\n  errors: Record<string, string>\\n  isSubmitting: boolean\\n  submitError: string | null\\n}\\n\\n// Magic Link \\uc778\\uc99d \\uc0c1\\ud0dc\\nexport interface AuthState {\\n  email: string\\n  sent: boolean\\n  error: string | null\\n  loading: boolean\\n}\\n\\n// Supabase DB \\ud0c0\\uc785\\nexport type Database = {\\n  public: {\\n    Tables: {\\n      survey_responses: {\\n        Row: SurveyResponse\\n        Insert: Omit<SurveyResponse, 'id' | 'created_at'>\\n        Update: Partial<SurveyResponse>\\n      }\\n      consent_log: {\\n        Row: {\\n          id: string\\n          hashed_id: string\\n          consent_given: boolean\\n          consented_at: string\\n          ip_hash: string | null\\n        }\\n        Insert: Omit<ConsentLog, 'id'>\\n        Update: Partial<ConsentLog>\\n      }\\n    }\\n  }\\n}\\n\\ninterface ConsentLog {\\n  id: string\\n  hashed_id: string\\n  consent_given: boolean\\n  consented_at: string\\n  ip_hash: string | null\\n}\\n\", \"filename\": \"/home/claude/pulse-check-webform/src/types/index.ts\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01J4L3X1urFxfP9t7mfYJB74",
+          "name": "create_file",
+          "content": [
+            {
+              "type": "text",
+              "text": "File created successfully: /home/claude/pulse-check-webform/src/types/index.ts",
+              "uuid": "2bf72e1a-090e-47ad-82b7-2aa0e2238579"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "File created successfully: /home/claude/pulse-check-webform/src/types/index.ts"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:10:41.636475Z",
+          "stop_timestamp": "2026-03-30T02:10:56.554353Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_017h9ipXZgiRPPvWQVnWGKn5",
+          "name": "create_file",
+          "input": {
+            "description": "Supabase migration SQL — creates tables matching DoD C-1, C-2, D-1, D-2, D-3",
+            "file_text": "-- ============================================================\n-- Phase 1 Pulse Check — DB Schema\n-- DoD Coverage:\n--   C-1: survey_responses 테이블 생성\n--   C-2: submitted_at 타임스탬프 포함\n--   D-1: 직접 식별자(이름·이메일) 미포함, hashed_id만 존재\n--   D-2/D-3: consent_given 필드 및 consent_log 테이블\n-- ============================================================\n\n-- 1. survey_responses 테이블\nCREATE TABLE IF NOT EXISTS public.survey_responses (\n  id              UUID DEFAULT gen_random_uuid() PRIMARY KEY,\n  hashed_id       TEXT NOT NULL,          -- DoD D-1: 이메일 해시값만 저장\n  session_token   TEXT NOT NULL,\n  consent_given   BOOLEAN NOT NULL DEFAULT FALSE, -- DoD D-2\n  consented_at    TIMESTAMPTZ,\n  responses       JSONB NOT NULL DEFAULT '[]',\n  submitted_at    TIMESTAMPTZ NOT NULL DEFAULT NOW(), -- DoD C-2\n  created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\n-- 2. consent_log 테이블 (DoD D-2 감사 로그)\nCREATE TABLE IF NOT EXISTS public.consent_log (\n  id              UUID DEFAULT gen_random_uuid() PRIMARY KEY,\n  hashed_id       TEXT NOT NULL,\n  consent_given   BOOLEAN NOT NULL,\n  consented_at    TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n  ip_hash         TEXT  -- 추가 보안: IP도 해시만 보관\n);\n\n-- ============================================================\n-- Row Level Security (RLS) — DoD D-3: 비동의 시 저장 차단\n-- ============================================================\n\nALTER TABLE public.survey_responses ENABLE ROW LEVEL SECURITY;\nALTER TABLE public.consent_log ENABLE ROW LEVEL SECURITY;\n\n-- 익명 사용자도 INSERT 가능 (서버에서 consent_given 검증 후 호출)\nCREATE POLICY \"allow_insert_survey\" ON public.survey_responses\n  FOR INSERT TO anon\n  WITH CHECK (consent_given = TRUE); -- DoD D-3: 동의 없으면 DB 레벨에서도 차단\n\nCREATE POLICY \"allow_insert_consent\" ON public.consent_log\n  FOR INSERT TO anon\n  WITH CHECK (true);\n\n-- 본인 데이터만 SELECT (hashed_id 기준)\nCREATE POLICY \"select_own_response\" ON public.survey_responses\n  FOR SELECT TO anon\n  USING (hashed_id = current_setting('app.current_hashed_id', true));\n\n-- ============================================================\n-- 인덱스\n-- ============================================================\nCREATE INDEX idx_survey_responses_hashed_id ON public.survey_responses(hashed_id);\nCREATE INDEX idx_survey_responses_submitted_at ON public.survey_responses(submitted_at);\nCREATE INDEX idx_consent_log_hashed_id ON public.consent_log(hashed_id);\n\n-- ============================================================\n-- 코멘트 (문서화)\n-- ============================================================\nCOMMENT ON TABLE public.survey_responses IS \n  'Pulse Check 응답 테이블. 직접 식별자 없음 — hashed_id만 보관 (DoD D-1)';\nCOMMENT ON COLUMN public.survey_responses.hashed_id IS \n  'SHA-256(email) — 역추적 불가. 이메일 원문 미저장';\nCOMMENT ON COLUMN public.survey_responses.consent_given IS \n  'DoD D-2/D-3: false이면 RLS 정책에 의해 INSERT 차단됨';\nCOMMENT ON COLUMN public.survey_responses.submitted_at IS \n  'DoD C-2: 수집 시점 추적용 타임스탬프. NULL 불가';\n",
+            "path": "/home/claude/pulse-check-webform/supabase/migrations/001_initial_schema.sql"
+          },
+          "message": "Supabase migration SQL — creates tables matching DoD C-1, C-2, D-1, D-2, D-3",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"sql\", \"code\": \"-- ============================================================\\n-- Phase 1 Pulse Check \\u2014 DB Schema\\n-- DoD Coverage:\\n--   C-1: survey_responses \\ud14c\\uc774\\ube14 \\uc0dd\\uc131\\n--   C-2: submitted_at \\ud0c0\\uc784\\uc2a4\\ud0ec\\ud504 \\ud3ec\\ud568\\n--   D-1: \\uc9c1\\uc811 \\uc2dd\\ubcc4\\uc790(\\uc774\\ub984\\u00b7\\uc774\\uba54\\uc77c) \\ubbf8\\ud3ec\\ud568, hashed_id\\ub9cc \\uc874\\uc7ac\\n--   D-2/D-3: consent_given \\ud544\\ub4dc \\ubc0f consent_log \\ud14c\\uc774\\ube14\\n-- ============================================================\\n\\n-- 1. survey_responses \\ud14c\\uc774\\ube14\\nCREATE TABLE IF NOT EXISTS public.survey_responses (\\n  id              UUID DEFAULT gen_random_uuid() PRIMARY KEY,\\n  hashed_id       TEXT NOT NULL,          -- DoD D-1: \\uc774\\uba54\\uc77c \\ud574\\uc2dc\\uac12\\ub9cc \\uc800\\uc7a5\\n  session_token   TEXT NOT NULL,\\n  consent_given   BOOLEAN NOT NULL DEFAULT FALSE, -- DoD D-2\\n  consented_at    TIMESTAMPTZ,\\n  responses       JSONB NOT NULL DEFAULT '[]',\\n  submitted_at    TIMESTAMPTZ NOT NULL DEFAULT NOW(), -- DoD C-2\\n  created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()\\n);\\n\\n-- 2. consent_log \\ud14c\\uc774\\ube14 (DoD D-2 \\uac10\\uc0ac \\ub85c\\uadf8)\\nCREATE TABLE IF NOT EXISTS public.consent_log (\\n  id              UUID DEFAULT gen_random_uuid() PRIMARY KEY,\\n  hashed_id       TEXT NOT NULL,\\n  consent_given   BOOLEAN NOT NULL,\\n  consented_at    TIMESTAMPTZ NOT NULL DEFAULT NOW(),\\n  ip_hash         TEXT  -- \\ucd94\\uac00 \\ubcf4\\uc548: IP\\ub3c4 \\ud574\\uc2dc\\ub9cc \\ubcf4\\uad00\\n);\\n\\n-- ============================================================\\n-- Row Level Security (RLS) \\u2014 DoD D-3: \\ube44\\ub3d9\\uc758 \\uc2dc \\uc800\\uc7a5 \\ucc28\\ub2e8\\n-- ============================================================\\n\\nALTER TABLE public.survey_responses ENABLE ROW LEVEL SECURITY;\\nALTER TABLE public.consent_log ENABLE ROW LEVEL SECURITY;\\n\\n-- \\uc775\\uba85 \\uc0ac\\uc6a9\\uc790\\ub3c4 INSERT \\uac00\\ub2a5 (\\uc11c\\ubc84\\uc5d0\\uc11c consent_given \\uac80\\uc99d \\ud6c4 \\ud638\\ucd9c)\\nCREATE POLICY \\\"allow_insert_survey\\\" ON public.survey_responses\\n  FOR INSERT TO anon\\n  WITH CHECK (consent_given = TRUE); -- DoD D-3: \\ub3d9\\uc758 \\uc5c6\\uc73c\\uba74 DB \\ub808\\ubca8\\uc5d0\\uc11c\\ub3c4 \\ucc28\\ub2e8\\n\\nCREATE POLICY \\\"allow_insert_consent\\\" ON public.consent_log\\n  FOR INSERT TO anon\\n  WITH CHECK (true);\\n\\n-- \\ubcf8\\uc778 \\ub370\\uc774\\ud130\\ub9cc SELECT (hashed_id \\uae30\\uc900)\\nCREATE POLICY \\\"select_own_response\\\" ON public.survey_responses\\n  FOR SELECT TO anon\\n  USING (hashed_id = current_setting('app.current_hashed_id', true));\\n\\n-- ============================================================\\n-- \\uc778\\ub371\\uc2a4\\n-- ============================================================\\nCREATE INDEX idx_survey_responses_hashed_id ON public.survey_responses(hashed_id);\\nCREATE INDEX idx_survey_responses_submitted_at ON public.survey_responses(submitted_at);\\nCREATE INDEX idx_consent_log_hashed_id ON public.consent_log(hashed_id);\\n\\n-- ============================================================\\n-- \\ucf54\\uba58\\ud2b8 (\\ubb38\\uc11c\\ud654)\\n-- ============================================================\\nCOMMENT ON TABLE public.survey_responses IS \\n  'Pulse Check \\uc751\\ub2f5 \\ud14c\\uc774\\ube14. \\uc9c1\\uc811 \\uc2dd\\ubcc4\\uc790 \\uc5c6\\uc74c \\u2014 hashed_id\\ub9cc \\ubcf4\\uad00 (DoD D-1)';\\nCOMMENT ON COLUMN public.survey_responses.hashed_id IS \\n  'SHA-256(email) \\u2014 \\uc5ed\\ucd94\\uc801 \\ubd88\\uac00. \\uc774\\uba54\\uc77c \\uc6d0\\ubb38 \\ubbf8\\uc800\\uc7a5';\\nCOMMENT ON COLUMN public.survey_responses.consent_given IS \\n  'DoD D-2/D-3: false\\uc774\\uba74 RLS \\uc815\\ucc45\\uc5d0 \\uc758\\ud574 INSERT \\ucc28\\ub2e8\\ub428';\\nCOMMENT ON COLUMN public.survey_responses.submitted_at IS \\n  'DoD C-2: \\uc218\\uc9d1 \\uc2dc\\uc810 \\ucd94\\uc801\\uc6a9 \\ud0c0\\uc784\\uc2a4\\ud0ec\\ud504. NULL \\ubd88\\uac00';\\n\", \"filename\": \"/home/claude/pulse-check-webform/supabase/migrations/001_initial_schema.sql\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_017h9ipXZgiRPPvWQVnWGKn5",
+          "name": "create_file",
+          "content": [
+            {
+              "type": "text",
+              "text": "File created successfully: /home/claude/pulse-check-webform/supabase/migrations/001_initial_schema.sql",
+              "uuid": "76c69db0-da2c-4c59-b7b4-32a37559eda0"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "File created successfully: /home/claude/pulse-check-webform/supabase/migrations/001_initial_schema.sql"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:10:58.583377Z",
+          "stop_timestamp": "2026-03-30T02:11:00.376892Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01SRg1Seb5pCeunomdFMcy96",
+          "name": "create_file",
+          "input": {
+            "description": "Supabase client utilities — browser and server side",
+            "file_text": "import { createBrowserClient } from '@supabase/ssr'\nimport type { Database } from '@/types'\n\nexport function createClient() {\n  return createBrowserClient<Database>(\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\n    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!\n  )\n}\n",
+            "path": "/home/claude/pulse-check-webform/src/lib/supabase/client.ts"
+          },
+          "message": "Supabase client utilities — browser and server side",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"typescript\", \"code\": \"import { createBrowserClient } from '@supabase/ssr'\\nimport type { Database } from '@/types'\\n\\nexport function createClient() {\\n  return createBrowserClient<Database>(\\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\\n    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!\\n  )\\n}\\n\", \"filename\": \"/home/claude/pulse-check-webform/src/lib/supabase/client.ts\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01SRg1Seb5pCeunomdFMcy96",
+          "name": "create_file",
+          "content": [
+            {
+              "type": "text",
+              "text": "File created successfully: /home/claude/pulse-check-webform/src/lib/supabase/client.ts",
+              "uuid": "1c7ab111-a7d2-4209-8e1e-4aa3882283fa"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "File created successfully: /home/claude/pulse-check-webform/src/lib/supabase/client.ts"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:11:02.197289Z",
+          "stop_timestamp": "2026-03-30T02:11:03.719465Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_015AnPXXUCSwfPUUHaSQhSSf",
+          "name": "create_file",
+          "input": {
+            "description": "Supabase server client",
+            "file_text": "import { createServerClient } from '@supabase/ssr'\nimport { cookies } from 'next/headers'\nimport type { Database } from '@/types'\n\nexport function createServerSupabaseClient() {\n  const cookieStore = cookies()\n  return createServerClient<Database>(\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\n    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,\n    {\n      cookies: {\n        get(name: string) {\n          return cookieStore.get(name)?.value\n        },\n      },\n    }\n  )\n}\n",
+            "path": "/home/claude/pulse-check-webform/src/lib/supabase/server.ts"
+          },
+          "message": "Supabase server client",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"typescript\", \"code\": \"import { createServerClient } from '@supabase/ssr'\\nimport { cookies } from 'next/headers'\\nimport type { Database } from '@/types'\\n\\nexport function createServerSupabaseClient() {\\n  const cookieStore = cookies()\\n  return createServerClient<Database>(\\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\\n    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,\\n    {\\n      cookies: {\\n        get(name: string) {\\n          return cookieStore.get(name)?.value\\n        },\\n      },\\n    }\\n  )\\n}\\n\", \"filename\": \"/home/claude/pulse-check-webform/src/lib/supabase/server.ts\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_015AnPXXUCSwfPUUHaSQhSSf",
+          "name": "create_file",
+          "content": [
+            {
+              "type": "text",
+              "text": "File created successfully: /home/claude/pulse-check-webform/src/lib/supabase/server.ts",
+              "uuid": "67c34fd7-198c-45f6-8030-efc52e306f66"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "File created successfully: /home/claude/pulse-check-webform/src/lib/supabase/server.ts"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:11:05.974177Z",
+          "stop_timestamp": "2026-03-30T02:11:09.249876Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01Tw5rXdxkqwNJDGKU5fkDJF",
+          "name": "create_file",
+          "input": {
+            "description": "Hashing utility for DoD D-1 — anonymous ID generation",
+            "file_text": "/**\n * DoD D-1: 직접 식별자 미포함\n * 이메일을 SHA-256으로 해싱 — 원문 역추적 불가\n */\nexport async function hashEmail(email: string): Promise<string> {\n  const normalized = email.toLowerCase().trim()\n  const encoder = new TextEncoder()\n  const data = encoder.encode(normalized)\n  const hashBuffer = await crypto.subtle.digest('SHA-256', data)\n  const hashArray = Array.from(new Uint8Array(hashBuffer))\n  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('')\n}\n\n/**\n * 세션 토큰 생성 (Magic Link 연결용)\n */\nexport function generateSessionToken(): string {\n  const array = new Uint8Array(32)\n  crypto.getRandomValues(array)\n  return Array.from(array).map(b => b.toString(16).padStart(2, '0')).join('')\n}\n",
+            "path": "/home/claude/pulse-check-webform/src/lib/crypto.ts"
+          },
+          "message": "Hashing utility for DoD D-1 — anonymous ID generation",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"typescript\", \"code\": \"/**\\n * DoD D-1: \\uc9c1\\uc811 \\uc2dd\\ubcc4\\uc790 \\ubbf8\\ud3ec\\ud568\\n * \\uc774\\uba54\\uc77c\\uc744 SHA-256\\uc73c\\ub85c \\ud574\\uc2f1 \\u2014 \\uc6d0\\ubb38 \\uc5ed\\ucd94\\uc801 \\ubd88\\uac00\\n */\\nexport async function hashEmail(email: string): Promise<string> {\\n  const normalized = email.toLowerCase().trim()\\n  const encoder = new TextEncoder()\\n  const data = encoder.encode(normalized)\\n  const hashBuffer = await crypto.subtle.digest('SHA-256', data)\\n  const hashArray = Array.from(new Uint8Array(hashBuffer))\\n  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('')\\n}\\n\\n/**\\n * \\uc138\\uc158 \\ud1a0\\ud070 \\uc0dd\\uc131 (Magic Link \\uc5f0\\uacb0\\uc6a9)\\n */\\nexport function generateSessionToken(): string {\\n  const array = new Uint8Array(32)\\n  crypto.getRandomValues(array)\\n  return Array.from(array).map(b => b.toString(16).padStart(2, '0')).join('')\\n}\\n\", \"filename\": \"/home/claude/pulse-check-webform/src/lib/crypto.ts\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01Tw5rXdxkqwNJDGKU5fkDJF",
+          "name": "create_file",
+          "content": [
+            {
+              "type": "text",
+              "text": "File created successfully: /home/claude/pulse-check-webform/src/lib/crypto.ts",
+              "uuid": "f95c2608-b655-4376-9d4c-96c835f14801"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "File created successfully: /home/claude/pulse-check-webform/src/lib/crypto.ts"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:11:11.087094Z",
+          "stop_timestamp": "2026-03-30T02:11:23.289635Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_011qcqdtQDc17mmoWbaWv6US",
+          "name": "create_file",
+          "input": {
+            "description": "Survey questions data — DoD B-1 requires at least 1 text question",
+            "file_text": "import type { SurveyQuestion } from '@/types'\n\n/**\n * Pulse Check 설문 문항\n * DoD B-1: 주관식 문항 최소 1개 이상 포함\n */\nexport const SURVEY_QUESTIONS: SurveyQuestion[] = [\n  {\n    id: 'q1_energy',\n    text: '이번 주 업무 중 가장 에너지를 얻었던 순간은 무엇이었나요?',\n    type: 'textarea',\n    required: true,\n    placeholder: '자유롭게 작성해 주세요 (익명 처리됩니다)',\n  },\n  {\n    id: 'q2_challenge',\n    text: '현재 가장 어렵게 느껴지는 업무 상황이 있다면 무엇인가요?',\n    type: 'textarea',\n    required: true,\n    placeholder: '솔직하게 공유해 주세요. 개인 식별 정보는 저장되지 않습니다',\n  },\n  {\n    id: 'q3_support',\n    text: '팀 또는 조직에서 어떤 지원이 있으면 도움이 될까요?',\n    type: 'textarea',\n    required: false,\n    placeholder: '구체적인 제안이나 아이디어를 자유롭게 적어주세요',\n  },\n  {\n    id: 'q4_one_word',\n    text: '오늘 나의 컨디션을 한 단어로 표현한다면?',\n    type: 'text',\n    required: true,\n    placeholder: '예: 활기참, 지침, 집중됨, 불안함...',\n  },\n]\n\n/**\n * 동의 고지 텍스트 (DoD D-2: 수집 목적·보존 기간 고지)\n */\nexport const CONSENT_TEXT = {\n  title: '응답 전 꼭 확인해 주세요',\n  purpose: '이 설문은 조직 구성원의 경험을 이해하고 근무 환경 개선을 위해 운영됩니다.',\n  anonymity: '모든 응답은 완전 익명으로 처리됩니다. 이름, 이메일 등 개인을 특정할 수 있는 정보는 저장되지 않습니다.',\n  retention: '수집된 데이터는 분기 단위로 집계·분석 후, 원본 응답은 90일 후 자동 삭제됩니다.',\n  usage: '응답 데이터는 팀 단위 집계 분석에만 활용되며, 개인 평가나 인사에 사용되지 않습니다.',\n}\n",
+            "path": "/home/claude/pulse-check-webform/src/lib/questions.ts"
+          },
+          "message": "Survey questions data — DoD B-1 requires at least 1 text question",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"typescript\", \"code\": \"import type { SurveyQuestion } from '@/types'\\n\\n/**\\n * Pulse Check \\uc124\\ubb38 \\ubb38\\ud56d\\n * DoD B-1: \\uc8fc\\uad00\\uc2dd \\ubb38\\ud56d \\ucd5c\\uc18c 1\\uac1c \\uc774\\uc0c1 \\ud3ec\\ud568\\n */\\nexport const SURVEY_QUESTIONS: SurveyQuestion[] = [\\n  {\\n    id: 'q1_energy',\\n    text: '\\uc774\\ubc88 \\uc8fc \\uc5c5\\ubb34 \\uc911 \\uac00\\uc7a5 \\uc5d0\\ub108\\uc9c0\\ub97c \\uc5bb\\uc5c8\\ub358 \\uc21c\\uac04\\uc740 \\ubb34\\uc5c7\\uc774\\uc5c8\\ub098\\uc694?',\\n    type: 'textarea',\\n    required: true,\\n    placeholder: '\\uc790\\uc720\\ub86d\\uac8c \\uc791\\uc131\\ud574 \\uc8fc\\uc138\\uc694 (\\uc775\\uba85 \\ucc98\\ub9ac\\ub429\\ub2c8\\ub2e4)',\\n  },\\n  {\\n    id: 'q2_challenge',\\n    text: '\\ud604\\uc7ac \\uac00\\uc7a5 \\uc5b4\\ub835\\uac8c \\ub290\\uaef4\\uc9c0\\ub294 \\uc5c5\\ubb34 \\uc0c1\\ud669\\uc774 \\uc788\\ub2e4\\uba74 \\ubb34\\uc5c7\\uc778\\uac00\\uc694?',\\n    type: 'textarea',\\n    required: true,\\n    placeholder: '\\uc194\\uc9c1\\ud558\\uac8c \\uacf5\\uc720\\ud574 \\uc8fc\\uc138\\uc694. \\uac1c\\uc778 \\uc2dd\\ubcc4 \\uc815\\ubcf4\\ub294 \\uc800\\uc7a5\\ub418\\uc9c0 \\uc54a\\uc2b5\\ub2c8\\ub2e4',\\n  },\\n  {\\n    id: 'q3_support',\\n    text: '\\ud300 \\ub610\\ub294 \\uc870\\uc9c1\\uc5d0\\uc11c \\uc5b4\\ub5a4 \\uc9c0\\uc6d0\\uc774 \\uc788\\uc73c\\uba74 \\ub3c4\\uc6c0\\uc774 \\ub420\\uae4c\\uc694?',\\n    type: 'textarea',\\n    required: false,\\n    placeholder: '\\uad6c\\uccb4\\uc801\\uc778 \\uc81c\\uc548\\uc774\\ub098 \\uc544\\uc774\\ub514\\uc5b4\\ub97c \\uc790\\uc720\\ub86d\\uac8c \\uc801\\uc5b4\\uc8fc\\uc138\\uc694',\\n  },\\n  {\\n    id: 'q4_one_word',\\n    text: '\\uc624\\ub298 \\ub098\\uc758 \\ucee8\\ub514\\uc158\\uc744 \\ud55c \\ub2e8\\uc5b4\\ub85c \\ud45c\\ud604\\ud55c\\ub2e4\\uba74?',\\n    type: 'text',\\n    required: true,\\n    placeholder: '\\uc608: \\ud65c\\uae30\\ucc38, \\uc9c0\\uce68, \\uc9d1\\uc911\\ub428, \\ubd88\\uc548\\ud568...',\\n  },\\n]\\n\\n/**\\n * \\ub3d9\\uc758 \\uace0\\uc9c0 \\ud14d\\uc2a4\\ud2b8 (DoD D-2: \\uc218\\uc9d1 \\ubaa9\\uc801\\u00b7\\ubcf4\\uc874 \\uae30\\uac04 \\uace0\\uc9c0)\\n */\\nexport const CONSENT_TEXT = {\\n  title: '\\uc751\\ub2f5 \\uc804 \\uaf2d \\ud655\\uc778\\ud574 \\uc8fc\\uc138\\uc694',\\n  purpose: '\\uc774 \\uc124\\ubb38\\uc740 \\uc870\\uc9c1 \\uad6c\\uc131\\uc6d0\\uc758 \\uacbd\\ud5d8\\uc744 \\uc774\\ud574\\ud558\\uace0 \\uadfc\\ubb34 \\ud658\\uacbd \\uac1c\\uc120\\uc744 \\uc704\\ud574 \\uc6b4\\uc601\\ub429\\ub2c8\\ub2e4.',\\n  anonymity: '\\ubaa8\\ub4e0 \\uc751\\ub2f5\\uc740 \\uc644\\uc804 \\uc775\\uba85\\uc73c\\ub85c \\ucc98\\ub9ac\\ub429\\ub2c8\\ub2e4. \\uc774\\ub984, \\uc774\\uba54\\uc77c \\ub4f1 \\uac1c\\uc778\\uc744 \\ud2b9\\uc815\\ud560 \\uc218 \\uc788\\ub294 \\uc815\\ubcf4\\ub294 \\uc800\\uc7a5\\ub418\\uc9c0 \\uc54a\\uc2b5\\ub2c8\\ub2e4.',\\n  retention: '\\uc218\\uc9d1\\ub41c \\ub370\\uc774\\ud130\\ub294 \\ubd84\\uae30 \\ub2e8\\uc704\\ub85c \\uc9d1\\uacc4\\u00b7\\ubd84\\uc11d \\ud6c4, \\uc6d0\\ubcf8 \\uc751\\ub2f5\\uc740 90\\uc77c \\ud6c4 \\uc790\\ub3d9 \\uc0ad\\uc81c\\ub429\\ub2c8\\ub2e4.',\\n  usage: '\\uc751\\ub2f5 \\ub370\\uc774\\ud130\\ub294 \\ud300 \\ub2e8\\uc704 \\uc9d1\\uacc4 \\ubd84\\uc11d\\uc5d0\\ub9cc \\ud65c\\uc6a9\\ub418\\uba70, \\uac1c\\uc778 \\ud3c9\\uac00\\ub098 \\uc778\\uc0ac\\uc5d0 \\uc0ac\\uc6a9\\ub418\\uc9c0 \\uc54a\\uc2b5\\ub2c8\\ub2e4.',\\n}\\n\", \"filename\": \"/home/claude/pulse-check-webform/src/lib/questions.ts\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_011qcqdtQDc17mmoWbaWv6US",
+          "name": "create_file",
+          "content": [
+            {
+              "type": "text",
+              "text": "File created successfully: /home/claude/pulse-check-webform/src/lib/questions.ts",
+              "uuid": "032e8dcb-722d-4215-8181-e5572b4204b4"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "File created successfully: /home/claude/pulse-check-webform/src/lib/questions.ts"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:11:24.950622Z",
+          "stop_timestamp": "2026-03-30T02:11:25.853707Z",
+          "flags": null,
+          "type": "text",
+          "text": "이제 Server Actions를 작성합니다. DoD의 모든 서버 사이드 로직이 여기 집결됩니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-30T02:11:26.229872Z",
+          "stop_timestamp": "2026-03-30T02:11:43.520333Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_013spsZSRYqYaqVzdrj1PEt8",
+          "name": "create_file",
+          "input": {
+            "description": "Server Actions — Magic Link send (DoD A-1), Survey submit (DoD C-1, C-2, D-1, D-2, D-3)",
+            "file_text": "'use server'\n\nimport { createServerSupabaseClient } from '@/lib/supabase/server'\nimport { hashEmail } from '@/lib/crypto'\nimport type { QuestionResponse } from '@/types'\nimport { z } from 'zod'\n\n// ============================================================\n// DoD A-1: Magic Link 발송\n// ============================================================\nconst emailSchema = z.string().email('유효한 이메일 주소를 입력해 주세요')\n\nexport async function sendMagicLink(email: string) {\n  const parsed = emailSchema.safeParse(email)\n  if (!parsed.success) {\n    return { success: false, error: parsed.error.errors[0].message }\n  }\n\n  const supabase = createServerSupabaseClient()\n\n  const { error } = await supabase.auth.signInWithOtp({\n    email: parsed.data,\n    options: {\n      emailRedirectTo: `${process.env.NEXTAUTH_URL}/auth/callback`,\n      shouldCreateUser: true,\n    },\n  })\n\n  if (error) {\n    return { success: false, error: '링크 발송에 실패했습니다. 잠시 후 다시 시도해 주세요.' }\n  }\n\n  return { success: true }\n}\n\n// ============================================================\n// DoD C-1, C-2, D-1, D-2, D-3: 설문 제출\n// ============================================================\nconst submitSchema = z.object({\n  answers: z.record(z.string()),\n  consentGiven: z.literal(true, {\n    errorMap: () => ({ message: '개인정보 수집에 동의하셔야 제출이 가능합니다' }),\n  }), // DoD D-3: false면 서버에서도 차단\n})\n\nexport async function submitSurvey(\n  answers: Record<string, string>,\n  consentGiven: boolean\n) {\n  // DoD D-3: 동의 없으면 서버에서 즉시 차단\n  const parsed = submitSchema.safeParse({ answers, consentGiven })\n  if (!parsed.success) {\n    return {\n      success: false,\n      error: '동의 없이는 제출할 수 없습니다. (DoD D-3)',\n    }\n  }\n\n  const supabase = createServerSupabaseClient()\n\n  // 현재 세션에서 이메일 가져오기\n  const { data: { session } } = await supabase.auth.getSession()\n  if (!session?.user?.email) {\n    return { success: false, error: '인증 세션이 만료되었습니다. 다시 로그인해 주세요.' }\n  }\n\n  // DoD D-1: 이메일 해싱 — 원문 저장 안 함\n  const hashedId = await hashEmail(session.user.email)\n  const sessionToken = session.access_token.slice(0, 32)\n\n  // 응답 배열 변환\n  const responses: QuestionResponse[] = Object.entries(answers).map(\n    ([question_id, answer]) => ({\n      question_id,\n      question_text: '', // 나중에 질문 텍스트 포함 가능\n      answer,\n    })\n  )\n\n  // DoD C-1: survey_responses에 INSERT\n  // DoD C-2: submitted_at은 DB 기본값 NOW()\n  // DoD D-1: hashed_id만 저장, 이메일 원문 없음\n  // DoD D-2: consent_given = true, consented_at 기록\n  const { error: insertError } = await supabase\n    .from('survey_responses')\n    .insert({\n      hashed_id: hashedId,\n      session_token: sessionToken,\n      consent_given: true,             // DoD D-2\n      consented_at: new Date().toISOString(),\n      responses,\n      submitted_at: new Date().toISOString(), // DoD C-2\n    })\n\n  if (insertError) {\n    console.error('[submitSurvey] DB insert error:', insertError)\n    return {\n      success: false,\n      error: '저장 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.',\n    }\n  }\n\n  // 동의 감사 로그 기록 (DoD D-2)\n  await supabase.from('consent_log').insert({\n    hashed_id: hashedId,\n    consent_given: true,\n    consented_at: new Date().toISOString(),\n    ip_hash: null, // 서버에서 IP 해싱 추가 가능\n  })\n\n  return { success: true }\n}\n",
+            "path": "/home/claude/pulse-check-webform/src/app/actions.ts"
+          },
+          "message": "Server Actions — Magic Link send (DoD A-1), Survey submit (DoD C-1, C-2, D-1, D-2, D-3)",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"typescript\", \"code\": \"'use server'\\n\\nimport { createServerSupabaseClient } from '@/lib/supabase/server'\\nimport { hashEmail } from '@/lib/crypto'\\nimport type { QuestionResponse } from '@/types'\\nimport { z } from 'zod'\\n\\n// ============================================================\\n// DoD A-1: Magic Link \\ubc1c\\uc1a1\\n// ============================================================\\nconst emailSchema = z.string().email('\\uc720\\ud6a8\\ud55c \\uc774\\uba54\\uc77c \\uc8fc\\uc18c\\ub97c \\uc785\\ub825\\ud574 \\uc8fc\\uc138\\uc694')\\n\\nexport async function sendMagicLink(email: string) {\\n  const parsed = emailSchema.safeParse(email)\\n  if (!parsed.success) {\\n    return { success: false, error: parsed.error.errors[0].message }\\n  }\\n\\n  const supabase = createServerSupabaseClient()\\n\\n  const { error } = await supabase.auth.signInWithOtp({\\n    email: parsed.data,\\n    options: {\\n      emailRedirectTo: `${process.env.NEXTAUTH_URL}/auth/callback`,\\n      shouldCreateUser: true,\\n    },\\n  })\\n\\n  if (error) {\\n    return { success: false, error: '\\ub9c1\\ud06c \\ubc1c\\uc1a1\\uc5d0 \\uc2e4\\ud328\\ud588\\uc2b5\\ub2c8\\ub2e4. \\uc7a0\\uc2dc \\ud6c4 \\ub2e4\\uc2dc \\uc2dc\\ub3c4\\ud574 \\uc8fc\\uc138\\uc694.' }\\n  }\\n\\n  return { success: true }\\n}\\n\\n// ============================================================\\n// DoD C-1, C-2, D-1, D-2, D-3: \\uc124\\ubb38 \\uc81c\\ucd9c\\n// ============================================================\\nconst submitSchema = z.object({\\n  answers: z.record(z.string()),\\n  consentGiven: z.literal(true, {\\n    errorMap: () => ({ message: '\\uac1c\\uc778\\uc815\\ubcf4 \\uc218\\uc9d1\\uc5d0 \\ub3d9\\uc758\\ud558\\uc154\\uc57c \\uc81c\\ucd9c\\uc774 \\uac00\\ub2a5\\ud569\\ub2c8\\ub2e4' }),\\n  }), // DoD D-3: false\\uba74 \\uc11c\\ubc84\\uc5d0\\uc11c\\ub3c4 \\ucc28\\ub2e8\\n})\\n\\nexport async function submitSurvey(\\n  answers: Record<string, string>,\\n  consentGiven: boolean\\n) {\\n  // DoD D-3: \\ub3d9\\uc758 \\uc5c6\\uc73c\\uba74 \\uc11c\\ubc84\\uc5d0\\uc11c \\uc989\\uc2dc \\ucc28\\ub2e8\\n  const parsed = submitSchema.safeParse({ answers, consentGiven })\\n  if (!parsed.success) {\\n    return {\\n      success: false,\\n      error: '\\ub3d9\\uc758 \\uc5c6\\uc774\\ub294 \\uc81c\\ucd9c\\ud560 \\uc218 \\uc5c6\\uc2b5\\ub2c8\\ub2e4. (DoD D-3)',\\n    }\\n  }\\n\\n  const supabase = createServerSupabaseClient()\\n\\n  // \\ud604\\uc7ac \\uc138\\uc158\\uc5d0\\uc11c \\uc774\\uba54\\uc77c \\uac00\\uc838\\uc624\\uae30\\n  const { data: { session } } = await supabase.auth.getSession()\\n  if (!session?.user?.email) {\\n    return { success: false, error: '\\uc778\\uc99d \\uc138\\uc158\\uc774 \\ub9cc\\ub8cc\\ub418\\uc5c8\\uc2b5\\ub2c8\\ub2e4. \\ub2e4\\uc2dc \\ub85c\\uadf8\\uc778\\ud574 \\uc8fc\\uc138\\uc694.' }\\n  }\\n\\n  // DoD D-1: \\uc774\\uba54\\uc77c \\ud574\\uc2f1 \\u2014 \\uc6d0\\ubb38 \\uc800\\uc7a5 \\uc548 \\ud568\\n  const hashedId = await hashEmail(session.user.email)\\n  const sessionToken = session.access_token.slice(0, 32)\\n\\n  // \\uc751\\ub2f5 \\ubc30\\uc5f4 \\ubcc0\\ud658\\n  const responses: QuestionResponse[] = Object.entries(answers).map(\\n    ([question_id, answer]) => ({\\n      question_id,\\n      question_text: '', // \\ub098\\uc911\\uc5d0 \\uc9c8\\ubb38 \\ud14d\\uc2a4\\ud2b8 \\ud3ec\\ud568 \\uac00\\ub2a5\\n      answer,\\n    })\\n  )\\n\\n  // DoD C-1: survey_responses\\uc5d0 INSERT\\n  // DoD C-2: submitted_at\\uc740 DB \\uae30\\ubcf8\\uac12 NOW()\\n  // DoD D-1: hashed_id\\ub9cc \\uc800\\uc7a5, \\uc774\\uba54\\uc77c \\uc6d0\\ubb38 \\uc5c6\\uc74c\\n  // DoD D-2: consent_given = true, consented_at \\uae30\\ub85d\\n  const { error: insertError } = await supabase\\n    .from('survey_responses')\\n    .insert({\\n      hashed_id: hashedId,\\n      session_token: sessionToken,\\n      consent_given: true,             // DoD D-2\\n      consented_at: new Date().toISOString(),\\n      responses,\\n      submitted_at: new Date().toISOString(), // DoD C-2\\n    })\\n\\n  if (insertError) {\\n    console.error('[submitSurvey] DB insert error:', insertError)\\n    return {\\n      success: false,\\n      error: '\\uc800\\uc7a5 \\uc911 \\uc624\\ub958\\uac00 \\ubc1c\\uc0dd\\ud588\\uc2b5\\ub2c8\\ub2e4. \\uc7a0\\uc2dc \\ud6c4 \\ub2e4\\uc2dc \\uc2dc\\ub3c4\\ud574 \\uc8fc\\uc138\\uc694.',\\n    }\\n  }\\n\\n  // \\ub3d9\\uc758 \\uac10\\uc0ac \\ub85c\\uadf8 \\uae30\\ub85d (DoD D-2)\\n  await supabase.from('consent_log').insert({\\n    hashed_id: hashedId,\\n    consent_given: true,\\n    consented_at: new Date().toISOString(),\\n    ip_hash: null, // \\uc11c\\ubc84\\uc5d0\\uc11c IP \\ud574\\uc2f1 \\ucd94\\uac00 \\uac00\\ub2a5\\n  })\\n\\n  return { success: true }\\n}\\n\", \"filename\": \"/home/claude/pulse-check-webform/src/app/actions.ts\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_013spsZSRYqYaqVzdrj1PEt8",
+          "name": "create_file",
+          "content": [
+            {
+              "type": "text",
+              "text": "File created successfully: /home/claude/pulse-check-webform/src/app/actions.ts",
+              "uuid": "5382622d-2239-4c2a-8d7b-8876840b3f31"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "File created successfully: /home/claude/pulse-check-webform/src/app/actions.ts"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:11:45.710285Z",
+          "stop_timestamp": "2026-03-30T02:11:49.068078Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01PebJBrfvyZVandCniagADj",
+          "name": "create_file",
+          "input": {
+            "description": "Root layout with global styles",
+            "file_text": "import type { Metadata } from 'next'\nimport './globals.css'\n\nexport const metadata: Metadata = {\n  title: 'Pulse Check — 조직 건강도 진단',\n  description: 'EXG팀 조직 경험 데이터 수집 웹폼',\n}\n\nexport default function RootLayout({\n  children,\n}: {\n  children: React.ReactNode\n}) {\n  return (\n    <html lang=\"ko\">\n      <head>\n        <link\n          href=\"https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap\"\n          rel=\"stylesheet\"\n        />\n      </head>\n      <body className=\"bg-gray-50 font-sans antialiased\">\n        {children}\n      </body>\n    </html>\n  )\n}\n",
+            "path": "/home/claude/pulse-check-webform/src/app/layout.tsx"
+          },
+          "message": "Root layout with global styles",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"typescript\", \"code\": \"import type { Metadata } from 'next'\\nimport './globals.css'\\n\\nexport const metadata: Metadata = {\\n  title: 'Pulse Check \\u2014 \\uc870\\uc9c1 \\uac74\\uac15\\ub3c4 \\uc9c4\\ub2e8',\\n  description: 'EXG\\ud300 \\uc870\\uc9c1 \\uacbd\\ud5d8 \\ub370\\uc774\\ud130 \\uc218\\uc9d1 \\uc6f9\\ud3fc',\\n}\\n\\nexport default function RootLayout({\\n  children,\\n}: {\\n  children: React.ReactNode\\n}) {\\n  return (\\n    <html lang=\\\"ko\\\">\\n      <head>\\n        <link\\n          href=\\\"https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap\\\"\\n          rel=\\\"stylesheet\\\"\\n        />\\n      </head>\\n      <body className=\\\"bg-gray-50 font-sans antialiased\\\">\\n        {children}\\n      </body>\\n    </html>\\n  )\\n}\\n\", \"filename\": \"/home/claude/pulse-check-webform/src/app/layout.tsx\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01PebJBrfvyZVandCniagADj",
+          "name": "create_file",
+          "content": [
+            {
+              "type": "text",
+              "text": "File created successfully: /home/claude/pulse-check-webform/src/app/layout.tsx",
+              "uuid": "f1f7850b-b3b7-479d-b79a-cbbe03557e8d"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": {
+            "type": "text",
+            "text": "File created successfully: /home/claude/pulse-check-webform/src/app/layout.tsx"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:11:50.659048Z",
+          "stop_timestamp": "2026-03-30T02:12:05.167554Z",
+          "flags": null,
+          "type": "text",
+          "text": "DoD 문서를 완전히 읽고 세팅을 시작했습니다. 지금까지 완성된 파일들을 정리하면:\n\n**완성된 구조**\n\n```\npulse-check-webform/\n├── package.json                          (Next.js 14 + Supabase SSR)\n├── tsconfig.json / next.config.js\n├── tailwind.config.ts / postcss.config.js\n├── .env.local.example\n├── supabase/\n│   └── migrations/\n│       └── 001_initial_schema.sql        ← DoD C-1, C-2, D-1, D-2, D-3 전부 커버\n├── src/\n│   ├── types/index.ts                    ← 전체 타입 정의\n│   ├── lib/\n│   │   ├── supabase/client.ts            (브라우저 클라이언트)\n│   │   ├── supabase/server.ts            (서버 클라이언트)\n│   │   ├── crypto.ts                     ← DoD D-1: SHA-256 해싱\n│   │   └── questions.ts                  ← DoD B-1: 주관식 문항 4개 + 동의 텍스트\n│   └── app/\n│       ├── layout.tsx\n│       └── actions.ts                    ← DoD A-1, C-1, C-2, D-1, D-2, D-3 서버 액션\n```\n\n**DoD 매핑 현황**\n\n| DoD | 구현 위치 | 상태 |\n|-----|-----------|------|\n| A-1 Magic Link 발송 | `actions.ts → sendMagicLink()` | ✅ |\n| A-2 세션 생성 확인 | `auth/callback` route 필요 | 🔜 |\n| A-3 만료 링크 처리 | `auth/callback` 오류 처리 | 🔜 |\n| B-1 주관식 렌더링 | `questions.ts` + UI 컴포넌트 | 🔜 |\n| B-2 빈칸 유효성 | 폼 컴포넌트 | 🔜 |\n| B-3 완료 화면 | `/survey/complete` page | 🔜 |\n| C-1 DB INSERT | `actions.ts → submitSurvey()` | ✅ |\n| C-2 submitted_at | SQL + server action | ✅ |\n| C-3 네트워크 오류 처리 | UI 컴포넌트 | 🔜 |\n| D-1 직접식별자 미포함 | `crypto.ts → hashEmail()` | ✅ |\n| D-2 동의 저장 | `actions.ts` + consent_log | ✅ |\n| D-3 동의 없이 차단 | RLS 정책 + 서버 액션 양쪽 | ✅ |\n\n**다음 단계**는 UI 컴포넌트들 (Magic Link 페이지, 동의 화면, 설문 폼, 완료 화면, auth/callback route)을 이어서 만들면 됩니다. 계속 진행할까요? 아니면 먼저 Supabase 프로젝트 연결 (`NEXT_PUBLIC_SUPABASE_URL` 세팅)부터 하시겠어요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-30T02:12:05.297578Z",
+      "updated_at": "2026-03-30T02:12:05.297578Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d3c80-f521-7aeb-8816-f5c600e67831"
+    },
+    {
+      "uuid": "019d3c8b-132e-785f-ab9b-7cde02971282",
+      "text": "완성된 항목 다운로드 가능하게 출력해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-03-30T02:20:41.527802Z",
+          "stop_timestamp": "2026-03-30T02:20:41.527802Z",
+          "flags": null,
+          "type": "text",
+          "text": "완성된 항목 다운로드 가능하게 출력해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-30T02:20:41.567981Z",
+      "updated_at": "2026-03-30T02:20:41.567981Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d3c80-f521-7041-9f5d-903014569159"
+    },
+    {
+      "uuid": "019d3c8b-132e-7c43-bdea-1403dce61aa5",
+      "text": " 파일들을 zip으로 묶어서 다운로드 가능하게 만들게요.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n다운로드 가능합니다. 압축 안에 포함된 파일 목록은 이렇습니다.\n\n```\npulse-check-webform/\n├── package.json                          Next.js 14 + Supabase SSR 의존성\n├── tsconfig.json / next.config.js\n├── tailwind.config.ts / postcss.config.js\n├── .env.local.example                    → 이걸 .env.local로 복사 후 키 입력\n│\n├── supabase/migrations/\n│   └── 001_initial_schema.sql            DoD C-1,C-2,D-1,D-2,D-3 테이블+RLS\n│\n└── src/\n    ├── types/index.ts                    전체 타입 정의\n    ├── lib/\n    │   ├── supabase/client.ts            브라우저 클라이언트\n    │   ├── supabase/server.ts            서버 클라이언트\n    │   ├── crypto.ts                     DoD D-1: SHA-256 해싱\n    │   └── questions.ts                  DoD B-1: 주관식 문항 4개\n    └── app/\n        ├── layout.tsx\n        └── actions.ts                    DoD A-1,C-1,C-2,D-1~D-3 서버 액션\n```\n\n**받으면 바로 할 것:** `.env.local.example`을 `.env.local`로 복사하고 Supabase URL/anon key 채우면 `npm install` 후 시작 가능합니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-30T02:20:46.403812Z",
+          "stop_timestamp": "2026-03-30T02:20:47.307796Z",
+          "flags": null,
+          "type": "text",
+          "text": " 파일들을 zip으로 묶어서 다운로드 가능하게 만들게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-30T02:20:47.723893Z",
+          "stop_timestamp": "2026-03-30T02:20:48.425511Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01GL4cStPpHhYuBd5vJPY6RT",
+          "name": "bash_tool",
+          "input": {
+            "command": "cd /home/claude/pulse-check-webform && find . -type f | sort",
+            "description": "List all created files"
+          },
+          "message": "List all created files",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "commandLine",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cd /home/claude/pulse-check-webform && find . -type f | sort\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01GL4cStPpHhYuBd5vJPY6RT",
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"./.env.local.example\\n./next.config.js\\n./package.json\\n./postcss.config.js\\n./src/app/actions.ts\\n./src/app/layout.tsx\\n./src/lib/crypto.ts\\n./src/lib/questions.ts\\n./src/lib/supabase/client.ts\\n./src/lib/supabase/server.ts\\n./src/types/index.ts\\n./supabase/migrations/001_initial_schema.sql\\n./tailwind.config.ts\\n./tsconfig.json\\n\",\"stderr\":\"\"}",
+              "uuid": "f65c7025-1102-4a13-adc4-6fdc61e5dbc4"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "commandLine",
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"./.env.local.example\\n./next.config.js\\n./package.json\\n./postcss.config.js\\n./src/app/actions.ts\\n./src/app/layout.tsx\\n./src/lib/crypto.ts\\n./src/lib/questions.ts\\n./src/lib/supabase/client.ts\\n./src/lib/supabase/server.ts\\n./src/types/index.ts\\n./supabase/migrations/001_initial_schema.sql\\n./tailwind.config.ts\\n./tsconfig.json\\n\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:20:53.860086Z",
+          "stop_timestamp": "2026-03-30T02:20:54.677847Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01K7eykj4aUMVRLJZgixY2Ua",
+          "name": "bash_tool",
+          "input": {
+            "command": "cd /home/claude && zip -r pulse-check-webform.zip pulse-check-webform/ && echo \"✅ zip created: $(du -sh pulse-check-webform.zip)\"",
+            "description": "Zip the project directory"
+          },
+          "message": "Zip the project directory",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "commandLine",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cd /home/claude && zip -r pulse-check-webform.zip pulse-check-webform/ && echo \\\"\\u2705 zip created: $(du -sh pulse-check-webform.zip)\\\"\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01K7eykj4aUMVRLJZgixY2Ua",
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"  adding: pulse-check-webform/ (stored 0%)\\n  adding: pulse-check-webform/src/ (stored 0%)\\n  adding: pulse-check-webform/src/lib/ (stored 0%)\\n  adding: pulse-check-webform/src/lib/questions.ts (deflated 46%)\\n  adding: pulse-check-webform/src/lib/supabase/ (stored 0%)\\n  adding: pulse-check-webform/src/lib/supabase/client.ts (deflated 36%)\\n  adding: pulse-check-webform/src/lib/supabase/server.ts (deflated 47%)\\n  adding: pulse-check-webform/src/lib/crypto.ts (deflated 37%)\\n  adding: pulse-check-webform/src/components/ (stored 0%)\\n  adding: pulse-check-webform/src/components/ui/ (stored 0%)\\n  adding: pulse-check-webform/src/components/auth/ (stored 0%)\\n  adding: pulse-check-webform/src/components/survey/ (stored 0%)\\n  adding: pulse-check-webform/src/types/ (stored 0%)\\n  adding: pulse-check-webform/src/types/index.ts (deflated 61%)\\n  adding: pulse-check-webform/src/app/ (stored 0%)\\n  adding: pulse-check-webform/src/app/actions.ts (deflated 60%)\\n  adding: pulse-check-webform/src/app/auth/ (stored 0%)\\n  adding: pulse-check-webform/src/app/auth/callback/ (stored 0%)\\n  adding: pulse-check-webform/src/app/layout.tsx (deflated 30%)\\n  adding: pulse-check-webform/src/app/survey/ (stored 0%)\\n  adding: pulse-check-webform/src/app/survey/complete/ (stored 0%)\\n  adding: pulse-check-webform/src/app/magic-link/ (stored 0%)\\n  adding: pulse-check-webform/supabase/ (stored 0%)\\n  adding: pulse-check-webform/supabase/migrations/ (stored 0%)\\n  adding: pulse-check-webform/supabase/migrations/001_initial_schema.sql (deflated 64%)\\n  adding: pulse-check-webform/postcss.config.js (deflated 17%)\\n  adding: pulse-check-webform/tailwind.config.ts (deflated 47%)\\n  adding: pulse-check-webform/package.json (deflated 57%)\\n  adding: pulse-check-webform/next.config.js (deflated 19%)\\n  adding: pulse-check-webform/tsconfig.json (deflated 50%)\\n  adding: pulse-check-webform/.env.local.example (deflated 22%)\\n✅ zip created: 13K\\tpulse-check-webform.zip\\n\",\"stderr\":\"\"}",
+              "uuid": "2c880d80-47e9-48c5-bdc9-ed4ffa527b7b"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "commandLine",
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"  adding: pulse-check-webform/ (stored 0%)\\n  adding: pulse-check-webform/src/ (stored 0%)\\n  adding: pulse-check-webform/src/lib/ (stored 0%)\\n  adding: pulse-check-webform/src/lib/questions.ts (deflated 46%)\\n  adding: pulse-check-webform/src/lib/supabase/ (stored 0%)\\n  adding: pulse-check-webform/src/lib/supabase/client.ts (deflated 36%)\\n  adding: pulse-check-webform/src/lib/supabase/server.ts (deflated 47%)\\n  adding: pulse-check-webform/src/lib/crypto.ts (deflated 37%)\\n  adding: pulse-check-webform/src/components/ (stored 0%)\\n  adding: pulse-check-webform/src/components/ui/ (stored 0%)\\n  adding: pulse-check-webform/src/components/auth/ (stored 0%)\\n  adding: pulse-check-webform/src/components/survey/ (stored 0%)\\n  adding: pulse-check-webform/src/types/ (stored 0%)\\n  adding: pulse-check-webform/src/types/index.ts (deflated 61%)\\n  adding: pulse-check-webform/src/app/ (stored 0%)\\n  adding: pulse-check-webform/src/app/actions.ts (deflated 60%)\\n  adding: pulse-check-webform/src/app/auth/ (stored 0%)\\n  adding: pulse-check-webform/src/app/auth/callback/ (stored 0%)\\n  adding: pulse-check-webform/src/app/layout.tsx (deflated 30%)\\n  adding: pulse-check-webform/src/app/survey/ (stored 0%)\\n  adding: pulse-check-webform/src/app/survey/complete/ (stored 0%)\\n  adding: pulse-check-webform/src/app/magic-link/ (stored 0%)\\n  adding: pulse-check-webform/supabase/ (stored 0%)\\n  adding: pulse-check-webform/supabase/migrations/ (stored 0%)\\n  adding: pulse-check-webform/supabase/migrations/001_initial_schema.sql (deflated 64%)\\n  adding: pulse-check-webform/postcss.config.js (deflated 17%)\\n  adding: pulse-check-webform/tailwind.config.ts (deflated 47%)\\n  adding: pulse-check-webform/package.json (deflated 57%)\\n  adding: pulse-check-webform/next.config.js (deflated 19%)\\n  adding: pulse-check-webform/tsconfig.json (deflated 50%)\\n  adding: pulse-check-webform/.env.local.example (deflated 22%)\\n✅ zip created: 13K\\tpulse-check-webform.zip\\n\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:20:56.807402Z",
+          "stop_timestamp": "2026-03-30T02:20:57.393253Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01GFmdNz4jAdzbmCdLpRFqCK",
+          "name": "bash_tool",
+          "input": {
+            "command": "cp /home/claude/pulse-check-webform.zip /mnt/user-data/outputs/pulse-check-webform.zip && echo \"✅ copied to outputs\"",
+            "description": "Copy zip to outputs directory"
+          },
+          "message": "Copy zip to outputs directory",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "commandLine",
+          "context": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"language\": \"bash\", \"code\": \"cp /home/claude/pulse-check-webform.zip /mnt/user-data/outputs/pulse-check-webform.zip && echo \\\"\\u2705 copied to outputs\\\"\"}"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01GFmdNz4jAdzbmCdLpRFqCK",
+          "name": "bash_tool",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"returncode\":0,\"stdout\":\"✅ copied to outputs\\n\",\"stderr\":\"\"}",
+              "uuid": "ed2f3aac-662b-4634-8ccf-741ed0890771"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "commandLine",
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\"returncode\":0,\"stdout\":\"✅ copied to outputs\\n\",\"stderr\":\"\"}"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:20:59.406096Z",
+          "stop_timestamp": "2026-03-30T02:20:59.566811Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_011aeYePF5XXwUVhFSScJyZq",
+          "name": "present_files",
+          "input": {
+            "filepaths": [
+              "/mnt/user-data/outputs/pulse-check-webform.zip"
+            ]
+          },
+          "message": "Presenting file(s)...",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "table",
+            "table": [
+              [
+                "filepaths",
+                "['/mnt/user-data/outputs/pulse-check-webform.zip']"
+              ]
+            ]
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_011aeYePF5XXwUVhFSScJyZq",
+          "name": "present_files",
+          "content": [
+            {
+              "type": "local_resource",
+              "file_path": "/mnt/user-data/outputs/pulse-check-webform.zip",
+              "name": "pulse-check-webform",
+              "mime_type": "application/zip",
+              "uuid": "531e6cf8-7325-4820-8759-03959fcca91f"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Presented file",
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-30T02:21:01.182928Z",
+          "stop_timestamp": "2026-03-30T02:21:08.580619Z",
+          "flags": null,
+          "type": "text",
+          "text": "다운로드 가능합니다. 압축 안에 포함된 파일 목록은 이렇습니다.\n\n```\npulse-check-webform/\n├── package.json                          Next.js 14 + Supabase SSR 의존성\n├── tsconfig.json / next.config.js\n├── tailwind.config.ts / postcss.config.js\n├── .env.local.example                    → 이걸 .env.local로 복사 후 키 입력\n│\n├── supabase/migrations/\n│   └── 001_initial_schema.sql            DoD C-1,C-2,D-1,D-2,D-3 테이블+RLS\n│\n└── src/\n    ├── types/index.ts                    전체 타입 정의\n    ├── lib/\n    │   ├── supabase/client.ts            브라우저 클라이언트\n    │   ├── supabase/server.ts            서버 클라이언트\n    │   ├── crypto.ts                     DoD D-1: SHA-256 해싱\n    │   └── questions.ts                  DoD B-1: 주관식 문항 4개\n    └── app/\n        ├── layout.tsx\n        └── actions.ts                    DoD A-1,C-1,C-2,D-1~D-3 서버 액션\n```\n\n**받으면 바로 할 것:** `.env.local.example`을 `.env.local`로 복사하고 Supabase URL/anon key 채우면 `npm install` 후 시작 가능합니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-30T02:21:08.654000Z",
+      "updated_at": "2026-03-30T02:21:08.654000Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d3c8b-132e-785f-ab9b-7cde02971282"
+    },
+    {
+      "uuid": "019d3c8c-e2d9-7128-8094-ae5720125615",
+      "text": "다음단계 부터는 안티그래비티로 빌드 가능한 개발문서로 생성해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-03-30T02:22:41.144346Z",
+          "stop_timestamp": "2026-03-30T02:22:41.144346Z",
+          "flags": null,
+          "type": "text",
+          "text": "다음단계 부터는 안티그래비티로 빌드 가능한 개발문서로 생성해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-30T02:22:41.219463Z",
+      "updated_at": "2026-03-30T02:22:41.219463Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d3c8b-132e-7c43-bdea-1403dce61aa5"
+    },
+    {
+      "uuid": "019d3c8c-e2d9-764c-810b-088759177a88",
+      "text": " DoD 문서의 부모 페이지를 먼저 확인하고, 안티그래비티 빌드 가능한 개발 문서를 Notion에 생성할게요.\n```\nThis block is not supported on your current device yet.\n```\n\n프로젝트 구조 파악 완료. 이제 안티그래비티용 개발 문서를 생성합니다.\n```\nThis block is not supported on your current device yet.\n```\n\nNotion에 생성됐습니다.\n\n**👉 [🛠️ Phase 1 웹폼 — 안티그래비티 빌드 가이드](https://www.notion.so/3336b7b50b23818a9966f5b856588e05)**\n\nEX Intelligence 고정 페이지 하위에 저장했습니다.\n\n---\n\n이 문서의 설계 철학을 간단히 설명하면, 안티그래비티는 Claude Code처럼 파일시스템을 직접 다루는 환경이 아니라 프롬프트 기반으로 AI가 코드를 생성하는 방식이라는 점을 감안해서, 각 Step을 **\"이 텍스트를 그대로 안티그래비티에 붙여넣으면 실행되는\" 단위**로 쪼갰습니다.\n\n구조는 이렇습니다. Step 1부터 7까지 순차적으로 진행하되, 각 Step 끝에 붙은 DoD 체크리스트가 로컬에서 통과되면 다음 Step으로 넘어가는 방식입니다. Step 8은 12개 항목을 한 번에 최종 점검하는 완료 선언 체크리스트입니다.\n\n한 가지 더 — SQL 블록(Step 2-B)은 안티그래비티에서 실행할 게 아니라 Supabase SQL Editor에 직접 붙여넣는 용도입니다. DB 세팅만 Supabase 대시보드에서 수동으로 하고, 나머지 코드는 전부 안티그래비티에서 생성 가능합니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-30T02:22:42.374864Z",
+          "stop_timestamp": "2026-03-30T02:22:44.053531Z",
+          "flags": null,
+          "type": "text",
+          "text": " DoD 문서의 부모 페이지를 먼저 확인하고, 안티그래비티 빌드 가능한 개발 문서를 Notion에 생성할게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-30T02:22:44.622575Z",
+          "stop_timestamp": "2026-03-30T02:22:45.304580Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01LmmpNALhuaJMmh4WZbw2sM",
+          "name": "Notion:notion-fetch",
+          "input": {
+            "id": "https://www.notion.so/3276b7b50b238192803cec566c05f482"
+          },
+          "message": "Notion-fetch",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-fetch-60feec32716c8799143ed51c780a8f47",
+          "is_mcp_app": false,
+          "mcp_server_url": "https://mcp.notion.com/mcp"
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01LmmpNALhuaJMmh4WZbw2sM",
+          "name": "Notion:notion-fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"metadata\":{\"type\":\"page\"},\"title\":\"🧠 EX Intelligence — 프로젝트 고정 페이지\",\"url\":\"https://www.notion.so/3276b7b50b238192803cec566c05f482\",\"text\":\"Here is the result of \\\"view\\\" for the Page with URL https://www.notion.so/3276b7b50b238192803cec566c05f482 as of 2026-03-30T01:31:42.890Z:\\n<page url=\\\"https://www.notion.so/3276b7b50b238192803cec566c05f482\\\" icon=\\\"🧠\\\">\\n<ancestor-path>\\n<parent-page url=\\\"https://www.notion.so/2496b7b50b23802da04fdafb113c4d4c\\\" title=\\\"세컨브레인 위키\\\"/>\\n<ancestor-2-data-source url=\\\"collection://1cc6b7b5-0b23-803e-87c2-000b76f9c172\\\" name=\\\"My Cal\\\"/>\\n<ancestor-3-database url=\\\"https://www.notion.so/1cc6b7b50b238019a8aedf1648664acc\\\" title=\\\"\\\"/>\\n<ancestor-4-page url=\\\"https://www.notion.so/1cc6b7b50b2380c59fc6ca6f2f77ba0c\\\" title=\\\"빠른메모\\\"/>\\n</ancestor-path>\\n<properties>\\n{\\\"title\\\":\\\"EX Intelligence — 프로젝트 고정 페이지\\\"}\\n</properties>\\n<content>\\n> **사용법**: 새 Claude 세션 시작 시 이 페이지 URL을 붙여넣고 \\\"페이지를 읽고 현재 상태를 요약한 뒤, 오늘 작업: \\\\[작업명\\\\] — DoD를 먼저 제안해줘\\\"로 시작.\\n---\\n## 1. Identity {color=\\\"blue\\\"}\\n<table header-row=\\\"true\\\">\\n<tr>\\n<td>항목</td>\\n<td>내용</td>\\n</tr>\\n<tr>\\n<td>과제명</td>\\n<td>AX 기반 Pulse Check 체계 구축 (EX Intelligence)</td>\\n</tr>\\n<tr>\\n<td>소속</td>\\n<td>LG PRI HR실 EXG팀</td>\\n</tr>\\n<tr>\\n<td>과제 오너</td>\\n<td>CSP (조대근)</td>\\n</tr>\\n<tr>\\n<td>핵심 목표</td>\\n<td>4월 킥오프 승인 → 파일럿 운영 → 시스템 구축</td>\\n</tr>\\n<tr>\\n<td>보고 대상</td>\\n<td>HR 임원</td>\\n</tr>\\n<tr>\\n<td>최종 마감</td>\\n<td>2026년 4월 킥오프 승인 보고</td>\\n</tr>\\n</table>\\n**핵심 KPI**\\n- 참여율 85% 이상\\n- Well-Being 15% 개선\\n- AX 성숙도 Survey 전사 평균 대비 +15%\\n**기술 스택** (보고서 본문에 노출 금지 — 유첨 처리)\\n- Supabase (PostgreSQL), LG EP SSO\\n- 파일럿 단계: MS Forms + Power Automate\\n**장기 관점**: LG PRI 내부 PoC → 5년 내 HR SaaS 창업 레퍼런스\\n---\\n## 2. Current State {color=\\\"yellow\\\"}\\n> **매 세션 종료 시 이 섹션만 3줄로 업데이트**\\n**완료된 것**\\n- 보고서 v1.3 완성 (PPTX + HTML 보고서 + 피칭 가이드)\\n- 임원 언어 5필터 정의 완료\\n- 6개 임원 리스크 포인트 식별 및 대응 방안 수립\\n- EX Intelligence SOP (Phase 1\\\\~6) 설계 완료\\n- 시그널 데이터 수집 프로젝트 아키텍처 설계 완료 (Sensing→Understanding→Acting 3레이어)\\n- Phase 1 ② 수집 웹폼 DoD 확정 (12개 항목, 4섹션) → Notion 스프린트 페이지 생성\\n**현재 미완료**\\n- 보고서 최종 언어 정제 (5필터 기준 전 슬라이드 통과 미확인)\\n- 4월 킥오프 보고 일정 미확정\\n- 파일럿 대상 조직 미선정\\n- Phase 1 ① DB 스키마 설계 DoD 미작성\\n**다음 세션 시작 포인트**\\n- Phase 1 수집 웹폼 DoD 기준으로 실제 개발 착수 (Next.js + Supabase)\\n- 또는 Phase 1 ① DB 스키마 DoD를 먼저 완성 후 순차 진행\\n---\\n## 3. 임원 언어 5필터 {color=\\\"red\\\"}\\n> **보고서 검토 시 자동 적용** — \\\"5필터 기준으로 이 슬라이드 검토해줘\\\" 한 줄로 시작\\n- **F1.** 임원이 주어인가? (수동태·3인칭 금지)\\n- **F2.** 수치 없는 형용사 제거됐는가?\\n- **F3.** 기술 스택 언어가 본문에 없는가? (Supabase, PostgreSQL 등 → 유첨)\\n- **F4.** 3행 리듬이 있다면 마지막 줄이 무겁지 않은가?\\n- **F5.** SCR 구조인가? (상황 → 문제 → 해결)\\n**확장 필터 — Ask 슬라이드 전용**\\n- \\\"오늘 결정할 것\\\"과 \\\"추후 결정할 것\\\" 분리됐는가?\\n- 임원이 기여할 수 있는 열린 질문 1개 있는가?\\n**헤드메시지 기준**\\n- 선언문 형식 (질문문 금지)\\n- \\\"감에서 데이터로\\\" 대비 구조 유지\\n- 보호할 3행: \\\"감에서 데이터로, 보고서에서 실행으로, 사후 대응에서 사전 예측으로\\\"\\n---\\n## 4. 임원 리스크 6가지 {color=\\\"red\\\"}\\n<details>\\n<summary>리스크 체크리스트 (보고 전 확인)</summary>\\n\\t- [ ] **R1. \\\"HR이 IT 흉내\\\"** — 기술 스택 언어 본문 제거 확인\\n\\t- [ ] **R2. \\\"또 설문\\\"** — LG Way Survey와 관계 및 응답 피로 관리 방안 명시\\n\\t- [ ] **R3. 책임 귀속 공백** — \\\"EXG팀 CSP 총괄\\\" 명시 확인\\n\\t- [ ] **R4. Well-Being 포지셔닝** — 생산성 선행 지표로 연결됐는가\\n\\t- [ ] **R5. 데이터 불안** — 익명성 설계 + 접근 권한 레이어 한 줄 명시\\n\\t- [ ] **R6. 완성도 역설** — 임원 기여 가능한 열린 질문 1개 남겨뒀는가\\n</details>\\n---\\n## 5. Decisions Log {color=\\\"purple\\\"}\\n> 날짜별 주요 결정사항 누적 기록 — 다음 세션이 이전 결론을 알 수 있도록\\n**2026-03-16**\\n- 과제명을 \\\"EX Intelligence\\\"로 확정 (Pulse Intelligence, 조직건강 레이더 등 후보 중)\\n- 헤드메시지 방향: 선언문 형식, \\\"감에서 데이터로\\\" 대비 구조 유지\\n- 보고서 구조: 기존 슬라이드 유지 + 철학 슬라이드 1장(배경 전) + 선언 슬라이드 1장(마지막)\\n**2026-03-17**\\n- HTML 보고서 + 피칭 가이드(editorial 형태) 완성\\n- 피칭 가이드: 고정 상단바 + 챕터 네비게이션 + Q&A 아코디언 + 타이머 포함\\n- 언어 정제 핵심 결론: 3행 리듬 보호, 마지막 줄 무게 제거\\n**2026-03-18**\\n- SOP 6단계 설계 (Phase 1 프레임 확정 → Phase 6 전사 확대)\\n- 임원 6대 리스크 포인트 식별\\n- Ralph Loop 언어 정제 적용 방안 확정\\n- **보류 결정**: 4월 킥오프 전까지 시스템 개발 루프 시작 안 함\\n**2026-03-30**\\n- 시그널 데이터 수집 프로젝트 Working Backwards Essay 작성 (이론 보강판)\\n\\t- 이론 기반: Ansoff(1975) 약한 시그널, JD-R(Bakker&Demerouti 2023), Edmondson(1999) 심리적 안전감, Morrison&Milliken(2000) 조직적 침묵, König(2025) 전자 모니터링\\n- Phase 1 ② 수집 웹폼 DoD 확정: 12개 항목 (A.Magic Link / B.주관식 / C.Supabase 저장 / D.익명 처리)\\n- **결정**: 거버넌스 항목(D-2, D-3)은 절대 스킵 불가 — 시스템 신뢰 기반의 첫 번째 코드 레벨 구현\\n- Notion 스프린트 페이지 생성 완료 → EX Intelligence 고정 페이지 하위\\n---\\n## 6. SOP 요약 (6 Phase) {color=\\\"gray\\\"}\\n<table header-row=\\\"true\\\">\\n<tr>\\n<td>Phase</td>\\n<td>내용</td>\\n<td>기간</td>\\n<td>게이트</td>\\n</tr>\\n<tr>\\n<td>1</td>\\n<td>과제 프레임 확정 (언어 정제 + 리스크 처리)</td>\\n<td>\\\\~4월 킥오프 전</td>\\n<td>5필터 전 슬라이드 Pass</td>\\n</tr>\\n<tr>\\n<td>2</td>\\n<td>4월 킥오프 승인 보고</td>\\n<td>보고 당일</td>\\n<td>파일럿 조직 1개 이상 합의</td>\\n</tr>\\n<tr>\\n<td>3</td>\\n<td>파일럿 설계 및 준비</td>\\n<td>Q2 초반 4\\\\~5월</td>\\n<td>첫 발송 준비 완료</td>\\n</tr>\\n<tr>\\n<td>4</td>\\n<td>파일럿 운영 및 검증</td>\\n<td>Q2\\\\~Q3 5\\\\~8월</td>\\n<td>3개월 데이터 + Go/No-Go</td>\\n</tr>\\n<tr>\\n<td>5</td>\\n<td>전용 시스템 구축</td>\\n<td>Q3\\\\~Q4 8\\\\~12월</td>\\n<td>베타 오픈 + 데이터 이전</td>\\n</tr>\\n<tr>\\n<td>6</td>\\n<td>전사 확대 및 KPI 검증</td>\\n<td>Q4\\\\~2027 Q1</td>\\n<td>KPI 달성 + SaaS PoC 문서</td>\\n</tr>\\n</table>\\n---\\n## 7. 대기 인사이트 (Unit 4 투입 예정)\\n> 다음 세션에서 반드시 활용할 외부 인사이트 목록\\n- **Horilla 분석** → EX Intelligence SaaS 설계 레이어에 투입 예정\\n\\t- 적용 포인트: 모듈화 플랫폼 아키텍처, PMS 디자인 패턴, Free + Open Source + Paid Support 수익 모델\\n- **Agentic AI 트렌드 (Fountain 사례)** → Phase 4 파일럿 성과 측정 기준에 투입 예정\\n\\t- 적용 포인트: 후보자 스크리닝 50% 가속, 온보딩 40% 단축 → EX Intelligence ROI 계산에 활용\\n---\\n## 8. 보고서 파일 버전 이력 {color=\\\"gray\\\"}\\n<table header-row=\\\"true\\\">\\n<tr>\\n<td>버전</td>\\n<td>날짜</td>\\n<td>주요 변경</td>\\n</tr>\\n<tr>\\n<td>v1.0</td>\\n<td>2026-03-05</td>\\n<td>초안 (6슬라이드)</td>\\n</tr>\\n<tr>\\n<td>v1.2</td>\\n<td>2026-03-16</td>\\n<td>12슬라이드, 이론 레이어 추가</td>\\n</tr>\\n<tr>\\n<td>v1.3</td>\\n<td>2026-03-16</td>\\n<td>작동원리 슬라이드 5개 항목 직접 편집</td>\\n</tr>\\n<tr>\\n<td>v1.3-HTML</td>\\n<td>2026-03-17</td>\\n<td>HTML 보고서 + 피칭 가이드 생성</td>\\n</tr>\\n</table>\\n---\\n## 9. 세션 시작 템플릿 {color=\\\"green\\\"}\\n```javascript\\n이 Notion 페이지가 EX Intelligence 프로젝트의 현재 상태입니다.\\n[이 페이지 URL 붙여넣기]\\n\\n페이지를 읽고 현재 상태를 한 줄로 요약한 뒤,\\n오늘 작업: [작업명]\\nDoD를 먼저 제안해줘. 제안 전에 산출물을 만들지 마.\\n```\\n## 10. 세션 종료 템플릿 {color=\\\"green\\\"}\\n```javascript\\n이 세션 결과를 Current State 형식으로 정리해줘:\\n① 오늘 완료된 것 (1줄)\\n② 아직 미완료 (1줄)\\n③ 다음 세션 시작 포인트 (1줄)\\nEX Intelligence Notion 고정 페이지 Current State 섹션을 업데이트해줘.\\n```\\n<database url=\\\"https://www.notion.so/2558ecf1c94646899681a07428562240\\\" inline=\\\"false\\\" data-source-url=\\\"collection://5a637be3-e9f0-408a-b5dd-0911682b9989\\\">📋 3월 주간업무 관리 현황</database>\\n<page url=\\\"https://www.notion.so/32c6b7b50b2381998c77fbc8744e77ff\\\">⚡ 주간업무 보고 자동생성 프롬프트 템플릿 — CSP v1.0</page>\\n<page url=\\\"https://www.notion.so/32c6b7b50b2381fba7dde3edab74c28d\\\">⚡ 주간업무 보고 자동생성 프롬프트 템플릿 — CSP v2.0 (간소화)</page>\\n<page url=\\\"https://www.notion.so/32d6b7b50b2381729e97fffb14eb1341\\\">✏️ EX Intelligence v1.3 — 5필터 수정본 (260324)</page>\\n<page url=\\\"https://www.notion.so/3336b7b50b238146a199cfd090fe9f0e\\\">🏃 Phase 1 Sprint — 수집 웹폼 DoD</page>\\n</content>\\n</page>\"}",
+              "uuid": "1df2acd7-e1ed-40d3-9f00-715dab2bd213"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": "https://mcp.notion.com/mcp",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"metadata\": {\n    \"type\": \"page\"\n  },\n  \"title\": \"🧠 EX Intelligence — 프로젝트 고정 페이지\",\n  \"url\": \"https://www.notion.so/3276b7b50b238192803cec566c05f482\",\n  \"text\": \"Here is the result of \\\"view\\\" for the Page with URL https://www.notion.so/3276b7b50b238192803cec566c05f482 as of 2026-03-30T01:31:42.890Z:\\n<page url=\\\"https://www.notion.so/3276b7b50b238192803cec566c05f482\\\" icon=\\\"🧠\\\">\\n<ancestor-path>\\n<parent-page url=\\\"https://www.notion.so/2496b7b50b23802da04fdafb113c4d4c\\\" title=\\\"세컨브레인 위키\\\"/>\\n<ancestor-2-data-source url=\\\"collection://1cc6b7b5-0b23-803e-87c2-000b76f9c172\\\" name=\\\"My Cal\\\"/>\\n<ancestor-3-database url=\\\"https://www.notion.so/1cc6b7b50b238019a8aedf1648664acc\\\" title=\\\"\\\"/>\\n<ancestor-4-page url=\\\"https://www.notion.so/1cc6b7b50b2380c59fc6ca6f2f77ba0c\\\" title=\\\"빠른메모\\\"/>\\n</ancestor-path>\\n<properties>\\n{\\\"title\\\":\\\"EX Intelligence — 프로젝트 고정 페이지\\\"}\\n</properties>\\n<content>\\n> **사용법**: 새 Claude 세션 시작 시 이 페이지 URL을 붙여넣고 \\\"페이지를 읽고 현재 상태를 요약한 뒤, 오늘 작업: \\\\[작업명\\\\] — DoD를 먼저 제안해줘\\\"로 시작.\\n---\\n## 1. Identity {color=\\\"blue\\\"}\\n<table header-row=\\\"true\\\">\\n<tr>\\n<td>항목</td>\\n<td>내용</td>\\n</tr>\\n<tr>\\n<td>과제명</td>\\n<td>AX 기반 Pulse Check 체계 구축 (EX Intelligence)</td>\\n</tr>\\n<tr>\\n<td>소속</td>\\n<td>LG PRI HR실 EXG팀</td>\\n</tr>\\n<tr>\\n<td>과제 오너</td>\\n<td>CSP (조대근)</td>\\n</tr>\\n<tr>\\n<td>핵심 목표</td>\\n<td>4월 킥오프 승인 → 파일럿 운영 → 시스템 구축</td>\\n</tr>\\n<tr>\\n<td>보고 대상</td>\\n<td>HR 임원</td>\\n</tr>\\n<tr>\\n<td>최종 마감</td>\\n<td>2026년 4월 킥오프 승인 보고</td>\\n</tr>\\n</table>\\n**핵심 KPI**\\n- 참여율 85% 이상\\n- Well-Being 15% 개선\\n- AX 성숙도 Survey 전사 평균 대비 +15%\\n**기술 스택** (보고서 본문에 노출 금지 — 유첨 처리)\\n- Supabase (PostgreSQL), LG EP SSO\\n- 파일럿 단계: MS Forms + Power Automate\\n**장기 관점**: LG PRI 내부 PoC → 5년 내 HR SaaS 창업 레퍼런스\\n---\\n## 2. Current State {color=\\\"yellow\\\"}\\n> **매 세션 종료 시 이 섹션만 3줄로 업데이트**\\n**완료된 것**\\n- 보고서 v1.3 완성 (PPTX + HTML 보고서 + 피칭 가이드)\\n- 임원 언어 5필터 정의 완료\\n- 6개 임원 리스크 포인트 식별 및 대응 방안 수립\\n- EX Intelligence SOP (Phase 1\\\\~6) 설계 완료\\n- 시그널 데이터 수집 프로젝트 아키텍처 설계 완료 (Sensing→Understanding→Acting 3레이어)\\n- Phase 1 ② 수집 웹폼 DoD 확정 (12개 항목, 4섹션) → Notion 스프린트 페이지 생성\\n**현재 미완료**\\n- 보고서 최종 언어 정제 (5필터 기준 전 슬라이드 통과 미확인)\\n- 4월 킥오프 보고 일정 미확정\\n- 파일럿 대상 조직 미선정\\n- Phase 1 ① DB 스키마 설계 DoD 미작성\\n**다음 세션 시작 포인트**\\n- Phase 1 수집 웹폼 DoD 기준으로 실제 개발 착수 (Next.js + Supabase)\\n- 또는 Phase 1 ① DB 스키마 DoD를 먼저 완성 후 순차 진행\\n---\\n## 3. 임원 언어 5필터 {color=\\\"red\\\"}\\n> **보고서 검토 시 자동 적용** — \\\"5필터 기준으로 이 슬라이드 검토해줘\\\" 한 줄로 시작\\n- **F1.** 임원이 주어인가? (수동태·3인칭 금지)\\n- **F2.** 수치 없는 형용사 제거됐는가?\\n- **F3.** 기술 스택 언어가 본문에 없는가? (Supabase, PostgreSQL 등 → 유첨)\\n- **F4.** 3행 리듬이 있다면 마지막 줄이 무겁지 않은가?\\n- **F5.** SCR 구조인가? (상황 → 문제 → 해결)\\n**확장 필터 — Ask 슬라이드 전용**\\n- \\\"오늘 결정할 것\\\"과 \\\"추후 결정할 것\\\" 분리됐는가?\\n- 임원이 기여할 수 있는 열린 질문 1개 있는가?\\n**헤드메시지 기준**\\n- 선언문 형식 (질문문 금지)\\n- \\\"감에서 데이터로\\\" 대비 구조 유지\\n- 보호할 3행: \\\"감에서 데이터로, 보고서에서 실행으로, 사후 대응에서 사전 예측으로\\\"\\n---\\n## 4. 임원 리스크 6가지 {color=\\\"red\\\"}\\n<details>\\n<summary>리스크 체크리스트 (보고 전 확인)</summary>\\n\\t- [ ] **R1. \\\"HR이 IT 흉내\\\"** — 기술 스택 언어 본문 제거 확인\\n\\t- [ ] **R2. \\\"또 설문\\\"** — LG Way Survey와 관계 및 응답 피로 관리 방안 명시\\n\\t- [ ] **R3. 책임 귀속 공백** — \\\"EXG팀 CSP 총괄\\\" 명시 확인\\n\\t- [ ] **R4. Well-Being 포지셔닝** — 생산성 선행 지표로 연결됐는가\\n\\t- [ ] **R5. 데이터 불안** — 익명성 설계 + 접근 권한 레이어 한 줄 명시\\n\\t- [ ] **R6. 완성도 역설** — 임원 기여 가능한 열린 질문 1개 남겨뒀는가\\n</details>\\n---\\n## 5. Decisions Log {color=\\\"purple\\\"}\\n> 날짜별 주요 결정사항 누적 기록 — 다음 세션이 이전 결론을 알 수 있도록\\n**2026-03-16**\\n- 과제명을 \\\"EX Intelligence\\\"로 확정 (Pulse Intelligence, 조직건강 레이더 등 후보 중)\\n- 헤드메시지 방향: 선언문 형식, \\\"감에서 데이터로\\\" 대비 구조 유지\\n- 보고서 구조: 기존 슬라이드 유지 + 철학 슬라이드 1장(배경 전) + 선언 슬라이드 1장(마지막)\\n**2026-03-17**\\n- HTML 보고서 + 피칭 가이드(editorial 형태) 완성\\n- 피칭 가이드: 고정 상단바 + 챕터 네비게이션 + Q&A 아코디언 + 타이머 포함\\n- 언어 정제 핵심 결론: 3행 리듬 보호, 마지막 줄 무게 제거\\n**2026-03-18**\\n- SOP 6단계 설계 (Phase 1 프레임 확정 → Phase 6 전사 확대)\\n- 임원 6대 리스크 포인트 식별\\n- Ralph Loop 언어 정제 적용 방안 확정\\n- **보류 결정**: 4월 킥오프 전까지 시스템 개발 루프 시작 안 함\\n**2026-03-30**\\n- 시그널 데이터 수집 프로젝트 Working Backwards Essay 작성 (이론 보강판)\\n\\t- 이론 기반: Ansoff(1975) 약한 시그널, JD-R(Bakker&Demerouti 2023), Edmondson(1999) 심리적 안전감, Morrison&Milliken(2000) 조직적 침묵, König(2025) 전자 모니터링\\n- Phase 1 ② 수집 웹폼 DoD 확정: 12개 항목 (A.Magic Link / B.주관식 / C.Supabase 저장 / D.익명 처리)\\n- **결정**: 거버넌스 항목(D-2, D-3)은 절대 스킵 불가 — 시스템 신뢰 기반의 첫 번째 코드 레벨 구현\\n- Notion 스프린트 페이지 생성 완료 → EX Intelligence 고정 페이지 하위\\n---\\n## 6. SOP 요약 (6 Phase) {color=\\\"gray\\\"}\\n<table header-row=\\\"true\\\">\\n<tr>\\n<td>Phase</td>\\n<td>내용</td>\\n<td>기간</td>\\n<td>게이트</td>\\n</tr>\\n<tr>\\n<td>1</td>\\n<td>과제 프레임 확정 (언어 정제 + 리스크 처리)</td>\\n<td>\\\\~4월 킥오프 전</td>\\n<td>5필터 전 슬라이드 Pass</td>\\n</tr>\\n<tr>\\n<td>2</td>\\n<td>4월 킥오프 승인 보고</td>\\n<td>보고 당일</td>\\n<td>파일럿 조직 1개 이상 합의</td>\\n</tr>\\n<tr>\\n<td>3</td>\\n<td>파일럿 설계 및 준비</td>\\n<td>Q2 초반 4\\\\~5월</td>\\n<td>첫 발송 준비 완료</td>\\n</tr>\\n<tr>\\n<td>4</td>\\n<td>파일럿 운영 및 검증</td>\\n<td>Q2\\\\~Q3 5\\\\~8월</td>\\n<td>3개월 데이터 + Go/No-Go</td>\\n</tr>\\n<tr>\\n<td>5</td>\\n<td>전용 시스템 구축</td>\\n<td>Q3\\\\~Q4 8\\\\~12월</td>\\n<td>베타 오픈 + 데이터 이전</td>\\n</tr>\\n<tr>\\n<td>6</td>\\n<td>전사 확대 및 KPI 검증</td>\\n<td>Q4\\\\~2027 Q1</td>\\n<td>KPI 달성 + SaaS PoC 문서</td>\\n</tr>\\n</table>\\n---\\n## 7. 대기 인사이트 (Unit 4 투입 예정)\\n> 다음 세션에서 반드시 활용할 외부 인사이트 목록\\n- **Horilla 분석** → EX Intelligence SaaS 설계 레이어에 투입 예정\\n\\t- 적용 포인트: 모듈화 플랫폼 아키텍처, PMS 디자인 패턴, Free + Open Source + Paid Support 수익 모델\\n- **Agentic AI 트렌드 (Fountain 사례)** → Phase 4 파일럿 성과 측정 기준에 투입 예정\\n\\t- 적용 포인트: 후보자 스크리닝 50% 가속, 온보딩 40% 단축 → EX Intelligence ROI 계산에 활용\\n---\\n## 8. 보고서 파일 버전 이력 {color=\\\"gray\\\"}\\n<table header-row=\\\"true\\\">\\n<tr>\\n<td>버전</td>\\n<td>날짜</td>\\n<td>주요 변경</td>\\n</tr>\\n<tr>\\n<td>v1.0</td>\\n<td>2026-03-05</td>\\n<td>초안 (6슬라이드)</td>\\n</tr>\\n<tr>\\n<td>v1.2</td>\\n<td>2026-03-16</td>\\n<td>12슬라이드, 이론 레이어 추가</td>\\n</tr>\\n<tr>\\n<td>v1.3</td>\\n<td>2026-03-16</td>\\n<td>작동원리 슬라이드 5개 항목 직접 편집</td>\\n</tr>\\n<tr>\\n<td>v1.3-HTML</td>\\n<td>2026-03-17</td>\\n<td>HTML 보고서 + 피칭 가이드 생성</td>\\n</tr>\\n</table>\\n---\\n## 9. 세션 시작 템플릿 {color=\\\"green\\\"}\\n```javascript\\n이 Notion 페이지가 EX Intelligence 프로젝트의 현재 상태입니다.\\n[이 페이지 URL 붙여넣기]\\n\\n페이지를 읽고 현재 상태를 한 줄로 요약한 뒤,\\n오늘 작업: [작업명]\\nDoD를 먼저 제안해줘. 제안 전에 산출물을 만들지 마.\\n```\\n## 10. 세션 종료 템플릿 {color=\\\"green\\\"}\\n```javascript\\n이 세션 결과를 Current State 형식으로 정리해줘:\\n① 오늘 완료된 것 (1줄)\\n② 아직 미완료 (1줄)\\n③ 다음 세션 시작 포인트 (1줄)\\nEX Intelligence Notion 고정 페이지 Current State 섹션을 업데이트해줘.\\n```\\n<database url=\\\"https://www.notion.so/2558ecf1c94646899681a07428562240\\\" inline=\\\"false\\\" data-source-url=\\\"collection://5a637be3-e9f0-408a-b5dd-0911682b9989\\\">📋 3월 주간업무 관리 현황</database>\\n<page url=\\\"https://www.notion.so/32c6b7b50b2381998c77fbc8744e77ff\\\">⚡ 주간업무 보고 자동생성 프롬프트 템플릿 — CSP v1.0</page>\\n<page url=\\\"https://www.notion.so/32c6b7b50b2381fba7dde3edab74c28d\\\">⚡ 주간업무 보고 자동생성 프롬프트 템플릿 — CSP v2.0 (간소화)</page>\\n<page url=\\\"https://www.notion.so/32d6b7b50b2381729e97fffb14eb1341\\\">✏️ EX Intelligence v1.3 — 5필터 수정본 (260324)</page>\\n<page url=\\\"https://www.notion.so/3336b7b50b238146a199cfd090fe9f0e\\\">🏃 Phase 1 Sprint — 수집 웹폼 DoD</page>\\n</content>\\n</page>\"\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:22:51.601254Z",
+          "stop_timestamp": "2026-03-30T02:22:52.460399Z",
+          "flags": null,
+          "type": "text",
+          "text": "프로젝트 구조 파악 완료. 이제 안티그래비티용 개발 문서를 생성합니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-30T02:22:52.871826Z",
+          "stop_timestamp": "2026-03-30T02:25:20.978370Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01QZMyicrzgZuszAvgL6cy5f",
+          "name": "Notion:notion-create-pages",
+          "input": {
+            "parent": {
+              "page_id": "3276b7b50b238192803cec566c05f482"
+            },
+            "pages": [
+              {
+                "icon": "🛠️",
+                "properties": {
+                  "title": "🛠️ Phase 1 웹폼 — 안티그래비티 빌드 가이드 (Next.js + Supabase)"
+                },
+                "content": "> **용도**: 안티그래비티(Google IDX / StackBlitz / Lovable 계열 노코드·로우코드 환경)에서 이 문서를 붙여넣고 빌드 시작. Claude Code 없이 단계별로 복붙 실행 가능하도록 설계.\n> **선행 조건**: Phase 1 Sprint DoD 12개 항목을 완료 기준으로 삼는다.\n\n---\n\n## 0. 이 문서 사용법 {color=\"blue\"}\n\n안티그래비티에서 새 프로젝트를 열고, 각 섹션의 **프롬프트 블록**을 순서대로 붙여넣어 실행한다. 각 단계 끝에는 DoD 체크 항목이 있다 — 해당 항목이 로컬에서 통과되면 다음 단계로 진행.\n\n```\n빌드 순서\nStep 1 → 프로젝트 초기화 (package.json, tsconfig, tailwind)\nStep 2 → Supabase 프로젝트 연결 + DB 마이그레이션\nStep 3 → Magic Link 인증 페이지 (DoD A)\nStep 4 → auth/callback route (DoD A-2, A-3)\nStep 5 → 동의 + 설문 폼 컴포넌트 (DoD B, D)\nStep 6 → Server Action 연결 + DB 저장 확인 (DoD C)\nStep 7 → 완료 화면 + 오류 처리 (DoD B-3, C-3)\nStep 8 → 전체 DoD 12개 체크 → 완료 선언\n```\n\n---\n\n## Step 1 — 프로젝트 초기화 {color=\"green\"}\n\n### 1-A. 안티그래비티 프롬프트\n\n```\nNext.js 14 (App Router) + TypeScript + Tailwind CSS + Supabase SSR 프로젝트를 세팅해줘.\n\n설치 패키지:\n- next@14.2.3\n- react, react-dom\n- @supabase/supabase-js@^2.43.4\n- @supabase/ssr@^0.3.0\n- zod@^3.23.8\n- tailwindcss, postcss, autoprefixer\n\n폰트: Noto Sans KR (Google Fonts)\n컬러: brand.red = #A50034 (tailwind.config에 추가)\n\n디렉토리 구조:\nsrc/app/\nsrc/app/survey/\nsrc/app/survey/complete/\nsrc/app/auth/callback/\nsrc/app/magic-link/\nsrc/components/survey/\nsrc/components/auth/\nsrc/lib/supabase/\nsrc/types/\nsupabase/migrations/\n```\n\n### 1-B. 환경변수 파일 생성\n\n```\n.env.local 파일을 생성하고 아래 두 줄을 채워줘.\n실제 값은 Supabase 대시보드 → Project Settings → API에서 복사.\n\nNEXT_PUBLIC_SUPABASE_URL=https://[프로젝트-ID].supabase.co\nNEXT_PUBLIC_SUPABASE_ANON_KEY=[anon-public-key]\nNEXTAUTH_URL=http://localhost:3000\n```\n\n---\n\n## Step 2 — Supabase DB 마이그레이션 {color=\"green\"}\n\n### 2-A. 마이그레이션 파일 생성 프롬프트\n\n```\nsupabase/migrations/001_initial_schema.sql 파일을 만들고 아래 SQL을 실행해줘.\n이 SQL은 Supabase SQL Editor에 직접 붙여넣어도 된다.\n```\n\n### 2-B. SQL 전문 (Supabase SQL Editor에 직접 붙여넣기)\n\n```sql\n-- survey_responses 테이블 (DoD C-1, C-2, D-1)\nCREATE TABLE IF NOT EXISTS public.survey_responses (\n  id              UUID DEFAULT gen_random_uuid() PRIMARY KEY,\n  hashed_id       TEXT NOT NULL,\n  session_token   TEXT NOT NULL,\n  consent_given   BOOLEAN NOT NULL DEFAULT FALSE,\n  consented_at    TIMESTAMPTZ,\n  responses       JSONB NOT NULL DEFAULT '[]',\n  submitted_at    TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n  created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\n-- consent_log 테이블 (DoD D-2 감사 로그)\nCREATE TABLE IF NOT EXISTS public.consent_log (\n  id              UUID DEFAULT gen_random_uuid() PRIMARY KEY,\n  hashed_id       TEXT NOT NULL,\n  consent_given   BOOLEAN NOT NULL,\n  consented_at    TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n  ip_hash         TEXT\n);\n\n-- RLS 활성화\nALTER TABLE public.survey_responses ENABLE ROW LEVEL SECURITY;\nALTER TABLE public.consent_log ENABLE ROW LEVEL SECURITY;\n\n-- DoD D-3: consent_given = FALSE면 DB 레벨에서도 INSERT 차단\nCREATE POLICY \"allow_insert_survey\" ON public.survey_responses\n  FOR INSERT TO anon\n  WITH CHECK (consent_given = TRUE);\n\nCREATE POLICY \"allow_insert_consent\" ON public.consent_log\n  FOR INSERT TO anon WITH CHECK (true);\n\n-- 인덱스\nCREATE INDEX idx_survey_hashed_id ON public.survey_responses(hashed_id);\nCREATE INDEX idx_survey_submitted_at ON public.survey_responses(submitted_at);\n```\n\n### 2-C. Supabase Auth 설정 (대시보드에서 직접)\n\n```\nSupabase 대시보드 → Authentication → Providers → Email\n\n체크할 항목:\n✅ Enable Email provider: ON\n✅ Confirm email: OFF (Magic Link는 OTP 방식)\n✅ Secure email change: ON\n\nSupabase 대시보드 → Authentication → URL Configuration\nSite URL: http://localhost:3000\nRedirect URLs 추가: http://localhost:3000/auth/callback\n```\n\n### 2-D. DoD 체크\n\n- [ ] **C-1** Supabase Table Editor에서 survey_responses 테이블 존재 확인\n- [ ] **C-2** submitted_at 컬럼이 NOT NULL + DEFAULT NOW() 확인\n- [ ] **D-1** 이름·이메일 컬럼 없고 hashed_id만 존재 확인\n- [ ] **D-3** RLS 정책 적용 확인 (Dashboard → Authentication → Policies)\n\n---\n\n## Step 3 — Magic Link 인증 페이지 {color=\"blue\"}\n\n### 3-A. 파일 생성 프롬프트\n\n```\n아래 4개 파일을 순서대로 만들어줘.\n\n[파일 1] src/lib/supabase/client.ts\n[파일 2] src/lib/supabase/server.ts\n[파일 3] src/lib/crypto.ts\n[파일 4] src/app/magic-link/page.tsx\n```\n\n### 3-B. src/lib/supabase/client.ts\n\n```typescript\nimport { createBrowserClient } from '@supabase/ssr'\n\nexport function createClient() {\n  return createBrowserClient(\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\n    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!\n  )\n}\n```\n\n### 3-C. src/lib/supabase/server.ts\n\n```typescript\nimport { createServerClient } from '@supabase/ssr'\nimport { cookies } from 'next/headers'\n\nexport function createServerSupabaseClient() {\n  const cookieStore = cookies()\n  return createServerClient(\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\n    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,\n    {\n      cookies: {\n        get(name: string) {\n          return cookieStore.get(name)?.value\n        },\n      },\n    }\n  )\n}\n```\n\n### 3-D. src/lib/crypto.ts\n\n```typescript\n// DoD D-1: 이메일 SHA-256 해싱 — 원문 저장 안 함\nexport async function hashEmail(email: string): Promise<string> {\n  const normalized = email.toLowerCase().trim()\n  const encoder = new TextEncoder()\n  const data = encoder.encode(normalized)\n  const hashBuffer = await crypto.subtle.digest('SHA-256', data)\n  const hashArray = Array.from(new Uint8Array(hashBuffer))\n  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('')\n}\n\nexport function generateSessionToken(): string {\n  const array = new Uint8Array(32)\n  crypto.getRandomValues(array)\n  return Array.from(array).map(b => b.toString(16).padStart(2, '0')).join('')\n}\n```\n\n### 3-E. src/app/magic-link/page.tsx\n\n```typescript\n'use client'\n\nimport { useState } from 'react'\nimport { sendMagicLink } from '../actions'\n\nexport default function MagicLinkPage() {\n  const [email, setEmail] = useState('')\n  const [sent, setSent] = useState(false)\n  const [error, setError] = useState<string | null>(null)\n  const [loading, setLoading] = useState(false)\n\n  async function handleSubmit(e: React.FormEvent) {\n    e.preventDefault()\n    setLoading(true)\n    setError(null)\n\n    const result = await sendMagicLink(email)\n\n    if (result.success) {\n      setSent(true)\n    } else {\n      setError(result.error ?? '알 수 없는 오류가 발생했습니다.')\n    }\n    setLoading(false)\n  }\n\n  if (sent) {\n    return (\n      <div className=\"min-h-screen flex items-center justify-center bg-gray-50\">\n        <div className=\"max-w-md w-full bg-white rounded-2xl shadow-sm p-8 text-center\">\n          <div className=\"text-4xl mb-4\">📬</div>\n          <h1 className=\"text-xl font-bold text-gray-900 mb-2\">링크를 보냈습니다</h1>\n          <p className=\"text-gray-500 text-sm\">\n            <span className=\"font-medium text-gray-700\">{email}</span>으로 발송된\n            링크를 클릭하면 설문이 시작됩니다.\n          </p>\n          <p className=\"text-xs text-gray-400 mt-4\">링크는 1시간 후 만료됩니다.</p>\n        </div>\n      </div>\n    )\n  }\n\n  return (\n    <div className=\"min-h-screen flex items-center justify-center bg-gray-50\">\n      <div className=\"max-w-md w-full bg-white rounded-2xl shadow-sm p-8\">\n        <div className=\"mb-6\">\n          <div className=\"w-10 h-1 bg-brand-red mb-4\" />\n          <h1 className=\"text-2xl font-bold text-gray-900\">Pulse Check</h1>\n          <p className=\"text-gray-500 text-sm mt-1\">이메일로 인증 링크를 받아 참여하세요.</p>\n        </div>\n\n        <form onSubmit={handleSubmit} className=\"space-y-4\">\n          <div>\n            <label className=\"block text-sm font-medium text-gray-700 mb-1\">\n              사내 이메일\n            </label>\n            <input\n              type=\"email\"\n              value={email}\n              onChange={e => setEmail(e.target.value)}\n              required\n              placeholder=\"name@lgpri.com\"\n              className=\"w-full border border-gray-200 rounded-lg px-4 py-3 text-sm\n                         focus:outline-none focus:ring-2 focus:ring-brand-red/30\n                         focus:border-brand-red transition\"\n            />\n          </div>\n\n          {error && (\n            <p className=\"text-sm text-red-600 bg-red-50 px-4 py-2 rounded-lg\">{error}</p>\n          )}\n\n          <button\n            type=\"submit\"\n            disabled={loading || !email}\n            className=\"w-full bg-brand-red text-white py-3 rounded-lg text-sm font-medium\n                       hover:bg-brand-red-dark transition disabled:opacity-50 disabled:cursor-not-allowed\"\n          >\n            {loading ? '발송 중...' : '인증 링크 받기'}\n          </button>\n        </form>\n      </div>\n    </div>\n  )\n}\n```\n\n### 3-F. DoD 체크\n\n- [ ] **A-1** 이메일 입력 → 버튼 클릭 → Supabase Auth OTP 메일 실제 수신 확인\n\n---\n\n## Step 4 — Auth Callback Route {color=\"blue\"}\n\n### 4-A. 파일 생성 프롬프트\n\n```\nsrc/app/auth/callback/route.ts 파일을 만들어줘.\nMagic Link 클릭 후 세션을 생성하고 /survey로 리다이렉트하는 Route Handler야.\n만료된 링크는 /magic-link?error=expired로 리다이렉트해줘.\n```\n\n### 4-B. src/app/auth/callback/route.ts\n\n```typescript\nimport { createServerClient } from '@supabase/ssr'\nimport { cookies } from 'next/headers'\nimport { NextRequest, NextResponse } from 'next/server'\n\nexport async function GET(request: NextRequest) {\n  const { searchParams } = new URL(request.url)\n  const code = searchParams.get('code')\n  const token_hash = searchParams.get('token_hash')\n  const type = searchParams.get('type')\n  const next = searchParams.get('next') ?? '/survey'\n\n  const cookieStore = cookies()\n\n  const supabase = createServerClient(\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\n    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,\n    {\n      cookies: {\n        get(name) { return cookieStore.get(name)?.value },\n        set(name, value, options) { cookieStore.set({ name, value, ...options }) },\n        remove(name, options) { cookieStore.set({ name, value: '', ...options }) },\n      },\n    }\n  )\n\n  // DoD A-3: 만료 링크 처리\n  if (token_hash && type) {\n    const { error } = await supabase.auth.verifyOtp({ token_hash, type: type as any })\n    if (error) {\n      // DoD A-3: 오류 안내 페이지로 리다이렉트\n      return NextResponse.redirect(\n        new URL(`/magic-link?error=expired`, request.url)\n      )\n    }\n    return NextResponse.redirect(new URL(next, request.url))\n  }\n\n  if (code) {\n    const { error } = await supabase.auth.exchangeCodeForSession(code)\n    if (error) {\n      return NextResponse.redirect(\n        new URL(`/magic-link?error=expired`, request.url)\n      )\n    }\n    return NextResponse.redirect(new URL(next, request.url))\n  }\n\n  return NextResponse.redirect(new URL('/magic-link?error=invalid', request.url))\n}\n```\n\n### 4-C. magic-link/page.tsx에 만료 오류 메시지 추가 프롬프트\n\n```\nsrc/app/magic-link/page.tsx를 수정해줘.\nuseSearchParams()로 URL의 error 파라미터를 읽어서,\nerror=expired일 때 \"링크가 만료됐습니다. 재발송 받으세요\" 메시지를 폼 위에 노출해줘.\n(DoD A-3)\n```\n\n### 4-D. DoD 체크\n\n- [ ] **A-2** 링크 클릭 후 Supabase Dashboard → Authentication → Users에서 세션 확인\n- [ ] **A-3** 만료 링크 재접근 시 \"링크가 만료됐습니다\" 메시지 노출 확인\n\n---\n\n## Step 5 — 동의 화면 + 설문 폼 {color=\"yellow\"}\n\n### 5-A. 파일 생성 프롬프트\n\n```\n아래 순서로 파일 3개를 만들어줘.\n\n[파일 1] src/lib/questions.ts — 설문 문항 데이터\n[파일 2] src/components/survey/ConsentStep.tsx — 동의 화면 (DoD D-2)\n[파일 3] src/components/survey/SurveyStep.tsx — 주관식 설문 폼 (DoD B)\n```\n\n### 5-B. src/lib/questions.ts\n\n```typescript\nexport interface SurveyQuestion {\n  id: string\n  text: string\n  type: 'text' | 'textarea'\n  required: boolean\n  placeholder?: string\n}\n\n// DoD B-1: 주관식 문항 최소 1개 이상\nexport const SURVEY_QUESTIONS: SurveyQuestion[] = [\n  {\n    id: 'q1_energy',\n    text: '이번 주 업무 중 가장 에너지를 얻었던 순간은 무엇이었나요?',\n    type: 'textarea',\n    required: true,\n    placeholder: '자유롭게 작성해 주세요 (익명 처리됩니다)',\n  },\n  {\n    id: 'q2_challenge',\n    text: '현재 가장 어렵게 느껴지는 업무 상황이 있다면 무엇인가요?',\n    type: 'textarea',\n    required: true,\n    placeholder: '솔직하게 공유해 주세요. 개인 식별 정보는 저장되지 않습니다',\n  },\n  {\n    id: 'q3_support',\n    text: '팀 또는 조직에서 어떤 지원이 있으면 도움이 될까요?',\n    type: 'textarea',\n    required: false,\n    placeholder: '구체적인 제안이나 아이디어를 자유롭게 적어주세요',\n  },\n  {\n    id: 'q4_one_word',\n    text: '오늘 나의 컨디션을 한 단어로 표현한다면?',\n    type: 'text',\n    required: true,\n    placeholder: '예: 활기참, 지침, 집중됨, 불안함',\n  },\n]\n\nexport const CONSENT_TEXT = {\n  title: '응답 전 꼭 확인해 주세요',\n  purpose: '이 설문은 조직 구성원의 경험을 이해하고 근무 환경 개선을 위해 운영됩니다.',\n  anonymity: '모든 응답은 완전 익명으로 처리됩니다. 이름, 이메일 등 개인 식별 정보는 저장되지 않습니다.',\n  retention: '수집 데이터는 분기 집계 후 원본은 90일 뒤 자동 삭제됩니다.',\n  usage: '팀 단위 집계 분석에만 활용되며, 개인 평가나 인사에 사용되지 않습니다.',\n}\n```\n\n### 5-C. src/components/survey/ConsentStep.tsx\n\n```typescript\n'use client'\n\nimport { CONSENT_TEXT } from '@/lib/questions'\n\ninterface Props {\n  onConsent: () => void\n}\n\nexport default function ConsentStep({ onConsent }: Props) {\n  return (\n    <div className=\"max-w-lg mx-auto bg-white rounded-2xl shadow-sm p-8\">\n      <div className=\"w-10 h-1 bg-brand-red mb-6\" />\n      <h2 className=\"text-xl font-bold text-gray-900 mb-4\">{CONSENT_TEXT.title}</h2>\n\n      <ul className=\"space-y-3 text-sm text-gray-600 mb-6\">\n        {[\n          CONSENT_TEXT.purpose,\n          CONSENT_TEXT.anonymity,\n          CONSENT_TEXT.retention,\n          CONSENT_TEXT.usage,\n        ].map((text, i) => (\n          <li key={i} className=\"flex gap-2\">\n            <span className=\"text-brand-red font-bold mt-0.5\">•</span>\n            <span>{text}</span>\n          </li>\n        ))}\n      </ul>\n\n      {/* DoD D-2: 동의 버튼 클릭 = consent_given=true 트리거 */}\n      <button\n        onClick={onConsent}\n        className=\"w-full bg-brand-red text-white py-3 rounded-lg text-sm font-medium\n                   hover:bg-brand-red-dark transition\"\n      >\n        위 내용을 확인했으며, 익명으로 참여합니다\n      </button>\n\n      {/* DoD D-3: 동의 안 하면 이 버튼 없음 — 진행 불가 */}\n      <p className=\"text-xs text-gray-400 text-center mt-3\">\n        동의하지 않으면 참여가 불가합니다.\n      </p>\n    </div>\n  )\n}\n```\n\n### 5-D. src/components/survey/SurveyStep.tsx\n\n```typescript\n'use client'\n\nimport { useState } from 'react'\nimport { SURVEY_QUESTIONS } from '@/lib/questions'\n\ninterface Props {\n  onSubmit: (answers: Record<string, string>) => Promise<void>\n  isSubmitting: boolean\n  submitError: string | null\n}\n\nexport default function SurveyStep({ onSubmit, isSubmitting, submitError }: Props) {\n  const [answers, setAnswers] = useState<Record<string, string>>({})\n  const [errors, setErrors] = useState<Record<string, string>>({})\n\n  function validate(): boolean {\n    const newErrors: Record<string, string> = {}\n    SURVEY_QUESTIONS.forEach(q => {\n      // DoD B-2: 필수 문항 빈칸 제출 차단\n      if (q.required && !answers[q.id]?.trim()) {\n        newErrors[q.id] = '필수 문항입니다. 내용을 입력해 주세요.'\n      }\n    })\n    setErrors(newErrors)\n    return Object.keys(newErrors).length === 0\n  }\n\n  async function handleSubmit(e: React.FormEvent) {\n    e.preventDefault()\n    if (!validate()) return\n    await onSubmit(answers)\n  }\n\n  return (\n    <form onSubmit={handleSubmit} className=\"max-w-lg mx-auto bg-white rounded-2xl shadow-sm p-8 space-y-6\">\n      <div className=\"w-10 h-1 bg-brand-red mb-2\" />\n      <h2 className=\"text-xl font-bold text-gray-900\">이번 주 솔직한 이야기를 들려주세요</h2>\n      <p className=\"text-sm text-gray-500\">모든 응답은 익명으로 처리됩니다.</p>\n\n      {/* DoD B-1: 주관식 문항 렌더링 */}\n      {SURVEY_QUESTIONS.map((q, i) => (\n        <div key={q.id}>\n          <label className=\"block text-sm font-medium text-gray-800 mb-1\">\n            {i + 1}. {q.text}\n            {q.required && <span className=\"text-brand-red ml-1\">*</span>}\n          </label>\n          {q.type === 'textarea' ? (\n            <textarea\n              rows={4}\n              placeholder={q.placeholder}\n              value={answers[q.id] ?? ''}\n              onChange={e => setAnswers(a => ({ ...a, [q.id]: e.target.value }))}\n              className=\"w-full border border-gray-200 rounded-lg px-4 py-3 text-sm resize-none\n                         focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition\"\n            />\n          ) : (\n            <input\n              type=\"text\"\n              placeholder={q.placeholder}\n              value={answers[q.id] ?? ''}\n              onChange={e => setAnswers(a => ({ ...a, [q.id]: e.target.value }))}\n              className=\"w-full border border-gray-200 rounded-lg px-4 py-3 text-sm\n                         focus:outline-none focus:ring-2 focus:ring-brand-red/30 focus:border-brand-red transition\"\n            />\n          )}\n          {/* DoD B-2: 유효성 오류 메시지 */}\n          {errors[q.id] && (\n            <p className=\"text-xs text-red-500 mt-1\">{errors[q.id]}</p>\n          )}\n        </div>\n      ))}\n\n      {/* DoD C-3: 네트워크 오류 메시지 */}\n      {submitError && (\n        <div className=\"bg-red-50 border border-red-100 rounded-lg px-4 py-3 text-sm text-red-600\">\n          {submitError}\n          <br />\n          <span className=\"text-xs text-red-400\">입력하신 내용은 유지됩니다. 잠시 후 다시 시도해 주세요.</span>\n        </div>\n      )}\n\n      <button\n        type=\"submit\"\n        disabled={isSubmitting}\n        className=\"w-full bg-brand-red text-white py-3 rounded-lg text-sm font-medium\n                   hover:bg-brand-red-dark transition disabled:opacity-50 disabled:cursor-not-allowed\"\n      >\n        {isSubmitting ? '저장 중...' : '응답 제출하기'}\n      </button>\n    </form>\n  )\n}\n```\n\n### 5-E. DoD 체크\n\n- [ ] **B-1** textarea 문항 화면에 정상 노출 확인\n- [ ] **B-2** 필수 문항 미입력 시 제출 차단 + 오류 메시지 노출 확인\n- [ ] **D-2** 동의 화면이 설문 전 반드시 노출되는 구조 확인\n\n---\n\n## Step 6 — Server Action + Survey 메인 페이지 {color=\"yellow\"}\n\n### 6-A. Server Action 생성 프롬프트\n\n```\nsrc/app/actions.ts 파일을 만들어줘.\n'use server' 지시어 포함.\nzod로 입력 검증.\nsendMagicLink 함수와 submitSurvey 함수 두 개 구현.\n```\n\n### 6-B. src/app/actions.ts 전문\n\n```typescript\n'use server'\n\nimport { createServerSupabaseClient } from '@/lib/supabase/server'\nimport { hashEmail } from '@/lib/crypto'\nimport { z } from 'zod'\n\nconst emailSchema = z.string().email('유효한 이메일 주소를 입력해 주세요')\n\n// DoD A-1\nexport async function sendMagicLink(email: string) {\n  const parsed = emailSchema.safeParse(email)\n  if (!parsed.success) return { success: false, error: parsed.error.errors[0].message }\n\n  const supabase = createServerSupabaseClient()\n  const { error } = await supabase.auth.signInWithOtp({\n    email: parsed.data,\n    options: { emailRedirectTo: `${process.env.NEXTAUTH_URL}/auth/callback` },\n  })\n\n  if (error) return { success: false, error: '링크 발송에 실패했습니다. 잠시 후 다시 시도해 주세요.' }\n  return { success: true }\n}\n\n// DoD C-1, C-2, D-1, D-2, D-3\nexport async function submitSurvey(answers: Record<string, string>, consentGiven: boolean) {\n  // DoD D-3: 동의 없으면 서버에서 즉시 차단\n  if (!consentGiven) return { success: false, error: '동의 없이는 제출할 수 없습니다.' }\n\n  const supabase = createServerSupabaseClient()\n  const { data: { session } } = await supabase.auth.getSession()\n\n  if (!session?.user?.email) {\n    return { success: false, error: '인증 세션이 만료되었습니다. 다시 로그인해 주세요.' }\n  }\n\n  // DoD D-1: 이메일 해싱\n  const hashedId = await hashEmail(session.user.email)\n  const responses = Object.entries(answers).map(([question_id, answer]) => ({\n    question_id,\n    answer,\n  }))\n\n  // DoD C-1: INSERT / C-2: submitted_at / D-2: consent_given\n  const { error } = await supabase.from('survey_responses').insert({\n    hashed_id: hashedId,\n    session_token: session.access_token.slice(0, 32),\n    consent_given: true,\n    consented_at: new Date().toISOString(),\n    responses,\n    submitted_at: new Date().toISOString(),\n  })\n\n  if (error) return { success: false, error: '저장 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.' }\n\n  await supabase.from('consent_log').insert({\n    hashed_id: hashedId,\n    consent_given: true,\n    consented_at: new Date().toISOString(),\n    ip_hash: null,\n  })\n\n  return { success: true }\n}\n```\n\n### 6-C. src/app/survey/page.tsx 생성 프롬프트\n\n```\nsrc/app/survey/page.tsx를 만들어줘.\n상태: 'consent' | 'survey' | 'complete' | 'error'\n- consent 상태: ConsentStep 컴포넌트 렌더\n- survey 상태: SurveyStep 컴포넌트 렌더\n- complete 상태: /survey/complete로 router.push\n- 비인증 접근 시: /magic-link로 리다이렉트\n서버 컴포넌트로 만들되, 인증 체크는 서버 사이드에서 처리.\n```\n\n### 6-D. src/app/survey/page.tsx\n\n```typescript\nimport { createServerSupabaseClient } from '@/lib/supabase/server'\nimport { redirect } from 'next/navigation'\nimport SurveyClient from './SurveyClient'\n\nexport default async function SurveyPage() {\n  const supabase = createServerSupabaseClient()\n  const { data: { session } } = await supabase.auth.getSession()\n\n  // DoD A-2: 세션 없으면 인증 페이지로\n  if (!session) redirect('/magic-link')\n\n  return <SurveyClient />\n}\n```\n\n### 6-E. src/app/survey/SurveyClient.tsx\n\n```typescript\n'use client'\n\nimport { useState } from 'react'\nimport { useRouter } from 'next/navigation'\nimport ConsentStep from '@/components/survey/ConsentStep'\nimport SurveyStep from '@/components/survey/SurveyStep'\nimport { submitSurvey } from '../actions'\n\nexport default function SurveyClient() {\n  const router = useRouter()\n  const [step, setStep] = useState<'consent' | 'survey'>('consent')\n  const [isSubmitting, setIsSubmitting] = useState(false)\n  const [submitError, setSubmitError] = useState<string | null>(null)\n\n  async function handleSubmit(answers: Record<string, string>) {\n    setIsSubmitting(true)\n    setSubmitError(null)\n\n    const result = await submitSurvey(answers, true) // DoD D-3\n\n    if (result.success) {\n      router.push('/survey/complete') // DoD B-3\n    } else {\n      setSubmitError(result.error ?? '오류가 발생했습니다.') // DoD C-3\n    }\n    setIsSubmitting(false)\n  }\n\n  return (\n    <div className=\"min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4\">\n      {step === 'consent' ? (\n        <ConsentStep onConsent={() => setStep('survey')} />\n      ) : (\n        <SurveyStep\n          onSubmit={handleSubmit}\n          isSubmitting={isSubmitting}\n          submitError={submitError}\n        />\n      )}\n    </div>\n  )\n}\n```\n\n### 6-F. DoD 체크\n\n- [ ] **C-1** 제출 후 Supabase Table Editor → survey_responses에 신규 row 확인\n- [ ] **C-2** submitted_at 필드 null 없이 저장 확인\n- [ ] **D-1** 저장된 row에 이름·이메일 없고 hashed_id만 확인\n- [ ] **D-2** consent_given = true, consented_at 저장 확인\n- [ ] **D-3** consent 없이 직접 POST 시 RLS 정책으로 차단 확인\n\n---\n\n## Step 7 — 완료 화면 + 오류 처리 {color=\"orange\"}\n\n### 7-A. 완료 화면 프롬프트\n\n```\nsrc/app/survey/complete/page.tsx를 만들어줘.\n\"응답이 저장되었습니다\" 메시지와 함께 감사 메시지를 보여줘.\nDoD B-3 충족.\n```\n\n### 7-B. src/app/survey/complete/page.tsx\n\n```typescript\nexport default function CompletePage() {\n  return (\n    <div className=\"min-h-screen flex items-center justify-center bg-gray-50\">\n      <div className=\"max-w-md w-full bg-white rounded-2xl shadow-sm p-10 text-center\">\n        <div className=\"text-5xl mb-4\">✅</div>\n        <h1 className=\"text-2xl font-bold text-gray-900 mb-2\">응답이 저장되었습니다</h1>\n        <p className=\"text-gray-500 text-sm leading-relaxed\">\n          소중한 의견 감사합니다.<br />\n          익명으로 안전하게 수집되었으며,<br />\n          팀 개선을 위해 활용하겠습니다.\n        </p>\n        <div className=\"mt-6 w-8 h-1 bg-brand-red mx-auto\" />\n      </div>\n    </div>\n  )\n}\n```\n\n### 7-C. DoD 체크\n\n- [ ] **B-3** 제출 완료 후 완료 화면 정상 노출 확인\n- [ ] **C-3** 네트워크 오류 시 재시도 유도 메시지 노출 확인 (SurveyStep 오류 블록)\n\n---\n\n## Step 8 — 전체 DoD 최종 체크 {color=\"red\"}\n\n> 이 섹션을 안티그래비티 터미널에서 `npm run dev` 실행 후 하나씩 체크.\n\n### A. Magic Link 인증\n\n- [ ] **A-1** 이메일 입력 → Magic Link 발송 → 실제 메일 수신 확인\n- [ ] **A-2** 링크 클릭 → Supabase Dashboard → Authentication → Users 세션 확인\n- [ ] **A-3** 만료 링크 재접근 → \"링크가 만료됐습니다. 재발송 받으세요\" 메시지 노출\n\n### B. 주관식 문항\n\n- [ ] **B-1** textarea 또는 input 필드 화면 정상 노출\n- [ ] **B-2** 필수 문항 미입력 제출 시 차단 + 경고 메시지\n- [ ] **B-3** 제출 완료 후 \"응답이 저장되었습니다\" 완료 화면 노출\n\n### C. Supabase 저장\n\n- [ ] **C-1** survey_responses 테이블 신규 row 확인\n- [ ] **C-2** submitted_at 타임스탬프 null 없이 저장\n- [ ] **C-3** 네트워크 오류 시 재시도 유도 메시지 + 데이터 유지\n\n### D. 익명 처리\n\n- [ ] **D-1** 저장된 row에 이름·이메일 없고 hashed_id(SHA-256)만 존재\n- [ ] **D-2** 동의 화면 노출 + consent_given=true 저장 + consented_at 기록\n- [ ] **D-3** consent 없이 제출 시 버튼 비활성화 OR DB RLS 차단 확인\n\n> ✅ **12개 전부 통과 = Phase 1 ② 완료 선언**\n\n---\n\n## 트러블슈팅 {color=\"gray\"}\n\n<details>\n<summary>Magic Link가 오지 않을 때</summary>\n\nSupabase Dashboard → Authentication → Email Templates 확인\nSpam 폴더 확인\nSupabase 무료 플랜은 시간당 발송 제한 있음 (3건/시간)\nSite URL과 Redirect URL 설정 재확인\n</details>\n\n<details>\n<summary>RLS 정책으로 INSERT가 막힐 때</summary>\n\nconsent_given = true인지 확인\nanon key가 올바른지 확인 (.env.local)\nSupabase Dashboard → Table Editor → RLS Policies 정책 재확인\n</details>\n\n<details>\n<summary>auth/callback에서 세션이 안 만들어질 때</summary>\n\nSupabase Dashboard → Authentication → URL Configuration\nRedirect URL에 http://localhost:3000/auth/callback 추가 확인\ntokenHash vs code 방식 — Supabase 버전에 따라 다름 (callback route 분기 확인)\n</details>\n\n---\n\n## 다음 단계 링크\n\n- Phase 1 ① DB 스키마 설계 DoD (미작성)\n- Phase 2 AI 분석 파이프라인 진입 기준 (미작성)\n- EX Intelligence 프로젝트 고정 페이지 → https://www.notion.so/3276b7b50b238192803cec566c05f482"
+              }
+            ]
+          },
+          "message": "Notion-create-pages",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-create-pages-8d78a8272073398bcc66ec99cb758b09",
+          "is_mcp_app": false,
+          "mcp_server_url": "https://mcp.notion.com/mcp"
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01QZMyicrzgZuszAvgL6cy5f",
+          "name": "Notion:notion-create-pages",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"pages\":[{\"id\":\"3336b7b5-0b23-818a-9966-f5b856588e05\",\"url\":\"https://www.notion.so/3336b7b50b23818a9966f5b856588e05\",\"properties\":{\"title\":\"🛠️ Phase 1 웹폼 — 안티그래비티 빌드 가이드 (Next.js + Supabase)\"}}]}",
+              "uuid": "5c8f30d0-c5f0-49b0-99b8-8e2a3b8b76ac"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": "https://mcp.notion.com/mcp",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"pages\": [\n    {\n      \"id\": \"3336b7b5-0b23-818a-9966-f5b856588e05\",\n      \"url\": \"https://www.notion.so/3336b7b50b23818a9966f5b856588e05\",\n      \"properties\": {\n        \"title\": \"🛠️ Phase 1 웹폼 — 안티그래비티 빌드 가이드 (Next.js + Supabase)\"\n      }\n    }\n  ]\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-30T02:25:26.903525Z",
+          "stop_timestamp": "2026-03-30T02:25:37.538267Z",
+          "flags": null,
+          "type": "text",
+          "text": "Notion에 생성됐습니다.\n\n**👉 [🛠️ Phase 1 웹폼 — 안티그래비티 빌드 가이드](https://www.notion.so/3336b7b50b23818a9966f5b856588e05)**\n\nEX Intelligence 고정 페이지 하위에 저장했습니다.\n\n---\n\n이 문서의 설계 철학을 간단히 설명하면, 안티그래비티는 Claude Code처럼 파일시스템을 직접 다루는 환경이 아니라 프롬프트 기반으로 AI가 코드를 생성하는 방식이라는 점을 감안해서, 각 Step을 **\"이 텍스트를 그대로 안티그래비티에 붙여넣으면 실행되는\" 단위**로 쪼갰습니다.\n\n구조는 이렇습니다. Step 1부터 7까지 순차적으로 진행하되, 각 Step 끝에 붙은 DoD 체크리스트가 로컬에서 통과되면 다음 Step으로 넘어가는 방식입니다. Step 8은 12개 항목을 한 번에 최종 점검하는 완료 선언 체크리스트입니다.\n\n한 가지 더 — SQL 블록(Step 2-B)은 안티그래비티에서 실행할 게 아니라 Supabase SQL Editor에 직접 붙여넣는 용도입니다. DB 세팅만 Supabase 대시보드에서 수동으로 하고, 나머지 코드는 전부 안티그래비티에서 생성 가능합니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-30T02:25:37.978717Z",
+      "updated_at": "2026-03-30T02:25:37.978717Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d3c8c-e2d9-7128-8094-ae5720125615"
+    }
+  ]
+}

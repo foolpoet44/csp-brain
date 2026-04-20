@@ -1,0 +1,577 @@
+﻿{
+  "uuid": "aaea33fe-b3d4-4cb6-a857-9d04cbb1d2f6",
+  "name": "OpenClaw gateway port conflict resolution",
+  "summary": "**Conversation Overview**\n\nThe person encountered an error launching OpenClaw (version 2026.2.1) via `ollama launch openclaw` on a Mac. The core issue was port 18789 already being occupied by an existing `moltbot-gateway` node process (initially pid 20372), preventing a new gateway instance from starting. A secondary warning about state directory migration at `~/.openclaw` was present throughout but ultimately non-blocking.\n\nClaude guided a systematic diagnostic process: confirming port occupancy via `lsof -i :18789`, attempting `kill -9`, then discovering the process auto-restarted with a new pid (21189), indicating supervisor management. After ruling out launchd via `launchctl list`, Claude traced the process's PPID to `1` (launchd), then located two conflicting plist files — `~/Library/LaunchAgents/ai.openclaw.gateway.plist` and `~/Library/LaunchAgents/bot.molt.gateway.plist` — as the root cause. Standard `launchctl unload` failed with I/O error 5, so `launchctl bootout gui/$(id -u)` was used to successfully unload both. OpenClaw then launched cleanly with all services running: gateway, heartbeat, browser control, hooks, and Telegram bot (`@molt49_bot`).\n\nAfter launch, the person accessed the canvas URL incorrectly by copying log output verbatim including the parenthetical `(root /Users/dkmac/.openclaw/canvas)`, resulting in a 404. Claude clarified the correct URL as `http://127.0.0.1:18789/__openclaw__/canvas/`. The canvas page loaded but showed \"Bridge: missing,\" which Claude identified as expected behavior when accessing the page outside OpenClaw's controlled browser environment rather than via a standard browser directly.",
+  "created_at": "2026-04-03T23:58:18.625725Z",
+  "updated_at": "2026-04-04T00:20:03.803376Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d55c8-8955-74cc-901e-d715478ce517",
+      "text": "(base) dkmac@MacBook-Air-3 openclaw % ollama launch openclaw                                                       \n\nLaunching OpenClaw with deepseek-v3.1:671b-cloud...\n│\n◇  Doctor warnings ───────────────────────────────────────╮\n│                                                         │\n│  - State dir migration skipped: target already exists   │\n│    (/Users/dkmac/.openclaw). Remove or merge manually.  │\n│                                                         │\n├─────────────────────────────────────────────────────────╯\n2026-04-03T23:55:57.228Z [canvas] host mounted at http://127.0.0.1:18789/__openclaw__/canvas/ (root /Users/dkmac/.openclaw/canvas)\n2026-04-03T23:55:57.230Z Gateway failed to start: another gateway instance is already listening on ws://127.0.0.1:18789\nIf the gateway is supervised, stop it with: openclaw gateway stop\n2026-04-03T23:55:57.255Z Port 18789 is already in use.\n2026-04-03T23:55:57.255Z - pid 20372 dkmac: moltbot-gateway (127.0.0.1:18789)\n2026-04-03T23:55:57.256Z - Another process is listening on this port.\nError: exit status 1",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:58:19.753011Z",
+          "stop_timestamp": "2026-04-03T23:58:19.753011Z",
+          "flags": null,
+          "type": "text",
+          "text": "(base) dkmac@MacBook-Air-3 openclaw % ollama launch openclaw                                                       \n\nLaunching OpenClaw with deepseek-v3.1:671b-cloud...\n│\n◇  Doctor warnings ───────────────────────────────────────╮\n│                                                         │\n│  - State dir migration skipped: target already exists   │\n│    (/Users/dkmac/.openclaw). Remove or merge manually.  │\n│                                                         │\n├─────────────────────────────────────────────────────────╯\n2026-04-03T23:55:57.228Z [canvas] host mounted at http://127.0.0.1:18789/__openclaw__/canvas/ (root /Users/dkmac/.openclaw/canvas)\n2026-04-03T23:55:57.230Z Gateway failed to start: another gateway instance is already listening on ws://127.0.0.1:18789\nIf the gateway is supervised, stop it with: openclaw gateway stop\n2026-04-03T23:55:57.255Z Port 18789 is already in use.\n2026-04-03T23:55:57.255Z - pid 20372 dkmac: moltbot-gateway (127.0.0.1:18789)\n2026-04-03T23:55:57.256Z - Another process is listening on this port.\nError: exit status 1",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-03T23:58:19.795215Z",
+      "updated_at": "2026-04-03T23:58:19.795215Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d55c8-8955-7276-8562-1e1bcd60df3d",
+      "text": " 이 에러를 분석해보면, 핵심 문제는 하나입니다. **포트 18789가 이미 사용 중**이에요.\n\n에러 메시지를 보면 `pid 20372` 프로세스(`moltbot-gateway`)가 이미 해당 포트를 점유하고 있고, OpenClaw가 두 번째 gateway 인스턴스를 띄우려다 충돌한 거죠.\n\n---\n\n**해결 순서는 이렇습니다.**\n\n먼저 기존 gateway를 정상 종료해 보세요.\n\n```bash\nopenclaw gateway stop\n```\n\n그래도 안 된다면, 직접 프로세스를 죽이는 방법으로 갑니다.\n\n```bash\n# pid 확인 (20372로 나왔지만 재확인)\nlsof -i :18789\n\n# 해당 pid 종료\nkill -9 20372\n```\n\n그 다음 state dir 경고도 처리해야 해요. 에러에 나온 것처럼 `/Users/dkmac/.openclaw`가 이미 존재해서 migration이 스킵됐거든요. 이건 두 가지 선택지가 있어요.\n\n```bash\n# 옵션 1: 기존 디렉토리 백업 후 제거\nmv ~/.openclaw ~/.openclaw_backup\n```\n\n```bash\n# 옵션 2: 그냥 두고 재실행 (migration 경고는 무시해도 되는 경우가 많음)\n```\n\n마지막으로 다시 실행하면 됩니다.\n\n```bash\nollama launch openclaw\n```\n\n---\n\n**근본 원인을 추측하자면**, 이전 세션에서 OpenClaw가 정상 종료되지 않고 gateway 프로세스가 백그라운드에 살아남은 것 같아요. Mac 재부팅 없이 계속 작업하셨다면 흔히 발생하는 패턴입니다.\n\n`openclaw gateway stop` 먼저 시도해보시고 결과 알려주시면 추가로 도와드릴게요.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:58:20.782526Z",
+          "stop_timestamp": "2026-04-03T23:58:30.977765Z",
+          "flags": null,
+          "type": "text",
+          "text": " 이 에러를 분석해보면, 핵심 문제는 하나입니다. **포트 18789가 이미 사용 중**이에요.\n\n에러 메시지를 보면 `pid 20372` 프로세스(`moltbot-gateway`)가 이미 해당 포트를 점유하고 있고, OpenClaw가 두 번째 gateway 인스턴스를 띄우려다 충돌한 거죠.\n\n---\n\n**해결 순서는 이렇습니다.**\n\n먼저 기존 gateway를 정상 종료해 보세요.\n\n```bash\nopenclaw gateway stop\n```\n\n그래도 안 된다면, 직접 프로세스를 죽이는 방법으로 갑니다.\n\n```bash\n# pid 확인 (20372로 나왔지만 재확인)\nlsof -i :18789\n\n# 해당 pid 종료\nkill -9 20372\n```\n\n그 다음 state dir 경고도 처리해야 해요. 에러에 나온 것처럼 `/Users/dkmac/.openclaw`가 이미 존재해서 migration이 스킵됐거든요. 이건 두 가지 선택지가 있어요.\n\n```bash\n# 옵션 1: 기존 디렉토리 백업 후 제거\nmv ~/.openclaw ~/.openclaw_backup\n```\n\n```bash\n# 옵션 2: 그냥 두고 재실행 (migration 경고는 무시해도 되는 경우가 많음)\n```\n\n마지막으로 다시 실행하면 됩니다.\n\n```bash\nollama launch openclaw\n```\n\n---\n\n**근본 원인을 추측하자면**, 이전 세션에서 OpenClaw가 정상 종료되지 않고 gateway 프로세스가 백그라운드에 살아남은 것 같아요. Mac 재부팅 없이 계속 작업하셨다면 흔히 발생하는 패턴입니다.\n\n`openclaw gateway stop` 먼저 시도해보시고 결과 알려주시면 추가로 도와드릴게요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-03T23:58:31.025818Z",
+      "updated_at": "2026-04-03T23:58:31.025818Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55c8-8955-74cc-901e-d715478ce517"
+    },
+    {
+      "uuid": "019d55c9-4137-7bd4-8724-58528747416f",
+      "text": "(base) dkmac@MacBook-Air-3 openclaw % openclaw gateway stop\n\n🦞 OpenClaw 2026.2.1 (ed4529e) — It's not \"failing,\" it's \"discovering new ways to configure the same thing wrong.\"\n\n│\n◇  Doctor warnings ──────────────────────────────────────────────────────────────────────────╮\n│                                                                                            │\n│  - State dir migration skipped: target already exists (/Users/dkmac/.openclaw). Remove or  │\n│    merge manually.                                                                         │\n│                                                                                            │\n├────────────────────────────────────────────────────────────────────────────────────────────╯\nGateway service not loaded.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:59:06.902639Z",
+          "stop_timestamp": "2026-04-03T23:59:06.902639Z",
+          "flags": null,
+          "type": "text",
+          "text": "(base) dkmac@MacBook-Air-3 openclaw % openclaw gateway stop\n\n🦞 OpenClaw 2026.2.1 (ed4529e) — It's not \"failing,\" it's \"discovering new ways to configure the same thing wrong.\"\n\n│\n◇  Doctor warnings ──────────────────────────────────────────────────────────────────────────╮\n│                                                                                            │\n│  - State dir migration skipped: target already exists (/Users/dkmac/.openclaw). Remove or  │\n│    merge manually.                                                                         │\n│                                                                                            │\n├────────────────────────────────────────────────────────────────────────────────────────────╯\nGateway service not loaded.",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-03T23:59:06.977142Z",
+      "updated_at": "2026-04-03T23:59:06.977142Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55c8-8955-7276-8562-1e1bcd60df3d"
+    },
+    {
+      "uuid": "019d55c9-4137-7535-b7bd-3444655a92a7",
+      "text": " `Gateway service not loaded` — 즉 supervisor가 관리하는 서비스로 등록된 게 아니라, 그냥 고아 프로세스(orphan process)로 떠 있는 거예요.\n\n직접 pid를 잡아서 죽여야 합니다.\n\n```bash\n# 포트 점유 프로세스 확인\nlsof -i :18789\n```\n\n결과에서 PID 컬럼 값을 확인 후:\n\n```bash\nkill -9 20372\n```\n\n그 다음 바로 재실행:\n\n```bash\nollama launch openclaw\n```\n\n---\n\nState dir 경고는 일단 무시하셔도 됩니다. migration 실패지 기능 오류는 아니에요. 포트 충돌만 해결하면 뜰 거예요.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-03T23:59:07.536779Z",
+          "stop_timestamp": "2026-04-03T23:59:11.531318Z",
+          "flags": null,
+          "type": "text",
+          "text": " `Gateway service not loaded` — 즉 supervisor가 관리하는 서비스로 등록된 게 아니라, 그냥 고아 프로세스(orphan process)로 떠 있는 거예요.\n\n직접 pid를 잡아서 죽여야 합니다.\n\n```bash\n# 포트 점유 프로세스 확인\nlsof -i :18789\n```\n\n결과에서 PID 컬럼 값을 확인 후:\n\n```bash\nkill -9 20372\n```\n\n그 다음 바로 재실행:\n\n```bash\nollama launch openclaw\n```\n\n---\n\nState dir 경고는 일단 무시하셔도 됩니다. migration 실패지 기능 오류는 아니에요. 포트 충돌만 해결하면 뜰 거예요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-03T23:59:11.574912Z",
+      "updated_at": "2026-04-03T23:59:11.574912Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55c9-4137-7bd4-8724-58528747416f"
+    },
+    {
+      "uuid": "019d55cb-604f-7227-9d51-e6a9aab40c9c",
+      "text": "(base) dkmac@MacBook-Air-3 openclaw % lsof -i :18789\nCOMMAND     PID  USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nGoogle     1589 dkmac   39u  IPv4 0xda3f4df7b0b63cd9      0t0  TCP localhost:51840->localhost:18789 (ESTABLISHED)\nnode      20372 dkmac   15u  IPv4 0x223b1ce329b86921      0t0  TCP localhost:18789 (LISTEN)\nnode      20372 dkmac   16u  IPv6 0x92992a2b0b3355ee      0t0  TCP localhost:18789 (LISTEN)\nnode      20372 dkmac   24u  IPv4 0xe8fc6268b93624cb      0t0  TCP localhost:18789->localhost:51840 (ESTABLISHED)\n(base) dkmac@MacBook-Air-3 openclaw %",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:01:26.440388Z",
+          "stop_timestamp": "2026-04-04T00:01:26.440388Z",
+          "flags": null,
+          "type": "text",
+          "text": "(base) dkmac@MacBook-Air-3 openclaw % lsof -i :18789\nCOMMAND     PID  USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nGoogle     1589 dkmac   39u  IPv4 0xda3f4df7b0b63cd9      0t0  TCP localhost:51840->localhost:18789 (ESTABLISHED)\nnode      20372 dkmac   15u  IPv4 0x223b1ce329b86921      0t0  TCP localhost:18789 (LISTEN)\nnode      20372 dkmac   16u  IPv6 0x92992a2b0b3355ee      0t0  TCP localhost:18789 (LISTEN)\nnode      20372 dkmac   24u  IPv4 0xe8fc6268b93624cb      0t0  TCP localhost:18789->localhost:51840 (ESTABLISHED)\n(base) dkmac@MacBook-Air-3 openclaw %",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-04T00:01:26.496081Z",
+      "updated_at": "2026-04-04T00:01:26.496081Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55c9-4137-7535-b7bd-3444655a92a7"
+    },
+    {
+      "uuid": "019d55cb-604f-7bd1-8897-eb3395fa9c59",
+      "text": " 흥미로운 상황이네요. `node 20372`가 포트를 점유하고 있는데, **Google 프로세스(pid 1589)가 그 포트에 연결되어 있어요.** Claude in Chrome 같은 브라우저 확장이 이 gateway에 붙어 있는 것 같습니다.\n\n일단 node 프로세스를 종료하세요:\n\n```bash\nkill -9 20372\n```\n\n그 다음 바로 재실행:\n\n```bash\nollama launch openclaw\n```\n\n---\n\n참고로 Google 프로세스(1589)는 건드리지 않아도 됩니다. node가 죽으면 연결이 끊어지면서 자연스럽게 정리돼요. openclaw가 다시 뜨면 Chrome extension도 재연결될 거예요.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:01:27.218201Z",
+          "stop_timestamp": "2026-04-04T00:01:31.102712Z",
+          "flags": null,
+          "type": "text",
+          "text": " 흥미로운 상황이네요. `node 20372`가 포트를 점유하고 있는데, **Google 프로세스(pid 1589)가 그 포트에 연결되어 있어요.** Claude in Chrome 같은 브라우저 확장이 이 gateway에 붙어 있는 것 같습니다.\n\n일단 node 프로세스를 종료하세요:\n\n```bash\nkill -9 20372\n```\n\n그 다음 바로 재실행:\n\n```bash\nollama launch openclaw\n```\n\n---\n\n참고로 Google 프로세스(1589)는 건드리지 않아도 됩니다. node가 죽으면 연결이 끊어지면서 자연스럽게 정리돼요. openclaw가 다시 뜨면 Chrome extension도 재연결될 거예요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-04T00:01:31.142576Z",
+      "updated_at": "2026-04-04T00:01:31.142576Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55cb-604f-7227-9d51-e6a9aab40c9c"
+    },
+    {
+      "uuid": "019d55cf-210e-7e31-84c9-5dd04a50474e",
+      "text": "(base) dkmac@MacBook-Air-3 openclaw % ollama launch openclaw\n\nLaunching OpenClaw with deepseek-v3.1:671b-cloud...\n│\n◇  Doctor warnings ───────────────────────────────────────╮\n│                                                         │\n│  - State dir migration skipped: target already exists   │\n│    (/Users/dkmac/.openclaw). Remove or merge manually.  │\n│                                                         │\n├─────────────────────────────────────────────────────────╯\n2026-04-04T00:05:07.619Z [canvas] host mounted at http://127.0.0.1:18789/__openclaw__/canvas/ (root /Users/dkmac/.openclaw/canvas)\n2026-04-04T00:05:07.623Z Gateway failed to start: another gateway instance is already listening on ws://127.0.0.1:18789\nIf the gateway is supervised, stop it with: openclaw gateway stop\n2026-04-04T00:05:07.649Z Port 18789 is already in use.\n2026-04-04T00:05:07.649Z - pid 20372 dkmac: moltbot-gateway (127.0.0.1:18789)\n2026-04-04T00:05:07.650Z - Another process is listening on this port.\nError: exit status 1",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:05:32.496682Z",
+          "stop_timestamp": "2026-04-04T00:05:32.496682Z",
+          "flags": null,
+          "type": "text",
+          "text": "(base) dkmac@MacBook-Air-3 openclaw % ollama launch openclaw\n\nLaunching OpenClaw with deepseek-v3.1:671b-cloud...\n│\n◇  Doctor warnings ───────────────────────────────────────╮\n│                                                         │\n│  - State dir migration skipped: target already exists   │\n│    (/Users/dkmac/.openclaw). Remove or merge manually.  │\n│                                                         │\n├─────────────────────────────────────────────────────────╯\n2026-04-04T00:05:07.619Z [canvas] host mounted at http://127.0.0.1:18789/__openclaw__/canvas/ (root /Users/dkmac/.openclaw/canvas)\n2026-04-04T00:05:07.623Z Gateway failed to start: another gateway instance is already listening on ws://127.0.0.1:18789\nIf the gateway is supervised, stop it with: openclaw gateway stop\n2026-04-04T00:05:07.649Z Port 18789 is already in use.\n2026-04-04T00:05:07.649Z - pid 20372 dkmac: moltbot-gateway (127.0.0.1:18789)\n2026-04-04T00:05:07.650Z - Another process is listening on this port.\nError: exit status 1",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-04T00:05:32.554670Z",
+      "updated_at": "2026-04-04T00:05:32.554670Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55cb-604f-7bd1-8897-eb3395fa9c59"
+    },
+    {
+      "uuid": "019d55cf-210e-73a3-9b5f-6075e9ffa5b0",
+      "text": " 흥미롭네요. `kill -9 20372`를 했는데 아직도 pid 20372가 살아있다고 나오는 거예요. 좀비 프로세스이거나 새로운 프로세스가 같은 pid를 재사용했을 가능성이 있어요.\n\n실제 상태를 다시 확인해봅시다:\n\n```bash\nlsof -i :18789\n```\n\n결과 보여주시면 pid가 바뀌었는지 확인할 수 있어요. 만약 여전히 뭔가 붙어있다면:\n\n```bash\n# 포트 점유 프로세스 전체 강제 종료\nsudo lsof -ti :18789 | xargs kill -9\n```\n\n그 다음 포트가 실제로 비었는지 확인:\n\n```bash\nlsof -i :18789\n# 아무것도 안 나오면 성공\n```\n\n그리고 재실행하면 됩니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:05:33.759968Z",
+          "stop_timestamp": "2026-04-04T00:05:37.780050Z",
+          "flags": null,
+          "type": "text",
+          "text": " 흥미롭네요. `kill -9 20372`를 했는데 아직도 pid 20372가 살아있다고 나오는 거예요. 좀비 프로세스이거나 새로운 프로세스가 같은 pid를 재사용했을 가능성이 있어요.\n\n실제 상태를 다시 확인해봅시다:\n\n```bash\nlsof -i :18789\n```\n\n결과 보여주시면 pid가 바뀌었는지 확인할 수 있어요. 만약 여전히 뭔가 붙어있다면:\n\n```bash\n# 포트 점유 프로세스 전체 강제 종료\nsudo lsof -ti :18789 | xargs kill -9\n```\n\n그 다음 포트가 실제로 비었는지 확인:\n\n```bash\nlsof -i :18789\n# 아무것도 안 나오면 성공\n```\n\n그리고 재실행하면 됩니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-04T00:05:37.846700Z",
+      "updated_at": "2026-04-04T00:05:37.846700Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55cf-210e-7e31-84c9-5dd04a50474e"
+    },
+    {
+      "uuid": "019d55cf-8373-7566-a512-be0e8dcd7a31",
+      "text": "(base) dkmac@MacBook-Air-3 openclaw % lsof -i :18789\nCOMMAND   PID  USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    20372 dkmac   15u  IPv4 0x223b1ce329b86921      0t0  TCP localhost:18789 (LISTEN)\nnode    20372 dkmac   16u  IPv6 0x92992a2b0b3355ee      0t0  TCP localhost:18789 (LISTEN)",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:05:56.972229Z",
+          "stop_timestamp": "2026-04-04T00:05:56.972229Z",
+          "flags": null,
+          "type": "text",
+          "text": "(base) dkmac@MacBook-Air-3 openclaw % lsof -i :18789\nCOMMAND   PID  USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    20372 dkmac   15u  IPv4 0x223b1ce329b86921      0t0  TCP localhost:18789 (LISTEN)\nnode    20372 dkmac   16u  IPv6 0x92992a2b0b3355ee      0t0  TCP localhost:18789 (LISTEN)",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-04T00:05:56.983387Z",
+      "updated_at": "2026-04-04T00:05:56.983387Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55cf-210e-73a3-9b5f-6075e9ffa5b0"
+    },
+    {
+      "uuid": "019d55cf-8373-793c-94fd-aebf960942cd",
+      "text": " `kill -9`가 먹히지 않았네요. 같은 pid가 그대로예요. 이건 정말 드문 케이스인데, 두 가지 가능성이 있어요 — 프로세스가 kernel level에서 보호되고 있거나, sudo 권한이 필요한 상황입니다.\n\n```bash\nsudo kill -9 20372\n```\n\n그래도 안 되면:\n\n```bash\nsudo lsof -ti :18789 | xargs sudo kill -9\n```\n\n확인:\n\n```bash\nlsof -i :18789\n```\n\n아무것도 안 나오면 바로 재실행하시면 됩니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:05:57.560482Z",
+          "stop_timestamp": "2026-04-04T00:06:00.533197Z",
+          "flags": null,
+          "type": "text",
+          "text": " `kill -9`가 먹히지 않았네요. 같은 pid가 그대로예요. 이건 정말 드문 케이스인데, 두 가지 가능성이 있어요 — 프로세스가 kernel level에서 보호되고 있거나, sudo 권한이 필요한 상황입니다.\n\n```bash\nsudo kill -9 20372\n```\n\n그래도 안 되면:\n\n```bash\nsudo lsof -ti :18789 | xargs sudo kill -9\n```\n\n확인:\n\n```bash\nlsof -i :18789\n```\n\n아무것도 안 나오면 바로 재실행하시면 됩니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-04T00:06:00.575850Z",
+      "updated_at": "2026-04-04T00:06:00.575850Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55cf-8373-7566-a512-be0e8dcd7a31"
+    },
+    {
+      "uuid": "019d55d0-087b-7591-ae38-126c846e1b5f",
+      "text": "(base) dkmac@MacBook-Air-3 openclaw % lsof -i :18789    \nCOMMAND   PID  USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    21189 dkmac   15u  IPv4 0x83995965cab0f0e5      0t0  TCP localhost:18789 (LISTEN)\nnode    21189 dkmac   16u  IPv6 0x2faa6b29401b3318      0t0  TCP localhost:18789 (LISTEN)",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:06:31.194384Z",
+          "stop_timestamp": "2026-04-04T00:06:31.194384Z",
+          "flags": null,
+          "type": "text",
+          "text": "(base) dkmac@MacBook-Air-3 openclaw % lsof -i :18789    \nCOMMAND   PID  USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    21189 dkmac   15u  IPv4 0x83995965cab0f0e5      0t0  TCP localhost:18789 (LISTEN)\nnode    21189 dkmac   16u  IPv6 0x2faa6b29401b3318      0t0  TCP localhost:18789 (LISTEN)",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-04T00:06:31.243086Z",
+      "updated_at": "2026-04-04T00:06:31.243086Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55cf-8373-793c-94fd-aebf960942cd"
+    },
+    {
+      "uuid": "019d55d0-087b-7f00-9a8c-7861795b6232",
+      "text": " pid가 20372 → 21189로 바뀌었어요. 즉 **프로세스가 죽으면 자동으로 재시작되는 구조**입니다. 어딘가에 supervisor나 launchd가 이 프로세스를 감시하고 있는 거예요.\n\nMac launchd에 등록된 서비스인지 확인해봅시다:\n\n```bash\nlaunchctl list | grep -i openclaw\nlaunchctl list | grep -i moltbot\nlaunchctl list | grep -i node\n```\n\n결과 보여주시면 정확히 어떤 서비스가 이걸 살려두는지 찾을 수 있어요. 그걸 unload해야 근본적으로 해결됩니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:06:31.732651Z",
+          "stop_timestamp": "2026-04-04T00:06:35.246530Z",
+          "flags": null,
+          "type": "text",
+          "text": " pid가 20372 → 21189로 바뀌었어요. 즉 **프로세스가 죽으면 자동으로 재시작되는 구조**입니다. 어딘가에 supervisor나 launchd가 이 프로세스를 감시하고 있는 거예요.\n\nMac launchd에 등록된 서비스인지 확인해봅시다:\n\n```bash\nlaunchctl list | grep -i openclaw\nlaunchctl list | grep -i moltbot\nlaunchctl list | grep -i node\n```\n\n결과 보여주시면 정확히 어떤 서비스가 이걸 살려두는지 찾을 수 있어요. 그걸 unload해야 근본적으로 해결됩니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-04T00:06:35.293047Z",
+      "updated_at": "2026-04-04T00:06:35.293047Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d0-087b-7591-ae38-126c846e1b5f"
+    },
+    {
+      "uuid": "019d55d0-b140-7979-8011-c112573991a8",
+      "text": "(base) dkmac@MacBook-Air-3 openclaw % launchctl list | grep -i openclaw\n(base) dkmac@MacBook-Air-3 openclaw % launchctl list | grep -i moltbot\n(base) dkmac@MacBook-Air-3 openclaw % launchctl list | grep -i node\n(base) dkmac@MacBook-Air-3 openclaw %",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:07:14.616961Z",
+          "stop_timestamp": "2026-04-04T00:07:14.616961Z",
+          "flags": null,
+          "type": "text",
+          "text": "(base) dkmac@MacBook-Air-3 openclaw % launchctl list | grep -i openclaw\n(base) dkmac@MacBook-Air-3 openclaw % launchctl list | grep -i moltbot\n(base) dkmac@MacBook-Air-3 openclaw % launchctl list | grep -i node\n(base) dkmac@MacBook-Air-3 openclaw %",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-04T00:07:14.669432Z",
+      "updated_at": "2026-04-04T00:07:14.669432Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d0-087b-7f00-9a8c-7861795b6232"
+    },
+    {
+      "uuid": "019d55d0-b140-7033-8ef5-8217dcb61969",
+      "text": " launchd에는 없네요. 그러면 다른 방향으로 — 누가 이 프로세스를 살려두는지 부모 프로세스를 추적해봅시다:\n\n```bash\nps aux | grep 21189\n```\n\n그리고 부모 pid(PPID) 확인:\n\n```bash\nps -o pid,ppid,command -p 21189\n```\n\n부모가 누구인지 보면 자동 재시작의 주체를 찾을 수 있어요.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:07:15.222721Z",
+          "stop_timestamp": "2026-04-04T00:07:17.420362Z",
+          "flags": null,
+          "type": "text",
+          "text": " launchd에는 없네요. 그러면 다른 방향으로 — 누가 이 프로세스를 살려두는지 부모 프로세스를 추적해봅시다:\n\n```bash\nps aux | grep 21189\n```\n\n그리고 부모 pid(PPID) 확인:\n\n```bash\nps -o pid,ppid,command -p 21189\n```\n\n부모가 누구인지 보면 자동 재시작의 주체를 찾을 수 있어요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-04T00:07:17.461452Z",
+      "updated_at": "2026-04-04T00:07:17.461452Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d0-b140-7979-8011-c112573991a8"
+    },
+    {
+      "uuid": "019d55d0-f971-704b-bb22-72dd3ac12e47",
+      "text": "(base) dkmac@MacBook-Air-3 openclaw % ps aux | grep 21189\ndkmac            21189   0.3  2.4 444901200 400384   ??  S     9:06오전   0:03.27 moltbot-gateway    \ndkmac            21232   0.0  0.0 435302224   1376 s000  S+    9:07오전   0:00.00 grep 21189",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:07:33.163148Z",
+          "stop_timestamp": "2026-04-04T00:07:33.163148Z",
+          "flags": null,
+          "type": "text",
+          "text": "(base) dkmac@MacBook-Air-3 openclaw % ps aux | grep 21189\ndkmac            21189   0.3  2.4 444901200 400384   ??  S     9:06오전   0:03.27 moltbot-gateway    \ndkmac            21232   0.0  0.0 435302224   1376 s000  S+    9:07오전   0:00.00 grep 21189",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-04T00:07:33.219861Z",
+      "updated_at": "2026-04-04T00:07:33.219861Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d0-b140-7033-8ef5-8217dcb61969"
+    },
+    {
+      "uuid": "019d55d0-f971-7485-8d25-14e1c2984535",
+      "text": " `??` 가 터미널 세션과 무관하게 떠 있다는 뜻이에요. PPID를 확인해봅시다:\n\n```bash\nps -o pid,ppid,command -p 21189\n```",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:07:33.683527Z",
+          "stop_timestamp": "2026-04-04T00:07:34.649615Z",
+          "flags": null,
+          "type": "text",
+          "text": " `??` 가 터미널 세션과 무관하게 떠 있다는 뜻이에요. PPID를 확인해봅시다:\n\n```bash\nps -o pid,ppid,command -p 21189\n```",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-04T00:07:34.706284Z",
+      "updated_at": "2026-04-04T00:07:34.706284Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d0-f971-704b-bb22-72dd3ac12e47"
+    },
+    {
+      "uuid": "019d55d1-4239-7e5c-bae6-982d0e527d4c",
+      "text": "(base) dkmac@MacBook-Air-3 openclaw % ps -o pid,ppid,command -p 21189\n  PID  PPID COMMAND\n21189     1 moltbot-gateway",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:07:51.533799Z",
+          "stop_timestamp": "2026-04-04T00:07:51.533799Z",
+          "flags": null,
+          "type": "text",
+          "text": "(base) dkmac@MacBook-Air-3 openclaw % ps -o pid,ppid,command -p 21189\n  PID  PPID COMMAND\n21189     1 moltbot-gateway",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-04T00:07:51.602851Z",
+      "updated_at": "2026-04-04T00:07:51.602851Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d0-f971-7485-8d25-14e1c2984535"
+    },
+    {
+      "uuid": "019d55d1-4239-74d3-9c7e-c3a264fdd22e",
+      "text": " PPID가 `1` — 즉 **init(launchd) 자식 프로세스**예요. launchd가 직접 관리하는데 `launchctl list`에는 안 잡혔다는 게 이상하네요.\n\n숨겨진 plist 파일을 직접 찾아봅시다:\n\n```bash\nfind ~/Library/LaunchAgents -name \"*openclaw*\" -o -name \"*moltbot*\" -o -name \"*gateway*\" 2>/dev/null\nfind /Library/LaunchAgents -name \"*openclaw*\" -o -name \"*moltbot*\" -o -name \"*gateway*\" 2>/dev/null\nfind /Library/LaunchDaemons -name \"*openclaw*\" -o -name \"*moltbot*\" -o -name \"*gateway*\" 2>/dev/null\n```",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:07:52.096370Z",
+          "stop_timestamp": "2026-04-04T00:07:55.430457Z",
+          "flags": null,
+          "type": "text",
+          "text": " PPID가 `1` — 즉 **init(launchd) 자식 프로세스**예요. launchd가 직접 관리하는데 `launchctl list`에는 안 잡혔다는 게 이상하네요.\n\n숨겨진 plist 파일을 직접 찾아봅시다:\n\n```bash\nfind ~/Library/LaunchAgents -name \"*openclaw*\" -o -name \"*moltbot*\" -o -name \"*gateway*\" 2>/dev/null\nfind /Library/LaunchAgents -name \"*openclaw*\" -o -name \"*moltbot*\" -o -name \"*gateway*\" 2>/dev/null\nfind /Library/LaunchDaemons -name \"*openclaw*\" -o -name \"*moltbot*\" -o -name \"*gateway*\" 2>/dev/null\n```",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-04T00:07:55.566591Z",
+      "updated_at": "2026-04-04T00:07:55.566591Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d1-4239-7e5c-bae6-982d0e527d4c"
+    },
+    {
+      "uuid": "019d55d1-bce4-7256-a6e8-d3086f12912d",
+      "text": "(base) dkmac@MacBook-Air-3 openclaw % find ~/Library/LaunchAgents -name \"*openclaw*\" -o -name \"*moltbot*\" -o -name \"*gateway*\" 2>/dev/null\nfind /Library/LaunchAgents -name \"*openclaw*\" -o -name \"*moltbot*\" -o -name \"*gateway*\" 2>/dev/null\nfind /Library/LaunchDaemons -name \"*openclaw*\" -o -name \"*moltbot*\" -o -name \"*gateway*\" 2>/dev/null\n/Users/dkmac/Library/LaunchAgents/ai.openclaw.gateway.plist\n/Users/dkmac/Library/LaunchAgents/bot.molt.gateway.plist",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:08:23.217954Z",
+          "stop_timestamp": "2026-04-04T00:08:23.217954Z",
+          "flags": null,
+          "type": "text",
+          "text": "(base) dkmac@MacBook-Air-3 openclaw % find ~/Library/LaunchAgents -name \"*openclaw*\" -o -name \"*moltbot*\" -o -name \"*gateway*\" 2>/dev/null\nfind /Library/LaunchAgents -name \"*openclaw*\" -o -name \"*moltbot*\" -o -name \"*gateway*\" 2>/dev/null\nfind /Library/LaunchDaemons -name \"*openclaw*\" -o -name \"*moltbot*\" -o -name \"*gateway*\" 2>/dev/null\n/Users/dkmac/Library/LaunchAgents/ai.openclaw.gateway.plist\n/Users/dkmac/Library/LaunchAgents/bot.molt.gateway.plist",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-04T00:08:23.267935Z",
+      "updated_at": "2026-04-04T00:08:23.267935Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d1-4239-74d3-9c7e-c3a264fdd22e"
+    },
+    {
+      "uuid": "019d55d1-bce4-70ec-b504-fbca70b3ed27",
+      "text": " 찾았어요. 두 개의 plist가 등록되어 있네요. `bot.molt.gateway.plist`가 범인입니다. 이걸 unload해야 해요:\n\n```bash\nlaunchctl unload ~/Library/LaunchAgents/bot.molt.gateway.plist\nlaunchctl unload ~/Library/LaunchAgents/ai.openclaw.gateway.plist\n```\n\n확인:\n\n```bash\nlsof -i :18789\n```\n\n아무것도 안 나오면 성공. 그 다음 재실행:\n\n```bash\nollama launch openclaw\n```",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:08:23.794052Z",
+          "stop_timestamp": "2026-04-04T00:08:25.954991Z",
+          "flags": null,
+          "type": "text",
+          "text": " 찾았어요. 두 개의 plist가 등록되어 있네요. `bot.molt.gateway.plist`가 범인입니다. 이걸 unload해야 해요:\n\n```bash\nlaunchctl unload ~/Library/LaunchAgents/bot.molt.gateway.plist\nlaunchctl unload ~/Library/LaunchAgents/ai.openclaw.gateway.plist\n```\n\n확인:\n\n```bash\nlsof -i :18789\n```\n\n아무것도 안 나오면 성공. 그 다음 재실행:\n\n```bash\nollama launch openclaw\n```",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-04T00:08:26.113334Z",
+      "updated_at": "2026-04-04T00:08:26.113334Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d1-bce4-7256-a6e8-d3086f12912d"
+    },
+    {
+      "uuid": "019d55d2-520c-7e3d-895b-2741b986367e",
+      "text": "(base) dkmac@MacBook-Air-3 openclaw % launchctl unload ~/Library/LaunchAgents/ai.openclaw.gateway.plist\nUnload failed: 5: Input/output error\nTry running `launchctl bootout` as root for richer errors.\n(base) dkmac@MacBook-Air-3 openclaw % lsof -i :18789",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:09:01.079005Z",
+          "stop_timestamp": "2026-04-04T00:09:01.079005Z",
+          "flags": null,
+          "type": "text",
+          "text": "(base) dkmac@MacBook-Air-3 openclaw % launchctl unload ~/Library/LaunchAgents/ai.openclaw.gateway.plist\nUnload failed: 5: Input/output error\nTry running `launchctl bootout` as root for richer errors.\n(base) dkmac@MacBook-Air-3 openclaw % lsof -i :18789",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-04T00:09:01.125439Z",
+      "updated_at": "2026-04-04T00:09:01.125439Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d1-bce4-70ec-b504-fbca70b3ed27"
+    },
+    {
+      "uuid": "019d55d2-520c-7f5c-805c-9d3e6695b9fc",
+      "text": " `unload`가 실패했네요. `bootout`으로 시도해봅시다:\n\n```bash\nlaunchctl bootout gui/$(id -u) ~/Library/LaunchAgents/ai.openclaw.gateway.plist\nlaunchctl bootout gui/$(id -u) ~/Library/LaunchAgents/bot.molt.gateway.plist\n```\n\n확인:\n\n```bash\nlsof -i :18789\n```",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:09:01.689991Z",
+          "stop_timestamp": "2026-04-04T00:09:02.961897Z",
+          "flags": null,
+          "type": "text",
+          "text": " `unload`가 실패했네요. `bootout`으로 시도해봅시다:\n\n```bash\nlaunchctl bootout gui/$(id -u) ~/Library/LaunchAgents/ai.openclaw.gateway.plist\nlaunchctl bootout gui/$(id -u) ~/Library/LaunchAgents/bot.molt.gateway.plist\n```\n\n확인:\n\n```bash\nlsof -i :18789\n```",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-04T00:09:03.001689Z",
+      "updated_at": "2026-04-04T00:09:03.001689Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d2-520c-7e3d-895b-2741b986367e"
+    },
+    {
+      "uuid": "019d55d8-6b51-75a4-a58f-ee1e9f84ccce",
+      "text": "Last login: Sat Apr  4 09:06:10 on ttys001\n(base) dkmac@MacBook-Air-3 openclaw % ollama launch openclaw\n\nLaunching OpenClaw with deepseek-v3.1:671b-cloud...\n│\n◇  Doctor warnings ───────────────────────────────────────╮\n│                                                         │\n│  - State dir migration skipped: target already exists   │\n│    (/Users/dkmac/.openclaw). Remove or merge manually.  │\n│                                                         │\n├─────────────────────────────────────────────────────────╯\n2026-04-04T00:10:00.494Z [canvas] host mounted at http://127.0.0.1:18789/__openclaw__/canvas/ (root /Users/dkmac/.openclaw/canvas)\n2026-04-04T00:10:00.526Z [heartbeat] started\n2026-04-04T00:10:00.527Z [gateway] agent model: ollama/deepseek-v3.1:671b-cloud\n2026-04-04T00:10:00.528Z [gateway] listening on ws://127.0.0.1:18789 (PID 21452)\n2026-04-04T00:10:00.528Z [gateway] listening on ws://[::1]:18789\n2026-04-04T00:10:00.528Z [gateway] log file: /tmp/openclaw/openclaw-2026-04-04.log\n2026-04-04T00:10:00.536Z [browser/service] Browser control service ready (profiles=2)\n2026-04-04T00:10:00.546Z Registered hook: boot-md -> gateway:startup\n2026-04-04T00:10:00.547Z Registered hook: command-logger -> command\n2026-04-04T00:10:00.548Z Registered hook: session-memory -> command:new\n2026-04-04T00:10:00.549Z [hooks] loaded 3 internal hook handlers\n2026-04-04T00:10:02.783Z [telegram] [default] starting provider (@molt49_bot)\n2026-04-04T00:10:02.788Z [telegram] autoSelectFamily=false (default-node22)",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:15:40.724233Z",
+          "stop_timestamp": "2026-04-04T00:15:40.724233Z",
+          "flags": null,
+          "type": "text",
+          "text": "Last login: Sat Apr  4 09:06:10 on ttys001\n(base) dkmac@MacBook-Air-3 openclaw % ollama launch openclaw\n\nLaunching OpenClaw with deepseek-v3.1:671b-cloud...\n│\n◇  Doctor warnings ───────────────────────────────────────╮\n│                                                         │\n│  - State dir migration skipped: target already exists   │\n│    (/Users/dkmac/.openclaw). Remove or merge manually.  │\n│                                                         │\n├─────────────────────────────────────────────────────────╯\n2026-04-04T00:10:00.494Z [canvas] host mounted at http://127.0.0.1:18789/__openclaw__/canvas/ (root /Users/dkmac/.openclaw/canvas)\n2026-04-04T00:10:00.526Z [heartbeat] started\n2026-04-04T00:10:00.527Z [gateway] agent model: ollama/deepseek-v3.1:671b-cloud\n2026-04-04T00:10:00.528Z [gateway] listening on ws://127.0.0.1:18789 (PID 21452)\n2026-04-04T00:10:00.528Z [gateway] listening on ws://[::1]:18789\n2026-04-04T00:10:00.528Z [gateway] log file: /tmp/openclaw/openclaw-2026-04-04.log\n2026-04-04T00:10:00.536Z [browser/service] Browser control service ready (profiles=2)\n2026-04-04T00:10:00.546Z Registered hook: boot-md -> gateway:startup\n2026-04-04T00:10:00.547Z Registered hook: command-logger -> command\n2026-04-04T00:10:00.548Z Registered hook: session-memory -> command:new\n2026-04-04T00:10:00.549Z [hooks] loaded 3 internal hook handlers\n2026-04-04T00:10:02.783Z [telegram] [default] starting provider (@molt49_bot)\n2026-04-04T00:10:02.788Z [telegram] autoSelectFamily=false (default-node22)",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-04T00:15:40.778808Z",
+      "updated_at": "2026-04-04T00:15:40.778808Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d2-520c-7f5c-805c-9d3e6695b9fc"
+    },
+    {
+      "uuid": "019d55d8-6b51-794f-8a69-f4983d06b38d",
+      "text": " 🎉 성공입니다! \n\n모든 서비스가 정상 기동됐어요:\n- gateway listening on ws://127.0.0.1:18789 ✅\n- browser control service ready ✅\n- telegram bot 연결 ✅\n- hooks 3개 로드 ✅\n\n---\n\n결국 원인은 **두 개의 plist가 충돌**하고 있었던 거예요. `bot.molt.gateway.plist`(구버전)와 `ai.openclaw.gateway.plist`(신버전)가 동시에 같은 포트를 두고 경쟁하는 구조였고, `bootout`으로 둘 다 정리하고 나서야 깨끗하게 뜬 것입니다.\n\n재발 방지를 원하시면 두 plist 파일 중 하나를 제거해두는 게 좋아요:\n\n```bash\n# 구버전 plist 비활성화 (삭제 대신 이름 변경으로 안전하게)\nmv ~/Library/LaunchAgents/bot.molt.gateway.plist ~/Library/LaunchAgents/bot.molt.gateway.plist.bak\n```\n\n이제 OpenClaw 잘 쓰세요, CSP!",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:15:41.499018Z",
+          "stop_timestamp": "2026-04-04T00:15:47.064618Z",
+          "flags": null,
+          "type": "text",
+          "text": " 🎉 성공입니다! \n\n모든 서비스가 정상 기동됐어요:\n- gateway listening on ws://127.0.0.1:18789 ✅\n- browser control service ready ✅\n- telegram bot 연결 ✅\n- hooks 3개 로드 ✅\n\n---\n\n결국 원인은 **두 개의 plist가 충돌**하고 있었던 거예요. `bot.molt.gateway.plist`(구버전)와 `ai.openclaw.gateway.plist`(신버전)가 동시에 같은 포트를 두고 경쟁하는 구조였고, `bootout`으로 둘 다 정리하고 나서야 깨끗하게 뜬 것입니다.\n\n재발 방지를 원하시면 두 plist 파일 중 하나를 제거해두는 게 좋아요:\n\n```bash\n# 구버전 plist 비활성화 (삭제 대신 이름 변경으로 안전하게)\nmv ~/Library/LaunchAgents/bot.molt.gateway.plist ~/Library/LaunchAgents/bot.molt.gateway.plist.bak\n```\n\n이제 OpenClaw 잘 쓰세요, CSP!",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-04T00:15:47.152496Z",
+      "updated_at": "2026-04-04T00:15:47.152496Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d8-6b51-75a4-a58f-ee1e9f84ccce"
+    },
+    {
+      "uuid": "019d55d9-60aa-704c-a63e-e362ec36dbbd",
+      "text": "```\nhttp://127.0.0.1:18789/__openclaw__/canvas/%20(root%20/Users/dkmac/.openclaw/canvas)\nnot found\n```\n\n이거 맞음?",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:16:43.759572Z",
+          "stop_timestamp": "2026-04-04T00:16:43.759572Z",
+          "flags": null,
+          "type": "text",
+          "text": "```\nhttp://127.0.0.1:18789/__openclaw__/canvas/%20(root%20/Users/dkmac/.openclaw/canvas)\nnot found\n```\n\n이거 맞음?",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-04T00:16:43.805832Z",
+      "updated_at": "2026-04-04T00:16:43.805832Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d8-6b51-794f-8a69-f4983d06b38d"
+    },
+    {
+      "uuid": "019d55d9-60aa-7a2f-9adf-8dc13abc6039",
+      "text": " 아니요, 그 URL은 잘못된 거예요. 로그에서 복사할 때 뒷부분 `(root /Users/dkmac/.openclaw/canvas)`까지 같이 딸려온 거예요.\n\n올바른 URL은:\n\n```\nhttp://127.0.0.1:18789/__openclaw__/canvas/\n```\n\n이걸 브라우저에 직접 입력해보세요.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:16:44.329802Z",
+          "stop_timestamp": "2026-04-04T00:16:45.984195Z",
+          "flags": null,
+          "type": "text",
+          "text": " 아니요, 그 URL은 잘못된 거예요. 로그에서 복사할 때 뒷부분 `(root /Users/dkmac/.openclaw/canvas)`까지 같이 딸려온 거예요.\n\n올바른 URL은:\n\n```\nhttp://127.0.0.1:18789/__openclaw__/canvas/\n```\n\n이걸 브라우저에 직접 입력해보세요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-04T00:16:46.026544Z",
+      "updated_at": "2026-04-04T00:16:46.026544Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55d9-60aa-704c-a63e-e362ec36dbbd"
+    },
+    {
+      "uuid": "019d55dc-5308-726f-9faa-e05768d6a34a",
+      "text": "",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:19:56.727535Z",
+          "stop_timestamp": "2026-04-04T00:19:56.727535Z",
+          "flags": null,
+          "type": "text",
+          "text": "",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-04T00:19:56.796475Z",
+      "updated_at": "2026-04-04T00:19:56.796475Z",
+      "attachments": [],
+      "files": [
+        {
+          "file_uuid": "019d55dc-49d6-722d-95b5-087e66e056d0",
+          "file_name": "1775261993060_image.png"
+        }
+      ],
+      "parent_message_uuid": "019d55d9-60aa-7a2f-9adf-8dc13abc6039"
+    },
+    {
+      "uuid": "019d55dc-5308-7095-b6eb-3d35ba0520cf",
+      "text": " Canvas 페이지는 뜨고 있어요. 그런데 **Bridge: missing** 이게 문제예요.\n\nCanvas는 브라우저와 gateway 사이의 WebSocket bridge가 연결되어야 작동하는데, 지금 그 연결이 없는 상태입니다. iOS=no, Android=no도 같은 맥락이고요.\n\n이건 **일반 브라우저로 직접 접근하면 안 되는 페이지**예요. OpenClaw가 제어하는 브라우저(내장 브라우저 또는 확장이 설치된 Chrome) 안에서 열려야 bridge가 연결됩니다.\n\n확인해보세요:\n\n```bash\n# OpenClaw가 어떤 방식으로 UI를 여는지 확인\nopenclaw --help\n# 또는\nopenclaw open\nopenclaw ui\n```\n\n원래 OpenClaw를 어떤 용도로 쓰시려던 건가요? Telegram bot으로 명령을 보내는 방식인지, 아니면 별도 UI가 있는 건지 — 목적을 알면 올바른 접근 방법을 찾을 수 있어요.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-04T00:19:57.389713Z",
+          "stop_timestamp": "2026-04-04T00:20:03.720343Z",
+          "flags": null,
+          "type": "text",
+          "text": " Canvas 페이지는 뜨고 있어요. 그런데 **Bridge: missing** 이게 문제예요.\n\nCanvas는 브라우저와 gateway 사이의 WebSocket bridge가 연결되어야 작동하는데, 지금 그 연결이 없는 상태입니다. iOS=no, Android=no도 같은 맥락이고요.\n\n이건 **일반 브라우저로 직접 접근하면 안 되는 페이지**예요. OpenClaw가 제어하는 브라우저(내장 브라우저 또는 확장이 설치된 Chrome) 안에서 열려야 bridge가 연결됩니다.\n\n확인해보세요:\n\n```bash\n# OpenClaw가 어떤 방식으로 UI를 여는지 확인\nopenclaw --help\n# 또는\nopenclaw open\nopenclaw ui\n```\n\n원래 OpenClaw를 어떤 용도로 쓰시려던 건가요? Telegram bot으로 명령을 보내는 방식인지, 아니면 별도 UI가 있는 건지 — 목적을 알면 올바른 접근 방법을 찾을 수 있어요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-04T00:20:03.782173Z",
+      "updated_at": "2026-04-04T00:20:03.782173Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d55dc-5308-726f-9faa-e05768d6a34a"
+    }
+  ]
+}

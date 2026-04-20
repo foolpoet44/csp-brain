@@ -1,0 +1,702 @@
+﻿{
+  "uuid": "02928e6e-ffb6-4a1e-a507-4062ffc8b30c",
+  "name": "오늘의 의미있는 뉴스 추천",
+  "summary": "**Conversation Overview**\n\nThe person asked Claude to recommend meaningful news for the day, and Claude first clarified their areas of interest using a multi-select prompt. The person selected AI/Tech trends and HR/organizational trends as their focus areas. Claude then conducted web searches and delivered a curated news briefing tailored to what appears to be a workplace context involving a team or organization referred to as \"CSP,\" with specific relevance to initiatives around Employee Experience (EX) Intelligence, Pulse Check systems, AI Agent-based workflow redesign, and Skills Ontology development.\n\nThe briefing covered eight news items: AI shifting from individual productivity tools to team workflow orchestration (IBM), large-scale workforce restructuring driven by agentic AI automation (Amazon), AI collaboration being integrated into hiring assessments (McKinsey), an AI policy/legal dispute (Anthropic vs. Pentagon), change fatigue reaching critical levels in organizations (Deloitte 2026 Global Human Capital Trends), low ROI realization rates on AI investments (Gartner), a significant gap between HR leaders' involvement in AI implementation versus strategic AI decision-making, and the acceleration of skills-based hiring with low actual implementation rates. Claude framed each item with explicit relevance to CSP's mission and internal initiatives, concluding with a synthesizing insight that AI adoption is outpacing human, structural, and trust readiness—positioning CSP's EX Intelligence work as directly addressing that gap.",
+  "created_at": "2026-03-20T07:13:59.007207Z",
+  "updated_at": "2026-03-20T07:15:15.020738Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d0a18-04bb-727c-a369-546d1232eb8c",
+      "text": "오늘 나에게 의미있는 뉴스를 추천해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-03-20T07:14:01.754069Z",
+          "stop_timestamp": "2026-03-20T07:14:01.754069Z",
+          "flags": null,
+          "type": "text",
+          "text": "오늘 나에게 의미있는 뉴스를 추천해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-20T07:14:01.793645Z",
+      "updated_at": "2026-03-20T07:14:01.793645Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d0a18-04bb-704c-8b31-7cadad416295",
+      "text": " 잠깐, 뉴스를 검색하기 전에 — 어떤 영역의 뉴스에 집중할까요?\n```\nThis block is not supported on your current device yet.\n```\n\n선택하시면 바로 검색해드릴게요!",
+      "content": [
+        {
+          "start_timestamp": "2026-03-20T07:14:03.764230Z",
+          "stop_timestamp": "2026-03-20T07:14:04.607643Z",
+          "flags": null,
+          "type": "text",
+          "text": " 잠깐, 뉴스를 검색하기 전에 — 어떤 영역의 뉴스에 집중할까요?",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-20T07:14:05.176640Z",
+          "stop_timestamp": "2026-03-20T07:14:06.873922Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01HKwRbDMqyggswa8x43QcQT",
+          "name": "ask_user_input_v0",
+          "input": {
+            "questions": [
+              {
+                "type": "multi_select",
+                "options": [
+                  "AI/Tech 트렌드",
+                  "한국 금융/투자",
+                  "글로벌 경제",
+                  "HR/조직 트렌드"
+                ],
+                "question": "어떤 영역의 뉴스를 원하세요?"
+              }
+            ]
+          },
+          "message": "Generating ask_user_input_v0...",
+          "integration_name": "Dynamic Widget",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01HKwRbDMqyggswa8x43QcQT",
+          "name": "ask_user_input_v0",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"questions\": [\n    {\n      \"question\": \"\\uc5b4\\ub5a4 \\uc601\\uc5ed\\uc758 \\ub274\\uc2a4\\ub97c \\uc6d0\\ud558\\uc138\\uc694?\",\n      \"type\": \"multi_select\",\n      \"options\": [\n        \"AI/Tech \\ud2b8\\ub80c\\ub4dc\",\n        \"\\ud55c\\uad6d \\uae08\\uc735/\\ud22c\\uc790\",\n        \"\\uae00\\ub85c\\ubc8c \\uacbd\\uc81c\",\n        \"HR/\\uc870\\uc9c1 \\ud2b8\\ub80c\\ub4dc\"\n      ]\n    }\n  ]\n}",
+              "uuid": "1fe758b4-128a-4ce7-9358-3d43b912af5b"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Generated ask_user_input_v0 widget",
+          "integration_name": "Dynamic Widget",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-20T07:14:08.230497Z",
+          "stop_timestamp": "2026-03-20T07:14:08.624773Z",
+          "flags": null,
+          "type": "text",
+          "text": "선택하시면 바로 검색해드릴게요!",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-20T07:14:08.783637Z",
+      "updated_at": "2026-03-20T07:14:08.783637Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d0a18-04bb-727c-a369-546d1232eb8c"
+    },
+    {
+      "uuid": "019d0a18-4f6f-795d-a736-edd3dce49a39",
+      "text": "질문: 어떤 영역의 뉴스를 원하세요? (해당하는 항목을 모두 선택)\n답변: AI/Tech 트렌드, HR/조직 트렌드",
+      "content": [
+        {
+          "start_timestamp": "2026-03-20T07:14:21.856514Z",
+          "stop_timestamp": "2026-03-20T07:14:21.856514Z",
+          "flags": null,
+          "type": "text",
+          "text": "질문: 어떤 영역의 뉴스를 원하세요? (해당하는 항목을 모두 선택)\n답변: AI/Tech 트렌드, HR/조직 트렌드",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-20T07:14:21.908821Z",
+      "updated_at": "2026-03-20T07:14:21.908821Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d0a18-04bb-704c-8b31-7cadad416295"
+    },
+    {
+      "uuid": "019d0a18-4f6f-71a4-9a32-7a0bc0fa5668",
+      "text": " 바로 검색해볼게요!\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n오늘의 뉴스 브리핑을 정리했습니다. CSP의 2026 미션 맥락에서 특히 의미있는 것들로 골라봤어요.\n\n---\n\n## 🗞️ 오늘의 CSP 맞춤 뉴스 브리핑 — 2026.03.20\n\n---\n\n### 🤖 AI/Tech 트렌드\n\n**① AI는 이제 \"개인 생산성 도구\"에서 \"팀 워크플로우 오케스트레이션\"으로**\n\nIBM 전략 책임자 Kevin Chung은 2026년의 핵심 전환을 이렇게 정의했습니다. \"AI는 개인적 사용에서 팀과 워크플로우 오케스트레이션으로 이동하고 있다 — 부서 간 데이터를 연결하고 아이디어에서 완성까지 전체 프로젝트를 이끄는 방향으로.\" CSP가 현재 구축하는 AI Agent 기반 워크플로우 재설계와 정확히 같은 방향입니다.\n\n**② Amazon, AI 자동화를 이유로 16,000명 감원 — 미들 매니지먼트가 표적**\n\nAmazon이 AI 기반 자동화와 '에이전틱' 워크플로우로의 전략적 전환을 이유로 약 16,000명의 기업 직원을 감원한다고 발표했습니다. 감원은 주로 AI 시스템이 물류 계획, 벤더 관계, 내부 보고를 대체하면서 불필요해진 중간 관리직과 행정 직무를 대상으로 합니다. 이것은 단순한 비용 절감이 아닙니다. AI Agent가 실제 조직 구조를 바꾸기 시작했다는 신호입니다.\n\n**③ McKinsey, 채용 면접에 AI 협업 단계 도입**\n\nMcKinsey는 최종 면접에 'AI 인터뷰' 단계를 도입했습니다. 지원자들은 내부 AI 도구 'Lilli'와 협업하여 비즈니스 시나리오를 풀어야 하며, 평가 초점은 AI 기술 전문성이 아닌 판단력과 추론 능력에 맞춰집니다. McKinsey CEO는 현재 회사가 40,000명의 인력과 함께 20,000개의 AI 에이전트 가상 인력을 운용하고 있다고 밝혔습니다. \"AI와 함께 일하는 능력\"이 이미 핵심 역량이 된 세계의 단면입니다.\n\n**④ Anthropic vs 미 국방부 — 3월 24일 청문회 예정**\n\nPentagon이 Anthropic을 '공급망 리스크'로 지정하면서 Anthropic이 소송을 제기했고, 임시 구제에 대한 청문회가 3월 24일로 예정되어 있습니다. 이 싸움은 조달, 언론, 방위, 플랫폼 거버넌스의 교차점에 위치한 가장 중요한 AI 정책 배틀 중 하나가 되고 있습니다. 프론티어 AI 랩이 이제 인프라 공급자 수준의 정치적 전장에 들어선 셈입니다.\n\n---\n\n### 👥 HR/조직 트렌드\n\n**⑤ Deloitte 2026 글로벌 인적자본 트렌드: \"Change Fatigue\"가 임계점 도달**\n\nDeloitte의 2026 글로벌 인적자본 트렌드 보고서는 세 가지 핵심 통증을 진단합니다 — 변화를 충분히 빠르게 흡수하지 못하는 인력, 책임과 신뢰를 앞질러 가는 AI 배포, 다른 시대를 위해 만들어진 조직 구조. 설문에 응한 근로자의 3분의 1은 단 1년 안에 15번의 주요 조직 변화를 경험했으며, 그 영향은 웰빙, 업무량, 명확성, 참여도에서 나타나고 있습니다. Pulse Check 시스템의 필요성을 정확히 뒷받침하는 데이터입니다.\n\n**⑥ AI 투자 ROI의 냉혹한 현실 — Gartner**\n\nGartner 연구에 따르면 AI 투자 50건 중 1건만이 혁신적 가치를 제공하고, 5건 중 1건만이 측정 가능한 투자 수익을 제공합니다. CEO의 AI 기반 성장에 대한 기대는 2026년에도 여전히 높지만, 그들의 인력은 AI 성과의 냉정한 현실과 씨름하고 있습니다. \"우리 EX Intelligence가 측정 가능한 임팩트를 보여줘야 한다\"는 내부 설득 논리의 핵심 레퍼런스가 될 수 있습니다.\n\n**⑦ HR의 AI 전략 참여율 — 갭이 심각**\n\nHR 리더의 92%가 이미 AI 구현에 어느 정도 참여하고 있다고 보고하지만, AI 전략 결정에 깊이 관여하는 비율은 21%에 불과합니다. 이 격차는 많은 HR 기능이 여전히 테이블에 앉을 영향력, 위임, 역량이 부족하다는 것을 보여줍니다. EXG팀이 AX 내재화를 선도하는 이유가 여기 있습니다 — 그 21%가 되는 것이 바로 CSP의 포지션입니다.\n\n**⑧ Skills-Based Hiring의 가속 — McKinsey식 AI 역량 검증 시대**\n\nAI 특화 업스킬링이 높은 조직적 임팩트를 가져올 것이라고 응답한 비율이 54%였지만, 실제로 그 전략을 구현한 비율은 1%에 불과합니다. Skills Ontology를 구축하는 CSP의 방향이 시장보다 정확히 앞서 있다는 신호입니다.\n\n---\n\n### 💡 CSP에게 가장 의미있는 통찰 한 줄\n\n오늘 뉴스의 공통된 문법은 이것입니다. **\"AI 도입은 빠른데, 사람/구조/신뢰가 따라가지 못하고 있다.\"** 그 간극을 메우는 일 — 바로 EX Intelligence와 Pulse Check가 하려는 것입니다. 데이터로 사람을 읽고, 조직이 변화를 소화할 수 있게 돕는 것. 이것이 오늘의 뉴스가 CSP에게 보내는 메시지입니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-20T07:14:23.063560Z",
+          "stop_timestamp": "2026-03-20T07:14:23.183055Z",
+          "flags": null,
+          "type": "text",
+          "text": " 바로 검색해볼게요!",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-20T07:14:23.405151Z",
+          "stop_timestamp": "2026-03-20T07:14:23.707843Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_012EgzSP32eFhtWHg9SdFzpZ",
+          "name": "web_search",
+          "input": {
+            "query": "AI Tech trends news today March 2026"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_012EgzSP32eFhtWHg9SdFzpZ",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "The trends that will shape AI and tech in 2026 | IBM",
+              "url": "https://www.ibm.com/think/news/ai-tech-trends-predictions-2026",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ibm.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ibm.com",
+                "site_name": "IBM"
+              },
+              "is_missing": false,
+              "text": "“First, AI is shifting from individual usage to team and workflow orchestration,” Chung told IBM Think. That means coordinating entire workflows, connecting data across departments and moving projects from idea to completion.\n\nThat’s just the opening act for what’s to come in enterprise tech in the days ahead. Read on for 18 expert predictions to watch out for in 2026. Get curated insights on the most important—and intriguing—AI news. Subscribe to our weekly Think newsletter. See the IBM Privacy Statement. IBM has publicly stated that 2026 will mark the first time a quantum computer will be able to outperform a classical computer—the point at which a quantum computer can solve a problem better than all classical-only methods. According to IBM, this milestone will unlock breakthroughs in drug development, materials science, financial optimization and more industries facing incredibly complex challenges. “We’ve moved past theory,” Jamie Garcia, Director, Strategic Growth and Quantum Partnerships at IBM, told IBM Think. “Today, we’re using the industry’s best-available quantum computers for real use cases.\n\nDiscover the 5 business trends for 2026 in IBV’s latest report ... Learn how to scale agentic AI for measurable ROI across your enterprise. This playbook outlines the top barriers that limit impact, how to effectively measure ROI and a practical framework to drive successful, enterprise-wide adoption. ... Discover our five predictions about what will define the most successful enterprises in 2030 and the steps leaders can take to gain an AI-first advantage. ... Discover ways to get ahead, successfully scaling AI across your business with real results. ... Purchase an individual or multi-user subscription today to access our full catalog of over 100 online courses. Expand your skills across a wide range of our products at a low price. ... Learn how organizations are shifting from launching AI in disparate pilots to using it to drive transformation at the core.\n\nYou’ll kick off tasks from one place, and those agents will operate across environments—your browser, your editor, your inbox—without you having to manage a dozen separate tools,” Hay said. Forget the static software in the user experience and user interface. Expect interfaces and apps that can adapt to any scenario, Hay predicts, making every user an AI composer. “Whoever owns that front door to the super agent will shape the market.” · 2026 will be defined by three trends that move AI beyond personal productivity, says Kevin Chung, Chief Strategy Officer at Writer, an enterprise AI platform for agentic work. “First, AI is shifting from individual usage to team and workflow orchestration,” Chung told IBM Think. That means coordinating entire workflows, connecting data across departments and moving projects from idea to completion.\n\nBaughman has worked with multimodal AI in sports and leads some of IBM’s work with the US Open, ESPN Fantasy Football and the Masters, notably. For him, multimodal AI is a trend he expects to see more of in 2026. “These models will be able to perceive and act in a world much more like a human. They’ll be able to bridge language, vision and action, all together,” he said. “In the near future, we’re to start seeing these multimodal digital workers that can autonomously complete these different tasks to interpret things, maybe even like complex healthcare cases.” · But autonomy won’t mean removing human oversight. “It’s also important in the future to have this human-in-the-loop AI,” Baughman said, “so that the human can fine tune and change the skill.” · It’s been just a year since Anthropic launched MCP, alongside IBM’s ACP and Google’s A2A.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.ibm.com/think/news/ai-tech-trends-predictions-2026",
+                "search_provider": "anthropic",
+                "age": "2 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Latest AI News and AI Breakthroughs that Matter Most: 2026 | News",
+              "url": "https://www.crescendo.ai/news/latest-ai-news-and-updates",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "crescendo.ai",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=crescendo.ai",
+                "site_name": "Crescendo AI"
+              },
+              "is_missing": false,
+              "text": "Summary: Apple has officially announced that a completely reimagined, AI-powered version of Siri is set to debut in 2026. This fundamental transformation will see Siri transition into a context-aware assistant capable of &quot;on-screen awareness&quot; ...\n\nSummary: Apple has officially announced that a completely reimagined, AI-powered version of Siri is set to debut in 2026. This fundamental transformation will see Siri transition into a context-aware assistant capable of \"on-screen awareness\" and seamless cross-app integration. To power these advanced capabilities, Apple is adopting a unique strategy by partnering with Google to utilize its 1.2 trillion parameter Gemini AI model, running on Apple’s Private Cloud Compute to maintain strict privacy standards. The update is targeted for a March 2026 release alongside iOS 26.4, following rigorous internal testing to ensure the new system meets Apple’s reliability and quality benchmarks. ... Summary: The UK’s Information Commissioner’s Office (ICO) and the communications regulator Ofcom have issued a formal demand to Elon Musk’s xAI for information regarding its \"Grok\" AI model.\n\nProsecutors established that the engineer was secretly working for two China-based technology companies while still employed at Google, using the stolen information to help those firms gain a competitive edge in the global AI race. The conviction underscores the increasing focus by the U.S. Department of Justice on protecting \"sovereign\" AI technologies from industrial espionage. ... Summary: Amazon has announced a fresh wave of layoffs impacting approximately 16,000 corporate employees, citing a strategic shift toward AI-driven automation and \"agentic\" workflows. The job cuts primarily target middle management and administrative roles that have become redundant as the company integrates more sophisticated AI systems to handle logistics planning, vendor relations, and internal reporting. While Amazon continues to hire for AI-specialized engineering roles, the move reflects a broader industry trend of \"re-skilling\" and restructuring as tech giants prioritize high-efficiency AI infrastru\n\nSummary: McKinsey & Co. has introduced an \"AI interview\" stage for its graduate recruitment, requiring candidates to collaborate with its internal AI tool, \"Lilli,\" during final-round assessments. Applicants are tasked with using the AI as a \"thinking partner\" to solve business scenarios, with the evaluation focusing on their judgment and reasoning rather than technical AI expertise. This shift reflects the firm's broader integration of technology; McKinsey CEO Bob Sternfels recently revealed the company now utilizes a virtual \"workforce\" of 20,000 AI agents alongside its 40,000 human employees. Competence in working with AI is increasingly viewed by the consultancy as a core requirement for top-tier consulting roles. ... Summary: A nationwide study reveals that 59% of people in the UK are now using artificial intelligence to self-diagnose and check medical symptoms, a trend largely driven by long GP waiting times and limited access to professional care.\n\nSummary: Wisconsin lawmakers have introduced a new bill aimed at curbing the rise of fraudulent activities involving generative AI and deepfake technology. The proposed legislation seeks to establish specific criminal penalties for individuals who use synthetic media to commit identity theft, financial fraud, or extortion. By creating a clear legal framework for prosecuting AI-driven scams, supporters argue that the bill will provide law enforcement with the tools necessary to protect citizens from increasingly sophisticated digital deceptions. The move reflects a growing national trend of state-level intervention to address the legal and ethical challenges posed by rapidly advancing AI capabilities. ... Summary: A recent study has highlighted the growing effectiveness of large language models (LLMs) in supporting the clinical care of patients with digestive diseases.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.crescendo.ai/news/latest-ai-news-and-updates",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Top Tech News Today, March 19, 2026 - Tech Startups",
+              "url": "https://techstartups.com/2026/03/19/top-tech-news-today-march-19-2026/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "techstartups.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=techstartups.com",
+                "site_name": "Tech Startups"
+              },
+              "is_missing": false,
+              "text": "But beneath the momentum, cracks are starting to show. Rising chip emissions, investor concerns about infrastructure costs, labor pushback in healthcare, and growing privacy tensions all point to a more complex phase of the AI era.\n\nIt’s Thursday, March 19, 2026, and here are the top tech stories making waves today — from AI and startups to regulation and Big Tech. Today’s headlines reveal a tech landscape moving beyond hype and into consequences. Governments are scrambling to make it easier to build startups, even as cyber threats grow more aggressive and harder to contain. Big Tech is shifting strategies, with Apple quietly turning AI into revenue while others pour billions into infrastructure that’s getting more expensive by the day. Meanwhile, a new front is opening in the AI race — from autonomous labs trying to accelerate scientific discovery to AI agents pushing deeper into messaging, commerce, and everyday life. But beneath the momentum, cracks are starting to show. Rising chip emissions, investor concerns about infrastructure costs, labor pushback in healthcare, and growing privacy tensions all point to a more complex phase of the AI era.\n\nMicron forecast stronger-than-expected third-quarter revenue after reporting a sharp jump in second-quarter sales, fueled by booming demand for memory used in AI systems. Reuters reported that revenue hit $23.86 billion, beating expectations, while the company said it would increase 2026 capital spending by $5 billion to more than $25 billion to keep up. The company is one of only three major global suppliers of high-bandwidth memory, making it a critical part of the AI supply chain. The twist is that Micron’s stock still fell in extended trading after the results, as investors focused on the scale of the spending ramp. That captures a central tension in the AI market right now: demand looks real, but the cost of meeting it is getting enormous. Micron’s expansion plans underscore how AI is pushing hardware makers into a new cycle of heavy industrial investment.\n\nWhy this matters goes beyond paperwork. Europe has produced plenty of startups, but it still trails the U.S. and China in turning them into global winners. If EU Inc survives political negotiations and actually standardizes parts of stock options, expansion rules, and cross-border operations, it could lower one of the biggest hidden taxes on European innovation: fragmentation. For founders, investors, and startup employees, a simpler legal path could make Europe more competitive at a moment when AI, defense tech, and climate tech are becoming more capital-intensive and global by default. Why It Matters: Europe is trying to fix one of its oldest startup problems: great ideas that struggle to scale across 27 markets. Source: Reuters. Researchers from Lookout, iVerify, and Google say a powerful spyware platform dubbed “DarkSword” has been discovered in the wild, embedded across dozens of Ukrainian websites and capable of compromising large numbers of iPhones.\n\nWhat makes this stand out is not just the technical sophistication, but the scale and looseness of deployment. Security researchers said the spyware reflects a shift from narrowly targeted, highly secretive surveillance toward a more widely distributed cyberweapon ecosystem where state-linked and commercial actors blur together. For Apple, it is another reminder that mobile security is increasingly geopolitical. For users, it is a blunt warning that delayed software updates are no longer a minor hygiene issue but a direct security risk, especially when spyware can steal messages, credentials, health data, and crypto wallet information. Why It Matters: Mobile cyberweapons are becoming broader, cheaper to deploy, and more dangerous for everyday users. Source: Reuters. Bloomberg reports that the rush to produce more memory chips for AI is set to sharply raise the semiconductor industry’s emissions footprint.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://techstartups.com/2026/03/19/top-tech-news-today-march-19-2026/",
+                "search_provider": "anthropic",
+                "age": "18 hours ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Inside Mastercard’s new gen AI engine",
+              "url": "https://www.mastercard.com/us/en/news-and-trends/stories/2026/mastercard-new-generative-ai-model.html",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "mastercard.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=mastercard.com",
+                "site_name": "Mastercard"
+              },
+              "is_missing": false,
+              "text": "We believe this same gen-AI technology won’t just transform chat — it will transform commerce. It will make payments faster, retail experiences more personalized and cybersecurity tools more precise.\n\nAnd we’re doing this work leveraging capabilities from Nvidia and Databricks, two of the biggest names in AI today. We’re already seeing strong results, and we’re excited to showcase our work during the Nvidia GTC 2026 conference. The most popular chatbots today, such as Claude and ChatGPT, are built using large language models, or LLMs, which are trained on huge amounts of unstructured data, such as text, video and photos. Our new foundation model is a different kind of deep learning neural network, called a large tabular model, or LTM, which is trained on structured data, such as large-scale tables or datasets. We are training the latest version of our LTM on billions of anonymized transactions. Our plan is to ramp up this work to include hundreds of billions of payments transactions, as well as additional types of datasets, including merchant location data, fraud data, authorization data, chargeback data and loyalty program data.\n\nRead Nvidia's GTC 2026 blog, which talks about how financial companies, including Mastercard, are working to optimize global commerce and fight cybercrime using Nvidia's foundation models.\n\nWe believe this same gen-AI technology won’t just transform chat — it will transform commerce. It will make payments faster, retail experiences more personalized and cybersecurity tools more precise. To make this vision happen, our teams have been researching and building a new foundation model, which is a large-scale AI model that can be used as a basis for a wide range of applications. We are training our foundation model on Mastercard’s unique datasets, starting with billions of transactions. To protect user privacy, we remove all personal data from these transactions. After analyzing enough of these anonymized transactions, this model can start to predict future transactions. This kind of prediction model is largely the same as how today’s chatbots work, with the chatbot predicting what the next word should be in a sentence. We plan to use this new foundation model — not to build a chatbot — but as an insights engine that will make many of our tools and services even better, from c\n\nIn our testing, we’ve already seen this new model outperform standard industry machine learning techniques, giving us promising early signs. For instance, very expensive but very infrequent purchases — such as when someone buys a wedding ring — tend to trigger current models today and cause a lot of false positives. In our experiments, our foundation model can better identify these legitimate transactions, with the model able to learn from relatively weak signals in the data. We plan to build hybrid cybersecurity systems that combine the best of both our current AI models and this new LTM. This should help us build up and futureproof our cyber defenses. This cybersecurity example is just one potential outcome of this research. We believe the new foundation model can also be used to improve loyalty and rewards programs, personalization models, portfolio optimization and data analytics tools.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.mastercard.com/us/en/news-and-trends/stories/2026/mastercard-new-generative-ai-model.html",
+                "search_provider": "anthropic",
+                "age": "3 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Top Tech News Today, March 18, 2026 - Tech Startups",
+              "url": "https://techstartups.com/2026/03/18/top-tech-news-today-march-18-2026/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "techstartups.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=techstartups.com",
+                "site_name": "Tech Startups"
+              },
+              "is_missing": false,
+              "text": "For OpenAI, the AWS deal reduces dependence on a single cloud path and helps it capitalize on the vacuum left by the Pentagon’s clash with Anthropic. For Amazon, it is another way to strengthen AWS in the most security-sensitive parts of the AI market. And for Microsoft, it is yet another sign that OpenAI is moving beyond the old exclusive-cloud model that once defined the partnership. The shift also reflects a wider trend: frontier AI labs are no longer just selling tools to consumers or enterprises. They are becoming infrastructure suppliers to governments, with all the regulatory, ethical, and political consequences that entail. Why It Matters: OpenAI’s AWS deal suggests the next AI contract war may be fought within government procurement, not just in consumer apps. Source: The Information. Bloomberg reported that Canadian cybersecurity startup Tailscale has acquired Border0, adding technology designed to help companies manage the growing wave of AI agents entering corporate systems\n\nIt’s Wednesday, March 18, 2026, and here are the top tech stories making waves today — from AI and startups to regulation and Big Tech. A quiet power shift is underway across the global tech landscape—and it’s happening beneath the surface of AI hype. From Nvidia restarting chip production for China to OpenAI expanding into government contracts through AWS, today’s headlines reveal a deeper story: the battle for control over AI infrastructure, distribution, and influence is intensifying. At the same time, cracks are beginning to show. Microsoft is weighing legal action over cloud rights, regulators are tightening cyber rules after a wave of outages, and new research is raising uncomfortable questions about the psychological risks of AI chatbots. Meanwhile, startups are racing to solve the next layer of problems—from GPU power efficiency to securing AI agents—while governments and Big Tech pour billions into data centers, security, and strategic partnerships.\n\nFor OpenAI, the AWS deal reduces dependence on a single cloud path and helps it capitalize on the vacuum left by the Pentagon’s clash with Anthropic. For Amazon, it is another way to strengthen AWS in the most security-sensitive parts of the AI market. And for Microsoft, it is yet another sign that OpenAI is moving beyond the old exclusive-cloud model that once defined the partnership. The shift also reflects a wider trend: frontier AI labs are no longer just selling tools to consumers or enterprises. They are becoming infrastructure suppliers to governments, with all the regulatory, ethical, and political consequences that entail. Why It Matters: OpenAI’s AWS deal suggests the next AI contract war may be fought within government procurement, not just in consumer apps. Source: The Information. Bloomberg reported that Canadian cybersecurity startup Tailscale has acquired Border0, adding technology designed to help companies manage the growing wave of AI agents entering corporate systems\n\nFinancial firms increasingly rely on external cloud platforms, software vendors, and digital service providers, so an outage upstream can ripple through large parts of the economy. The UK’s move reflects a broader regulatory trend toward resilience, vendor visibility, and faster reporting. For technology companies selling into finance, this means tighter scrutiny and potentially more reporting burdens for customers. For startups building infra, security, and compliance tools, it also creates opportunity: every new rule tends to generate demand for automation, monitoring, and documentation software. Why It Matters: The UK is turning cyber resilience into a compliance mandate, especially for firms exposed to cloud and vendor-concentration risks. Source: Reuters. Germany said it wants to at least double domestic data center capacity and boost AI processing fourfold by 2030, according to Reuters.\n\nWhy It Matters: An FBI cyber incident shows that even sensitive government systems remain exposed to sophisticated intrusion techniques. Source: Associated Press. Industry groups representing hundreds of companies are urging a court to pause the Pentagon’s blacklisting of Anthropic, Axios reported. The Pentagon’s move did more than end business with Anthropic. It designated the company a “supply chain risk,” a label critics say could chill innovation and reshape how the government treats AI vendors. Axios reported that Anthropic is suing the Pentagon and other agencies, and that a hearing on temporary relief is set for March 24. This fight is becoming one of the most consequential AI policy battles in Washington because it sits at the intersection of procurement, speech, defense, and platform governance. Instead of writing broad new AI laws, the government may be discovering that it can exert enormous influence through contract terms and vendor designations.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://techstartups.com/2026/03/18/top-tech-news-today-march-18-2026/",
+                "search_provider": "anthropic",
+                "age": "2 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Top Tech News Today, March 16, 2026 - Tech Startups",
+              "url": "https://techstartups.com/2026/03/16/top-tech-news-today-march-16-2026/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "techstartups.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=techstartups.com",
+                "site_name": "Tech Startups"
+              },
+              "is_missing": false,
+              "text": "Today’s headlines capture a pivotal moment for the industry. Nvidia is using its GTC conference to reinforce its grip on the AI infrastructure stack, while Alibaba is pushing deeper into enterprise AI agents in China.\n\nIt’s Monday, March 16, 2026, and here are the top tech stories making waves today. Global tech is starting the week with a familiar theme: the AI race is accelerating—and it’s spilling into everything from power grids and memory supply chains to geopolitics and cybersecurity. Today’s headlines capture a pivotal moment for the industry. Nvidia is using its GTC conference to reinforce its grip on the AI infrastructure stack, while Alibaba is pushing deeper into enterprise AI agents in China. Meanwhile, OpenAI is reshaping how it secures the massive compute resources needed to run the next generation of models, signaling that the economics of AI infrastructure are entering a new phase. But the ripple effects extend far beyond chipmakers and model labs. The surge in AI demand is tightening global memory supply, driving renewed interest in nuclear energy to power data centers, and even forcing governments and companies to rethink digital trust as deepfakes and synthetic identities become ea\n\nFrom AI chips and enterprise agents to cyber warfare and startup consolidation, today’s developments show how quickly the technology landscape is shifting—and why founders, investors, and operators are watching closely. Here’s the full breakdown of the 15 technology news stories shaping the global tech landscape today. Nvidia is using this year’s GTC conference to make a broader case that the next phase of the AI boom will be defined less by training giant foundation models and more by inference — the day-to-day work of running models inside products, enterprise workflows, and autonomous systems. Reuters reports that CEO Jensen Huang is expected to unveil new chips and software to keep Nvidia ahead as customers shift spending toward lower-cost, high-throughput AI deployments rather than just headline-grabbing training clusters. That matters far beyond Nvidia’s own product roadmap.\n\nWhy It Matters: Nvidia’s next moves will shape the cost, speed, and competitive structure of the global AI software and infrastructure market. Source: Reuters. European publishers and tech companies are pressing Brussels to accelerate antitrust action against Google’s search business, arguing that delay is worsening harm as AI reshapes how people discover information online. Reuters reports that the coalition wants the European Commission to move faster on potential penalties tied to Google’s treatment of vertical search rivals and comparison services — a fight that now carries new urgency as AI-generated answers and search overviews change traffic flows across the web. For startups, media companies, and independent platforms, this is not just another legacy antitrust fight. Search remains the distribution backbone of the internet, and AI layers are being added atop that backbone before the last generation of competitive concerns has been resolved.\n\nAlibaba is preparing a new enterprise AI offering designed to help companies build and run “agentic” AI systems, according to Bloomberg, which says the product is expected to be based on Alibaba’s Qwen models and linked to the company’s broader software and commerce ecosystem. The move shows how China’s largest tech groups are trying to turn foundation-model momentum into practical tools for businesses rather than relying only on chatbot demand. The bigger story is strategic. Enterprise AI is becoming the battleground where cloud, productivity software, payments, workflow automation, and vertical SaaS converge. Alibaba already has reach across commerce, logistics, payments, and workplace software; plugging agentic AI into that stack could give it a powerful distribution advantage in China and potentially in other Asian markets. For startups, it raises the bar: the more Big Tech bundles agents into existing software ecosystems, the harder it becomes for smaller companies to win unless t",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://techstartups.com/2026/03/16/top-tech-news-today-march-16-2026/",
+                "search_provider": "anthropic",
+                "age": "4 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "AI News | Latest News | Insights Powering AI-Driven Business Growth",
+              "url": "https://www.artificialintelligence-news.com/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "artificialintelligence-news.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=artificialintelligence-news.com",
+                "site_name": "Artificial Intelligence News"
+              },
+              "is_missing": false,
+              "text": "AI Business Strategy, AI Market Trends, Featured News, Finance AI, Trust, Bias &amp; Fairness · 1939 view(s) Featured News, Manufacturing &amp; Engineering AI, Physical AI, Service Industry AI · 1325 view(s) AI Business Strategy, Creative Industries, Featured News, Marketing AI · 2674 view(s) See all · View All Latest · Retail &amp; Logistics AI · March 17, 2026 · Infrastructure &amp; Hardware · March 17, 2026 · Finance AI · March 16, 2026 · AI Business Strategy · March 16, 2026 · AI and Us · March 16, 2026 · AI in Action · March 13, 2026 · Human-AI Relationships · March 13, 2026 · AI Business Strategy · March 12, 2026 · AI and Us · March 12, 2026 · Subscribe now to get all our premium content and latest tech news delivered straight to your inbox · Click here · February 16th-March 31st: Platforms designed for high-volume, high-trust financial environments.\n\nAI Market Trends · AI Mergers & Acquisitions · AI Startups & Funding · Founders & Visionaries · Governance, Regulation & Policy · Features · Deep Dives · Interviews · Opinion · Special Reports & Series · Sponsored Content · TechEx Events · All Categories · Events · Resources · All Resources · Editorial Calendar · On Demand Webinars · Exclusive Videos · More · About Us · Advertise · Contact Us Hamburger Toggle Menu · AI in Action · March 19, 2026 · Finance AI · March 18, 2026 · AI Business Strategy · March 18, 2026 · Retail & Logistics AI · March 17, 2026 · Infrastructure & Hardware · March 17, 2026 · AI and Us, AI Business Strategy, AI in Action, Featured News, Features, Inside AI, Manufacturing & Engineering AI, Physical AI, World of Work · 1087 view(s) AI in Action, AI Market Trends, Artificial Intelligence, Featured News, Human-AI Relationships, Inside AI, Manufacturing & Engineering AI, Physical AI ·\n\nAI Business Strategy, AI Market Trends, Featured News, Finance AI, Trust, Bias & Fairness · 1939 view(s) Featured News, Manufacturing & Engineering AI, Physical AI, Service Industry AI · 1325 view(s) AI Business Strategy, Creative Industries, Featured News, Marketing AI · 2674 view(s) See all · View All Latest · Retail & Logistics AI · March 17, 2026 · Infrastructure & Hardware · March 17, 2026 · Finance AI · March 16, 2026 · AI Business Strategy · March 16, 2026 · AI and Us · March 16, 2026 · AI in Action · March 13, 2026 · Human-AI Relationships · March 13, 2026 · AI Business Strategy · March 12, 2026 · AI and Us · March 12, 2026 · Subscribe now to get all our premium content and latest tech news delivered straight to your inbox · Click here · February 16th-March 31st: Platforms designed for high-volume, high-trust financial environments.\n\nAI in Action, AI Market Trends, Artificial Intelligence, Featured News, Human-AI Relationships, Inside AI, Manufacturing & Engineering AI, Physical AI ... February 16th-March 31st: Platforms designed for high-volume, high-trust financial environments. ... We use technologies like cookies to store and/or access device information. We do this to improve browsing experience and to show personalized ads. Consenting to these technologies will allow us to process data such as browsing behavior or unique IDs on this site. Not consenting or withdrawing consent, may adversely affect certain features and functions. ... The technical storage or access is strictly necessary for the legitimate purpose of enabling the use of a specific service explicitly requested by the subscriber or user, or for the sole purpose of carrying out the transmission of a communication over an electronic communications network.\n\nThe technical storage or access that is used exclusively for statistical purposes. The technical storage or access that is used exclusively for anonymous statistical purposes. Without a subpoena, voluntary compliance on the part of your Internet Service Provider, or additional records from a third party, information stored or retrieved for this purpose alone cannot usually be used to identify you.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.artificialintelligence-news.com/",
+                "search_provider": "anthropic",
+                "age": "March 19, 2020"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "LLM News Today (March 2026) – AI Model Releases",
+              "url": "https://llm-stats.com/ai-news",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "llm-stats.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=llm-stats.com",
+                "site_name": "LLM Leaderboard"
+              },
+              "is_missing": false,
+              "text": "How GRPO, DAPO, RLVR, and synthetic self-play replaced RLHF as the dominant post-training stack. A technical survey of what changed and why. ... NVIDIA&#x27;s Nemotron 3 Super: 120B hybrid Mamba-Transformer MoE with 12B active params, 1M context, 2.2x throughput vs GPT-OSS-120B. Pricing, benchmarks, and API. ... A comprehensive guide to Google DeepMind&#x27;s Gemini 3.1 Pro — the most advanced Pro-tier model as of February 2026, featuring a 1M-token context window, 77.1% on ARC-AGI-2, multimodal reasoning across text, images, audio, video, and code, and access via Gemini API, Vertex AI, and Google Antigravity. ... Identify your primary task—code generation (HumanEval, SWE-bench), mathematical reasoning (MATH, GSM8K), or general knowledge (MMLU). Different benchmarks measure different capabilities. API pricing ranges from $0.15/M tokens for lightweight models to $60+/M for frontier models.\n\nHow GRPO, DAPO, RLVR, and synthetic self-play replaced RLHF as the dominant post-training stack. A technical survey of what changed and why. ... NVIDIA's Nemotron 3 Super: 120B hybrid Mamba-Transformer MoE with 12B active params, 1M context, 2.2x throughput vs GPT-OSS-120B. Pricing, benchmarks, and API. ... A comprehensive guide to Google DeepMind's Gemini 3.1 Pro — the most advanced Pro-tier model as of February 2026, featuring a 1M-token context window, 77.1% on ARC-AGI-2, multimodal reasoning across text, images, audio, video, and code, and access via Gemini API, Vertex AI, and Google Antigravity. ... Identify your primary task—code generation (HumanEval, SWE-bench), mathematical reasoning (MATH, GSM8K), or general knowledge (MMLU). Different benchmarks measure different capabilities. API pricing ranges from $0.15/M tokens for lightweight models to $60+/M for frontier models.\n\nAI LeaderboardsLLM LeaderboardOpen LLM LeaderboardAI TrendsLLM UpdatesAI News ... Your daily source for LLM news, open source LLM updates, and large language model news. Breaking announcements, new AI model releases, LLM benchmark news, and the latest updates from the AI industry. ... Lily Mae Lazarus / Fortune: Deeptune, which builds high-fidelity reinforcement learning environments that simulate professional workflows for AI agents, raised a $43M Series A led by a16z — AI startup ... Accelerate coding with AI while staying in control and building reliable, production-ready software. The post Vibe Coding with AI: Best Practices for Human-AI Collaboration in Software Development app ... Brian Danga / The Block: Crypto.com CEO Kris Marszalek says the company cut ~12% of its workforce, or ~180 roles, saying the layoffs target roles that \"do not adapt\" as it integrates AI — Quick Take — ...\n\nLiz Young / Wall Street Journal: DHL Supply Chain says it will open 10 warehouses in 2026 across North America to serve data center operators and component suppliers, totaling 7M+ square feet — DHL Gr ... Mizy Clifton / Politico: Ofcom fines 4chan &pound;520K for OSA violations, including a &pound;450K penalty for failing to implement age assurance checks, giving it until April 2 to implement them — 4c ... An out-of-control AI agent has triggered a serious security incident at Meta, reports The Information. The article A rogue AI agent caused a serious security incident at Meta appeared first on The Dec ... Luz Ding / Bloomberg: Alibaba reports Q3 revenue up 2% YoY ~$41.3B, vs. ~$42B est., and net income down 67% YoY to ~$2.4B, as it seeks to monetize AI to help offset e-commerce losses — Alibaba Group H ... Microsoft fears OpenAI's AWS deal may violate Azure exclusivity contract.\n\nOur LLM Research News section covers the latest LLM research updates from academic papers, AI labs, and industry publications. We track LLM research news today including breakthroughs in LLM infrastructure news, inference optimization, and AI model development. Visit our Research Blog for in-depth analysis. LLM Stats provides comprehensive large language model news today covering all major providers. Our large language model updates include GPT, Claude, Gemini, Llama, and other model families. We aggregate large language models news today from TechCrunch, The Verge, VentureBeat, and official AI lab announcements. Check our LLM News section for the latest updates. Our Open Source LLM Updates section tracks open source AI news today and open-source LLM updates from the AI community. We cover open source AI model news today including new model weights, fine-tuned variants, LLM tools news, and LLM infrastructure news.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://llm-stats.com/ai-news",
+                "search_provider": "anthropic",
+                "age": "18 hours ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Five Trends in AI and Data Science for 2026 | Thomas H. Davenport and Randy Bean | MIT Sloan Management Review",
+              "url": "https://sloanreview.mit.edu/article/five-trends-in-ai-and-data-science-for-2026/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "mit.edu",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=mit.edu",
+                "site_name": "MIT Sloan Management Review"
+              },
+              "is_missing": false,
+              "text": "MIT SMR columnists Thomas H. Davenport and Randy Bean see five AI trends to pay attention to in 2026: deflation of the AI bubble and subsequent hits to the economy; growth of the “factory” infrastructure for all-in AI adapters; greater focus ...\n\nHowever, AI seems to have moved beyond being just a technology to becoming the primary force driving economic growth and the stock market. We’re also neither economists nor investment analysts, but that won’t stop us from making our first prediction. Here are the emerging 2026 AI trends that leaders should understand and be prepared to act on. Last year, the elephant in the AI room was the rise of agentic AI (and it’s still clomping around; see below). This year, it’s the AI bubble that has monopolized discussion: Is there one? If so, when will it burst? Will the money rush out quickly or slowly? And what are the implications for the broader economy and the ongoing use of AI? Both of us have been around for a while, and we remember the deflation of the dot-com bubble. It’s hard not to see the similarities to today’s situation, including the sky-high valuations of startups, the emphasis on user growth (remember “eyeballs”?) over profits, the media hype, the expensive infrastructure buil\n\nMIT SMR columnists Thomas H. Davenport and Randy Bean see five AI trends to pay attention to in 2026: deflation of the AI bubble and subsequent hits to the economy; growth of the “factory” infrastructure for all-in AI adapters; greater focus on generative AI as an organizational resource rather than an individual one; continued progression toward value from agentic AI, despite the hype; and ongoing questions around who should manage data and AI. Organizations tend to change much more slowly than AI technology does these days. This means that forecasting enterprise adoption of AI is a bit easier than predicting technology change in this, our third year of making AI predictions. Neither of us is a computer or cognitive scientist, so we generally stay away from prognostication about AI technology or the specific ways it will rot our brains (though we do expect that to be an ongoing phenomenon!).\n\nLast year, like virtually everyone else, we predicted that agentic AI would be on the rise. Although we acknowledged that the technology was being hyped and had some challenges, we underestimated the degree of both. Agents turned out to be the most-hyped trend since, well, generative AI. GenAI now resides in the Gartner trough of disillusionment, which we predict agents will fall into in 2026. What’s the problem with agents? They just aren’t generally ready for prime-time business. Various experiments by vendor and university researchers — including Anthropic and Carnegie Mellon — have found that AI agents make too many mistakes for businesses to rely on them for any process involving big money. Then there are the cybersecurity issues of agents (prompt injection, in particular) and their tendency to become deceptive and misaligned with human values and objectives.\n\nProgress is being made in value realization from AI, but it’s probably not enough to justify the high expectations of the technology and the high valuations for its vendors. Perhaps if the AI bubble does deflate a bit, there will be less interest from multiple different leaders of companies in owning the technology. In this insightful interview, renowned AI experts Thomas H. Davenport and Randy Bean predict which AI and data science trends will reshape business in 2026. ... This column series looks at the biggest data and analytics challenges facing modern companies and dives deep into successful use cases that can help other organizations accelerate their AI progress. More in this series · Thomas H. Davenport (@tdav) is the President’s Distinguished Professor of Information Technology and Management and faculty director of the Metropoulos Institute for Technology and Entrepreneurship at Babson College, and a fellow of the MIT Initiative on the Digital Economy.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://sloanreview.mit.edu/article/five-trends-in-ai-and-data-science-for-2026/",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "AI News & Breakthroughs: Latest AI Developments (March 13, 2026) | devFlokers",
+              "url": "https://www.devflokers.com/blog/ai-news-breakthroughs-march-13-2026",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "devflokers.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=devflokers.com",
+                "site_name": "devFlokers"
+              },
+              "is_missing": false,
+              "text": "In the realm of ai tech developments news march 11 2026, Meta’s announcement of four new generations of custom AI chips—the MTIA 300, 400, 450, and 500—stands as a defining moment.\n\nA deep dive into the AI news last 24 hours (March 13, 2026). Explore the Atlassian pivot, Meta's new MTIA chips, and Yann LeCun's $1.03B seed round for AMI Labs.\n\nThe last 48 hours have seen a monumental shift in how the world's largest technology companies approach artificial intelligence. As we analyze the latest ai developments march 12 2026, it is clear that the focus has moved from surface-level integration to deep, structural transformation. On March 11, 2026, the Australian software giant Atlassian made headlines by announcing a layoff of 1,600 employees—approximately 10% of its workforce. This was not a standard cost-cutting measure but a strategic pivot to redirect nearly $236 million in resources toward AI development and enterprise sales. CEO Mike Cannon-Brookes emphasized that while AI is not replacing people, it has fundamentally changed the mix of skills required for high-tier software development. The appointment of two new AI-focused CTOs further signals that top ai news march 11 2026 is dominated by the reality of the \"AI-first\" corporate structure.\n\nIn the realm of ai tech developments news march 11 2026, Meta’s announcement of four new generations of custom AI chips—the MTIA 300, 400, 450, and 500—stands as a defining moment. These chips are designed to reduce Meta's reliance on Nvidia while powering everything from content ranking to generative AI inference. By bringing hardware in-house, Meta is addressing the \"compute tax\" that has long plagued large-scale AI deployments, aiming for mass deployment by 2027. Perhaps the most significant of the ai breakthroughs march 2026 is the $1.03 billion seed round raised by Yann LeCun’s new startup, Advanced Machine Intelligence (AMI) Labs. Backed by Nvidia and Bezos Expeditions, AMI Labs is eschewing traditional large language models in favor of \"world models\"—architecture that learns by understanding the physical laws of the world. This is a massive leap for artificial intelligence breakthroughs march 2026, targeting applications in robotics and manufacturing where standard LLMs often fa\n\nThe ai news last 24 hours march 11 2026 or march 12 2026 model release or new paper or open source includes a breakthrough in autonomous electronic warfare. L3Harris Technologies and Shield AI successfully demonstrated a first-of-its-kind integration where unmanned aircraft systems detected and responded to electromagnetic threats in real-time without human intervention. Simultaneously, Core AI Holdings launched \"OptiCore Datacenters\" on March 12, 2026, creating a sovereign AI infrastructure for 187 R1 research universities in the US. These centers provide the secure, high-performance environments needed for ai research breakthroughs march 2026 in fields like microelectronics and healthcare. Source: As we look at the latest ai developments past 24 hours march 2026, the message is clear: the infrastructure of intelligence is being rebuilt from the silicon up.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.devflokers.com/blog/ai-news-breakthroughs-march-13-2026",
+                "search_provider": "anthropic",
+                "age": "1 day ago"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-20T07:14:26.425335Z",
+          "stop_timestamp": "2026-03-20T07:14:26.841381Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01LFPh6Rs5TSr2bGdhpGKkxj",
+          "name": "web_search",
+          "input": {
+            "query": "HR workforce trends AI impact organizational news March 2026"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01LFPh6Rs5TSr2bGdhpGKkxj",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "11 HR Trends for 2026: Shaping What’s Next - AIHR",
+              "url": "https://www.aihr.com/blog/hr-trends/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "aihr.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=aihr.com",
+                "site_name": "AIHR"
+              },
+              "is_missing": false,
+              "text": "We’ve outlined five strategic ... ... Traditional HR structures, organized around silos like recruitment, learning, rewards, and performance, are becoming increasingly outdated in an AI-powered work environment...\n\nThese 11 trends offer a practical roadmap for what HR needs to prioritize in 2026 and beyond. They highlight the key shifts reshaping work, from how AI is influencing decisions and how skills and roles are being redefined to the evolving employee experience. Whether it’s contributing to AI strategy, strengthening human capabilities, or redesigning workforce planning, the opportunity for HR is clear. These changes are already underway, and the way HR responds will shape both business outcomes and the future of work. Now is the time to act with confidence, bring others along, and build the kind of HR function that creates lasting value for both the organization and its people. You can read about 2025 HR trends here. Follow us on social media to stay up to date with the latest HR news and trends ... Dr Marna van der Merwe, AIHR’s Lead Subject Matter Expert, is a published author on various HR topics, including HR impact, strategic talent management, employee experience, and HR skills.\n\nTackling FOBO and technostress is now central to sustaining long-term workforce health. Build confidence with AI through hands-on learning: Give employees a safe space to explore and experiment with AI tools. Combine this with training, feedback, and peer support. Monitor new risks: Add technostress and FOBO indicators to pulse surveys and track alongside productivity and engagement. Make reskilling paths visible and achievable: Provide clear communication on reskilling, career alternatives, and opportunities for growth as AI reshapes roles. The trends highlight what’s shifting. But what should HR leaders actually do next? We’ve outlined five strategic priorities for 2026 based on these market signals. ... Traditional HR structures, organized around silos like recruitment, learning, rewards, and performance, are becoming increasingly outdated in an AI-powered work environment.\n\nThe real shift happens when senior leaders—CEOs, CAIOs, CHROs, CFOs, COOs, and CTOs—work together to embed AI into business strategy, decision-making, and culture. When that kind of cross-functional alignment happens, organizations are more likely to move beyond pilots and turn AI into a lasting transformation. In this coalition, HR cannot be a passive bystander, as the impact of AI transformation is deeply human. 92% of HR leaders already report at least some level of participation in AI implementation. However, only 21% are closely involved in AI strategy decisions. This gap shows that many HR functions still lack the influence, mandate, or capabilities to claim a seat at the table. To shift that, HR needs to proactively build credibility, develop relevant skills, and position itself as a strategic partner in AI transformation. The earlier HR engages, the better it can shape how AI impacts jobs, skills, and trust across the workforce.\n\nOrganizations that bring HR into AI strategy from the outset are more likely to balance speed with sustainability, translating tech-driven change into measurable outcomes without compromising culture. → The bottom line: The era of HR “supporting” technology initiatives is over. HR is now expected to co-strategize AI transformation, safeguarding the people side of change and making sure decisions translate into real-world adoption and impact. Contribute to strategic planning: Bring workforce data, skill forecasts, ethical considerations, and trust-building expertise into AI decision-making forums. Build alliances with the C-suite: Partner with the CAIO, CFO, and CTO to align AI deployment with workforce readiness, culture, and business outcomes. Translate tech into people impact: Use clear language to show how AI affects roles, skills, and culture, ensuring leadership decisions stay grounded in reality.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.aihr.com/blog/hr-trends/",
+                "search_provider": "anthropic",
+                "age": "2 weeks ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "AI Workforce Trends 2026 | Gloat",
+              "url": "https://gloat.com/blog/ai-workforce-trends/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "gloat.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=gloat.com",
+                "site_name": "Gloat"
+              },
+              "is_missing": false,
+              "text": "Gartner’s strategic predictions warn that atrophy of critical-thinking skills due to GenAI use will push 50% of organizations to require “AI-free” skills assessments by 2026.\n\nGartner notes that 80% of the engineering workforce alone will need to upskill through 2027 just to keep pace with generative AI’s evolution. Organizations that treat learning as a core business function—not an HR afterthought—are positioning themselves to win. As organizations deploy AI at scale, questions about bias, transparency, and accountability are moving from theoretical to urgent. Gartner’s strategic predictions warn that atrophy of critical-thinking skills due to GenAI use will push 50% of organizations to require “AI-free” skills assessments by 2026. The organizations that build trust through transparent AI practices and meaningful human oversight are earning both employee confidence and customer loyalty. GenAI is moving from experimentation to enterprise deployment. Gartner reports that 1 in 2 HR leaders have now deployed GenAI in their HR function, and the question has shifted from whether to invest to how quickly.\n\nBy Nicole Schreiber-Shearer , Future of Work Specialist at Gloat March 4, 2026 ... AI workforce transformation isn’t something leaders can put on their roadmaps; it’s happening in the here and now. As we move into 2026, early experiments will give rise to enterprise-wide deployments, new regulatory frameworks, and increased pressure to pivot ahead of the curve. The organizations that are first to adapt will be best positioned to thrive, will their slow-to-respond competitors are likely to fade into the background. The stakes have never been higher, but the good news is that AI is creating more opportunities than many predicted. PwC’s 2025 Global AI Jobs Barometer found that job numbers are rising even in highly automatable roles—and workers with AI skills command wage premiums up to 56% higher than their peers. Since the window for preparation is narrowing, we’re breaking down the ten trends that will define AI workforce transformation in 2026.\n\nThe AI workforce transformation of 2026 isn’t something that will happen to us; it’s something we can actively shape. The organizations and individuals who succeed won’t be those who resisted change or waited for perfect clarity. They’ll be the ones who treated uncertainty as an opportunity: building new skills, designing new workflows, and creating new value at the intersection of human expertise and AI capability. Ready to understand how AI is reshaping work at your organization? Tools like Gloat Signal can help you map skills, identify transformation opportunities, and build the workforce capabilities you’ll need to thrive in the AI-powered future of work. Want to quantify the impact of your AI investment? Gloat Signal is designed to calculate your ROI on every AI investment and identify high-priority opportunities before competitors can capitalize on them.\n\nFor HR leaders, this means compliance is no longer optional: AI systems used in employment decisions must be documented, monitored for bias, and subject to human review. The trends above paint a clear picture: AI is reshaping work at an unprecedented pace, and adaptation is no longer optional. Here’s how individuals and organizations can position themselves to thrive. Start by understanding how AI affects your specific role—not through fear, but through curiosity. Identify tasks that AI can enhance or automate, and focus on developing skills that complement those capabilities. Seek out hands-on experience with AI tools relevant to your field; passive awareness isn’t enough. Consider how your expertise can be combined with AI to create value that neither could achieve alone. The professionals thriving in 2026 aren’t those avoiding AI—they’re the ones actively learning to work alongside it.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://gloat.com/blog/ai-workforce-trends/",
+                "search_provider": "anthropic",
+                "age": "2 weeks ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "HR and Talent Trends Shaping 2026: AI, Leadership, and the Risks of Standing Still HR and Talent Trends Shaping 2026",
+              "url": "https://www.houston.org/news/hr-and-talent-trends-shaping-2026/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "houston.org",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=houston.org",
+                "site_name": "Houston"
+              },
+              "is_missing": false,
+              "text": "In 2026, talent leaders will start recruiting a new type of colleague: the autonomous AI agent. According to Korn Ferry, more than half of talent leaders are planning to add autonomous AI agents to their teams in 2026.\n\nInsights from Korn Ferry, McLean & Company, Catalyst, and the Meltzer Center for Diversity and Inclusion define the HR trends shaping this year.\n\nAs advancements move from exploration to implementation and begin reshaping work by flattening structures, automating tasks, and reducing the number of entry-level roles, HR leaders must identify gaps and assess AI’s impact. In 2026, talent leaders will start recruiting a new type of colleague: the autonomous AI agent. According to Korn Ferry, more than half of talent leaders are planning to add autonomous AI agents to their teams in 2026. While these shifts drive efficiency, organizations may weaken leadership pipelines and long-term capability by cutting entry-level jobs. As work evolves, skills are becoming the foundation of workforce strategy, and continuous learning is a strategic imperative. Skills-based hiring is gaining traction, expanding access to talent and increasing agility. Simultaneously, organizations that embed learning into the flow of work see stronger leadership effectiveness and greater adaptability.\n\nA new era of work is here. AI adoption is accelerating, workforce expectations are shifting, and organizations are navigating growing complexity around culture, inclusion, and risk. For HR and talent leaders, the challenge is integrating simultaneous shifts into a strategy that drives performance, builds capability, maintains trust, and retains top talent. Insights from Korn Ferry, McLean & Company, Catalyst, and the Meltzer Center for Diversity and Inclusion define seven trends shaping this year. Leadership development remains HR’s top priority heading into 2026, while enabling innovation has rapidly risen alongside it. These priorities are deeply linked, with innovation relying on leadership capability, a supportive culture, and effective change management. McLean & Company reports that organizations with strong leadership are over twice as likely to excel in innovation.\n\nWith Finance, to measure impact and optimize investments · Across the business, to align talent strategy with organizational goals · Organizations with strong collaboration are more likely to innovate and perform at a higher level. AI is transforming work, leadership is under pressure, and organizations are navigating increasing complexity. Success will depend on integration, not isolation. Leading organizations will: Invest in leadership as the foundation for innovation and change · Balance AI-driven efficiency with long-term talent development · Build skills-based, data-driven workforce strategies ... In a time of rapid change, competitive advantage will not come from technology alone. It will come from aligning technology with people, leadership, and purpose to create organizations that are not only more efficient but also more adaptable, resilient, and human.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.houston.org/news/hr-and-talent-trends-shaping-2026/",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "2026 Global Human Capital Trends | Deloitte Insights",
+              "url": "https://www.deloitte.com/us/en/insights/topics/talent/human-capital-trends.html",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "deloitte.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=deloitte.com",
+                "site_name": "Deloitte Insights"
+              },
+              "is_missing": false,
+              "text": "AI and workforce transformation are accelerating the climb and bringing the plateau sooner (figure 1). Organizations are pressed to leap to the next curve more quickly to remain competitive.\n\nOur 2026 survey reveals a shift from tensions to tipping points. What intentional choices can organizations make to adapt continuously, move with speed, and lead with a human edge?\n\nIn our 2026 Global Human Capital Trends survey, 7 in 10 business leaders say their primary competitive strategy over the next three years is to be fast and nimble—to quickly adapt to and capitalize on changing business, customer or market needs. Leaders also report that the two most important drivers of success are accelerating how people and resources are orchestrated to perform work and increasing their organization’s and workforce’s ability to adapt to change and speed. The classic S curve of growth has long described how businesses and work evolve: gradual lift, rapid acceleration, and eventual plateau. Today, that curve is compressing. AI and workforce transformation are accelerating the climb and bringing the plateau sooner (figure 1). Organizations are pressed to leap to the next curve more quickly to remain competitive. Long cycles of planning and predictable execution may no longer hold in a world where markets, technologies, and worker and customer expectations shift in real \n\nThe organizations that thrive will likely be the ones to treat discontinuity as momentum, moving quickly to redesign work, roles, and value rather than reverting to old strategies in response to AI and other advances. As the S-curve compresses, so do the capabilities required to navigate it. Where innovation, scaling, and efficiency once happened in sequence, today they increasingly need to coexist, often within the same teams and even the same individuals. Building the human advantage is now as critical as managing technology itself. That means not simply preparing workers for the future, but building a workforce that can continually learn, adapt, and reinvent in real time. Those that make bold, intentional choices to strengthen their human edge will set the benchmark for success. Deloitte’s 2026 Global Human Capital Trends worked in collaboration with Oxford Economics to survey more than 9,000 business and human resources leaders across many industries and sectors in 89 countries.\n\nWith over 30 years of experience spanning IT services, strategy, human capital, and M&A, she partners with boards, executive teams, governments, and civil society to reimagine work for human advantage in an era defined by rapid disruption and the rise of AI. Scoble-Williams leads transformation by designing work systems anchored in trust, creativity, and intelligent collaboration, enabling humans and AI to work together. ... Victor focuses on helping organizations reimagine their people strategies and HR capabilities to deliver business results, enhance talent experience, and anticipate and embrace future workforce challenges. In his more than 25 years as a management consultant, he has designed and implemented programs that include HR strategy and service delivery redesign, talent strategy, acquisition, and development; HR technology enablement; global shared services and outsourcing; and workforce analytics.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.deloitte.com/us/en/insights/topics/talent/human-capital-trends.html",
+                "search_provider": "anthropic",
+                "age": "2 weeks ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "5 trends that will shape HR in 2026 | HR Dive",
+              "url": "https://www.hrdive.com/news/hr-2026-trends/808926/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "hrdive.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=hrdive.com",
+                "site_name": "HR Dive"
+              },
+              "is_missing": false,
+              "text": "Meanwhile, 54% of respondents said AI-specific upskilling would have high organizational impact moving forward, though only 1% had implemented such a strategy as of last year. To jumpstart skills-based processes, HR might consider creating an ...\n\nWebinar - on demand High Impact of Women’s and Family Health Benefits Custom content for Maven Clinic View all ... The Conversation Is HR really there to help employees? What early‑career workers should know about it · The New York Times Mamdani Moves to End City’s Defense of Adams in Sexual Assault Lawsuit View all ... Scale With Confidence: Navigate Growth Through Uncertainty Webinar - on demand • Provided by Justworks · From buzz to business value: Closing the workforce AI ROI gap Webinar - on demand • Provided by Dayforce · Enhancing the HR experience with AI that works Webinar - on demand • Provided by Glean · Get the free daily newsletter read by industry experts ... The lawsuit filing comes on the heels of employment attorneys predicting that “reverse discrimination” would be an EEOC priority for 2026. By Caroline Colvin • Updated Feb.\n\nResearchers offered three best practices for organizations to follow in using AI-enabled solutions to map their own skill inventories: create a blueprint of the employer’s desired future workforce; engage with local data regulations and ethical considerations for data work; and ensure employees influence AI data inputs and outputs in order to compensate for AI blind spots. The U.S. Supreme Court’s unanimous decision last year in Ames v. Ohio Dept. of Youth Services struck down lower courts’ requirements that majority-group employees in “reverse discrimination” cases show background circumstances to support their claims. Legal observers anticipated that Ames could lead to a wave of future majority-group lawsuits, and a few have already been filed. That trend stands to pick up steam thanks in part to a newly restaffed U.S. Equal Employment Opportunity Commission.\n\nThe Times Square New Year's Eve 2026 Celebration on Dec. 31, 2025, in New York, N.Y. Sources who spoke to HR Dive expect AI to be more closely integrated into management practices within the next year. Roy Rochlin via Getty Images ... This audio is auto-generated. Please let us know if you have feedback. HR may be a function that prides itself on managing people, but machines have occupied an outsized portion of the industry’s attention over the last twelve months. A chorus of thought leaders expect that focus to continue for the foreseeable future. Discourse on artificial intelligence’s status as an economic bubble is more prevalent in the mainstream than ever. Yet, sources who spoke with HR Dive noted that HR has increasingly automated routine tasks and helped implement AI organization-wide. The next step, these experts say, is to distinguish the technology’s utility from its hype.\n\nThese factors portend a gloomy outlook for the talent market, but if there’s one sign of clarity, it’s the belief that skills will be a top priority. A recent survey by McLean & Co. found that skills-based hiring had the strongest level of implementation and planned implementation among all emerging HR trends. Meanwhile, 54% of respondents said AI-specific upskilling would have high organizational impact moving forward, though only 1% had implemented such a strategy as of last year. To jumpstart skills-based processes, HR might consider creating an inventory of employees’ existing skillsets using data analytics, Keller said. He cited a recent academic study of Johnson & Johnson that detailed the company’s creation of an “employee skills inference platform.” · According to the study, published in the Information Systems Journal, Johnson & Johnson used machine learning to identify employees’ skill proficiencies data stored within its HR information system.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.hrdive.com/news/hr-2026-trends/808926/",
+                "search_provider": "anthropic",
+                "age": "January 6, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "10 Workforce Analytics Trends Shaping HR in 2026 - AIHR",
+              "url": "https://www.aihr.com/blog/workforce-analytics-trends/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "aihr.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=aihr.com",
+                "site_name": "AIHR"
+              },
+              "is_missing": false,
+              "text": "OECD research shows that 28% of managers lack clarity around accountability for algorithm-driven decisions, and 27% struggle to understand how these tools generate recommendations.\n\nWorkforce analytics goes beyond basic HR reporting and dashboards. While it may draw on data from HR systems, it also incorporates information from across the organization and applies more advanced analytical techniques, including statistical analysis and, in some cases, AI and machine learning. The goal is not just to describe the workforce, but to anticipate future needs, test assumptions, and inform decisions that contribute to overall organizational success. Learn more What Is Workforce Analytics? Your 2026 A-Z Guide · The bottom line: Workforce analytics is moving from explaining past outcomes to shaping future decisions. HR is increasingly expected to help leaders anticipate workforce risks and make informed trade-offs, rather than simply reporting on historical data. Workforce analytics is moving beyond backward-looking reporting toward forward-looking decision support.\n\nCareers at AIHRJoin a fast-growing scaleup & make a positive impactWe're hiring! About usWe innovate the HR function through online training · Contact usFind the answers you need to your AIHR-related question ... Workforce analytics has moved from a nice-to-have to a core business capability. Here’s how emerging workforce analytics trends are reshaping how organizations make decisions, manage talent, and plan for the future. ... Evidence-based decision-making is widely regarded as best practice across industries, yet many organizations still struggle to implement it effectively. Despite the growing number of tools available to collect, analyze, and turn workforce data into insights, 83% of companies worldwide surveyed by Deloitte report low workforce analytics maturity. Organizations with higher maturity levels use more advanced analytics practices to drive measurable business results.\n\nTo support this shift, more advanced organizations are investing in dynamic skills inventories and internal talent marketplaces that make it easier to identify, develop, and redeploy talent. This approach enables faster responses to changing business needs and reduces reliance on external hiring. Industry data suggests that many organizations have already begun moving toward a skills-based model, with adoption continuing to grow. AI is reshaping work, but its impact varies widely by role and task. While some activities can be largely automated, most jobs still require significant human judgment, oversight, or collaboration. Employers increasingly expect to respond to this shift by reskilling their workforce. Many anticipate that a substantial share of employees can be upskilled within their current roles, while others can be redeployed into new ones.\n\nAs algorithmic management becomes more embedded in workforce decisions, questions of accountability are coming to the forefront. If an automated system influences hiring, performance ratings, or career progression, responsibility is not always clear. OECD research shows that 28% of managers lack clarity around accountability for algorithm-driven decisions, and 27% struggle to understand how these tools generate recommendations. With laws and regulations around data use and automated decision-making still evolving, organizations cannot rely on compliance alone. Weak governance and limited transparency can expose companies to legal, reputational, and employee trust risks. Assess the impact of algorithmic tools before deployment · Monitor models regularly for bias, performance, and unintended outcomes · Establish clear governance and ownership for AI-supported decisions.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.aihr.com/blog/workforce-analytics-trends/",
+                "search_provider": "anthropic",
+                "age": "February 12, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "What Deloitte's 2026 trends report says leaders want tech to fix",
+              "url": "https://hrexecutive.com/what-deloittes-2026-trends-report-says-leaders-want-tech-to-fix/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "hrexecutive.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=hrexecutive.com",
+                "site_name": "HR Executive"
+              },
+              "is_missing": false,
+              "text": "The report identifies three pain ... · AI deployments that are outrunning accountability and trust · Organizational structures that were built for a different era · One-third of workers surveyed experienced 15 major organizational changes in a single year...\n\nBusiness leaders are not short on problems they want the current tech boom to solve. And Deloitte’s 2026 Global Human Capital Trends report, which surveyed thousands of executives and workers globally, finds the list is getting longer. What’s also getting clearer is how few organizations have the cultural and structural foundations to actually get there. However, in many ways, the gap between what leaders need and what they’ve built appears to be significant. The report identifies three pain points topping the leadership agenda: A workforce that can’t absorb change fast enough · AI deployments that are outrunning accountability and trust · Organizational structures that were built for a different era · One-third of workers surveyed experienced 15 major organizational changes in a single year. The effects are showing up in wellbeing, workload, clarity and engagement.\n\nLeaders are hoping for AI that builds rather than erodes trust. The report finds that organizations making the most progress are the ones that have defined clear decision rights for AI use, prioritized transparency about where and how AI is deployed and invested in the critical thinking skills that let employees work alongside it effectively. Read more: Is your workforce planning built for a world that no longer exists? Seven in 10 business leaders say their primary competitive strategy over the next three years is to be fast and nimble. Most of them are running organizations structured for the opposite. The report finds that traditional functions such as HR, finance, IT and legal were designed for efficiency and control within defined boundaries. That architecture creates silos that impede the cross-functional collaboration AI transformation requires.\n\nLeaders know it. Eighty-five percent say building the organization’s and workforce’s ability to adapt continuously is critical. Only 27% say their organizations manage change well. And just 7% report they are leading in helping their workforce continuously grow and adapt. “Organizations are facing a new reality,” wrote Simona Spelman, U.S. human capital leader at Deloitte. “Change is relentless and the old playbook can’t keep up. Leaders need to build adaptability into how work gets done so that their people have clarity, trust and the support to evolve with AI and the shifting demands of work. That’s how the human edge becomes a competitive advantage.” · What leaders want AI to do here is embed support directly into the work with real-time feedback, in-the-moment learning and adaptive tools that help people adjust as priorities and skills requirements shift.\n\n(Credit: Deloitte’s 2026 Global Human Capital Trends report) Sixty percent of executives are using AI in decision-making, but only 5% say they manage it well. The gap between adoption and governance is at the center of what Deloitte calls “culture debt”: the cost organizations accumulate when they scale AI without maintaining the accountability structures, norms and trust frameworks around it. Fifty-six percent of leaders say they design AI for business outcomes. Only 40% design for both business and human outcomes, including fairness, skills development and the day-to-day experience of work. Forty-two percent of workers say their organizations aren’t evaluating AI’s impact on people at all. “The real transformation isn’t adding humans and machines together, it’s redesigning work with clear decision rights and trust thresholds to deliver exponential value as human and machine capabilities converge in the work itself,” wrote David Mallon, U.S.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://hrexecutive.com/what-deloittes-2026-trends-report-says-leaders-want-tech-to-fix/",
+                "search_provider": "anthropic",
+                "age": "3 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "9 Trends Shaping Work in 2026 and Beyond",
+              "url": "https://hbr.org/2026/02/9-trends-shaping-work-in-2026-and-beyond",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "hbr.org",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=hbr.org",
+                "site_name": "Harvard Business Review"
+              },
+              "is_missing": false,
+              "text": "CEO expectations for AI-driven growth remain high in 2026—at the same time their workforces are grappling with the more sober reality of current AI performance. Gartner research finds that only one in 50 AI investments deliver transformational ...\n\nCEO expectations for AI-driven growth remain high in 2026—at the same time their workforces are grappling with the more sober reality of current AI performance. Gartner research finds that only one in 50 AI investments deliver transformational value, and only one in five delivers any measurable return on investment. Peter Aykens is a distinguished vice president and chief of research for the Gartner HR practice. He is responsible for setting the practice’s research agenda and strategy to address the mission critical priorities of HR leaders, including leadership, talent management, recruiting, inclusion, total rewards, learning and development, and HR tech. Kaelyn Lowmaster is a director of research in Gartner’s HR practice focused on the future of work and organizational design and transformation. In addition to leading Gartner’s annual Future of Work Trends research, she advises clients on the evolving impact of AI on roles and careers and helps organizations achieve their transforma\n\nWhile Emily Rose works across all issues related to the future of work, her core areas of focus are AI’s impact on the workforce and new ways of working. She also helps executives with topics around new employment models, evolving employee expectations, flexibility for frontline workers, and the aging workforce. Jonah Shepp is a senior principal, research in the Gartner HR practice. He edits the Gartner HR Leaders Monthly journal, covering HR best practices on topics ranging from talent acquisition and leadership to total rewards and the future of work. An accomplished writer and editor, his work has appeared in numerous publications, including New York Magazine, Politico Magazine, GQ, and Slate. ... Read more on AI and machine learning or related topics Generative AI, Business management, Human resource management, Growth strategy, Organizational culture, Mental health, Layoffs and Hiring and recruitment",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://hbr.org/2026/02/9-trends-shaping-work-in-2026-and-beyond",
+                "search_provider": "anthropic",
+                "age": "February 2, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Discover the top AI trends in HR for 2026 | Staffbase",
+              "url": "https://staffbase.com/blog/ai-trends-hr-2026",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "staffbase.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=staffbase.com",
+                "site_name": "Staffbase"
+              },
+              "is_missing": false,
+              "text": "Teams that prioritize AI literacy will be better equipped to supervise technology rather than fear it. A benchmark study conducted by SHRM surveyed over 1,200 HR professionals. The top three essential skills for leveraging AI in HR are: ... ...\n\nBy 2026, most HR teams aren't experimenting with AI; they're improving how they use it. Automation supports content creation, predictive analytics guide workforce decisions, and intelligent tools elevate the quality of employee communication. The challenge has shifted from adoption to advancement: how to use AI responsibly, align it with company culture, and maximize its value without losing the human voice. Looking back, 2026 will be viewed as the turning point, with advanced AI now being able to convert messy HR data into structured formats that support: ... This is where AI-enabled employee engagement platforms like Staffbase support organizations in integrating AI securely, so teams can scale personalized communication, improve accessibility, and stay focused on what drives engagement: people. Over the past twenty years, HR software has evolved from simple administrative tasks such as payroll and data entry to advanced, cloud-based platforms that utilize AI, analytics, and mobile a\n\nHowever, in 2026, the landscape is shifting dramatically. Advanced artificial intelligence is poised to revolutionize the field by packaging sophisticated analytics into user-friendly tools. These innovations will empower HR teams to uncover meaningful patterns that can be strategically utilized for organizational benefit. Identifying turnover risk signals: By analyzing engagement trends, commute data, and internal mobility patterns, organizations can spot early indicators of attrition risk and intervene more thoughtfully. Forecasting workforce capacity needs: As organizations prepare for seasonal surges or departmental reorganizations, predictive analytics will enable them to accurately forecast workforce capacity needs. This foresight will help ensure that the right talent is in place when demand peaks. Identifying personalized learning paths: By analyzing data to identify correlations between specific learning opportunities and subsequent promotions, organizations can better tailor \n\nAs tools evolve at an unprecedented rate, HR's most valuable asset in 2026 will be learning agility. Teams that prioritize AI literacy will be better equipped to supervise technology rather than fear it. A benchmark study conducted by SHRM surveyed over 1,200 HR professionals. The top three essential skills for leveraging AI in HR are: ... It’s clear that HR departments are placing emphasis on digital fluency training. Organizations are beginning to treat skills such as prompt writing, data ethics, and model interpretation as foundational competencies. Forward-thinking learning and development programs are aligning employees with AI mentors, such as personalized bots that track learning goals and provide micro-coaching on progress. Learning hubs integrated within the Staffbase intranet distribute micro-modules and informative articles, helping to ensure the workforce remains aligned even as tools rapidly evolve.\n\nDesigned for real, mixed workforces. Staffbase is built to reach frontline and non-desk employees with the same reliability and usability as office-based teams, helping close a gap that often undermines HR initiatives. The takeaway: By 2026, personalization isn’t a differentiator — it’s the baseline. The organizations that get it right will be those that combine AI-driven insight with disciplined communication delivery and clear human ownership. Want to see how Staffbase powers clear, personalized employee communication? Book a demo now. ... AI hallucinations in intranet answers happen when models access conflicting or outdated content. Learn how governance, retrieval, and guardrails prevent enterprise risk. ... Move beyond feature checklists. This 2026 enterprise intranet guide compares 10 leading platforms on adoption architecture, governance depth, and AI reliability — the factors that determine long-term success at scale.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://staffbase.com/blog/ai-trends-hr-2026",
+                "search_provider": "anthropic",
+                "age": "3 weeks ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "2026 HR Trends: Planning for Business Impact",
+              "url": "https://www.shrm.org/topics-tools/news/hr-trends",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "shrm.org",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=shrm.org",
+                "site_name": "SHRM"
+              },
+              "is_missing": false,
+              "text": "... 72% of CEOs expect an increased use of independent contractors, gig workers, and freelancers in 2026. Source: 2026 CEO Priorities &amp; Perspectives, SHRM, 2025 · Unlock the full potential of fractional work – explore SHRM’s practical ...\n\nDive into the seven game-changing HR trends redefining 2026 — from the real impact of AI and personalized coaching, to the reinvention of recruitment, upskilling, and workforce structure. Built upon SHRM’s 2026 CEO Priorities & Perspectives research, these trends translate CEO priorities into tactical strategies HR leaders need to drive business impact and stay ahead. Discover expert insights and bold predictions on how each trend impacts business strategy, operational efficiency, and your competitive advantage, helping you lead your organization with confidence for improved profitability, talent retention, and other measurable outcomes. With SHRM as your guide, you’ll have the foresight, tools, and community every HR leader needs to not just keep up — but truly thrive — in 2026 and beyond. ... Join James Atkinson, SHRM Vice President of Thought Leadership, and Jerry Won, host of SHRM’s Tomorrowist podcast, as they explore what emerging trends in AI, talent I&D, and more will mean for \n\nAI adoption is a C-suite priority, but ROI and risk management are paramount. While AI stole the spotlight in 2025 and will stay center stage in 2026, leaders are waking up to its true costs and hidden pitfalls. But the promise is undeniable, and organizations aren’t backing down; they’re recalibrating their ambitions and getting smarter about what AI can really deliver on cost savings, productivity gains, and smarter workforce decisions. ... The smartest leaders aren’t chasing AI trends — they’re mastering them. Take the next step to make AI work for your people, not against them, and explore practical tools and credentials that help you harness AI strategically and confidently. ... Equip yourself with the AI + HI Specialty Credential to harness AI for smarter, more strategic HR decision-making. Earn 30 PDCs, a SHRM Specialty Credential digital badge, and certificate to showcase your expertise.\n\nAs micro-teams, freelancers, and AI agents reshape the workforce, old talent models are out — decentralized, project-driven structures are in. HR leaders have an opportunity to lead organizational agility to help rapidly redeploy talent, optimize costs, and respond to market changes faster. ... 72% of CEOs expect an increased use of independent contractors, gig workers, and freelancers in 2026. Source: 2026 CEO Priorities & Perspectives, SHRM, 2025 · Unlock the full potential of fractional work – explore SHRM’s practical strategies and frameworks to integrate diverse work arrangements and empower leaders to drive seamless collaboration. Build dynamic teams that consistently deliver measurable business impact, no matter how work gets done. ... This program supports people managers through training and mentorship to unlock team potential, drive performance, and build a culture of growth.\n\nExplore SHRM’s exclusive research that brings the 2026 HR trends to life. Dive into real-world data and insights that reinforce each trend’s relevance and staying power, and see how organizations and HR leaders are forging ahead this year. Discover how the trends shaping the future of work are already influencing workforce strategy, priorities, and decision-making. ... Get a snapshot of the current state of the workplace, offering valuable insights to inform and shape organizational and HR strategies for 2026 and beyond. ... Gain a comprehensive understanding of the priorities, challenges, and trends defining HR in 2026, with actionable insights built for today’s HR leaders and professionals. ... Don’t wait — position your organization at the forefront of change. SHRM Events offer HR leaders exclusive access to actionable insights, hands-on strategies, and expert guidance, so you can master the seven critical trends shaping 2026.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.shrm.org/topics-tools/news/hr-trends",
+                "search_provider": "anthropic"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-20T07:14:29.030380Z",
+          "stop_timestamp": "2026-03-20T07:15:14.827194Z",
+          "flags": null,
+          "type": "text",
+          "text": "오늘의 뉴스 브리핑을 정리했습니다. CSP의 2026 미션 맥락에서 특히 의미있는 것들로 골라봤어요.\n\n---\n\n## 🗞️ 오늘의 CSP 맞춤 뉴스 브리핑 — 2026.03.20\n\n---\n\n### 🤖 AI/Tech 트렌드\n\n**① AI는 이제 \"개인 생산성 도구\"에서 \"팀 워크플로우 오케스트레이션\"으로**\n\nIBM 전략 책임자 Kevin Chung은 2026년의 핵심 전환을 이렇게 정의했습니다. \"AI는 개인적 사용에서 팀과 워크플로우 오케스트레이션으로 이동하고 있다 — 부서 간 데이터를 연결하고 아이디어에서 완성까지 전체 프로젝트를 이끄는 방향으로.\" CSP가 현재 구축하는 AI Agent 기반 워크플로우 재설계와 정확히 같은 방향입니다.\n\n**② Amazon, AI 자동화를 이유로 16,000명 감원 — 미들 매니지먼트가 표적**\n\nAmazon이 AI 기반 자동화와 '에이전틱' 워크플로우로의 전략적 전환을 이유로 약 16,000명의 기업 직원을 감원한다고 발표했습니다. 감원은 주로 AI 시스템이 물류 계획, 벤더 관계, 내부 보고를 대체하면서 불필요해진 중간 관리직과 행정 직무를 대상으로 합니다. 이것은 단순한 비용 절감이 아닙니다. AI Agent가 실제 조직 구조를 바꾸기 시작했다는 신호입니다.\n\n**③ McKinsey, 채용 면접에 AI 협업 단계 도입**\n\nMcKinsey는 최종 면접에 'AI 인터뷰' 단계를 도입했습니다. 지원자들은 내부 AI 도구 'Lilli'와 협업하여 비즈니스 시나리오를 풀어야 하며, 평가 초점은 AI 기술 전문성이 아닌 판단력과 추론 능력에 맞춰집니다. McKinsey CEO는 현재 회사가 40,000명의 인력과 함께 20,000개의 AI 에이전트 가상 인력을 운용하고 있다고 밝혔습니다. \"AI와 함께 일하는 능력\"이 이미 핵심 역량이 된 세계의 단면입니다.\n\n**④ Anthropic vs 미 국방부 — 3월 24일 청문회 예정**\n\nPentagon이 Anthropic을 '공급망 리스크'로 지정하면서 Anthropic이 소송을 제기했고, 임시 구제에 대한 청문회가 3월 24일로 예정되어 있습니다. 이 싸움은 조달, 언론, 방위, 플랫폼 거버넌스의 교차점에 위치한 가장 중요한 AI 정책 배틀 중 하나가 되고 있습니다. 프론티어 AI 랩이 이제 인프라 공급자 수준의 정치적 전장에 들어선 셈입니다.\n\n---\n\n### 👥 HR/조직 트렌드\n\n**⑤ Deloitte 2026 글로벌 인적자본 트렌드: \"Change Fatigue\"가 임계점 도달**\n\nDeloitte의 2026 글로벌 인적자본 트렌드 보고서는 세 가지 핵심 통증을 진단합니다 — 변화를 충분히 빠르게 흡수하지 못하는 인력, 책임과 신뢰를 앞질러 가는 AI 배포, 다른 시대를 위해 만들어진 조직 구조. 설문에 응한 근로자의 3분의 1은 단 1년 안에 15번의 주요 조직 변화를 경험했으며, 그 영향은 웰빙, 업무량, 명확성, 참여도에서 나타나고 있습니다. Pulse Check 시스템의 필요성을 정확히 뒷받침하는 데이터입니다.\n\n**⑥ AI 투자 ROI의 냉혹한 현실 — Gartner**\n\nGartner 연구에 따르면 AI 투자 50건 중 1건만이 혁신적 가치를 제공하고, 5건 중 1건만이 측정 가능한 투자 수익을 제공합니다. CEO의 AI 기반 성장에 대한 기대는 2026년에도 여전히 높지만, 그들의 인력은 AI 성과의 냉정한 현실과 씨름하고 있습니다. \"우리 EX Intelligence가 측정 가능한 임팩트를 보여줘야 한다\"는 내부 설득 논리의 핵심 레퍼런스가 될 수 있습니다.\n\n**⑦ HR의 AI 전략 참여율 — 갭이 심각**\n\nHR 리더의 92%가 이미 AI 구현에 어느 정도 참여하고 있다고 보고하지만, AI 전략 결정에 깊이 관여하는 비율은 21%에 불과합니다. 이 격차는 많은 HR 기능이 여전히 테이블에 앉을 영향력, 위임, 역량이 부족하다는 것을 보여줍니다. EXG팀이 AX 내재화를 선도하는 이유가 여기 있습니다 — 그 21%가 되는 것이 바로 CSP의 포지션입니다.\n\n**⑧ Skills-Based Hiring의 가속 — McKinsey식 AI 역량 검증 시대**\n\nAI 특화 업스킬링이 높은 조직적 임팩트를 가져올 것이라고 응답한 비율이 54%였지만, 실제로 그 전략을 구현한 비율은 1%에 불과합니다. Skills Ontology를 구축하는 CSP의 방향이 시장보다 정확히 앞서 있다는 신호입니다.\n\n---\n\n### 💡 CSP에게 가장 의미있는 통찰 한 줄\n\n오늘 뉴스의 공통된 문법은 이것입니다. **\"AI 도입은 빠른데, 사람/구조/신뢰가 따라가지 못하고 있다.\"** 그 간극을 메우는 일 — 바로 EX Intelligence와 Pulse Check가 하려는 것입니다. 데이터로 사람을 읽고, 조직이 변화를 소화할 수 있게 돕는 것. 이것이 오늘의 뉴스가 CSP에게 보내는 메시지입니다.",
+          "citations": [
+            {
+              "uuid": "aa51f1e2-02aa-4d7c-ad89-960c66837a25",
+              "start_index": 173,
+              "end_index": 312,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.ibm.com/think/news/ai-tech-trends-predictions-2026"
+              }
+            },
+            {
+              "uuid": "3d812b4c-f3e7-4317-a078-a9cfe4954d2b",
+              "start_index": 417,
+              "end_index": 567,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.crescendo.ai/news/latest-ai-news-and-updates"
+              }
+            },
+            {
+              "uuid": "ad6d0eba-a28d-49e5-8a9b-e7610e86f959",
+              "start_index": 663,
+              "end_index": 865,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.crescendo.ai/news/latest-ai-news-and-updates"
+              }
+            },
+            {
+              "uuid": "d7779fc3-d7f8-47f8-9f02-cecaeb80fee6",
+              "start_index": 949,
+              "end_index": 1109,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://techstartups.com/2026/03/18/top-tech-news-today-march-18-2026/"
+              }
+            },
+            {
+              "uuid": "6bbdc40e-e8ed-405d-9b68-1d1b4e8ed3bb",
+              "start_index": 1237,
+              "end_index": 1358,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://hrexecutive.com/what-deloittes-2026-trends-report-says-leaders-want-tech-to-fix/"
+              }
+            },
+            {
+              "uuid": "bf3d0c4a-3881-4466-9643-785c4352b1cd",
+              "start_index": 1359,
+              "end_index": 1444,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://hrexecutive.com/what-deloittes-2026-trends-report-says-leaders-want-tech-to-fix/"
+              }
+            },
+            {
+              "uuid": "97f85782-bef3-468d-86a2-a34bd97e5bda",
+              "start_index": 1521,
+              "end_index": 1671,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://hbr.org/2026/02/9-trends-shaping-work-in-2026-and-beyond"
+              }
+            },
+            {
+              "uuid": "acdf54d6-cf75-4fce-973b-5305ce6fd957",
+              "start_index": 1774,
+              "end_index": 1908,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.aihr.com/blog/hr-trends/"
+              }
+            },
+            {
+              "uuid": "4459e75d-9c74-401d-bbbb-203e9b189118",
+              "start_index": 2027,
+              "end_index": 2104,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.hrdive.com/news/hr-2026-trends/808926/"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-20T07:15:15.008156Z",
+      "updated_at": "2026-03-20T07:15:15.008156Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d0a18-4f6f-795d-a736-edd3dce49a39"
+    }
+  ]
+}

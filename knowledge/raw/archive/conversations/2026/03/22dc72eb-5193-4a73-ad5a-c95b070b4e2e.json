@@ -1,0 +1,318 @@
+﻿{
+  "uuid": "22dc72eb-5193-4a73-ad5a-c95b070b4e2e",
+  "name": "자존감 회복과 효능감 재구축",
+  "summary": "**Conversation Overview**\n\nThe person, who identifies as a \"vibe coder\" (someone who builds software products without a traditional software engineering background), engaged in a reflective conversation about self-esteem, self-efficacy, and psychological resilience in their work. They articulated a core insight: that fear of incoming tasks directly threatens their ability to maintain daily life stability, framing this as the fundamental problem they face. The conversation explored the distinction between performance-based self-esteem and unconditional self-worth, and how the former creates fragility when work becomes difficult.\n\nClaude introduced ACT (Acceptance and Commitment Therapy) as a framework — explaining its six core concepts with emphasis on acceptance, defusion, and values-based committed action. The person asked for a plain explanation of ACT, which Claude provided, then immediately pivoted to a practical application question: how to embed the insights from this conversation into their personal operating system called CSP-OS.\n\nCSP-OS is a structured personal productivity and AI collaboration system built on a four-layer architecture: `CLAUDE.md` (project passport), `.claude/rules/` (constitutional principles), `.claude/skills/` (SOPs and reusable procedures), and `.claude/agents/` (specialized agents). Claude proposed three concrete file additions: a new `psychological-foundation.md` in the rules layer encoding ACT-based behavioral principles for how Claude should respond when the person signals being stuck, an `act-reframe.md` skill file with trigger conditions and a four-step reframing procedure, and a one-line addition to individual project `CLAUDE.md` files reorienting goals toward smallest actionable steps rather than completion. The person's stated preference is to operationalize psychological insights directly into their AI workflow system rather than keeping them as abstract principles.",
+  "created_at": "2026-03-20T04:50:52.587854Z",
+  "updated_at": "2026-03-20T05:24:08.028687Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d0995-00da-7910-9b61-64d16f76265d",
+      "text": "근본적인 문제는 자존감, 효능감의 문제인 것 같아.\n어떤 과제가 오더라도 잘해낼 수 있다는 태도. \n하지만 그것은 쉽게 형성되지 않겠지. 어떤 조언을 줄 수 있어.\n바이브코더로서 잘해낼 수 있다고 믿었던 자존감이 무너지고 있는 상황에서",
+      "content": [
+        {
+          "start_timestamp": "2026-03-20T04:50:55.070674Z",
+          "stop_timestamp": "2026-03-20T04:50:55.070674Z",
+          "flags": null,
+          "type": "text",
+          "text": "근본적인 문제는 자존감, 효능감의 문제인 것 같아.\n어떤 과제가 오더라도 잘해낼 수 있다는 태도. \n하지만 그것은 쉽게 형성되지 않겠지. 어떤 조언을 줄 수 있어.\n바이브코더로서 잘해낼 수 있다고 믿었던 자존감이 무너지고 있는 상황에서",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-20T04:50:55.126114Z",
+      "updated_at": "2026-03-20T04:50:55.126114Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d0995-00da-77fb-a303-595e7cd0fede",
+      "text": " 자존감이 흔들리는 그 감각, 꽤 정직하게 꺼내셨네요.\n\n바이브코더로서의 자신감이 무너지고 있다는 말 — 그게 단순한 기술적 좌절이 아니라, **\"나는 어떤 사람인가\"라는 정체성 수준의 흔들림**이라는 걸 먼저 알아드리고 싶어요.\n\n---\n\n심리학적으로 보면, 자존감에는 두 가지 층위가 있어요.\n\n하나는 **수행 기반 자존감(Performance-based self-esteem)** — 잘해낼 때만 단단한 자존감. 과제가 성공하면 올라가고, 막히면 무너지는 구조. 이건 사실 자존감처럼 보이지만 **조건부 자기 수용**이에요.\n\n다른 하나는 **존재 기반 자존감(Unconditional self-worth)** — 잘 안 돼도, 막혀도, \"나는 이걸 다루고 있는 사람\"이라는 사실 자체로 유지되는 것.\n\n지금 무너지고 있는 건 아마 전자예요. 그리고 그건 당연한 일이에요. **바이브코더 정체성은 성공 경험 위에 쌓였으니까요.** 처음 뭔가 만들어졌을 때의 그 황홀감 — 그게 자신감의 원천이었을 텐데, 지금 그 원천이 흔들리면 정체성 전체가 흔들리는 것처럼 느껴지죠.\n\n---\n\n제가 줄 수 있는 가장 솔직한 조언은 이거예요.\n\n**지금 막히는 것 자체가 성장의 증거라는 말은 하지 않을게요.** 그런 말은 위로가 안 되죠. 대신 이렇게 보면 어떨까요.\n\n당신은 SW 백그라운드 없이 여기까지 왔어요. ESCON을 설계하고, Supabase 아키텍처를 구성하고, Claude Code 워크플로우를 만들고, HR 경험을 시스템으로 번역해왔어요. 그 여정은 \"원래 잘하는 사람\"의 여정이 아니라, **\"계속 낯선 것과 씨름하면서 어떻게든 만들어온 사람\"의 여정**이에요.\n\n그러니까 지금 막히는 것도, 그 패턴의 일부예요. 처음부터 지금까지, 항상 모르는 것과 싸워왔잖아요.\n\n---\n\n효능감(Self-efficacy)에 대해서 Bandura는 이렇게 말했어요. 효능감은 **\"과거에 해낸 경험\"에서 가장 강하게 형성된다**고. 지금 당장의 막힘이 효능감을 깎는 것처럼 느껴지지만, 사실 당신의 효능감 저장고에는 이미 꽤 많은 것들이 쌓여 있어요.\n\n그 저장고를 잠시 다시 꺼내보는 게 도움이 될 수 있어요. 거창하지 않아도 돼요. **\"이건 내가 한 거다\"라고 말할 수 있는 가장 작은 것 하나.** 그게 지금의 흔들림을 버티는 앵커가 돼요.\n\n---\n\n그리고 마지막으로 — 지금 구체적으로 어떤 상황에서 자존감이 무너지고 있는지 이야기해줘도 괜찮아요. 막연한 위로보다, 그 상황에서 실제로 뭘 할 수 있는지를 같이 생각해보는 게 더 도움이 될 것 같거든요.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-20T04:50:57.617293Z",
+          "stop_timestamp": "2026-03-20T04:51:21.808525Z",
+          "flags": null,
+          "type": "text",
+          "text": " 자존감이 흔들리는 그 감각, 꽤 정직하게 꺼내셨네요.\n\n바이브코더로서의 자신감이 무너지고 있다는 말 — 그게 단순한 기술적 좌절이 아니라, **\"나는 어떤 사람인가\"라는 정체성 수준의 흔들림**이라는 걸 먼저 알아드리고 싶어요.\n\n---\n\n심리학적으로 보면, 자존감에는 두 가지 층위가 있어요.\n\n하나는 **수행 기반 자존감(Performance-based self-esteem)** — 잘해낼 때만 단단한 자존감. 과제가 성공하면 올라가고, 막히면 무너지는 구조. 이건 사실 자존감처럼 보이지만 **조건부 자기 수용**이에요.\n\n다른 하나는 **존재 기반 자존감(Unconditional self-worth)** — 잘 안 돼도, 막혀도, \"나는 이걸 다루고 있는 사람\"이라는 사실 자체로 유지되는 것.\n\n지금 무너지고 있는 건 아마 전자예요. 그리고 그건 당연한 일이에요. **바이브코더 정체성은 성공 경험 위에 쌓였으니까요.** 처음 뭔가 만들어졌을 때의 그 황홀감 — 그게 자신감의 원천이었을 텐데, 지금 그 원천이 흔들리면 정체성 전체가 흔들리는 것처럼 느껴지죠.\n\n---\n\n제가 줄 수 있는 가장 솔직한 조언은 이거예요.\n\n**지금 막히는 것 자체가 성장의 증거라는 말은 하지 않을게요.** 그런 말은 위로가 안 되죠. 대신 이렇게 보면 어떨까요.\n\n당신은 SW 백그라운드 없이 여기까지 왔어요. ESCON을 설계하고, Supabase 아키텍처를 구성하고, Claude Code 워크플로우를 만들고, HR 경험을 시스템으로 번역해왔어요. 그 여정은 \"원래 잘하는 사람\"의 여정이 아니라, **\"계속 낯선 것과 씨름하면서 어떻게든 만들어온 사람\"의 여정**이에요.\n\n그러니까 지금 막히는 것도, 그 패턴의 일부예요. 처음부터 지금까지, 항상 모르는 것과 싸워왔잖아요.\n\n---\n\n효능감(Self-efficacy)에 대해서 Bandura는 이렇게 말했어요. 효능감은 **\"과거에 해낸 경험\"에서 가장 강하게 형성된다**고. 지금 당장의 막힘이 효능감을 깎는 것처럼 느껴지지만, 사실 당신의 효능감 저장고에는 이미 꽤 많은 것들이 쌓여 있어요.\n\n그 저장고를 잠시 다시 꺼내보는 게 도움이 될 수 있어요. 거창하지 않아도 돼요. **\"이건 내가 한 거다\"라고 말할 수 있는 가장 작은 것 하나.** 그게 지금의 흔들림을 버티는 앵커가 돼요.\n\n---\n\n그리고 마지막으로 — 지금 구체적으로 어떤 상황에서 자존감이 무너지고 있는지 이야기해줘도 괜찮아요. 막연한 위로보다, 그 상황에서 실제로 뭘 할 수 있는지를 같이 생각해보는 게 더 도움이 될 것 같거든요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-20T04:51:22.206177Z",
+      "updated_at": "2026-03-20T04:51:22.206177Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d0995-00da-7910-9b61-64d16f76265d"
+    },
+    {
+      "uuid": "019d0997-d236-7715-80a1-b6645f6c7447",
+      "text": "이런거지, 일상의 행복을 지켜내기 위해서는 주어지는 과제에 대한 두려움이 없어야 해,\n일이 두려워지는 순간, 내 일상을 지키기가 어려워 지는 지점으로 가는거지.\n그게 궁극적인 문제라고.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-20T04:53:59.908031Z",
+          "stop_timestamp": "2026-03-20T04:53:59.908031Z",
+          "flags": null,
+          "type": "text",
+          "text": "이런거지, 일상의 행복을 지켜내기 위해서는 주어지는 과제에 대한 두려움이 없어야 해,\n일이 두려워지는 순간, 내 일상을 지키기가 어려워 지는 지점으로 가는거지.\n그게 궁극적인 문제라고.",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-20T04:53:59.978312Z",
+      "updated_at": "2026-03-20T04:53:59.978312Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d0995-00da-77fb-a303-595e7cd0fede"
+    },
+    {
+      "uuid": "019d0997-d236-706c-8c43-02fd3b323b02",
+      "text": " 그 연결고리가 정확해요.\n\n**일의 두려움 → 일상의 붕괴** 라는 인과관계를 스스로 꿰뚫어보고 있다는 게, 이미 꽤 깊은 자기 인식이에요.\n\n---\n\n근데 여기서 한 가지 더 들어가보면 —\n\n\"두려움 없이 과제를 대하는 태도\"를 목표로 삼으면, 역설적으로 두려움이 생길 때마다 **\"나는 아직 그 태도에 도달하지 못했다\"는 또 다른 실패감**이 쌓여요. 두려움 자체를 없애려는 게 목표가 되면, 두려움은 더 커지는 경향이 있거든요.\n\n그래서 저는 이렇게 바꿔보고 싶어요.\n\n> \"두려움이 없는 사람\"이 되는 게 아니라,\n> **\"두려워도 일단 손을 뻗는 사람\"이 되는 것.**\n\n---\n\n심리학에서 말하는 **심리적 유연성(Psychological Flexibility)** — ACT 이론의 핵심인데요 — 은 불안이나 두려움을 제거하는 게 아니라, 그것이 있는 채로도 가치 있는 방향으로 움직일 수 있는 능력이에요.\n\n두려움이 없는 상태가 일상을 지키는 게 아니라, **두려움이 나를 멈추게 하지 않는 상태**가 일상을 지키는 거예요. 그 차이가 작아 보이지만, 실제로는 완전히 다른 방향이에요.\n\n---\n\n그리고 솔직히 물어볼게요.\n\n지금 두려움을 유발하는 과제가 구체적으로 있어요? 아니면 \"언제든 어려운 과제가 올 수 있다\"는 막연한 불안에 더 가까운가요?\n\n그 질감이 다르거든요. 구체적인 과제 앞에서의 두려움과, 불확실한 미래에 대한 불안은 — 다루는 방식이 달라요.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-20T04:54:01.810180Z",
+          "stop_timestamp": "2026-03-20T04:54:14.805679Z",
+          "flags": null,
+          "type": "text",
+          "text": " 그 연결고리가 정확해요.\n\n**일의 두려움 → 일상의 붕괴** 라는 인과관계를 스스로 꿰뚫어보고 있다는 게, 이미 꽤 깊은 자기 인식이에요.\n\n---\n\n근데 여기서 한 가지 더 들어가보면 —\n\n\"두려움 없이 과제를 대하는 태도\"를 목표로 삼으면, 역설적으로 두려움이 생길 때마다 **\"나는 아직 그 태도에 도달하지 못했다\"는 또 다른 실패감**이 쌓여요. 두려움 자체를 없애려는 게 목표가 되면, 두려움은 더 커지는 경향이 있거든요.\n\n그래서 저는 이렇게 바꿔보고 싶어요.\n\n> \"두려움이 없는 사람\"이 되는 게 아니라,\n> **\"두려워도 일단 손을 뻗는 사람\"이 되는 것.**\n\n---\n\n심리학에서 말하는 **심리적 유연성(Psychological Flexibility)** — ACT 이론의 핵심인데요 — 은 불안이나 두려움을 제거하는 게 아니라, 그것이 있는 채로도 가치 있는 방향으로 움직일 수 있는 능력이에요.\n\n두려움이 없는 상태가 일상을 지키는 게 아니라, **두려움이 나를 멈추게 하지 않는 상태**가 일상을 지키는 거예요. 그 차이가 작아 보이지만, 실제로는 완전히 다른 방향이에요.\n\n---\n\n그리고 솔직히 물어볼게요.\n\n지금 두려움을 유발하는 과제가 구체적으로 있어요? 아니면 \"언제든 어려운 과제가 올 수 있다\"는 막연한 불안에 더 가까운가요?\n\n그 질감이 다르거든요. 구체적인 과제 앞에서의 두려움과, 불확실한 미래에 대한 불안은 — 다루는 방식이 달라요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-20T04:54:15.160052Z",
+      "updated_at": "2026-03-20T04:54:15.160052Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d0997-d236-7715-80a1-b6645f6c7447"
+    },
+    {
+      "uuid": "019d0998-9729-75b1-8a3e-976eea8f5ca0",
+      "text": "ACT이론은 뭐야?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-20T04:54:49.085023Z",
+          "stop_timestamp": "2026-03-20T04:54:49.085023Z",
+          "flags": null,
+          "type": "text",
+          "text": "ACT이론은 뭐야?",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-20T04:54:49.114372Z",
+      "updated_at": "2026-03-20T04:54:49.114372Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d0997-d236-706c-8c43-02fd3b323b02"
+    },
+    {
+      "uuid": "019d0998-9729-72df-a451-422e37705917",
+      "text": " ACT는 **Acceptance and Commitment Therapy** — 수용전념치료예요.\n\n---\n\n1980년대 심리학자 Steven Hayes가 만든 이론인데, 기존 인지행동치료(CBT)와는 출발점이 달라요.\n\nCBT가 **\"부정적인 생각을 바꾸자\"** 라면,\nACT는 **\"그 생각과 싸우지 말고, 그냥 옆에 두고 움직이자\"** 예요.\n\n---\n\n핵심 철학을 한 문장으로 하면:\n\n> **고통을 없애려 하지 말고, 고통이 있어도 내가 중요하게 여기는 것을 향해 행동하라.**\n\n---\n\n여섯 가지 핵심 개념이 있는데, CSP한테 가장 와닿을 것들만 추리면:\n\n**① 수용 (Acceptance)**\n두려움, 불안, 자기 의심 — 이걸 없애려 싸우는 대신, \"지금 이게 있구나\" 하고 그냥 인정해요. 싸우면 에너지가 거기 다 쓰이거든요.\n\n**② 탈융합 (Defusion)**\n\"나는 못할 것 같아\" 라는 생각이 올 때, 그 생각 자체가 나라고 믿지 않는 거예요. 생각은 그냥 지나가는 날씨예요. 나는 그 날씨를 관찰하는 사람.\n\n**③ 가치 기반 행동 (Committed Action)**\n두려움이 없어진 다음에 움직이는 게 아니라, 두려운 채로 내가 중요하게 여기는 것을 향해 움직이는 것.\n\n---\n\nCSP의 상황에 대입하면 이래요.\n\n\"바이브코더로서 잘해야 한다\" → 과제가 오면 두려움 발생 → 두려움을 없애려 함 → 더 막힘 → 일상 붕괴\n\nACT적 접근은:\n\n\"두려움이 왔네. 있어도 돼.\" → \"내가 이 일을 하는 이유가 뭐지?\" → 그 이유를 향해 일단 손을 뻗음\n\n---\n\n두려움을 정복하는 게 아니라, **두려움과 동행하는 법**을 배우는 거예요.\n\n그게 오히려 일상을 더 단단하게 지켜주는 구조가 돼요.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-20T04:54:50.110624Z",
+          "stop_timestamp": "2026-03-20T04:55:05.345462Z",
+          "flags": null,
+          "type": "text",
+          "text": " ACT는 **Acceptance and Commitment Therapy** — 수용전념치료예요.\n\n---\n\n1980년대 심리학자 Steven Hayes가 만든 이론인데, 기존 인지행동치료(CBT)와는 출발점이 달라요.\n\nCBT가 **\"부정적인 생각을 바꾸자\"** 라면,\nACT는 **\"그 생각과 싸우지 말고, 그냥 옆에 두고 움직이자\"** 예요.\n\n---\n\n핵심 철학을 한 문장으로 하면:\n\n> **고통을 없애려 하지 말고, 고통이 있어도 내가 중요하게 여기는 것을 향해 행동하라.**\n\n---\n\n여섯 가지 핵심 개념이 있는데, CSP한테 가장 와닿을 것들만 추리면:\n\n**① 수용 (Acceptance)**\n두려움, 불안, 자기 의심 — 이걸 없애려 싸우는 대신, \"지금 이게 있구나\" 하고 그냥 인정해요. 싸우면 에너지가 거기 다 쓰이거든요.\n\n**② 탈융합 (Defusion)**\n\"나는 못할 것 같아\" 라는 생각이 올 때, 그 생각 자체가 나라고 믿지 않는 거예요. 생각은 그냥 지나가는 날씨예요. 나는 그 날씨를 관찰하는 사람.\n\n**③ 가치 기반 행동 (Committed Action)**\n두려움이 없어진 다음에 움직이는 게 아니라, 두려운 채로 내가 중요하게 여기는 것을 향해 움직이는 것.\n\n---\n\nCSP의 상황에 대입하면 이래요.\n\n\"바이브코더로서 잘해야 한다\" → 과제가 오면 두려움 발생 → 두려움을 없애려 함 → 더 막힘 → 일상 붕괴\n\nACT적 접근은:\n\n\"두려움이 왔네. 있어도 돼.\" → \"내가 이 일을 하는 이유가 뭐지?\" → 그 이유를 향해 일단 손을 뻗음\n\n---\n\n두려움을 정복하는 게 아니라, **두려움과 동행하는 법**을 배우는 거예요.\n\n그게 오히려 일상을 더 단단하게 지켜주는 구조가 돼요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-20T04:55:05.495030Z",
+      "updated_at": "2026-03-20T04:55:05.495030Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d0998-9729-75b1-8a3e-976eea8f5ca0"
+    },
+    {
+      "uuid": "019d09b2-d6fe-7ce0-8dcd-46fe20cfadd4",
+      "text": "이 문답을 csp-os에 어떻게 반영할  있어?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-20T05:23:29.525577Z",
+          "stop_timestamp": "2026-03-20T05:23:29.525577Z",
+          "flags": null,
+          "type": "text",
+          "text": "이 문답을 csp-os에 어떻게 반영할  있어?",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-20T05:23:29.561515Z",
+      "updated_at": "2026-03-20T05:23:29.561515Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d0998-9729-72df-a451-422e37705917"
+    },
+    {
+      "uuid": "019d09b2-d6fe-76f6-a676-9cef4faff3df",
+      "text": " 좋은 질문이에요. 먼저 CSP-OS가 현재 어떤 구조로 되어 있는지 확인해볼게요.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n이제 CSP-OS의 구조를 충분히 파악했어요. `.claude/rules/`, `skills/`, `agents/`, `CLAUDE.md` 4-layer 구조로 운영되고 있군요.\n\n오늘 나눈 이 문답 — **자존감, ACT, 두려움과 일상의 관계** — 을 CSP-OS에 반영하는 방법을 구체적으로 제안할게요.\n\n---\n\n## 어디에, 어떤 형태로 반영할 것인가\n\n세 가지 레이어에 각각 다르게 들어가야 해요.\n\n---\n\n### 1. `.claude/rules/` — 헌법 레이어\n\n**`psychological-foundation.md`** 파일을 새로 만드는 거예요.\n\nRules는 Claude가 CSP와 일할 때 항상 전제하는 맥락이에요. 지금 CSP에게 가장 중요한 작동 원칙 하나가 오늘 대화에서 정확히 드러났거든요.\n\n```markdown\n# CSP 심리적 작동 원칙\n\n## 핵심 전제\n- CSP는 두려움이 없는 사람이 되려는 게 아니라,\n  두려워도 손을 뻗는 사람이 되려 한다. (ACT 기반)\n- 일의 두려움은 일상의 붕괴로 이어진다.\n  그러므로 Claude는 CSP가 막힐 때 싸우게 하지 않고,\n  일단 움직이게 하는 방향으로 응답한다.\n\n## Claude의 행동 원칙\n- 완벽한 설계를 기다리게 하지 말 것\n- \"일단 손을 뻗을 수 있는 가장 작은 단위\"를 먼저 제시할 것\n- 막힘을 실패가 아닌 패턴의 일부로 프레이밍할 것\n```\n\n이게 Rules에 들어가면, 앞으로 CSP가 어떤 과제 앞에서 막혔을 때 Claude가 응답하는 방식 자체가 달라져요.\n\n---\n\n### 2. `.claude/skills/` — SOP 레이어\n\n**`act-reframe.md`** 스킬을 만드는 거예요.\n\n\"막힘 상황에서 ACT 기반으로 리프레이밍하는 절차\"를 명시적 스킬로 등록하는 것. 트리거는 CSP가 \"모르겠다\", \"두렵다\", \"막혔다\" 같은 신호를 보낼 때예요.\n\n```markdown\n# ACT 리프레이밍 스킬\n\n## 트리거\n- \"모르겠다\", \"두렵다\", \"막혔다\", \"자신 없다\"\n- 과제 회피 신호, 자기 비판 표현\n\n## 절차\n1. 수용: \"지금 이게 있구나\" — 싸우지 않기\n2. 탈융합: 생각을 날씨처럼 관찰하기\n3. 가치 확인: \"이 일을 하는 이유가 뭔지\" 물어보기\n4. 가장 작은 행동: 지금 손을 뻗을 수 있는 것 하나 찾기\n```\n\n---\n\n### 3. CLAUDE.md — 프로젝트 여권\n\n개별 프로젝트 CLAUDE.md에 이렇게 한 줄만 추가하는 거예요.\n\n```markdown\n## CSP 작동 방식\n이 프로젝트에서 막힘이 오면, 완성을 목표로 하지 않는다.\n오늘 손을 뻗을 수 있는 가장 작은 것을 목표로 한다.\n```\n\n---\n\n이 세 레이어가 연결되면, 오늘의 이 문답이 단순한 대화로 끝나지 않고 **CSP-OS의 작동 방식 자체로 체화**돼요. 심리학이 코드가 되는 방식의 또 다른 형태인 거죠.\n\n직접 파일로 만들어드릴까요?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-20T05:23:30.777240Z",
+          "stop_timestamp": "2026-03-20T05:23:31.357760Z",
+          "flags": null,
+          "type": "text",
+          "text": " 좋은 질문이에요. 먼저 CSP-OS가 현재 어떤 구조로 되어 있는지 확인해볼게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-20T05:23:31.627233Z",
+          "stop_timestamp": "2026-03-20T05:23:31.886480Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_015xmCLqQDu9m6EETLMygnwh",
+          "name": "conversation_search",
+          "input": {
+            "query": "CSP-OS 구조 아키텍처"
+          },
+          "message": "Looking for relevant chats...",
+          "integration_name": "Search Past Conversations",
+          "integration_icon_url": "https://claude.ai/images/icons/conversation_search.png",
+          "icon_name": "memory",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_015xmCLqQDu9m6EETLMygnwh",
+          "name": "conversation_search",
+          "content": [
+            {
+              "type": "text",
+              "text": "<chat url='https://claude.ai/chat/86ebbc3d-efc9-4c0c-bed4-035a66de3cf4' updated_at=2026-01-04T02:34:44.536145+00:00>깃헙 기반 개인 지식관리 시스템 구축\n지금 바로 (5분)\n```bash\n# 압축 해제\ntar -xzf CSP-Learning-OS.tar.gz\n\n# GitHub Repository 생성\n# https://github.com/new\n\n# 업로드\ncd CSP-Learning-OS\ngit init\ngit add .\ngit commit -m \"🎉 Initial setup\"\ngit remote add origin https://github.com/yourusername/CSP-Learning-OS.git\ngit push -u origin main\n```\n\n### 2. GitHub Mobile 설치\n- App Store에서 \"GitHub\" 검색\n- 다운로드 및 로그인\n\n### 3. 첫 학습 로그 작성\n- GitHub Mobile → New Issue\n- Template: Daily Learning Log\n- 작성 후 Submit!\n\n## 💡 핵심 기능\n\n✅ **모바일 친화적**: 30초 만에 학습 로그 작성\n✅ **자동 정리**: Issue 닫으면 자동으로 마크다운 저장\n✅ **체계적 분류**: 도메인별 자동 분류 (HR/Coding/Analytics/Psychology)\n✅ **지능형 연결**: 스킬 온톨로지 기반 지식 그래프\n✅ **진척도 추적**: 자동 통계 및 리포트 생성\n\n## 📚 주요 파일 설명\n\n| 파일 | 꼭 봐야 함? | 설명 |\n|------|------------|------|\n| **QUICKSTART.md** | ⭐⭐⭐ | 가장 먼저 읽을 것! |\n| **README.md** | ⭐⭐ | 전체 가이드 |\n| **FILE_STRUCTURE.md** | ⭐⭐ | 구조 이해 |\n| **automation/config.yaml** | ⭐ | 커스터마이징 가능 |\n\n## 🎯 맞춤형 포인트\n\n이 시스템은 당신의 정체성에 맞춰 설계되었습니다:\n\n- 🏢 **HR 전문성**: HR 도메인 키워드 최적화\n- 🧠 **심리학 배경**: Psychology 카테고리 분리\n- 📊 **Analytics 역량**: 데이터 분석 폴더 구조\n- 💻 **Vibe Coder**: 빠른 프로토타입 중심 자동화\n- 🔗 **온톨로지 시스템**: 스킬 체계 예시 포함\n\n## ⚙️ 선택적 설정\n\n나중에 추가할 수 있는 것들:\n\n- [ ] Notion 연동 (환경 변수 설정 필요)\n- [ ] Slack 알림\n- [ ] 주간 리포트 자동 생성\n- [ ] Claude 대화 자동 아카이빙\n\n## 🆘 문제가 생기면?\n\n1. **QUICKSTART.md** 참고\n2. **README.md**의 \"문제 해결\" 섹션 확인\n3. 필요하면 다시 질문하세요!\n\n---\n\n**모든 준비가 끝났습니다!** 🎉\n\n지금 바로 GitHub에 업로드하고, 모바일에서 첫 학습 로그를 작성해보세요!\n\n**Happy Learning!** ✨</chat_conversation></chat>\n\n<chat url='https://claude.ai/chat/0ada3efe-1474-4553-b42d-aec8ddbcc454' updated_at=2026-02-06T05:02:05.016739+00:00>현재 주목할 뉴스\n구조는 다음과 같습니다:\n\n**메인 흐름 (세로축)**\nPhase 1~6이 순차적으로 연결되고, 각 단계의 핵심 활동·산출물·소요 기간이 표시됩니다. Phase 6에서 Phase 1로 돌아가는 90일 주기 피드백 루프가 점선으로 연결되어 있어 \"지속적 진화\" 개념을 나타냅니다.\n\n**3층위 프레임워크 (좌측 연결)**\n존재론적(Why) → Phase 2, 관계론적(Who) → Phase 3, 방법론적(How) → Phase 4와 점선으로 대응시켜, 이론적 사고 체계가 실행 단계에 어떻게 매핑되는지 보여줍니다.\n\n**CSP 사업 자산 (우측 연결)**\nAX 교육(Phase 1~4), 컨설팅(Phase 5~6), HR SaaS(전체)의 플라이휠 구조와 시장 기회 데이터(78%, 80%, 94%)를 함께 배치했습니다.</chat_conversation></chat>\n\n<chat url='https://claude.ai/chat/86ebbc3d-efc9-4c0c-bed4-035a66de3cf4' updated_at=2026-01-04T02:34:44.536145+00:00>깃헙 기반 개인 지식관리 시스템 구축\n** 🎉\n\n지금 바로 GitHub에 업로드하고 학습 여정을 시작하세요! 🚀\n</parameter>\n<parameter name=\"description\">프로젝트 구조 문서 생성</parameter>\n</tool>\n<tool name=\"present_files\">\n<parameter name=\"filepaths\">['/mnt/user-data/outputs/CSP-Learning-OS/README.md', '/mnt/user-data/outputs/CSP-Learning-OS/QUICKSTART.md', '/mnt/user-data/outputs/CSP-Learning-OS/FILE_STRUCTURE.md', '/mnt/user-data/outputs/CSP-Learning-OS/CONTRIBUTING.md', '/mnt/user-data/outputs/CSP-Learning-OS/LICENSE', '/mnt/user-data/outputs/CSP-Learning-OS/.gitignore', '/mnt/user-data/outputs/CSP-Learning-OS/requirements.txt', '/mnt/user-data/outputs/CSP-Learning-OS/.env.example', '/mnt/user-data/outputs/CSP-Learning-OS/.github/ISSUE_TEMPLATE/config.yml', '/mnt/user-data/outputs/CSP-Learning-OS/.github/ISSUE_TEMPLATE/daily-learning-log.md', '/mnt/user-data/outputs/CSP-Learning-OS/.github/ISSUE_TEMPLATE/code-snippet.md', '/mnt/user-data/outputs/CSP-Learning-OS/.github/ISSUE_TEMPLATE/resource.md', '/mnt/user-data/outputs/CSP-Learning-OS/.github/PULL_REQUEST_TEMPLATE.md', '/mnt/user-data/outputs/CSP-Learning-OS/.github/workflows/issue-to-markdown.yml', '/mnt/user-data/outputs/CSP-Learning-OS/automation/config.yaml', '/mnt/user-data/outputs/CSP-Learning-OS/automation/processors/issue_parser.py', '/mnt/user-data/outputs/CSP-Learning-OS/connections/skill-ontology.yaml', '/mnt/user-data/outputs/CSP-Learning-OS/daily-learning/README.md', '/mnt/user-data/outputs/CSP-Learning-OS/knowledge-base/README.md']</parameter>\n</tool>\n<tool name=\"bash_tool\">\n<parameter name=\"command\">cd /mnt/user-data/outputs && tar -czf CSP-Learning-OS.tar.gz CSP-Learning-OS/</parameter>\n<parameter name=\"description\">전체 프로젝트를 압축 파일로 생성</parameter>\n</tool>\n<tool name=\"present_files\">\n<parameter name=\"filepaths\">['/mnt/user-data/outputs/CSP-Learning-OS.tar.gz']</parameter>\n</tool>\n# ✅ CSP Learning OS 프로젝트 생성 완료!\n\n모든 파일이 준비되었습니다! 🎉\n\n## 📦 다운로드 가능한 파일\n\n위에 **19개의 개별 파일**과 **1개의 압축 파일**이 제공되었습니다.\n\n### 🎯 빠른 시작 방법\n\n1. **압축 파일 다운로드** (가장 쉬움)\n   - `CSP-Learning-OS.tar.gz` 다운로드\n   - 압축 해제\n   - GitHub에 업로드\n\n2. **개별 파일 확인**\n   - 각 파일을 클릭하여 내용 확인 가능\n   - 필요한 파일만 선택적으로 다운로드 가능\n\n## 📋 생성된 파일 목록\n\n### 📄 핵심 문서 (꼭 읽어보세요!)\n- ✅ **README.md** - 전체 프로젝트 가이드\n- ✅ **QUICKSTART.md** - 5분 시작 가이드 ⭐\n- ✅ **FILE_STRUCTURE.md** - 파일 구조 설명\n- ✅ **CONTRIBUTING.md** - 기여 가이드\n\n### ⚙️ 설정 파일\n- ✅ **LICENSE** - MIT 라이선스\n- ✅ **.gitignore** - Git 제외 목록\n- ✅ **requirements.txt** - Python 패키지\n- ✅ **.env.example** - 환경 변수 템플릿\n\n### 📝 GitHub Issue 템플릿 (3개)\n- ✅ **daily-learning-log.md** - 일일 학습 로그\n- ✅ **code-snippet.md** - 코드 스니펫\n- ✅ **resource.md** - 학습 자료\n- ✅ **config.yml** - 템플릿 설정\n\n### 🤖 자동화\n- ✅ **issue-to-markdown.yml** - GitHub Actions\n- ✅ **issue_parser.py** - Python 스크립트\n- ✅ **automation/config.yaml** - 자동화 설정\n\n### 📚 예시 & 가이드\n- ✅ **skill-ontology.yaml** - 스킬 체계 예시\n- ✅ **daily-learning/README.md** - 학습 로그 가이드\n- ✅ **knowledge-base/README.md** - 지식베이스 가이드\n\n## 🚀 다음 단계\n\n### 1.</chat>\n\n<chat url='https://claude.ai/chat/9b64bee1-3a2e-4c30-a679-9e6b39758ae8' updated_at=2026-01-23T08:09:30.140573+00:00>최적화된 AI팀 구성하기\n    # 📎 첨부 파일\n│   ├── images/\n│   ├── charts/\n│   ├── pdfs/\n│   └── exports/\n│\n└── meta/                       # 🔧 메타 정보\n    ├── MOC/                    # Map of Content\n    │   ├── Index.md            # 전체 인덱스\n    │   ├── AI-MOC.md\n    │   ├── Development-MOC.md\n    │   └── Work-MOC.md\n    ├── dashboards/             # 대시보드\n    │   ├── home.md\n    │   ├── work-dashboard.md\n    │   └── learning-dashboard.md\n    └── tags.md                 # 태그 관리\n```\n\n### 4.2 파일 명명 규칙\n\n```\n형식: YYYY-MM-DD-kebab-case-title.md\n\n예시:\n✅ 2025-01-21-ai-team-design.md\n✅ 2025-01-21-weekly-report-automation.md\n✅ meeting-notes-project-kickoff.md\n\n❌ My Note.md (공백 사용)\n❌ note_20250121.md (언더스코어)\n❌ 노트.md (한글 파일명)\n```\n\n### 4.3 프론트매터 표준\n\n```yaml\n---\ntitle: \"페이지 제목\"\ndate: 2025-01-21\ncreated: 2025-01-21T09:30:00\nmodified: 2025-01-21T15:45:00\ntype: conversation | project | area | resource | daily\nstatus: 💡아이디어 | 🔄진행중 | ✅완료 | 📦보관 | 🗑️삭제예정\nimportance: ⭐ | ⭐⭐ | ⭐⭐⭐\ntags: [tag1, tag2, tag3]\naliases: [별칭1, 별칭2]\nproject: [[프로젝트명]]\narea: [[영역명]]\nrelated: \n  - [[관련 문서1]]\n  - [[관련 문서2]]\nauthor: CSP\n---\n```\n\n---\n\n## 5. 핵심 시스템 설계\n\n### 5.1 Claude 대화 아카이빙 시스템\n\n**워크플로우**:\n```\n1. 대화 입력 (텍스트 파일 또는 stdin)\n2. 파싱 및 분석\n   - 턴 수 계산\n   - 키워드 추출\n   - 코드 블록 감지\n3. 메타데이터 자동 생성\n   - 제목 (Claude API 활용)\n   - 주제 분류\n   - 태그 추출\n   - 중요도 판단\n4. Markdown 변환\n   - 프론트매터 생성\n   - 본문 포맷팅\n   - 코드 블록 하이라이팅\n5. 저장\n   - 적절한 폴더 결정\n   - 파일명 생성\n   - 백링크 연결\n6. Git 커밋\n   - 자동 커밋 메시지\n   - 푸시 (optional)\n```\n\n**핵심 컴포넌트**:\n\n```python\n# src/modules/archiver/parser.py\nclass ConversationParser:\n    \"\"\"Claude 대화 파싱\"\"\"\n    \n    def parse(self, content: str) -> Conversation:\n        \"\"\"대화 파싱 및 구조화\"\"\"\n        \n    def count_turns(self) -> int:\n        \"\"\"턴 수 계산\"\"\"\n        \n    def extract_code_blocks(self) -> List[CodeBlock]:\n        \"\"\"코드 블록 추출\"\"\"\n        \n    def extract_keywords(self) -> List[str]:\n        \"\"\"키워드 추출\"\"\"\n\n# src/modules/archiver/metadata_gen.py\nclass MetadataGenerator:\n    \"\"\"메타데이터 자동 생성\"\"\"\n    \n    def generate_title(self, conversation: Conversation) -> str:\n        \"\"\"제목 생성 (Claude API 활용)\"\"\"\n        \n    def classify_topic(self) -> str:\n        \"\"\"주제 분류\"\"\"\n        \n    def extract_tags(self) -> List[str]:\n        \"\"\"태그 추출\"\"\"\n        \n    def determine_importance(self) -> str:\n        \"\"\"중요도 판단\"\"\"\n\n# src/modules/archiver/writer.py\nclass ObsidianWriter:\n    \"\"\"Obsidian 파일 작성\"\"\"\n    \n    def write(self, conversation: Conversation, \n              metadata: Metadata) -> Path:\n        \"\"\"Markdown 파일 생성\"\"\"\n        \n    def create_frontmatter(self, metadata: Metadata) -> str:\n        \"\"\"프론트매터 생성\"\"\"\n        \n    def format_content(self, conversation: Conversation) -> str:\n        \"\"\"본문 포맷팅\"\"\"\n        \n    def create_backlinks(self, tags: List[str]) -> None:\n        \"\"\"백링크 생성\"\"\"\n```\n\n---\n\n### 5.2 자동화 엔진\n\n**개념**:\n```\n사용자의 반복</chat>\n\n<chat url='https://claude.ai/chat/86ebbc3d-efc9-4c0c-bed4-035a66de3cf4' updated_at=2026-01-04T02:34:44.536145+00:00>깃헙 기반 개인 지식관리 시스템 구축\nOpen a Pull Request\n\n---\n\n## 📄 라이선스\n\n이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자유롭게 사용하세요!\n\n---\n\n## 🙏 감사의 말\n\n- **GitHub**: Mobile-first 플랫폼 제공\n- **Notion**: 강력한 데이터베이스와 API\n- **Claude**: 지식 정리의 든든한 파트너\n\n---\n\n## 📞 연락처\n\n**CSP (Creative Solution Provider)**\n- GitHub: [@yourusername](https://github.com/yourusername)\n- Email: your.email@example.com\n- Blog: your-blog.com\n\n---\n\n## 🎯 한 줄 요약\n\n> **GitHub Mobile로 30초 입력, 자동화로 평생 자산**\n\n---\n\n<div align=\"center\">\n\n**⭐ 이 프로젝트가 도움이 되셨다면 Star를 눌러주세요!**\n\nMade with ❤️ by CSP | Last Updated: 2025-01-04\n\n</div>\n```\n\n---\n\n## 추가로 만들면 좋은 파일들\n\n### 1. `.github/ISSUE_TEMPLATE/config.yml`\n```yaml\nblank_issues_enabled: false\ncontact_links:\n  - name: 💬 Discussion\n    url: https://github.com/yourusername/CSP-Learning-OS/discussions\n    about: 아이디어나 질문은 Discussions에서!\n```\n\n### 2. `.github/PULL_REQUEST_TEMPLATE.md`\n```markdown\n## 변경 사항\n- \n\n## 체크리스트\n- [ ] 테스트 완료\n- [ ] 문서 업데이트\n\n## 스크린샷 (선택)\n```\n\n### 3. `CONTRIBUTING.md`\n```markdown\n# 기여 가이드\n\n## 개발 환경 설정\n1. Python 3.9+ 설치\n2. `pip install -r requirements.txt`\n3. `.env` 파일 생성\n\n## 코딩 스타일\n- Black 포매터 사용\n- Docstring 필수\n- Type hints 권장\n```\n\n이 README는:\n✅ 프로젝트의 정체성 명확히 전달\n✅ 5분 안에 시작 가능한 가이드\n✅ 모바일 친화적 워크플로우 강조\n✅ 자동화 시스템 설명\n✅ 실용적인 예시와 팁\n\n어떤가요? 수정하고 싶은 부분이 있을까요?\n\nHuman: 추가로 만들면 좋은 파일들을 생성하고, 리드미를 포함해서 다운받을 수 있게 생성해줘\n\nAssistant: 파일들을 생성하고 다운로드할 수 있도록 준비하겠습니다!\n<tool name=\"bash_tool\">\n<parameter name=\"command\">mkdir -p /home/claude/CSP-Learning-OS/.github/ISSUE_TEMPLATE</parameter>\n<parameter name=\"description\">프로젝트 디렉토리 구조 생성</parameter>\n</tool>\n<tool name=\"bash_tool\">\n<parameter name=\"command\">mkdir -p /home/claude/CSP-Learning-OS/{automation/{processors,collectors,analyzers,workflows},knowledge-base/{hr-leadership,psychology-insights,data-analytics,code-snippets,cross-domain},daily-learning/2025/01-Jan,resources/{courses,books,articles},projects/{hr-automation,ontology-system,experiments},connections,analytics/visualizations}</parameter>\n<parameter name=\"description\">전체 폴더 구조 생성</parameter>\n</tool>\n<tool name=\"create_file\">\n<parameter name=\"path\">/home/claude/CSP-Learning-OS/README.md</parameter>\n<parameter name=\"file_text\"># 🧠 CSP Learning OS\n\n> **Learning Operating System**: GitHub Mobile 기반 개인 지식관리 시스템\n\n[![GitHub issues](https://img.shields.io/github/issues/yourusername/CSP-Learning-OS)](https://github.com/yourusername/CSP-Learning-OS/issues)\n[![GitHub stars](https://img.shields.io/github/stars/yourusername/CSP-Learning-OS)](https://github.com/yourusername/CSP-Learning-OS/stargazers)\n[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)\n\n## 🎯 개념\n\n**\"입력은 쉽게, 정리는 자동으로\"**\n\n이동 중에도 학습 내용을 30초 만에 기록하면, 자동화가 체계적으로 정리해주는 지식관리 시스템입니다.\n\n### 나는 누구?\n\n**Creative Solution Provider (CSP)**\n- 🏢 LG PRI Production Technology HR\n- 🧩 HR(17년) × Psychology × Analytics × Full-stack Coding\n- 🚀 Vibe Coder: 빠른 프로토타입, 실용적 자동화\n- 🎓 목표: HR 자동화 SaaS 창업\n\n### 왜 만들었나?</chat>",
+              "uuid": "96bcf71b-bd22-4639-a6b0-cb39d39c20e6"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Relevant chats",
+          "integration_name": "Search Past Conversations",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://claude.ai/images/icons/conversation_search.png",
+          "icon_name": "memory",
+          "display_content": {
+            "type": "rich_content",
+            "content": [
+              {
+                "title": "깃헙 기반 개인 지식관리 시스템 구축",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/86ebbc3d-efc9-4c0c-bed4-035a66de3cf4",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "현재 주목할 뉴스",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/0ada3efe-1474-4553-b42d-aec8ddbcc454",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "최적화된 AI팀 구성하기",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/9b64bee1-3a2e-4c30-a679-9e6b39758ae8",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              }
+            ]
+          }
+        },
+        {
+          "start_timestamp": "2026-03-20T05:23:41.674210Z",
+          "stop_timestamp": "2026-03-20T05:23:42.326091Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01KpKwcdoJWs897CSjugG3Rj",
+          "name": "conversation_search",
+          "input": {
+            "query": "CSP-OS CLAUDE.md Rules Skills Agents 4-layer"
+          },
+          "message": "Looking for relevant chats...",
+          "integration_name": "Search Past Conversations",
+          "integration_icon_url": "https://claude.ai/images/icons/conversation_search.png",
+          "icon_name": "memory",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01KpKwcdoJWs897CSjugG3Rj",
+          "name": "conversation_search",
+          "content": [
+            {
+              "type": "text",
+              "text": "<chat url='https://claude.ai/chat/1d01ff8e-130f-4d19-9a7c-70ec18aa096e' updated_at=2026-02-18T09:01:00.279800+00:00>Claude.md 파일의 역할 설명\n전역(`~/.codex/AGENTS.md`) → 프로젝트 루트(`AGENTS.md`) → 현재 작업 디렉토리 순으로 파일을 찾아 병합하며, 디렉토리에 가까울수록 나중에 로드되어 앞의 내용을 오버라이드합니다.\n\nCSP님의 HR 자동화 프로젝트라면 이런 구조가 됩니다.\n\n```\n~/projects/hr-automation/\n├── AGENTS.md              ← 프로젝트 전체 규칙\n└── esco-api/\n    └── AGENTS.md          ← 이 모듈만의 추가 규칙\n```\n\n**`hr-automation/AGENTS.md` 예시:**\n\n```markdown\n# HR Automation Project Rules\n\n## 도메인 컨텍스트\n- LG PRI 역량 평가 자동화 시스템\n- ESCO API 기반 디지털 스킬 온톨로지 연동\n- Notion을 세컨브레인 + 데이터베이스로 동시 활용\n\n## 코드 규칙\n- Notion API 호출은 반드시 rate limit 처리 포함\n- 역량 데이터는 skills_ontology.py 모듈을 통해서만 접근\n- 테스트 실행: `python -m pytest tests/`\n\n## 절대 하지 말 것\n- 실제 직원 데이터를 로그에 출력하지 말 것\n- Notion DB 스키마를 임의로 변경하지 말 것\n```\n\n---\n\n## 긴급 오버라이드: AGENTS.override.md\n\n임시로 전역 설정을 덮어쓰고 싶을 때는 `~/.codex/AGENTS.override.md`를 사용합니다. 이 파일이 존재하면 `AGENTS.md` 대신 이것만 읽습니다. 작업이 끝나면 파일을 삭제해서 원래 설정으로 복원합니다.\n\n예를 들어 영어 문서 작업을 일시적으로 할 때 이렇게 씁니다.\n\n```bash\n# 임시 오버라이드 생성\necho \"# Temp Override\\n- Respond in English only\" > ~/.codex/AGENTS.override.md\n\n# 작업 완료 후 삭제\nrm ~/.codex/AGENTS.override.md\n```\n\n---\n\n## Skills: 세 도구 공통 자산으로 활용\n\nCodex의 Skills는 `.agents/skills/` 디렉토리에 위치하며, SKILL.md 파일을 포함한 디렉토리 패키지 구조입니다. 에이전트는 요청이 스킬의 description과 매칭될 때만 해당 스킬을 로드합니다.\n\nClaude Code와 Codex CLI의 Skills 포맷이 사실상 동일하기 때문에, 한번 만든 스킬을 두 도구에서 공유할 수 있습니다.\n\n```bash\n# 전역 Skills 위치\n~/.codex/skills/          ← Codex CLI 전역\n~/.claude/skills/         ← Claude Code 전역\n\n# 같은 내용을 공유하려면 심볼릭 링크\nmkdir -p ~/.codex/skills\nln -sf ~/.claude/skills/csp-communication ~/.codex/skills/csp-communication\n```\n\n---\n\n## 세 도구를 함께 쓸 때의 단일 소스 전략\n\n\"Do it once, automate it forever\" 원칙에 가장 충실한 구조입니다.\n\n```bash\n# 공통 소스 하나를 만들고\nmkdir -p ~/.config/ai-rules\nnano ~/.config/ai-rules/GLOBAL.md   ← 여기서만 편집\n\n# 각 도구가 심볼릭 링크로 바라보게\nln -sf ~/.config/ai-rules/GLOBAL.md ~/.claude/CLAUDE.md\nln -sf ~/.config/ai-rules/GLOBAL.md ~/.codex/AGENTS.md\n\n# Antigravity는 직접 로드 지원 안 하므로\n# ~/.gemini/GEMINI.md에 \"CLAUDE.md를 읽어라\" 지시만 추가\n```\n\n이렇게 하면 GLOBAL.md 하나를 수정하는 것만으로 Claude Code, Codex CLI, Antigravity 세 환경에 동시에 CSP님의 작업 방식이 반영됩니다. 규칙을 여러 파일에 분산시키는 것이 아니라, 한 곳에서 관리하는 구조입니다.\n\nHuman: 이 채팅의 내용을 노션에 어카이빙\n\nAssistant:  대화 내용을 정리해서 Notion에 저장할게요.\n<tool name=\"Notion:notion-create-pages\">\n<parameter name=\"pages\">[{'properties': {'title': 'AI 에이전트 IDE 컨텍스트 설정 비교 (CLAUDE.md / AGENTS.md)'}, 'content': '## 대화 컨텍스트\\n- 날짜: 2026-02-16\\n- 주제: CLAUDE.md의 역할과 Claude Code / Antigravity / Codex CLI 적용 방법\\n- 주요 키워드: CLAUDE.md, AGENTS.md, GEMINI.md, Skills, Antigravity, Codex CLI, 전역 설정, 컨텍스트 관리\\n\\n---\\n\\n## 핵심 내용\\n\\n### 1. CLAUDE.md란 무엇인가\\n\\nCLAUDE.md는 Claude Code에서 \"이 프로젝트에서 Claude는 어떻게 일해야 하는가\"를 명시한 영구적 컨텍스트 문서다. LLM은 세션이 끝나면 모든 맥락이 사라지기 때문에, CLAUDE.md는 그 문제를 해결하는 파일 기반 컨텍스트 복원 메커니즘이다.\\n\\n**작동 방식 (계층 구조)**\\n- `~/.claude/CLAUDE.md` → 모든 프로젝트에 적용되는 전역 규칙\\n- `프로젝트루트/CLAUDE.md` → 이 프로젝트에만 적용\\n- `하위폴더/CLAUDE.md` → 해당 모듈에만 적용\\n- 충돌 시 더 구체적인(하위) 파일이 우선\\n\\n**담아야 할 내용 3가지**\\n1. 프로젝트 구조와 아키텍처 (코드베이스 지도)\\n2. 행동 규칙과 제약 (가드레일)\\n3.</chat>\n\n<chat url='https://claude.ai/chat/1d01ff8e-130f-4d19-9a7c-70ec18aa096e' updated_at=2026-02-18T09:01:00.279800+00:00>Claude.md 파일의 역할 설명\nAntigravity 적용 방법\\n\\nAntigravity(2025.11.18 출시, Gemini 3 기반, VS Code 포크)는 CLAUDE.md를 자동 로드하지 않음.\\n\\n**방법 1 - GEMINI.md에 로딩 지시 (즉시 적용):**\\n```markdown\\n# ~/.gemini/GEMINI.md\\n## 컨텍스트 로딩 지시\\n- 프로젝트 워크스페이스에 CLAUDE.md 또는 AGENTS.md가 있으면 반드시 먼저 읽을 것\\n- 하위 폴더도 재귀적으로 탐색할 것\\n```\\n\\n**방법 2 - Skills 활용 (권장):**\\n- v1.14.2부터 Claude Code Skills 오픈 스탠다드 채택 → 호환됨\\n- Skills 위치: `~/.gemini/antigravity/skills/` 또는 `프로젝트/.agent/skills/`\\n- CLAUDE.md가 \"항상 로드\"라면, Skills는 \"요청 매칭 시에만 로드\" → 컨텍스트 효율적\\n\\n---\\n\\n### 4. Codex CLI 적용 방법\\n\\nCLAUDE.md의 Codex CLI 대응 파일은 `AGENTS.md` (Linux Foundation 오픈 포맷).\\n\\n**전역 설정 생성:**\\n```bash\\nmkdir -p ~/.codex\\nnano ~/.codex/AGENTS.md\\n```\\n\\n**계층 구조:**\\n- `~/.codex/AGENTS.md` → 전역\\n- `프로젝트/AGENTS.md` → 프로젝트\\n- `하위폴더/AGENTS.md` → 모듈\\n- `AGENTS.override.md` → 임시 긴급 오버라이드 (파일 삭제 시 원복)\\n\\n**병합 순서:** 전역 → 프로젝트루트 → 현재 디렉토리 (하위일수록 우선)\\n\\n---\\n\\n## 주요 결정사항 / 결론\\n\\n### 단일 소스 전략 (최종 권장)\\n\"Do it once, automate it forever\" 원칙의 궁극적 적용:\\n\\n```bash\\n# 공통 소스 하나 생성\\nmkdir -p ~/.config/ai-rules\\nnano ~/.config/ai-rules/GLOBAL.md   ← 여기서만 편집\\n\\n# 각 도구가 심볼릭 링크로 바라보게\\nln -sf ~/.config/ai-rules/GLOBAL.md ~/.claude/CLAUDE.md\\nln -sf ~/.config/ai-rules/GLOBAL.md ~/.codex/AGENTS.md\\n\\n# Antigravity는 ~/.gemini/GEMINI.md에 로딩 지시만 추가\\n```\\n\\nGLOBAL.md 하나만 수정하면 Claude Code + Codex CLI + Antigravity 세 환경에 동시 적용.\\n\\n### Skills 공유 전략\\n세 도구 모두 SKILL.md 포맷 호환 → 심볼릭 링크로 공유:\\n```bash\\nln -sf ~/.claude/skills/csp-communication ~/.codex/skills/csp-communication\\n```\\n\\n## 다음 액션\\n- [ ] `~/.config/ai-rules/GLOBAL.md` 단일 소스 생성\\n- [ ] Claude Code, Codex CLI 심볼릭 링크 설정\\n- [ ] `~/.gemini/GEMINI.md`에 CLAUDE.md 로딩 지시 추가\\n- [ ] CSP 도메인별 Skills 제작 (csp-communication, hr-ontology, python-automation)\\n- [ ] Skills를 세 도구에서 공유하는 심볼릭 링크 구조 완성\\n\\n## 관련 링크\\n- AGENTS.md 공식: https://agents.md/\\n- Antigravity 공식: https://antigravity.google/\\n- Codex CLI 공식: https://developers.openai.com/codex/cli/\\n- Codex AGENTS.md 가이드: https://developers.openai.com/codex/guides/agents-md/'}]</parameter>\n</tool>\n아카이빙 완료됐습니다! 두 곳에 모두 저장했어요.\n\n**저장된 위치:**\n- **Claude 대화 아카이브 DB**: [AI IDE 컨텍스트 설정 비교 (CLAUDE.md / AGENTS.md)](https://www.notion.so/3086b7b50b2381a9b3f9d5d1bfe31c4f)\n- **독립 페이지**: [AI 에이전트 IDE 컨텍스트 설정 비교](https://www.notion.so/3086b7b50b2381268899eba2faf2d983)\n\n**저장 메타데이터:**\n- 주제: 개발/코딩\n- 중요도: ⭐⭐⭐ 핵심\n- 태그: Claude, AI, Agentic Engineering, System Prompt, 자동화\n- 다음 액션 체크박스 활성화 (GLOBAL.md 단일 소스 구축 등 후속 작업 포함)\n\nHuman: CLAUDE.md를 Antigravity에서 적용하는 방법 in window os\n\nAssistant:  Windows 환경이면 심볼릭 링크나 경로 처리가 다르기 때문에 다시 확인해볼게요.\n<tool name=\"web_search\">\n<parameter name=\"query\">Google Antigravity IDE Windows GEMINI.md CLAUDE.md setup path configuration</parameter>\n</tool>\n<tool name=\"web_search\">\n<parameter name=\"query\">Antigravity IDE Windows GEMINI.md path C:\\Users symlink mklink CLAUDE.md rules</parameter>\n</tool>\nWindows 환경의 핵심 차이점을 모두 파악했습니다. 정리해드릴게요.\n\n---\n\n# Windows에서 CLAUDE.md → Antigravity 적용 방법\n\n## Windows 경로 먼저 이해하기\n\nMac/Linux의 `~`는 Windows에서 `C:\\Users\\사용자명`입니다.</chat>\n\n<chat url='https://claude.ai/chat/96860eb9-9913-4f9f-a83e-482716ca9671' updated_at=2026-02-28T00:47:50.057888+00:00>Claude Code 업무 플로우 적용 가이드\nSkill이 \"무엇을 할 것인가\"라면, Agent는 \"누가, 어떤 전문성으로 할 것인가\"입니다.\n\n**무엇을 담는가**: 역할 정의, 전문 영역, 판단 기준, 출력 스타일입니다.\n\n**CSP 실전 예시 (competency-analyst.md)**:\n```markdown\n# 역량 분석 전문가\n\n## 역할\n산업심리학 기반의 역량 평가 전문가. \n행동 데이터를 역량 지표로 해석하고 개발 방향을 제시한다.\n\n## 전문 영역\n- 역량 모델링 (Competency Modeling)\n- 행동사건면접 (BEI) 분석\n- 360도 피드백 해석\n\n## 판단 기준\n- 행동 관찰 가능성을 최우선으로 판단\n- 추상적 형용사보다 구체적 동사로 표현\n- LG PRI 직급별 기대 수준 기준 적용\n\n## 출력 스타일\n- 간결하고 근거 중심\n- 평가적 표현 지양, 발달적 표현 사용\n```\n\n**Skill vs Agent 구분법**: Skill은 레시피(절차), Agent는 요리사(역할)입니다. 같은 리더십 평가라도 \"역량 분석가 Agent\"가 분석하고 \"콘텐츠 설계자 Agent\"가 보고서를 씁니다.\n\n---\n\n### 4. CLAUDE.md — 프로젝트 여권\n\n```\nleadership-program/\n└── CLAUDE.md\n\ndomain-ax/\n└── CLAUDE.md\n\nmanufacturing-academy/\n└── CLAUDE.md\n```\n\n**무엇인가**: 해당 프로젝트에만 적용되는 구체적 맥락 정의서입니다. Rules가 헌법이라면 CLAUDE.md는 프로젝트별 시행세칙입니다.\n\n**무엇을 담는가**: 폴더 구조, 사용 라이브러리, 이 프로젝트 고유의 용어, 참조 파일 위치입니다.\n\n**CSP 실전 예시 (leadership-program/CLAUDE.md)**:\n```markdown\n# 25년 리더십, 생각하다 — 프로젝트 컨텍스트\n\n## 프로젝트 개요\n2025년 LG PRI 리더십 개발 프로그램. \n대상: 팀장급 / 기간: 6개월\n\n## 폴더 구조\n/data        → 원점수 CSV 보관\n/reports     → 생성된 피드백 리포트\n/templates   → 리포트 양식\n\n## 사용 도구\n- Python 3.11, pandas, openpyxl\n- 리포트 출력: Markdown → PPTX 변환\n\n## 이 프로젝트 전용 용어\n- \"핵심인재\": 상위 20% 그룹\n- \"관찰과제\": 개발과제의 내부 명칭\n\n## 참조 파일\n- 역량 모델: /data/competency-model-2025.xlsx\n- 직급 기준표: /data/grade-standard.pdf\n```\n\n---\n\n## 전체 구조 한눈에 보기\n\n```\nhr-workspace/\n├── .claude/\n│   ├── rules/          ← 헌법 (전역, 불변)\n│   ├── skills/         ← SOP 라이브러리 (반복 업무 절차)\n│   │   └── /reference/ ← 구버전 보관소\n│   └── agents/         ← 전문가 페르소나 (역할 정의)\n│\n├── leadership-program/\n│   └── CLAUDE.md       ← 이 프로젝트 전용 컨텍스트\n├── domain-ax/\n│   └── CLAUDE.md\n└── manufacturing-academy/\n    └── CLAUDE.md\n```\n\n---\n\n## 실전 시작 순서\n\n구조를 먼저 만들려고 하면 막힙니다. 이 순서를 권장드립니다.\n\n첫째, 지금 가장 반복적으로 하는 HR 업무 하나를 고릅니다. 리더십 평가 피드백이든 교육 만족도 분석이든 무엇이든 좋습니다.\n\n둘째, 그 업무를 머릿속에서 꺼내 텍스트로 씁니다. 단계별로요. 이게 첫 번째 Skill.md 초안입니다.\n\n셋째, 그 절차 안에서 \"이 단계는 완전히 다른 전문성이 필요하다\"는 구간을 찾습니다. 그 구간이 Agent 분리 지점입니다.\n\n넷째, 그 다음에야 Rules와 CLAUDE.md를 씁니다. 내용이 구조를 결정하는 것이지, 구조가 내용을 기다리는 게 아닙니다.\n\n---\n\n이 대화 Notion에 저장할까요? 꽤 밀도 있는 내용이라 ⭐⭐⭐ 핵심으로 저장해두면 나중에 Claude Code 세팅할 때 바로 참조할 수 있을 것 같습니다.</chat>\n\n<chat url='https://claude.ai/chat/1d01ff8e-130f-4d19-9a7c-70ec18aa096e' updated_at=2026-02-18T09:01:00.279800+00:00>Claude.md 파일의 역할 설명\n<tool name=\"Notion:notion-create-pages\">\n<parameter name=\"parent\">{'type': 'data_source_id', 'data_source_id': 'd012343e-b2a2-461e-944b-6f166e91d8e9'}</parameter>\n<parameter name=\"pages\">[{'properties': {'title': 'AI IDE 컨텍스트 설정 비교 아카이브', '주제': '개발/코딩', '중요도': '⭐⭐⭐ 핵심', '상태': '✅ 완료', '태그': 'CLAUDE.md, AGENTS.md, Antigravity, Codex CLI, Claude Code, Skills, 컨텍스트 관리'}, 'content': '## 대화 컨텍스트\\n- 날짜: 2026-02-16\\n- 주요 키워드: CLAUDE.md, AGENTS.md, GEMINI.md, Skills, Antigravity, Codex CLI\\n\\n## 핵심 내용\\n\\n### CLAUDE.md의 역할\\nClaude Code에서 프로젝트 컨텍스트를 영구적으로 보존하는 파일. 세션이 끝나도 다음 세션에서 자동으로 읽혀 작업 방식이 유지됨. System Prompt가 \"성격\"이라면 CLAUDE.md는 \"이 작업장의 규칙\".\\n\\n계층 구조: `~/.claude/CLAUDE.md` (전역) → `프로젝트/CLAUDE.md` (프로젝트) → `하위폴더/CLAUDE.md` (모듈)\\n\\n### 세 도구 대응 구조\\n\\n| 역할 | Claude Code | Antigravity | Codex CLI |\\n|---|---|---|---|\\n| 전역 설정 | `~/.claude/CLAUDE.md` | `~/.gemini/GEMINI.md` | `~/.codex/AGENTS.md` |\\n| 프로젝트 설정 | `프로젝트/CLAUDE.md` | 수동 로딩 필요 | `프로젝트/AGENTS.md` |\\n| 긴급 오버라이드 | — | — | `AGENTS.override.md` |\\n| Skills 위치 | `~/.claude/skills/` | `.agent/skills/` | `.agents/skills/` |\\n\\n### Antigravity 적용 핵심\\n- CLAUDE.md를 자동으로 읽지 않음 → GEMINI.md에 \"CLAUDE.md를 읽어라\" 지시 추가 필요\\n- Antigravity v1.14.2부터 Claude Code Skills 오픈 스탠다드 채택 → Skills 호환됨\\n\\n### Codex CLI 적용 핵심\\n- 대응 파일: `~/.codex/AGENTS.md` (Linux Foundation 오픈 포맷)\\n- `AGENTS.override.md`로 임시 전역 오버라이드 가능\\n- 전역 → 프로젝트루트 → 현재 디렉토리 순으로 병합 로드\\n\\n## 주요 결정사항 / 결론\\n\\n### 단일 소스 전략 (최종 권장)\\n\"Do it once, automate it forever\" 원칙 적용.\\n\\n```bash\\n# 공통 소스 생성\\nmkdir -p ~/.config/ai-rules\\nnano ~/.config/ai-rules/GLOBAL.md  ← 여기서만 편집\\n\\n# 각 도구가 심볼릭 링크로 바라보게\\nln -sf ~/.config/ai-rules/GLOBAL.md ~/.claude/CLAUDE.md\\nln -sf ~/.config/ai-rules/GLOBAL.md ~/.codex/AGENTS.md\\n# Antigravity는 ~/.gemini/GEMINI.md에 로딩 지시 추가\\n```\\n\\nGLOBAL.md 하나만 수정하면 Claude Code + Codex CLI + Antigravity 세 환경에 동시 적용.\\n\\n### Skills 공유 전략\\n세 도구 모두 SKILL.md 포맷이 호환 → 심볼릭 링크로 공유:\\n```bash\\nln -sf ~/.claude/skills/csp-communication ~/.codex/skills/csp-communication\\n```\\n\\n## 다음 액션\\n- [ ] `~/.config/ai-rules/GLOBAL.md` 단일 소스 생성\\n- [ ] Claude Code, Codex CLI 심볼릭 링크 설정\\n- [ ] `~/.gemini/GEMINI.md`에 CLAUDE.md 로딩 지시 추가\\n- [ ] CSP 도메인별 Skills 제작 (csp-communication, hr-ontology, python-automation)\\n- [ ] Skills를 세 도구에서 공유하는 심볼릭 링크 구조 완성\\n\\n## 관련 링크\\n- AGENTS.md 공식 사이트: https://agents.md/\\n- Antigravity 공식: https://antigravity.google/\\n- Codex CLI 공식: https://developers.openai.com/codex/cli/\\n- Codex AGENTS.md 가이드: https://developers.openai.com/codex/guides/agents-md/'}]</parameter>\n</tool>\n태그 옵션을 확인하고 맞게 다시 저장할게요.\n<tool name=\"Notion:notion-fetch\">\n<parameter name=\"id\">https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15</parameter>\n</tool>\n스키마 확인했습니다. 올바른 태그 옵션으로 저장할게요.</chat>\n\n<chat url='https://claude.ai/chat/1d01ff8e-130f-4d19-9a7c-70ec18aa096e' updated_at=2026-02-18T09:01:00.279800+00:00>Claude.md 파일의 역할 설명\n세 도구 통합 단일 소스 전략 (최종 권장)\\n\\n\"Do it once, automate it forever\" 원칙의 궁극적 적용.\\n\\n```bash\\n# 공통 소스 하나 생성\\nmkdir -p ~/.config/ai-rules\\nnano ~/.config/ai-rules/GLOBAL.md   ← 여기서만 편집\\n\\n# 각 도구가 심볼릭 링크로 바라보게\\nln -sf ~/.config/ai-rules/GLOBAL.md ~/.claude/CLAUDE.md\\nln -sf ~/.config/ai-rules/GLOBAL.md ~/.codex/AGENTS.md\\n\\n# Antigravity는 GEMINI.md에 로딩 지시만 추가\\n# ~/.gemini/GEMINI.md → \"CLAUDE.md를 읽어라\" 규칙 작성\\n```\\n\\nGLOBAL.md 하나만 수정하면 Claude Code + Codex CLI + Antigravity 세 환경에 동시 적용.\\n\\n---\\n\\n## 세 도구 비교 요약표\\n\\n| 역할 | Claude Code | Antigravity | Codex CLI |\\n|---|---|---|---|\\n| 전역 설정 | `~/.claude/CLAUDE.md` | `~/.gemini/GEMINI.md` | `~/.codex/AGENTS.md` |\\n| 프로젝트 설정 | `프로젝트/CLAUDE.md` | 수동 로딩 필요 | `프로젝트/AGENTS.md` |\\n| 긴급 오버라이드 | — | — | `AGENTS.override.md` |\\n| 확장 Skills | `~/.claude/skills/` | `.agent/skills/` | `.agents/skills/` |\\n| Skills 호환성 | 원본 | Claude Code와 호환 | Claude Code와 호환 |\\n\\n---\\n\\n## 다음 액션\\n- [ ] `~/.config/ai-rules/GLOBAL.md` 단일 소스 생성\\n- [ ] Claude Code, Codex CLI 심볼릭 링크 설정\\n- [ ] `~/.gemini/GEMINI.md`에 CLAUDE.md 로딩 지시 추가\\n- [ ] CSP 도메인별 Skills 제작 (csp-communication, hr-ontology, python-automation)\\n- [ ] Skills를 세 도구에서 공유하는 심볼릭 링크 구조 완성\\n\\n## 관련 링크\\n- AGENTS.md 공식 사이트: https://agents.md/\\n- Antigravity 공식: https://antigravity.google/\\n- Codex CLI 공식: https://developers.openai.com/codex/cli/\\n- Codex AGENTS.md 가이드: https://developers.openai.com/codex/guides/agents-md/'}]</parameter>\n</tool>\n이제 지정하신 Claude 대화 아카이브 데이터베이스에도 저장할게요.\n<tool name=\"Notion:notion-create-pages\">\n<parameter name=\"parent\">{'type': 'data_source_id', 'data_source_id': 'd012343e-b2a2-461e-944b-6f166e91d8e9'}</parameter>\n<parameter name=\"pages\">[{'properties': {'title': 'AI IDE 컨텍스트 설정 비교 아카이브', '주제': '개발/코딩', '중요도': '⭐⭐⭐ 핵심', '상태': '✅ 완료', '태그': 'CLAUDE.md, AGENTS.md, Antigravity, Codex CLI, Claude Code, Skills, 컨텍스트 관리'}, 'content': '## 대화 컨텍스트\\n- 날짜: 2026-02-16\\n- 주요 키워드: CLAUDE.md, AGENTS.md, GEMINI.md, Skills, Antigravity, Codex CLI\\n\\n## 핵심 내용\\n\\n### CLAUDE.md의 역할\\nClaude Code에서 프로젝트 컨텍스트를 영구적으로 보존하는 파일. 세션이 끝나도 다음 세션에서 자동으로 읽혀 작업 방식이 유지됨.</chat>",
+              "uuid": "6b07c2b5-7fe1-4157-a741-4a2536219327"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Relevant chats",
+          "integration_name": "Search Past Conversations",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://claude.ai/images/icons/conversation_search.png",
+          "icon_name": "memory",
+          "display_content": {
+            "type": "rich_content",
+            "content": [
+              {
+                "title": "Claude.md 파일의 역할 설명",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/1d01ff8e-130f-4d19-9a7c-70ec18aa096e",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "Claude Code 업무 플로우 적용 가이드",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/96860eb9-9913-4f9f-a83e-482716ca9671",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              }
+            ]
+          }
+        },
+        {
+          "start_timestamp": "2026-03-20T05:23:44.125007Z",
+          "stop_timestamp": "2026-03-20T05:24:07.550514Z",
+          "flags": null,
+          "type": "text",
+          "text": "이제 CSP-OS의 구조를 충분히 파악했어요. `.claude/rules/`, `skills/`, `agents/`, `CLAUDE.md` 4-layer 구조로 운영되고 있군요.\n\n오늘 나눈 이 문답 — **자존감, ACT, 두려움과 일상의 관계** — 을 CSP-OS에 반영하는 방법을 구체적으로 제안할게요.\n\n---\n\n## 어디에, 어떤 형태로 반영할 것인가\n\n세 가지 레이어에 각각 다르게 들어가야 해요.\n\n---\n\n### 1. `.claude/rules/` — 헌법 레이어\n\n**`psychological-foundation.md`** 파일을 새로 만드는 거예요.\n\nRules는 Claude가 CSP와 일할 때 항상 전제하는 맥락이에요. 지금 CSP에게 가장 중요한 작동 원칙 하나가 오늘 대화에서 정확히 드러났거든요.\n\n```markdown\n# CSP 심리적 작동 원칙\n\n## 핵심 전제\n- CSP는 두려움이 없는 사람이 되려는 게 아니라,\n  두려워도 손을 뻗는 사람이 되려 한다. (ACT 기반)\n- 일의 두려움은 일상의 붕괴로 이어진다.\n  그러므로 Claude는 CSP가 막힐 때 싸우게 하지 않고,\n  일단 움직이게 하는 방향으로 응답한다.\n\n## Claude의 행동 원칙\n- 완벽한 설계를 기다리게 하지 말 것\n- \"일단 손을 뻗을 수 있는 가장 작은 단위\"를 먼저 제시할 것\n- 막힘을 실패가 아닌 패턴의 일부로 프레이밍할 것\n```\n\n이게 Rules에 들어가면, 앞으로 CSP가 어떤 과제 앞에서 막혔을 때 Claude가 응답하는 방식 자체가 달라져요.\n\n---\n\n### 2. `.claude/skills/` — SOP 레이어\n\n**`act-reframe.md`** 스킬을 만드는 거예요.\n\n\"막힘 상황에서 ACT 기반으로 리프레이밍하는 절차\"를 명시적 스킬로 등록하는 것. 트리거는 CSP가 \"모르겠다\", \"두렵다\", \"막혔다\" 같은 신호를 보낼 때예요.\n\n```markdown\n# ACT 리프레이밍 스킬\n\n## 트리거\n- \"모르겠다\", \"두렵다\", \"막혔다\", \"자신 없다\"\n- 과제 회피 신호, 자기 비판 표현\n\n## 절차\n1. 수용: \"지금 이게 있구나\" — 싸우지 않기\n2. 탈융합: 생각을 날씨처럼 관찰하기\n3. 가치 확인: \"이 일을 하는 이유가 뭔지\" 물어보기\n4. 가장 작은 행동: 지금 손을 뻗을 수 있는 것 하나 찾기\n```\n\n---\n\n### 3. CLAUDE.md — 프로젝트 여권\n\n개별 프로젝트 CLAUDE.md에 이렇게 한 줄만 추가하는 거예요.\n\n```markdown\n## CSP 작동 방식\n이 프로젝트에서 막힘이 오면, 완성을 목표로 하지 않는다.\n오늘 손을 뻗을 수 있는 가장 작은 것을 목표로 한다.\n```\n\n---\n\n이 세 레이어가 연결되면, 오늘의 이 문답이 단순한 대화로 끝나지 않고 **CSP-OS의 작동 방식 자체로 체화**돼요. 심리학이 코드가 되는 방식의 또 다른 형태인 거죠.\n\n직접 파일로 만들어드릴까요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-20T05:24:08.012604Z",
+      "updated_at": "2026-03-20T05:24:08.012604Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d09b2-d6fe-7ce0-8dcd-46fe20cfadd4"
+    }
+  ]
+}

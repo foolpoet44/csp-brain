@@ -1,0 +1,156 @@
+﻿{
+  "uuid": "30d8aa9a-d2c8-4f2a-9638-4f9241e09a3b",
+  "name": "디스패치 사용법 이해하기",
+  "summary": "**Conversation Overview**\n\nThe person asked about how to use \"dispatch\" in the context of Claude Code and AI Agent workflows. Claude provided a comprehensive explanation of the dispatch pattern, framing it as the act of routing intent to appropriate executors — summarized as \"centralizing judgment, not democratizing execution.\"\n\nClaude explained the concept using a 119 emergency dispatch center analogy, then mapped it onto a multi-agent CSP architecture with a 4-layer diagram showing a Dispatcher routing to specialized agents (PulseCheck, ESCON, LeadershipEval, GeneralQA). The explanation covered three core dispatcher responsibilities: classification, routing, and context passing. Claude provided a concrete Python code example demonstrating a simple Dispatcher class pattern, and also showed how dispatch rules can be written in CLAUDE.md for Orchestrator-level Claude instances using the `Task` tool with keyword-based routing rules.\n\nThe conversation referenced domain-specific terminology including CSP architecture, Orchestrator/sub-agent patterns, and specific agent names (PulseCheckAgent, ESCONAgent) suggesting the person is building a multi-agent HR analytics or organizational assessment system. Claude also outlined three practical signals indicating when the dispatch pattern is needed: agents handling too many decisions internally, new agent additions requiring changes to existing code, and lack of execution traceability. The session ended with Claude offering to help design specific agent connection code or CLAUDE.md dispatch rules.",
+  "created_at": "2026-03-24T10:16:48.574295Z",
+  "updated_at": "2026-03-24T10:17:44.501986Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d1f58-d174-7dc1-b5d1-f72fc528ee76",
+      "text": "디스패치는 대체 어떻게 써야하는가??",
+      "content": [
+        {
+          "start_timestamp": "2026-03-24T10:16:50.513010Z",
+          "stop_timestamp": "2026-03-24T10:16:50.513010Z",
+          "flags": null,
+          "type": "text",
+          "text": "디스패치는 대체 어떻게 써야하는가??",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-24T10:16:50.565680Z",
+      "updated_at": "2026-03-24T10:16:50.565680Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d1f58-d174-75ab-9bc7-0a368e17c071",
+      "text": " 디스패치(dispatch)라는 개념은, 기술 문서를 읽다 보면 자꾸 마주치는데 막상 \"그래서 이게 뭔데?\"라는 질문에 명쾌하게 답하기 어려운 단어 중 하나입니다. 어떤 맥락에서 이 질문이 나왔는지에 따라 답이 완전히 달라지기 때문입니다.\n\n어떤 맥락에서 디스패치를 써야 하는지 궁금하신 건가요?\n```\nThis block is not supported on your current device yet.\n```\n\n맥락을 알면 훨씬 정확하게 설명드릴 수 있습니다. 선택 기다릴게요.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-24T10:16:52.366690Z",
+          "stop_timestamp": "2026-03-24T10:16:55.235987Z",
+          "flags": null,
+          "type": "text",
+          "text": " 디스패치(dispatch)라는 개념은, 기술 문서를 읽다 보면 자꾸 마주치는데 막상 \"그래서 이게 뭔데?\"라는 질문에 명쾌하게 답하기 어려운 단어 중 하나입니다. 어떤 맥락에서 이 질문이 나왔는지에 따라 답이 완전히 달라지기 때문입니다.\n\n어떤 맥락에서 디스패치를 써야 하는지 궁금하신 건가요?",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-24T10:16:56.046189Z",
+          "stop_timestamp": "2026-03-24T10:16:57.976282Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_013dW5tJeqWgGigkpNVCAue8",
+          "name": "ask_user_input_v0",
+          "input": {
+            "questions": [
+              {
+                "type": "single_select",
+                "options": [
+                  "React / Redux 상태관리 (dispatch action)",
+                  "Claude Code / AI Agent 워크플로우",
+                  "이벤트 시스템 / 메시지 큐",
+                  "일반적인 개념 이해"
+                ],
+                "question": "어떤 맥락에서 dispatch를 사용하려고 하시나요?"
+              }
+            ]
+          },
+          "message": "Generating ask_user_input_v0...",
+          "integration_name": "Dynamic Widget",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_013dW5tJeqWgGigkpNVCAue8",
+          "name": "ask_user_input_v0",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"questions\": [\n    {\n      \"question\": \"\\uc5b4\\ub5a4 \\ub9e5\\ub77d\\uc5d0\\uc11c dispatch\\ub97c \\uc0ac\\uc6a9\\ud558\\ub824\\uace0 \\ud558\\uc2dc\\ub098\\uc694?\",\n      \"type\": \"single_select\",\n      \"options\": [\n        \"React / Redux \\uc0c1\\ud0dc\\uad00\\ub9ac (dispatch action)\",\n        \"Claude Code / AI Agent \\uc6cc\\ud06c\\ud50c\\ub85c\\uc6b0\",\n        \"\\uc774\\ubca4\\ud2b8 \\uc2dc\\uc2a4\\ud15c / \\uba54\\uc2dc\\uc9c0 \\ud050\",\n        \"\\uc77c\\ubc18\\uc801\\uc778 \\uac1c\\ub150 \\uc774\\ud574\"\n      ]\n    }\n  ]\n}",
+              "uuid": "1757c862-7f95-4486-8302-4b1b24fa96c9"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Generated ask_user_input_v0 widget",
+          "integration_name": "Dynamic Widget",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-24T10:16:59.028114Z",
+          "stop_timestamp": "2026-03-24T10:16:59.912613Z",
+          "flags": null,
+          "type": "text",
+          "text": "맥락을 알면 훨씬 정확하게 설명드릴 수 있습니다. 선택 기다릴게요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-24T10:16:59.953370Z",
+      "updated_at": "2026-03-24T10:16:59.953370Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d1f58-d174-7dc1-b5d1-f72fc528ee76"
+    },
+    {
+      "uuid": "019d1f59-1f5d-76ee-9d85-0ad56858ce98",
+      "text": "질문: 어떤 맥락에서 dispatch를 사용하려고 하시나요?\n답: Claude Code / AI Agent 워크플로우",
+      "content": [
+        {
+          "start_timestamp": "2026-03-24T10:17:08.934375Z",
+          "stop_timestamp": "2026-03-24T10:17:08.934375Z",
+          "flags": null,
+          "type": "text",
+          "text": "질문: 어떤 맥락에서 dispatch를 사용하려고 하시나요?\n답: Claude Code / AI Agent 워크플로우",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-24T10:17:08.994598Z",
+      "updated_at": "2026-03-24T10:17:08.994598Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d1f58-d174-75ab-9bc7-0a368e17c071"
+    },
+    {
+      "uuid": "019d1f59-1f5d-7a66-89c7-90daafd5d54f",
+      "text": " 좋습니다. 이건 CSP 아키텍처와 직결되는 질문이라 제대로 풀어드릴게요.\n\n---\n\n## Dispatch의 본질 — \"누가 무엇을 실행할지 결정하는 행위\"\n\n디스패치를 한 문장으로 정의하면 이렇습니다.\n\n> **\"의도(intent)를 받아서, 적절한 실행자(executor)에게 라우팅하는 행위\"**\n\n사람으로 비유하면, 소방서 **119 상황실**입니다. 신고 전화(=입력)를 받아서, 화재인지 구조인지 구급인지 판단한 뒤(=분류), 해당 팀에 출동 명령을 내리는(=라우팅) 것이 디스패치입니다. 상황실 자체는 불을 끄지 않습니다. **\"누가 갈지를 결정\"**할 뿐입니다.\n\n---\n\n## AI Agent 워크플로우에서 Dispatch가 필요한 이유\n\nClaude Code 기반 멀티 에이전트 시스템을 설계하다 보면 반드시 이 문제를 만나게 됩니다.\n\n> 사용자의 요청이 들어왔을 때, **어떤 Agent 또는 Tool이 이걸 처리해야 하는가?**\n\n이 판단을 코드 곳곳에 `if/else`로 흩어놓으면 시스템은 금방 스파게티가 됩니다. Dispatch는 그 판단 로직을 **한 곳에 모아두는 패턴**입니다.\n\n---\n\n## 실제 구조로 보는 Dispatch\n\nCSP 아키텍처의 4-Layer 관점에서 놓으면 이렇게 됩니다.\n\n```\n사용자 입력 (Intent)\n      ↓\n[ Dispatcher ]  ← 여기가 핵심\n      ↓\n┌─────────────────────────────┐\n│  PulseCheck Agent           │\n│  ESCON Agent                │\n│  LeadershipEval Agent       │\n│  GeneralQA Agent            │\n└─────────────────────────────┘\n```\n\nDispatcher는 다음 세 가지를 판단합니다.\n\n**① 분류(Classification)** — 이 요청이 어느 도메인인가? 설문 분석인가, 스킬 온톨로지인가, 리더십 평가인가.\n\n**② 라우팅(Routing)** — 분류 결과에 따라 적절한 Agent를 선택.\n\n**③ 컨텍스트 전달(Context Passing)** — 선택된 Agent에게 필요한 정보를 함께 넘겨줌.\n\n---\n\n## 코드로 보는 가장 단순한 패턴\n\n```python\n# 각 Agent는 자기 책임 범위만 처리\nclass PulseCheckAgent:\n    def handle(self, payload): ...\n\nclass ESCONAgent:\n    def handle(self, payload): ...\n\n# Dispatcher: 판단과 라우팅만 담당\nclass Dispatcher:\n    def __init__(self):\n        self.routes = {\n            \"pulse_check\": PulseCheckAgent(),\n            \"escon\":       ESCONAgent(),\n        }\n\n    def dispatch(self, intent: str, payload: dict):\n        agent = self.routes.get(intent)\n        if not agent:\n            raise ValueError(f\"No agent for intent: {intent}\")\n        return agent.handle(payload)\n\n# 실행\ndispatcher = Dispatcher()\nresult = dispatcher.dispatch(\"pulse_check\", {\"team\": \"EXG\", \"period\": \"2026-Q1\"})\n```\n\n여기서 핵심은 **Dispatcher가 실행 결과에 관여하지 않는다**는 점입니다. 그것은 각 Agent의 책임입니다.\n\n---\n\n## Claude Code 환경에서의 실전 적용\n\nClaude Code의 서브에이전트(`Task` 도구)를 사용할 때, 디스패치 개념은 이렇게 작동합니다.\n\n```markdown\n# CLAUDE.md (Orchestrator 역할)\n\n## Dispatch Rules\n- 사용자 요청에 \"설문\", \"참여율\", \"Well-Being\" 포함 → pulse_check_agent 호출\n- 사용자 요청에 \"스킬\", \"ESCO\", \"역량\" 포함 → escon_agent 호출\n- 사용자 요청에 \"평가\", \"리더십\", \"360\" 포함 → leadership_agent 호출\n```\n\nOrchestrator Claude가 이 규칙을 읽고, 서브에이전트에게 `Task`를 디스패치합니다. 이것이 바로 CSP 아키텍처의 **Context Shell → Workflow Engine** 레이어가 맞닿는 지점입니다.\n\n---\n\n## 언제 Dispatch가 필요하다는 신호인가\n\n실무에서 다음 증상이 나타나면 Dispatch 패턴이 필요한 시점입니다.\n\n첫째, 하나의 에이전트가 너무 많은 걸 판단하고 있을 때. \"이거 Pulse Check 관련인가? ESCON 관련인가?\" 같은 판단이 에이전트 내부에 섞여 있다면, 그 판단을 꺼내서 Dispatcher에게 위임해야 합니다.\n\n둘째, 새로운 에이전트를 추가할 때 기존 코드를 건드려야 할 때. 좋은 Dispatcher는 새 에이전트를 추가해도 기존 코드가 변하지 않습니다(Open-Closed Principle).\n\n셋째, 같은 입력에 대해 어떤 에이전트가 실행됐는지 추적이 안 될 때. Dispatcher는 자연스럽게 **실행 로그의 단일 진입점**이 됩니다.\n\n---\n\n요약하면, Dispatch는 **\"실행의 민주화\"가 아니라 \"판단의 중앙화\"**입니다. 각 Agent가 자기 일에만 집중할 수 있도록, 판단과 라우팅의 책임을 한 곳에 모으는 설계 철학입니다. CSP 아키텍처가 지향하는 \"do it once, automate it forever\"의 구조적 표현이기도 하죠.\n\n특정 에이전트 연결 코드나 CLAUDE.md 디스패치 규칙 설계가 필요하면 말씀해 주세요.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-24T10:17:10.739987Z",
+          "stop_timestamp": "2026-03-24T10:17:44.449071Z",
+          "flags": null,
+          "type": "text",
+          "text": " 좋습니다. 이건 CSP 아키텍처와 직결되는 질문이라 제대로 풀어드릴게요.\n\n---\n\n## Dispatch의 본질 — \"누가 무엇을 실행할지 결정하는 행위\"\n\n디스패치를 한 문장으로 정의하면 이렇습니다.\n\n> **\"의도(intent)를 받아서, 적절한 실행자(executor)에게 라우팅하는 행위\"**\n\n사람으로 비유하면, 소방서 **119 상황실**입니다. 신고 전화(=입력)를 받아서, 화재인지 구조인지 구급인지 판단한 뒤(=분류), 해당 팀에 출동 명령을 내리는(=라우팅) 것이 디스패치입니다. 상황실 자체는 불을 끄지 않습니다. **\"누가 갈지를 결정\"**할 뿐입니다.\n\n---\n\n## AI Agent 워크플로우에서 Dispatch가 필요한 이유\n\nClaude Code 기반 멀티 에이전트 시스템을 설계하다 보면 반드시 이 문제를 만나게 됩니다.\n\n> 사용자의 요청이 들어왔을 때, **어떤 Agent 또는 Tool이 이걸 처리해야 하는가?**\n\n이 판단을 코드 곳곳에 `if/else`로 흩어놓으면 시스템은 금방 스파게티가 됩니다. Dispatch는 그 판단 로직을 **한 곳에 모아두는 패턴**입니다.\n\n---\n\n## 실제 구조로 보는 Dispatch\n\nCSP 아키텍처의 4-Layer 관점에서 놓으면 이렇게 됩니다.\n\n```\n사용자 입력 (Intent)\n      ↓\n[ Dispatcher ]  ← 여기가 핵심\n      ↓\n┌─────────────────────────────┐\n│  PulseCheck Agent           │\n│  ESCON Agent                │\n│  LeadershipEval Agent       │\n│  GeneralQA Agent            │\n└─────────────────────────────┘\n```\n\nDispatcher는 다음 세 가지를 판단합니다.\n\n**① 분류(Classification)** — 이 요청이 어느 도메인인가? 설문 분석인가, 스킬 온톨로지인가, 리더십 평가인가.\n\n**② 라우팅(Routing)** — 분류 결과에 따라 적절한 Agent를 선택.\n\n**③ 컨텍스트 전달(Context Passing)** — 선택된 Agent에게 필요한 정보를 함께 넘겨줌.\n\n---\n\n## 코드로 보는 가장 단순한 패턴\n\n```python\n# 각 Agent는 자기 책임 범위만 처리\nclass PulseCheckAgent:\n    def handle(self, payload): ...\n\nclass ESCONAgent:\n    def handle(self, payload): ...\n\n# Dispatcher: 판단과 라우팅만 담당\nclass Dispatcher:\n    def __init__(self):\n        self.routes = {\n            \"pulse_check\": PulseCheckAgent(),\n            \"escon\":       ESCONAgent(),\n        }\n\n    def dispatch(self, intent: str, payload: dict):\n        agent = self.routes.get(intent)\n        if not agent:\n            raise ValueError(f\"No agent for intent: {intent}\")\n        return agent.handle(payload)\n\n# 실행\ndispatcher = Dispatcher()\nresult = dispatcher.dispatch(\"pulse_check\", {\"team\": \"EXG\", \"period\": \"2026-Q1\"})\n```\n\n여기서 핵심은 **Dispatcher가 실행 결과에 관여하지 않는다**는 점입니다. 그것은 각 Agent의 책임입니다.\n\n---\n\n## Claude Code 환경에서의 실전 적용\n\nClaude Code의 서브에이전트(`Task` 도구)를 사용할 때, 디스패치 개념은 이렇게 작동합니다.\n\n```markdown\n# CLAUDE.md (Orchestrator 역할)\n\n## Dispatch Rules\n- 사용자 요청에 \"설문\", \"참여율\", \"Well-Being\" 포함 → pulse_check_agent 호출\n- 사용자 요청에 \"스킬\", \"ESCO\", \"역량\" 포함 → escon_agent 호출\n- 사용자 요청에 \"평가\", \"리더십\", \"360\" 포함 → leadership_agent 호출\n```\n\nOrchestrator Claude가 이 규칙을 읽고, 서브에이전트에게 `Task`를 디스패치합니다. 이것이 바로 CSP 아키텍처의 **Context Shell → Workflow Engine** 레이어가 맞닿는 지점입니다.\n\n---\n\n## 언제 Dispatch가 필요하다는 신호인가\n\n실무에서 다음 증상이 나타나면 Dispatch 패턴이 필요한 시점입니다.\n\n첫째, 하나의 에이전트가 너무 많은 걸 판단하고 있을 때. \"이거 Pulse Check 관련인가? ESCON 관련인가?\" 같은 판단이 에이전트 내부에 섞여 있다면, 그 판단을 꺼내서 Dispatcher에게 위임해야 합니다.\n\n둘째, 새로운 에이전트를 추가할 때 기존 코드를 건드려야 할 때. 좋은 Dispatcher는 새 에이전트를 추가해도 기존 코드가 변하지 않습니다(Open-Closed Principle).\n\n셋째, 같은 입력에 대해 어떤 에이전트가 실행됐는지 추적이 안 될 때. Dispatcher는 자연스럽게 **실행 로그의 단일 진입점**이 됩니다.\n\n---\n\n요약하면, Dispatch는 **\"실행의 민주화\"가 아니라 \"판단의 중앙화\"**입니다. 각 Agent가 자기 일에만 집중할 수 있도록, 판단과 라우팅의 책임을 한 곳에 모으는 설계 철학입니다. CSP 아키텍처가 지향하는 \"do it once, automate it forever\"의 구조적 표현이기도 하죠.\n\n특정 에이전트 연결 코드나 CLAUDE.md 디스패치 규칙 설계가 필요하면 말씀해 주세요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-24T10:17:44.487339Z",
+      "updated_at": "2026-03-24T10:17:44.487339Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d1f59-1f5d-76ee-9d85-0ad56858ce98"
+    }
+  ]
+}

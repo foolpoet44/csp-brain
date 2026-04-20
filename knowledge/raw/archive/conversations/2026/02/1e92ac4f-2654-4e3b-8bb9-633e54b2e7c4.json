@@ -1,0 +1,455 @@
+﻿{
+  "uuid": "1e92ac4f-2654-4e3b-8bb9-633e54b2e7c4",
+  "name": "Agentic engineering fundamentals",
+  "summary": "**Conversation Overview**\n\nThe user initiated a discussion about Agentic Engineering, seeking to understand this emerging field that goes beyond traditional prompt engineering to design autonomous AI systems capable of judgment, tool usage, and multi-step task execution. Claude explained that Agentic Engineering involves creating AI agents that operate in a \"goal → plan → execute → observe → replan\" loop rather than simple deterministic pipelines, with four core components: Planning (task decomposition), Tool Use (external system interaction), Memory (short and long-term context), and Reflection (self-evaluation and improvement).\n\nThe conversation evolved into a detailed exploration of prompt design principles specifically for agentic systems. Claude presented five foundational principles: Identity & Boundary (defining agent roles and constraints using organizational psychology concepts like Role Clarity), Goal Decomposition (implementing cognitive psychology's Means-Ends Analysis for systematic task breakdown), Tool Orchestration (designing when and how agents use different tools in sequence), Reasoning Transparency (requiring agents to explain their judgment basis, confidence levels, alternatives, and limitations), and Adaptive Feedback Loop (incorporating Chris Argyris's Double-Loop Learning theory for continuous improvement). Claude provided a comprehensive template structure for agentic prompts including identity, context, goals/constraints, workflow, tool usage rules, communication style, and error handling protocols.\n\nA key insight emerged that \"prompt design is organizational design\" - the process of assigning roles, setting permissions, and creating collaboration rules for AI agents mirrors traditional HR work, just with artificial rather than human agents. The user then requested to archive the conversation in Notion, which Claude successfully completed using the Notion integration, creating a structured page with appropriate metadata, tags, and next action items for further exploration of agentic architecture patterns and practical system prompt implementation.\n\n**Tool Knowledge**\n\nWhen creating pages in the Notion integration, the exact property schema must match the database structure precisely. The user's archive database uses \"대화 제목\" (not \"title\") as the main title field, and requires specific formatting for multi-select tags as JSON arrays like '[\"AI\", \"Agentic Engineering\"]' rather than comma-separated strings. Date properties need the format 'date:날짜:start' with 'date:날짜:is_datetime': 0 for date-only fields. The database includes Korean property names like \"주제\" (topic), \"중요도\" (importance), \"상태\" (status), and uses specific value patterns like \"⭐⭐⭐ 핵심\" for importance levels and \"✅ 완료\" for completion status. When the initial page creation fails due to schema mismatches, updating the data source schema first with notion-update-data-source can resolve property type conflicts, particularly for multi-select fields that need predefined options. The user's workflow involves comprehensive archiving with summary, keywords, related projects, and next action tracking, indicating they use Notion as a structured knowledge management system for learning and project development.",
+  "created_at": "2026-02-11T04:29:04.230175Z",
+  "updated_at": "2026-02-11T04:38:10.862782Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019c4af5-c372-726e-856d-5aea867fc0a8",
+      "text": "Agentic Engineering?",
+      "content": [
+        {
+          "start_timestamp": "2026-02-11T04:29:06.354569Z",
+          "stop_timestamp": "2026-02-11T04:29:06.354569Z",
+          "flags": null,
+          "type": "text",
+          "text": "Agentic Engineering?",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-02-11T04:29:06.379578Z",
+      "updated_at": "2026-02-11T04:29:06.379578Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019c4af5-c372-726e-856d-5aeb06c6cc11",
+      "text": " Agentic Engineering은 AI 에이전트를 설계·구축·운영하는 엔지니어링 분야를 가리키는 비교적 새로운 용어입니다.\n\n핵심은 단순히 프롬프트를 잘 쓰는 것(prompt engineering)을 넘어, **자율적으로 판단하고, 도구를 사용하고, 다단계 작업을 수행하는 AI 시스템을 설계하는 것**이죠.\n\n전통적 소프트웨어가 \"입력 → 처리 → 출력\"의 결정론적 파이프라인이라면, Agentic 시스템은 \"목표 → 계획 → 실행 → 관찰 → 재계획\"의 루프를 돕니다. 마치 사람이 일하는 방식과 닮아 있어요.\n\n**CSP 관점에서 왜 중요한가** 하면, 지금 하고 계신 작업이 이미 Agentic Engineering의 실천이기 때문입니다. 리더십 평가 보고서를 자동 생성하고, 이메일로 배포하고, Notion에 아카이빙하는 워크플로우 — 이것이 바로 여러 도구를 오케스트레이션하는 에이전트 설계입니다.\n\n**구성 요소를 간단히 정리하면:**\n\n**Planning** — 복잡한 작업을 하위 작업으로 분해하는 능력. LLM이 \"어떤 순서로 뭘 해야 하는지\" 스스로 결정합니다.\n\n**Tool Use** — API 호출, 파일 생성, 데이터베이스 조회 등 외부 세계와 상호작용. Claude가 Notion MCP, Gmail, Google Drive를 쓰는 것이 정확히 이것입니다.\n\n**Memory** — 단기(대화 컨텍스트)와 장기(Notion 아카이브, 메모리 시스템) 기억을 결합해 맥락을 유지합니다.\n\n**Reflection** — 자신의 출력을 평가하고 개선하는 자기 피드백 루프.\n\n**HR SaaS 창업 관점**에서 보면, Agentic Engineering은 단순 자동화(RPA)와 차별화되는 지점을 만들어 줍니다. RPA는 \"정해진 규칙대로 반복\"하지만, 에이전트는 \"상황에 따라 판단하며 실행\"합니다. 예를 들어 리더십 평가 결과를 보고 \"이 리더에게는 어떤 피드백이 적절한가\"를 맥락적으로 생성하는 것은 RPA로는 불가능하고, Agentic 시스템이어야 가능한 영역이죠.\n\n더 깊이 들어가고 싶은 방향이 있으신가요? 예를 들어 Agentic 아키텍처 패턴(ReAct, Plan-and-Execute 등)이나, 현재 프로젝트에 적용하는 구체적인 방법 등.",
+      "content": [
+        {
+          "start_timestamp": "2026-02-11T04:29:08.883891Z",
+          "stop_timestamp": "2026-02-11T04:29:27.401377Z",
+          "flags": null,
+          "type": "text",
+          "text": " Agentic Engineering은 AI 에이전트를 설계·구축·운영하는 엔지니어링 분야를 가리키는 비교적 새로운 용어입니다.\n\n핵심은 단순히 프롬프트를 잘 쓰는 것(prompt engineering)을 넘어, **자율적으로 판단하고, 도구를 사용하고, 다단계 작업을 수행하는 AI 시스템을 설계하는 것**이죠.\n\n전통적 소프트웨어가 \"입력 → 처리 → 출력\"의 결정론적 파이프라인이라면, Agentic 시스템은 \"목표 → 계획 → 실행 → 관찰 → 재계획\"의 루프를 돕니다. 마치 사람이 일하는 방식과 닮아 있어요.\n\n**CSP 관점에서 왜 중요한가** 하면, 지금 하고 계신 작업이 이미 Agentic Engineering의 실천이기 때문입니다. 리더십 평가 보고서를 자동 생성하고, 이메일로 배포하고, Notion에 아카이빙하는 워크플로우 — 이것이 바로 여러 도구를 오케스트레이션하는 에이전트 설계입니다.\n\n**구성 요소를 간단히 정리하면:**\n\n**Planning** — 복잡한 작업을 하위 작업으로 분해하는 능력. LLM이 \"어떤 순서로 뭘 해야 하는지\" 스스로 결정합니다.\n\n**Tool Use** — API 호출, 파일 생성, 데이터베이스 조회 등 외부 세계와 상호작용. Claude가 Notion MCP, Gmail, Google Drive를 쓰는 것이 정확히 이것입니다.\n\n**Memory** — 단기(대화 컨텍스트)와 장기(Notion 아카이브, 메모리 시스템) 기억을 결합해 맥락을 유지합니다.\n\n**Reflection** — 자신의 출력을 평가하고 개선하는 자기 피드백 루프.\n\n**HR SaaS 창업 관점**에서 보면, Agentic Engineering은 단순 자동화(RPA)와 차별화되는 지점을 만들어 줍니다. RPA는 \"정해진 규칙대로 반복\"하지만, 에이전트는 \"상황에 따라 판단하며 실행\"합니다. 예를 들어 리더십 평가 결과를 보고 \"이 리더에게는 어떤 피드백이 적절한가\"를 맥락적으로 생성하는 것은 RPA로는 불가능하고, Agentic 시스템이어야 가능한 영역이죠.\n\n더 깊이 들어가고 싶은 방향이 있으신가요? 예를 들어 Agentic 아키텍처 패턴(ReAct, Plan-and-Execute 등)이나, 현재 프로젝트에 적용하는 구체적인 방법 등.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-02-11T04:29:27.447126Z",
+      "updated_at": "2026-02-11T04:29:27.447126Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019c4af5-c372-726e-856d-5aea867fc0a8"
+    },
+    {
+      "uuid": "019c4af8-ab7f-7268-8972-e0fcab1c0301",
+      "text": "Agentic Engineering의 프롬프트 설계 원칙 또는 가이드",
+      "content": [
+        {
+          "start_timestamp": "2026-02-11T04:32:16.933981Z",
+          "stop_timestamp": "2026-02-11T04:32:16.933981Z",
+          "flags": null,
+          "type": "text",
+          "text": "Agentic Engineering의 프롬프트 설계 원칙 또는 가이드",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-02-11T04:32:16.993085Z",
+      "updated_at": "2026-02-11T04:32:16.993085Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019c4af5-c372-726e-856d-5aeb06c6cc11"
+    },
+    {
+      "uuid": "019c4af8-ab7f-7268-8972-e0fd3c1e9372",
+      "text": "\n\n좋은 질문입니다. Agentic Engineering에서 프롬프트 설계는 단순히 \"좋은 답변을 얻는 기술\"이 아니라, **자율적 시스템의 행동 규범을 설계하는 아키텍처 작업**입니다. 마치 조직을 설계할 때 역할 정의서(Role Description)와 업무 프로세스(SOP)를 만드는 것처럼요.\n\n이 관점에서 체계적으로 정리해 보겠습니다.\n\n---\n\n## 1. 근본 철학: \"프롬프트는 코드다\"\n\n전통적 프롬프트 엔지니어링이 \"대화의 기술\"이라면, Agentic 프롬프트는 **\"행동의 설계도\"**입니다. 차이를 느껴보면:\n\n**일반 프롬프트**: \"이 데이터를 분석해서 인사이트를 알려줘\"\n**Agentic 프롬프트**: \"너는 HR 데이터 분석가 에이전트다. 데이터를 받으면 (1) 이상치를 먼저 탐지하고, (2) 핵심 패턴 3개를 도출하고, (3) 각 패턴에 대한 실행 제안을 생성하라. 불확실한 부분은 사용자에게 질문하라.\"\n\n후자는 에이전트의 **인지 루프 자체를 설계**하는 것입니다. 심리학으로 말하면, 행동주의적 자극-반응이 아니라 인지주의적 정보처리 모델을 설계하는 것이죠.\n\n---\n\n## 2. Agentic 프롬프트의 5대 설계 원칙\n\n### 원칙 1: Identity & Boundary (정체성과 경계)\n\n에이전트에게 \"너는 누구이고, 무엇을 할 수 있고, 무엇을 하면 안 되는가\"를 명확히 합니다. 조직심리학에서 말하는 **역할 명확성(Role Clarity)**과 동일한 개념입니다. 역할이 모호한 직원이 성과를 내지 못하듯, 정체성이 모호한 에이전트는 일관성 없이 동작합니다.\n\n```\n## Agent Identity\n당신은 LG 스마트팩토리 기술역량 평가 전문가입니다.\n\n## Capabilities (할 수 있는 것)\n- ESCO 기반 스킬 온톨로지 조회 및 매핑\n- 직무별 역량 수준 평가 문항 생성\n- 평가 결과 기반 갭 분석\n\n## Boundaries (하면 안 되는 것)\n- 개인 인사 정보에 대한 판단이나 인사 의사결정\n- 검증되지 않은 평가 기준의 임의 생성\n- 사용자 확인 없이 최종 보고서 발행\n```\n\n### 원칙 2: Goal Decomposition (목표 분해 구조)\n\n복잡한 목표를 하위 목표로 분해하는 전략을 프롬프트 안에 심어둡니다. 이것은 인지심리학의 **수단-목적 분석(Means-Ends Analysis)**을 시스템화한 것입니다. 사람이 \"큰 문제를 작은 문제로 나눠서 풀듯\", 에이전트도 그 사고 구조를 가져야 합니다.\n\n```\n## Task Decomposition Strategy\n복잡한 요청을 받으면 다음 프레임워크로 분해하라:\n\n1. **목표 파악**: 사용자의 최종 산출물이 무엇인가?\n2. **전제 조건 확인**: 이 목표를 달성하려면 어떤 정보/데이터가 필요한가?\n3. **단계 설계**: 어떤 순서로 작업해야 하는가?\n4. **검증 기준**: 각 단계의 완료를 어떻게 확인하는가?\n5. **통합**: 하위 결과를 어떻게 최종 산출물로 조합하는가?\n\n분해 후 사용자에게 계획을 공유하고 확인을 받은 뒤 실행하라.\n```\n\n### 원칙 3: Tool Orchestration (도구 오케스트레이션)\n\n에이전트가 어떤 도구를 **언제, 왜, 어떤 순서로** 사용할지를 설계합니다. 이것은 마치 오케스트라 지휘자의 악보와 같습니다. 각 악기(도구)가 있다고 좋은 음악이 나오는 게 아니라, **언제 어떤 악기를 쓸지의 설계**가 핵심이죠.\n\n```\n## Tool Usage Protocol\n\n### 정보 탐색이 필요할 때\n1차: Notion 검색 → 내부 지식 베이스 우선 탐색\n2차: Google Drive 검색 → 공식 문서/보고서 확인\n3차: Web 검색 → 외부 최신 정보 보완\n\n### 산출물 생성 시\n- 단순 텍스트 → 대화 내 직접 제공\n- 구조화된 문서 → DOCX/PPTX 파일 생성\n- 데이터 기반 분석 → 코드 실행 후 시각화 포함\n\n### 저장/공유 시\n- Notion 아카이브 → 장기 보관 지식\n- 파일 다운로드 → 즉시 사용 산출물\n```\n\n### 원칙 4: Reasoning Transparency (추론 투명성)\n\n에이전트가 **왜 그런 판단을 했는지**를 드러내도록 설계합니다. 이것은 단순한 Chain-of-Thought를 넘어, 조직에서 의사결정의 **근거와 대안을 함께 보고**하는 문화와 같습니다. HR 맥락에서 특히 중요한데, 평가나 판단의 투명성이 신뢰의 기반이기 때문입니다.\n\n```\n## Reasoning Protocol\n모든 판단과 추천에 대해 다음을 포함하라:\n\n- **판단 근거**: 어떤 데이터/기준에 기반했는가\n- **확신도**: 높음/중간/낮음 + 그 이유\n- **대안**: 다른 가능한 접근법이 있다면 무엇인가\n- **한계**: 이 판단의 제한사항은 무엇인가\n\n예시:\n\"이 직무에 '디지털 트윈 설계' 역량을 Level 3으로 매핑했습니다.\n근거: ESCO 프레임워크의 해당 직무군 표준 + 귀사 JD 분석 결과\n확신도: 중간 — JD에 명시적 언급은 없으나 업무 내용으로 추론\n대안: Level 2로 보수적 매핑도 가능\n한계: 실제 현장 인터뷰 데이터 없이 문서 기반 분석만 수행\"\n```\n\n### 원칙 5: Adaptive Feedback Loop (적응적 피드백 루프)\n\n에이전트가 **자신의 출력을 스스로 평가하고, 사용자 피드백을 반영하여 개선**하는 구조를 설계합니다. 이것은 조직학습 이론에서 Chris Argyris가 말한 **이중루프 학습(Double-Loop Learning)**과 같습니다. 단순히 실수를 고치는 것(단일루프)이 아니라, \"왜 그런 실수가 발생했는지의 전제 자체를 재검토\"하는 것이죠.\n\n```\n## Self-Evaluation Protocol\n산출물 생성 후 스스로 다음을 점검하라:\n\n### 품질 체크\n- [ ] 사용자의 원래 요청에 정확히 대응하는가?\n- [ ] 누락된 정보나 논리적 비약이 없는가?\n- [ ] 실행 가능한 수준으로 구체적인가?\n\n### 피드백 통합\n사용자가 수정을 요청하면:\n1. 수정 내용을 반영하되\n2. \"왜 처음에 다르게 판단했는지\" 설명하고\n3. 향후 유사한 상황에서의 개선 방향을 제안하라\n```\n\n---\n\n## 3. 실전 패턴: Agentic Prompt의 구조 템플릿\n\n위 5가지 원칙을 통합하면, 하나의 Agentic 프롬프트는 대략 이런 구조를 갖습니다:\n\n```markdown\n# [에이전트 이름] System Prompt\n\n## 1. Identity (정체성)\n당신은 [역할]입니다. [핵심 가치/철학]을 기반으로 작동합니다.\n\n## 2. Context (맥락)\n[작동 환경, 사용자 특성, 도메인 배경]\n\n## 3. Goals & Constraints (목표와 제약)\n### 주요 목표\n### 절대 하지 말아야 할 것\n### 불확실할 때의 행동 규칙\n\n## 4. Workflow (작업 흐름)\n### Step 1: 입력 분석\n### Step 2: 계획 수립 및 사용자 확인\n### Step 3: 실행\n### Step 4: 자기 검증\n### Step 5: 산출물 전달\n\n## 5. Tool Usage (도구 사용 규칙)\n[어떤 도구를 언제, 어떤 조건에서 사용하는가]\n\n## 6. Communication Style (소통 스타일)\n[톤, 포맷, 언어 등]\n\n## 7. Error Handling (예외 처리)\n[실패 시 행동, 불확실성 처리, 에스컬레이션 규칙]\n```\n\n---\n\n## 4. CSP의 맥락에서의 적용\n\n지금 하고 계신 프로젝트들 — 역량 평가 시스템, 리더십 보고서 자동화, Notion 아카이빙 — 각각이 하나의 에이전트로 설계될 수 있습니다. 그리고 이 에이전트들이 **서로 연결되어 하나의 시스템으로 작동**하면, 그것이 바로 미래의 HR SaaS 플랫폼의 백본이 됩니다.\n\n핵심 인사이트는 이것입니다: **프롬프트 설계는 곧 조직 설계입니다.** 에이전트에게 역할을 부여하고, 권한을 설정하고, 협업 규칙을 만드는 것은 HR 전문가가 늘 해온 일입니다. 차이는 대상이 사람이 아니라 AI라는 것뿐이죠.\n\n특정 원칙을 현재 프로젝트에 바로 적용해보고 싶은 부분이 있으신가요?",
+      "content": [
+        {
+          "start_timestamp": "2026-02-11T04:32:18.961218Z",
+          "stop_timestamp": "2026-02-11T04:33:19.524962Z",
+          "flags": null,
+          "type": "text",
+          "text": "\n\n좋은 질문입니다. Agentic Engineering에서 프롬프트 설계는 단순히 \"좋은 답변을 얻는 기술\"이 아니라, **자율적 시스템의 행동 규범을 설계하는 아키텍처 작업**입니다. 마치 조직을 설계할 때 역할 정의서(Role Description)와 업무 프로세스(SOP)를 만드는 것처럼요.\n\n이 관점에서 체계적으로 정리해 보겠습니다.\n\n---\n\n## 1. 근본 철학: \"프롬프트는 코드다\"\n\n전통적 프롬프트 엔지니어링이 \"대화의 기술\"이라면, Agentic 프롬프트는 **\"행동의 설계도\"**입니다. 차이를 느껴보면:\n\n**일반 프롬프트**: \"이 데이터를 분석해서 인사이트를 알려줘\"\n**Agentic 프롬프트**: \"너는 HR 데이터 분석가 에이전트다. 데이터를 받으면 (1) 이상치를 먼저 탐지하고, (2) 핵심 패턴 3개를 도출하고, (3) 각 패턴에 대한 실행 제안을 생성하라. 불확실한 부분은 사용자에게 질문하라.\"\n\n후자는 에이전트의 **인지 루프 자체를 설계**하는 것입니다. 심리학으로 말하면, 행동주의적 자극-반응이 아니라 인지주의적 정보처리 모델을 설계하는 것이죠.\n\n---\n\n## 2. Agentic 프롬프트의 5대 설계 원칙\n\n### 원칙 1: Identity & Boundary (정체성과 경계)\n\n에이전트에게 \"너는 누구이고, 무엇을 할 수 있고, 무엇을 하면 안 되는가\"를 명확히 합니다. 조직심리학에서 말하는 **역할 명확성(Role Clarity)**과 동일한 개념입니다. 역할이 모호한 직원이 성과를 내지 못하듯, 정체성이 모호한 에이전트는 일관성 없이 동작합니다.\n\n```\n## Agent Identity\n당신은 LG 스마트팩토리 기술역량 평가 전문가입니다.\n\n## Capabilities (할 수 있는 것)\n- ESCO 기반 스킬 온톨로지 조회 및 매핑\n- 직무별 역량 수준 평가 문항 생성\n- 평가 결과 기반 갭 분석\n\n## Boundaries (하면 안 되는 것)\n- 개인 인사 정보에 대한 판단이나 인사 의사결정\n- 검증되지 않은 평가 기준의 임의 생성\n- 사용자 확인 없이 최종 보고서 발행\n```\n\n### 원칙 2: Goal Decomposition (목표 분해 구조)\n\n복잡한 목표를 하위 목표로 분해하는 전략을 프롬프트 안에 심어둡니다. 이것은 인지심리학의 **수단-목적 분석(Means-Ends Analysis)**을 시스템화한 것입니다. 사람이 \"큰 문제를 작은 문제로 나눠서 풀듯\", 에이전트도 그 사고 구조를 가져야 합니다.\n\n```\n## Task Decomposition Strategy\n복잡한 요청을 받으면 다음 프레임워크로 분해하라:\n\n1. **목표 파악**: 사용자의 최종 산출물이 무엇인가?\n2. **전제 조건 확인**: 이 목표를 달성하려면 어떤 정보/데이터가 필요한가?\n3. **단계 설계**: 어떤 순서로 작업해야 하는가?\n4. **검증 기준**: 각 단계의 완료를 어떻게 확인하는가?\n5. **통합**: 하위 결과를 어떻게 최종 산출물로 조합하는가?\n\n분해 후 사용자에게 계획을 공유하고 확인을 받은 뒤 실행하라.\n```\n\n### 원칙 3: Tool Orchestration (도구 오케스트레이션)\n\n에이전트가 어떤 도구를 **언제, 왜, 어떤 순서로** 사용할지를 설계합니다. 이것은 마치 오케스트라 지휘자의 악보와 같습니다. 각 악기(도구)가 있다고 좋은 음악이 나오는 게 아니라, **언제 어떤 악기를 쓸지의 설계**가 핵심이죠.\n\n```\n## Tool Usage Protocol\n\n### 정보 탐색이 필요할 때\n1차: Notion 검색 → 내부 지식 베이스 우선 탐색\n2차: Google Drive 검색 → 공식 문서/보고서 확인\n3차: Web 검색 → 외부 최신 정보 보완\n\n### 산출물 생성 시\n- 단순 텍스트 → 대화 내 직접 제공\n- 구조화된 문서 → DOCX/PPTX 파일 생성\n- 데이터 기반 분석 → 코드 실행 후 시각화 포함\n\n### 저장/공유 시\n- Notion 아카이브 → 장기 보관 지식\n- 파일 다운로드 → 즉시 사용 산출물\n```\n\n### 원칙 4: Reasoning Transparency (추론 투명성)\n\n에이전트가 **왜 그런 판단을 했는지**를 드러내도록 설계합니다. 이것은 단순한 Chain-of-Thought를 넘어, 조직에서 의사결정의 **근거와 대안을 함께 보고**하는 문화와 같습니다. HR 맥락에서 특히 중요한데, 평가나 판단의 투명성이 신뢰의 기반이기 때문입니다.\n\n```\n## Reasoning Protocol\n모든 판단과 추천에 대해 다음을 포함하라:\n\n- **판단 근거**: 어떤 데이터/기준에 기반했는가\n- **확신도**: 높음/중간/낮음 + 그 이유\n- **대안**: 다른 가능한 접근법이 있다면 무엇인가\n- **한계**: 이 판단의 제한사항은 무엇인가\n\n예시:\n\"이 직무에 '디지털 트윈 설계' 역량을 Level 3으로 매핑했습니다.\n근거: ESCO 프레임워크의 해당 직무군 표준 + 귀사 JD 분석 결과\n확신도: 중간 — JD에 명시적 언급은 없으나 업무 내용으로 추론\n대안: Level 2로 보수적 매핑도 가능\n한계: 실제 현장 인터뷰 데이터 없이 문서 기반 분석만 수행\"\n```\n\n### 원칙 5: Adaptive Feedback Loop (적응적 피드백 루프)\n\n에이전트가 **자신의 출력을 스스로 평가하고, 사용자 피드백을 반영하여 개선**하는 구조를 설계합니다. 이것은 조직학습 이론에서 Chris Argyris가 말한 **이중루프 학습(Double-Loop Learning)**과 같습니다. 단순히 실수를 고치는 것(단일루프)이 아니라, \"왜 그런 실수가 발생했는지의 전제 자체를 재검토\"하는 것이죠.\n\n```\n## Self-Evaluation Protocol\n산출물 생성 후 스스로 다음을 점검하라:\n\n### 품질 체크\n- [ ] 사용자의 원래 요청에 정확히 대응하는가?\n- [ ] 누락된 정보나 논리적 비약이 없는가?\n- [ ] 실행 가능한 수준으로 구체적인가?\n\n### 피드백 통합\n사용자가 수정을 요청하면:\n1. 수정 내용을 반영하되\n2. \"왜 처음에 다르게 판단했는지\" 설명하고\n3. 향후 유사한 상황에서의 개선 방향을 제안하라\n```\n\n---\n\n## 3. 실전 패턴: Agentic Prompt의 구조 템플릿\n\n위 5가지 원칙을 통합하면, 하나의 Agentic 프롬프트는 대략 이런 구조를 갖습니다:\n\n```markdown\n# [에이전트 이름] System Prompt\n\n## 1. Identity (정체성)\n당신은 [역할]입니다. [핵심 가치/철학]을 기반으로 작동합니다.\n\n## 2. Context (맥락)\n[작동 환경, 사용자 특성, 도메인 배경]\n\n## 3. Goals & Constraints (목표와 제약)\n### 주요 목표\n### 절대 하지 말아야 할 것\n### 불확실할 때의 행동 규칙\n\n## 4. Workflow (작업 흐름)\n### Step 1: 입력 분석\n### Step 2: 계획 수립 및 사용자 확인\n### Step 3: 실행\n### Step 4: 자기 검증\n### Step 5: 산출물 전달\n\n## 5. Tool Usage (도구 사용 규칙)\n[어떤 도구를 언제, 어떤 조건에서 사용하는가]\n\n## 6. Communication Style (소통 스타일)\n[톤, 포맷, 언어 등]\n\n## 7. Error Handling (예외 처리)\n[실패 시 행동, 불확실성 처리, 에스컬레이션 규칙]\n```\n\n---\n\n## 4. CSP의 맥락에서의 적용\n\n지금 하고 계신 프로젝트들 — 역량 평가 시스템, 리더십 보고서 자동화, Notion 아카이빙 — 각각이 하나의 에이전트로 설계될 수 있습니다. 그리고 이 에이전트들이 **서로 연결되어 하나의 시스템으로 작동**하면, 그것이 바로 미래의 HR SaaS 플랫폼의 백본이 됩니다.\n\n핵심 인사이트는 이것입니다: **프롬프트 설계는 곧 조직 설계입니다.** 에이전트에게 역할을 부여하고, 권한을 설정하고, 협업 규칙을 만드는 것은 HR 전문가가 늘 해온 일입니다. 차이는 대상이 사람이 아니라 AI라는 것뿐이죠.\n\n특정 원칙을 현재 프로젝트에 바로 적용해보고 싶은 부분이 있으신가요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-02-11T04:33:19.661359Z",
+      "updated_at": "2026-02-11T04:33:19.661359Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019c4af8-ab7f-7268-8972-e0fcab1c0301"
+    },
+    {
+      "uuid": "019c4af9-e3b4-7376-86de-bacdf532660b",
+      "text": "현재 채팅을 노션에 어카이빙",
+      "content": [
+        {
+          "start_timestamp": "2026-02-11T04:33:36.779131Z",
+          "stop_timestamp": "2026-02-11T04:33:36.779131Z",
+          "flags": null,
+          "type": "text",
+          "text": "현재 채팅을 노션에 어카이빙",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-02-11T04:33:36.821910Z",
+      "updated_at": "2026-02-11T04:33:36.821910Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019c4af8-ab7f-7268-8972-e0fd3c1e9372"
+    },
+    {
+      "uuid": "019c4af9-e3b4-7376-86de-bacebbdc8fd1",
+      "text": "\n\n현재 대화를 Notion 아카이브에 저장하겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n날짜 형식을 수정하여 다시 저장하겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n태그 옵션을 기존 값에 맞추고, 필요한 새 태그를 추가하겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n이제 스키마를 정확히 파악했습니다. 저장합니다.\n```\nThis block is not supported on your current device yet.\n```\n\nNotion 아카이브에 저장 완료했습니다.\n\n**저장 정보:**\n- **페이지**: [Agentic Engineering 프롬프트 설계 원칙](https://www.notion.so/3046b7b50b238141aff5f3f5ae7a3732)\n- **주제**: 학습 | **중요도**: ⭐⭐⭐ 핵심 | **상태**: ✅ 완료\n- **태그**: AI, Agentic Engineering, 프롬프트 설계, System Prompt, Claude\n- **다음 액션**: 활성화 (Agentic 아키텍처 패턴 심화, 실제 System Prompt 작성 실습 등)",
+      "content": [
+        {
+          "start_timestamp": "2026-02-11T04:33:38.708532Z",
+          "stop_timestamp": "2026-02-11T04:33:39.139012Z",
+          "flags": null,
+          "type": "text",
+          "text": "\n\n현재 대화를 Notion 아카이브에 저장하겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-02-11T04:33:39.624967Z",
+          "stop_timestamp": "2026-02-11T04:33:59.963115Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_013UeXtyuNnGqLRm4KsaKf5A",
+          "name": "Notion:notion-create-pages",
+          "input": {
+            "parent": {
+              "type": "data_source_id",
+              "data_source_id": "d012343e-b2a2-461e-944b-6f166e91d8e9"
+            },
+            "pages": [
+              {
+                "properties": {
+                  "title": "Agentic Engineering 프롬프트 설계 원칙",
+                  "주제": "학습",
+                  "태그": "Agentic Engineering, 프롬프트 설계, AI Agent, System Prompt",
+                  "중요도": "⭐⭐⭐ 핵심",
+                  "상태": "✅ 완료",
+                  "날짜": "2025-02-11"
+                },
+                "content": "# Agentic Engineering 프롬프트 설계 원칙\n\n## 대화 컨텍스트\n- 날짜: 2025-02-11\n- 턴 수: 4턴\n- 주요 키워드: Agentic Engineering, 프롬프트 설계, AI Agent, System Prompt, 도구 오케스트레이션\n\n## 핵심 내용\n\n### Agentic Engineering이란?\nAI 에이전트를 설계·구축·운영하는 엔지니어링 분야. 단순 프롬프트 엔지니어링을 넘어, 자율적으로 판단하고 도구를 사용하며 다단계 작업을 수행하는 AI 시스템을 설계하는 것.\n\n전통적 소프트웨어: 입력 → 처리 → 출력 (결정론적 파이프라인)\nAgentic 시스템: 목표 → 계획 → 실행 → 관찰 → 재계획 (자율적 루프)\n\n### 구성 요소\n- **Planning**: 복잡한 작업을 하위 작업으로 분해\n- **Tool Use**: API 호출, 파일 생성, 데이터베이스 조회 등 외부 세계와 상호작용\n- **Memory**: 단기(대화 컨텍스트)와 장기(Notion 아카이브) 기억 결합\n- **Reflection**: 자신의 출력을 평가하고 개선하는 자기 피드백 루프\n\n### 5대 프롬프트 설계 원칙\n\n**원칙 1: Identity & Boundary (정체성과 경계)**\n에이전트에게 \"누구이고, 무엇을 할 수 있고, 무엇을 하면 안 되는가\"를 명확히 정의. 조직심리학의 역할 명확성(Role Clarity) 개념과 동일.\n\n**원칙 2: Goal Decomposition (목표 분해 구조)**\n복잡한 목표를 하위 목표로 분해하는 전략을 프롬프트에 내장. 인지심리학의 수단-목적 분석(Means-Ends Analysis) 시스템화.\n- 목표 파악 → 전제 조건 확인 → 단계 설계 → 검증 기준 → 통합\n\n**원칙 3: Tool Orchestration (도구 오케스트레이션)**\n어떤 도구를 언제, 왜, 어떤 순서로 사용할지 설계. 오케스트라 지휘자의 악보와 같은 역할.\n- 정보 탐색: Notion → Google Drive → Web 검색 순서\n- 산출물 생성: 복잡도에 따라 텍스트/파일/시각화 선택\n\n**원칙 4: Reasoning Transparency (추론 투명성)**\n판단 근거, 확신도, 대안, 한계를 함께 제시. HR 맥락에서 평가/판단의 투명성이 신뢰의 기반.\n\n**원칙 5: Adaptive Feedback Loop (적응적 피드백 루프)**\nChris Argyris의 이중루프 학습(Double-Loop Learning) 적용. 실수 교정뿐 아니라 전제 자체를 재검토하는 구조.\n\n### Agentic Prompt 구조 템플릿\n1. Identity (정체성)\n2. Context (맥락)\n3. Goals & Constraints (목표와 제약)\n4. Workflow (작업 흐름)\n5. Tool Usage (도구 사용 규칙)\n6. Communication Style (소통 스타일)\n7. Error Handling (예외 처리)\n\n## 주요 인사이트\n\n**\"프롬프트 설계는 곧 조직 설계다\"** — 에이전트에게 역할을 부여하고, 권한을 설정하고, 협업 규칙을 만드는 것은 HR 전문가가 늘 해온 일. 대상이 사람이 아니라 AI라는 것만 다르다.\n\n**CSP 적용 관점**: 역량 평가 시스템, 리더십 보고서 자동화, Notion 아카이빙 각각을 하나의 에이전트로 설계하고, 이 에이전트들이 서로 연결되면 HR SaaS 플랫폼의 백본이 된다.\n\n## 관련 키워드\nReAct, Plan-and-Execute, Chain-of-Thought, Multi-Agent System, ESCO, 스킬 온톨로지, HR 자동화, SaaS"
+              }
+            ]
+          },
+          "message": "Notion-create-pages",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-create-pages-9bba1491271484792ee54d5d59332dce",
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_013UeXtyuNnGqLRm4KsaKf5A",
+          "name": "Notion:notion-create-pages",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"name\":\"APIResponseError\",\"code\":\"validation_error\",\"status\":400,\"headers\":{},\"body\":\"{\\\"object\\\":\\\"error\\\",\\\"status\\\":400,\\\"code\\\":\\\"validation_error\\\",\\\"message\\\":\\\"Date type must be expanded: 날짜. For date properties, provide the expanded SQLite date keys (e.g. `date:날짜:start`, optional `date:날짜:end`, and optional `date:날짜:is_datetime`), not a single `날짜` value.\\\",\\\"request_id\\\":\\\"bc3b211d-1c78-4612-8bb0-a1eb79344c0f\\\"}\",\"request_id\":\"bc3b211d-1c78-4612-8bb0-a1eb79344c0f\"}",
+              "uuid": "5865e171-697d-4649-8909-3378d1476d4f"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"name\": \"APIResponseError\",\n  \"code\": \"validation_error\",\n  \"status\": 400,\n  \"headers\": {},\n  \"body\": \"{\\\"object\\\":\\\"error\\\",\\\"status\\\":400,\\\"code\\\":\\\"validation_error\\\",\\\"message\\\":\\\"Date type must be expanded: \\ub0a0\\uc9dc. For date properties, provide the expanded SQLite date keys (e.g. `date:\\ub0a0\\uc9dc:start`, optional `date:\\ub0a0\\uc9dc:end`, and optional `date:\\ub0a0\\uc9dc:is_datetime`), not a single `\\ub0a0\\uc9dc` value.\\\",\\\"request_id\\\":\\\"bc3b211d-1c78-4612-8bb0-a1eb79344c0f\\\"}\",\n  \"request_id\": \"bc3b211d-1c78-4612-8bb0-a1eb79344c0f\"\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-02-11T04:34:03.778892Z",
+          "stop_timestamp": "2026-02-11T04:34:04.152870Z",
+          "flags": null,
+          "type": "text",
+          "text": "날짜 형식을 수정하여 다시 저장하겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-02-11T04:34:04.816756Z",
+          "stop_timestamp": "2026-02-11T04:34:41.361689Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01TucojKHspeXKog7AvHvkft",
+          "name": "Notion:notion-create-pages",
+          "input": {
+            "pages": [
+              {
+                "properties": {
+                  "title": "Agentic Engineering 프롬프트 설계 원칙",
+                  "주제": "학습",
+                  "태그": "Agentic Engineering, 프롬프트 설계, AI Agent, System Prompt",
+                  "중요도": "⭐⭐⭐ 핵심",
+                  "상태": "✅ 완료",
+                  "date:날짜:start": "2025-02-11",
+                  "date:날짜:is_datetime": 0
+                },
+                "content": "# Agentic Engineering 프롬프트 설계 원칙\n\n## 대화 컨텍스트\n- 날짜: 2025-02-11\n- 턴 수: 4턴\n- 주요 키워드: Agentic Engineering, 프롬프트 설계, AI Agent, System Prompt, 도구 오케스트레이션\n\n## 핵심 내용\n\n### Agentic Engineering이란?\nAI 에이전트를 설계·구축·운영하는 엔지니어링 분야. 단순 프롬프트 엔지니어링을 넘어, 자율적으로 판단하고 도구를 사용하며 다단계 작업을 수행하는 AI 시스템을 설계하는 것.\n\n전통적 소프트웨어: 입력 → 처리 → 출력 (결정론적 파이프라인)\nAgentic 시스템: 목표 → 계획 → 실행 → 관찰 → 재계획 (자율적 루프)\n\n### 구성 요소\n- **Planning**: 복잡한 작업을 하위 작업으로 분해\n- **Tool Use**: API 호출, 파일 생성, DB 조회 등 외부 세계와 상호작용\n- **Memory**: 단기(대화 컨텍스트)와 장기(Notion 아카이브) 기억 결합\n- **Reflection**: 자신의 출력을 평가하고 개선하는 자기 피드백 루프\n\n### 5대 프롬프트 설계 원칙\n\n**원칙 1: Identity & Boundary (정체성과 경계)**\n에이전트에게 \"누구이고, 무엇을 할 수 있고, 무엇을 하면 안 되는가\" 명확히 정의. 조직심리학의 역할 명확성(Role Clarity) 개념.\n\n**원칙 2: Goal Decomposition (목표 분해 구조)**\n인지심리학의 수단-목적 분석(Means-Ends Analysis) 시스템화.\n목표 파악 → 전제 조건 확인 → 단계 설계 → 검증 기준 → 통합\n\n**원칙 3: Tool Orchestration (도구 오케스트레이션)**\n어떤 도구를 언제, 왜, 어떤 순서로 사용할지 설계. 오케스트라 지휘자의 악보와 같은 역할.\n\n**원칙 4: Reasoning Transparency (추론 투명성)**\n판단 근거, 확신도, 대안, 한계를 함께 제시. HR에서 평가의 투명성 = 신뢰의 기반.\n\n**원칙 5: Adaptive Feedback Loop (적응적 피드백 루프)**\nChris Argyris의 이중루프 학습(Double-Loop Learning). 실수 교정뿐 아니라 전제 자체를 재검토.\n\n### Agentic Prompt 구조 템플릿\n1. Identity (정체성)\n2. Context (맥락)\n3. Goals & Constraints (목표와 제약)\n4. Workflow (작업 흐름)\n5. Tool Usage (도구 사용 규칙)\n6. Communication Style (소통 스타일)\n7. Error Handling (예외 처리)\n\n## 주요 인사이트\n\n> **\"프롬프트 설계는 곧 조직 설계다\"** — 에이전트에게 역할을 부여하고, 권한을 설정하고, 협업 규칙을 만드는 것은 HR 전문가가 늘 해온 일. 대상이 사람이 아니라 AI라는 것만 다르다.\n\n**CSP 적용 관점**: 역량 평가 시스템, 리더십 보고서 자동화, Notion 아카이빙 각각을 하나의 에이전트로 설계하고, 이들이 연결되면 HR SaaS 플랫폼의 백본이 된다.\n\n## 관련 키워드\nReAct, Plan-and-Execute, Chain-of-Thought, Multi-Agent System, ESCO, 스킬 온톨로지, HR 자동화, SaaS\n\n## 다음 액션\n- 특정 원칙을 현재 프로젝트에 적용해보기\n- ReAct, Plan-and-Execute 등 Agentic 아키텍처 패턴 심화 학습\n- 실제 System Prompt 작성 실습"
+              }
+            ],
+            "parent": {
+              "type": "data_source_id",
+              "data_source_id": "d012343e-b2a2-461e-944b-6f166e91d8e9"
+            }
+          },
+          "message": "Notion-create-pages",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-create-pages-9bba1491271484792ee54d5d59332dce",
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01TucojKHspeXKog7AvHvkft",
+          "name": "Notion:notion-create-pages",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"name\":\"APIResponseError\",\"code\":\"validation_error\",\"status\":400,\"headers\":{},\"body\":\"{\\\"object\\\":\\\"error\\\",\\\"status\\\":400,\\\"code\\\":\\\"validation_error\\\",\\\"message\\\":\\\"Invalid multi_select value for property \\\\\\\"태그\\\\\\\": \\\\\\\"Agentic Engineering, 프롬프트 설계, AI Agent, System Prompt\\\\\\\". Value must be one of the following: \\\\\\\"세컨브레인\\\\\\\", \\\\\\\"Notion\\\\\\\", \\\\\\\"Obsidian\\\\\\\", \\\\\\\"자동화\\\\\\\", \\\\\\\"AI\\\\\\\", \\\\\\\"워크플로우\\\\\\\", \\\\\\\"온톨로지\\\\\\\", \\\\\\\"Claude\\\\\\\". If a new multi_select option is needed, the data source must be updated to add it.\\\",\\\"request_id\\\":\\\"2a776d8d-fa13-4c32-a0ae-17cbbbcfdfba\\\"}\",\"request_id\":\"2a776d8d-fa13-4c32-a0ae-17cbbbcfdfba\"}",
+              "uuid": "16492b23-f527-4756-bfef-acd749479cac"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"name\": \"APIResponseError\",\n  \"code\": \"validation_error\",\n  \"status\": 400,\n  \"headers\": {},\n  \"body\": \"{\\\"object\\\":\\\"error\\\",\\\"status\\\":400,\\\"code\\\":\\\"validation_error\\\",\\\"message\\\":\\\"Invalid multi_select value for property \\\\\\\"\\ud0dc\\uadf8\\\\\\\": \\\\\\\"Agentic Engineering, \\ud504\\ub86c\\ud504\\ud2b8 \\uc124\\uacc4, AI Agent, System Prompt\\\\\\\". Value must be one of the following: \\\\\\\"\\uc138\\ucee8\\ube0c\\ub808\\uc778\\\\\\\", \\\\\\\"Notion\\\\\\\", \\\\\\\"Obsidian\\\\\\\", \\\\\\\"\\uc790\\ub3d9\\ud654\\\\\\\", \\\\\\\"AI\\\\\\\", \\\\\\\"\\uc6cc\\ud06c\\ud50c\\ub85c\\uc6b0\\\\\\\", \\\\\\\"\\uc628\\ud1a8\\ub85c\\uc9c0\\\\\\\", \\\\\\\"Claude\\\\\\\". If a new multi_select option is needed, the data source must be updated to add it.\\\",\\\"request_id\\\":\\\"2a776d8d-fa13-4c32-a0ae-17cbbbcfdfba\\\"}\",\n  \"request_id\": \"2a776d8d-fa13-4c32-a0ae-17cbbbcfdfba\"\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-02-11T04:34:44.451353Z",
+          "stop_timestamp": "2026-02-11T04:34:45.401758Z",
+          "flags": null,
+          "type": "text",
+          "text": "태그 옵션을 기존 값에 맞추고, 필요한 새 태그를 추가하겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-02-11T04:34:45.985601Z",
+          "stop_timestamp": "2026-02-11T04:34:47.838616Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_019Qj8VKRfsUqzu2h5LsFhoX",
+          "name": "Notion:notion-update-data-source",
+          "input": {
+            "data_source_id": "d012343e-b2a2-461e-944b-6f166e91d8e9",
+            "properties": {
+              "태그": {
+                "type": "multi_select",
+                "multi_select": {
+                  "options": [
+                    {
+                      "name": "세컨브레인"
+                    },
+                    {
+                      "name": "Notion"
+                    },
+                    {
+                      "name": "Obsidian"
+                    },
+                    {
+                      "name": "자동화"
+                    },
+                    {
+                      "name": "AI"
+                    },
+                    {
+                      "name": "워크플로우"
+                    },
+                    {
+                      "name": "온톨로지"
+                    },
+                    {
+                      "name": "Claude"
+                    },
+                    {
+                      "name": "Agentic Engineering"
+                    },
+                    {
+                      "name": "프롬프트 설계"
+                    },
+                    {
+                      "name": "System Prompt"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "message": "Notion-update-data-source",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": [
+            "once",
+            "always"
+          ],
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-update-data-source-8eefed3628301751bed39f8d73bd84ea",
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_019Qj8VKRfsUqzu2h5LsFhoX",
+          "name": "Notion:notion-update-data-source",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"result\":\"Updated data source: <database url=\\\"{{https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15}}\\\" inline=\\\"false\\\">\\nThe title of this Database is: 💬 Claude 대화 아카이브\\n<ancestor-path>\\n<parent-page url=\\\"{{https://www.notion.so/2496b7b50b23802da04fdafb113c4d4c}}\\\" title=\\\"세컨브레인 위키\\\"/>\\n<ancestor-2-data-source url=\\\"{{collection://1cc6b7b5-0b23-803e-87c2-000b76f9c172}}\\\" name=\\\"My Cal\\\"/>\\n<ancestor-3-database url=\\\"{{https://www.notion.so/1cc6b7b50b238019a8aedf1648664acc}}\\\" title=\\\"\\\"/>\\n<ancestor-4-page url=\\\"{{https://www.notion.so/1cc6b7b50b2380c59fc6ca6f2f77ba0c}}\\\" title=\\\"빠른메모\\\"/>\\n</ancestor-path>\\nHere are the Database's Data Sources:\\nYou can use the \\\"view\\\" tool on the URL of any Data Source to see its full schema configuration.\\n<data-sources>\\n<data-source url=\\\"{{collection://d012343e-b2a2-461e-944b-6f166e91d8e9}}\\\">\\nThe title of this Data Source is: 💬 Claude 대화 아카이브\\n\\nHere is the database's configurable state:\\n<data-source-state>\\n{\\\"name\\\":\\\"💬 Claude 대화 아카이브\\\",\\\"schema\\\":{\\\"관련 프로젝트\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"관련 프로젝트\\\",\\\"type\\\":\\\"text\\\"},\\\"날짜\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"날짜\\\",\\\"type\\\":\\\"date\\\"},\\\"다음 액션\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"다음 액션\\\",\\\"type\\\":\\\"checkbox\\\"},\\\"대화 제목\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"대화 제목\\\",\\\"type\\\":\\\"title\\\"},\\\"상태\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"상태\\\",\\\"options\\\":[{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"💡 아이디어\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/MzA1ZGNjYjQtNDg3Zi00YzZkLWJlZmItNmI5OGE1ZGI3YTA0\\\"},{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"🔄 진행중\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/YzkyYjk2YmMtZDcyMy00NDIzLWFkMTUtNzFmZDczNzIyNDRk\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"✅ 완료\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/OTZiMGY5NmUtNGUzOC00ZDNkLTg0OTUtMzMwZTE3YmU2ODFj\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"📦 보관\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/NGI4NjA3NjQtMjYwNy00NmY4LTgzOTYtZDg4YmNiNDZhZmEx\\\"}],\\\"type\\\":\\\"select\\\"},\\\"요약\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"요약\\\",\\\"type\\\":\\\"text\\\"},\\\"주제\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"주제\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"지식관리\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTcyNjE0MDAtYTczOS00MzExLWFjYWEtOGMyMmM0NGUxYzdh\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"개발/코딩\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTE4N2VjOTktNGUyMi00N2MwLThiNmQtODg3NzY4MGY3NzMw\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"생산성\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjBlNDU2ZjQtZjIyYS00ODllLWI5NDgtMzhmNGMyMmZlM2Rj\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"분석/리서치\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjZiYzcwYWUtYWZkMC00N2YwLWEzYTAtMWU1ZWIwNWRhYzYy\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"창작/글쓰기\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWIxZGI5ZGQtYzgyZC00Njg2LWJhOTEtN2Q3YThiMDgyYmFj\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"아이디어\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OWJkMTFlN2YtNDBhMy00Y2Y2LWE1ODQtYmZhZDdlZTQ2ZjM5\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"학습\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWRlNzUwZTEtMTA0Yy00NWMzLTlkYTEtYzQwYTEwMjcwMzhm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"기타\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTkwMTg3ZjQtYTdkMi00NTNmLWI1YTktMjU4MjYxOTRlNDE5\\\"}],\\\"type\\\":\\\"select\\\"},\\\"중요도\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"중요도\\\",\\\"options\\\":[{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐⭐⭐ 핵심\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/OWMzZTFlMGMtYjJhOS00MGFmLTkzMDAtNDg0YWNjYmRmZWMz\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐⭐ 중요\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/MDJlNjYxMWQtODljNC00ZDFjLWEyMGUtZDg3ODQ2Y2I5MDk1\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐ 참고\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YmJlOTM0NGEtMGJlYy00ODJlLTliNzktM2I5ZTEyYzBiNjlm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"보관\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YWZjNTQzZTUtNjg4MC00ZGY2LWJlODgtN2ZhOGQyMGYyZDY2\\\"}],\\\"type\\\":\\\"select\\\"},\\\"키워드\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"키워드\\\",\\\"type\\\":\\\"text\\\"},\\\"태그\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"태그\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"세컨브레인\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZWNmODNkODctNGQxNC00NTQ5LTk4ZDQtOWFjMDk4M2ZjYjMw\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Notion\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YTdjODAzMzctMGZkZi00YzhkLWE4OTMtMWZmMjBkZTFhYTM4\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Obsidian\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YzFiMjQwY2YtZTg5NC00YTZmLWExMjktN2QzOTdhNTBiMjg2\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"자동화\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/OWJiZTFjNWQtY2QwMS00NTIyLWIzMGEtMGVlMzE2MDA4MGMz\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"AI\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZDBiYTVkZjAtY2E0Yi00NzZhLTk0YTctNjIzYTgyZjIyODI1\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"워크플로우\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTNhYjdiOWYtYjgwYy00YmNjLTllMDctYzZmYzFjZTFhMGZh\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"온톨로지\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTEzYjEzNDgtZTkxYi00NDJiLWI3MDYtZmY5Mjk1NGY5OGQ4\\\"},{\\\"color\\\":\\\"default\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Claude\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/NDYyOTljM2ItMDk5ZC00Y2Q0LWE2NzMtNDFlMDM3ZjE4MGM0\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Agentic Engineering\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YmYxNjQ5NzMtNWM1OS00ZmRmLTk2YTItOWY3M2QzMzhiNjNm\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"프롬프트 설계\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YTk5ZTZiYzItM2E0Yy00Njc1LTgwYjgtN2NmYzI1YmRiYjAz\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"System Prompt\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YmEyYTg4YjYtZGRlZi00MTgyLTkwM2YtMGZjODFlZGUwM2U0\\\"}],\\\"type\\\":\\\"multi_select\\\"}},\\\"url\\\":\\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\"}\\n</data-source-state>\\n\\nHere is the SQLite table definition for this data source.\\n<sqlite-table>\\nCREATE TABLE IF NOT EXISTS \\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\" (\\n\\turl TEXT UNIQUE,\\n\\tcreatedTime TEXT, -- ISO-8601 datetime string, automatically set. This is the canonical time for when the page was created.\\n\\t\\\"키워드\\\" TEXT,\\n\\t\\\"요약\\\" TEXT,\\n\\t\\\"주제\\\" TEXT, -- one of [\\\"지식관리\\\", \\\"개발/코딩\\\", \\\"생산성\\\", \\\"분석/리서치\\\", \\\"창작/글쓰기\\\", \\\"아이디어\\\", \\\"학습\\\", \\\"기타\\\"]\\n\\t\\\"관련 프로젝트\\\" TEXT,\\n\\t\\\"date:날짜:start\\\" TEXT, -- ISO-8601 date or datetime string. Use the expanded property (date:<column_name>:start) to set this value.\\n\\t\\\"date:날짜:end\\\" TEXT, -- ISO-8601 date or datetime string, can be empty. Must be NULL if the date is a single date, and must be present if the date is a range. Use the expanded property (date:<column_name>:end) to set this value.\\n\\t\\\"date:날짜:is_datetime\\\" INTEGER, -- 1 if the date is a datetime, 0 if it is a date, NULL defaults to 0. Use the expanded property (date:<column_name>:is_datetime) to set this value.\\n\\t\\\"상태\\\" TEXT, -- one of [\\\"💡 아이디어\\\", \\\"🔄 진행중\\\", \\\"✅ 완료\\\", \\\"📦 보관\\\"]\\n\\t\\\"태그\\\" TEXT, -- JSON array with zero or more of [\\\"세컨브레인\\\", \\\"Notion\\\", \\\"Obsidian\\\", \\\"자동화\\\", \\\"AI\\\", \\\"워크플로우\\\", \\\"온톨로지\\\", \\\"Claude\\\", \\\"Agentic Engineering\\\", \\\"프롬프트 설계\\\", \\\"System Prompt\\\"]\\n\\t\\\"중요도\\\" TEXT, -- one of [\\\"⭐⭐⭐ 핵심\\\", \\\"⭐⭐ 중요\\\", \\\"⭐ 참고\\\", \\\"보관\\\"]\\n\\t\\\"다음 액션\\\" TEXT, -- \\\"__YES__\\\" = true, \\\"__NO__\\\" = false, NULL defaults to false\\n\\t\\\"대화 제목\\\" TEXT\\n)\\n</sqlite-table>\\n</data-source>\\n</data-sources>\\n</database>\"}",
+              "uuid": "b842f078-1ef1-40f4-8715-b694a83e20d6"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"result\": \"Updated data source: <database url=\\\"{{https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15}}\\\" inline=\\\"false\\\">\\nThe title of this Database is: \\ud83d\\udcac Claude \\ub300\\ud654 \\uc544\\uce74\\uc774\\ube0c\\n<ancestor-path>\\n<parent-page url=\\\"{{https://www.notion.so/2496b7b50b23802da04fdafb113c4d4c}}\\\" title=\\\"\\uc138\\ucee8\\ube0c\\ub808\\uc778 \\uc704\\ud0a4\\\"/>\\n<ancestor-2-data-source url=\\\"{{collection://1cc6b7b5-0b23-803e-87c2-000b76f9c172}}\\\" name=\\\"My Cal\\\"/>\\n<ancestor-3-database url=\\\"{{https://www.notion.so/1cc6b7b50b238019a8aedf1648664acc}}\\\" title=\\\"\\\"/>\\n<ancestor-4-page url=\\\"{{https://www.notion.so/1cc6b7b50b2380c59fc6ca6f2f77ba0c}}\\\" title=\\\"\\ube60\\ub978\\uba54\\ubaa8\\\"/>\\n</ancestor-path>\\nHere are the Database's Data Sources:\\nYou can use the \\\"view\\\" tool on the URL of any Data Source to see its full schema configuration.\\n<data-sources>\\n<data-source url=\\\"{{collection://d012343e-b2a2-461e-944b-6f166e91d8e9}}\\\">\\nThe title of this Data Source is: \\ud83d\\udcac Claude \\ub300\\ud654 \\uc544\\uce74\\uc774\\ube0c\\n\\nHere is the database's configurable state:\\n<data-source-state>\\n{\\\"name\\\":\\\"\\ud83d\\udcac Claude \\ub300\\ud654 \\uc544\\uce74\\uc774\\ube0c\\\",\\\"schema\\\":{\\\"\\uad00\\ub828 \\ud504\\ub85c\\uc81d\\ud2b8\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uad00\\ub828 \\ud504\\ub85c\\uc81d\\ud2b8\\\",\\\"type\\\":\\\"text\\\"},\\\"\\ub0a0\\uc9dc\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ub0a0\\uc9dc\\\",\\\"type\\\":\\\"date\\\"},\\\"\\ub2e4\\uc74c \\uc561\\uc158\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ub2e4\\uc74c \\uc561\\uc158\\\",\\\"type\\\":\\\"checkbox\\\"},\\\"\\ub300\\ud654 \\uc81c\\ubaa9\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ub300\\ud654 \\uc81c\\ubaa9\\\",\\\"type\\\":\\\"title\\\"},\\\"\\uc0c1\\ud0dc\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc0c1\\ud0dc\\\",\\\"options\\\":[{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud83d\\udca1 \\uc544\\uc774\\ub514\\uc5b4\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/MzA1ZGNjYjQtNDg3Zi00YzZkLWJlZmItNmI5OGE1ZGI3YTA0\\\"},{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud83d\\udd04 \\uc9c4\\ud589\\uc911\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/YzkyYjk2YmMtZDcyMy00NDIzLWFkMTUtNzFmZDczNzIyNDRk\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\u2705 \\uc644\\ub8cc\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/OTZiMGY5NmUtNGUzOC00ZDNkLTg0OTUtMzMwZTE3YmU2ODFj\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud83d\\udce6 \\ubcf4\\uad00\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/NGI4NjA3NjQtMjYwNy00NmY4LTgzOTYtZDg4YmNiNDZhZmEx\\\"}],\\\"type\\\":\\\"select\\\"},\\\"\\uc694\\uc57d\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc694\\uc57d\\\",\\\"type\\\":\\\"text\\\"},\\\"\\uc8fc\\uc81c\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc8fc\\uc81c\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc9c0\\uc2dd\\uad00\\ub9ac\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTcyNjE0MDAtYTczOS00MzExLWFjYWEtOGMyMmM0NGUxYzdh\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uac1c\\ubc1c/\\ucf54\\ub529\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTE4N2VjOTktNGUyMi00N2MwLThiNmQtODg3NzY4MGY3NzMw\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc0dd\\uc0b0\\uc131\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjBlNDU2ZjQtZjIyYS00ODllLWI5NDgtMzhmNGMyMmZlM2Rj\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ubd84\\uc11d/\\ub9ac\\uc11c\\uce58\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjZiYzcwYWUtYWZkMC00N2YwLWEzYTAtMWU1ZWIwNWRhYzYy\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ucc3d\\uc791/\\uae00\\uc4f0\\uae30\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWIxZGI5ZGQtYzgyZC00Njg2LWJhOTEtN2Q3YThiMDgyYmFj\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc544\\uc774\\ub514\\uc5b4\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OWJkMTFlN2YtNDBhMy00Y2Y2LWE1ODQtYmZhZDdlZTQ2ZjM5\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud559\\uc2b5\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWRlNzUwZTEtMTA0Yy00NWMzLTlkYTEtYzQwYTEwMjcwMzhm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uae30\\ud0c0\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTkwMTg3ZjQtYTdkMi00NTNmLWI1YTktMjU4MjYxOTRlNDE5\\\"}],\\\"type\\\":\\\"select\\\"},\\\"\\uc911\\uc694\\ub3c4\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc911\\uc694\\ub3c4\\\",\\\"options\\\":[{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\u2b50\\u2b50\\u2b50 \\ud575\\uc2ec\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/OWMzZTFlMGMtYjJhOS00MGFmLTkzMDAtNDg0YWNjYmRmZWMz\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\u2b50\\u2b50 \\uc911\\uc694\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/MDJlNjYxMWQtODljNC00ZDFjLWEyMGUtZDg3ODQ2Y2I5MDk1\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\u2b50 \\ucc38\\uace0\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YmJlOTM0NGEtMGJlYy00ODJlLTliNzktM2I5ZTEyYzBiNjlm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ubcf4\\uad00\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YWZjNTQzZTUtNjg4MC00ZGY2LWJlODgtN2ZhOGQyMGYyZDY2\\\"}],\\\"type\\\":\\\"select\\\"},\\\"\\ud0a4\\uc6cc\\ub4dc\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud0a4\\uc6cc\\ub4dc\\\",\\\"type\\\":\\\"text\\\"},\\\"\\ud0dc\\uadf8\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud0dc\\uadf8\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc138\\ucee8\\ube0c\\ub808\\uc778\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZWNmODNkODctNGQxNC00NTQ5LTk4ZDQtOWFjMDk4M2ZjYjMw\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Notion\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YTdjODAzMzctMGZkZi00YzhkLWE4OTMtMWZmMjBkZTFhYTM4\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Obsidian\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YzFiMjQwY2YtZTg5NC00YTZmLWExMjktN2QzOTdhNTBiMjg2\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc790\\ub3d9\\ud654\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/OWJiZTFjNWQtY2QwMS00NTIyLWIzMGEtMGVlMzE2MDA4MGMz\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"AI\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZDBiYTVkZjAtY2E0Yi00NzZhLTk0YTctNjIzYTgyZjIyODI1\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc6cc\\ud06c\\ud50c\\ub85c\\uc6b0\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTNhYjdiOWYtYjgwYy00YmNjLTllMDctYzZmYzFjZTFhMGZh\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc628\\ud1a8\\ub85c\\uc9c0\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTEzYjEzNDgtZTkxYi00NDJiLWI3MDYtZmY5Mjk1NGY5OGQ4\\\"},{\\\"color\\\":\\\"default\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Claude\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/NDYyOTljM2ItMDk5ZC00Y2Q0LWE2NzMtNDFlMDM3ZjE4MGM0\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Agentic Engineering\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YmYxNjQ5NzMtNWM1OS00ZmRmLTk2YTItOWY3M2QzMzhiNjNm\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud504\\ub86c\\ud504\\ud2b8 \\uc124\\uacc4\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YTk5ZTZiYzItM2E0Yy00Njc1LTgwYjgtN2NmYzI1YmRiYjAz\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"System Prompt\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YmEyYTg4YjYtZGRlZi00MTgyLTkwM2YtMGZjODFlZGUwM2U0\\\"}],\\\"type\\\":\\\"multi_select\\\"}},\\\"url\\\":\\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\"}\\n</data-source-state>\\n\\nHere is the SQLite table definition for this data source.\\n<sqlite-table>\\nCREATE TABLE IF NOT EXISTS \\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\" (\\n\\turl TEXT UNIQUE,\\n\\tcreatedTime TEXT, -- ISO-8601 datetime string, automatically set. This is the canonical time for when the page was created.\\n\\t\\\"\\ud0a4\\uc6cc\\ub4dc\\\" TEXT,\\n\\t\\\"\\uc694\\uc57d\\\" TEXT,\\n\\t\\\"\\uc8fc\\uc81c\\\" TEXT, -- one of [\\\"\\uc9c0\\uc2dd\\uad00\\ub9ac\\\", \\\"\\uac1c\\ubc1c/\\ucf54\\ub529\\\", \\\"\\uc0dd\\uc0b0\\uc131\\\", \\\"\\ubd84\\uc11d/\\ub9ac\\uc11c\\uce58\\\", \\\"\\ucc3d\\uc791/\\uae00\\uc4f0\\uae30\\\", \\\"\\uc544\\uc774\\ub514\\uc5b4\\\", \\\"\\ud559\\uc2b5\\\", \\\"\\uae30\\ud0c0\\\"]\\n\\t\\\"\\uad00\\ub828 \\ud504\\ub85c\\uc81d\\ud2b8\\\" TEXT,\\n\\t\\\"date:\\ub0a0\\uc9dc:start\\\" TEXT, -- ISO-8601 date or datetime string. Use the expanded property (date:<column_name>:start) to set this value.\\n\\t\\\"date:\\ub0a0\\uc9dc:end\\\" TEXT, -- ISO-8601 date or datetime string, can be empty. Must be NULL if the date is a single date, and must be present if the date is a range. Use the expanded property (date:<column_name>:end) to set this value.\\n\\t\\\"date:\\ub0a0\\uc9dc:is_datetime\\\" INTEGER, -- 1 if the date is a datetime, 0 if it is a date, NULL defaults to 0. Use the expanded property (date:<column_name>:is_datetime) to set this value.\\n\\t\\\"\\uc0c1\\ud0dc\\\" TEXT, -- one of [\\\"\\ud83d\\udca1 \\uc544\\uc774\\ub514\\uc5b4\\\", \\\"\\ud83d\\udd04 \\uc9c4\\ud589\\uc911\\\", \\\"\\u2705 \\uc644\\ub8cc\\\", \\\"\\ud83d\\udce6 \\ubcf4\\uad00\\\"]\\n\\t\\\"\\ud0dc\\uadf8\\\" TEXT, -- JSON array with zero or more of [\\\"\\uc138\\ucee8\\ube0c\\ub808\\uc778\\\", \\\"Notion\\\", \\\"Obsidian\\\", \\\"\\uc790\\ub3d9\\ud654\\\", \\\"AI\\\", \\\"\\uc6cc\\ud06c\\ud50c\\ub85c\\uc6b0\\\", \\\"\\uc628\\ud1a8\\ub85c\\uc9c0\\\", \\\"Claude\\\", \\\"Agentic Engineering\\\", \\\"\\ud504\\ub86c\\ud504\\ud2b8 \\uc124\\uacc4\\\", \\\"System Prompt\\\"]\\n\\t\\\"\\uc911\\uc694\\ub3c4\\\" TEXT, -- one of [\\\"\\u2b50\\u2b50\\u2b50 \\ud575\\uc2ec\\\", \\\"\\u2b50\\u2b50 \\uc911\\uc694\\\", \\\"\\u2b50 \\ucc38\\uace0\\\", \\\"\\ubcf4\\uad00\\\"]\\n\\t\\\"\\ub2e4\\uc74c \\uc561\\uc158\\\" TEXT, -- \\\"__YES__\\\" = true, \\\"__NO__\\\" = false, NULL defaults to false\\n\\t\\\"\\ub300\\ud654 \\uc81c\\ubaa9\\\" TEXT\\n)\\n</sqlite-table>\\n</data-source>\\n</data-sources>\\n</database>\"\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-02-11T04:37:31.164869Z",
+          "stop_timestamp": "2026-02-11T04:37:31.646049Z",
+          "flags": null,
+          "type": "text",
+          "text": "이제 스키마를 정확히 파악했습니다. 저장합니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-02-11T04:37:32.258054Z",
+          "stop_timestamp": "2026-02-11T04:38:03.778736Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_0183VZjTnY1BHb21BVWHo2SM",
+          "name": "Notion:notion-create-pages",
+          "input": {
+            "pages": [
+              {
+                "properties": {
+                  "대화 제목": "Agentic Engineering 프롬프트 설계 원칙",
+                  "주제": "학습",
+                  "태그": "[\"AI\", \"Agentic Engineering\", \"프롬프트 설계\", \"System Prompt\", \"Claude\"]",
+                  "중요도": "⭐⭐⭐ 핵심",
+                  "상태": "✅ 완료",
+                  "date:날짜:start": "2025-02-11",
+                  "date:날짜:is_datetime": 0,
+                  "요약": "Agentic Engineering 개념 정의 및 프롬프트 설계 5대 원칙(Identity & Boundary, Goal Decomposition, Tool Orchestration, Reasoning Transparency, Adaptive Feedback Loop) 정리. 프롬프트 설계 = 조직 설계라는 핵심 인사이트 도출.",
+                  "키워드": "Agentic Engineering, 프롬프트 설계, AI Agent, System Prompt, Role Clarity, Double-Loop Learning, Tool Orchestration",
+                  "관련 프로젝트": "HR SaaS 플랫폼, 역량평가 시스템",
+                  "다음 액션": "__YES__"
+                },
+                "content": "# Agentic Engineering 프롬프트 설계 원칙\n\n## 대화 컨텍스트\n- 날짜: 2025-02-11\n- 턴 수: 4턴\n- 주요 키워드: Agentic Engineering, 프롬프트 설계, AI Agent, System Prompt, 도구 오케스트레이션\n\n## 핵심 내용\n\n### Agentic Engineering이란?\nAI 에이전트를 설계·구축·운영하는 엔지니어링 분야. 단순 프롬프트 엔지니어링을 넘어, 자율적으로 판단하고 도구를 사용하며 다단계 작업을 수행하는 AI 시스템을 설계하는 것.\n\n- 전통적 소프트웨어: 입력 → 처리 → 출력 (결정론적 파이프라인)\n- Agentic 시스템: 목표 → 계획 → 실행 → 관찰 → 재계획 (자율적 루프)\n\n### 구성 요소\n- **Planning**: 복잡한 작업을 하위 작업으로 분해\n- **Tool Use**: API 호출, 파일 생성, DB 조회 등 외부 세계와 상호작용\n- **Memory**: 단기(대화 컨텍스트)와 장기(Notion 아카이브) 기억 결합\n- **Reflection**: 자신의 출력을 평가하고 개선하는 자기 피드백 루프\n\n### 5대 프롬프트 설계 원칙\n\n**원칙 1: Identity & Boundary (정체성과 경계)**\n에이전트에게 \"누구이고, 무엇을 할 수 있고, 무엇을 하면 안 되는가\" 명확히 정의. 조직심리학의 역할 명확성(Role Clarity) 개념.\n\n**원칙 2: Goal Decomposition (목표 분해 구조)**\n인지심리학의 수단-목적 분석(Means-Ends Analysis) 시스템화.\n목표 파악 → 전제 조건 확인 → 단계 설계 → 검증 기준 → 통합\n\n**원칙 3: Tool Orchestration (도구 오케스트레이션)**\n어떤 도구를 언제, 왜, 어떤 순서로 사용할지 설계. 오케스트라 지휘자의 악보와 같은 역할.\n- 정보 탐색: Notion → Google Drive → Web 검색 순서\n- 산출물 생성: 복잡도에 따라 텍스트/파일/시각화 선택\n\n**원칙 4: Reasoning Transparency (추론 투명성)**\n판단 근거, 확신도, 대안, 한계를 함께 제시. HR에서 평가의 투명성 = 신뢰의 기반.\n\n**원칙 5: Adaptive Feedback Loop (적응적 피드백 루프)**\nChris Argyris의 이중루프 학습(Double-Loop Learning). 실수 교정뿐 아니라 전제 자체를 재검토.\n\n### Agentic Prompt 구조 템플릿\n1. Identity (정체성)\n2. Context (맥락)\n3. Goals & Constraints (목표와 제약)\n4. Workflow (작업 흐름)\n5. Tool Usage (도구 사용 규칙)\n6. Communication Style (소통 스타일)\n7. Error Handling (예외 처리)\n\n## 주요 인사이트\n\n> **\"프롬프트 설계는 곧 조직 설계다\"** — 에이전트에게 역할을 부여하고, 권한을 설정하고, 협업 규칙을 만드는 것은 HR 전문가가 늘 해온 일. 대상이 사람이 아니라 AI라는 것만 다르다.\n\n**CSP 적용 관점**: 역량 평가 시스템, 리더십 보고서 자동화, Notion 아카이빙 각각을 하나의 에이전트로 설계하고, 이들이 연결되면 HR SaaS 플랫폼의 백본이 된다.\n\n## 다음 액션\n- [ ] 특정 원칙을 현재 프로젝트에 적용해보기\n- [ ] ReAct, Plan-and-Execute 등 Agentic 아키텍처 패턴 심화 학습\n- [ ] 실제 System Prompt 작성 실습"
+              }
+            ],
+            "parent": {
+              "type": "data_source_id",
+              "data_source_id": "d012343e-b2a2-461e-944b-6f166e91d8e9"
+            }
+          },
+          "message": "Notion-create-pages",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-create-pages-9bba1491271484792ee54d5d59332dce",
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_0183VZjTnY1BHb21BVWHo2SM",
+          "name": "Notion:notion-create-pages",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"pages\":[{\"id\":\"3046b7b5-0b23-8141-aff5-f3f5ae7a3732\",\"url\":\"https://www.notion.so/3046b7b50b238141aff5f3f5ae7a3732\",\"properties\":{\"대화 제목\":\"Agentic Engineering 프롬프트 설계 원칙\",\"주제\":\"학습\",\"태그\":\"[\\\"AI\\\", \\\"Agentic Engineering\\\", \\\"프롬프트 설계\\\", \\\"System Prompt\\\", \\\"Claude\\\"]\",\"중요도\":\"⭐⭐⭐ 핵심\",\"상태\":\"✅ 완료\",\"date:날짜:start\":\"2025-02-11\",\"date:날짜:is_datetime\":0,\"요약\":\"Agentic Engineering 개념 정의 및 프롬프트 설계 5대 원칙(Identity & Boundary, Goal Decomposition, Tool Orchestration, Reasoning Transparency, Adaptive Feedback Loop) 정리. 프롬프트 설계 = 조직 설계라는 핵심 인사이트 도출.\",\"키워드\":\"Agentic Engineering, 프롬프트 설계, AI Agent, System Prompt, Role Clarity, Double-Loop Learning, Tool Orchestration\",\"관련 프로젝트\":\"HR SaaS 플랫폼, 역량평가 시스템\",\"다음 액션\":\"__YES__\"}}]}",
+              "uuid": "072127c5-81e2-424c-b498-a38e2344e107"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"pages\": [\n    {\n      \"id\": \"3046b7b5-0b23-8141-aff5-f3f5ae7a3732\",\n      \"url\": \"https://www.notion.so/3046b7b50b238141aff5f3f5ae7a3732\",\n      \"properties\": {\n        \"\\ub300\\ud654 \\uc81c\\ubaa9\": \"Agentic Engineering \\ud504\\ub86c\\ud504\\ud2b8 \\uc124\\uacc4 \\uc6d0\\uce59\",\n        \"\\uc8fc\\uc81c\": \"\\ud559\\uc2b5\",\n        \"\\ud0dc\\uadf8\": \"[\\\"AI\\\", \\\"Agentic Engineering\\\", \\\"\\ud504\\ub86c\\ud504\\ud2b8 \\uc124\\uacc4\\\", \\\"System Prompt\\\", \\\"Claude\\\"]\",\n        \"\\uc911\\uc694\\ub3c4\": \"\\u2b50\\u2b50\\u2b50 \\ud575\\uc2ec\",\n        \"\\uc0c1\\ud0dc\": \"\\u2705 \\uc644\\ub8cc\",\n        \"date:\\ub0a0\\uc9dc:start\": \"2025-02-11\",\n        \"date:\\ub0a0\\uc9dc:is_datetime\": 0,\n        \"\\uc694\\uc57d\": \"Agentic Engineering \\uac1c\\ub150 \\uc815\\uc758 \\ubc0f \\ud504\\ub86c\\ud504\\ud2b8 \\uc124\\uacc4 5\\ub300 \\uc6d0\\uce59(Identity & Boundary, Goal Decomposition, Tool Orchestration, Reasoning Transparency, Adaptive Feedback Loop) \\uc815\\ub9ac. \\ud504\\ub86c\\ud504\\ud2b8 \\uc124\\uacc4 = \\uc870\\uc9c1 \\uc124\\uacc4\\ub77c\\ub294 \\ud575\\uc2ec \\uc778\\uc0ac\\uc774\\ud2b8 \\ub3c4\\ucd9c.\",\n        \"\\ud0a4\\uc6cc\\ub4dc\": \"Agentic Engineering, \\ud504\\ub86c\\ud504\\ud2b8 \\uc124\\uacc4, AI Agent, System Prompt, Role Clarity, Double-Loop Learning, Tool Orchestration\",\n        \"\\uad00\\ub828 \\ud504\\ub85c\\uc81d\\ud2b8\": \"HR SaaS \\ud50c\\ub7ab\\ud3fc, \\uc5ed\\ub7c9\\ud3c9\\uac00 \\uc2dc\\uc2a4\\ud15c\",\n        \"\\ub2e4\\uc74c \\uc561\\uc158\": \"__YES__\"\n      }\n    }\n  ]\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-02-11T04:38:07.744278Z",
+          "stop_timestamp": "2026-02-11T04:38:10.742537Z",
+          "flags": null,
+          "type": "text",
+          "text": "Notion 아카이브에 저장 완료했습니다.\n\n**저장 정보:**\n- **페이지**: [Agentic Engineering 프롬프트 설계 원칙](https://www.notion.so/3046b7b50b238141aff5f3f5ae7a3732)\n- **주제**: 학습 | **중요도**: ⭐⭐⭐ 핵심 | **상태**: ✅ 완료\n- **태그**: AI, Agentic Engineering, 프롬프트 설계, System Prompt, Claude\n- **다음 액션**: 활성화 (Agentic 아키텍처 패턴 심화, 실제 System Prompt 작성 실습 등)",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-02-11T04:38:10.862782Z",
+      "updated_at": "2026-02-11T04:38:10.862782Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019c4af9-e3b4-7376-86de-bacdf532660b"
+    }
+  ]
+}

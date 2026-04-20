@@ -1,0 +1,452 @@
+﻿{
+  "uuid": "ef5f1923-8580-477b-be45-384789e9cb3f",
+  "name": "Claude Cowork 기능과 Claude Code 구현 방법",
+  "summary": "**Conversation Overview**\n\nThe user, who identifies as CSP with 17 years of HR experience and full-stack development skills, inquired about Claude's newly announced \"co-work\" feature and how to implement similar functionality using Claude Code. They expressed interest in automation and productivity tools for their HR work. Claude provided a comprehensive explanation of Cowork, which is Anthropic's non-developer version of Claude Code launched in January 2026, available only to Claude Max subscribers on macOS Desktop apps. The feature allows autonomous file system access within sandboxed environments for tasks like document processing, data analysis, and workflow automation.\n\nWhen the user expressed confusion about Claude Code usage, Claude recognized the initial explanation was too technical and provided a simplified, practical approach. The conversation shifted to basic Claude Code fundamentals, explaining it as a terminal tool where users can simply command \"claude 'do this task'\" and Claude autonomously handles file operations, analysis, and output generation. Claude provided step-by-step installation instructions, simple usage examples, and specific HR-focused scenarios like feedback file organization, training material creation, and data analysis that would directly apply to the user's work context.\n\nThe user demonstrated a preference for practical, actionable guidance over theoretical explanations. Claude adapted by providing concrete terminal commands, real-world HR automation examples, and emphasizing the distinction between Claude Code (terminal-based, immediately available) versus Cowork (GUI-based, subscription-required). The conversation concluded with Claude offering hands-on support for implementation, recognizing the user's need for step-by-step practical guidance rather than complex technical documentation.",
+  "created_at": "2026-01-15T09:13:15.305086Z",
+  "updated_at": "2026-01-15T09:20:12.148887Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019bc0ee-41fb-7571-bb83-e179a7567c42",
+      "text": "claude에서 새로 발표한 co-work에 대해 설명하고 클로드 코드를 통해서 기능구현하는 방법을 설명해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-01-15T09:13:18.737043Z",
+          "stop_timestamp": "2026-01-15T09:13:18.737043Z",
+          "flags": null,
+          "type": "text",
+          "text": "claude에서 새로 발표한 co-work에 대해 설명하고 클로드 코드를 통해서 기능구현하는 방법을 설명해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-15T09:13:18.781556Z",
+      "updated_at": "2026-01-15T09:13:18.781556Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019bc0ee-41fb-7571-bb83-e17a97206989",
+      "text": "사용자가 Claude의 새로운 \"co-work\" 기능에 대해 물어보고 있습니다. 그리고 Claude Code를 통해 기능을 구현하는 방법을 알고 싶어합니다.\n\n먼저, 저는 2025년 1월까지의 정보를 알고 있습니다. \"co-work\"라는 기능에 대해서는 제 지식 컷오프 이후에 발표되었을 가능성이 있습니다. 현재 날짜가 2025년 1월 15일이므로, 최근에 발표된 기능일 수 있습니다.\n\n제 시스템 프롬프트에 따르면:\n- Claude Code는 명령줄 도구로 개발자가 터미널에서 직접 Claude에게 코딩 작업을 위임할 수 있는 도구입니다.\n- 최근 모델은 Claude Sonnet 4.5와 Claude Haiku 4.5입니다.\n\n\"co-work\"에 대해 정확한 정보를 제공하려면 웹 검색을 해야 합니다. 제 지식 컷오프 이후의 기능이므로 검색이 필요합니다.Claude의 \"co-work\" 기능에 대해 정확한 최신 정보를 찾아보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n좋아요, 이제 Claude Cowork에 대한 정보를 충분히 수집했습니다. 주요 내용을 정리하면:\n\n1. Cowork는 2026년 1월 13일경에 발표된 신제품\n2. Claude Code의 non-technical 버전\n3. macOS Desktop 앱에서만 사용 가능 (현재)\n4. Max 구독자만 사용 가능 ($100-200/month)\n5. 파일 시스템에 접근하여 읽기/쓰기/생성 가능\n6. 약 10일 만에 Claude Code를 사용하여 개발됨\n7. 샌드박스 환경에서 작동\n\n이제 사용자가 요청한 대로:\n1. Cowork 설명\n2. Claude Code를 통한 기능 구현 방법\n\n사용자의 프로필을 보면:\n- HR 전문가이면서 Full-stack developer\n- 자동화와 생산성 도구에 관심\n- Notion, Python 등 다양한 도구 활용\n- 한국어로 소통 선호\n\n한국어로 명확하고 실용적인 설명을 제공하겠습니다.# 🎯 Claude Cowork 완벽 가이드\n\n## 📌 Cowork란?\n\nCowork는 Anthropic이 2026년 1월에 출시한 Claude Code의 non-developer 버전입니다. 개발자들이 Claude Code를 코딩뿐만 아니라 휴가 계획, 슬라이드 제작, 이메일 정리, 구독 취소, 결혼 사진 복구 등 다양한 작업에 활용하는 것을 보고 만들어졌습니다.\n\n### 핵심 특징\n\n**1. 파일 시스템 접근**\n- 지정한 폴더의 파일을 읽고, 편집하고, 생성 가능\n- 샌드박스 컨테이너 환경에서 작동하여 보안 유지\n\n**2. 자율적 실행**\n- 작업을 큐에 추가하면 Claude가 자율적으로 완료\n- 일반 대화보다 훨씬 높은 자율성으로 작업 수행\n\n**3. 연결된 도구 활용**\n- Gmail, Google Drive 등 기존 커넥터와 통합\n- Chrome 확장과 결합하면 웹 브라우저 제어 가능\n\n### 사용 가능 대상\n- **현재**: macOS Desktop 앱의 Claude Max 구독자 전용\n- **향후**: Windows 지원 및 다른 플랜으로 확대 예정\n\n---\n\n## 💡 실제 활용 사례\n\nCSP님의 업무 맥락에서 Cowork를 활용할 수 있는 시나리오:\n\n```\n1. 리더십 평가 보고서 자동 생성\n   - 흩어진 피드백 노트 → 구조화된 보고서\n\n2. HR 데이터 분석 자동화\n   - 다운로드 폴더의 엑셀 파일들 → 종합 분석 대시보드\n\n3. 교육 자료 일괄 처리\n   - 스크린샷 모음 → 정리된 PPT 슬라이드\n\n4. 파일 정리 자동화\n   - 다운로드 폴더 → 프로젝트별 분류 및 이름 변경\n```\n\n---\n\n## 🔧 Claude Code로 Cowork 같은 기능 구현하기\n\nCowork가 10일 만에 Claude Code 자체를 사용해서 개발되었다는 점을 활용하면, Claude Code를 통해 유사한 자동화 워크플로우를 만들 수 있습니다.\n\n### 방법 1: Claude Code 터미널 활용\n\n```bash\n# Claude Code 설치 (미설치 시)\npip install anthropic-claude-code\n\n# 기본 사용법\nclaude \"downloads 폴더의 영수증 스크린샷들을 분석해서 지출 내역 엑셀 만들어줘\"\n\n# 특정 폴더 지정\ncd ~/Documents/HR-Reports\nclaude \"이 폴더의 모든 피드백 파일을 읽고 통합 보고서를 만들어줘\"\n```\n\n### 방법 2: Python 스크립트로 자동화\n\n```python\n# hr_automation.py\nfrom anthropic import Anthropic\nimport os\nfrom pathlib import Path\n\nclient = Anthropic(api_key=os.environ.get(\"ANTHROPIC_API_KEY\"))\n\ndef automate_hr_task(folder_path, instruction):\n    \"\"\"\n    Claude Code 방식의 자동화 함수\n    \"\"\"\n    # 폴더 내 파일 목록 수집\n    files = list(Path(folder_path).rglob(\"*.*\"))\n    context = \"\\n\".join([f\"- {f.name}\" for f in files[:20]])\n    \n    message = client.messages.create(\n        model=\"claude-sonnet-4-5-20250929\",\n        max_tokens=4096,\n        messages=[{\n            \"role\": \"user\",\n            \"content\": f\"\"\"\n작업 폴더: {folder_path}\n파일 목록:\n{context}\n\n작업 지시: {instruction}\n\n파일을 읽고, 분석하고, 필요한 작업을 수행하는 Python 코드를 작성해줘.\n코드는 즉시 실행 가능해야 하며, 결과물을 저장해야 해.\n\"\"\"\n        }]\n    )\n    \n    return message.content\n\n# 사용 예시\nresult = automate_hr_task(\n    folder_path=\"~/Downloads/evaluation-feedback\",\n    instruction=\"모든 피드백을 통합하여 리더십 평가 종합 보고서를 만들어줘\"\n)\n```\n\n### 방법 3: MCP 서버와 통합\n\n```python\n# mcp_cowork_agent.py\n\"\"\"\nNotion MCP와 연동한 Cowork 스타일 에이전트\n\"\"\"\n\nfrom anthropic import Anthropic\nimport json\n\ndef notion_cowork_agent(task_description, folder_path):\n    \"\"\"\n    로컬 파일 작업 + Notion 저장 자동화\n    \"\"\"\n    client = Anthropic()\n    \n    # 1단계: 로컬 파일 분석 및 작업\n    analysis = client.messages.create(\n        model=\"claude-sonnet-4-5-20250929\",\n        max_tokens=8000,\n        messages=[{\n            \"role\": \"user\",\n            \"content\": f\"\"\"\n폴더: {folder_path}\n작업: {task_description}\n\n다음 단계로 실행:\n1. 폴더 내 파일 스캔 및 분석\n2. 필요한 데이터 추출\n3. 보고서 작성\n4. Notion에 저장할 구조화된 데이터 생성\n\n결과를 JSON 형식으로 제공:\n{{\n  \"summary\": \"작업 요약\",\n  \"files_processed\": [\"파일 목록\"],\n  \"report\": \"마크다운 형식 보고서\",\n  \"notion_data\": {{...}}\n}}\n\"\"\"\n        }]\n    )\n    \n    # 2단계: Notion에 자동 저장\n    # (Notion MCP 도구 사용)\n    \n    return analysis\n\n# 사용 예시\nagent_result = notion_cowork_agent(\n    task_description=\"리더십 워크숍 피드백을 분석하고 개선점을 도출하여 Notion에 저장\",\n    folder_path=\"~/HR/workshop-feedback\"\n)\n```\n\n### 방법 4: Skills 활용 (가장 권장)\n\nCSP님의 Notion Skills을 활용한 방법:\n\n```python\n# claude_skill_automation.py\n\"\"\"\n기존 Notion Skills를 활용한 Cowork 스타일 워크플로우\n\"\"\"\n\ndef skill_based_cowork(task_type):\n    \"\"\"\n    각 작업 타입에 맞는 Skill 자동 호출\n    \"\"\"\n    skill_mapping = {\n        \"knowledge_capture\": \"/mnt/skills/user/notion-knowledge-capture/SKILL.md\",\n        \"research\": \"/mnt/skills/user/notion-research-documentation/SKILL.md\",\n        \"document\": \"/mnt/skills/public/docx/SKILL.md\",\n        \"presentation\": \"/mnt/skills/public/pptx/SKILL.md\"\n    }\n    \n    # Claude에게 직접 요청\n    prompt = f\"\"\"\n{task_type}에 해당하는 작업을 수행해줘.\n\n관련 Skill 참조: {skill_mapping.get(task_type)}\n\n작업 순서:\n1. Skill 문서 읽기\n2. 베스트 프랙티스 적용\n3. 결과물 생성\n4. Notion에 저장\n\"\"\"\n    \n    return prompt\n\n# 터미널에서 실행\n# claude \"$(python -c \"from claude_skill_automation import skill_based_cowork; print(skill_based_cowork('knowledge_capture'))\")\"\n```\n\n---\n\n## ⚡ 실전 워크플로우: HR 리더십 평가 자동화\n\n```python\n# leadership_evaluation_cowork.py\n\"\"\"\nCowork 스타일의 완전 자동화 HR 워크플로우\n\"\"\"\n\nimport anthropic\nimport os\nfrom pathlib import Path\nfrom datetime import datetime\n\nclass LeadershipEvaluationAgent:\n    def __init__(self):\n        self.client = anthropic.Anthropic(\n            api_key=os.environ.get(\"ANTHROPIC_API_KEY\")\n        )\n        self.workspace = Path(\"~/HR/evaluations\").expanduser()\n    \n    def run_cowork_flow(self, quarter):\n        \"\"\"\n        Cowork처럼 자율적으로 작업 수행\n        \"\"\"\n        tasks = [\n            self.collect_feedback_files(quarter),\n            self.analyze_feedback(),\n            self.generate_report(),\n            self.create_presentation(),\n            self.save_to_notion(),\n            self.send_summary_email()\n        ]\n        \n        results = []\n        for task in tasks:\n            print(f\"🔄 실행 중: {task.__name__}\")\n            result = task()\n            results.append(result)\n            print(f\"✅ 완료: {task.__name__}\")\n        \n        return results\n    \n    def collect_feedback_files(self, quarter):\n        \"\"\"1단계: 피드백 파일 수집\"\"\"\n        feedback_files = list(self.workspace.glob(f\"*{quarter}*.xlsx\"))\n        return {\n            \"collected\": len(feedback_files),\n            \"files\": [f.name for f in feedback_files]\n        }\n    \n    def analyze_feedback(self):\n        \"\"\"2단계: AI 분석\"\"\"\n        response = self.client.messages.create(\n            model=\"claude-sonnet-4-5-20250929\",\n            max_tokens=8000,\n            messages=[{\n                \"role\": \"user\",\n                \"content\": \"\"\"\nworkspace 폴더의 모든 피드백 데이터를 분석:\n\n1. 공통 패턴 추출\n2. 강점/개선점 분류\n3. 정량 지표 계산\n4. 액션 아이템 도출\n\n구조화된 JSON으로 결과 제공\n\"\"\"\n            }]\n        )\n        return response.content\n    \n    def generate_report(self):\n        \"\"\"3단계: BCG 스타일 보고서 생성\"\"\"\n        # docx skill 활용\n        pass\n    \n    def create_presentation(self):\n        \"\"\"4단계: PPT 생성\"\"\"\n        # pptx skill 활용\n        pass\n    \n    def save_to_notion(self):\n        \"\"\"5단계: Notion 저장\"\"\"\n        # notion-knowledge-capture skill 활용\n        pass\n    \n    def send_summary_email(self):\n        \"\"\"6단계: 이메일 발송\"\"\"\n        # Gmail connector 활용\n        pass\n\n# 실행\nif __name__ == \"__main__\":\n    agent = LeadershipEvaluationAgent()\n    results = agent.run_cowork_flow(quarter=\"2025Q1\")\n    print(f\"\\n🎉 전체 워크플로우 완료: {datetime.now()}\")\n```\n\n---\n\n## 🎓 핵심 인사이트\n\n### Cowork vs Claude Code\n- **Cowork**: GUI 기반, 비개발자용, 샌드박스 폴더\n- **Claude Code**: 터미널 기반, 개발자용, 전체 시스템 접근 가능\n\n### CSP님께 추천하는 접근법\n\n1. **단기 (현재)**\n   - Claude Code 터미널로 HR 자동화 실험\n   - 기존 Notion Skills와 통합\n\n2. **중기 (Cowork 접근 가능 시)**\n   - Max 구독 후 Cowork 도입\n   - 리더십 평가 워크플로우 완전 자동화\n\n3. **장기 (확장)**\n   - Custom MCP 서버 개발\n   - 조직 전체 DX 교육 자료로 활용\n\n---\n\n## ⚠️ 보안 주의사항\n\nCowork는 prompt injection 공격에 취약할 수 있으며, 파일 삭제 등 잠재적으로 파괴적인 작업을 수행할 수 있습니다.\n\n**안전하게 사용하는 방법:**\n- 중요한 파일은 백업 후 작업\n- 명확하고 구체적인 지시사항 제공\n- 신뢰할 수 있는 소스의 파일만 처리\n- 처음에는 테스트 폴더로 시작\n\n---\n\n도움이 되셨나요? 구체적으로 어떤 HR 워크플로우를 자동화하고 싶으신지 말씀해주시면 맞춤형 코드를 작성해드리겠습니다! 🚀",
+      "content": [
+        {
+          "start_timestamp": "2026-01-15T09:13:21.477811Z",
+          "stop_timestamp": "2026-01-15T09:13:28.074371Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 Claude의 새로운 \"co-work\" 기능에 대해 물어보고 있습니다. 그리고 Claude Code를 통해 기능을 구현하는 방법을 알고 싶어합니다.\n\n먼저, 저는 2025년 1월까지의 정보를 알고 있습니다. \"co-work\"라는 기능에 대해서는 제 지식 컷오프 이후에 발표되었을 가능성이 있습니다. 현재 날짜가 2025년 1월 15일이므로, 최근에 발표된 기능일 수 있습니다.\n\n제 시스템 프롬프트에 따르면:\n- Claude Code는 명령줄 도구로 개발자가 터미널에서 직접 Claude에게 코딩 작업을 위임할 수 있는 도구입니다.\n- 최근 모델은 Claude Sonnet 4.5와 Claude Haiku 4.5입니다.\n\n\"co-work\"에 대해 정확한 정보를 제공하려면 웹 검색을 해야 합니다. 제 지식 컷오프 이후의 기능이므로 검색이 필요합니다.",
+          "summaries": [
+            {
+              "summary": "Claude의 새로운 co-work 기능과 Claude Code를 통한 구현 방법 설명하기"
+            },
+            {
+              "summary": "Claude Code 기능 구현 방법 모색 중입니다."
+            },
+            {
+              "summary": "Claude Code 기능 구현 방법 모색 중입니다."
+            },
+            {
+              "summary": "지식 한계를 인식하고 웹 검색 필요성을 판단했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-15T09:13:28.193187Z",
+          "stop_timestamp": "2026-01-15T09:13:28.552012Z",
+          "flags": null,
+          "type": "text",
+          "text": "Claude의 \"co-work\" 기능에 대해 정확한 최신 정보를 찾아보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-01-15T09:13:28.731001Z",
+          "stop_timestamp": "2026-01-15T09:13:28.908343Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_013iboLGBnmnWTpEE4FepyBb",
+          "name": "web_search",
+          "input": {
+            "query": "Claude co-work feature announcement 2025"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_013iboLGBnmnWTpEE4FepyBb",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Anthropic launches Cowork, a Claude Desktop agent that works in your files — no coding required | VentureBeat",
+              "url": "https://venturebeat.com/technology/anthropic-launches-cowork-a-claude-desktop-agent-that-works-in-your-files-no",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "venturebeat.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=venturebeat.com",
+                "site_name": "VentureBeat"
+              },
+              "is_missing": false,
+              "text": "The company expanded access with a web interface in October 2025, followed by a Slack integration in December. Cowork is the next logical step: bringing the same agentic architecture to users who may never touch a terminal.\n\nClaude Code has generated significant enthusiasm among developers since its initial launch as a command-line tool in late 2024. The company expanded access with a web interface in October 2025, followed by a Slack integration in December. Cowork is the next logical step: bringing the same agentic architecture to users who may never touch a terminal. For now, Cowork remains exclusive to Claude Max subscribers using the macOS desktop application. Users on other subscription tiers — Free, Pro, Team, or Enterprise — can join a waitlist for future access. Anthropic has signaled clear intentions to expand the feature's reach. The blog post explicitly mentions plans to add cross-device sync and bring Cowork to Windows as the company learns from the research preview. Cherny set expectations appropriately, describing the product as \"early and raw, similar to what Claude Code felt like when it first launched.\"\n\nAnthropic’s Cowork brings Claude Code–style AI agents to the desktop, letting Claude access and manage local files and browse the web—boosting productivity while raising new security and trust risks.\n\nAnthropic released Cowork on Monday, a new AI agent capability that extends the power of its wildly successful Claude Code tool to non-technical users — and according to company insiders, the team built the entire feature in approximately a week and a half, largely using Claude Code itself. The launch marks a major inflection point in the race to deliver practical AI agents to mainstream users, positioning Anthropic to compete not just with OpenAI and Google in conversational AI, but with Microsoft's Copilot in the burgeoning market for AI-powered productivity tools. \"Cowork lets you complete non-technical tasks much like how developers use Claude Code,\" the company announced via its official Claude account on X. The feature arrives as a research preview available exclusively to Claude Max subscribers — Anthropic's power-user tier priced between $100 and $200 per month — through the macOS desktop application.\n\n\"Since we launched Claude Code, we saw people using it for all sorts of non-coding work: doing vacation research, building slide decks, cleaning up your email, cancelling subscriptions, recovering wedding photos from a hard drive, monitoring plant growth, controlling your oven,\" Cherny wrote on X. \"These use cases are diverse and surprising — the reason is that the underlying Claude Agent is the best agent, and Opus 4.5 is the best model.\" Recognizing this shadow usage, Anthropic effectively stripped the command-line complexity from their developer tool to create a consumer-friendly interface. In its blog post announcing the feature, Anthropic explained that developers \"quickly began using it for almost everything else,\" which \"prompted us to build Cowork: a simpler way for anyone — not just developers — to work with Claude in the very same way.\"",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://venturebeat.com/technology/anthropic-launches-cowork-a-claude-desktop-agent-that-works-in-your-files-no",
+                "search_provider": "anthropic",
+                "age": "2 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Anthropic Just Launched a Feature That Turns the Claude App Into a Virtual Co-Worker",
+              "url": "https://www.inc.com/ben-sherry/anthropic-just-launched-a-feature-that-turns-the-claude-app-into-a-virtual-coworker/91286938",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "inc.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=inc.com",
+                "site_name": "Inc.com"
+              },
+              "is_missing": false,
+              "text": "... In Cowork, Anthropic explains, you can give Claude access to a folder on your computer, and then enable Claude to read, edit, and create files within that folder. For example, you could give it access to a folder with your company’s sales ...\n\nAnthropic, the rapidly growing company behind popular AI model Claude, just announced the next step in its plans to turn Claude into a true virtual co-worker. The company has announced Cowork, a new feature for the Claude desktop app on Apple computers. That app is generally a clone of the Claude.ai website, where people can chat with Claude, but now its capabilities are being expanded. Cowork uses much of the same agentic technology used by Claude Code, the company’s über-popular software development tool—but Cowork is designed to be more accessible and useful for non-developers. ... In Cowork, Anthropic explains, you can give Claude access to a folder on your computer, and then enable Claude to read, edit, and create files within that folder. For example, you could give it access to a folder with your company’s sales figures and targets and ask it to create an analysis presentation, or direct the agent to rename and rearrange files in a cluttered folder.\n\nThis is work that Claude Code is currently capable of doing. As Inc. has previously reported, entrepreneurs are increasingly using Claude Code as a kind of technical co-founder, not just to create software but to conduct analysis and develop plans. But using Claude Code can be confusing, since it’s usually accessed through your computer’s terminal rather than through its own dedicated app. To bring the benefits of Claude Code to more people, Anthropic has developed the Cowork feature. Cowork can accomplish even more by combining with Claude’s other features. For example, you could direct Cowork to develop a spreadsheet analyzing the week’s revenue against historic performance, and then email it to your co-workers through Claude’s Gmail connector. If you pair Cowork with Claude in Chrome, which is the company’s browser agent tool, the assistant can even take over your web browser to complete tasks.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.inc.com/ben-sherry/anthropic-just-launched-a-feature-that-turns-the-claude-app-into-a-virtual-coworker/91286938",
+                "search_provider": "anthropic",
+                "age": "2 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Anthropic’s new Cowork tool offers Claude Code without the code | TechCrunch",
+              "url": "https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "techcrunch.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=techcrunch.com",
+                "site_name": "TechCrunch"
+              },
+              "is_missing": false,
+              "text": "On Monday, Anthropic announced a new tool called Cowork, designed as a more accessible version of Claude Code. Built into the Claude Desktop app, the new tool lets users designate a specific folder where Claude can read or modify files, with ...\n\nOn Monday, Anthropic announced a new tool called Cowork, designed as a more accessible version of Claude Code. Built into the Claude Desktop app, the new tool lets users designate a specific folder where Claude can read or modify files, with further instructions given through the standard chat interface. The result is similar to a sandboxed instance of Claude Code, but requires far less technical savvy to set up. Currently in research preview, Cowork is only available to Max subscribers, with a waitlist available for users on other plans. The new tool is inspired in part by the growing number of subscribers using Claude Code to achieve non-coding tasks, treating it as a general-purpose agentic AI tool. Cowork is built on the Claude Agent SDK, which means it’s drawing on the same underlying model as Claude Code. The folder partition gives an easy way to manage what files Cowork has access to, and because the app doesn’t require command-line tools or virtual environments, it’s less intim\n\nSimilar to Claude Code, Cowork is designed to take strings of actions without user input — a potentially dangerous approach if the tool is given vague or contradictory instructions. In a blog post announcing the new tool, Anthropic explicitly warns about the risk of prompt injection or deleted files, recommending that users make instructions as clear and unambiguous as possible. “These risks aren’t new with Cowork,” the post reads, “but it might be the first time you’re using a more advanced tool that moves beyond a simple conversation.” · Launched as a command-line tool in November 2024, Claude Code has become one of Anthropic’s most successful products, leading the company to launch a string of new interfaces in recent months. A web interface launched in October, followed by a Slack integration just two months later. ... Russell Brandom has been covering the tech industry since 2012, with a focus on platform policy and emerging technologies.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/",
+                "search_provider": "anthropic",
+                "age": "2 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Introducing Cowork | Claude",
+              "url": "https://claude.com/blog/cowork-research-preview",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "claude.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=claude.com",
+                "site_name": "Claude"
+              },
+              "is_missing": false,
+              "text": "Nov 13, 2025 · Agents · Skills ... prompts, Projects, MCP, and subagents · May 30, 2024 · Product announcements · Claude can now use toolsClaude can now use tools · Claude can now use toolsClaude can now use tools · Oct ...\n\nNov 13, 2025 · Agents · Skills explained: How Skills compares to prompts, Projects, MCP, and subagents Skills explained: How Skills compares to prompts, Projects, MCP, and subagents · Skills explained: How Skills compares to prompts, Projects, MCP, and subagents Skills explained: How Skills compares to prompts, Projects, MCP, and subagents · May 30, 2024 · Product announcements · Claude can now use toolsClaude can now use tools · Claude can now use toolsClaude can now use tools · Oct 16, 2025 · Product announcements · Introducing Agent SkillsIntroducing Agent Skills · Introducing Agent SkillsIntroducing Agent Skills · Sep 29, 2025 · Product announcements · Managing context on the Claude Developer PlatformManaging context on the Claude Developer Platform · Managing context on the Claude Developer PlatformManaging context on the Claude Developer Platform ·\n\nWhen we released Claude Code, we expected developers to use it for coding. They did—and then quickly began using it for almost everything else. This prompted us to build Cowork: a simpler way for anyone—not just developers—to work with Claude in the very same way. Cowork is available today as a research preview for Claude Max subscribers on our macOS app, and we will improve it rapidly from here. How is using Cowork different from a regular conversation? In Cowork, you give Claude access to a folder of your choosing on your computer. Claude can then read, edit, or create files in that folder. It can, for example, re-organize your downloads by sorting and renaming each file, create a new spreadsheet with a list of expenses from a pile of screenshots, or produce a first draft of a report from your scattered notes. In Cowork, Claude completes work like this with much more agency than you’d see in a regular conversation.\n\nCowork is designed to make using Claude for new work as simple as possible. You don’t need to keep manually providing context or converting Claude’s outputs into the right format. Nor do you have to wait for Claude to finish before offering further ideas or feedback: you can queue up tasks and let Claude work through them in parallel. It feels much less like a back-and-forth and much more like leaving messages for a coworker. In Cowork, you can choose which folders and connectors Claude can see: Claude can’t read or edit anything you don’t give it explicit access to. Claude will also ask before taking any significant actions, so you can steer or course-correct it as you need. That said, there are still things to be aware of before you give Claude control. By default, the main thing to know is that Claude can take potentially destructive actions (such as deleting local files) if it’s instructed to.\n\nThese risks aren’t new with Cowork, but it might be the first time you’re using a more advanced tool that moves beyond a simple conversation. We recommend taking precautions, particularly while you learn how it works. We provide more detail in our Help Center. This is a research preview. We’re releasing Cowork early because we want to learn what people use it for, and how they think it could be better. We encourage you to experiment with what Cowork can do for you, and to try things you don’t expect to work: you might be surprised! As we learn more from this preview, we plan to make lots of improvements (including by adding cross-device sync and bringing it to Windows), and we’ll identify further ways to make it safer. Claude Max subscribers can try Cowork now by downloading the macOS app, then clicking on “Cowork” in the sidebar. If you're on another plan, you can join the waitlist for future access.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://claude.com/blog/cowork-research-preview",
+                "search_provider": "anthropic",
+                "age": "3 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "First impressions of Claude Cowork, Anthropic’s general agent",
+              "url": "https://simonwillison.net/2026/Jan/12/claude-cowork/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "simonwillison.net",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=simonwillison.net",
+                "site_name": "Simon Willison"
+              },
+              "is_missing": false,
+              "text": "I think that’s a really smart product. Claude Code has an enormous amount of value that hasn’t yet been unlocked for a general audience, and this seems like a pragmatic approach. With a feature like this, my first thought always jumps straight to security. How big is the risk that someone using this might be hit by hidden malicious instruction somewhere that break their computer or steal their data? Anthropic touch on that directly in the announcement: You should also be aware of the risk of &quot;prompt injections&quot;: attempts by attackers to alter Claude’s plans through content it might encounter on the internet. We’ve built sophisticated defenses against prompt injections, but agent safety---that is, the task of securing Claude’s real-world actions---is still an active area of development in the industry. These risks aren’t new with Cowork, but it might be the first time you’re using a more advanced tool that moves beyond a simple conversation.\n\nThe problem with prompt injection remains that until there’s a high profile incident it’s really hard to get people to take it seriously. I myself have all sorts of Claude Code usage that could cause havoc if a malicious injection got in. Cowork does at least run in a filesystem sandbox by default, which is more than can be said for my claude --dangerously-skip-permissions habit! I wrote more about this in my 2025 round-up: The year of YOLO and the Normalization of Deviance. Security worries aside, Cowork represents something really interesting. This is a general agent that looks well positioned to bring the wildly powerful capabilities of Claude Code to a wider audience. I would be very surprised if Gemini and OpenAI don’t follow suit with their own offerings in this category. I imagine OpenAI are already regretting burning the name “ChatGPT Agent” on their janky, experimental and mostly forgotten browser automation tool back in August!\n\nI think that’s a really smart product. Claude Code has an enormous amount of value that hasn’t yet been unlocked for a general audience, and this seems like a pragmatic approach. With a feature like this, my first thought always jumps straight to security. How big is the risk that someone using this might be hit by hidden malicious instruction somewhere that break their computer or steal their data? Anthropic touch on that directly in the announcement: You should also be aware of the risk of \"prompt injections\": attempts by attackers to alter Claude’s plans through content it might encounter on the internet. We’ve built sophisticated defenses against prompt injections, but agent safety---that is, the task of securing Claude’s real-world actions---is still an active area of development in the industry. These risks aren’t new with Cowork, but it might be the first time you’re using a more advanced tool that moves beyond a simple conversation.\n\nNew from Anthropic today is Claude Cowork, a “research preview” that they describe as “Claude Code for the rest of your work”. It’s currently available only to Max subscribers ($100 or $200 per month plans) as part of the updated Claude Desktop macOS application. I’ve been saying for a while now that Claude Code is a “general agent” disguised as a developer tool. It can help you with any computer task that can be achieved by executing code or running terminal commands... which covers almost anything, provided you know what you’re doing with it! What it really needs is a UI that doesn’t involve the terminal and a name that doesn’t scare away non-developers. “Cowork” is a pretty solid choice on the name front! The interface for Cowork is a new tab in the Claude desktop app, called Cowork. It sits next to the existing Chat and Code tabs.\n\nIt looks very similar to the desktop interface for regular Claude Code. You start with a prompt, optionally attaching a folder of files. It then starts work. I tried it out against my perpetually growing “blog-drafts” folder with the following prompt: Look at my drafts that were started within the last three months and then check that I didn’t publish them on simonwillison.net using a search against content on that site and then suggest the ones that are most close to being ready ... find /sessions/zealous-bold-ramanujan/mnt/blog-drafts \\ -type f \\( -name \"*.md\" -o -name \"*.txt\" -o -name \"*.html\" \\) \\ -mtime -90 -exec ls -la {} \\; That /sessions/zealous-bold-ramanujan/mnt/blog-drafts path instantly caught my eye. Anthropic say that Cowork can only access files you grant it access to—it looks to me like they’re mounting those files into a containerized environment, which should mean we can trust Cowork not to be able to access anything outside of that sandbox.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://simonwillison.net/2026/Jan/12/claude-cowork/",
+                "search_provider": "anthropic",
+                "age": "2 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Anthropic launches Cowork, a file-managing AI agent that could threaten dozens of startups | Fortune",
+              "url": "https://fortune.com/2026/01/13/anthropic-claude-cowork-ai-agent-file-managing-threaten-startups/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "fortune.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=fortune.com",
+                "site_name": "Fortune"
+              },
+              "is_missing": false,
+              "text": "Some of the use cases Anthropic showcased for Claude Cowork include reorganizing downloads, turning receipt screenshots into expense spreadsheets, and producing first drafts from notes across a user’s desktop. Anthropic has described the tool, which can work autonomously, as “less like a back-and-forth and more like leaving messages for a coworker.” · Anthropic reportedly built Cowork in approximately a week and a half, largely using Claude Code itself, according to the head of Claude Code, Boris Cherny. “This is a general agent that looks well positioned to bring the wildly powerful capabilities of Claude Code to a wider audience,” Simon Willison, a UK-based programmer, wrote of the tool. “I would be very surprised if Gemini and OpenAI don’t follow suit with their own offerings in this category.” · With Cowork, Anthropic is now competing more directly with tools like Microsoft’s Copilot for the enterprise productivity market.\n\nLike any other AI agent, Claude Cowork comes with security risks, particularly around “prompt injections,” where attackers trick LLMs into changing course by inserting malicious, hidden instructions into webpages, images, links, or any content found on the open web. Anthropic addressed the issue directly in the announcement, warning users about the risks and offering advice such as limiting access to trusted sites when using the Claude in Chrome extension. The company, however, acknowledged the tool was still vulnerable to these attacks, despite Anthropic’s defenses: “We’ve built sophisticated defenses against prompt injections, but agent safety—that is, the task of securing Claude’s real-world actions—is still an active area of development in the industry…We recommend taking precautions, particularly while you learn how it works.” ·\n\nFuture of Work'Microshifting,' an extreme form of hybrid working that breaks work into short, non-continuous blocks, is on the rise ... EconomyGoldman Sachs top economist says Powell probe won’t change the Fed: 'Decisions are going to be made based on employment and inflation' ... © 2025 Fortune Media IP Limited. All Rights Reserved. Use of this site constitutes acceptance of our Terms of Use and Privacy Policy | CA Notice at Collection and Privacy Notice | Do Not Sell/Share My Personal Information FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website.\n\nAnthropic has launched Claude Cowork, an AI agent that can manage files and create documents.VCG, VCG via Getty Images · Anthropic has launched Claude Cowork, a general-purpose AI agent that can manipulate, read, and analyze files on a user’s computer, as well as create new files. The tool is currently available as a “research preview” only to Max subscribers on $100 or $200 per month plans. ... The tool, which the company describes as “Claude Code for the rest of your work,” leverages the abilities of Anthropic’s popular Claude Code software development assistant but is designed for non-technical users as opposed to programmers. Many have pointed out that Claude Code is already more of a general-use agent than a developer-specific tool. It is capable of spinning up apps that perform functions for users across other software. But non-developers have been put off by Claude Code’s name and also the fact that Claude Code needs to be used with a coding-specific interface.\n\nSome of the use cases Anthropic showcased for Claude Cowork include reorganizing downloads, turning receipt screenshots into expense spreadsheets, and producing first drafts from notes across a user’s desktop. Anthropic has described the tool, which can work autonomously, as “less like a back-and-forth and more like leaving messages for a coworker.” · Anthropic reportedly built Cowork in approximately a week and a half, largely using Claude Code itself, according to the head of Claude Code, Boris Cherny. “This is a general agent that looks well positioned to bring the wildly powerful capabilities of Claude Code to a wider audience,” Simon Willison, a UK-based programmer, wrote of the tool. “I would be very surprised if Gemini and OpenAI don’t follow suit with their own offerings in this category.” · With Cowork, Anthropic is now competing more directly with tools like Microsoft’s Copilot for the enterprise productivity market.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://fortune.com/2026/01/13/anthropic-claude-cowork-ai-agent-file-managing-threaten-startups/",
+                "search_provider": "anthropic",
+                "age": "2 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code is coming to Slack, and that's a bigger deal than it sounds | TechCrunch",
+              "url": "https://techcrunch.com/2025/12/08/claude-code-is-coming-to-slack-and-thats-a-bigger-deal-than-it-sounds/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "techcrunch.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=techcrunch.com",
+                "site_name": "TechCrunch"
+              },
+              "is_missing": false,
+              "text": "11:18 AM PST · December 8, 2025 · Anthropic is launching Claude Code in Slack, allowing developers to delegate coding tasks directly from chat threads. The beta feature, available Monday as a research preview, builds on Anthropic’s existing ...\n\n11:18 AM PST · December 8, 2025 · Anthropic is launching Claude Code in Slack, allowing developers to delegate coding tasks directly from chat threads. The beta feature, available Monday as a research preview, builds on Anthropic’s existing Slack integration by adding full workflow automation. The rollout signals that the next frontier in coding assistants isn’t the model; it’s the workflow. Previously, developers could only get lightweight coding help via Claude in Slack — like writing snippets, debugging, and explanations. Now they can tag @Claude to spin up a complete coding session using Slack context like bug reports or feature requests. Claude analyzes recent messages to determine the right repository, posts progress updates in threads, and shares links to review work and open pull requests. The move reflects a broader industry shift: AI coding assistants are migrating from IDEs (integrated development environment, where software development happens) into collaboration tools wher\n\nCursor offers Slack integration for drafting and debugging code in threads, while GitHub Copilot recently added features to generate pull requests from chat. OpenAI’s Codex is accessible via custom Slack bots. For Slack, positioning itself as an “agentic hub” where AI meets workplace context creates a strategic advantage: Whichever AI tool dominates Slack — the center of engineering communication — could shape how software teams work. By letting developers move seamlessly from conversation to code without switching apps, Claude Code and similar tools represent a shift toward AI-embedded collaboration that could fundamentally change developer workflows. While Anthropic has not yet confirmed when it would make a broader rollout available, the timing is strategic. The AI coding market is getting more competitive, and differentiation is starting to depend more on integration depth and distribution than model capability alone.\n\nThat said, the integration raises questions about code security and IP protection, as it adds another platform through which sensitive repository access must be managed and audited — while also introducing new dependencies where outages or rate limits in either Slack or Claude’s API could disrupt development workflows that teams previously controlled locally. TechCrunch has reached out to Anthropic and Slack for more information. ... Rebecca Bellan is a senior reporter at TechCrunch where she covers the business, policy, and emerging trends shaping artificial intelligence. Her work has also appeared in Forbes, Bloomberg, The Atlantic, The Daily Beast, and other publications. You can contact or verify outreach from Rebecca by emailing rebecca.bellan@techcrunch.com or via encrypted message at rebeccabellan.491 on Signal. ... Plan ahead for the 2026 StrictlyVC events.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://techcrunch.com/2025/12/08/claude-code-is-coming-to-slack-and-thats-a-bigger-deal-than-it-sounds/",
+                "search_provider": "anthropic",
+                "age": "December 8, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Built Claude CoWork in Just 10 Days. What's Next?",
+              "url": "https://aiagenteconomy.substack.com/p/claude-built-claude-cowork-in-10",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "substack.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=substack.com",
+                "site_name": "Substack"
+              },
+              "is_missing": false,
+              "text": "The entire product was built in 10 days. And all the code was written by Claude itself. Let that sink in for a second. An AI coding tool built an AI productivity tool. In less than two weeks. With zero human code. This is no longer theoretical.\n\nThe timing of this launch makes more sense when you see Claude Code’s trajectory. By July 2025, Claude Code had attracted 115,000 developers processing 195 million lines of code in a single week. Venture capitalist Deedy Das at Menlo Ventures estimated annualized revenue potential of roughly $130 million based on adoption patterns. But here’s what Anthropic noticed: developers weren’t just using it for code. “Since we launched Claude Code, we saw people using it for all sorts of non-coding work,” Cherny explained. “Doing vacation research, building slide decks, cleaning up your email, cancelling subscriptions, recovering wedding photos from a hard drive, monitoring plant growth, controlling your oven.” · That last one got my attention. People are using a command-line coding tool to control their oven. The message was clear: Claude Code is already a general agent.\n\nThe Register notes that security researchers have repeatedly demonstrated how easy it is to craft such attacks. If Claude encounters text that could be interpreted as a system instruction rather than data, you could trigger an indirect prompt injection. This level of transparency is unusual. Techloy’s coverage points out that it “distinguishes Anthropic’s approach from competitors like OpenAI’s Operator agent and Microsoft’s Copilot suite, which emphasize seamless integration over user awareness of system boundaries.” · Whether that transparency builds trust or scares users away remains to be seen. The market signals were there if you knew where to look. Stack Overflow’s 2025 Developer Survey found that roughly 85% of developers now regularly use AI tools for coding. Claude Sonnet models specifically are used more by professional developers (45%) than by those learning to code (30%).\n\nMicrosoft’s 2025 Work Trends Index found that 80% of leaders said their company plans to integrate agents into their AI strategy in the next 12 to 18 months. More than one-third plan to make them central to major business processes. An IDC study cited in the same report found that “Frontier Firms” (early adopters) use AI across an average of seven business functions. More than 70% leverage AI in customer service, marketing, IT, product development, and cybersecurity. But there’s a catch. Gartner warned that nearly half of agentic AI projects may fail by 2027. The gap between executive enthusiasm and practical implementation remains wide. Cowork’s research preview approach (starting with power users willing to pay $100-200/month) may be a deliberate strategy to collect data on what actually works before broader rollout. Let me be direct about who should care about this.\n\nAnthropic just dropped Claude Cowork. And buried in the announcement was a detail that made me read it three times. The entire product was built in 10 days. And all the code was written by Claude itself. Let that sink in for a second. An AI coding tool built an AI productivity tool. In less than two weeks. With zero human code. This is no longer theoretical. This is the recursive improvement loop actually happening. And it just landed on your desktop. Here’s the simplest explanation: Claude Cowork is Claude Code for people who don’t write code. You give Claude access to a folder on your computer. You give it a goal. Then you walk away. It plans. It executes. It fixes its own mistakes. It keeps going until the job is done. No prompts every step. No copy-pasting between apps. No babysitting. ... And it actually does. According to TechCrunch’s coverage, the tool is built on the same Agent SDK that powers Claude Code.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://aiagenteconomy.substack.com/p/claude-built-claude-cowork-in-10",
+                "search_provider": "anthropic",
+                "age": "1 day ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Anthropic launches Cowork, Claude Code for non-coding work",
+              "url": "https://www.siliconrepublic.com/machines/anthropic-cowork-claude-code-for-non-coding-work",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "siliconrepublic.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=siliconrepublic.com",
+                "site_name": "Silicon Republic"
+              },
+              "is_missing": false,
+              "text": "Cowork is designed to make using Claude for work easier, Anthropic said. The new model does not require human users to continuously input manual context, and queries can be queued up in the system.\n\nCowork is designed to make using Claude for work easier, Anthropic said. The new model does not require human users to continuously input manual context, and queries can be queued up in the system. “It feels much less like a back-and-forth and much more like leaving messages for a co-worker,” a statement from the company announcing the launch yesterday (12 January) read. In this new mode, Claude can still access users’ existing ‘connectors’, which link the model to external information. But in addition, Cowork comes with an improved ability to create documents and presentations. Anthropic also said that if you pair Cowork with Claude in Chrome, the bot can complete tasks that require browser access. “Since we launched Claude Code, we saw people using it for all sorts of non-coding work: doing vacation research, building slide decks, cleaning up your email, cancelling subscriptions, recovering wedding photos from a hard drive, monitoring plant growth, controlling your oven,” said Boris \n\nThe new model was built in less than two weeks using Claude Code, Cherny confirmed online. However, Anthropic warns that Cowork can be compromised using ‘prompt injections’, which are used by bad actors to alter user-inputted prompts and queries through the content the model might encounter on the internet or through downloaded files. In addition, Cowork could also take destructive actions, the company said, including deleting local files. In order to minimise the model misinterpreting queries, Anthropic suggests users input specific guidance. Cowork is available as a research preview for Claude Max subscribers on Anthropic’s MacOS app. Earlier in the week, Anthropic launched Claude for Healthcare, a dedicated set of tools for medical queries for consumers and healthcare providers. Don’t miss out on the knowledge you need to succeed.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.siliconrepublic.com/machines/anthropic-cowork-claude-code-for-non-coding-work",
+                "search_provider": "anthropic",
+                "age": "2 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "First impressions of Claude Cowork, Anthropic’s general agent",
+              "url": "https://simonw.substack.com/p/first-impressions-of-claude-cowork",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "substack.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=substack.com",
+                "site_name": "Substack"
+              },
+              "is_missing": false,
+              "text": "I think that’s a really smart product. Claude Code has an enormous amount of value that hasn’t yet been unlocked for a general audience, and this seems like a pragmatic approach. With a feature like this, my first thought always jumps straight to security. How big is the risk that someone using this might be hit by hidden malicious instruction somewhere that break their computer or steal their data? Anthropic touch on that directly in the announcement: You should also be aware of the risk of “prompt injections“: attempts by attackers to alter Claude’s plans through content it might encounter on the internet. We’ve built sophisticated defenses against prompt injections, but agent safety---that is, the task of securing Claude’s real-world actions---is still an active area of development in the industry. These risks aren’t new with Cowork, but it might be the first time you’re using a more advanced tool that moves beyond a simple conversation.\n\nThe problem with prompt injection remains that until there’s a high profile incident it’s really hard to get people to take it seriously. I myself have all sorts of Claude Code usage that could cause havoc if a malicious injection got in. Cowork does at least run in a filesystem sandbox by default, which is more than can be said for my claude --dangerously-skip-permissions habit! I wrote more about this in my 2025 round-up: The year of YOLO and the Normalization of Deviance. Security worries aside, Cowork represents something really interesting. This is a general agent that looks well positioned to bring the wildly powerful capabilities of Claude Code to a wider audience. I would be very surprised if Gemini and OpenAI don’t follow suit with their own offerings in this category. I imagine OpenAI are already regretting burning the name “ChatGPT Agent” on their janky, experimental and mostly forgotten browser automation tool back in August!\n\nI think that’s a really smart product. Claude Code has an enormous amount of value that hasn’t yet been unlocked for a general audience, and this seems like a pragmatic approach. With a feature like this, my first thought always jumps straight to security. How big is the risk that someone using this might be hit by hidden malicious instruction somewhere that break their computer or steal their data? Anthropic touch on that directly in the announcement: You should also be aware of the risk of “prompt injections“: attempts by attackers to alter Claude’s plans through content it might encounter on the internet. We’ve built sophisticated defenses against prompt injections, but agent safety---that is, the task of securing Claude’s real-world actions---is still an active area of development in the industry. These risks aren’t new with Cowork, but it might be the first time you’re using a more advanced tool that moves beyond a simple conversation.\n\nHere are the questions I posed along with my answers based on my current thinking. Extra context is that I’ve since tried variations on a similar theme a few more times using Claude Code and Opus 4.5 and found it to be astonishingly effective. I decided that the right thing to do here was to keep the open source license and copyright statement from the Python library author and treat what I had built as a derivative work, which is the entire point of open source. After sitting on this for a while I’ve come down on yes, provided full credit is given and the license is carefully considered. Open source allows and encourages further derivative works! I never got upset at some university student forking one of my projects on GitHub and hacking in a new feature that they used. I don’t think this is materially different, although a port to another language entirely does feel like a slightly different shape.\n\n[...] with an actual computer, Claude doesn’t have to rebuild my entire development environment every time I pick up a PR. Each Sprite gets a proper filesystem which persists in between sessions, even while the Sprite itself shuts down after inactivity. It sounds like they’re doing some clever filesystem tricks here, I’m looking forward to learning more about those in the future. ... You read and write to fast, directly attached NVMe storage. Your data then gets written to durable, external object storage. [...] You don’t pay for allocated filesystem space, just the blocks you write. And it’s all TRIM friendly, so your bill goes down when you delete things. The really clever feature is checkpoints. You (or your coding agent) can trigger a checkpoint which takes around 300ms. This captures the entire disk state and can then be rolled back to later.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://simonw.substack.com/p/first-impressions-of-claude-cowork",
+                "search_provider": "anthropic",
+                "age": "2 days ago"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2026-01-15T09:13:31.569812Z",
+          "stop_timestamp": "2026-01-15T09:13:38.259787Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "좋아요, 이제 Claude Cowork에 대한 정보를 충분히 수집했습니다. 주요 내용을 정리하면:\n\n1. Cowork는 2026년 1월 13일경에 발표된 신제품\n2. Claude Code의 non-technical 버전\n3. macOS Desktop 앱에서만 사용 가능 (현재)\n4. Max 구독자만 사용 가능 ($100-200/month)\n5. 파일 시스템에 접근하여 읽기/쓰기/생성 가능\n6. 약 10일 만에 Claude Code를 사용하여 개발됨\n7. 샌드박스 환경에서 작동\n\n이제 사용자가 요청한 대로:\n1. Cowork 설명\n2. Claude Code를 통한 기능 구현 방법\n\n사용자의 프로필을 보면:\n- HR 전문가이면서 Full-stack developer\n- 자동화와 생산성 도구에 관심\n- Notion, Python 등 다양한 도구 활용\n- 한국어로 소통 선호\n\n한국어로 명확하고 실용적인 설명을 제공하겠습니다.",
+          "summaries": [
+            {
+              "summary": "Cowork 기능과 Claude Code 구현 방식 정리중"
+            },
+            {
+              "summary": "Cowork 기능과 Claude Code 개발 방식 정리중"
+            },
+            {
+              "summary": "Synthesized Cowork features and tailored implementation guidance for developer."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-15T09:13:38.319242Z",
+          "stop_timestamp": "2026-01-15T09:14:35.727119Z",
+          "flags": null,
+          "type": "text",
+          "text": "# 🎯 Claude Cowork 완벽 가이드\n\n## 📌 Cowork란?\n\nCowork는 Anthropic이 2026년 1월에 출시한 Claude Code의 non-developer 버전입니다. 개발자들이 Claude Code를 코딩뿐만 아니라 휴가 계획, 슬라이드 제작, 이메일 정리, 구독 취소, 결혼 사진 복구 등 다양한 작업에 활용하는 것을 보고 만들어졌습니다.\n\n### 핵심 특징\n\n**1. 파일 시스템 접근**\n- 지정한 폴더의 파일을 읽고, 편집하고, 생성 가능\n- 샌드박스 컨테이너 환경에서 작동하여 보안 유지\n\n**2. 자율적 실행**\n- 작업을 큐에 추가하면 Claude가 자율적으로 완료\n- 일반 대화보다 훨씬 높은 자율성으로 작업 수행\n\n**3. 연결된 도구 활용**\n- Gmail, Google Drive 등 기존 커넥터와 통합\n- Chrome 확장과 결합하면 웹 브라우저 제어 가능\n\n### 사용 가능 대상\n- **현재**: macOS Desktop 앱의 Claude Max 구독자 전용\n- **향후**: Windows 지원 및 다른 플랜으로 확대 예정\n\n---\n\n## 💡 실제 활용 사례\n\nCSP님의 업무 맥락에서 Cowork를 활용할 수 있는 시나리오:\n\n```\n1. 리더십 평가 보고서 자동 생성\n   - 흩어진 피드백 노트 → 구조화된 보고서\n\n2. HR 데이터 분석 자동화\n   - 다운로드 폴더의 엑셀 파일들 → 종합 분석 대시보드\n\n3. 교육 자료 일괄 처리\n   - 스크린샷 모음 → 정리된 PPT 슬라이드\n\n4. 파일 정리 자동화\n   - 다운로드 폴더 → 프로젝트별 분류 및 이름 변경\n```\n\n---\n\n## 🔧 Claude Code로 Cowork 같은 기능 구현하기\n\nCowork가 10일 만에 Claude Code 자체를 사용해서 개발되었다는 점을 활용하면, Claude Code를 통해 유사한 자동화 워크플로우를 만들 수 있습니다.\n\n### 방법 1: Claude Code 터미널 활용\n\n```bash\n# Claude Code 설치 (미설치 시)\npip install anthropic-claude-code\n\n# 기본 사용법\nclaude \"downloads 폴더의 영수증 스크린샷들을 분석해서 지출 내역 엑셀 만들어줘\"\n\n# 특정 폴더 지정\ncd ~/Documents/HR-Reports\nclaude \"이 폴더의 모든 피드백 파일을 읽고 통합 보고서를 만들어줘\"\n```\n\n### 방법 2: Python 스크립트로 자동화\n\n```python\n# hr_automation.py\nfrom anthropic import Anthropic\nimport os\nfrom pathlib import Path\n\nclient = Anthropic(api_key=os.environ.get(\"ANTHROPIC_API_KEY\"))\n\ndef automate_hr_task(folder_path, instruction):\n    \"\"\"\n    Claude Code 방식의 자동화 함수\n    \"\"\"\n    # 폴더 내 파일 목록 수집\n    files = list(Path(folder_path).rglob(\"*.*\"))\n    context = \"\\n\".join([f\"- {f.name}\" for f in files[:20]])\n    \n    message = client.messages.create(\n        model=\"claude-sonnet-4-5-20250929\",\n        max_tokens=4096,\n        messages=[{\n            \"role\": \"user\",\n            \"content\": f\"\"\"\n작업 폴더: {folder_path}\n파일 목록:\n{context}\n\n작업 지시: {instruction}\n\n파일을 읽고, 분석하고, 필요한 작업을 수행하는 Python 코드를 작성해줘.\n코드는 즉시 실행 가능해야 하며, 결과물을 저장해야 해.\n\"\"\"\n        }]\n    )\n    \n    return message.content\n\n# 사용 예시\nresult = automate_hr_task(\n    folder_path=\"~/Downloads/evaluation-feedback\",\n    instruction=\"모든 피드백을 통합하여 리더십 평가 종합 보고서를 만들어줘\"\n)\n```\n\n### 방법 3: MCP 서버와 통합\n\n```python\n# mcp_cowork_agent.py\n\"\"\"\nNotion MCP와 연동한 Cowork 스타일 에이전트\n\"\"\"\n\nfrom anthropic import Anthropic\nimport json\n\ndef notion_cowork_agent(task_description, folder_path):\n    \"\"\"\n    로컬 파일 작업 + Notion 저장 자동화\n    \"\"\"\n    client = Anthropic()\n    \n    # 1단계: 로컬 파일 분석 및 작업\n    analysis = client.messages.create(\n        model=\"claude-sonnet-4-5-20250929\",\n        max_tokens=8000,\n        messages=[{\n            \"role\": \"user\",\n            \"content\": f\"\"\"\n폴더: {folder_path}\n작업: {task_description}\n\n다음 단계로 실행:\n1. 폴더 내 파일 스캔 및 분석\n2. 필요한 데이터 추출\n3. 보고서 작성\n4. Notion에 저장할 구조화된 데이터 생성\n\n결과를 JSON 형식으로 제공:\n{{\n  \"summary\": \"작업 요약\",\n  \"files_processed\": [\"파일 목록\"],\n  \"report\": \"마크다운 형식 보고서\",\n  \"notion_data\": {{...}}\n}}\n\"\"\"\n        }]\n    )\n    \n    # 2단계: Notion에 자동 저장\n    # (Notion MCP 도구 사용)\n    \n    return analysis\n\n# 사용 예시\nagent_result = notion_cowork_agent(\n    task_description=\"리더십 워크숍 피드백을 분석하고 개선점을 도출하여 Notion에 저장\",\n    folder_path=\"~/HR/workshop-feedback\"\n)\n```\n\n### 방법 4: Skills 활용 (가장 권장)\n\nCSP님의 Notion Skills을 활용한 방법:\n\n```python\n# claude_skill_automation.py\n\"\"\"\n기존 Notion Skills를 활용한 Cowork 스타일 워크플로우\n\"\"\"\n\ndef skill_based_cowork(task_type):\n    \"\"\"\n    각 작업 타입에 맞는 Skill 자동 호출\n    \"\"\"\n    skill_mapping = {\n        \"knowledge_capture\": \"/mnt/skills/user/notion-knowledge-capture/SKILL.md\",\n        \"research\": \"/mnt/skills/user/notion-research-documentation/SKILL.md\",\n        \"document\": \"/mnt/skills/public/docx/SKILL.md\",\n        \"presentation\": \"/mnt/skills/public/pptx/SKILL.md\"\n    }\n    \n    # Claude에게 직접 요청\n    prompt = f\"\"\"\n{task_type}에 해당하는 작업을 수행해줘.\n\n관련 Skill 참조: {skill_mapping.get(task_type)}\n\n작업 순서:\n1. Skill 문서 읽기\n2. 베스트 프랙티스 적용\n3. 결과물 생성\n4. Notion에 저장\n\"\"\"\n    \n    return prompt\n\n# 터미널에서 실행\n# claude \"$(python -c \"from claude_skill_automation import skill_based_cowork; print(skill_based_cowork('knowledge_capture'))\")\"\n```\n\n---\n\n## ⚡ 실전 워크플로우: HR 리더십 평가 자동화\n\n```python\n# leadership_evaluation_cowork.py\n\"\"\"\nCowork 스타일의 완전 자동화 HR 워크플로우\n\"\"\"\n\nimport anthropic\nimport os\nfrom pathlib import Path\nfrom datetime import datetime\n\nclass LeadershipEvaluationAgent:\n    def __init__(self):\n        self.client = anthropic.Anthropic(\n            api_key=os.environ.get(\"ANTHROPIC_API_KEY\")\n        )\n        self.workspace = Path(\"~/HR/evaluations\").expanduser()\n    \n    def run_cowork_flow(self, quarter):\n        \"\"\"\n        Cowork처럼 자율적으로 작업 수행\n        \"\"\"\n        tasks = [\n            self.collect_feedback_files(quarter),\n            self.analyze_feedback(),\n            self.generate_report(),\n            self.create_presentation(),\n            self.save_to_notion(),\n            self.send_summary_email()\n        ]\n        \n        results = []\n        for task in tasks:\n            print(f\"🔄 실행 중: {task.__name__}\")\n            result = task()\n            results.append(result)\n            print(f\"✅ 완료: {task.__name__}\")\n        \n        return results\n    \n    def collect_feedback_files(self, quarter):\n        \"\"\"1단계: 피드백 파일 수집\"\"\"\n        feedback_files = list(self.workspace.glob(f\"*{quarter}*.xlsx\"))\n        return {\n            \"collected\": len(feedback_files),\n            \"files\": [f.name for f in feedback_files]\n        }\n    \n    def analyze_feedback(self):\n        \"\"\"2단계: AI 분석\"\"\"\n        response = self.client.messages.create(\n            model=\"claude-sonnet-4-5-20250929\",\n            max_tokens=8000,\n            messages=[{\n                \"role\": \"user\",\n                \"content\": \"\"\"\nworkspace 폴더의 모든 피드백 데이터를 분석:\n\n1. 공통 패턴 추출\n2. 강점/개선점 분류\n3. 정량 지표 계산\n4. 액션 아이템 도출\n\n구조화된 JSON으로 결과 제공\n\"\"\"\n            }]\n        )\n        return response.content\n    \n    def generate_report(self):\n        \"\"\"3단계: BCG 스타일 보고서 생성\"\"\"\n        # docx skill 활용\n        pass\n    \n    def create_presentation(self):\n        \"\"\"4단계: PPT 생성\"\"\"\n        # pptx skill 활용\n        pass\n    \n    def save_to_notion(self):\n        \"\"\"5단계: Notion 저장\"\"\"\n        # notion-knowledge-capture skill 활용\n        pass\n    \n    def send_summary_email(self):\n        \"\"\"6단계: 이메일 발송\"\"\"\n        # Gmail connector 활용\n        pass\n\n# 실행\nif __name__ == \"__main__\":\n    agent = LeadershipEvaluationAgent()\n    results = agent.run_cowork_flow(quarter=\"2025Q1\")\n    print(f\"\\n🎉 전체 워크플로우 완료: {datetime.now()}\")\n```\n\n---\n\n## 🎓 핵심 인사이트\n\n### Cowork vs Claude Code\n- **Cowork**: GUI 기반, 비개발자용, 샌드박스 폴더\n- **Claude Code**: 터미널 기반, 개발자용, 전체 시스템 접근 가능\n\n### CSP님께 추천하는 접근법\n\n1. **단기 (현재)**\n   - Claude Code 터미널로 HR 자동화 실험\n   - 기존 Notion Skills와 통합\n\n2. **중기 (Cowork 접근 가능 시)**\n   - Max 구독 후 Cowork 도입\n   - 리더십 평가 워크플로우 완전 자동화\n\n3. **장기 (확장)**\n   - Custom MCP 서버 개발\n   - 조직 전체 DX 교육 자료로 활용\n\n---\n\n## ⚠️ 보안 주의사항\n\nCowork는 prompt injection 공격에 취약할 수 있으며, 파일 삭제 등 잠재적으로 파괴적인 작업을 수행할 수 있습니다.\n\n**안전하게 사용하는 방법:**\n- 중요한 파일은 백업 후 작업\n- 명확하고 구체적인 지시사항 제공\n- 신뢰할 수 있는 소스의 파일만 처리\n- 처음에는 테스트 폴더로 시작\n\n---\n\n도움이 되셨나요? 구체적으로 어떤 HR 워크플로우를 자동화하고 싶으신지 말씀해주시면 맞춤형 코드를 작성해드리겠습니다! 🚀",
+          "citations": [
+            {
+              "uuid": "24bd34fb-b9c4-406b-ae4f-cb101b1cfce2",
+              "start_index": 41,
+              "end_index": 103,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://claude.com/blog/cowork-research-preview"
+              }
+            },
+            {
+              "uuid": "4f100e07-4f28-429d-81b1-9cbd49e5ad5e",
+              "start_index": 267,
+              "end_index": 292,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://simonwillison.net/2026/Jan/12/claude-cowork/"
+              }
+            },
+            {
+              "uuid": "e6a57770-3e27-4371-a4c8-24b82225eb95",
+              "start_index": 341,
+              "end_index": 366,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://claude.com/blog/cowork-research-preview"
+              }
+            },
+            {
+              "uuid": "bcec1e1d-a95d-40e3-989c-6d957fd601f4",
+              "start_index": 854,
+              "end_index": 884,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://aiagenteconomy.substack.com/p/claude-built-claude-cowork-in-10"
+              }
+            },
+            {
+              "uuid": "6cce63ce-c649-4b24-941d-66f7065d13bf",
+              "start_index": 6740,
+              "end_index": 6805,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://claude.com/blog/cowork-research-preview"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-15T09:14:35.790934Z",
+      "updated_at": "2026-01-15T09:14:35.790934Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bc0ee-41fb-7571-bb83-e179a7567c42"
+    },
+    {
+      "uuid": "019bc0f3-f449-7351-8d29-4d6a5f663a19",
+      "text": "잘 모르겠다.. 쩝.. 내가 클로드 코드 사용법을 잘 몰라서 그런걸까?",
+      "content": [
+        {
+          "start_timestamp": "2026-01-15T09:19:32.042463Z",
+          "stop_timestamp": "2026-01-15T09:19:32.042463Z",
+          "flags": null,
+          "type": "text",
+          "text": "잘 모르겠다.. 쩝.. 내가 클로드 코드 사용법을 잘 몰라서 그런걸까?",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-15T09:19:32.060568Z",
+      "updated_at": "2026-01-15T09:19:32.060568Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bc0ee-41fb-7571-bb83-e17a97206989"
+    },
+    {
+      "uuid": "019bc0f3-f449-7351-8d29-4d6b682eccca",
+      "text": "사용자가 Claude Code 사용법을 잘 모르겠다고 하네요. 제가 너무 기술적으로 설명했나 봅니다. \n\n사용자는:\n- 17년 HR 경력\n- Vibe coder (실용적 자동화 전문)\n- Python, 데이터 분석 가능\n- Notion Skills 이미 활용 중\n\n하지만 Claude Code의 실제 사용법이 명확하지 않은 것 같습니다. \n\n더 실용적이고 단계별로, 그리고 실제 화면/명령어 중심으로 설명해야 할 것 같습니다.\n\n1. Claude Code가 정확히 뭔지\n2. 어떻게 설치하는지\n3. 가장 간단한 사용 예시부터\n4. CSP님의 실제 업무에 바로 적용 가능한 예시\n\n이렇게 다시 접근해보겠습니다.아! 제가 너무 복잡하게 설명했네요 😅 \n\n실용적으로 다시 설명드릴게요. **Claude Code는 사실 엄청 간단**합니다!\n\n---\n\n## 🎯 Claude Code, 진짜 간단하게\n\n### 1️⃣ Claude Code가 뭐냐면...\n\n**터미널에서 Claude한테 \"이것좀 해줘\" 하면 알아서 다 해주는 도구**입니다.\n\n```bash\n# 이게 전부입니다\nclaude \"이 폴더의 엑셀 파일들 합쳐서 요약본 만들어줘\"\n```\n\n그러면 Claude가:\n- 파일 찾고\n- 읽고\n- 분석하고\n- 새 파일 만들고\n- 저장까지 **알아서** 다 해줍니다\n\n---\n\n## 🚀 5분 만에 시작하기\n\n### Step 1: 설치 (1분)\n\n```bash\n# 터미널에서 이것만 실행\npip install claude-code\n\n# API 키 설정 (Anthropic 콘솔에서 발급)\nexport ANTHROPIC_API_KEY='your-api-key'\n```\n\n### Step 2: 첫 번째 명령 (1분)\n\n```bash\n# 다운로드 폴더로 이동\ncd ~/Downloads\n\n# Claude한테 부탁\nclaude \"여기 파일들 이름 정리해줘. 날짜_파일명 형식으로\"\n```\n\n**끝!** Claude가 알아서 파일 이름 다 바꿔줍니다.\n\n---\n\n## 💼 CSP님 업무에 바로 쓸 수 있는 예시\n\n### 예시 1: 피드백 파일 정리\n\n```bash\ncd ~/Documents/리더십평가/피드백\n\nclaude \"\n이 폴더에 있는 모든 워드/PDF 파일을 읽고:\n1. 각 파일의 핵심 피드백 3줄로 요약\n2. 긍정/부정/개선점으로 분류  \n3. summary.xlsx 파일로 저장해줘\n\"\n```\n\n### 예시 2: 교육자료 만들기\n\n```bash\ncd ~/Desktop/DX교육\n\nclaude \"\n'AI활용법.pptx' 파일 만들어줘:\n- 슬라이드 5장\n- 주제: HR 담당자를 위한 Claude 활용법\n- 실용적인 예시 중심으로\n\"\n```\n\n### 예시 3: 데이터 분석\n\n```bash\ncd ~/HR데이터\n\nclaude \"\n2024년_인력현황.xlsx 파일 분석해서:\n- 부서별 인원 현황 그래프\n- 연령대 분포 파이차트\n- 주요 인사이트 3가지\n보고서.html로 만들어줘\n\"\n```\n\n---\n\n## 🤔 Cowork vs Claude Code 차이\n\n**Claude Code** (지금 바로 쓸 수 있음)\n```bash\n# 터미널에서\nclaude \"파일 정리해줘\"\n```\n\n**Cowork** (macOS 앱에서만, Max 구독 필요)\n```\nGUI에서 폴더 선택 → 대화로 지시\n(터미널 필요 없음)\n```\n\n**결론**: 지금은 **Claude Code**가 더 실용적입니다! CSP님은 Python 할 줄 아시니까 터미널도 익숙하실 거예요.\n\n---\n\n## 🎬 지금 바로 해볼 수 있는 것\n\n### 1번 미션: 파일 정리\n\n```bash\n# 1. 테스트 폴더 만들기\nmkdir ~/Desktop/claude_test\ncd ~/Desktop/claude_test\n\n# 2. 테스트 파일 만들기\ntouch \"제목없음1.txt\" \"asdf.txt\" \"123.txt\"\n\n# 3. Claude한테 부탁\nclaude \"이 파일들 의미있는 이름으로 바꿔줘\"\n```\n\n### 2번 미션: 간단한 분석\n\n```bash\n# Downloads 폴더에 엑셀 파일 아무거나 하나 두고\ncd ~/Downloads\n\nclaude \"\n가장 최근 엑셀 파일 하나 열어서:\n- 총 몇 개 행인지\n- 주요 컬럼이 뭔지  \n- 간단한 통계\n알려줘\n\"\n```\n\n---\n\n## 🚨 자주 하는 실수\n\n❌ **복잡하게 지시**: \"파이썬으로 pandas 써서 데이터프레임 만들고...\"\n✅ **간단하게 지시**: \"엑셀 파일 합쳐줘\"\n\n❌ **코드 짜달라고**: \"이거 하는 코드 작성해줘\"  \n✅ **결과 달라고**: \"이거 해줘\"\n\nClaude Code는 **코드 짜는 도구가 아니라 일 시키는 도구**입니다!\n\n---\n\n## 💡 핵심 요약\n\n**Claude Code = 터미널에서 쓰는 AI 비서**\n\n```bash\n# 이 한 줄이면 됩니다\nclaude \"내가 원하는 작업\"\n```\n\n- ✅ 파일 읽고 쓰기\n- ✅ 데이터 분석\n- ✅ 문서 만들기\n- ✅ 자동화\n\n**Cowork = GUI 버전** (나중에 나오면 더 쉬움)\n\n---\n\n이제 좀 감이 오시나요? \n\n**한 줄 요약**: Claude Code는 그냥 \"claude '이거해줘'\" 하면 끝입니다 😊\n\n혹시 설치부터 막히시면 말씀해주세요. 하나씩 같이 해보죠!",
+      "content": [
+        {
+          "start_timestamp": "2026-01-15T09:19:34.487305Z",
+          "stop_timestamp": "2026-01-15T09:19:40.308972Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 Claude Code 사용법을 잘 모르겠다고 하네요. 제가 너무 기술적으로 설명했나 봅니다. \n\n사용자는:\n- 17년 HR 경력\n- Vibe coder (실용적 자동화 전문)\n- Python, 데이터 분석 가능\n- Notion Skills 이미 활용 중\n\n하지만 Claude Code의 실제 사용법이 명확하지 않은 것 같습니다. \n\n더 실용적이고 단계별로, 그리고 실제 화면/명령어 중심으로 설명해야 할 것 같습니다.\n\n1. Claude Code가 정확히 뭔지\n2. 어떻게 설치하는지\n3. 가장 간단한 사용 예시부터\n4. CSP님의 실제 업무에 바로 적용 가능한 예시\n\n이렇게 다시 접근해보겠습니다.",
+          "summaries": [
+            {
+              "summary": "생각해보기: Claude 코드 사용법에 대한 이해 부족 확인"
+            },
+            {
+              "summary": "단계별 실용적 설명으로 재구성 중입니다."
+            },
+            {
+              "summary": "재평가했다: 기술적 설명보다 실용적 단계별 접근 필요."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-15T09:19:40.366376Z",
+          "stop_timestamp": "2026-01-15T09:20:12.103122Z",
+          "flags": null,
+          "type": "text",
+          "text": "아! 제가 너무 복잡하게 설명했네요 😅 \n\n실용적으로 다시 설명드릴게요. **Claude Code는 사실 엄청 간단**합니다!\n\n---\n\n## 🎯 Claude Code, 진짜 간단하게\n\n### 1️⃣ Claude Code가 뭐냐면...\n\n**터미널에서 Claude한테 \"이것좀 해줘\" 하면 알아서 다 해주는 도구**입니다.\n\n```bash\n# 이게 전부입니다\nclaude \"이 폴더의 엑셀 파일들 합쳐서 요약본 만들어줘\"\n```\n\n그러면 Claude가:\n- 파일 찾고\n- 읽고\n- 분석하고\n- 새 파일 만들고\n- 저장까지 **알아서** 다 해줍니다\n\n---\n\n## 🚀 5분 만에 시작하기\n\n### Step 1: 설치 (1분)\n\n```bash\n# 터미널에서 이것만 실행\npip install claude-code\n\n# API 키 설정 (Anthropic 콘솔에서 발급)\nexport ANTHROPIC_API_KEY='your-api-key'\n```\n\n### Step 2: 첫 번째 명령 (1분)\n\n```bash\n# 다운로드 폴더로 이동\ncd ~/Downloads\n\n# Claude한테 부탁\nclaude \"여기 파일들 이름 정리해줘. 날짜_파일명 형식으로\"\n```\n\n**끝!** Claude가 알아서 파일 이름 다 바꿔줍니다.\n\n---\n\n## 💼 CSP님 업무에 바로 쓸 수 있는 예시\n\n### 예시 1: 피드백 파일 정리\n\n```bash\ncd ~/Documents/리더십평가/피드백\n\nclaude \"\n이 폴더에 있는 모든 워드/PDF 파일을 읽고:\n1. 각 파일의 핵심 피드백 3줄로 요약\n2. 긍정/부정/개선점으로 분류  \n3. summary.xlsx 파일로 저장해줘\n\"\n```\n\n### 예시 2: 교육자료 만들기\n\n```bash\ncd ~/Desktop/DX교육\n\nclaude \"\n'AI활용법.pptx' 파일 만들어줘:\n- 슬라이드 5장\n- 주제: HR 담당자를 위한 Claude 활용법\n- 실용적인 예시 중심으로\n\"\n```\n\n### 예시 3: 데이터 분석\n\n```bash\ncd ~/HR데이터\n\nclaude \"\n2024년_인력현황.xlsx 파일 분석해서:\n- 부서별 인원 현황 그래프\n- 연령대 분포 파이차트\n- 주요 인사이트 3가지\n보고서.html로 만들어줘\n\"\n```\n\n---\n\n## 🤔 Cowork vs Claude Code 차이\n\n**Claude Code** (지금 바로 쓸 수 있음)\n```bash\n# 터미널에서\nclaude \"파일 정리해줘\"\n```\n\n**Cowork** (macOS 앱에서만, Max 구독 필요)\n```\nGUI에서 폴더 선택 → 대화로 지시\n(터미널 필요 없음)\n```\n\n**결론**: 지금은 **Claude Code**가 더 실용적입니다! CSP님은 Python 할 줄 아시니까 터미널도 익숙하실 거예요.\n\n---\n\n## 🎬 지금 바로 해볼 수 있는 것\n\n### 1번 미션: 파일 정리\n\n```bash\n# 1. 테스트 폴더 만들기\nmkdir ~/Desktop/claude_test\ncd ~/Desktop/claude_test\n\n# 2. 테스트 파일 만들기\ntouch \"제목없음1.txt\" \"asdf.txt\" \"123.txt\"\n\n# 3. Claude한테 부탁\nclaude \"이 파일들 의미있는 이름으로 바꿔줘\"\n```\n\n### 2번 미션: 간단한 분석\n\n```bash\n# Downloads 폴더에 엑셀 파일 아무거나 하나 두고\ncd ~/Downloads\n\nclaude \"\n가장 최근 엑셀 파일 하나 열어서:\n- 총 몇 개 행인지\n- 주요 컬럼이 뭔지  \n- 간단한 통계\n알려줘\n\"\n```\n\n---\n\n## 🚨 자주 하는 실수\n\n❌ **복잡하게 지시**: \"파이썬으로 pandas 써서 데이터프레임 만들고...\"\n✅ **간단하게 지시**: \"엑셀 파일 합쳐줘\"\n\n❌ **코드 짜달라고**: \"이거 하는 코드 작성해줘\"  \n✅ **결과 달라고**: \"이거 해줘\"\n\nClaude Code는 **코드 짜는 도구가 아니라 일 시키는 도구**입니다!\n\n---\n\n## 💡 핵심 요약\n\n**Claude Code = 터미널에서 쓰는 AI 비서**\n\n```bash\n# 이 한 줄이면 됩니다\nclaude \"내가 원하는 작업\"\n```\n\n- ✅ 파일 읽고 쓰기\n- ✅ 데이터 분석\n- ✅ 문서 만들기\n- ✅ 자동화\n\n**Cowork = GUI 버전** (나중에 나오면 더 쉬움)\n\n---\n\n이제 좀 감이 오시나요? \n\n**한 줄 요약**: Claude Code는 그냥 \"claude '이거해줘'\" 하면 끝입니다 😊\n\n혹시 설치부터 막히시면 말씀해주세요. 하나씩 같이 해보죠!",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-15T09:20:12.148887Z",
+      "updated_at": "2026-01-15T09:20:12.148887Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bc0f3-f449-7351-8d29-4d6a5f663a19"
+    }
+  ]
+}

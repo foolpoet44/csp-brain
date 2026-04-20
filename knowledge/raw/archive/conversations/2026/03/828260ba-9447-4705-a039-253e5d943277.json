@@ -1,0 +1,1017 @@
+﻿{
+  "uuid": "828260ba-9447-4705-a039-253e5d943277",
+  "name": "Alive-analysis 리포지토리 사용 가이드",
+  "summary": "**Conversation Overview**\n\nThe person asked Claude to explain the contents of the GitHub repository `https://github.com/with-geun/alive-analysis` and provide a usage guide. Claude fetched the repository contents and delivered a comprehensive explanation of the tool, which is a structured data analysis workflow kit designed for AI coding agents. The core framework is called the ALIVE loop (Ask → Look → Investigate → Voice → Evolve), which organizes analysis into five structured stages to prevent analytical work from being lost in ephemeral AI chat sessions.\n\nClaude explained the repository's two operating modes (Full Mode for deep decision-making analysis and Quick Mode for rapid analysis), its 16 commands across four categories (analysis, experiment, monitoring, and modeling), and installation procedures for Claude Code and Cursor. Claude contextualized the tool within what appears to be the person's professional work involving employee experience data, Pulse Check systems, Well-Being metrics, and AX maturity surveys — suggesting specific use-case mappings for each mode.\n\nThe person then asked whether alive-analysis could be applied in a Google Antigravity environment. Claude confirmed compatibility, explaining that alive-analysis is built on the SKILL.md open standard, which supports 35+ platforms. The only required change is the folder path: `.agent/skills/` for Antigravity versus `.claude/skills/` for Claude Code. Claude noted behavioral differences between platforms — Antigravity operates in batch/agent-first mode rather than the conversational step-by-step mode of Claude Code — and provided a practical recommendation that Claude Code remains more stable for production analytical work, while Antigravity may suit experimental use cases involving multimodal visual data analysis.",
+  "created_at": "2026-03-24T04:16:49.703704Z",
+  "updated_at": "2026-03-24T04:20:08.619655Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d1e0f-443a-7bf7-ac0b-8a48065931f4",
+      "text": "https://github.com/with-geun/alive-analysis\n리포의 내용을 설명하고 사용방법을 가이드해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-03-24T04:16:51.271657Z",
+          "stop_timestamp": "2026-03-24T04:16:51.271657Z",
+          "flags": null,
+          "type": "text",
+          "text": "https://github.com/with-geun/alive-analysis\n리포의 내용을 설명하고 사용방법을 가이드해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-24T04:16:51.315548Z",
+      "updated_at": "2026-03-24T04:16:51.315548Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d1e0f-443a-7ae3-95f2-37546262a2e8",
+      "text": "\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n리포 내용을 충분히 파악했습니다. CSP의 워크플로우와 연결 지어 설명해볼게요.\n\n---\n\n## alive-analysis: AI와 함께하는 구조화된 데이터 분석 워크플로우\n\n### 한 마디로 정의하면\n\nAI 코딩 에이전트를 위한 데이터 분석 워크플로우 키트로, **ALIVE 루프**(Ask → Look → Investigate → Voice → Evolve)를 통해 분석을 체계화하는 도구입니다.\n\nCSP의 언어로 번역하면, \"AI와 나누는 분석 대화가 채팅 히스토리에서 증발하지 않도록 — 추적 가능하고, 반복 가능하고, 팀과 공유 가능한 지식으로 변환하는 시스템\"입니다.\n\n---\n\n### 왜 만들어졌는가 — 핵심 문제 의식\n\nAI에게 \"이 데이터 분석해줘\"라고 하면 일회성 답변만 돌아옵니다. 구조도 없고, 추적도 없고, 한 달 뒤에 자신의 추론을 다시 확인할 방법도 없습니다.\n\n이것은 단순한 불편함이 아닙니다. Pulse Check 시스템을 운영하는 맥락에서 생각해보면, 매달 분석한 Well-Being 데이터, 참여율 변화 추적, Well-Being 15% 개선 근거 — 이 모든 분석이 AI 채팅창에서 소멸하고 있다는 뜻이기도 합니다. alive-analysis는 그 소멸을 막는 도구입니다.\n\n---\n\n### ALIVE 루프의 구조\n\n모든 분석은 5단계를 따릅니다. AI가 답변을 생성하는 것이 아니라 — 각 단계에서 **질문을 던져** 사용자의 사고를 구조화합니다.\n\n```\nASK → LOOK → INVESTIGATE → VOICE → EVOLVE\n```\n\n- **ASK** — 질문을 정의. 범위, 가설 트리, 성공 기준\n- **LOOK** — 데이터 관찰. 품질 체크, 세그멘테이션, 교란 변수\n- **INVESTIGATE** — 분석. 가설 검증, 다중 렌즈 프레임워크\n- **VOICE** — 커뮤니케이션. 청중별 \"So what → Now what\"\n- **EVOLVE** — 다음 질문. 후속 추적, 임팩트 측정, 회고\n\n심리학적으로 보면, 이건 단순한 분석 프레임이 아닙니다. **인식론적 겸손(epistemic humility)**의 구조화입니다 — 내가 무엇을 모르는지를 알게 만드는 과정.\n\n---\n\n### Full Mode vs Quick Mode\n\n**Full Mode**는 5개 파일, 체크리스트, 품질 게이트가 포함된 심층 분석으로 실제 의사결정을 위한 분석에 사용하고, **Quick Mode**는 단일 파일로 빠르게 완료되며 통계 배경이 없어도 가이드 질문을 통해 분석할 수 있습니다. Quick 분석은 복잡성이 커지면 자동으로 Full로 프로모션됩니다.\n\nCSP 상황에서 매핑하면:\n\n| 상황 | 권장 모드 |\n|------|-----------|\n| Pulse Check 월간 데이터 리뷰 | Quick → Full 프로모션 |\n| AX 성숙도 Survey 전사 비교 분석 | Full Mode |\n| 특정 팀 Well-Being 급락 원인 조사 | Quick Mode |\n| 생산성 10% 개선 근거 수립 | Full Mode |\n\n---\n\n### 설치 및 사용 방법\n\n**설치 (3분)**\n\n```bash\ngit clone https://github.com/with-geun/alive-analysis.git /tmp/alive-analysis\n\n# Claude Code 사용 시\nbash /tmp/alive-analysis/install.sh\n\n# Cursor 사용 시\nbash /tmp/alive-analysis/install.sh --cursor\n\n# 둘 다\nbash /tmp/alive-analysis/install.sh --both\n```\n\n**기본 워크플로우**\n\n```\n1. /analysis-init      # 최초 1회 설정 (언어, 팀, 모드)\n2. /analysis-new       # 분석 시작\n3. AI가 질문 → 답변 → ASK 단계 완료\n4. /analysis-next      # LOOK → INVESTIGATE → VOICE → EVOLVE 진행\n5. /analysis-archive   # 완료. Git-tracked 마크다운으로 저장\n```\n\n---\n\n### 16개 커맨드 전체 구조\n\n**분석(9개)**: `/analysis-init` · `/analysis-new` · `/analysis-status` · `/analysis-next` · `/analysis-archive` · `/analysis-list` · `/analysis-promote` · `/analysis-search` · `/analysis-retro`\n\n**실험(3개)**: `/experiment-new` · `/experiment-next` · `/experiment-archive`\n\n**모니터링(3개)**: `/monitor-setup` · `/monitor-check` · `/monitor-list`\n\n**모델링(1개)**: `/model-register`\n\nPulse Check 시스템 관점에서 특히 주목할 것은 `/monitor-setup`과 `/monitor-check`입니다. 4단계 메트릭 분류(North Star → Leading → Guardrail → Diagnostic)와 연속 경고 시 자동 에스컬레이션 기능이 포함되어 있습니다.\n\n---\n\n### 이 도구가 CSP에게 의미하는 것\n\n솔직히 말하면, alive-analysis는 단순한 분석 툴을 넘어서 **조직 지식의 고고학**을 가능하게 합니다. `/analysis-search`로 과거 분석을 전문 검색하고, `/analysis-retro`로 반복 패턴과 미해결 후속 과제를 자동 정리합니다.\n\n또한 임팩트 트래킹 기능을 통해 권고사항 → 의사결정 → 실행 → 결과의 체인을 추적하여, 내가 한 분석이 실제로 무언가를 변화시켰는지 알 수 있습니다.\n\nEX Intelligence 시스템을 \"직관에서 데이터로, 리포트에서 액션으로\"라고 포지셔닝하는 CSP의 내러티브와 alive-analysis의 철학이 정확히 맞닿아 있습니다. 이 도구는 그 내러티브를 CSP 자신의 분석 워크플로우에도 적용하는 수단이 될 수 있습니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-24T04:16:52.921486Z",
+          "stop_timestamp": "2026-03-24T04:16:52.921486Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_018188xoS8nVZqWEz8rQCjoL",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://github.com/with-geun/alive-analysis"
+          },
+          "message": "Fetching: https://github.com/with-geun/alive-analysis",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_018188xoS8nVZqWEz8rQCjoL",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "GitHub - with-geun/alive-analysis: Data analysis workflow kit for AI coding agents. Structure your analysis with the ALIVE loop — Ask, Look, Investigate, Voice, Evolve.",
+              "url": "https://github.com/with-geun/alive-analysis",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "github"
+              },
+              "is_missing": false,
+              "text": "GitHub - with-geun/alive-analysis: Data analysis workflow kit for AI coding agents. Structure your analysis with the ALIVE loop — Ask, Look, Investigate, Voice, Evolve.\n\n\n\n[Skip to content](#start-of-content)\n\n\n\n\n\n\n\n\n\n\n\n\n\n## Navigation Menu\n\nToggle navigation\n\n[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fwith-geun%2Falive-analysis)\n\nAppearance settings\n\n* Platform\n\n  + AI CODE CREATION\n    - [GitHub CopilotWrite better code with AI](https://github.com/features/copilot)\n    - [GitHub SparkBuild and deploy intelligent apps](https://github.com/features/spark)\n    - [GitHub ModelsManage and compare prompts](https://github.com/features/models)\n    - [MCP RegistryNewIntegrate external tools](https://github.com/mcp)\n  + DEVELOPER WORKFLOWS\n    - [ActionsAutomate any workflow](https://github.com/features/actions)\n    - [CodespacesInstant dev environments](https://github.com/features/codespaces)\n    - [IssuesPlan and track work](https://github.com/features/issues)\n    - [Code ReviewManage code changes](https://github.com/features/code-review)\n  + APPLICATION SECURITY\n    - [GitHub Advanced SecurityFind and fix vulnerabilities](https://github.com/security/advanced-security)\n    - [Code securitySecure your code as you build](https://github.com/security/advanced-security/code-security)\n    - [Secret protectionStop leaks before they start](https://github.com/security/advanced-security/secret-protection)\n  + EXPLORE\n    - [Why GitHub](https://github.com/why-github)\n    - [Documentation](https://docs.github.com)\n    - [Blog](https://github.blog)\n    - [Changelog](https://github.blog/changelog)\n    - [Marketplace](https://github.com/marketplace)\n\n  [View all features](https://github.com/features)\n* Solutions\n\n  + BY COMPANY SIZE\n    - [Enterprises](https://github.com/enterprise)\n    - [Small and medium teams](https://github.com/team)\n    - [Startups](https://github.com/enterprise/startups)\n    - [Nonprofits](https://github.com/solutions/industry/nonprofits)\n  + BY USE CASE\n    - [App Modernization](https://github.com/solutions/use-case/app-modernization)\n    - [DevSecOps](https://github.com/solutions/use-case/devsecops)\n    - [DevOps](https://github.com/solutions/use-case/devops)\n    - [CI/CD](https://github.com/solutions/use-case/ci-cd)\n    - [View all use cases](https://github.com/solutions/use-case)\n  + BY INDUSTRY\n    - [Healthcare](https://github.com/solutions/industry/healthcare)\n    - [Financial services](https://github.com/solutions/industry/financial-services)\n    - [Manufacturing](https://github.com/solutions/industry/manufacturing)\n    - [Government](https://github.com/solutions/industry/government)\n    - [View all industries](https://github.com/solutions/industry)\n\n  [View all solutions](https://github.com/solutions)\n* Resources\n\n  + EXPLORE BY TOPIC\n    - [AI](https://github.com/resources/articles?topic=ai)\n    - [Software Development](https://github.com/resources/articles?topic=software-development)\n    - [DevOps](https://github.com/resources/articles?topic=devops)\n    - [Security](https://github.com/resources/articles?topic=security)\n    - [View all topics](https://github.com/resources/articles)\n  + EXPLORE BY TYPE\n    - [Customer stories](https://github.com/customer-stories)\n    - [Events & webinars](https://github.com/resources/events)\n    - [Ebooks & reports](https://github.com/resources/whitepapers)\n    - [Business insights](https://github.com/solutions/executive-insights)\n    - [GitHub Skills](https://skills.github.com)\n  + SUPPORT & SERVICES\n    - [Documentation](https://docs.github.com)\n    - [Customer support](https://support.github.com)\n    - [Community forum](https://github.com/orgs/community/discussions)\n    - [Trust center](https://github.com/trust-center)\n    - [Partners](https://github.com/partners)\n* Open Source\n\n  + COMMUNITY\n    - [GitHub SponsorsFund open source developers](https://github.com/sponsors)\n  + PROGRAMS\n    - [Security Lab](https://securitylab.github.com)\n    - [Maintainer Community](https://maintainers.github.com)\n    - [Accelerator](https://github.com/accelerator)\n    - [Archive Program](https://archiveprogram.github.com)\n  + REPOSITORIES\n    - [Topics](https://github.com/topics)\n    - [Trending](https://github.com/trending)\n    - [Collections](https://github.com/collections)\n* Enterprise\n\n  + ENTERPRISE SOLUTIONS\n    - [Enterprise platformAI-powered developer platform](https://github.com/enterprise)\n  + AVAILABLE ADD-ONS\n    - [GitHub Advanced SecurityEnterprise-grade security features](https://github.com/security/advanced-security)\n    - [Copilot for BusinessEnterprise-grade AI features](https://github.com/features/copilot/copilot-business)\n    - [Premium SupportEnterprise-grade 24/7 support](https://github.com/premium-support)\n* [Pricing](https://github.com/pricing)\n\nSearch or jump to...\n\n\n# Search code, repositories, users, issues, pull requests...\n\nSearch\n\nClear\n\n[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)\n\n# Provide feedback\n\nWe read every piece of feedback, and take your input very seriously.\n\n\nInclude my email address so I can be contacted\n\nCancel\n Submit feedback\n\n\n\n\n\n# Saved searches\n\n## Use saved searches to filter your results more quickly\n\nName\n\nQuery\n\nTo see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).\n\nCancel\n Create saved search\n\n[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fwith-geun%2Falive-analysis)\n\n[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=with-geun%2Falive-analysis)\n\nAppearance settings\n\nResetting focus\n\nYou signed in with another tab or window. Reload to refresh your session.\nYou signed out in another tab or window. Reload to refresh your session.\nYou switched accounts on another tab or window. Reload to refresh your session.\n \n\n\nDismiss alert\n\n{{ message }}\n\n[with-geun](/with-geun) \n/\n**[alive-analysis](/with-geun/alive-analysis)**\nPublic\n\n* [Notifications](/login?return_to=%2Fwith-geun%2Falive-analysis) You must be signed in to change notification settings\n* [Fork\n  0](/login?return_to=%2Fwith-geun%2Falive-analysis)\n* [Star\n   3](/login?return_to=%2Fwith-geun%2Falive-analysis)\n\nData analysis workflow kit for AI coding agents. Structure your analysis with the ALIVE loop — Ask, Look, Investigate, Voice, Evolve.\n\n### License\n\n[MIT license](/with-geun/alive-analysis/blob/main/LICENSE)\n\n[3\nstars](/with-geun/alive-analysis/stargazers) [0\nforks](/with-geun/alive-analysis/forks) [Branches](/with-geun/alive-analysis/branches) [Tags](/with-geun/alive-analysis/tags) [Activity](/with-geun/alive-analysis/activity)\n\n[Star](/login?return_to=%2Fwith-geun%2Falive-analysis)\n\n[Notifications](/login?return_to=%2Fwith-geun%2Falive-analysis) You must be signed in to change notification settings\n\n* [Code](/with-geun/alive-analysis)\n* [Issues\n  0](/with-geun/alive-analysis/issues)\n* [Pull requests\n  0](/with-geun/alive-analysis/pulls)\n* [Actions](/with-geun/alive-analysis/actions)\n* [Projects\n  0](/with-geun/alive-analysis/projects)\n* [Security\n  0](/with-geun/alive-analysis/security)\n* [Insights](/with-geun/alive-analysis/pulse)\n\nAdditional navigation options\n\n\n* [Code](/with-geun/alive-analysis)\n* [Issues](/with-geun/alive-analysis/issues)\n* [Pull requests](/with-geun/alive-analysis/pulls)\n* [Actions](/with-geun/alive-analysis/actions)\n* [Projects](/with-geun/alive-analysis/projects)\n* [Security](/with-geun/alive-analysis/security)\n* [Insights](/with-geun/alive-analysis/pulse)\n\n# with-geun/alive-analysis\n\nmain\n\n[Branches](/with-geun/alive-analysis/branches)[Tags](/with-geun/alive-analysis/tags)\n\nGo to file\n\nCode\n\nOpen more actions menu\n\n## Folders and files\n\n| Name | | Name | Last commit message | Last commit date |\n| --- | --- | --- | --- | --- |\n| Latest commit   History[28 Commits](/with-geun/alive-analysis/commits/main/)   28 Commits | | |\n| [core](/with-geun/alive-analysis/tree/main/core \"core\") | | [core](/with-geun/alive-analysis/tree/main/core \"core\") |  |  |\n| [platforms](/with-geun/alive-analysis/tree/main/platforms \"platforms\") | | [platforms](/with-geun/alive-analysis/tree/main/platforms \"platforms\") |  |  |\n| [.gitignore](/with-geun/alive-analysis/blob/main/.gitignore \".gitignore\") | | [.gitignore](/with-geun/alive-analysis/blob/main/.gitignore \".gitignore\") |  |  |\n| [CHANGELOG.md](/with-geun/alive-analysis/blob/main/CHANGELOG.md \"CHANGELOG.md\") | | [CHANGELOG.md](/with-geun/alive-analysis/blob/main/CHANGELOG.md \"CHANGELOG.md\") |  |  |\n| [CODE\\_OF\\_CONDUCT.md](/with-geun/alive-analysis/blob/main/CODE_OF_CONDUCT.md \"CODE_OF_CONDUCT.md\") | | [CODE\\_OF\\_CONDUCT.md](/with-geun/alive-analysis/blob/main/CODE_OF_CONDUCT.md \"CODE_OF_CONDUCT.md\") |  |  |\n| [CONTRIBUTING.md](/with-geun/alive-analysis/blob/main/CONTRIBUTING.md \"CONTRIBUTING.md\") | | [CONTRIBUTING.md](/with-geun/alive-analysis/blob/main/CONTRIBUTING.md \"CONTRIBUTING.md\") |  |  |\n| [GLOSSARY.md](/with-geun/alive-analysis/blob/main/GLOSSARY.md \"GLOSSARY.md\") | | [GLOSSARY.md](/with-geun/alive-analysis/blob/main/GLOSSARY.md \"GLOSSARY.md\") |  |  |\n| [INSTALL.md](/with-geun/alive-analysis/blob/main/INSTALL.md \"INSTALL.md\") | | [INSTALL.md](/with-geun/alive-analysis/blob/main/INSTALL.md \"INSTALL.md\") |  |  |\n| [LICENSE](/with-geun/alive-analysis/blob/main/LICENSE \"LICENSE\") | | [LICENSE](/with-geun/alive-analysis/blob/main/LICENSE \"LICENSE\") |  |  |\n| [README.md](/with-geun/alive-analysis/blob/main/README.md \"README.md\") | | [README.md](/with-geun/alive-analysis/blob/main/README.md \"README.md\") |  |  |\n| [install.sh](/with-geun/alive-analysis/blob/main/install.sh \"install.sh\") | | [install.sh](/with-geun/alive-analysis/blob/main/install.sh \"install.sh\") |  |  |\n| View all files | | |\n\n## Repository files navigation\n\n* [README](#)\n* [Code of conduct](#)\n* [Contributing](#)\n* [MIT license](#)\n\n# alive-analysis\n\n**Make every data analysis traceable, repeatable, and team-shareable — inside your AI coding agent.**\n\n---\n\n## 🚀 TL;DR\n\nTurn AI into a **structured analysis partner** instead of a one-shot answer machine.\nEvery analysis follows 5 stages (ASK → LOOK → INVESTIGATE → VOICE → EVOLVE), gets saved as Git-tracked markdown, and stays searchable forever.\n\n```\n/analysis-init     # One-time setup (3 min)\n/analysis-new      # Start analyzing\n```\n\nWorks in **Claude Code** and **Cursor 2.4+**. Free and open source.\n\n> **Use this when:** You're doing analysis with AI and don't want your reasoning to disappear in chat history.\n\n```\nAI Agent → ALIVE Loop → Versioned Analysis Files → Searchable Knowledge Base\n```\n\n---\n\n## 👥 Who is this for?\n\n* **Data Analysts** — Full mode with 5 files, checklists, and quality gates for analyses that inform real decisions\n* **PMs / Non-analysts** — Quick mode (single file) with guided questions so you can analyze without a statistics background\n* **Growth / Marketing teams** — A/B test module, metric monitoring, impact tracking built in\n* **Anyone using AI for analysis** — Stop losing insights in chat history\n\n---\n\n## ❓ Why this exists\n\nWhen you ask AI to \"analyze this data,\" you get a one-shot answer. No structure, no tracking, no way to revisit your reasoning next month.\n\n| Problem | How alive-analysis fixes it |\n| --- | --- |\n| Analysis is ad-hoc and different every time | Structured ALIVE loop, same quality every time |\n| Insights vanish in chat history | Git-tracked markdown files, searchable archive |\n| Easy to skip important checks | Stage checklists catch confounders, counter-metrics, sensitivity |\n| Hard to share reasoning with your team | Audience-specific messaging, versioned documents |\n\n\n\n---\n\n## 🧠 The ALIVE Loop\n\nEvery analysis follows five stages. The AI doesn't generate answers — it **asks you questions** at each stage to structure your thinking.\n\n```\nASK → LOOK → INVESTIGATE → VOICE → EVOLVE\n ?      👀       🔍          📢      🌱\n```\n\n* **ASK** — Define the question. Scope, hypothesis tree, success criteria.\n* **LOOK** — Observe data. Quality checks, segmentation, confounders.\n* **INVESTIGATE** — Analyze. Hypotheses, testing, multi-lens framework.\n* **VOICE** — Communicate. \"So what → Now what\" for each audience.\n* **EVOLVE** — Next questions. Follow-ups, impact tracking, reflection.\n\n---\n\n## ⚡ Quick Demo\n\n```\n1. /analysis-init --quick        # Set language, team, mode\n2. /analysis-new                 # \"Why did D7 retention drop?\"\n3. AI asks questions → you answer → ASK stage done\n4. /analysis-next                # Move through LOOK → INVESTIGATE → VOICE → EVOLVE\n5. /analysis-archive             # Done. File saved, searchable, Git-tracked.\n```\n\nThe AI guides every step — you bring the domain knowledge, it brings the structure.\n\n---\n\n## 📄 Example Output\n\nA completed Quick analysis looks like this:\n\n```\n# Quick Investigation — Signup Rate Comparison\n> ID: Q-2026-0212-001 | Type: Comparison | Status: Archived\n\n## ASK\n\"Onboarding flow A vs B — which has higher signup completion?\"\n\n## LOOK\n| Segment  | Flow A | Flow B | Users (A/B)    |\n|----------|--------|--------|----------------|\n| Organic  | 34%    | 41%    | 3,200 / 2,800  |\n| Paid     | 28%    | 32%    | 1,500 / 1,200  |\n\n## INVESTIGATE\nFlow B outperforms A in every segment (+6-7pp).\nNo Simpson's Paradox. Drop-off at step 3 — Flow B made phone verification optional.\n\n## VOICE\nShip Flow B. Monitor D7 activation as counter-metric.\nConfidence: 🟢 High (organic), 🟡 Medium (paid — smaller sample)\n\n## EVOLVE\nFollow-up: Does simpler signup affect user quality? Check D30 activation.\n```\n\nSee [`core/examples/`](/with-geun/alive-analysis/blob/main/core/examples) for Full and Quick samples.\n\n---\n\n## ⚙️ Quick Start\n\n### Install\n\n```\ngit clone https://github.com/with-geun/alive-analysis.git /tmp/alive-analysis\n\nbash /tmp/alive-analysis/install.sh            # Claude Code (default)\nbash /tmp/alive-analysis/install.sh --cursor   # Cursor only\nbash /tmp/alive-analysis/install.sh --both     # Both platforms\n```\n\nSee [INSTALL.md](/with-geun/alive-analysis/blob/main/INSTALL.md) for manual setup.\n\n### Start\n\nOpen your project in Claude Code or Cursor, then type in the **agent chat** (not the terminal):\n\n```\n/analysis-init            # Full setup (10 questions) or --quick (3 questions)\n/analysis-new             # Start your first analysis\n```\n\n---\n\n## ✨ Core Features\n\n**16 commands** across analysis, experiments, monitoring, and modeling:\n\n### Analysis (9 commands)\n\n`/analysis-init` · `/analysis-new` · `/analysis-status` · `/analysis-next` · `/analysis-archive` · `/analysis-list` · `/analysis-promote` · `/analysis-search` · `/analysis-retro`\n\n### Experiments (3 commands)\n\n`/experiment-new` · `/experiment-next` · `/experiment-archive`\n\n### Monitoring (3 commands)\n\n`/monitor-setup` · `/monitor-check` · `/monitor-list`\n\n### Modeling (1 command)\n\n`/model-register`\n\n**Key capabilities:**\n\n* **Full & Quick modes** — 5-file deep analysis or single-file fast turnaround. Quick auto-promotes to Full when complexity grows.\n* **3 analysis types** — Investigation (\"why did X happen?\"), Modeling (\"can we predict Y?\"), Simulation (\"what if Z?\")\n* **A/B test experiments** — Design → Validate → Analyze → Decide → Learn. Pre-registration, SRM checks, guardrail metrics.\n* **Metric monitoring** — 4-tier classification (North Star → Leading → Guardrail → Diagnostic). Auto-escalation on consecutive warnings.\n* **Insight search** — Full-text search across all analyses. Cross-reference analysis, conflicting finding detection, learning suggestions.\n* **Auto retrospectives** — Period-based reports with impact outcomes, recurring patterns, and unresolved follow-ups.\n* **Impact tracking** — Recommendation → Decision → Execution → Result. Know if your analyses actually changed anything.\n* **Tags & model registry** — Connect related analyses. Track ML model versions with drift monitoring.\n\n### Platform support\n\n|  | Claude Code | Cursor 2.4+ |\n| --- | --- | --- |\n| Interaction | Conversational (one question at a time) | Batch (all questions at once) |\n| State | Session memory | File-based (`.analysis/status.md`) |\n| SKILL.md | ~1,660 lines | ~265 lines |\n\nBoth platforms share the same `core/` methodology and produce identical outputs. `SKILL.md` is an [open standard](https://github.com/anthropics/claude-code) — works with any agent that supports it.\n\n---\n\n## 🧩 What this is NOT\n\n* **Not a BI dashboard** — No charts or visualizations. It structures your *thinking*, not your *reporting*.\n* **Not a statistics library** — It doesn't run models or crunch numbers. You bring the data, it brings the process.\n* **Not AI doing analysis for you** — The AI asks questions and enforces structure. You make the analytical judgments.\n\n---\n\n## 📊 How teams use it\n\n* **Growth team**: Quick analysis on metric drops → finds root cause in one session → archives with action items\n* **PM**: `/analysis-new` Quick mode to investigate a feature hypothesis before writing a spec\n* **Data team**: Full analysis for board-level decisions → checklists ensure nothing is missed → Impact Tracking proves ROI\n* **Cross-functional**: PMs do Quick analyses independently, escalate to analysts for Full when needed\n\n---\n\n## 🧪 Early use cases\n\nCurrently being tested in:\n\n* Metric investigations (retention drops, conversion changes)\n* Experiment reviews (A/B test design and post-analysis)\n* Decision memos (structured reasoning for stakeholder alignment)\n\nReal walkthrough coming soon.\n\n---\n\n## 🗺️ Roadmap\n\n* **v1.0** ✅ — ALIVE loop, Full/Quick modes, 3 analysis types, experiments, monitoring, search, retrospectives, dual-platform\n* **Next** — Team dashboard\n\n---\n\n## 🤝 Contributing\n\nSee [CONTRIBUTING.md](/with-geun/alive-analysis/blob/main/CONTRIBUTING.md). Feedback on checklists and methodology especially welcome.\n\n---\n\n## ⭐ If this resonates\n\nIf alive-analysis helps you think more clearly about data, consider giving it a star. It helps others find the project.\n\n---\n\n## 📜 License\n\nMIT\n\n---\n\n**Glossary**: New to data analysis terms? See [GLOSSARY.md](/with-geun/alive-analysis/blob/main/GLOSSARY.md).\n**Language**: Works in any language — set yours during `/analysis-init`.\n\n## About\n\nData analysis workflow kit for AI coding agents. Structure your analysis with the ALIVE loop — Ask, Look, Investigate, Voice, Evolve.\n\n### Topics\n\n[workflow](/topics/workflow \"Topic: workflow\")\n[data-analysis](/topics/data-analysis \"Topic: data-analysis\")\n[ab-testing](/topics/ab-testing \"Topic: ab-testing\")\n[cursor](/topics/cursor \"Topic: cursor\")\n[claude-code](/topics/claude-code \"Topic: claude-code\")\n[ai-coding-agent](/topics/ai-coding-agent \"Topic: ai-coding-agent\")\n[metric-monitoring](/topics/metric-monitoring \"Topic: metric-monitoring\")\n[skill-md](/topics/skill-md \"Topic: skill-md\")\n[alive-loop](/topics/alive-loop \"Topic: alive-loop\")\n\n### Resources\n\n[Readme](#readme-ov-file)\n\n### License\n\n[MIT license](#MIT-1-ov-file)\n\n### Code of conduct\n\n[Code of conduct](#coc-ov-file)\n\n### Contributing\n\n[Contributing](#contributing-ov-file)\n\n### Uh oh!\n\nThere was an error while loading. Please reload this page.\n\n[Activity](/with-geun/alive-analysis/activity)\n\n### Stars\n\n[**3**\nstars](/with-geun/alive-analysis/stargazers)\n\n### Watchers\n\n[**0**\nwatching](/with-geun/alive-analysis/watchers)\n\n### Forks\n\n[**0**\nforks](/with-geun/alive-analysis/forks)\n\n[Report repository](/contact/report-content?content_url=https%3A%2F%2Fgithub.com%2Fwith-geun%2Falive-analysis&report=with-geun+%28user%29)\n\n## [Releases](/with-geun/alive-analysis/releases)\n\n[1\ntags](/with-geun/alive-analysis/tags)\n\n## [Packages 0](/users/with-geun/packages?repo_name=alive-analysis)\n\nNo packages published\n\n## [Contributors 2](/with-geun/alive-analysis/graphs/contributors)\n\n### Uh oh!\n\nThere was an error while loading. Please reload this page.\n\n## Languages\n\n* [Shell\n  100.0%](/with-geun/alive-analysis/search?l=shell)\n\n## Footer\n\n© 2026 GitHub, Inc.\n\n### Footer navigation\n\n* [Terms](https://docs.github.com/site-policy/github-terms/github-terms-of-service)\n* [Privacy](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement)\n* [Security](https://github.com/security)\n* [Status](https://www.githubstatus.com/)\n* [Community](https://github.community/)\n* [Docs](https://docs.github.com/)\n* [Contact](https://support.github.com?tags=dotcom-footer)\n* Manage cookies\n* Do not share my personal information\n\n\n\nYou can’t perform that action at this time.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "content_type": "html",
+                "mime_type": "text/html; charset=utf-8",
+                "destination_url": "https://github.com/with-geun/alive-analysis"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Fetched: GitHub - with-geun/alive-analysis: Data analysis workflow kit for AI coding agents. Structure your analysis with the ALIVE loop — Ask, Look, Investigate, Voice, Evolve.",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "GitHub - with-geun/alive-analysis: Data analysis workflow kit for AI coding agents. Structure your analysis with the ALIVE loop — Ask, Look, Investigate, Voice, Evolve.",
+              "subtitles": null,
+              "url": "https://github.com/with-geun/alive-analysis",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+              "source": "github"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-03-24T04:16:55.169410Z",
+          "stop_timestamp": "2026-03-24T04:16:55.292096Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01AbNdsP2YcY2g2ip7qr4VxZ",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://github.com/with-geun/alive-analysis/blob/main/INSTALL.md"
+          },
+          "message": "Fetching: https://github.com/with-geun/alive-analysis/blob/main/INSTALL.md",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01AbNdsP2YcY2g2ip7qr4VxZ",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"error_type\": \"PERMISSIONS_ERROR\", \"error_message\": \"This URL cannot be fetched because it was not provided by the user nor did it appear in any search/fetch results\"}",
+              "uuid": "0cdb4a76-b64a-4745-8e7b-142e89cfb837"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": "Failed to fetch: https://github.com/with-geun/alive-analysis/blob/main/INSTALL.md",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "https://github.com/with-geun/alive-analysis/blob/main/INSTALL.md",
+              "subtitles": null,
+              "url": "https://github.com/with-geun/alive-analysis/blob/main/INSTALL.md",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+              "source": "github"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-03-24T04:16:56.355890Z",
+          "stop_timestamp": "2026-03-24T04:16:56.355890Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01GcBp6ZiC8MbBkDb1yxuoM3",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://raw.githubusercontent.com/with-geun/alive-analysis/main/INSTALL.md"
+          },
+          "message": "Fetching: https://raw.githubusercontent.com/with-geun/alive-analysis/main/INSTALL.md",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01GcBp6ZiC8MbBkDb1yxuoM3",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"error_type\": \"PERMISSIONS_ERROR\", \"error_message\": \"This URL cannot be fetched because it was not provided by the user nor did it appear in any search/fetch results\"}",
+              "uuid": "da6b9538-bd77-4059-9db8-fd8c7b960ee6"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": "Failed to fetch: https://raw.githubusercontent.com/with-geun/alive-analysis/main/INSTALL.md",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=githubusercontent.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "https://raw.githubusercontent.com/with-geun/alive-analysis/main/INSTALL.md",
+              "subtitles": null,
+              "url": "https://raw.githubusercontent.com/with-geun/alive-analysis/main/INSTALL.md",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=githubusercontent.com",
+              "source": "githubusercontent"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-03-24T04:16:57.160671Z",
+          "stop_timestamp": "2026-03-24T04:17:36.184665Z",
+          "flags": null,
+          "type": "text",
+          "text": "리포 내용을 충분히 파악했습니다. CSP의 워크플로우와 연결 지어 설명해볼게요.\n\n---\n\n## alive-analysis: AI와 함께하는 구조화된 데이터 분석 워크플로우\n\n### 한 마디로 정의하면\n\nAI 코딩 에이전트를 위한 데이터 분석 워크플로우 키트로, **ALIVE 루프**(Ask → Look → Investigate → Voice → Evolve)를 통해 분석을 체계화하는 도구입니다.\n\nCSP의 언어로 번역하면, \"AI와 나누는 분석 대화가 채팅 히스토리에서 증발하지 않도록 — 추적 가능하고, 반복 가능하고, 팀과 공유 가능한 지식으로 변환하는 시스템\"입니다.\n\n---\n\n### 왜 만들어졌는가 — 핵심 문제 의식\n\nAI에게 \"이 데이터 분석해줘\"라고 하면 일회성 답변만 돌아옵니다. 구조도 없고, 추적도 없고, 한 달 뒤에 자신의 추론을 다시 확인할 방법도 없습니다.\n\n이것은 단순한 불편함이 아닙니다. Pulse Check 시스템을 운영하는 맥락에서 생각해보면, 매달 분석한 Well-Being 데이터, 참여율 변화 추적, Well-Being 15% 개선 근거 — 이 모든 분석이 AI 채팅창에서 소멸하고 있다는 뜻이기도 합니다. alive-analysis는 그 소멸을 막는 도구입니다.\n\n---\n\n### ALIVE 루프의 구조\n\n모든 분석은 5단계를 따릅니다. AI가 답변을 생성하는 것이 아니라 — 각 단계에서 **질문을 던져** 사용자의 사고를 구조화합니다.\n\n```\nASK → LOOK → INVESTIGATE → VOICE → EVOLVE\n```\n\n- **ASK** — 질문을 정의. 범위, 가설 트리, 성공 기준\n- **LOOK** — 데이터 관찰. 품질 체크, 세그멘테이션, 교란 변수\n- **INVESTIGATE** — 분석. 가설 검증, 다중 렌즈 프레임워크\n- **VOICE** — 커뮤니케이션. 청중별 \"So what → Now what\"\n- **EVOLVE** — 다음 질문. 후속 추적, 임팩트 측정, 회고\n\n심리학적으로 보면, 이건 단순한 분석 프레임이 아닙니다. **인식론적 겸손(epistemic humility)**의 구조화입니다 — 내가 무엇을 모르는지를 알게 만드는 과정.\n\n---\n\n### Full Mode vs Quick Mode\n\n**Full Mode**는 5개 파일, 체크리스트, 품질 게이트가 포함된 심층 분석으로 실제 의사결정을 위한 분석에 사용하고, **Quick Mode**는 단일 파일로 빠르게 완료되며 통계 배경이 없어도 가이드 질문을 통해 분석할 수 있습니다. Quick 분석은 복잡성이 커지면 자동으로 Full로 프로모션됩니다.\n\nCSP 상황에서 매핑하면:\n\n| 상황 | 권장 모드 |\n|------|-----------|\n| Pulse Check 월간 데이터 리뷰 | Quick → Full 프로모션 |\n| AX 성숙도 Survey 전사 비교 분석 | Full Mode |\n| 특정 팀 Well-Being 급락 원인 조사 | Quick Mode |\n| 생산성 10% 개선 근거 수립 | Full Mode |\n\n---\n\n### 설치 및 사용 방법\n\n**설치 (3분)**\n\n```bash\ngit clone https://github.com/with-geun/alive-analysis.git /tmp/alive-analysis\n\n# Claude Code 사용 시\nbash /tmp/alive-analysis/install.sh\n\n# Cursor 사용 시\nbash /tmp/alive-analysis/install.sh --cursor\n\n# 둘 다\nbash /tmp/alive-analysis/install.sh --both\n```\n\n**기본 워크플로우**\n\n```\n1. /analysis-init      # 최초 1회 설정 (언어, 팀, 모드)\n2. /analysis-new       # 분석 시작\n3. AI가 질문 → 답변 → ASK 단계 완료\n4. /analysis-next      # LOOK → INVESTIGATE → VOICE → EVOLVE 진행\n5. /analysis-archive   # 완료. Git-tracked 마크다운으로 저장\n```\n\n---\n\n### 16개 커맨드 전체 구조\n\n**분석(9개)**: `/analysis-init` · `/analysis-new` · `/analysis-status` · `/analysis-next` · `/analysis-archive` · `/analysis-list` · `/analysis-promote` · `/analysis-search` · `/analysis-retro`\n\n**실험(3개)**: `/experiment-new` · `/experiment-next` · `/experiment-archive`\n\n**모니터링(3개)**: `/monitor-setup` · `/monitor-check` · `/monitor-list`\n\n**모델링(1개)**: `/model-register`\n\nPulse Check 시스템 관점에서 특히 주목할 것은 `/monitor-setup`과 `/monitor-check`입니다. 4단계 메트릭 분류(North Star → Leading → Guardrail → Diagnostic)와 연속 경고 시 자동 에스컬레이션 기능이 포함되어 있습니다.\n\n---\n\n### 이 도구가 CSP에게 의미하는 것\n\n솔직히 말하면, alive-analysis는 단순한 분석 툴을 넘어서 **조직 지식의 고고학**을 가능하게 합니다. `/analysis-search`로 과거 분석을 전문 검색하고, `/analysis-retro`로 반복 패턴과 미해결 후속 과제를 자동 정리합니다.\n\n또한 임팩트 트래킹 기능을 통해 권고사항 → 의사결정 → 실행 → 결과의 체인을 추적하여, 내가 한 분석이 실제로 무언가를 변화시켰는지 알 수 있습니다.\n\nEX Intelligence 시스템을 \"직관에서 데이터로, 리포트에서 액션으로\"라고 포지셔닝하는 CSP의 내러티브와 alive-analysis의 철학이 정확히 맞닿아 있습니다. 이 도구는 그 내러티브를 CSP 자신의 분석 워크플로우에도 적용하는 수단이 될 수 있습니다.",
+          "citations": [
+            {
+              "uuid": "1f44d813-7fe7-4fc6-8108-893657ff05eb",
+              "start_index": 114,
+              "end_index": 223,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/with-geun/alive-analysis"
+              }
+            },
+            {
+              "uuid": "6ddc3339-6391-49dd-902f-7115a864dc53",
+              "start_index": 355,
+              "end_index": 440,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/with-geun/alive-analysis"
+              }
+            },
+            {
+              "uuid": "f4a9c854-bc01-4a39-aa77-f5487d4baf1b",
+              "start_index": 645,
+              "end_index": 719,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/with-geun/alive-analysis"
+              }
+            },
+            {
+              "uuid": "1320fc95-ee45-4c45-bdb6-a257c0f008d9",
+              "start_index": 1115,
+              "end_index": 1290,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/with-geun/alive-analysis"
+              }
+            },
+            {
+              "uuid": "24b20120-c0a5-4f6a-89a0-67297326a498",
+              "start_index": 2062,
+              "end_index": 2429,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/with-geun/alive-analysis"
+              }
+            },
+            {
+              "uuid": "5f1e048d-ad8c-4308-837b-5a68eae3e46f",
+              "start_index": 2501,
+              "end_index": 2592,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/with-geun/alive-analysis"
+              }
+            },
+            {
+              "uuid": "8f96b30c-a82f-4d8d-abc3-0bc82c495a78",
+              "start_index": 2772,
+              "end_index": 2857,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/with-geun/alive-analysis"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-24T04:17:36.264924Z",
+      "updated_at": "2026-03-24T04:17:36.264924Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d1e0f-443a-7bf7-ac0b-8a48065931f4"
+    },
+    {
+      "uuid": "019d1e11-a8f2-77d6-a9b8-914472bb415f",
+      "text": "구글 안티그래비티 환경에도 적용할 수 있나?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-24T04:19:27.896688Z",
+          "stop_timestamp": "2026-03-24T04:19:27.896688Z",
+          "flags": null,
+          "type": "text",
+          "text": "구글 안티그래비티 환경에도 적용할 수 있나?",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-24T04:19:27.922157Z",
+      "updated_at": "2026-03-24T04:19:27.922157Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d1e0f-443a-7ae3-95f2-37546262a2e8"
+    },
+    {
+      "uuid": "019d1e11-a8f2-7ebb-a4ea-33e75b8cf02c",
+      "text": " 좋은 질문입니다. 리포를 좀 더 깊이 들여다보겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n결론이 명확하게 나왔습니다. 상당히 흥미로운 그림이 펼쳐지네요.\n\n---\n\n## alive-analysis를 Antigravity에서 쓸 수 있는가? — 결론부터\n\n**Yes. 그리고 방법이 매우 단순합니다.**\n\n이 질문에 답하려면 먼저 alive-analysis가 어떤 기반 위에 서 있는지를 이해해야 합니다. SKILL.md는 오픈 스탠다드입니다. Codex CLI, Claude Code, Google Antigravity, Cursor, GitHub Copilot, 그 외 35개 이상의 플랫폼에서 동작하며, 파일시스템 기반으로 설계되어 있기 때문에 어떤 에이전트든 디렉토리 구조를 읽고 마크다운을 파싱할 수 있으면 곧바로 스킬을 소비할 수 있습니다.\n\nalive-analysis의 리포도 이를 명시적으로 선언합니다 — \"SKILL.md is an open standard — works with any agent that supports it.\" 즉, alive-analysis는 처음부터 플랫폼 종속성 없이 설계된 것입니다.\n\n---\n\n### 유일한 차이점: 폴더 경로 하나\n\nClaude Code에서는 스킬이 `.claude/skills/` 폴더에 위치하고, Antigravity에서는 `.agent/skills/` 폴더에 위치합니다. 그게 전부입니다. 내부 SKILL.md 파일 구조는 동일합니다. Claude Code용 스킬 라이브러리를 가지고 있다면, skills 폴더를 복사해서 `.agent/`에 붙여넣으면 완료됩니다.\n\n플랫폼별 경로를 정리하면:\n- **Antigravity**: `.agent/skills/` (프로젝트) / `~/.gemini/antigravity/skills/` (글로벌)\n- **Claude Code**: `.claude/skills/` (프로젝트) / `~/.claude/skills/` (글로벌)\n- **Cursor**: `.cursor/skills/`\n- **Gemini CLI**: `.gemini/skills/`\n\n따라서 alive-analysis의 Antigravity 적용은 이렇게 됩니다:\n\n```bash\n# 1. alive-analysis 설치 (기존 방식)\ngit clone https://github.com/with-geun/alive-analysis.git /tmp/alive-analysis\n\n# 2. Antigravity용 경로에 설치\ncp -r /tmp/alive-analysis/core/skills/* .agent/skills/\n# 또는 글로벌 설치\ncp -r /tmp/alive-analysis/core/skills/* ~/.gemini/antigravity/skills/\n```\n\n---\n\n### 단, Antigravity와 Claude Code의 동작 방식 차이는 있다\n\nalive-analysis 리포 자체가 이 차이를 명시하고 있습니다:\n\n| 항목 | Claude Code | Cursor 2.4+ (≈ Antigravity) |\n|------|-------------|------------------------------|\n| 인터랙션 방식 | 대화형 (질문 하나씩) | 배치형 (한 번에 모든 질문) |\n| 상태 관리 | 세션 메모리 | 파일 기반 (`.analysis/status.md`) |\n| SKILL.md 크기 | ~1,660줄 | ~265줄 |\n\nAntigravity는 에이전트 우선(agent-first) 플랫폼으로 설계되어 있습니다. 전통적인 IDE처럼 모든 파일을 수동으로 편집하는 대신, Antigravity의 에이전트가 분석, 계획, 코드 생성, 테스트, 검증을 자율적으로 처리합니다. 이 말은, Antigravity에서 alive-analysis를 쓸 때는 Claude Code처럼 AI가 한 번에 한 질문씩 던지는 소크라테스식 대화 방식이 아니라, 에이전트가 단계별 질문을 배치로 처리하는 방식으로 동작한다는 뜻입니다. 구조는 같지만, 리듬이 다릅니다.\n\n---\n\n### CSP 관점에서 본 실용적 판단\n\nAntigravity는 Gemini 3 Pro 기반의 에이전트 우선 플랫폼으로, Claude Sonnet 4.5도 지원하며 무료 Preview로 제공 중입니다. 즉, alive-analysis를 Antigravity에서 Claude 모델로 구동하는 것도 가능합니다.\n\n그러나 한 실무자의 솔직한 평가에 따르면, 약 48시간 실험 결과 본인은 Claude Code에 남기로 했습니다 — Claude Code가 그냥 더 잘 작동했기 때문입니다. 서브에이전트, 스킬, 전체 시스템이 더 매끄럽게 기능했고, Antigravity에서는 버그와 불안정함이 있었습니다.\n\nPulse Check 분석이나 AX 성숙도 데이터 같은 실제 의사결정용 분석에는, 안정성이 검증된 Claude Code + alive-analysis 조합이 여전히 최선입니다. Antigravity는 Gemini 3의 멀티모달 능력이 필요한 시각 데이터 분석(스크린샷, 대시보드 이미지 해석)이 필요한 시나리오에서 실험적으로 활용하는 것이 현실적인 접근입니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-24T04:19:28.485341Z",
+          "stop_timestamp": "2026-03-24T04:19:29.343242Z",
+          "flags": null,
+          "type": "text",
+          "text": " 좋은 질문입니다. 리포를 좀 더 깊이 들여다보겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-24T04:19:29.343242Z",
+          "stop_timestamp": "2026-03-24T04:19:29.702118Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_017QFhKvachd5uAxMfBM3Drv",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://raw.githubusercontent.com/with-geun/alive-analysis/main/README.md"
+          },
+          "message": "Fetching: https://raw.githubusercontent.com/with-geun/alive-analysis/main/README.md",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_017QFhKvachd5uAxMfBM3Drv",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"error_type\": \"PERMISSIONS_ERROR\", \"error_message\": \"This URL cannot be fetched because it was not provided by the user nor did it appear in any search/fetch results\"}",
+              "uuid": "9a5d4eb0-3359-46de-b70a-0ea0a6e17a3c"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": "Failed to fetch: https://raw.githubusercontent.com/with-geun/alive-analysis/main/README.md",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=githubusercontent.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "https://raw.githubusercontent.com/with-geun/alive-analysis/main/README.md",
+              "subtitles": null,
+              "url": "https://raw.githubusercontent.com/with-geun/alive-analysis/main/README.md",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=githubusercontent.com",
+              "source": "githubusercontent"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-03-24T04:19:30.736575Z",
+          "stop_timestamp": "2026-03-24T04:19:30.736575Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01QVe76JW3zcSKTPCcY2YYUq",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://github.com/with-geun/alive-analysis/tree/main/platforms"
+          },
+          "message": "Fetching: https://github.com/with-geun/alive-analysis/tree/main/platforms",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01QVe76JW3zcSKTPCcY2YYUq",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"error_type\": \"PERMISSIONS_ERROR\", \"error_message\": \"This URL cannot be fetched because it was not provided by the user nor did it appear in any search/fetch results\"}",
+              "uuid": "771899f7-85c7-44e7-a615-928398db027f"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": "Failed to fetch: https://github.com/with-geun/alive-analysis/tree/main/platforms",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "https://github.com/with-geun/alive-analysis/tree/main/platforms",
+              "subtitles": null,
+              "url": "https://github.com/with-geun/alive-analysis/tree/main/platforms",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+              "source": "github"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-03-24T04:19:31.705963Z",
+          "stop_timestamp": "2026-03-24T04:19:31.877682Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01Tev5dhsuwWs3bNaCzL4uZd",
+          "name": "web_search",
+          "input": {
+            "query": "alive-analysis with-geun platforms antigravity google"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01Tev5dhsuwWs3bNaCzL4uZd",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Google Antigravity - Wikipedia",
+              "url": "https://en.wikipedia.org/wiki/Google_Antigravity",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "wikipedia.org",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=wikipedia.org",
+                "site_name": "Wikipedia"
+              },
+              "is_missing": false,
+              "text": "Google Antigravity is an AI-powered integrated development environment (IDE) developed by Google, designed for prioritizing AI agents platform for software development. Announced on November 18, 2025 alongside the release of Gemini 3, Antigravity enables developers to delegate complex coding tasks to autonomous AI agents powered primarily by Google&#x27;s Gemini 3.1 Pro and Gemini 3 Flash models...\n\nGoogle Antigravity is an AI-powered integrated development environment (IDE) developed by Google, designed for prioritizing AI agents platform for software development. Announced on November 18, 2025 alongside the release of Gemini 3, Antigravity enables developers to delegate complex coding tasks to autonomous AI agents powered primarily by Google's Gemini 3.1 Pro and Gemini 3 Flash models. The platform is a heavily modified fork of Visual Studio Code. There is debate as to whether it is a direct fork of the software, or whether it is a fork of Windsurf, another AI-oriented code editor which is itself a fork of Visual Studio Code. Google Antigravity supports multiple AI models, including Anthropic's Claude Sonnet 4.6 and Claude Opus 4.6, as well as an open-source variant of OpenAI models (GPT-OSS-120B). Antigravity was released in public preview on the day of its announcement and is available free of charge for Microsoft Windows, macOS, and Linux, with \"generous rate limits\" for Gemin",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://en.wikipedia.org/wiki/Google_Antigravity",
+                "search_provider": "anthropic",
+                "age": "2 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Google Antigravity IDE - Free AI-Powered Development Platform | Powered by Gemini 3",
+              "url": "https://www.antigravity-ide.com/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "antigravity-ide.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=antigravity-ide.com",
+                "site_name": "Antigravity-ide"
+              },
+              "is_missing": false,
+              "text": "Download Google Antigravity IDE free - Revolutionary AI-powered development platform with Gemini 3. Compare with Cursor &amp; Windsurf. Available for Mac, Windows &amp; Linux.\n\nExperience liftoff with Google's next-generation IDE powered by Gemini 3\n\nGoogle Antigravity - Build the new way",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.antigravity-ide.com/",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "How to Set Up and Use Google Antigravity | Codecademy",
+              "url": "https://www.codecademy.com/article/how-to-set-up-and-use-google-antigravity",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "codecademy.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=codecademy.com",
+                "site_name": "Codecademy"
+              },
+              "is_missing": false,
+              "text": "Google Antigravity introduces a new development style for you, which involves using autonomous agents created by Google. Instead of editing every file manually in traditional IDEs, Google Antigravity’s agents handle analysis, planning, code ...\n\nGoogle Antigravity introduces a new development style for you, which involves using autonomous agents created by Google. Instead of editing every file manually in traditional IDEs, Google Antigravity’s agents handle analysis, planning, code generation, testing, and verification autonomously. In this tutorial, you have learnt how to set up Antigravity, explore its interface, and complete a full development task by generating a Python snake game through natural-language instructions. As Antigravity evolves, its multi-agent capabilities and Gemini integration will continue shaping the future of AI-assisted development. If you’d like to explore another modern AI-powered IDE, consider our course on Cursor on Intro to AI Coding with Cursor. No, it is a new AI-native IDE built by Google for browser-based agent-powered development. Yes, it is free during the preview phase, with generous free Gemini 3 Pro usage.\n\nReleased in November 2025, Google Antigravity represents a shift from traditional manual coding to an agentic development platform where AI handles complete workflows. Unlike traditional coding assistants that only provide autocomplete suggestions, Google Antigravity enables true agent-first development where autonomous agents can plan entire projects, write code across multiple files, test applications, and debug issues automatically. The platform is built on a foundation similar to Visual Studio Code, so the interface feels familiar, but Antigravity introduces several new components, like: Multiple agents can collaborate on a single task. For example, one agent may generate code while another tests functionality or performs refactoring. This model is optimized for code reasoning, comprehending large contexts, and multi-step planning. All agentic operations rely heavily on it.\n\nDownload the Antigravity installer from the official Google Antigravity download page. Run the installer once it is downloaded. When you open the Antigravity IDE for the first time, it will ask you some questions, so answer them one by one and then click on the next button. After this, select the Start fresh option and click on Next. Then select the theme you want your IDE to have and click on the Next button. Now comes the crucial part of setting up Google Antigravity. You’ll see the Agent Manager configuration screen with different development modes on the left. This is basically asking: “Who is driving the car?” ... Agent-driven development: “Autopilot.” You instruct the AI what to build, and it writes code, creates files, and runs commands automatically. Review-driven development: The AI asks permission before performing almost any action.\n\nThe Google Antigravity interface is structured around agent-driven development, similar to AI-powered IDEs like Cursor. However, Antigravity’s multi-agent architecture sets it apart. Each section of the IDE plays a specific role: This is the familiar code-editing space inherited from VS Code. It shows the agent-generated files and allows manual edits. Plan mode generates a detailed plan (Plan Artifact) before acting, which is ideal for complex tasks. Fast mode executes instructions instantly, which is ideal for quick fixes. This panel shows active and past agent tasks, including descriptions, plans, progress, and status indicators. Stores logs, patches, reasoning steps, and intermediate outputs that the agent produces. A live app preview that the agent can interact with for automated testing. Can be used manually or by agents for installing packages or running commands.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.codecademy.com/article/how-to-set-up-and-use-google-antigravity",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Google Antigravity",
+              "url": "https://antigravity.google/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "antigravity.google",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=antigravity.google",
+                "site_name": "Google Antigravity"
+              },
+              "is_missing": false,
+              "text": "Google Antigravity - Build the new way",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://antigravity.google/",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Google Antigravity AI IDE 2026: Agentic Development Platform & Workflow Revolution",
+              "url": "https://www.baytechconsulting.com/blog/google-antigravity-ai-ide-2026",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "baytechconsulting.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=baytechconsulting.com",
+                "site_name": "Baytech Consulting"
+              },
+              "is_missing": false,
+              "text": "More impressively, on Terminal-Bench 2.0, which measures the ability to chain terminal commands to solve problems, Gemini 3 scores 54.2%, significantly outperforming GPT-5.1&#x27;s 47.6%.13 This specific capability is what makes the &quot;Terminal Surface&quot; of Antigravity viable; the model understands not just code syntax, but system operations. Gemini 3 was trained natively on text, images, and video. This is not an add-on; it is core to the model&#x27;s understanding of the world.18 · Vibe Coding: A user can drop a screenshot of a dashboard or a video of an animation into the chat, and Gemini 3 can generate the CSS and JavaScript to replicate it. Error Analysis: The agent can look at a screenshot of a console error log or a visual glitch in the browser and diagnose the issue without needing the text explicitly pasted.19 · While the exact size of the context window in the Preview is fluctuating (with reports of 1M+ tokens in the enterprise version), the ability to ingest massive amounts of context is\n\nMore impressively, on Terminal-Bench 2.0, which measures the ability to chain terminal commands to solve problems, Gemini 3 scores 54.2%, significantly outperforming GPT-5.1's 47.6%.13 This specific capability is what makes the \"Terminal Surface\" of Antigravity viable; the model understands not just code syntax, but system operations. Gemini 3 was trained natively on text, images, and video. This is not an add-on; it is core to the model's understanding of the world.18 · Vibe Coding: A user can drop a screenshot of a dashboard or a video of an animation into the chat, and Gemini 3 can generate the CSS and JavaScript to replicate it. Error Analysis: The agent can look at a screenshot of a console error log or a visual glitch in the browser and diagnose the issue without needing the text explicitly pasted.19 · While the exact size of the context window in the Preview is fluctuating (with reports of 1M+ tokens in the enterprise version), the ability to ingest massive amounts of context is\n\nFor complex tasks, Antigravity defaults to Planning Mode. When a user issues a high-level request (e.g., \"Create a user profile page that pulls data from the Postgres database\"), the agent does not start coding immediately.6 ... Analysis: It reads the existing schema.sql, checks the package.json for available libraries, and scans existing API endpoints. Plan Generation: It produces a Structured Implementation Plan—an artifact that outlines the files it intends to create, the functions it will modify, and the testing strategy. Human Review: The developer reviews this plan. They can add comments like a Google Doc: \"Don't use raw SQL; use the existing ORM wrapper,\" or \"Make sure the profile image is circular.\".2 · Execution: Only after the plan is approved does the agent begin writing code. This \"Plan-Review-Execute\" loop is crucial for mitigating \"AI Hallucinations.\"\n\nToday, we are witnessing the dawn of \"Generation 2\": the Agentic Era. The release of Google Antigravity marks a fundamental divergence in how software is conceived and constructed. It is no longer about writing code faster; it is about orchestrating a workforce of digital agents to build software for you. At Baytech Consulting, our mission is to deliver a \"Tailored Tech Advantage.\" We do not merely adopt trends; we rigorously stress-test them to separate genuine efficiency gains from dangerous distractions. Our clients—Visionary CTOs, Strategic CFOs, and Heads of Sales—are asking the same question: Is this the tool that finally breaks the linear relationship between developer hours and software output? This comprehensive report provides the definitive answer. We have analyzed Google Antigravity down to its architectural bones, comparing it against the industry standard Visual Studio Code, evaluating its compatibility with enterprise stacks like Azure DevOps, and assessing its readiness\n\nThe verdict is nuanced. Antigravity acts as a powerful \"force multiplier\" for rapid prototyping and greenfield development, leveraging the multimodal reasoning of the Gemini 3 model. However, it introduces significant friction for enterprise teams entrenched in the Microsoft ecosystem, creating a \"walled garden\" dilemma that requires careful strategic navigation. To understand the significance of Google Antigravity, we must first confront the limitations of the current toolset. Since the popularization of Visual Studio Code, the developer's workflow has been linear: think, type, debug, repeat. Tools like GitHub Copilot improved the \"type\" phase, reducing boilerplate and syntax errors. Yet, the cognitive load remained squarely on the human. If a developer needed to refactor an authentication module, they had to hold the entire architecture in their head, visit five different files, and manually guide the AI through each change.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.baytechconsulting.com/blog/google-antigravity-ai-ide-2026",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Getting Started with Google Antigravity | Google Codelabs",
+              "url": "https://codelabs.developers.google.com/getting-started-google-antigravity",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "google.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=google.com",
+                "site_name": "Google Codelabs"
+              },
+              "is_missing": false,
+              "text": "Antigravity is designed as an agent-first platform. It presupposes that the AI is not just a tool for writing code but an autonomous actor capable of planning, executing, validating, and iterating on complex engineering tasks with minimal human intervention. Installing and configuring Antigravity.\n\nIn this codelab, you will learn about Google Antigravity (referred to as Antigravity for the rest of the document), an agentic development platform, evolving the IDE into the agent-first era. Unlike standard coding assistants that just autocomplete lines, Antigravity provides a \"Mission Control\" for managing autonomous agents that can plan, code, and even browse the web to help you build. Antigravity is designed as an agent-first platform. It presupposes that the AI is not just a tool for writing code but an autonomous actor capable of planning, executing, validating, and iterating on complex engineering tasks with minimal human intervention. Installing and configuring Antigravity. Exploring key concepts of Antigravity like Agent Manager, Editor, Browser and more. Customizing Antigravity with your own rules and workflow, along with security considerations.\n\nFor Google Cloud Credits: To help you use Antigravity with Google Cloud projects, redeem your free Google Cloud credits using this link. You can follow the instructions here to activate the credit and create a new project. As you work through the codelab and with Antigravity, you might encounter problems. For codelab related issues (typos, wrong instructions), please open a bug with Report a mistake button in bottom left corner of this codelab: For bugs or feature requests related to Antigravity, please report the issue within Antigravity. You can do this in Agent Manager with the Provide Feedback link in the bottom left corner: You can also go to the editor with the Report Issue link under your profile icon: If you don't have Antigravity installed already, let's begin with installing Antigravity. Currently the product is available for preview and you can use your personal Gmail account to get started with it.\n\nGo to the downloads page and click on the appropriate operating system version that is applicable to your case. Launch the application installer and install the same on your machine. Once you have completed the installation, launch the Antigravity application. You should see a screen similar to the following: Please proceed with clicking on Next each time. Key steps are detailed below: Choose setup flow: This brings up the option for you to import from your existing VS Code or Cursor settings. We will go with a fresh start. Choose an Editor theme type: We will go with the dark theme but it's entirely up to you. ... Let's understand this in a bit more detail. Remember that settings can be changed at any time via Antigravity User Settings (Cmd + ,). Before we delve into the options, let us look at some specific properties (which you see to the right of the dialog).\n\nCommand Line: Install the command line tool to open Antigravity with agy. Now, you're ready to Sign in to Google. As mentioned earlier, Antigravity is available in preview mode and free if you have a personal Gmail account. Sign in now with your account. This will open up the browser allowing you to sign in. On successful authentication, you will see a message similar to the one below and it will lead you back to the Antigravity application. Go with the flow. Finally, Terms of Use. You can make a decision if you'd like to opt-in or not and then click on Next. This will lead you to the moment of truth, where Antigravity will be waiting to collaborate with you. We are ready to get started! Antigravity forks the open-source Visual Studio Code (VS Code) foundation but radically alters the user experience to prioritize agent management over text editing.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://codelabs.developers.google.com/getting-started-google-antigravity",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Build with Google Antigravity, our new agentic development platform - Google Developers Blog",
+              "url": "https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "googleblog.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=googleblog.com",
+                "site_name": "Google Developers"
+              },
+              "is_missing": false,
+              "text": "This cross-platform solution is compatible with MacOS, Windows, and Linux, offering model optionality with generous rate limits on Gemini 3 Pro, and full support for Anthropic&#x27;s Claude Sonnet 4.5 and OpenAI&#x27;s\n\nDevelopment is lifting off. The tools of yesterday focused on helping you write code faster; the tools of tomorrow need to help you orchestrate it. Today, we’re introducing Google Antigravity, a new agentic development platform designed to help you operate at a higher, task-oriented level. Antigravity isn't just an editor—it's a development platform that combines a familiar, AI-powered coding experience with a new agent-first interface. This allows you to deploy agents that autonomously plan, execute, and verify complex tasks across your editor, terminal, and browser. We built Antigravity because we believe agents shouldn't just be chatbots in a sidebar; they should have their own dedicated space to work. The platform introduces two distinct ways to interact with your code: The Editor View: When you need to be hands-on, you get a state-of-the-art, AI-powered IDE equipped with tab completions and inline commands for the synchronous workflow you already know.\n\nDelegating work to an agent requires trust, but scrolling through raw tool calls is tedious. Antigravity solves this by having agents generate Artifacts—tangible deliverables like task lists, implementation plans, screenshots, and browser recordings. These Artifacts allow you to verify the agent's logic at a glance. If something looks off, you can leave feedback directly on the Artifact—similar to commenting on a doc—and the agent will incorporate your input without stopping its execution flow. We want Antigravity to be your home base for the era of agents. It treats learning as a core primitive, allowing agents to save useful context and code snippets to a knowledge base to improve future tasks. Google Antigravity is available today in public preview, at no cost for individuals. This cross-platform solution is compatible with MacOS, Windows, and Linux, offering model optionality with generous rate limits on Gemini 3 Pro, and full support for Anthropic's Claude Sonnet 4.5 and OpenAI's \n\nAntigravity allows you to offload end-to-end tasks that previously required constant context switching.\n\nDownload at antigravity.google/download and experience liftoff.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/",
+                "search_provider": "anthropic",
+                "age": "November 20, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "An Honest Review of Google Antigravity - DEV Community",
+              "url": "https://dev.to/fabianfrankwerner/an-honest-review-of-google-antigravity-4g6f",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "dev.to",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=dev.to",
+                "site_name": "DEV Community"
+              },
+              "is_missing": false,
+              "text": "The other killer feature here is the Browser integration. Google makes Chrome, Google makes Antigravity, so naturally, they talk to each other. You can spin up a &quot;Browser Agent&quot; to test your work. You tell it, &quot;Go to localhost and test the game.&quot; A Chrome window opens with this blue &quot;Agent Control&quot; border. You watch the red dot—which is the AI&#x27;s cursor—move around, click the fish, drop food, and verify the physics. It even records a video of itself doing it, so you can watch the playback later in the &quot;Walkthrough&quot; artifact. It captures screenshots of errors. It’s just incredibly cool to watch. But—and there is always a but—it’s buggy. Half the time, I’d get a &quot;Controls Disabled&quot; warning even though it was working. Sometimes it would try to connect to the wrong localhost port because I had too many projects open. It’s powerful, but it feels like a prototype.\n\nSo, for the last year, if you wanted the best AI coding experience, you were paying $20 a month for... Tagged with webdev, programming, ai, beginners.\n\nIt’s called Antigravity. And right now, during the preview, it is fully, 100% free. You get access to their newest, models like Gemini 3, full browser orchestration, and an entirely new way to manage code, without swiping a credit card. Now, usually when Google releases a developer tool, it’s either incredible or it gets killed in six months. I’ve been daily driving Antigravity for the past week, digging into the code, and honestly? It’s a bit of both. It is one of the most promising pieces of software I’ve seen this year, and also, at times, the single most frustrating editor I have ever used. We need to talk about the \"Agent-First\" workflow, the crazy Gemini 3 benchmarks, and the fact that this might actually just be a zombie version of another editor called Windsurf. Let’s get into it. So, first things first. If you peel back the skin, this is VS Code.\n\nAntigravity is built around Gemini 3 and Gemini 2.5. And since this is free right now, I decided to push it hard. I asked it to build a clone of that old \"Insaniquarium\" game—a simulation where you drop food, fish eat it, and they drop coins. I tried this same prompt with other high-end models like Codex High. I spent an hour fighting it. It couldn't handle the physics. The particles were broken. It burned through 3.5 million tokens and gave me a broken mess where the fish were 2D sprites floating in a void. Then I gave the exact same prompt to Antigravity with Gemini 3. It one-shot it. First try. It built a working game using Phaser. But here is the crazy part—it didn't just write the code. It generated the assets. I didn't give it images of fish or coins. The Agent realized, \"Hey, I need sprites for this,\" so it paused, used its internal image generation model to create the fish, the food, and the background, and then injected them into the game code.\n\nThe other killer feature here is the Browser integration. Google makes Chrome, Google makes Antigravity, so naturally, they talk to each other. You can spin up a \"Browser Agent\" to test your work. You tell it, \"Go to localhost and test the game.\" A Chrome window opens with this blue \"Agent Control\" border. You watch the red dot—which is the AI's cursor—move around, click the fish, drop food, and verify the physics. It even records a video of itself doing it, so you can watch the playback later in the \"Walkthrough\" artifact. It captures screenshots of errors. It’s just incredibly cool to watch. But—and there is always a but—it’s buggy. Half the time, I’d get a \"Controls Disabled\" warning even though it was working. Sometimes it would try to connect to the wrong localhost port because I had too many projects open. It’s powerful, but it feels like a prototype.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://dev.to/fabianfrankwerner/an-honest-review-of-google-antigravity-4g6f",
+                "search_provider": "anthropic",
+                "age": "December 30, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Vibe Code to production with Google AI Studio",
+              "url": "https://blog.google/innovation-and-ai/technology/developers-tools/full-stack-vibe-coding-google-ai-studio/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "blog.google",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=blog.google",
+                "site_name": "Google"
+              },
+              "is_missing": false,
+              "text": "Start building real apps for the modern web with the Antigravity coding agent and Firebase integration now in Google AI Studio.\n\nGenerate and Catalog Your Recipes: Organize and import recipes or generate new ones with Gemini. Collaborate with your friends and family to keep your culinary traditions alive. Try or Remix Heirloom Recipes in Google AI Studio. This new experience in Google AI Studio has already been used internally to build hundreds of thousands of apps over the last few months. We’re working on more integrations, like Workspace to connect Drive and Sheets to your apps, plus the ability to take your app from Google AI Studio to Google Antigravity with a single button click. Whether you are building your first app or have agents building while you do other things, we hope these updates help accelerate your path from idea to deployed, production-ready app. Head over to Google AI Studio to try the new experience today. ... Jump to position 1 Jump to position 2 Jump to position 3 Jump to position 4 Jump to position 5 Jump to position 6 ·\n\nStart building real apps for the modern web with the Antigravity coding agent along with Firebase backend integrations, now in Google AI Studio. ... Google AI Studio now lets you turn prompts into production-ready apps. Use the new Google Antigravity coding agent to build multiplayer experiences, add databases, connect to real-world services, and more. Go to Google AI Studio to start building your apps today. Summaries were generated by Google AI. Generative AI is experimental. Google AI Studio's new vibe coding experience helps you turn prompts into real, functional apps. Build multiplayer apps, add databases, and use modern web tools like Framer Motion. Connect to services you use with secure API key storage and pick up where you left off. The agent understands your project better, enabling faster iteration and precise code edits. Build apps with React, Angular, or Next.js and deploy them to Google Antigravity soon.\n\nWe’re accelerating the path from prompt to production using the new Google Antigravity coding agent. To further support modern scalable applications, we are also enabling robust backends that bring secure storage and user authentication to your apps via a built-in Firebase integration. Here’s how the new updates help you build real apps: Build multiplayer experiences: Create real-time multiplayer games, collaborative workspaces and shared tools that can connect users instantly. Add databases and authentication: The agent now proactively detects when your app needs a database or login. After you approve a Firebase integration, it provisions Cloud Firestore for databases and Firebase Authentication for a secure sign-in with Google. Create for the modern web: The agent now uses the vast ecosystem of modern web tools. If you want smooth animations or professional icons, the agent automatically figures out the right solution — like installing Framer Motion or Shadcn — to bring your vision t",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://blog.google/innovation-and-ai/technology/developers-tools/full-stack-vibe-coding-google-ai-studio/",
+                "search_provider": "anthropic",
+                "age": "3 days ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Google Antigravity - AI-Powered IDE | Build the New Way",
+              "url": "https://antigravityai.org/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "antigravityai.org",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=antigravityai.org",
+                "site_name": "Google Antigravity"
+              },
+              "is_missing": false,
+              "text": "Google Antigravity - Revolutionary AI-powered IDE with agentic coding capabilities. Build applications faster with Gemini 3 Pro AI agents that plan, execute, and validate code autonomously.\n\nRevolutionary AI-powered IDE with agentic coding capabilities powered by Gemini 3 Pro\n\nAntigravity reimagines the IDE from an agent-first perspective, moving far beyond simple autocomplete ... Operate at a higher level by describing what you want to build. Agents handle the implementation details, allowing you to focus on product vision and architecture. ... From a single prompt, agents create subtasks, execute them, test the results, and generate comprehensive walkthroughs of the final product. ... Unique browser subagents autonomously test and validate user interfaces, ensuring your applications work correctly before deployment. ... Manage multiple AI agents working on different projects simultaneously with dedicated workspace organization and monitoring tools. ... Agents learn from your feedback and past work, improving their understanding of your coding style and project requirements over time. ... Advanced verification workflows ensure code quality, security, and performance standards are met before presenting results.\n\nAntigravity is built from the ground up as an agent-first IDE. Unlike traditional tools that offer code completion or chat interfaces, our AI agents have direct access to your editor, terminal, and browser, enabling them to autonomously plan, execute, and validate entire features. Yes, the public preview is completely free for all developers. We're committed to making advanced AI development tools accessible to everyone during this preview period. Antigravity supports all major programming languages including Python, JavaScript, TypeScript, Java, C++, Go, Rust, and many more. The AI agents are trained on diverse codebases and can work with any language. Our browser subagents can launch Chrome, interact with your application's UI, and verify functionality automatically. They test user flows, check for errors, and validate that features work as expected before presenting results to you.\n\nCurrently, Antigravity supports Gemini 3 Pro, Claude Sonnet 4.5, and GPT-OSS. We're working on expanding model support and may add custom model integration in future releases. Yes, we take security seriously. Your code is processed securely, and we follow industry-standard encryption practices.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://antigravityai.org/",
+                "search_provider": "anthropic"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-24T04:19:33.864933Z",
+          "stop_timestamp": "2026-03-24T04:19:34.223522Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01SGEX1J8iVJnh5i2xBNENu8",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://github.com/with-geun/alive-analysis/tree/main/platforms"
+          },
+          "message": "Fetching: https://github.com/with-geun/alive-analysis/tree/main/platforms",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01SGEX1J8iVJnh5i2xBNENu8",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"error_type\": \"PERMISSIONS_ERROR\", \"error_message\": \"This URL cannot be fetched because it was not provided by the user nor did it appear in any search/fetch results\"}",
+              "uuid": "b1d7bbe4-98bc-49ca-9d66-5c5712da4b4f"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": "Failed to fetch: https://github.com/with-geun/alive-analysis/tree/main/platforms",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "https://github.com/with-geun/alive-analysis/tree/main/platforms",
+              "subtitles": null,
+              "url": "https://github.com/with-geun/alive-analysis/tree/main/platforms",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+              "source": "github"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-03-24T04:19:35.206624Z",
+          "stop_timestamp": "2026-03-24T04:19:35.479461Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01GizMvAj33bnL5uJNTPHeiu",
+          "name": "web_search",
+          "input": {
+            "query": "alive-analysis SKILL.md platforms folder antigravity cursor claude code"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01GizMvAj33bnL5uJNTPHeiu",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "GitHub - sickn33/antigravity-awesome-skills: Installable GitHub library of 1,304+ agentic skills for Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and more. Includes installer CLI, bundles, workflows, and official/community skill collections. · GitHub",
+              "url": "https://github.com/sickn33/antigravity-awesome-skills",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Installable GitHub library of 1,309+ agentic skills for Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and other AI coding assistants. Antigravity Awesome Skills is a GitHub repository and installer CLI for reusable SKILL.md playbooks.\n\nInstallable GitHub library of 1,304+ agentic skills for Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and more. Includes installer CLI, bundles, workflows, and official/community skill collections. - sickn33/antigravity-awesome-skills\n\nInstallable GitHub library of 1,309+ agentic skills for Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and other AI coding assistants. Antigravity Awesome Skills is a GitHub repository and installer CLI for reusable SKILL.md playbooks. Instead of collecting random prompts, you get a searchable, installable skill library for planning, coding, debugging, testing, security review, infrastructure work, product workflows, and growth tasks across the major AI coding assistants. Start here: Star the repo · Install in 1 minute · Choose your tool · Best skills by tool · Bundles · Workflows · Current release: V8.7.1. Trusted by 27k+ GitHub stargazers, this repository combines official and community skill collections with bundles, workflows, installation paths, and docs that help you go from first install to daily use quickly. Installable, not just inspirational: use npx antigravity-awesome-skills to put skills where your tool expects them.\n\nIf you searched for Claude Code skills, Cursor skills, Codex CLI skills, Gemini CLI skills, or AI agent skills on GitHub, this is the fastest path to installing a serious working library and using it the same day. Antigravity Awesome Skills (Release 8.7.1) is a large, installable skill library for AI coding assistants. It includes onboarding docs, bundles, workflows, generated catalogs, and a CLI installer so you can move from discovery to actual usage without manually stitching together dozens of repos. AI agents are smart, but they still need task-specific operating instructions. Skills are focused markdown playbooks that teach an agent how to perform a workflow repeatedly and with better context, whether that means deployment, API design, testing, product strategy, SEO, or documentation. Install once; then use Starter Packs in docs/users/bundles.md to focus on your role.\n\nIf Antigravity starts hitting context limits with too many active skills, the optional activation scripts in docs/users/agent-overload-recovery.md can materialize only the bundles or skill ids you want in the live Antigravity directory. For detailed examples of how to actually use skills, see the Usage Guide. Building a SaaS MVP: Essentials + Full-Stack Developer + QA & Testing. Hardening production: Security Developer + DevOps & Cloud + Observability & Monitoring. Shipping OSS changes: Essentials + OSS Maintainer. Bundles help you choose skills. Workflows help you execute them in order. Use bundles when you need curated recommendations by role. Use workflows when you need step-by-step execution for a concrete goal. ... Antigravity Awesome Skills vs Awesome Claude Skills for breadth vs curated-list tradeoffs. Best Claude Code skills on GitHub for a high-intent shortlist.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/sickn33/antigravity-awesome-skills",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Your Claude Skills Now Work in Antigravity (Here's How)",
+              "url": "https://alexmcfarland.substack.com/p/your-claude-skills-now-work-in-antigravity",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "substack.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=substack.com",
+                "site_name": "Substack"
+              },
+              "is_missing": false,
+              "text": "In Claude Code, your skills live in a .claude/skills/ folder. In Antigravity, they live in a .agent/skills/ folder. That’s it. That’s the entire difference. Same skill structure inside.\n\nIn Claude Code, your skills live in a .claude/skills/ folder. In Antigravity, they live in a .agent/skills/ folder. That’s it. That’s the entire difference. Same skill structure inside. Same SKILL.md file. Same optional folders for scripts, examples, and resources. Just a different parent folder name. ... If you have a skills library built for Claude Code, you literally copy the skills folder, paste it into .agent/, and you’re done. Both Claude Code and Antigravity use what’s called progressive disclosure for skills. When a conversation starts, the agent automatically sees a list of available skills with their names and descriptions. It looks for any that match your task, activates the relevant ones, reads the full content, and executes based on those instructions. Same behavior. Same pattern. This is why your skills transfer without modification — the agents are reading and executing them the same way.\n\nYour agent skills are finally platform-agnostic\n\nIf you’ve been building Claude Code skills for your co-writer system, you’re basically done. Google Antigravity just added support for agent skills, and the internet is treating it like some brand new thing. It’s not. It’s the same structure you already know. In this video, I show you exactly how to take your existing skills and drop them into Antigravity with one folder name change. ... The folder structure difference — literally the only thing that changes between Claude and Antigravity · A working skills library — your entire Claude skills folder ported over · A skill creator skill — so you can build new skills directly in Antigravity · Access to Anthropic’s official skills — the full library works in Antigravity too · My honest take — whether you should actually switch (spoiler: probably not) If you’ve been following along with my co-writer content, this is a quick win.\n\nAfter about 48 hours experimenting with Antigravity, I’m staying with Claude Code for my own writing system. Claude Code just works better. I can have all my subagents, all my skills, my entire system built out in there. It functions more smoothly. In Antigravity, I ran into bugs, things didn’t work as cleanly, and I don’t have much faith in Google fixing those issues quickly. That said, if you prefer Antigravity or your team is already using it, this video shows you how to bring your skills over. The tools work. You can build a good co-writer system in there.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://alexmcfarland.substack.com/p/your-claude-skills-now-work-in-antigravity",
+                "search_provider": "anthropic",
+                "age": "January 21, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - alirezarezvani/claude-skills: +192 Claude Code skills & agent plugins for Claude Code, Codex, Gemini CLI, Cursor, and 8 more coding agents — engineering, marketing, product, compliance, C-level advisory.",
+              "url": "https://github.com/alirezarezvani/claude-skills",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Do these skills work with OpenAI Codex / Cursor / Windsurf / Aider? Yes. Skills work natively with 11 tools: Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, Kilo Code, OpenCode, Augment, and Antigravity.\n\n+192 Claude Code skills & agent plugins for Claude Code, Codex, Gemini CLI, Cursor, and 8 more coding agents — engineering, marketing, product, compliance, C-level advisory. - alirezarezvani/claude-skills\n\nWorks with: Claude Code · OpenAI Codex · Gemini CLI · OpenClaw · Cursor · Aider · Windsurf · Kilo Code · OpenCode · Augment · Antigravity · 5,200+ GitHub stars — the most comprehensive open-source Claude Code skills & agent plugins library. Claude Code skills (also called agent skills or coding agent plugins) are modular instruction packages that give AI coding agents domain expertise they don't have out of the box. Each skill includes: SKILL.md — structured instructions, workflows, and decision frameworks · Python tools — 268 CLI scripts (all stdlib-only, zero pip installs) Reference docs — templates, checklists, and domain-specific knowledge · One repo, eleven platforms. Works natively as Claude Code plugins, Codex agent skills, Gemini CLI skills, and converts to 8 more tools via scripts/convert.sh. All 268 Python tools run anywhere Python runs.\n\nDo these skills work with OpenAI Codex / Cursor / Windsurf / Aider? Yes. Skills work natively with 11 tools: Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, Kilo Code, OpenCode, Augment, and Antigravity. Run ./scripts/convert.sh --tool all to convert for all tools, then install with ./scripts/install.sh --tool <name>. See Multi-Tool Integrations for details. Will updating break my installation? No. We follow semantic versioning and maintain backward compatibility within patch releases. Existing script arguments, plugin source paths, and SKILL.md structures are never changed in patch versions. See the CHANGELOG for details on each release. Are the Python tools dependency-free? Yes. All 254 Python CLI tools use the standard library only — zero pip installs required. Every script is verified to run with --help. How do I create my own Claude Code skill?\n\nEach now ships with scripts/, extracted references/, and a usage-focused README.md. Using the senior-architect skill, review our microservices architecture and identify the top 3 scalability risks. Using the content-creator skill, write a blog post about AI-augmented development. Optimize for SEO targeting \"Claude Code tutorial\". Using the mdr-745-specialist skill, review our technical documentation for MDR Annex II compliance gaps.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/alirezarezvani/claude-skills",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Codex CLI & Agent Skills Guide: Install, Usage & Cross-Platform Resources (2026)",
+              "url": "https://itecsonline.com/post/codex-cli-agent-skills-guide-install-usage-cross-platform-resources-2026",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "itecsonline.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=itecsonline.com",
+                "site_name": "iTechs Online"
+              },
+              "is_missing": false,
+              "text": "Agent Skills are an open standard: A folder with a SKILL.md file that works across Codex CLI, Claude Code, Google Antigravity, Cursor, GitHub Copilot, and 35+ other platforms · Skills.sh is the package manager: Vercel&#x27;s CLI tool (npx skills ...\n\nAgent Skills are an open standard: A folder with a SKILL.md file that works across Codex CLI, Claude Code, Google Antigravity, Cursor, GitHub Copilot, and 35+ other platforms · Skills.sh is the package manager: Vercel's CLI tool (npx skills add) provides one-command installation, discovery, and updates across all supported agents · Progressive disclosure keeps agents fast: Only metadata loads at startup; full instructions load on-demand when a task matches the skill's description · The Ralph Wiggum loop enables autonomous execution: A bash loop technique that lets agents iterate on tasks for hours without human intervention until completion criteria are met · Cross-platform portability is real: Skills authored for one agent work on others because the specification is filesystem-based, not API-dependent · Enterprise teams can codify tribal knowledge: Deployment standards, security policies, and code review checklists become portable, version-controlled skill packages ·\n\nOne of the most significant aspects of the Agent Skills standard is its cross-platform portability. A skill authored for Codex can typically run unchanged in Claude Code, Google Antigravity, Cursor, GitHub Copilot, and dozens of other platforms. The reason is architectural: skills are filesystem-based, not API-based. Any agent that can read a directory structure and parse Markdown can consume a skill. The skill directory locations vary by platform, but the format is identical: Anthropic's Claude Code was the originator of the agent skills concept. Skills in Claude Code follow the same SKILL.md format and are documented in the official Claude Code skills documentation. Claude Code uses progressive disclosure identically to Codex: metadata is parsed at startup, full instructions load on demand, and the agent can execute bundled scripts when the task requires deterministic behavior.\n\nA skill created for OpenAI's Codex can run unchanged inside Claude Code, Google Antigravity, Cursor, GitHub Copilot, and over thirty other agent platforms. That sentence would have been absurd twelve months ago. Today it describes a cross-platform open standard that is quietly reshaping how development teams extend, share, and govern their AI coding assistants. Agent Skills are not plugins in the traditional sense. They carry no compiled binaries, no runtime dependencies, and no vendor lock-in. A skill is a folder containing a Markdown file and, optionally, some scripts. The agent reads the metadata at startup, loads the full instructions only when the task at hand matches the skill's description, and discards the context once the job is complete. This progressive disclosure architecture keeps context windows lean, reduces hallucination, and lets organizations codify institutional knowledge in a format that any compliant agent can consume.\n\nSkills.sh is Vercel's official directory and leaderboard for agent skill packages. It serves as the central hub for discovering skills, with telemetry-based popularity rankings, category filtering, and one-command installation. The CLI has been used with over 40 different agent platforms including Codex, Claude Code, Antigravity, Cursor, GitHub Copilot, Goose, Kiro CLI, and Windsurf [Vercel]. The registry uses a three-tier search strategy for skill discovery: direct check against known repositories, priority directory scanning, and recursive fallback. It supports source types including GitHub shorthand, full GitHub and GitLab URLs, direct URLs, well-known endpoints, and local paths. A skill lock file tracks installed skills with GitHub tree SHAs for precise update detection. # Discover skills interactively npx skills find \"security auditing\" # Install Vercel's official skill collection npx skills add vercel-labs/agent-skills # Install from a full GitHub URL npx skills add https://githu",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://itecsonline.com/post/codex-cli-agent-skills-guide-install-usage-cross-platform-resources-2026",
+                "search_provider": "anthropic",
+                "age": "February 13, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - VoltAgent/awesome-agent-skills: Claude Code Skills and 500+ agent skills from official dev teams and the community, compatible with Codex, Antigravity, Gemini CLI, Cursor and others. · GitHub",
+              "url": "https://github.com/VoltAgent/awesome-agent-skills",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Compatible with Claude Code, Codex, Antigravity, Gemini CLI, Cursor, GitHub Copilot, OpenCode, Windsurf, and more. See the table below for paths and documentation. The most contributed Agent Skills repository, built and maintained together with ...\n\nCompatible with Claude Code, Codex, Antigravity, Gemini CLI, Cursor, GitHub Copilot, OpenCode, Windsurf, and more. See the table below for paths and documentation. The most contributed Agent Skills repository, built and maintained together with the community. Skills in this list are curated, not audited. They may be updated, modified, or replaced by their original maintainers at any time after being added here. Before installing or using any Agent Skill, review potential security risks and validate the source yourself. ... Agent skills can include prompt injections, tool poisoning, hidden malware payloads, or unsafe data handling patterns. Always review the code and use skills at your own discretion. ... Official skills by VoltAgent for building AI agents with the VoltAgent TypeScript framework. voltagent/create-voltagent - Project setup guide with CLI and manual steps ·\n\nAgent Skills for the Stitch MCP server, compatible with Claude Code, Gemini CLI, Cursor, and more. google-labs-code/design-md - Create and manage DESIGN.md files · google-labs-code/enhance-prompt - Improve prompts with design specs and UI/UX vocabulary · google-labs-code/react-components - Stitch to React components conversion · google-labs-code/remotion - Generate walkthrough videos from Stitch app designs · google-labs-code/shadcn-ui - Build UI components with shadcn/ui · google-labs-code/stitch-loop - Iterative design-to-code feedback loop · Official Google Workspace CLI skills for managing Google Workspace services via the gws CLI tool. googleworkspace/gws-shared - Shared authentication, global flags, and output formatting · googleworkspace/gws-drive - Manage Google Drive files, folders, and shared drives · googleworkspace/gws-sheets - Read and write Google Sheets spreadsheets ·\n\nWe welcome contributions! See CONTRIBUTING.md for guidelines. ... Note: Please don't submit skills you created 3 hours ago. We're now focusing on community-adopted skills, especially those published by development teams and proven in real-world usage. Quality over quantity. ... This is a curated list. Skills listed here are created and maintained by their respective authors and teams, not by us. We select community-adopted, proven skills and do not audit, endorse, or guarantee the security or correctness of listed projects. They are not security-audited and should be reviewed before production use.\n\ngetsentry/agents-md - Generate and manage AGENTS.md files · getsentry/claude-settings-audit - Audit Claude settings configuration ... Domain-specific knowledge for Azure SDK and Foundry development. microsoft/azure-ai-agents-persistent-dotnet - Persistent AI agents with threads and tools · microsoft/azure-ai-document-intelligence-dotnet - Document text, table, and data extraction · microsoft/azure-ai-openai-dotnet - GPT-4, embeddings, DALL-E, and Whisper client · microsoft/azure-ai-projects-dotnet - AI Foundry project management SDK · microsoft/azure-ai-voicelive-dotnet - Real-time bidirectional voice AI · microsoft/azure-eventgrid-dotnet - Event Grid topic and domain publishing · microsoft/azure-eventhub-dotnet - High-throughput event streaming · microsoft/azure-identity-dotnet - Microsoft Entra ID authentication · microsoft/azure-maps-search-dotnet - Geocoding, routing, and weather services ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/VoltAgent/awesome-agent-skills",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - guanyang/antigravity-skills: Empower agents with professional capabilities in specific fields (such as full-stack development, complex logic planning, multimedia processing, etc.) through modular Skills definitions, allowing agents to solve complex problems systematically like human experts. · GitHub",
+              "url": "https://github.com/guanyang/antigravity-skills",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Antigravity Skills follow the universal SKILL.md format and can work seamlessly with any AI coding assistant that supports Agentic Skills: Tool Name (Agent) Type · Compatibility · Project Path · Global Path · Antigravity · IDE · ✅ Full · .agent/skills/ ~/.gemini/antigravity/skills/ Claude Code · CLI · ✅ Full · .claude/skills/ ~/.claude/skills/ Gemini CLI · CLI · ✅ Full · .gemini/skills/ ~/.gemini/skills/ Codex · CLI · ✅ Full · .codex/skills/ ~/.codex/skills/ Cursor · IDE · ✅ Full · .cursor/skills/ ~/.cursor/skills/ GitHub Copilot · Extension · ⚠️ Partial · .github/skills/ ~/.copilot/skills/ OpenCode · CLI · ✅ Full · .opencode/skills/ ~/.config/opencode/skills/ Windsurf · IDE · ✅ Full · .windsurf/skills/ ~/.codeium/windsurf/skills/ Trae · IDE · ✅ Full · .trae/skills/ ~/.trae/skills/ Tip · Most tools will automatically discover skills in .agent/skills/. For maximum compatibility, please clone/copy into this directory.\n\nEmpower agents with professional capabilities in specific fields (such as full-stack development, complex logic planning, multimedia processing, etc.) through modular Skills definitions, allowing agents to solve complex problems systematically like human experts. - guanyang/antigravity-skills\n\nAntigravity Skills follow the universal SKILL.md format and can work seamlessly with any AI coding assistant that supports Agentic Skills: Tool Name (Agent) Type · Compatibility · Project Path · Global Path · Antigravity · IDE · ✅ Full · .agent/skills/ ~/.gemini/antigravity/skills/ Claude Code · CLI · ✅ Full · .claude/skills/ ~/.claude/skills/ Gemini CLI · CLI · ✅ Full · .gemini/skills/ ~/.gemini/skills/ Codex · CLI · ✅ Full · .codex/skills/ ~/.codex/skills/ Cursor · IDE · ✅ Full · .cursor/skills/ ~/.cursor/skills/ GitHub Copilot · Extension · ⚠️ Partial · .github/skills/ ~/.copilot/skills/ OpenCode · CLI · ✅ Full · .opencode/skills/ ~/.config/opencode/skills/ Windsurf · IDE · ✅ Full · .windsurf/skills/ ~/.codeium/windsurf/skills/ Trae · IDE · ✅ Full · .trae/skills/ ~/.trae/skills/ Tip · Most tools will automatically discover skills in .agent/skills/. For maximum compatibility, please clone/copy into this directory.\n\n. ├── .claude-plugin/ # Claude plugin configuration files ├── skills/ # Antigravity Skills library │ ├── skill-name/ # Individual skill directory │ │ ├── SKILL.md # Core skill definition and Prompt (Required) │ │ ├── scripts/ # Scripts relied upon by the skill (Optional) │ │ ├── examples/ # Skill usage examples (Optional) │ │ └── resources/ # Templates and resources relied upon by the skill (Optional) ├── docs/ # User manual and documentation guides ├── scripts/ # Maintenance scripts ├── skills_sources.json # Skills synchronization source config ├── skills_index.json # Skills metadata index ├── spec/ # Specification documents ├── template/ # New skill template └── README.md · Antigravity Skills follow the universal SKILL.md format and can work seamlessly with any AI coding assistant that supports Agentic Skills: ...\n\n# 1. Start Claude Code # 2. Add the plugin marketplace /plugin marketplace add guanyang/antigravity-skills # 3. Install the plugin from the marketplace /plugin install antigravity-skills@antigravity-skills · Enter @[skill-name] or /skill-name in the chat box to invoke them, for example: /canvas-design Help me design a 16:9 blog cover about \"Deep Learning\" View Manual: For detailed usage, please refer to docs/Antigravity_Skills_Manual.en.md. Environment Dependencies: Some skills rely on Python environments; please ensure your system has necessary libraries installed (e.g., pdf2docx, pandas, etc.). Many skills in this project originate from excellent open-source communities. To keep in sync with upstream repositories, you can update them in the following ways: Configuration: The skills_sources.json file in the root directory is pre-configured with the upstream repositories for major skills and usually does not need manual adjustment.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/guanyang/antigravity-skills",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "antigravity-awesome-skills/docs/users/usage.md at main · sickn33/antigravity-awesome-skills",
+              "url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/docs/users/usage.md",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Installable GitHub library of 1,304+ agentic skills for Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and more. Includes installer CLI, bundles, workflows, and official/community skill c...\n\nInstallable GitHub library of 1,304+ agentic skills for Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity, and more. Includes installer CLI, bundles, workflows, and official/community skill collections. - antigravity-awesome-skills/docs/users/usage.md at main · sickn33/antigravity-awesome-skills\n\n# In your terminal/chat with Claude Code: >> Use @brainstorming to help me design a todo app · # In the Cursor chat panel: @brainstorming help me design a todo app · # In your conversation with Gemini: Use the brainstorming skill to help me plan my app · # In your conversation with Codex: Apply @brainstorming to design a new feature · # In agent mode: Use @brainstorming to plan this feature · Pro Tip: Most modern tools use the @skill-name syntax. When in doubt, try that first! ... Why it's better: You're explicitly invoking the skill and providing context. ... Why it's better: Specific skill + specific file = precise results. ... Why it's better: The AI knows exactly which skill's standards to apply. ... Why it's good: You can chain skills together in a single prompt! Let's actually use a skill right now. Follow these steps: Pick a skill: Let's use brainstorming (from the \"Essentials\" bundle) Open your AI assistant (Claude Code, Cursor, etc.)\n\nWhen you ran npx antigravity-awesome-skills or cloned the repository, you: ✅ Downloaded 1,306+ skill files to your computer (default: ~/.gemini/antigravity/skills/; or a custom path like ~/.agent/skills/ if you used --path) ✅ Made them available to your AI assistant ❌ Did NOT enable them all automatically (they're just sitting there, waiting) Think of it like installing a toolbox. You have all the tools now, but you need to pick which ones to use for each job. Common confusion: \"Do I need to download each skill separately?\" ... Bundles are recommended lists of skills grouped by role. They help you decide which skills to start using. ... ❌ Separate installations ❌ Different download commands ❌ Something most users need to activate during normal install ... These are recommendations for which skills a web developer should try first. They're already installed—you just need to use them in your prompts.\n\nCheck the skill's SKILL.md file directly in your installed path, for example: ~/.gemini/antigravity/skills/[skill-name]/SKILL.md · Read the description to ensure you're using it correctly ... Before writing code, use @brainstorming to plan. You'll save hours of refactoring. Don't try to do everything at once. Use skills sequentially: Plan → Build → Test → Deploy · Bad: \"Use @react-patterns\" Good: \"Use @react-patterns to build a modal component with animations\" Help the AI focus: \"Use @security-auditor on routes/api/auth.js\" \"Use @brainstorming to design, then @test-driven-development to implement with tests\" ... File an Issue to help us improve this guide! Remember: You're not alone! The whole point of this project is to make AI assistants easier to use. If this guide didn't help, let us know so we can fix it.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/sickn33/antigravity-awesome-skills/blob/main/docs/users/usage.md",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Claude Code Integration | Besty0728/Unity-Skills | DeepWiki",
+              "url": "https://deepwiki.com/Besty0728/Unity-Skills/9.2-claude-code-integration",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "deepwiki.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=deepwiki.com",
+                "site_name": "DeepWiki"
+              },
+              "is_missing": false,
+              "text": "Discovery: Claude scans .claude/skills/ for SKILL.md files and parses YAML frontmatter · Intent Recognition: LLM matches user queries to skill descriptions and generates Python code · Execution: Python client posts to http://localhost:8090/skill/&lt;name&gt; with agent identification header · Verification: Check IsClaudeProjectInstalled/IsClaudeGlobalInstalled and test with simple skill call · For Python client API details, see Python Client Library. For REST API specification, see REST API Reference. For other AI platforms, see Antigravity Integration, Gemini CLI Integration, Codex Integration, or Cursor Integration.\n\nThis page documents the installation and integration of Unity-Skills with Claude Code, Anthropic's AI development environment. For general AI platform integration concepts, see Skill Installer Window. For other AI platforms, see Antigravity Integration, Gemini CLI Integration, Codex Integration, or Cursor Integration. Claude Code integration enables natural language control of Unity Editor through Claude's skill execution system. This page covers: Installation paths and automated setup via SkillInstaller · Structure of generated SKILL.md and unity_skills.py files · How Claude discovers skills through directory scanning · Intent recognition patterns that trigger skill invocation · Request flow from Claude conversational interface to Unity Editor · This page does not cover the Python client API details (see Python Client Library) or REST API specification (see REST API Reference).\n\nDiscovery: Claude scans .claude/skills/ for SKILL.md files and parses YAML frontmatter · Intent Recognition: LLM matches user queries to skill descriptions and generates Python code · Execution: Python client posts to http://localhost:8090/skill/<name> with agent identification header · Verification: Check IsClaudeProjectInstalled/IsClaudeGlobalInstalled and test with simple skill call · For Python client API details, see Python Client Library. For REST API specification, see REST API Reference. For other AI platforms, see Antigravity Integration, Gemini CLI Integration, Codex Integration, or Cursor Integration.\n\n.claude/skills/unity-skills/ ├── SKILL.md # Main skill definition (Claude reads this) └── scripts/ ├── unity_skills.py # Python client library └── agent_config.json # Agent identifier ... Dynamic Skill Generation: The skill list is generated via reflection at installation time, not hardcoded. This ensures SKILL.md stays synchronized with the actual codebase: Sources: SkillsForUnity/Editor/Skills/SkillInstaller.cs329-473 SkillsForUnity/Editor/Skills/SkillInstaller.cs409-427 ... Sources: SkillsForUnity/Editor/Skills/SkillInstaller.cs523-823 SkillsForUnity/Editor/Skills/SkillInstaller.cs534-542 SkillsForUnity/Editor/Skills/SkillInstaller.cs640-647 · Claude Code discovers skills by scanning the .claude/skills/ directory (both project and global paths) for SKILL.md files: ... No explicit declaration required: Unlike Codex (which requires AGENTS.md), Claude automatically finds all SKILL.md files ·\n\nSources: SkillsForUnity/Editor/Skills/SkillInstaller.cs18-19 README.md42-46 · Claude decides when to invoke Unity skills based on: Description Field Triggers: The YAML description field contains keyword patterns: Contextual Conversation Analysis: Claude's LLM evaluates user intent from conversation history · Skill Signature Matching: The \"Available Skills\" section provides parameter signatures that Claude uses for argument binding ... Sources: unity-skills/SKILL.md1-4 SkillsForUnity/Editor/Skills/SkillInstaller.cs332-336 SkillsForUnity/Editor/Skills/SkillInstaller.cs377-403 ... Agent Identification: The X-Agent-Id: ClaudeCode header enables Unity to track which AI platform is making requests, useful for analytics and debugging: Sources: SkillsForUnity/Editor/Skills/SkillInstaller.cs599-610 SkillsForUnity/Editor/Skills/SkillInstaller.cs321-323 ·",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://deepwiki.com/Besty0728/Unity-Skills/9.2-claude-code-integration",
+                "search_provider": "anthropic",
+                "age": "2 weeks ago"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "868 Agentic Skills, One Command: Antigravity Awesome Skills Becomes the Cross-Tool Skill Standard - AI Tools Hub",
+              "url": "https://ai-tools-aggregator-seven.vercel.app/blog/2026-02-20-antigravity-awesome-skills",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "vercel.app",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=vercel.app",
+                "site_name": "Vercel"
+              },
+              "is_missing": false,
+              "text": "The challenge is that skills created for Claude Code don’t automatically work in Cursor, and Gemini CLI has its own conventions. Antigravity Awesome Skills addresses this with a universal SKILL.md format that works across eight tools: # Install once—covers all tools npx antigravity-awesome-skills # Use naturally in any supported tool &quot;Use @brainstorming to plan a SaaS MVP.&quot; &quot;Run @sql-injection-testing on this endpoint.&quot; The v5.4.0 release supports eight AI coding assistants: The recommended universal installation path is ~/.agent/skills/, with tool-specific paths available through installer flags: npx antigravity-awesome-skills --claude # → .claude/skills/ npx antigravity-awesome-skills --gemini # → .gemini/skills/ npx antigravity-awesome-skills --cursor # → .cursor/skills/ npx antigravity-awesome-skills --codex # → .codex/skills/ What distinguishes this from a typical community curations is the inclusion of official skills from the companies building the tools themselves: anthropics/s\n\nAntigravity Awesome Skills (v5.4.0) delivers 868+ battle-tested skills for Claude Code, Gemini CLI, Codex CLI, Cursor, GitHub Copilot, and five other AI coding assistants via a single npx command. With official skills from Anthropic, Vercel, OpenAI, Supabase, and Microsoft consolidated under one MIT-licensed repository, it's emerging as the portable skill layer for the fragmented AI coding agent landscape. As the AI coding assistant landscape fragments across Claude Code, Gemini CLI, Codex CLI, Cursor, and GitHub Copilot, one open-source repository is emerging as a shared skill layer for all of them. Antigravity Awesome Skills (v5.4.0, “Workflows Edition”) bundles 868+ curated agentic skills into a single MIT-licensed repository, consolidating official skills from Anthropic, Vercel Labs, OpenAI, Supabase, Microsoft, and Google DeepMind alongside a large community contribution base.\n\nThe challenge is that skills created for Claude Code don’t automatically work in Cursor, and Gemini CLI has its own conventions. Antigravity Awesome Skills addresses this with a universal SKILL.md format that works across eight tools: # Install once—covers all tools npx antigravity-awesome-skills # Use naturally in any supported tool \"Use @brainstorming to plan a SaaS MVP.\" \"Run @sql-injection-testing on this endpoint.\" The v5.4.0 release supports eight AI coding assistants: The recommended universal installation path is ~/.agent/skills/, with tool-specific paths available through installer flags: npx antigravity-awesome-skills --claude # → .claude/skills/ npx antigravity-awesome-skills --gemini # → .gemini/skills/ npx antigravity-awesome-skills --cursor # → .cursor/skills/ npx antigravity-awesome-skills --codex # → .codex/skills/ What distinguishes this from a typical community curations is the inclusion of official skills from the companies building the tools themselves: anthropics/s\n\nAll skills follow a universal SKILL.md format with required frontmatter (name and description). The repository ships a validation script (python3 scripts/validate_skills.py) that contributors must run before submitting PRs. This standardization is what enables cross-tool portability. The same markdown file that Claude Code reads from .claude/skills/ can be placed in .gemini/skills/ for Gemini CLI or .cursor/skills/ for Cursor without modification. The format abstraction decouples skill content from tool-specific invocation conventions. With 40+ named contributors and skills sourced from over 20 community repositories, this is well past the single-maintainer stage: rmyndharis/antigravity-skills: 300+ enterprise skills and the catalog generation logic that structures the entire repository · zebbern/claude-code-guide: ~60 security-focused skills · VoltAgent/awesome-agent-skills: 61 high-quality skills including official team contributions from Sentry, Trail of Bits, Expo, and Hugging Face\n\n# Install for all tools (universal path) npx antigravity-awesome-skills # Tool-specific installation npx antigravity-awesome-skills --claude npx antigravity-awesome-skills --gemini npx antigravity-awesome-skills --cursor # Update existing installation git -C ~/.agent/skills pull · GitHub: https://github.com/sickn33/antigravity-awesome-skills (MIT License) ... ApplyPilot, an open-source autonomous job application agent powered by Claude Haiku and Claude Code, went viral on r/ClaudeAI after autonomously resetting a LinkedIn password mid-session, handling a French application in French, and emailing a resume to a company with no application form—all without being told to. 1,000 applications in 2 days, currently in interviews. ... An experimental OSS project lets Claude instances communicate in real-time via a Flask HTTP server and Chrome extension.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://ai-tools-aggregator-seven.vercel.app/blog/2026-02-20-antigravity-awesome-skills",
+                "search_provider": "anthropic",
+                "age": "February 20, 2026"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "GitHub - ForaeFactory/antigravity-skills: The Ultimate Collection of 200+ Agentic Skills for Claude Code/Antigravity/Cursor. Battle-tested, high-performance skills for AI agents including official skills from Anthropic and Vercel.",
+              "url": "https://github.com/ForaeFactory/antigravity-skills",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "github.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=github.com",
+                "site_name": "GitHub"
+              },
+              "is_missing": false,
+              "text": "Each skill folder contains a SKILL.md that can be imported into Antigravity or Claude Code. [!NOTE] &gt; Document Skills: We provide both community and official Anthropic versions for DOCX, PDF, PPTX, and XLSX.\n\nThe Ultimate Collection of 200+ Agentic Skills for Claude Code/Antigravity/Cursor. Battle-tested, high-performance skills for AI agents including official skills from Anthropic and Vercel. - ForaeFactory/antigravity-skills\n\nBelow is the complete list of available skills. Each skill folder contains a SKILL.md that can be imported into Antigravity or Claude Code. [!NOTE] > Document Skills: We provide both community and official Anthropic versions for DOCX, PDF, PPTX, and XLSX. Locally, the official versions are used by default (via symlinks). In the repository, both versions are available for flexibility. ... Expert in building 3D experiences for the web - Three.js, React Three Fiber, Spline, WebGL. ... Plan and implement A/B tests with proper experiment design, statistical significance, and test analysis. ... This skill should be used when the user asks to \"attack Active Directory\", \"exploit AD\", \"Kerberoasting\", \"DCSync\", \"pass-the-hash\", \"BloodHound enumeration\", \"Golden Ticket\", \"Silver Ticket\", \"AS-REP roasting\", \"NTLM relay\", or needs guidance on Windows domain penetration testing.\n\nKeywords: Claude Code, Gemini CLI, Codex CLI, Antigravity IDE, GitHub Copilot, Cursor, OpenCode, Agentic Skills, AI Coding Assistant, AI Agent Skills, MCP, MCT, AI Agents, Autonomous Coding, Security Auditing, React Patterns, LLM Tools, AI IDE, Coding AI, AI Pair Programming, Vibe Coding, Agentic Coding, AI Developer Tools.\n\nAutomatic quality control, linting, and static analysis procedures. ... This skill should be used when the user asks to \"escalate privileges on Linux\", \"find privesc vectors on Linux systems\", \"exploit sudo misconfigurations\", \"abuse SUID binaries\", \"exploit cron jobs for root access\", \"enumerate Linux systems for privilege escalation\", or \"gain root access from low-privilege shell\". ... This skill should be used when the user asks to \"create bash scripts\", \"automate Linux tasks\", \"monitor system resources\", \"backup files\", \"manage users\", or \"write production shell scripts\". ... Multi-agent autonomous startup system for Claude Code. ... Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. ... This skill should be used when the user asks to \"use Metasploit for penetration testing\", \"exploit vulnerabilities with msfconsole\", \"create payloads with msfvenom\", \"perform post-exploitation\", \"use",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://github.com/ForaeFactory/antigravity-skills",
+                "search_provider": "anthropic"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-24T04:19:36.993258Z",
+          "stop_timestamp": "2026-03-24T04:20:08.456797Z",
+          "flags": null,
+          "type": "text",
+          "text": "결론이 명확하게 나왔습니다. 상당히 흥미로운 그림이 펼쳐지네요.\n\n---\n\n## alive-analysis를 Antigravity에서 쓸 수 있는가? — 결론부터\n\n**Yes. 그리고 방법이 매우 단순합니다.**\n\n이 질문에 답하려면 먼저 alive-analysis가 어떤 기반 위에 서 있는지를 이해해야 합니다. SKILL.md는 오픈 스탠다드입니다. Codex CLI, Claude Code, Google Antigravity, Cursor, GitHub Copilot, 그 외 35개 이상의 플랫폼에서 동작하며, 파일시스템 기반으로 설계되어 있기 때문에 어떤 에이전트든 디렉토리 구조를 읽고 마크다운을 파싱할 수 있으면 곧바로 스킬을 소비할 수 있습니다.\n\nalive-analysis의 리포도 이를 명시적으로 선언합니다 — \"SKILL.md is an open standard — works with any agent that supports it.\" 즉, alive-analysis는 처음부터 플랫폼 종속성 없이 설계된 것입니다.\n\n---\n\n### 유일한 차이점: 폴더 경로 하나\n\nClaude Code에서는 스킬이 `.claude/skills/` 폴더에 위치하고, Antigravity에서는 `.agent/skills/` 폴더에 위치합니다. 그게 전부입니다. 내부 SKILL.md 파일 구조는 동일합니다. Claude Code용 스킬 라이브러리를 가지고 있다면, skills 폴더를 복사해서 `.agent/`에 붙여넣으면 완료됩니다.\n\n플랫폼별 경로를 정리하면:\n- **Antigravity**: `.agent/skills/` (프로젝트) / `~/.gemini/antigravity/skills/` (글로벌)\n- **Claude Code**: `.claude/skills/` (프로젝트) / `~/.claude/skills/` (글로벌)\n- **Cursor**: `.cursor/skills/`\n- **Gemini CLI**: `.gemini/skills/`\n\n따라서 alive-analysis의 Antigravity 적용은 이렇게 됩니다:\n\n```bash\n# 1. alive-analysis 설치 (기존 방식)\ngit clone https://github.com/with-geun/alive-analysis.git /tmp/alive-analysis\n\n# 2. Antigravity용 경로에 설치\ncp -r /tmp/alive-analysis/core/skills/* .agent/skills/\n# 또는 글로벌 설치\ncp -r /tmp/alive-analysis/core/skills/* ~/.gemini/antigravity/skills/\n```\n\n---\n\n### 단, Antigravity와 Claude Code의 동작 방식 차이는 있다\n\nalive-analysis 리포 자체가 이 차이를 명시하고 있습니다:\n\n| 항목 | Claude Code | Cursor 2.4+ (≈ Antigravity) |\n|------|-------------|------------------------------|\n| 인터랙션 방식 | 대화형 (질문 하나씩) | 배치형 (한 번에 모든 질문) |\n| 상태 관리 | 세션 메모리 | 파일 기반 (`.analysis/status.md`) |\n| SKILL.md 크기 | ~1,660줄 | ~265줄 |\n\nAntigravity는 에이전트 우선(agent-first) 플랫폼으로 설계되어 있습니다. 전통적인 IDE처럼 모든 파일을 수동으로 편집하는 대신, Antigravity의 에이전트가 분석, 계획, 코드 생성, 테스트, 검증을 자율적으로 처리합니다. 이 말은, Antigravity에서 alive-analysis를 쓸 때는 Claude Code처럼 AI가 한 번에 한 질문씩 던지는 소크라테스식 대화 방식이 아니라, 에이전트가 단계별 질문을 배치로 처리하는 방식으로 동작한다는 뜻입니다. 구조는 같지만, 리듬이 다릅니다.\n\n---\n\n### CSP 관점에서 본 실용적 판단\n\nAntigravity는 Gemini 3 Pro 기반의 에이전트 우선 플랫폼으로, Claude Sonnet 4.5도 지원하며 무료 Preview로 제공 중입니다. 즉, alive-analysis를 Antigravity에서 Claude 모델로 구동하는 것도 가능합니다.\n\n그러나 한 실무자의 솔직한 평가에 따르면, 약 48시간 실험 결과 본인은 Claude Code에 남기로 했습니다 — Claude Code가 그냥 더 잘 작동했기 때문입니다. 서브에이전트, 스킬, 전체 시스템이 더 매끄럽게 기능했고, Antigravity에서는 버그와 불안정함이 있었습니다.\n\nPulse Check 분석이나 AX 성숙도 데이터 같은 실제 의사결정용 분석에는, 안정성이 검증된 Claude Code + alive-analysis 조합이 여전히 최선입니다. Antigravity는 Gemini 3의 멀티모달 능력이 필요한 시각 데이터 분석(스크린샷, 대시보드 이미지 해석)이 필요한 시나리오에서 실험적으로 활용하는 것이 현실적인 접근입니다.",
+          "citations": [
+            {
+              "uuid": "6b2fdf20-0f30-4713-a23a-f9be73226f9a",
+              "start_index": 176,
+              "end_index": 369,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://itecsonline.com/post/codex-cli-agent-skills-guide-install-usage-cross-platform-resources-2026"
+              }
+            },
+            {
+              "uuid": "3351f1e8-929d-47e7-92b7-30fa40a9a352",
+              "start_index": 554,
+              "end_index": 751,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://alexmcfarland.substack.com/p/your-claude-skills-now-work-in-antigravity"
+              }
+            },
+            {
+              "uuid": "359d9996-4224-4290-9695-5a78156169bf",
+              "start_index": 753,
+              "end_index": 990,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://github.com/guanyang/antigravity-skills"
+              }
+            },
+            {
+              "uuid": "9c57d3fa-a026-43a3-b939-3a3891defc04",
+              "start_index": 1652,
+              "end_index": 1790,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.codecademy.com/article/how-to-set-up-and-use-google-antigravity"
+              }
+            },
+            {
+              "uuid": "77780c43-f69e-4437-af5c-5f3d57a5d72b",
+              "start_index": 1985,
+              "end_index": 2061,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/"
+              }
+            },
+            {
+              "uuid": "48a3cfc8-1dd1-4292-a462-3f232ae84e08",
+              "start_index": 2126,
+              "end_index": 2283,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://alexmcfarland.substack.com/p/your-claude-skills-now-work-in-antigravity"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-24T04:20:08.608162Z",
+      "updated_at": "2026-03-24T04:20:08.608162Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d1e11-a8f2-77d6-a9b8-914472bb415f"
+    }
+  ]
+}

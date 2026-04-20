@@ -1,0 +1,118 @@
+﻿{
+  "uuid": "a233be61-3f21-47a3-9279-74f5d23d8160",
+  "name": "Outlook email attachment automation",
+  "summary": "**Conversation Overview**\n\nThe user requested Python code to automate file attachments when sending emails through Outlook. They communicated in Korean, asking for a code solution to streamline their email workflow. Claude provided a comprehensive Python solution using the pywin32 library to interface with Outlook's COM API, creating a complete function that handles automated email sending with file attachments.\n\nThe solution included support for multiple recipients, multiple file attachments, CC and BCC functionality, and automatic file path validation. Claude delivered the code in an organized artifact with detailed documentation, including installation requirements (pip install pywin32), usage examples demonstrating single and multiple file attachments, and practical scenarios like attaching all files from a specific folder. The code included error handling and user feedback through console messages.\n\nClaude also provided important usage notes, specifying that the solution works only on Windows with Outlook installed, recommends using absolute file paths for reliability, and offered the option to use mail.Display() instead of mail.Send() for preview before sending. The assistant concluded by offering to provide alternative solutions using SMTP or for other platforms if needed, demonstrating readiness to adapt the solution to different technical requirements.",
+  "created_at": "2025-09-29T02:00:03.660315Z",
+  "updated_at": "2025-09-29T02:00:27.055825Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "373c0f03-d4f9-4c5d-a27c-dec19ea5d447",
+      "text": "아웃룩에서 메일 발송시에 파일 첨부를 자동화 하는 코드를 제안해줘:",
+      "content": [
+        {
+          "start_timestamp": "2025-09-29T02:00:04.527085Z",
+          "stop_timestamp": "2025-09-29T02:00:04.527085Z",
+          "flags": null,
+          "type": "text",
+          "text": "아웃룩에서 메일 발송시에 파일 첨부를 자동화 하는 코드를 제안해줘:",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2025-09-29T02:00:04.534112Z",
+      "updated_at": "2025-09-29T02:00:04.534112Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "57a0b8f3-bee4-4f7e-aad6-db9a3ed6af38",
+      "text": " 아웃룩에서 메일 발송 시 파일 첨부를 자동화하는 Python 코드를 제안해드리겠습니다. Windows에서 Outlook을 사용하신다면 `pywin32` 라이브러리를 활용하는 것이 가장 효과적입니다.\n```\nViewing artifacts created via the Analysis Tool web feature preview isn’t yet supported on mobile.\n```\n\n\n\n위 코드를 사용하기 위해 필요한 사항들을 알려드립니다:\n\n**설치 필요:**\n```bash\npip install pywin32\n```\n\n**주요 기능:**\n- ✅ 단일/다중 받는 사람 지원\n- ✅ 단일/다중 첨부파일 지원\n- ✅ 참조(CC), 숨은참조(BCC) 지원\n- ✅ 자동 파일 경로 검증\n- ✅ 폴더 내 모든 파일 일괄 첨부 가능\n\n**사용 시 주의사항:**\n1. Windows 환경에서만 작동합니다\n2. Outlook이 설치되어 있어야 합니다\n3. 파일 경로는 절대 경로를 사용하는 것이 안전합니다\n4. `mail.Send()` 대신 `mail.Display()`를 사용하면 발송 전 확인 가능합니다\n\n다른 플랫폼이나 SMTP를 사용한 방법이 필요하시면 말씀해주세요!",
+      "content": [
+        {
+          "start_timestamp": "2025-09-29T02:00:06.007361Z",
+          "stop_timestamp": "2025-09-29T02:00:07.193811Z",
+          "flags": null,
+          "type": "text",
+          "text": " 아웃룩에서 메일 발송 시 파일 첨부를 자동화하는 Python 코드를 제안해드리겠습니다. Windows에서 Outlook을 사용하신다면 `pywin32` 라이브러리를 활용하는 것이 가장 효과적입니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2025-09-29T02:00:07.380169Z",
+          "stop_timestamp": "2025-09-29T02:00:20.449274Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "artifacts",
+          "input": {
+            "id": "outlook_auto_send",
+            "type": "application/vnd.ant.code",
+            "title": "Outlook 메일 자동 발송 (파일 첨부)",
+            "command": "create",
+            "content": "import win32com.client\nimport os\n\ndef send_outlook_email(to, subject, body, attachments=None, cc=None, bcc=None):\n    \"\"\"\n    Outlook을 통해 이메일을 자동으로 발송하는 함수\n    \n    Parameters:\n    - to: 받는 사람 이메일 (문자열 또는 리스트)\n    - subject: 메일 제목\n    - body: 메일 본문\n    - attachments: 첨부파일 경로 (문자열 또는 리스트)\n    - cc: 참조 이메일 (문자열 또는 리스트)\n    - bcc: 숨은참조 이메일 (문자열 또는 리스트)\n    \"\"\"\n    \n    try:\n        # Outlook 애플리케이션 연결\n        outlook = win32com.client.Dispatch('Outlook.Application')\n        mail = outlook.CreateItem(0)  # 0은 MailItem을 의미\n        \n        # 받는 사람 설정\n        if isinstance(to, list):\n            mail.To = '; '.join(to)\n        else:\n            mail.To = to\n        \n        # 참조 설정\n        if cc:\n            if isinstance(cc, list):\n                mail.CC = '; '.join(cc)\n            else:\n                mail.CC = cc\n        \n        # 숨은참조 설정\n        if bcc:\n            if isinstance(bcc, list):\n                mail.BCC = '; '.join(bcc)\n            else:\n                mail.BCC = bcc\n        \n        # 제목과 본문 설정\n        mail.Subject = subject\n        mail.Body = body\n        \n        # 첨부파일 추가\n        if attachments:\n            if isinstance(attachments, str):\n                attachments = [attachments]\n            \n            for attachment in attachments:\n                if os.path.exists(attachment):\n                    mail.Attachments.Add(os.path.abspath(attachment))\n                    print(f\"첨부 완료: {attachment}\")\n                else:\n                    print(f\"파일을 찾을 수 없음: {attachment}\")\n        \n        # 메일 발송\n        mail.Send()\n        print(\"메일이 성공적으로 발송되었습니다!\")\n        \n        return True\n        \n    except Exception as e:\n        print(f\"오류 발생: {str(e)}\")\n        return False\n\n\n# 사용 예시\nif __name__ == \"__main__\":\n    # 단일 받는 사람, 단일 첨부파일\n    send_outlook_email(\n        to=\"recipient@example.com\",\n        subject=\"테스트 메일\",\n        body=\"안녕하세요,\\n\\n첨부파일을 확인해주세요.\\n\\n감사합니다.\",\n        attachments=\"C:/Users/YourName/Documents/report.pdf\"\n    )\n    \n    # 여러 받는 사람, 여러 첨부파일\n    send_outlook_email(\n        to=[\"recipient1@example.com\", \"recipient2@example.com\"],\n        subject=\"월간 보고서\",\n        body=\"월간 보고서를 첨부합니다.\",\n        attachments=[\n            \"C:/Users/YourName/Documents/report1.pdf\",\n            \"C:/Users/YourName/Documents/report2.xlsx\"\n        ],\n        cc=\"manager@example.com\"\n    )\n    \n    # 폴더 내 모든 파일 첨부\n    folder_path = \"C:/Users/YourName/Documents/attachments\"\n    files = [os.path.join(folder_path, f) for f in os.listdir(folder_path) \n             if os.path.isfile(os.path.join(folder_path, f))]\n    \n    send_outlook_email(\n        to=\"recipient@example.com\",\n        subject=\"여러 파일 첨부\",\n        body=\"요청하신 파일들을 첨부합니다.\",\n        attachments=files\n    )",
+            "language": "python",
+            "version_uuid": "b2401551-d2d1-4814-83a2-4fffba27073b"
+          },
+          "message": "artifacts",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "artifacts",
+          "content": [
+            {
+              "type": "text",
+              "text": "OK",
+              "uuid": "a94bb0bd-1b1f-404d-9ede-f36e00fec79c"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-09-29T02:00:22.290244Z",
+          "stop_timestamp": "2025-09-29T02:00:26.939845Z",
+          "flags": null,
+          "type": "text",
+          "text": "\n\n위 코드를 사용하기 위해 필요한 사항들을 알려드립니다:\n\n**설치 필요:**\n```bash\npip install pywin32\n```\n\n**주요 기능:**\n- ✅ 단일/다중 받는 사람 지원\n- ✅ 단일/다중 첨부파일 지원\n- ✅ 참조(CC), 숨은참조(BCC) 지원\n- ✅ 자동 파일 경로 검증\n- ✅ 폴더 내 모든 파일 일괄 첨부 가능\n\n**사용 시 주의사항:**\n1. Windows 환경에서만 작동합니다\n2. Outlook이 설치되어 있어야 합니다\n3. 파일 경로는 절대 경로를 사용하는 것이 안전합니다\n4. `mail.Send()` 대신 `mail.Display()`를 사용하면 발송 전 확인 가능합니다\n\n다른 플랫폼이나 SMTP를 사용한 방법이 필요하시면 말씀해주세요!",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2025-09-29T02:00:27.055825Z",
+      "updated_at": "2025-09-29T02:00:27.055825Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "373c0f03-d4f9-4c5d-a27c-dec19ea5d447"
+    }
+  ]
+}

@@ -1,0 +1,491 @@
+﻿{
+  "uuid": "3363510a-3a3d-4152-8e24-bb2367f4d5fb",
+  "name": "PDF 뷰어의 기능 소개",
+  "summary": "**Conversation Overview**\n\nThe user requested a briefing on PDF viewer capabilities, leading to a discussion of Claude's PDF viewing tools and their applications for research workflows. The user works in HR with interests in knowledge management, learning systems, and AI transformation, and prefers essay-style explanations with humanistic context over bullet-point summaries. Claude explained that the PDF viewer can dynamically load arXiv papers, display pre-indexed PDFs, and provide interactive viewing features like zoom, navigation, text selection, and full-screen mode. The tool integrates reading and conversation, allowing users to discuss papers while viewing them in the same interface, though it's limited primarily to arXiv academic papers rather than general PDFs or local files.\n\nThe conversation then shifted when the user requested recommendations for credible recent papers on employee experience. Claude acknowledged the PDF viewer's limitations for this topic, as arXiv focuses on computer science and physics rather than HR and organizational psychology research. Instead, Claude conducted a web search and provided comprehensive recommendations including six key sources: three academic papers from Nature, SAGE Journals, and Journal of Modelling in Management (all from 2025), plus three industry reports from Gallup, Qualtrics, and Ivanti. The recommendations emphasized practical applications to the user's work in HR ontology design, leadership evaluation automation, and AI transformation competency frameworks. Claude connected each recommendation to specific aspects of the user's projects, such as using the five-dimension employee experience structure for HR skill ontology design and applying ML frameworks for personalized feedback systems.\n\n**Tool Knowledge**\n\nThe web search tool effectively retrieved current academic and industry research on employee experience when provided with the query \"employee experience research 2024 2025 academic journal\". This search strategy successfully identified both peer-reviewed academic papers and authoritative industry reports from the past year. The search returned high-quality sources including Nature journals, SAGE publications, Emerald journals, and major research organizations like Gallup and Qualtrics. For HR and organizational psychology topics, web search proves more effective than the PDF viewer's arXiv-focused capabilities, as these fields primarily publish in business and psychology journals rather than open-access preprint servers.",
+  "created_at": "2026-01-27T01:02:56.488209Z",
+  "updated_at": "2026-01-27T01:08:20.970849Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019bfcf9-a8c8-7175-8a63-fd01bf12c248",
+      "text": "pdf viewer를 통해서 할 수 있는 일을 브리핑해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-01-27T01:02:58.829487Z",
+          "stop_timestamp": "2026-01-27T01:02:58.829487Z",
+          "flags": null,
+          "type": "text",
+          "text": "pdf viewer를 통해서 할 수 있는 일을 브리핑해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-27T01:02:58.840664Z",
+      "updated_at": "2026-01-27T01:02:58.840664Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019bfcf9-a8c8-7175-8a63-fd0276c6b707",
+      "text": "사용자가 PDF Viewer 도구로 할 수 있는 일을 브리핑해달라고 요청했습니다. \n\n사용자의 프로필을 보면:\n- 에세이적 설명을 좋아함\n- 인문학, 철학, 심리학적 설명을 좋아함\n- 보고서보다는 에세이적 설명 선호\n- 불릿포인트보다는 자연스러운 문장 선호\n\n따라서 단순 기능 나열이 아닌, 맥락과 의미를 담은 설명으로 접근해야 합니다.\n\n제공된 도구를 보면:\n1. `display_pdf` - PDF 뷰어를 채팅에 표시\n2. `list_pdfs` - 인덱싱된 PDF 목록\n\n기능:\n- arxiv.org URL 동적 로딩\n- list_pdfs에서 제공된 URL 사용\n- 줌, 네비게이션, 텍스트 선택, 전체화면 지원\n\n사용자 맥락상 HR 자동화, 지식 관리, 학습에 관심이 많으므로 이런 맥락에서 설명하면 좋을 것 같습니다.PDF Viewer는 당신의 세컨브레인 워크플로우에 **대화형 학습 레이어**를 더하는 도구입니다. 단순히 PDF를 보는 것을 넘어, 학술 논문이나 기술 문서를 Claude와 함께 탐색하는 경험을 제공합니다.\n\n## 핵심 기능\n\n**arXiv 논문 즉시 로딩**이 가장 강력한 기능입니다. 예를 들어 \"Attention Is All You Need 논문 보여줘\"라고 하면, 해당 arXiv URL을 자동으로 불러와 채팅 안에서 바로 논문을 열어줍니다. 새 탭을 열거나 다운로드할 필요 없이, 대화하던 맥락 그대로 논문을 읽을 수 있죠.\n\n**인터랙티브 뷰어 기능**도 갖추고 있습니다. 줌 인/아웃으로 세밀하게 보거나, 페이지를 자유롭게 이동하고, 텍스트를 선택해서 복사하고, 전체화면으로 몰입해서 읽을 수 있습니다. 마치 PDF 리더 앱을 쓰는 것처럼요.\n\n**사전 인덱싱된 PDF 라이브러리**도 있습니다. `list_pdfs`를 호출하면 미리 준비된 문서들의 목록을 볼 수 있고, 그중에서 바로 선택해서 열 수 있습니다.\n\n## 당신의 워크플로우에서의 활용\n\n**학습 시나리오**를 상상해보면, 예를 들어 온톨로지 설계를 공부하다가 관련 논문이 궁금해지면 \"온톨로지 디자인 패턴 논문 보여줘\"라고 하면 됩니다. 논문이 채팅창에 뜨고, 특정 섹션을 보면서 \"이 부분이 우리 HR 스킬 온톨로지에 어떻게 적용될까?\"라고 물을 수 있죠. PDF는 그대로 열려있고, Claude는 논문 내용을 참조하면서 당신의 프로젝트 맥락에서 설명해줍니다.\n\n**리서치 워크플로우**도 개선됩니다. AI transformation 관련 최신 연구를 찾아볼 때, 여러 arXiv 논문을 순회하면서 핵심 내용을 Claude에게 물어보고, 중요한 부분은 Notion 세컨브레인에 자동 아카이빙할 수 있습니다. \"이 논문의 3페이지 그림 설명해줘\" 같은 식으로 구체적인 질문도 가능합니다.\n\n## 제약사항\n\narXiv 중심이라는 점이 특징이자 제약입니다. 일반 PDF URL이나 로컬 파일은 직접 로딩할 수 없고, 주로 학술 논문 탐색에 최적화되어 있습니다. 그리고 인증이 필요한 문서(예: 유료 저널)는 접근할 수 없죠.\n\n## 본질적 가치\n\n이 도구의 진짜 가치는 **\"읽기\"와 \"대화\"의 경계를 허무는 것**입니다. 전통적으로 우리는 논문을 읽고, 이해하고, 메모하고, 그 다음에 누군가와 논의합니다. 하지만 PDF Viewer는 이 모든 과정을 하나의 플로우로 통합합니다. 읽으면서 동시에 질문하고, 질문하면서 더 깊이 읽게 되는 순환이 자연스럽게 일어나죠.\n\n당신처럼 \"인문학적 해석 + 기술적 구현\"을 오가는 사람에게는, 논문의 기술적 디테일을 물어보면서도 \"이게 조직 개발에 주는 철학적 함의는 뭘까?\"라는 질문을 바로 이어갈 수 있다는 점이 큰 장점일 겁니다.\n\n궁금한 arXiv 논문이 있다면 바로 불러볼까요?",
+      "content": [
+        {
+          "start_timestamp": "2026-01-27T01:03:02.365624Z",
+          "stop_timestamp": "2026-01-27T01:03:10.033964Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 PDF Viewer 도구로 할 수 있는 일을 브리핑해달라고 요청했습니다. \n\n사용자의 프로필을 보면:\n- 에세이적 설명을 좋아함\n- 인문학, 철학, 심리학적 설명을 좋아함\n- 보고서보다는 에세이적 설명 선호\n- 불릿포인트보다는 자연스러운 문장 선호\n\n따라서 단순 기능 나열이 아닌, 맥락과 의미를 담은 설명으로 접근해야 합니다.\n\n제공된 도구를 보면:\n1. `display_pdf` - PDF 뷰어를 채팅에 표시\n2. `list_pdfs` - 인덱싱된 PDF 목록\n\n기능:\n- arxiv.org URL 동적 로딩\n- list_pdfs에서 제공된 URL 사용\n- 줌, 네비게이션, 텍스트 선택, 전체화면 지원\n\n사용자 맥락상 HR 자동화, 지식 관리, 학습에 관심이 많으므로 이런 맥락에서 설명하면 좋을 것 같습니다.",
+          "summaries": [
+            {
+              "summary": "생각해보기: PDF 뷰어의 주요 기능과 활용 방법 정리하기"
+            },
+            {
+              "summary": "PDF 뷰어 기능을 맥락 있게 설명하려 구상중"
+            },
+            {
+              "summary": "PDF 뷰어의 기능을 맥락 있게 설명하기로 결정했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-27T01:03:10.034555Z",
+          "stop_timestamp": "2026-01-27T01:03:35.738995Z",
+          "flags": null,
+          "type": "text",
+          "text": "PDF Viewer는 당신의 세컨브레인 워크플로우에 **대화형 학습 레이어**를 더하는 도구입니다. 단순히 PDF를 보는 것을 넘어, 학술 논문이나 기술 문서를 Claude와 함께 탐색하는 경험을 제공합니다.\n\n## 핵심 기능\n\n**arXiv 논문 즉시 로딩**이 가장 강력한 기능입니다. 예를 들어 \"Attention Is All You Need 논문 보여줘\"라고 하면, 해당 arXiv URL을 자동으로 불러와 채팅 안에서 바로 논문을 열어줍니다. 새 탭을 열거나 다운로드할 필요 없이, 대화하던 맥락 그대로 논문을 읽을 수 있죠.\n\n**인터랙티브 뷰어 기능**도 갖추고 있습니다. 줌 인/아웃으로 세밀하게 보거나, 페이지를 자유롭게 이동하고, 텍스트를 선택해서 복사하고, 전체화면으로 몰입해서 읽을 수 있습니다. 마치 PDF 리더 앱을 쓰는 것처럼요.\n\n**사전 인덱싱된 PDF 라이브러리**도 있습니다. `list_pdfs`를 호출하면 미리 준비된 문서들의 목록을 볼 수 있고, 그중에서 바로 선택해서 열 수 있습니다.\n\n## 당신의 워크플로우에서의 활용\n\n**학습 시나리오**를 상상해보면, 예를 들어 온톨로지 설계를 공부하다가 관련 논문이 궁금해지면 \"온톨로지 디자인 패턴 논문 보여줘\"라고 하면 됩니다. 논문이 채팅창에 뜨고, 특정 섹션을 보면서 \"이 부분이 우리 HR 스킬 온톨로지에 어떻게 적용될까?\"라고 물을 수 있죠. PDF는 그대로 열려있고, Claude는 논문 내용을 참조하면서 당신의 프로젝트 맥락에서 설명해줍니다.\n\n**리서치 워크플로우**도 개선됩니다. AI transformation 관련 최신 연구를 찾아볼 때, 여러 arXiv 논문을 순회하면서 핵심 내용을 Claude에게 물어보고, 중요한 부분은 Notion 세컨브레인에 자동 아카이빙할 수 있습니다. \"이 논문의 3페이지 그림 설명해줘\" 같은 식으로 구체적인 질문도 가능합니다.\n\n## 제약사항\n\narXiv 중심이라는 점이 특징이자 제약입니다. 일반 PDF URL이나 로컬 파일은 직접 로딩할 수 없고, 주로 학술 논문 탐색에 최적화되어 있습니다. 그리고 인증이 필요한 문서(예: 유료 저널)는 접근할 수 없죠.\n\n## 본질적 가치\n\n이 도구의 진짜 가치는 **\"읽기\"와 \"대화\"의 경계를 허무는 것**입니다. 전통적으로 우리는 논문을 읽고, 이해하고, 메모하고, 그 다음에 누군가와 논의합니다. 하지만 PDF Viewer는 이 모든 과정을 하나의 플로우로 통합합니다. 읽으면서 동시에 질문하고, 질문하면서 더 깊이 읽게 되는 순환이 자연스럽게 일어나죠.\n\n당신처럼 \"인문학적 해석 + 기술적 구현\"을 오가는 사람에게는, 논문의 기술적 디테일을 물어보면서도 \"이게 조직 개발에 주는 철학적 함의는 뭘까?\"라는 질문을 바로 이어갈 수 있다는 점이 큰 장점일 겁니다.\n\n궁금한 arXiv 논문이 있다면 바로 불러볼까요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-27T01:03:35.786631Z",
+      "updated_at": "2026-01-27T01:03:35.786631Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bfcf9-a8c8-7175-8a63-fd01bf12c248"
+    },
+    {
+      "uuid": "019bfcfd-4a02-76fa-8228-888b026676c5",
+      "text": "직원 경험에 대한 신뢰도 높은 최신 논문을 추천해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-01-27T01:06:56.698407Z",
+          "stop_timestamp": "2026-01-27T01:06:56.698407Z",
+          "flags": null,
+          "type": "text",
+          "text": "직원 경험에 대한 신뢰도 높은 최신 논문을 추천해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-01-27T01:06:56.702409Z",
+      "updated_at": "2026-01-27T01:06:56.702409Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bfcf9-a8c8-7175-8a63-fd0276c6b707"
+    },
+    {
+      "uuid": "019bfcfd-4a02-76fa-8228-888cfffc03fc",
+      "text": "사용자가 직원 경험(Employee Experience)에 대한 신뢰도 높은 최신 논문을 추천해달라고 했습니다. 이는 사용자의 HR 전문성 및 조직 개발 관심사와 매우 관련이 깊습니다.\n\nPDF Viewer 도구는 arXiv 중심이라는 제약이 있는데, arXiv는 주로 컴퓨터 과학, 물리학, 수학 등의 분야에 집중되어 있고, HR이나 조직 관리 같은 경영학/사회과학 논문은 상대적으로 적습니다.\n\n직원 경험(Employee Experience) 관련 최신 논문을 찾으려면:\n1. 웹 검색으로 최신 연구를 찾아보는 것이 더 적절할 것 같습니다\n2. arXiv에서 관련 논문이 있는지 확인할 수도 있지만, 이 주제는 주로 경영학/조직심리학 저널에 실리므로 arXiv보다는 일반 학술 데이터베이스가 더 적합합니다\n\n사용자에게 솔직하게 PDF Viewer의 제약을 설명하고, 웹 검색으로 최신 연구를 찾아보겠다고 제안하는 것이 좋겠습니다.직원 경험(Employee Experience) 주제는 PDF Viewer의 한계에 부딪히는 영역입니다. arXiv는 주로 컴퓨터 과학, 물리학, 수학 중심이라 HR·조직심리학·경영학 논문은 거의 없거든요.\n\n이런 주제는 **Academy of Management Journal**, **Journal of Applied Psychology**, **Harvard Business Review** 같은 경영학 저널에 주로 실리는데, 이들은 arXiv에 오픈 액세스로 공개되지 않습니다.\n\n대신 **웹 검색으로 최신 연구와 신뢰도 높은 자료를 찾아드릴게요**. 학술 논문, 주요 컨설팅 펌 리포트, 실증 연구를 종합해서 추천해드리겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n좋은 검색 결과들이 나왔습니다. 사용자가 원하는 \"신뢰도 높은 최신 논문\"을 찾았으니, 이제 이를 체계적으로 정리해서 추천해야 합니다.\n\n가장 주목할 만한 논문들:\n\n1. **Nature 학술지 논문 (2025년 5월)**: \"Employee experience: conceptualization, scale development, and validation\" - 이것은 매우 중요한 논문입니다. EX의 개념을 체계화하고 20문항 척도를 개발한 연구로, 자기결정이론(self-determination theory)을 기반으로 5가지 차원(업무 관련, 대인 조화, 조직 관리, 전문성 개발, 보상 패키지)을 도출했습니다.\n\n2. **SAGE 저널 논문 (2025년 1월)**: \"Role of Employee Experience and Its Impact on Job Satisfaction\" - PRISMA 방법론을 사용한 체계적 문헌 리뷰로 127개의 출판물을 분석했습니다.\n\n3. **Journal of Modelling in Management (2025년 1월)**: \"The importance of positive employee experience and its development through using predictive analytics\" - ML/AI를 활용한 EX 측정 프레임워크를 제시합니다.\n\n4. **Gallup 연구**: 25년 이상의 종단 연구로 64백만 명의 직원을 대상으로 한 세계 최대 규모의 EX 연구입니다.\n   \n실무 리포트들도 함께 검토할 가치가 있습니다. Ivanti의 2024/2025 Digital Employee Experience Report, Qualtrics의 2025 Employee Experience Trends, Press Ganey의 Healthcare 특화 EX 연구 등이 최신 산업 동향을 반영하고 있습니다. 사용자가 HR 전문가이면서 온톨로지 기반 자동화 시스템을 구축하고 있으므로, 이론적 프레임워크와 실무적 적용 모두를 고려해야 합니다.\n\n척도 개발과 측정 방법론, 그리고 AI/ML 활용 방식에 대한 관심이 클 것으로 보입니다.좋은 타이밍입니다. 직원 경험(Employee Experience) 분야가 2024-2025년에 급격히 성숙하면서 몇 가지 획기적인 연구가 나왔습니다. 당신의 HR 온톨로지 작업과 연결되는 지점이 많을 겁니다.\n\n## 🎯 최우선 추천: 학술 논문\n\n### 1. **Employee experience: conceptualization, scale development, and validation**\n**Nature: Humanities and Social Sciences Communications (2025년 5월)**\n이 논문은 자기결정이론을 기반으로 EX를 체계화하고 20문항 척도(EXS)를 개발했습니다. 6개 연구를 통해 5가지 차원을 도출했습니다: 업무 관련, 대인 조화, 조직 관리, 전문성 개발, 보상 패키지\n\n**왜 중요한가**: 당신이 구축하는 HR 온톨로지의 **개념 구조**를 설계하는 데 직접 적용 가능합니다. 5개 차원은 스킬 관계 매트릭스나 역량 프레임워크의 상위 카테고리로 쓸 수 있고, 20개 측정 문항은 리더십 평가 항목 설계에 참고할 수 있습니다.\n\n📄 링크: https://www.nature.com/articles/s41599-025-04926-5\n\n---\n\n### 2. **Role of Employee Experience and Its Impact on Job Satisfaction**\n**SAGE Journals (2025년 1월)**\nPRISMA 방법론으로 SCOPUS 데이터베이스에서 127개 논문을 체계적으로 리뷰했습니다. HR practices, Person-Organization Fit, Job Satisfaction 간의 관계를 통합적으로 분석했습니다\n\n**왜 중요한가**: 문헌 리뷰 방법론이 체계적이라 **증거 기반 HR 시스템** 설계에 적합합니다. 특히 HR practices가 조직 가치를 전달하고 직원-조직 적합성을 만들어낸다는 메커니즘은 당신의 피드백 시스템 설계와 직결됩니다.\n\n📄 링크: https://journals.sagepub.com/doi/10.1177/09711023251332049\n\n---\n\n### 3. **The importance of positive employee experience and its development through using predictive analytics**\n**Journal of Modelling in Management (2025년 1월)**\nML 알고리즘(SVM, 랜덤 포레스트 등)을 활용한 EX 측정 프레임워크를 제시합니다. 특히 각 직원이 고유한 경험을 추구한다는 점을 강조하며 \"one-size-fits-all\" 접근을 비판합니다\n\n**왜 중요한가**: 당신이 계획하는 **GCP 기반 HR SaaS**에서 예측 분석과 개인화 로직을 구현할 때 이론적 근거가 됩니다. 서베이, 인터뷰, 관찰, 팀워크 방법을 통해 1차 데이터를 수집하고 터치포인트를 식별하는 방법론은 사용자 리서치 프로세스 설계에 활용 가능합니다.\n\n📄 링크: https://www.emerald.com/jm2/article/20/1/51/1239377/The-importance-of-positive-employee-experience-and\n\n---\n\n## 🏢 실무 필독: 글로벌 연구 리포트\n\n### 4. **Gallup: World's Largest Ongoing Study of the Employee Experience**\n25년 이상 진행된 종단 연구로, 64백만 명의 직원을 조사했고 736개 연구에서 183,806개 비즈니스 유닛을 분석했습니다. 12개 핵심 경험 요소를 통해 engagement를 측정합니다\n\n**왜 중요한가**: 메타분석 방법론으로 **ROI 예측**이 가능하다는 점이 핵심입니다. 당신이 독립 사업을 준비할 때 고객사에게 \"리더십 프로그램이 실제로 비즈니스 성과에 미치는 영향\"을 증거 기반으로 제시할 수 있습니다.\n\n📄 링크: https://www.gallup.com/workplace/649487/world-largest-ongoing-study-employee-experience.aspx\n\n---\n\n### 5. **Qualtrics: The 5 Employee Experience Trends Redefining Work in 2025**\n2025년 핵심 트렌드: AI 도입 가속화(45%가 일주일에 한 번 이상 사용), 리스닝 빈도 증가(연 1회에서 연중 여러 차례로), 온보딩보다 퇴사 경험이 더 나쁨\n\n**왜 중요한가**: 52%만이 조직에 명확한 AI 윤리 가이드라인과 교육이 있다고 답했고, 48%는 회사 제공 AI 도구만 쓰고 30%는 개인이 찾은 도구를 쓴다는 발견은 당신의 **AX(AI Transformation) 역량 프레임워크** 설계에 직접 반영해야 할 현장 니즈입니다.\n\n📄 링크: https://www.qualtrics.com/articles/employee-experience/employee-experience-trends/\n\n---\n\n### 6. **Ivanti: 2024 Digital Employee Experience (DEX) Report**\n7,800명의 IT 전문가와 오피스 근로자 조사 결과, 77%가 DEX를 측정한다고 하지만 23%만 실제로 advanced level(포괄적 모니터링·측정·자동화)입니다. 36%는 챗봇을 선호하며 전년 대비 5%p 증가했습니다\n\n**왜 중요한가**: 직원의 49%가 헬프데스크보다 스스로 문제를 해결하고 싶어하지만 13%만 \"매우 쉽다\"고 답했다는 간극은 당신의 **HR 자동화 시스템**이 해결해야 할 핵심 pain point입니다. 특히 chatbot과 self-service portal 선호도 증가는 당신의 SaaS 제품 UX 방향성을 시사합니다.\n\n📄 링크: https://www.ivanti.com/resources/research-reports/digital-employee-experience\n\n---\n\n## 💡 당신의 프로젝트와의 접점\n\n**온톨로지 설계 관점**에서 Nature 논문의 5차원 구조는 당신의 HR 스킬 온톨로지 상위 클래스로 직접 매핑 가능합니다:\n- Work-related → Task/Role 관련 스킬\n- Interpersonal harmony → Collaboration/Communication 스킬\n- Organizational management → Leadership/Strategy 스킬\n- Professional development → Learning/Growth 스킬\n- Remuneration package → Compensation/Benefits 데이터\n\n**측정 자동화 관점**에서 Journal of Modelling in Management 논문의 ML 프레임워크는 당신이 구축하는 **리더십 평가 자동화 시스템**에서 개인화된 피드백 생성 알고리즘으로 구현 가능합니다.\n\n**AX 역량 설계 관점**에서 Qualtrics와 Ivanti 리포트는 제조 환경에서 AI transformation을 추진할 때 **직원들이 실제로 겪는 마찰점**을 보여줍니다. 특히 \"AI 도구는 쓰는데 가이드라인은 없다\"는 현실은 당신의 AX competency framework에서 다뤄야 할 핵심 영역입니다.\n\n어떤 논문부터 깊이 읽어보고 싶으신가요? 필요하면 특정 논문의 핵심 방법론이나 프레임워크를 당신 프로젝트에 적용하는 방법을 함께 설계할 수 있습니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-01-27T01:07:04.250717Z",
+          "stop_timestamp": "2026-01-27T01:07:10.943989Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 직원 경험(Employee Experience)에 대한 신뢰도 높은 최신 논문을 추천해달라고 했습니다. 이는 사용자의 HR 전문성 및 조직 개발 관심사와 매우 관련이 깊습니다.\n\nPDF Viewer 도구는 arXiv 중심이라는 제약이 있는데, arXiv는 주로 컴퓨터 과학, 물리학, 수학 등의 분야에 집중되어 있고, HR이나 조직 관리 같은 경영학/사회과학 논문은 상대적으로 적습니다.\n\n직원 경험(Employee Experience) 관련 최신 논문을 찾으려면:\n1. 웹 검색으로 최신 연구를 찾아보는 것이 더 적절할 것 같습니다\n2. arXiv에서 관련 논문이 있는지 확인할 수도 있지만, 이 주제는 주로 경영학/조직심리학 저널에 실리므로 arXiv보다는 일반 학술 데이터베이스가 더 적합합니다\n\n사용자에게 솔직하게 PDF Viewer의 제약을 설명하고, 웹 검색으로 최신 연구를 찾아보겠다고 제안하는 것이 좋겠습니다.",
+          "summaries": [
+            {
+              "summary": "직원 경험 관련 신뢰도 높은 최신 논문 추천하기"
+            },
+            {
+              "summary": "직원 경험 논문 추천 가능성 검토 중입니다."
+            },
+            {
+              "summary": "직원 경험 논문 추천을 위해 도구 제약을 검토했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-27T01:07:10.959090Z",
+          "stop_timestamp": "2026-01-27T01:07:15.722280Z",
+          "flags": null,
+          "type": "text",
+          "text": "직원 경험(Employee Experience) 주제는 PDF Viewer의 한계에 부딪히는 영역입니다. arXiv는 주로 컴퓨터 과학, 물리학, 수학 중심이라 HR·조직심리학·경영학 논문은 거의 없거든요.\n\n이런 주제는 **Academy of Management Journal**, **Journal of Applied Psychology**, **Harvard Business Review** 같은 경영학 저널에 주로 실리는데, 이들은 arXiv에 오픈 액세스로 공개되지 않습니다.\n\n대신 **웹 검색으로 최신 연구와 신뢰도 높은 자료를 찾아드릴게요**. 학술 논문, 주요 컨설팅 펌 리포트, 실증 연구를 종합해서 추천해드리겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-01-27T01:07:15.898316Z",
+          "stop_timestamp": "2026-01-27T01:07:16.077326Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01EhK2S5gyds77MtZ6zeDevx",
+          "name": "web_search",
+          "input": {
+            "query": "employee experience research 2024 2025 academic journal"
+          },
+          "message": "Searching the web",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01EhK2S5gyds77MtZ6zeDevx",
+          "name": "web_search",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Role of Employee Experience and Its Impact on Job Satisfaction: A Proposed Theoretical Model - Arushi Grover, Ginni Chawla, 2025",
+              "url": "https://journals.sagepub.com/doi/10.1177/09711023251332049",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "sagepub.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=sagepub.com",
+                "site_name": "Sage Journals"
+              },
+              "is_missing": false,
+              "text": "The research was conducted in January 2024 using PRISMA methodology using the “SCOPUS” database. Scopus has an unparalleled collection of peer-reviewed literature that encompasses a vast array of disciplines.\n\nOrganizations worldwide are taking steps to enhance employee experience. Employers have started to explore the wholesome impact of various ways in which organizations interact with employees throug...\n\nThe research was conducted in January 2024 using PRISMA methodology using the “SCOPUS” database. Scopus has an unparalleled collection of peer-reviewed literature that encompasses a vast array of disciplines. It has powerful tools that enable researchers to trace references effortlessly (Burnham, 2006). Overall, the articles were identified using independent string search of “employee experience” AND “HR Practices”; “employee experience” AND “Human Resource Practices”; “employee experience” AND “person organisation fit”; “employee experience” AND “job satisfaction” in abstracts, keywords and titles. In total, 198 studies were identified. With the subject area filter of Business Management & Accounting, Social Science, Psychology, Arts & Humanities, “peer-reviewed journal articles”, “final stage of publication”, and “English” language options enabled, a total of 127 publications were identified, and only those were considered.\n\nMorgan suggested that there are three dimensions to experience, that is, Work Culture, Technology, and Workplace, which was used by Harlianto and Rudi (2023) for the purpose of their research study between employee experience and employee performance (Harlianto & Rudi, 2023). Vieira dos Santos (2018) described employee experience as empowering employees to influence their workplace, cultivate strong relationships and connections with employees, and foster ownership. Gustafsson et al. (2024) acknowledged Employee Experience as a “holistic and personal experience that evolves over time, shaped by tangible stimuli like digital platforms and intangible factors such as workplace culture and HR practices”. The third theme of definition for employee experience refers to Employee Experience as “Passion & Purpose, Two Way Contract & Impact via Technology”. According to Dhingra et al.\n\nMany studies have researched the connection between the combination of several perceived HRM practices, PO Fit, and job satisfaction. HR practices have an impact on PO Fit and job satisfaction, as suggested by many studies (Boon et al., 2011; Gould-Williams et al., 2013; Mostafa & Gould-Williams, 2014). Boon et al. (2011) found that HR practices such as recruitment, selection, and performance appraisal communicate organizational values to employees, leading to a match between employees and their organizations. Therefore, employees who perceive the presence of HR practices in an organization are likely to have a clear view of the values, demands, expectations, and desired behaviors of the organization. This fit between the employee and the organization leads to the emergence of pleasant feelings of belongingness, happiness, and purpose (de Sousa & Porto, 2015; Ucar et al., 2021; Xu et al., 2024).",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://journals.sagepub.com/doi/10.1177/09711023251332049",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Employee experience: conceptualization, scale development, and validation | Humanities and Social Sciences Communications",
+              "url": "https://www.nature.com/articles/s41599-025-04926-5",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "nature.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=nature.com",
+                "site_name": "Nature"
+              },
+              "is_missing": false,
+              "text": "Article Open access 26 September 2025 · Article Open access 09 November 2024 · Article Open access 21 January 2022 · Who matters most to the organization: shareholders, customers, or employees? There appears to be constant debate on this issue (Adams et al., 2011). In the traditional view of business, shareholders and customers are generally regarded as the most important interests (Rao, 2017), as shareholders provide capital and customers generate revenue. However, with the development of modern human resource management thinking, numerous researchers have emphasized that businesses require a reconstruction of the relationship with employees if they desire to achieve better survival and growth (Plaskoff, 2017). Certainly, various factors can affect the improvement of employment relationships (Li and Yang, 2023), and therefore, organizations are required to gain a deeper understanding of multiple factors, such as the needs, expectations, and emotions of employees (Plaskoff, 2017).\n\nAs a novel thinking approach to human resource management, employee experience (EX) has become a critical strategic focus in fundamentally reframing the employment relationship. However, the construct definition and measures of EX have not been adequately addressed in the existing literature. Based on self-determination theory, this study provides a conceptual foundation for EX and emphasizes its conceptual uniqueness. Furthermore, through two phases (six studies) of the scale development procedure, we developed and validated a 20-item EX scale (EXS). Specifically, we first identified five dimensions of EX through three qualitative studies (Phase 1): work-related, interpersonal harmony, organizational management, professional development, and remuneration package. Subsequently, we validated the reliability, convergent and discriminant validity, predictive and incremental validity, and measurement invariance of the EXS through three quantitative studies (Phase 2). Our findings suggest t\n\nArticle Open access 26 September 2025 · Article Open access 09 November 2024 · Article Open access 21 January 2022 · Who matters most to the organization: shareholders, customers, or employees? There appears to be constant debate on this issue (Adams et al., 2011). In the traditional view of business, shareholders and customers are generally regarded as the most important interests (Rao, 2017), as shareholders provide capital and customers generate revenue. However, with the development of modern human resource management thinking, numerous researchers have emphasized that businesses require a reconstruction of the relationship with employees if they desire to achieve better survival and growth (Plaskoff, 2017). Certainly, various factors can affect the improvement of employment relationships (Li and Yang, 2023), and therefore, organizations are required to gain a deeper understanding of multiple factors, such as the needs, expectations, and emotions of employees (Plaskoff, 2017).\n\nHumanities and Social Sciences Communications - Employee experience: conceptualization, scale development, and validation\n\nSecond, as mentioned earlier, EX covers various elements that are closely related to employees’ needs. However, due to the differences in the perspectives of existing studies, the components of EX currently exhibit a fragmented distribution and lack of systematic integration and sorting. For example, several scholars view organizational climate as a representative factor of EX (Farndale and Kelliher, 2013; McCallum et al., 2024), while others view goal uncertainty, organizational culture, and individual insecurity as the core experience of employees to the organizational change (Roald and Edgren, 2001). Importantly, the definitional ambiguity also makes current studies prone to confuse EX with similar concepts such as job satisfaction (Batat, 2022) and employee engagement (Cornelius et al., 2022; Lemon, 2019), which in turn leads to the bias of the study results and misunderstanding of the concepts in subsequent studies.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.nature.com/articles/s41599-025-04926-5",
+                "search_provider": "anthropic",
+                "age": "May 2, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "The importance of positive employee experience and its development through using predictive analytics | Journal of Modelling in Management | Emerald Publishing",
+              "url": "https://www.emerald.com/jm2/article/20/1/51/1239377/The-importance-of-positive-employee-experience-and",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "emerald.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=emerald.com",
+                "site_name": "Emerald"
+              },
+              "is_missing": false,
+              "text": "Vereb D, Krajcsák Z, Kozák A (2025), &quot;The importance of positive employee experience and its development through using predictive analytics&quot;. Journal of Modelling in Management, Vol. 20 No.\n\nPurpose. The study aims to explore the organizational benefits of positive employee experience and to provide a framework for measuring it. The positive employee experience has a profound impact on employees’ attitudes; thus, it is particularly important to what extent an organization can create the conditions supporting this.Design/methodology/approach. The study is based on literature review and the framework needs to be empirically tested to draw final conclusions.Findings. Organizational performance and success are influenced by employees’ well-being, commitment, job satisfaction and the high level of individual performance. However, this grouping of variables is not exhaustive, but in practice, it is often not necessary to fully understand the complex and complicated relationships among the organizational variables. However, a positive employee experience has an impact on all of these variables.\n\nVereb D, Krajcsák Z, Kozák A (2025), \"The importance of positive employee experience and its development through using predictive analytics\". Journal of Modelling in Management, Vol. 20 No. 1 pp. 51–69, doi: https://doi.org/10.1108/JM2-02-2024-0057 ... The study aims to explore the organizational benefits of positive employee experience and to provide a framework for measuring it. The positive employee experience has a profound impact on employees’ attitudes; thus, it is particularly important to what extent an organization can create the conditions supporting this. ... The study is based on literature review and the framework needs to be empirically tested to draw final conclusions. ... Organizational performance and success are influenced by employees’ well-being, commitment, job satisfaction and the high level of individual performance.\n\nData training: ML algorithms are computational techniques that enable computers to learn from data and make predictions or decisions without being explicitly programed (Nithya and Ilango, 2017). Such algorithms play a crucial role in extracting meaningful insights from large data sets and automating complex tasks across various domains. This is also proven in HR practices, where data-driven decision-making and automation have become integral components of modern human resource management strategies (Akasheh et al., 2024). Although there are numerous ML algorithms available, a set of selected few are mentioned here due to their widespread use and effectiveness in data training. Support vector machine (SVM) is as a supervised learning technique used predominantly for classification and regression tasks. Its primary objective is to pinpoint the hyperplane that optimally segregates classes within the feature space, thereby maximizing the margin.\n\nEvery organization is different, every person is different and everyone should be treated differently; thus, it is impossible to keep making the same “product” over and over again as positive employee experience. Surveying, formulating hypotheses, collecting data, testing, committing mistakes and correcting are as much part of this process as that of in any academic research (Morgan, 2017). Similarly, Tucker (2020) argues that positive employee experience design requires primary data collection through surveys, interviews, observations and various teamwork methods. In his opinion, these methods can provide HR professionals and managers with sufficient input on the touchpoints that employees consider important and their possible corrective possibilities and needs. The fact that each employee is looking for their own unique experience may have initially been difficult for HR professionals to process in contrast to the “one-size-fits-all” approach of previously widely used organization-wi",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.emerald.com/jm2/article/20/1/51/1239377/The-importance-of-positive-employee-experience-and",
+                "search_provider": "anthropic",
+                "age": "January 2, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "18 Key Employee Experience Statistics for 2025 | Employee Experience | HappySignals",
+              "url": "https://www.happysignals.com/blog/18-key-employee-experience-statistics-for-2025",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "happysignals.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=happysignals.com",
+                "site_name": "Happysignals"
+              },
+              "is_missing": false,
+              "text": "Source: HRreview.co.uk · A 2024 study published in the Behavioral Sciences journal found employee satisfaction, influenced by workplace technology, directly impacts employee morale and productivity.\n\nThe research surveyed 1,000 workers across the UK and Ireland and discovered that almost half (46%) of respondents believed their employers trailed behind in adopting cutting-edge technologies such as workplace experience and process automation tools. Source: HRreview.co.uk · A 2024 study published in the Behavioral Sciences journal found employee satisfaction, influenced by workplace technology, directly impacts employee morale and productivity. Source: Exploring Employee Perspectives on Workplace Technology: Usage, Roles, and Implications for Satisfaction and Performance · Ivanti’s 2024 DEX Report, which surveyed 7,800 IT professionals, executives, and office workers globally, highlighted that technology significantly influences employee productivity, satisfaction, and retention. Source: 2024 Digital Employee Experience Report · 72% of employees consider their digital workplace to be extremely important.\n\nIn my experience, the people who work in IT and IT service management (ITSM) love statistics. These insights help them formulate their thinking and might back up decisions they’ve already made (or will make). They also love lists. So here’s a blog with a foot in both camps – it’s a list of 18 key employee experience statistics for 2025. In 2024, global employee engagement remained low at 23%, with stagnation observed across various sectors, including IT. Source: Gallup State of the Global Workplace · Only 13% of employees are fully satisfied with their overall experience. Source: Gartner Research’s employee experience landing page · In 71% of organizations, IT’s key performance indicators (KPIs) have been created by IT alone. Source: HappySignals’ IT Experience Management Maturity Survey (2023) A study by Ricoh Europe unveiled discontent among UK and Irish employees regarding the outdated technology in their workplaces.\n\nIt’s commonly believed that survey fatigue is caused by the number and length of surveys deployed. This is a myth – a McKinsey review of more than 20 academic articles found the primary driver (of survey fatigue) to be the perception the surveying organization wouldn’t act on the results. Source: Survey fatigue? Blame the leader, not the question · If you would like to learn more about the importance of employee experience to your organization, take a look at our Global IT Experience Report. ... Once an IT organization understands the value of end-user experience and the insight provided by experience data, it ...\n\n26% of ITSM professionals considered digital employee experience (DEX)/employee experience management a top five ITSM trend. Source: ITSM Trends for 2025 · After happier end-users, the top benefits gained from experience management are better focus for IT teams, that IT can make better decisions based on data, and more motivated IT employees. Source: IT Experience Management Maturity Survey (2023) While end-users feel they lose more time with Remote Work, they still rate Remote Work +42 points higher than the Office Environment. Source: The Global IT Experience Benchmark (2023) Dell experienced significant resistance to its return to office (RTO) policy, with nearly 50% of its US workforce opting to remain remote despite limitations on promotions and role changes for remote employees. Source: Business Insider (account needed) Employees in the largest companies think they lose more time to IT issues.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.happysignals.com/blog/18-key-employee-experience-statistics-for-2025",
+                "search_provider": "anthropic",
+                "age": "June 25, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "World's Largest Ongoing Study of the Employee Experience",
+              "url": "https://www.gallup.com/workplace/649487/world-largest-ongoing-study-employee-experience.aspx",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "gallup.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=gallup.com",
+                "site_name": "Gallup"
+              },
+              "is_missing": false,
+              "text": "Get more worldwide data on employee mental health and wellbeing by downloading Gallup’s State of the Global Workplace: 2024 Report. ... 1 Whitman, D. S., Van Rooy, D. L., &amp; Viswesvaran, C. (2010). Satisfaction, citizenship behaviors, and performance in work units: A meta-analysis of collective construct relations. Personnel Psychology, 63(1), 41-81. Edmans, A. (2012, November 1). The link between job satisfaction and firm value, with implications for corporate social responsibility. Academy of Management Perspectives, 26(4), 1-19. Harrison, D. A., Newman, D. A., &amp; Roth, P. L. (2006). How important are job attitudes? Meta-analytic comparisons of integrative behavioral outcomes and time sequences. Academy of Management Journal, 49(2), 305-325. 2 Harter, J. K., Schmidt, F. L., Asplund, J. W., Killham, E. A., &amp; Agrawal, S. (2010). Causal impact of employee work perceptions on the bottom line of organizations.\n\nGet more worldwide data on employee mental health and wellbeing by downloading Gallup’s State of the Global Workplace: 2024 Report. ... 1 Whitman, D. S., Van Rooy, D. L., & Viswesvaran, C. (2010). Satisfaction, citizenship behaviors, and performance in work units: A meta-analysis of collective construct relations. Personnel Psychology, 63(1), 41-81. Edmans, A. (2012, November 1). The link between job satisfaction and firm value, with implications for corporate social responsibility. Academy of Management Perspectives, 26(4), 1-19. Harrison, D. A., Newman, D. A., & Roth, P. L. (2006). How important are job attitudes? Meta-analytic comparisons of integrative behavioral outcomes and time sequences. Academy of Management Journal, 49(2), 305-325. 2 Harter, J. K., Schmidt, F. L., Asplund, J. W., Killham, E. A., & Agrawal, S. (2010). Causal impact of employee work perceptions on the bottom line of organizations.\n\nOver more than a quarter century since, that Gallup study has been updated and replicated 11 times, with some iterations published in top academic journals. The original 1998 study included 2,528 business units and teams from 24 companies. It has since grown to 183,806 business units from 736 research studies. Overall, Gallup has surveyed 64 million employees on topics related to employee engagement and wellbeing, and conducts the only global representative sampling of employees, updated annually in its State of the Global Workplace report. Employee engagement is the involvement and enthusiasm employees have for their work and workplace. Gallup measures engagement through a composite of 12 workplace experiences, including role clarity, resource availability, recognition for good work, development on the job, opinions counting, connection to a mission or purpose, coworker relationships, and work progress.\n\nJim Harter, Ph.D., is Chief Scientist, Workplace for Gallup and bestselling author of Culture Shock, Wellbeing at Work, It's the Manager, 12: The Elements of Great Managing and Wellbeing: The Five Essential Elements. His research is also featured in the groundbreaking New York Times bestseller, First, Break All the Rules. Dr. Harter has led more than 1,000 studies of workplace effectiveness, including the largest ongoing meta-analysis of human potential and business-unit performance. His work has also appeared in many publications, including Harvard Business Review, The New York Times and The Wall Street Journal, and in many prominent academic journals. Subscribe to the Front Page newsletter for insights on the world's most pressing topics. ... Your Email Address is not valid. Please re-enter your Email Address. ... Hong Kong S.A.R. of China ... Macao S.A.R.\n\nIn addition to Gallup’s findings, numerous academic studies and papers using different data sources and from different investigators have further supported the original Gallup findings.1 · Meta-analysis is a statistical method used to combine results from multiple studies to draw stronger conclusions than any single study can provide. A unique feature of meta-analysis is the ability to test whether the relationship between, in this case, employee engagement and performance is consistent across companies, industries, geographies and time. Most leaders want to know the likely return on investment for applying any management initiative. For them, meta-analysis can project the financial net gain in an investment. Several recent published studies have reported relationships between crowd-sourced employee opinion data and organizational financial performance.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.gallup.com/workplace/649487/world-largest-ongoing-study-employee-experience.aspx",
+                "search_provider": "anthropic",
+                "age": "November 21, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "(PDF) Employee experience: the new employee value proposition",
+              "url": "https://www.researchgate.net/publication/364303435_Employee_experience_the_new_employee_value_proposition",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "researchgate.net",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=researchgate.net",
+                "site_name": "ResearchGate"
+              },
+              "is_missing": false,
+              "text": "Originality/value This viewpoint paper makes a substantial contribution to the knowledge management by focusing on the pervasive yet underexplored issue of knowledge hiding. While previous studies have primarily concentrated on the advantages of knowledge sharing, this research shifts the focus to the harmful effects of knowledge hiding. It explores the underlying psychological, social, and organizational factors that drive individuals to conceal or withhold actionable knowledge. By integrating established theories and introducing a novel framework, the A.D.A.P.T. model, this research provides valuable insights for organizations to alleviate the negative consequences of knowledge hoarding and cultivate a culture of knowledge sharing. ... ... Yazında çalışan deneyimi boyutlarıyla ilgili incelenen çalışmalarda bir birlik olmadığı ve farklı sınıflandırmaların olduğu gözlenmiştir (Yadav ve Vihari, 2021;Veena, 2022; Panneerselvam ve Balaraman, 2022;Harlianto ve Rudi, 2023;Joshi vd., 2024).\n\nOriginality/value This viewpoint paper makes a substantial contribution to the knowledge management by focusing on the pervasive yet underexplored issue of knowledge hiding. While previous studies have primarily concentrated on the advantages of knowledge sharing, this research shifts the focus to the harmful effects of knowledge hiding. It explores the underlying psychological, social, and organizational factors that drive individuals to conceal or withhold actionable knowledge. By integrating established theories and introducing a novel framework, the A.D.A.P.T. model, this research provides valuable insights for organizations to alleviate the negative consequences of knowledge hoarding and cultivate a culture of knowledge sharing. ... ... Yazında çalışan deneyimi boyutlarıyla ilgili incelenen çalışmalarda bir birlik olmadığı ve farklı sınıflandırmaların olduğu gözlenmiştir (Yadav ve Vihari, 2021;Veena, 2022; Panneerselvam ve Balaraman, 2022;Harlianto ve Rudi, 2023;Joshi vd., 2024).\n\nOrganizational research pays significant attention to proactive behavior due to its potential to enhance both individual and organizational effectiveness. Especially in recent times, efforts have focused on explaining proactive behavior as a key characteristic of followership. This review thoroughly examines the current understanding, the role, and future directions of proactive behavior from the followership perspective. Drawing on a diverse array of peer-reviewed literature in the fields of management, psychology, and organizational behavior, this review synthesizes insights from 57 articles published between 2009 and 2024, identified using the rigorous Scientific Procedures and Rationales for Systematic Literature Reviews (SPAR-4-SLR) protocol. Initially, these articles underwent bibliometric analysis to provide a quantitative overview, followed by interpretive analysis to derive qualitative insights.\n\nThis person is not on ResearchGate, or hasn't claimed this research yet. Download full-text PDFDownload full-text PDFRead full-text ... Purpose Knowing what employees expect in the never normal environment post-COVID-19 can help organizations understand talent needs and preferences – including how and where they want to work, as well as what they need to feel productive – and then initiate action on those expectations. So, this paper aims to delineate the factors that makes an employee experience (EX) that align, empower and accelerate business impact. Design/methodology/approach This viewpoint paper draws on extant literature review – academic journals and mainstream business magazines – and establish a case for EX as an emerging concept in employer–employee relationship. Findings EX is the function of work, workplace culture, empowering technologies, flexible human resource policies/practices and importantly inclusive leadership.\n\nResearch Journal, Vol. 22 No.3, pp. 250–260. Cattermole, G. (2018), \"Creating an employee engagement strategy for millennials\", Strategic HR Review, Vol. 17 No. 6, pp. 290-294. https://doi.org/10.1108/SHR-07-2018-0059 · Chacko, S. and Conway, N. (2016), “Employee experiences of HRM through daily affective · events and their effects on perceived event‐signalled HRM system strength, expectancy · perceptions, and daily work engagement”, Human Resource Management Journal, Vol. 29 · No. 3, pp. 433-450. Chen, Y. and Fulmer, I.S. (2017), “Fine-tuning what we know about employees' experience · with flexible work arrangements and their job attitudes”, Vol. 57 No. 1, pp. 381-395. Dery, K., Sebastian, I. M. and van der Meulen, N. (2017), “The digital workplace is key to · digital innovation”, MIS Quarterly Executive, Vol. 16 No. 2, pp. 135–152. Dery, K., van der Meulen, N.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.researchgate.net/publication/364303435_Employee_experience_the_new_employee_value_proposition",
+                "search_provider": "anthropic",
+                "age": "October 10, 2022"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Employee experience: the new human resource management approach | Request PDF",
+              "url": "https://www.researchgate.net/publication/316570770_Employee_experience_the_new_human_resource_management_approach",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "researchgate.net",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=researchgate.net",
+                "site_name": "ResearchGate"
+              },
+              "is_missing": false,
+              "text": "This research comprehensively explores the link between employee and customer experiences, while integrating employee experience with GenAI and hybrid work as timely constructs that reflect the complexities at the frontline.\n\nThe sustainability and attractiveness of the teaching profession has received increased attention in recent years due to labor shortages in public education and the exodus from the teaching profession. The aim of this research was to explore what factors provided by employers secondary school teachers consider most important in terms of job satisfaction, and to what extent these factors influence their performance, their intention to remain in the profession, and their positive communication about their school. Our original plan was to conduct a comparative analysis between Hungary and Slovakia, but unfortunately, we were unable to collect enough responses from the Slovak side. The questionnaire survey was therefore conducted in Hungary from May 2024 to May 2025, using convenience sampling, based on the responses of a total of 157 people. During the research, weighted satisfaction indicators were developed, combining the benefits and conditions that teachers considered important and ac\n\nThis research comprehensively explores the link between employee and customer experiences, while integrating employee experience with GenAI and hybrid work as timely constructs that reflect the complexities at the frontline. These findings contribute to the literature on human–technology interaction and organizational change, extending the service climate framework with empirical evidence on the evolving dynamics between technology, employees, and customers. ... ... \" (Gheidar and Shami, 2020). Scholars assert that employee experience comprises every interaction of employees, be it positive or negative, encountered by them throughout their association with the organization, starting from the initial application stage until the point they depart as an alumnus (Gallup, 2018; Plaskoff, 2017), including their skill development, salary, and growth (Joshi et al., 2024).\n\nIn this study, research data were obtained from 207 respondents using a questionnaire and Likert scale measurement. The data analysis technique used is SEM-Partial Least Square (PLS) to test the hypothesis that has been formulated. The results of this study indicate that the physical environment, cultural environment, and cultural environment have a significant positive effect on employee performance mediated by job satisfaction of generation Z employees at companies in East Java partially. As well as a good physical environment, inclusive organizational culture, and technological support. ... ... Es esencial que la empresa comprenda realmente a sus empleados y desarrolle empatía hacia ellos, tanto individualmente como en grupos representativos, considerando de manera integral toda la experiencia en lugar de solo eventos específicos (Cueva, 2023;Meybodi et al., 2024).\n\n... Research suggests that younger generations have higher expectations of a social atmosphere than previous generations (Magni & Manzoni, 2020;Minzlaff, Palmer & Fillery-Travis, 2024). However, Baby Boomers and Gen X still represent a significant workforce segment, and there is a pressing need to explore and redefine the rules of engagement within contemporary working contexts, particularly given the early warning signs of isolation and disconnection in the aftermath of the COVID pandemic · (Plaskoff., 2017;Moore et al., 2022;McRae et al., 2023;). Limited data exists examining intergenerational differences, making the literature inconclusive (Allen et al., 2021). ... Reducing quiet quitting in the contemporary workplace: four focus areas ... Purpose This viewpoint paper aims to provide four recommendations to improve belonging and reduce quiet quitting in the contemporary workplace. Design/methodology/approach This paper synthesises recent academic and contextual literature regarding",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.researchgate.net/publication/316570770_Employee_experience_the_new_human_resource_management_approach",
+                "search_provider": "anthropic",
+                "age": "June 12, 2017"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "The 5 Employee Experience Trends Redefining Work in 2025",
+              "url": "https://www.qualtrics.com/articles/employee-experience/employee-experience-trends/",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "qualtrics.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=qualtrics.com",
+                "site_name": "Qualtrics"
+              },
+              "is_missing": false,
+              "text": "Our 2024 report found that employees were generally comfortable with AI, as long as it assisted them rather than managed them: 53% of engaged employees were comfortable with AI, compared to 30% of disengaged employees.\n\nThe global economic outlook for 2025 suggests that the pressure on employees is likely to continue, with rapid change and disruption becoming the norm. Given how complex work has become, it’s never been more important for organizations to listen to and understand the needs of their people, whether they’re struggling with processes, or disengaged. What you hear will help you enhance processes, supply the right tools, remove unnecessary red tape, and empower employees to be autonomous. And the appetite for listening is growing. In 2024, only a third (35%) of employees were being asked for feedback more frequently than once a year. But, in 2025, this has risen to nearly half (48%). Traditional methods of employee listening, such as the annual and quarterly survey, are no longer enough alone. Instead, consider using multiple methods to understand what your people want and need, without interrupting their work: Engagement solutions and frequent pulsing to tap into employee sentiment ·\n\nIn 2024, we found that the ‘honeymoon period’ for new employees was over, highlighting how onboarding was in dire need of improvement. In 2025, the honeymoon period still hasn’t returned — but when we asked employees about their experiences over the last 12 months, we discovered there are experiences rated worse than onboarding. Why is this important? Well, entrance and exit experiences strongly influence the relationship between the organization and its potential employees and customers. First and last impressions are powerful, so much so that positive experiences often lead to employees and customers becoming advocates, while negative experiences can tarnish a brand’s reputation and recruitment drives. Organizations that don’t gather information from their incoming and outgoing employees miss out on vital data that reveals the reasons why people leave or stay, and even alienate potential brand ambassadors.\n\nOur 2024 report found that employees were generally comfortable with AI, as long as it assisted them rather than managed them: 53% of engaged employees were comfortable with AI, compared to 30% of disengaged employees. For 2025, we found that sentiment towards AI is more positive than negative. Of employees who use AI daily or weekly: ... It’s not just optimism either — employees are actively adopting AI tools at work, with 45% already using them daily or weekly. As for what tools they’re using and where they’re sourcing them from… that’s a bit of a mishmash: 23% of employees use a mix of work/personal AI sourced tools · 30% of employees are mostly or only using AI tools they have sourced themselves · 48% of employees are mostly or only using AI tools their company has provided ... AI is generally trumpeted as a solution to enhance productivity, reduce employee time spent on repetitive and routine tasks, and shape the future of work.\n\nLooking at the mixture of work issued and personally sourced AI tools that respondents to our 2025 survey report using, there’s clearly a lack of standardized guiding principles and training in the use of AI that organizations need to get a handle on as soon as possible. Just over half (52%) of employees worldwide agree that their organizations: Have clear principles, ethics, or guidelines on the use of AI tools · Provide training and enablement on the use of AI tools · There's clearly work to be done. As adoption outstrips organizational maturity, training in the use of AI, including clear policies and practices, is vital. What’s more, organizations must frame AI as a way to increase the quality of work, not necessarily quantity. To this end, the best people to get involved with your AI tech transformation are your HR leaders. They’re the people closest to your workforce – changing perceptions, encouraging adoption of AI and supporting your people through changes.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.qualtrics.com/articles/employee-experience/employee-experience-trends/",
+                "search_provider": "anthropic"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "2025 Digital Employee Experience (DEX) Report and Trends | Ivanti",
+              "url": "https://www.ivanti.com/resources/research-reports/digital-employee-experience",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "ivanti.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=ivanti.com",
+                "site_name": "Ivanti"
+              },
+              "is_missing": false,
+              "text": "Results from a 2024 Ivanti survey found nearly 1 in 4 IT professionals (23%) had an IT colleague who resigned due to workplace burnout. And when digital friction is left unchecked, organizations may face broader productivity plateaus, making ...\n\nFailure to address subpar digital experiences places a significant burden on IT professionals; for example, it increases employee frustration, which has spillover effects on the help desk. Results from a 2024 Ivanti survey found nearly 1 in 4 IT professionals (23%) had an IT colleague who resigned due to workplace burnout. And when digital friction is left unchecked, organizations may face broader productivity plateaus, making it particularly costly. Organizations can't afford DEX complacency, especially as shifting generational expectations put ever-greater pressure on IT to deliver high-performing digital experiences. Younger employees enter the workforce with fundamentally different relationships with technology — they expect seamless, intuitive experiences and have little patience for clunky systems or workarounds. As these digital natives become a larger portion of the workforce, organizations that fail to prioritize DEX will find themselves dealing with increasingly frustrated em\n\nPerhaps most troubling: IT professionals report a relatively high level of confidence about their own organizations’ DEX achievements even while Ivanti’s research points to multiple areas of underperformance. For example, 77% say they measure and track DEX, and 85% say DEX is a high priority. of IT teams struggle to automate processes and monitor endpoints. Yet when we drill down to specifics, we see few organizations (23%) report their use of DEX strategies and tactics is “advanced” — i.e., includes comprehensive DEX monitoring, measurement and automation. And many (42%) say they've invested in DEX solutions but still struggle to automate processes and monitor endpoints. This disconnect matters, because the cost of getting DEX wrong keeps rising. Ivanti’s research highlights all the ways tech complexity and sprawl throw sand in the gears of the modern enterprise.\n\nIvanti’s research shows many companies simply aren't implementing fundamental DEX best practices, even though most (67%) claim their maturity level is either a 3 or 4 — the highest levels of DEX maturity. The gap suggests organizations may be confusing having digital experience tools with delivering an optimized digital experience. While DEX-supporting tools are critical, they only deliver meaningful results when deployed as part of a comprehensive DEX framework and strategy rather than as standalone solutions. How IT leaders can identify and remove the biggest obstacles to DEX success. On average, office workers give their help desks a “B” grade — not bad, but with plenty of room for improvement. Ivanti’s research points to the specific steps companies should take on the path to scoring an “A.” · Tech complexity and sprawl are rising concerns among IT professionals.\n\nFor employees, improvements mean deploying AI-powered chatbots and self-service portals to give them the help desk experience they prefer. Ivanti’s research shows that employee interest in using IT chatbots is rising — likely due to improvements in AI capabilities and user experience. Today, 36% say they would use a chatbot over a human to solve their IT problem, up 5 points in just one year. Even among those who prefer human interaction, 66% would consider a hybrid solution that lets them escalate to a human agent when the chatbot can't quickly resolve their issue. Such improvements could help narrow a sizable gap in employees’ experience with resolving tech issues. Nearly half of workers (49%) now prefer fixing IT problems themselves rather than contacting the help desk — up 4 points in just one year. Yet only 13% say it's \"very easy\" to actually do this today.",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://www.ivanti.com/resources/research-reports/digital-employee-experience",
+                "search_provider": "anthropic",
+                "age": "September 10, 2025"
+              }
+            },
+            {
+              "type": "knowledge",
+              "title": "Employee experience in healthcare 2024",
+              "url": "https://info.pressganey.com/e-books-research/employee-experience-2024",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "pressganey.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=pressganey.com",
+                "site_name": "Press Ganey"
+              },
+              "is_missing": false,
+              "text": "Data-driven insights to boost engagement and improve healthcare employee retention. Get Press Ganey’s “Employee experience in healthcare 2024” report.\n\nPress Ganey surveyed 1,000+ consumers to discover the behaviors and preferences driving their healthcare decisions. Download the report for our latest CX research. ... See how top-performing healthcare organizations improve employee engagement and reduce turnover among staff.\n\n“Employee experience in healthcare 2024\" analyzes data from 2.2 million U.S.-based healthcare employees to better understand the workforce today—their challenges and expectations—and highlights opportunities for improvement. Engagement is up, but not for all: For the first time since the pandemic, engagement is on the upswing—from 4.02 (out of 5) to 4.04 overall. But key groups (like leaders and clinical registered nurses) still face extreme challenges. Clinical RNs show signs of improvement: Nurse engagement is rising (up +0.04 to 3.89), proving that focused efforts can make a real difference among critical or at-risk groups. Leader engagement continues to spiral: Leader engagement has fallen for three years in a row, dropping 3.7% during that time frame. They’re one of the few groups that has not begun to rebound from pandemic levels. The retention crisis continues: One in five healthcare workers who were at their organizations in 2022 left the following year, with even higher turnov",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "url": "https://info.pressganey.com/e-books-research/employee-experience-2024",
+                "search_provider": "anthropic"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2026-01-27T01:07:19.351511Z",
+          "stop_timestamp": "2026-01-27T01:07:34.315313Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "좋은 검색 결과들이 나왔습니다. 사용자가 원하는 \"신뢰도 높은 최신 논문\"을 찾았으니, 이제 이를 체계적으로 정리해서 추천해야 합니다.\n\n가장 주목할 만한 논문들:\n\n1. **Nature 학술지 논문 (2025년 5월)**: \"Employee experience: conceptualization, scale development, and validation\" - 이것은 매우 중요한 논문입니다. EX의 개념을 체계화하고 20문항 척도를 개발한 연구로, 자기결정이론(self-determination theory)을 기반으로 5가지 차원(업무 관련, 대인 조화, 조직 관리, 전문성 개발, 보상 패키지)을 도출했습니다.\n\n2. **SAGE 저널 논문 (2025년 1월)**: \"Role of Employee Experience and Its Impact on Job Satisfaction\" - PRISMA 방법론을 사용한 체계적 문헌 리뷰로 127개의 출판물을 분석했습니다.\n\n3. **Journal of Modelling in Management (2025년 1월)**: \"The importance of positive employee experience and its development through using predictive analytics\" - ML/AI를 활용한 EX 측정 프레임워크를 제시합니다.\n\n4. **Gallup 연구**: 25년 이상의 종단 연구로 64백만 명의 직원을 대상으로 한 세계 최대 규모의 EX 연구입니다.\n   \n실무 리포트들도 함께 검토할 가치가 있습니다. Ivanti의 2024/2025 Digital Employee Experience Report, Qualtrics의 2025 Employee Experience Trends, Press Ganey의 Healthcare 특화 EX 연구 등이 최신 산업 동향을 반영하고 있습니다. 사용자가 HR 전문가이면서 온톨로지 기반 자동화 시스템을 구축하고 있으므로, 이론적 프레임워크와 실무적 적용 모두를 고려해야 합니다.\n\n척도 개발과 측정 방법론, 그리고 AI/ML 활용 방식에 대한 관심이 클 것으로 보입니다.",
+          "summaries": [
+            {
+              "summary": "Nature 학술지 논문을 체계적으로 정리하여 추천 중입니다."
+            },
+            {
+              "summary": "Nature 학술지 논문을 체계적으로 정리하여 추천 중입니다."
+            },
+            {
+              "summary": "최신 논문들을 검토하고 실무 적용 가능성을 평가했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2026-01-27T01:07:32.624092Z",
+          "stop_timestamp": "2026-01-27T01:08:20.879745Z",
+          "flags": null,
+          "type": "text",
+          "text": "좋은 타이밍입니다. 직원 경험(Employee Experience) 분야가 2024-2025년에 급격히 성숙하면서 몇 가지 획기적인 연구가 나왔습니다. 당신의 HR 온톨로지 작업과 연결되는 지점이 많을 겁니다.\n\n## 🎯 최우선 추천: 학술 논문\n\n### 1. **Employee experience: conceptualization, scale development, and validation**\n**Nature: Humanities and Social Sciences Communications (2025년 5월)**\n이 논문은 자기결정이론을 기반으로 EX를 체계화하고 20문항 척도(EXS)를 개발했습니다. 6개 연구를 통해 5가지 차원을 도출했습니다: 업무 관련, 대인 조화, 조직 관리, 전문성 개발, 보상 패키지\n\n**왜 중요한가**: 당신이 구축하는 HR 온톨로지의 **개념 구조**를 설계하는 데 직접 적용 가능합니다. 5개 차원은 스킬 관계 매트릭스나 역량 프레임워크의 상위 카테고리로 쓸 수 있고, 20개 측정 문항은 리더십 평가 항목 설계에 참고할 수 있습니다.\n\n📄 링크: https://www.nature.com/articles/s41599-025-04926-5\n\n---\n\n### 2. **Role of Employee Experience and Its Impact on Job Satisfaction**\n**SAGE Journals (2025년 1월)**\nPRISMA 방법론으로 SCOPUS 데이터베이스에서 127개 논문을 체계적으로 리뷰했습니다. HR practices, Person-Organization Fit, Job Satisfaction 간의 관계를 통합적으로 분석했습니다\n\n**왜 중요한가**: 문헌 리뷰 방법론이 체계적이라 **증거 기반 HR 시스템** 설계에 적합합니다. 특히 HR practices가 조직 가치를 전달하고 직원-조직 적합성을 만들어낸다는 메커니즘은 당신의 피드백 시스템 설계와 직결됩니다.\n\n📄 링크: https://journals.sagepub.com/doi/10.1177/09711023251332049\n\n---\n\n### 3. **The importance of positive employee experience and its development through using predictive analytics**\n**Journal of Modelling in Management (2025년 1월)**\nML 알고리즘(SVM, 랜덤 포레스트 등)을 활용한 EX 측정 프레임워크를 제시합니다. 특히 각 직원이 고유한 경험을 추구한다는 점을 강조하며 \"one-size-fits-all\" 접근을 비판합니다\n\n**왜 중요한가**: 당신이 계획하는 **GCP 기반 HR SaaS**에서 예측 분석과 개인화 로직을 구현할 때 이론적 근거가 됩니다. 서베이, 인터뷰, 관찰, 팀워크 방법을 통해 1차 데이터를 수집하고 터치포인트를 식별하는 방법론은 사용자 리서치 프로세스 설계에 활용 가능합니다.\n\n📄 링크: https://www.emerald.com/jm2/article/20/1/51/1239377/The-importance-of-positive-employee-experience-and\n\n---\n\n## 🏢 실무 필독: 글로벌 연구 리포트\n\n### 4. **Gallup: World's Largest Ongoing Study of the Employee Experience**\n25년 이상 진행된 종단 연구로, 64백만 명의 직원을 조사했고 736개 연구에서 183,806개 비즈니스 유닛을 분석했습니다. 12개 핵심 경험 요소를 통해 engagement를 측정합니다\n\n**왜 중요한가**: 메타분석 방법론으로 **ROI 예측**이 가능하다는 점이 핵심입니다. 당신이 독립 사업을 준비할 때 고객사에게 \"리더십 프로그램이 실제로 비즈니스 성과에 미치는 영향\"을 증거 기반으로 제시할 수 있습니다.\n\n📄 링크: https://www.gallup.com/workplace/649487/world-largest-ongoing-study-employee-experience.aspx\n\n---\n\n### 5. **Qualtrics: The 5 Employee Experience Trends Redefining Work in 2025**\n2025년 핵심 트렌드: AI 도입 가속화(45%가 일주일에 한 번 이상 사용), 리스닝 빈도 증가(연 1회에서 연중 여러 차례로), 온보딩보다 퇴사 경험이 더 나쁨\n\n**왜 중요한가**: 52%만이 조직에 명확한 AI 윤리 가이드라인과 교육이 있다고 답했고, 48%는 회사 제공 AI 도구만 쓰고 30%는 개인이 찾은 도구를 쓴다는 발견은 당신의 **AX(AI Transformation) 역량 프레임워크** 설계에 직접 반영해야 할 현장 니즈입니다.\n\n📄 링크: https://www.qualtrics.com/articles/employee-experience/employee-experience-trends/\n\n---\n\n### 6. **Ivanti: 2024 Digital Employee Experience (DEX) Report**\n7,800명의 IT 전문가와 오피스 근로자 조사 결과, 77%가 DEX를 측정한다고 하지만 23%만 실제로 advanced level(포괄적 모니터링·측정·자동화)입니다. 36%는 챗봇을 선호하며 전년 대비 5%p 증가했습니다\n\n**왜 중요한가**: 직원의 49%가 헬프데스크보다 스스로 문제를 해결하고 싶어하지만 13%만 \"매우 쉽다\"고 답했다는 간극은 당신의 **HR 자동화 시스템**이 해결해야 할 핵심 pain point입니다. 특히 chatbot과 self-service portal 선호도 증가는 당신의 SaaS 제품 UX 방향성을 시사합니다.\n\n📄 링크: https://www.ivanti.com/resources/research-reports/digital-employee-experience\n\n---\n\n## 💡 당신의 프로젝트와의 접점\n\n**온톨로지 설계 관점**에서 Nature 논문의 5차원 구조는 당신의 HR 스킬 온톨로지 상위 클래스로 직접 매핑 가능합니다:\n- Work-related → Task/Role 관련 스킬\n- Interpersonal harmony → Collaboration/Communication 스킬\n- Organizational management → Leadership/Strategy 스킬\n- Professional development → Learning/Growth 스킬\n- Remuneration package → Compensation/Benefits 데이터\n\n**측정 자동화 관점**에서 Journal of Modelling in Management 논문의 ML 프레임워크는 당신이 구축하는 **리더십 평가 자동화 시스템**에서 개인화된 피드백 생성 알고리즘으로 구현 가능합니다.\n\n**AX 역량 설계 관점**에서 Qualtrics와 Ivanti 리포트는 제조 환경에서 AI transformation을 추진할 때 **직원들이 실제로 겪는 마찰점**을 보여줍니다. 특히 \"AI 도구는 쓰는데 가이드라인은 없다\"는 현실은 당신의 AX competency framework에서 다뤄야 할 핵심 영역입니다.\n\n어떤 논문부터 깊이 읽어보고 싶으신가요? 필요하면 특정 논문의 핵심 방법론이나 프레임워크를 당신 프로젝트에 적용하는 방법을 함께 설계할 수 있습니다.",
+          "citations": [
+            {
+              "uuid": "b1449c90-2cd8-470f-ac2e-893ef8d56faa",
+              "start_index": 293,
+              "end_index": 405,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.nature.com/articles/s41599-025-04926-5"
+              }
+            },
+            {
+              "uuid": "ee6ab762-98d9-4e68-8be9-46d02cfc3701",
+              "start_index": 718,
+              "end_index": 845,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://journals.sagepub.com/doi/10.1177/09711023251332049"
+              }
+            },
+            {
+              "uuid": "f763c1c5-5393-4576-95fa-5d0bb5f4ea19",
+              "start_index": 907,
+              "end_index": 955,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://journals.sagepub.com/doi/10.1177/09711023251332049"
+              }
+            },
+            {
+              "uuid": "1745c571-edc4-459b-bc8f-b66561f15aed",
+              "start_index": 1215,
+              "end_index": 1324,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.emerald.com/jm2/article/20/1/51/1239377/The-importance-of-positive-employee-experience-and"
+              }
+            },
+            {
+              "uuid": "72af4be4-24b9-4e5e-862e-28a8e91c53f0",
+              "start_index": 1402,
+              "end_index": 1455,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.emerald.com/jm2/article/20/1/51/1239377/The-importance-of-positive-employee-experience-and"
+              }
+            },
+            {
+              "uuid": "47997643-b971-4c3d-a737-4b763d9c751b",
+              "start_index": 1700,
+              "end_index": 1806,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.gallup.com/workplace/649487/world-largest-ongoing-study-employee-experience.aspx"
+              }
+            },
+            {
+              "uuid": "294f3493-e8ed-4e16-a169-5b93e7960ae8",
+              "start_index": 2120,
+              "end_index": 2212,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.qualtrics.com/articles/employee-experience/employee-experience-trends/"
+              }
+            },
+            {
+              "uuid": "5f654bd2-00e8-4174-8439-e2cc2add33b3",
+              "start_index": 2226,
+              "end_index": 2305,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.qualtrics.com/articles/employee-experience/employee-experience-trends/"
+              }
+            },
+            {
+              "uuid": "9f5b48e1-1753-4729-80fd-66c6f9946fab",
+              "start_index": 2535,
+              "end_index": 2661,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.ivanti.com/resources/research-reports/digital-employee-experience"
+              }
+            },
+            {
+              "uuid": "487efcc4-25a4-4304-8913-42f11a2d565a",
+              "start_index": 2675,
+              "end_index": 2728,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.ivanti.com/resources/research-reports/digital-employee-experience"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-01-27T01:08:20.970849Z",
+      "updated_at": "2026-01-27T01:08:20.970849Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019bfcfd-4a02-76fa-8228-888b026676c5"
+    }
+  ]
+}

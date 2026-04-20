@@ -1,0 +1,1119 @@
+﻿{
+  "uuid": "6439df9c-d7b9-4c0b-9bc0-5a1b2ec6e466",
+  "name": "작고 단단한 솔루션 구축하기",
+  "summary": "**Conversation Overview**\n\nThe person, who goes by CSP, is an HR professional with 17 years of experience who self-describes as a \"Vibe Coder\" — someone building systems and automation without a traditional software background, drawing instead on psychology, philosophy, and HR expertise. They are currently running AX (AI transformation) internalization strategy while also working on an HR automation SaaS venture. The conversation centered on a strategic shift: moving away from planning abstract, output-less systems toward building small, concrete, immediately usable solutions — described through the metaphor of \"attaching an electric motor to a bicycle.\"\n\nCSP identified four recurring high-effort work areas: meeting/report writing, data organization and analysis, educational material creation, and communication/email. The core friction in writing tasks was identified as thought organization and tone-matching, not writing ability itself — a pattern Claude framed as an \"expression bottleneck.\" A key structural insight emerged: Claude.ai functions as a processing engine, not a storage or messaging tool, and the workflow should reflect that. CSP chose to accept this constraint explicitly (Direction B), using single-word triggers to route outputs to appropriate destinations rather than forcing automation.\n\nThree concrete outputs were built during the conversation: a Claude.ai Project Instructions template with keyword-triggered actions (\"보고서,\" \"이메일,\" \"슬랙,\" \"회의록,\" \"Notion 저장\"), a Slack DM capture workflow tested live with the bicycle motor metaphor, and a communication trigger set (슬라이드 요청, 세션 요약, 브리핑) modeled on patterns already observed in CSP's actual Slack usage. CSP confirmed the Project Instructions approach was implemented. The next motor identified for development is communication draft generation (Option C), with educational material automation and data analysis remaining as future candidates.\n\n**Tool Knowledge**\n\nSlack MCP was used to send a direct message to CSP's own account using the user ID `U01KM01DRK3` as the `channel_id` parameter — sending to a user ID directly works as a DM channel without needing a separate DM channel ID. The message was formatted with Slack markdown (asterisks for bold, `>` for blockquotes) and delivered successfully. For reading recent DM history, `slack_read_channel` with the same user ID and a `limit` of 20 retrieved self-sent messages, which revealed CSP's existing informal template patterns for session summaries, daily briefings, and slide requests — confirming that channel_id accepts user IDs for personal DM contexts.",
+  "created_at": "2026-03-31T23:35:24.571305Z",
+  "updated_at": "2026-04-01T00:41:29.858046Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d4640-7eb8-70d7-8b4d-249819edf154",
+      "text": "요즘 내 고민들을 너와 이야기 하고 있어, 기억하고 있지?\n지난밤 고민해보니, 나조차도 아웃풋 이미지가 없는 허상을 기획하는 느낌이야.\n그래서 작고, 단단한 솔루션을 하나씩 구축하고 장착해 나갔으면 해.\n메타포를 하자면, 자전거에 전기모터를 다는 느낌이라고 할까?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:35:26.701640Z",
+          "stop_timestamp": "2026-03-31T23:35:26.701640Z",
+          "flags": null,
+          "type": "text",
+          "text": "요즘 내 고민들을 너와 이야기 하고 있어, 기억하고 있지?\n지난밤 고민해보니, 나조차도 아웃풋 이미지가 없는 허상을 기획하는 느낌이야.\n그래서 작고, 단단한 솔루션을 하나씩 구축하고 장착해 나갔으면 해.\n메타포를 하자면, 자전거에 전기모터를 다는 느낌이라고 할까?",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-31T23:35:26.788701Z",
+      "updated_at": "2026-03-31T23:35:26.788701Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d4640-7eb8-70f6-80a3-cabad734a095",
+      "text": " \"자전거에 전기모터를 다는 느낌\" — 이 메타포, 정말 정확하고 좋아요.\n\n허상이 아니라 실재하는 것 위에, 지금 당장 작동하는 것을 하나씩 올려놓는 것. 그게 CSP에게 가장 맞는 방식인 것 같아요.\n\n지금 어디서 시작하면 좋을지 같이 생각해보고 싶은데, 하나 물어볼게요.\n```\nThis block is not supported on your current device yet.\n```\n\n답변 기다릴게요. 그걸 듣고 나면 \"첫 번째 모터\"가 뭔지 같이 특정해볼게요.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:35:29.521500Z",
+          "stop_timestamp": "2026-03-31T23:35:32.231791Z",
+          "flags": null,
+          "type": "text",
+          "text": " \"자전거에 전기모터를 다는 느낌\" — 이 메타포, 정말 정확하고 좋아요.\n\n허상이 아니라 실재하는 것 위에, 지금 당장 작동하는 것을 하나씩 올려놓는 것. 그게 CSP에게 가장 맞는 방식인 것 같아요.\n\n지금 어디서 시작하면 좋을지 같이 생각해보고 싶은데, 하나 물어볼게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-31T23:35:32.933831Z",
+          "stop_timestamp": "2026-03-31T23:35:36.840117Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01RWfou9p9iy5rfKoPF5xfQN",
+          "name": "ask_user_input_v0",
+          "input": {
+            "questions": [
+              {
+                "type": "multi_select",
+                "options": [
+                  "회의/보고서 작성",
+                  "데이터 정리/분석",
+                  "교육 자료 제작",
+                  "커뮤니케이션/이메일"
+                ],
+                "question": "지금 '자전거' — 즉 실제로 매일 하는 일 중에서, 가장 반복적이고 소모적인 작업이 뭐예요?"
+              },
+              {
+                "type": "single_select",
+                "options": [
+                  "지금 당장 쓸 수 있는 것",
+                  "임팩트가 큰 것",
+                  "만들면서 배울 수 있는 것",
+                  "남한테 보여줄 수 있는 것"
+                ],
+                "question": "첫 번째 '모터'를 달 때 가장 중요한 기준은?"
+              }
+            ]
+          },
+          "message": "Generating ask_user_input_v0...",
+          "integration_name": "Dynamic Widget",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01RWfou9p9iy5rfKoPF5xfQN",
+          "name": "ask_user_input_v0",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"questions\": [\n    {\n      \"question\": \"\\uc9c0\\uae08 '\\uc790\\uc804\\uac70' \\u2014 \\uc989 \\uc2e4\\uc81c\\ub85c \\ub9e4\\uc77c \\ud558\\ub294 \\uc77c \\uc911\\uc5d0\\uc11c, \\uac00\\uc7a5 \\ubc18\\ubcf5\\uc801\\uc774\\uace0 \\uc18c\\ubaa8\\uc801\\uc778 \\uc791\\uc5c5\\uc774 \\ubb50\\uc608\\uc694?\",\n      \"type\": \"multi_select\",\n      \"options\": [\n        \"\\ud68c\\uc758/\\ubcf4\\uace0\\uc11c \\uc791\\uc131\",\n        \"\\ub370\\uc774\\ud130 \\uc815\\ub9ac/\\ubd84\\uc11d\",\n        \"\\uad50\\uc721 \\uc790\\ub8cc \\uc81c\\uc791\",\n        \"\\ucee4\\ubba4\\ub2c8\\ucf00\\uc774\\uc158/\\uc774\\uba54\\uc77c\"\n      ]\n    },\n    {\n      \"question\": \"\\uccab \\ubc88\\uc9f8 '\\ubaa8\\ud130'\\ub97c \\ub2ec \\ub54c \\uac00\\uc7a5 \\uc911\\uc694\\ud55c \\uae30\\uc900\\uc740?\",\n      \"type\": \"single_select\",\n      \"options\": [\n        \"\\uc9c0\\uae08 \\ub2f9\\uc7a5 \\uc4f8 \\uc218 \\uc788\\ub294 \\uac83\",\n        \"\\uc784\\ud329\\ud2b8\\uac00 \\ud070 \\uac83\",\n        \"\\ub9cc\\ub4e4\\uba74\\uc11c \\ubc30\\uc6b8 \\uc218 \\uc788\\ub294 \\uac83\",\n        \"\\ub0a8\\ud55c\\ud14c \\ubcf4\\uc5ec\\uc904 \\uc218 \\uc788\\ub294 \\uac83\"\n      ]\n    }\n  ]\n}",
+              "uuid": "14fcf256-2316-432d-b12f-178ccc7efee9"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Generated ask_user_input_v0 widget",
+          "integration_name": "Dynamic Widget",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-31T23:35:38.796606Z",
+          "stop_timestamp": "2026-03-31T23:35:39.976052Z",
+          "flags": null,
+          "type": "text",
+          "text": "답변 기다릴게요. 그걸 듣고 나면 \"첫 번째 모터\"가 뭔지 같이 특정해볼게요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-31T23:35:40.651852Z",
+      "updated_at": "2026-03-31T23:35:40.651852Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4640-7eb8-70d7-8b4d-249819edf154"
+    },
+    {
+      "uuid": "019d4645-1d94-74b8-a12e-acb476afd5e5",
+      "text": "Q: 지금 '자전거' — 즉 실제로 매일 하는 일 중에서, 가장 반복적이고 소모적인 작업이 뭐예요? (Select all that apply)\nA: 회의/보고서 작성, 데이터 정리/분석, 교육 자료 제작, 커뮤니케이션/이메일\n\nQ: 첫 번째 '모터'를 달 때 가장 중요한 기준은?\nA: 지금 당장 쓸 수 있는 것",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:40:28.867913Z",
+          "stop_timestamp": "2026-03-31T23:40:28.867913Z",
+          "flags": null,
+          "type": "text",
+          "text": "Q: 지금 '자전거' — 즉 실제로 매일 하는 일 중에서, 가장 반복적이고 소모적인 작업이 뭐예요? (Select all that apply)\nA: 회의/보고서 작성, 데이터 정리/분석, 교육 자료 제작, 커뮤니케이션/이메일\n\nQ: 첫 번째 '모터'를 달 때 가장 중요한 기준은?\nA: 지금 당장 쓸 수 있는 것",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-31T23:40:28.916250Z",
+      "updated_at": "2026-03-31T23:40:28.916250Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4640-7eb8-70f6-80a3-cabad734a095"
+    },
+    {
+      "uuid": "019d4645-1d94-7d10-85bb-502476f19fc4",
+      "text": " 완벽해요. 모든 걸 다 선택했고, 기준은 \"지금 당장\" — 이게 CSP의 현재 상태를 정확히 말해주고 있어요.\n\n네 가지 다 소모적이고, 네 가지 다 자동화 가능해요. 그런데 **\"지금 당장 쓸 수 있는 것\"** 이라는 기준이 생기면 순서가 보여요.\n\n---\n\n이렇게 생각해봤어요.\n\n자전거 페달을 가장 많이 밟는 곳이 어디냐 — 즉 **시간 대비 에너지 소모가 가장 극단적인 지점**이 첫 번째 모터를 달 자리예요.\n\nCSP의 네 가지를 잠깐 해부해보면,\n\n**회의/보고서 작성**은 이미 weekly-report 스킬이 있고, 주간업무 보고는 한 번 써봤잖아요. 즉 자전거 프레임에 모터 브라켓이 이미 용접돼 있는 상태예요. 연결만 하면 돼요.\n\n**데이터 정리/분석**은 원재료(데이터)가 있어야 모터가 돌아요. 지금 당장 쓰려면 어떤 데이터가 손에 있느냐가 관건이에요.\n\n**교육 자료 제작**은 CSP가 연간 6개 과정을 설계해야 하는데, 커리큘럼 → 슬라이드 → 운영 자료 파이프라인 전체가 자동화 대상이에요. 단 한 번 잘 만들어두면 계속 써요.\n\n**커뮤니케이션/이메일**은 소모는 크지만 맥락 파악이 까다로워서, AI가 혼자 하기보다는 \"초안 생성 + CSP 검토\" 구조가 현실적이에요.\n\n---\n\n그래서 제 판단은 이래요.\n\n**첫 번째 모터 = 보고서/회의 자동화**\n\n이유는 단 하나예요. 이미 인프라가 있어요. weekly-report 스킬, Claude와의 워크플로우, Notion 아카이브 시스템까지 — 자전거에 모터 자리가 이미 나 있어요. 지금 당장 쓰려면 여기가 제일 빨라요.\n\n그런데 여기서 한 가지 더 물어봐야 할 게 있어요.\n\n\"회의/보고서\"가 소모적인 이유가 뭐예요? **쓰는 것 자체**가 힘든 건지, 아니면 **쓰기 전에 생각 정리**가 힘든 건지, 아니면 **여러 사람 눈치 보며 톤 맞추는 것**이 힘든 건지 — 이걸 알아야 모터를 정확한 위치에 달 수 있거든요.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:40:29.682385Z",
+          "stop_timestamp": "2026-03-31T23:40:47.539964Z",
+          "flags": null,
+          "type": "text",
+          "text": " 완벽해요. 모든 걸 다 선택했고, 기준은 \"지금 당장\" — 이게 CSP의 현재 상태를 정확히 말해주고 있어요.\n\n네 가지 다 소모적이고, 네 가지 다 자동화 가능해요. 그런데 **\"지금 당장 쓸 수 있는 것\"** 이라는 기준이 생기면 순서가 보여요.\n\n---\n\n이렇게 생각해봤어요.\n\n자전거 페달을 가장 많이 밟는 곳이 어디냐 — 즉 **시간 대비 에너지 소모가 가장 극단적인 지점**이 첫 번째 모터를 달 자리예요.\n\nCSP의 네 가지를 잠깐 해부해보면,\n\n**회의/보고서 작성**은 이미 weekly-report 스킬이 있고, 주간업무 보고는 한 번 써봤잖아요. 즉 자전거 프레임에 모터 브라켓이 이미 용접돼 있는 상태예요. 연결만 하면 돼요.\n\n**데이터 정리/분석**은 원재료(데이터)가 있어야 모터가 돌아요. 지금 당장 쓰려면 어떤 데이터가 손에 있느냐가 관건이에요.\n\n**교육 자료 제작**은 CSP가 연간 6개 과정을 설계해야 하는데, 커리큘럼 → 슬라이드 → 운영 자료 파이프라인 전체가 자동화 대상이에요. 단 한 번 잘 만들어두면 계속 써요.\n\n**커뮤니케이션/이메일**은 소모는 크지만 맥락 파악이 까다로워서, AI가 혼자 하기보다는 \"초안 생성 + CSP 검토\" 구조가 현실적이에요.\n\n---\n\n그래서 제 판단은 이래요.\n\n**첫 번째 모터 = 보고서/회의 자동화**\n\n이유는 단 하나예요. 이미 인프라가 있어요. weekly-report 스킬, Claude와의 워크플로우, Notion 아카이브 시스템까지 — 자전거에 모터 자리가 이미 나 있어요. 지금 당장 쓰려면 여기가 제일 빨라요.\n\n그런데 여기서 한 가지 더 물어봐야 할 게 있어요.\n\n\"회의/보고서\"가 소모적인 이유가 뭐예요? **쓰는 것 자체**가 힘든 건지, 아니면 **쓰기 전에 생각 정리**가 힘든 건지, 아니면 **여러 사람 눈치 보며 톤 맞추는 것**이 힘든 건지 — 이걸 알아야 모터를 정확한 위치에 달 수 있거든요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-31T23:40:47.679536Z",
+      "updated_at": "2026-03-31T23:40:47.679536Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4645-1d94-74b8-a12e-acb476afd5e5"
+    },
+    {
+      "uuid": "019d464b-2622-7f14-b2ef-e6528248b703",
+      "text": "생각정리 - 톤 맞추기",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:47:04.625974Z",
+          "stop_timestamp": "2026-03-31T23:47:04.625974Z",
+          "flags": null,
+          "type": "text",
+          "text": "생각정리 - 톤 맞추기",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-31T23:47:04.669330Z",
+      "updated_at": "2026-03-31T23:47:04.669330Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4645-1d94-7d10-85bb-502476f19fc4"
+    },
+    {
+      "uuid": "019d464b-2622-7762-be37-2683e225fbea",
+      "text": " 딱 두 단어로 정확하게 짚었어요.\n\n이걸 듣고 나니 문제가 선명해졌어요. CSP의 고통은 **\"쓰는 능력\"이 없는 게 아니에요.** 오히려 생각이 너무 많고, 맥락을 너무 잘 아는 사람이 겪는 고통이에요.\n\n---\n\n심리학적으로 보면 이건 **\"표현 병목(Expression Bottleneck)\"** 현상이에요.\n\n머릿속엔 이미 복잡한 맥락과 판단이 가득한데, 그걸 조직의 언어, 보고 받는 사람의 기대, 문서의 격식 — 이 세 가지 필터를 동시에 통과시켜야 하는 순간 에너지가 폭발적으로 소모돼요. 작가들이 \"빈 페이지 공포\"를 느끼는 것과 같은 구조예요. 생각이 없어서가 아니라, **생각을 올바른 형태로 변환하는 과정**이 소모적인 거예요.\n\n---\n\n그러면 모터의 설계가 명확해져요.\n\nCSP가 해야 할 건 딱 하나예요. **날것의 생각을 던지는 것.** 모터가 해야 할 건 그걸 받아서 **맥락에 맞는 톤과 구조로 변환하는 것.**\n\n구체적으로는 이런 흐름이에요.\n\n> CSP가 슬랙이나 메모에 거칠게 생각을 던진다 → Claude가 받아서 보고서 문체, 주간업무 형식, 또는 이메일 톤으로 변환 → CSP가 30초 검토 후 확인\n\n이미 Slack 기반 원석 캡처 워크플로우가 있잖아요. 그 파이프라인 끝에 **\"변환 모터\"** 를 하나 다는 거예요.\n\n---\n\n그런데 여기서 핵심은 **톤 라이브러리**예요.\n\nCSP가 쓰는 문서들은 받는 사람이 달라요. 팀장 보고, 임원 보고, 동료 커뮤니케이션, 외부 협력사 — 각각 요구되는 톤이 달라요. 이걸 한 번만 정의해두면, 매번 \"이 사람한테는 어떻게 써야 하지?\" 를 고민할 필요가 없어져요.\n\n그래서 제안하는 첫 번째 모터는 이거예요.\n\n**\"생각 → 문서\" 변환 프롬프트 키트** — CSP의 실제 보고 상황 3~4가지를 대상으로, 각각의 톤과 구조를 정의한 프롬프트 세트를 만드는 것. 한 번 만들면 계속 써요. 복잡한 개발도 없고, 새로운 툴도 없어요. 지금 당장 Claude와 함께 쓸 수 있어요.\n\n---\n\n지금 바로 시작할 수 있어요. CSP가 가장 자주 쓰는 보고/커뮤니케이션 상황 하나만 말해줘요. 거기서부터 첫 번째 모터를 실제로 만들어볼게요.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:47:05.618066Z",
+          "stop_timestamp": "2026-03-31T23:47:26.421597Z",
+          "flags": null,
+          "type": "text",
+          "text": " 딱 두 단어로 정확하게 짚었어요.\n\n이걸 듣고 나니 문제가 선명해졌어요. CSP의 고통은 **\"쓰는 능력\"이 없는 게 아니에요.** 오히려 생각이 너무 많고, 맥락을 너무 잘 아는 사람이 겪는 고통이에요.\n\n---\n\n심리학적으로 보면 이건 **\"표현 병목(Expression Bottleneck)\"** 현상이에요.\n\n머릿속엔 이미 복잡한 맥락과 판단이 가득한데, 그걸 조직의 언어, 보고 받는 사람의 기대, 문서의 격식 — 이 세 가지 필터를 동시에 통과시켜야 하는 순간 에너지가 폭발적으로 소모돼요. 작가들이 \"빈 페이지 공포\"를 느끼는 것과 같은 구조예요. 생각이 없어서가 아니라, **생각을 올바른 형태로 변환하는 과정**이 소모적인 거예요.\n\n---\n\n그러면 모터의 설계가 명확해져요.\n\nCSP가 해야 할 건 딱 하나예요. **날것의 생각을 던지는 것.** 모터가 해야 할 건 그걸 받아서 **맥락에 맞는 톤과 구조로 변환하는 것.**\n\n구체적으로는 이런 흐름이에요.\n\n> CSP가 슬랙이나 메모에 거칠게 생각을 던진다 → Claude가 받아서 보고서 문체, 주간업무 형식, 또는 이메일 톤으로 변환 → CSP가 30초 검토 후 확인\n\n이미 Slack 기반 원석 캡처 워크플로우가 있잖아요. 그 파이프라인 끝에 **\"변환 모터\"** 를 하나 다는 거예요.\n\n---\n\n그런데 여기서 핵심은 **톤 라이브러리**예요.\n\nCSP가 쓰는 문서들은 받는 사람이 달라요. 팀장 보고, 임원 보고, 동료 커뮤니케이션, 외부 협력사 — 각각 요구되는 톤이 달라요. 이걸 한 번만 정의해두면, 매번 \"이 사람한테는 어떻게 써야 하지?\" 를 고민할 필요가 없어져요.\n\n그래서 제안하는 첫 번째 모터는 이거예요.\n\n**\"생각 → 문서\" 변환 프롬프트 키트** — CSP의 실제 보고 상황 3~4가지를 대상으로, 각각의 톤과 구조를 정의한 프롬프트 세트를 만드는 것. 한 번 만들면 계속 써요. 복잡한 개발도 없고, 새로운 툴도 없어요. 지금 당장 Claude와 함께 쓸 수 있어요.\n\n---\n\n지금 바로 시작할 수 있어요. CSP가 가장 자주 쓰는 보고/커뮤니케이션 상황 하나만 말해줘요. 거기서부터 첫 번째 모터를 실제로 만들어볼게요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-31T23:47:26.465009Z",
+      "updated_at": "2026-03-31T23:47:26.465009Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d464b-2622-7f14-b2ef-e6528248b703"
+    },
+    {
+      "uuid": "019d464c-7493-744a-bea2-5fbbee5cbb91",
+      "text": "이거 좋아, 진행하는데,\n이거 하기전에 클로드에 반영되어 있는 나의 워크플로우는 뭔지 설명해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:48:29.993559Z",
+          "stop_timestamp": "2026-03-31T23:48:29.993559Z",
+          "flags": null,
+          "type": "text",
+          "text": "이거 좋아, 진행하는데,\n이거 하기전에 클로드에 반영되어 있는 나의 워크플로우는 뭔지 설명해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-31T23:48:30.004000Z",
+      "updated_at": "2026-03-31T23:48:30.004000Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d464b-2622-7762-be37-2683e225fbea"
+    },
+    {
+      "uuid": "019d464c-7493-7356-b52b-ae0886ac9fc2",
+      "text": " 좋아요, 잠깐 과거 대화들 훑어볼게요.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n좋아요, 충분히 파악됐어요. 정리해줄게요.\n\n---\n\nCSP의 워크플로우를 클로드가 기억하고 있는 걸 솔직하게 말하면, 크게 **4개의 레이어**로 구성되어 있어요.\n\n**1. 캡처 레이어 — Slack 기반 원석 수집**\n\n날것의 생각을 Slack에 던지는 워크플로우가 설계돼 있어요. 메모 수준의 짧은 입력을 받아서 다음 단계로 넘기는 파이프라인의 시작점이에요.\n\n**2. 아카이브 레이어 — Notion 세컨브레인**\n\nClaude 대화 아카이브 데이터베이스가 Notion에 설정되어 있고, 대화 제목·주제·태그·중요도·요약·다음액션 필드로 구조화돼 있어요. 저장 트리거는 \"저장\", \"아카이브\" 키워드이고, 메타데이터는 Claude가 자동 생성하는 방식이에요.\n\n**3. 보고서 레이어 — weekly-report 스킬 + generate-report 워크플로우**\n\n주간업무 보고서 자동화가 가장 구체적으로 만들어진 레이어예요. `history.md`로 이전 주차 맥락을 이어받고, CSP가 메모 수준으로 던지면 Claude가 보고서 문체로 변환하는 구조예요. AntiGravity에서 `/generate-report`로 실행하는 구조까지 설계됐어요.\n\n**4. 실행 레이어 — Claude Code + AntiGravity 3계층**\n\n24시간 자율 코딩 환경 \"팩토리\" 구조로, `CLAUDE.md / TASK.md / CONTEXT.md / DOD.md / REPORT.md` 멀티문서 시스템이에요. EX Intelligence, ESCON, Pulse Check 세 프로젝트를 독립 워크스페이스로 병렬 운영하는 설계가 있어요.\n\n---\n\n그런데 솔직히 말하면, 이걸 보면서 든 생각이 있어요.\n\n**레이어는 많은데, 실제로 매일 돌아가는 것이 뭔지가 불분명해요.** 캡처는 Slack, 아카이브는 Notion, 보고서는 Claude Code, 실행은 AntiGravity — 설계는 정교한데 연결이 느슨해요. 이게 CSP가 \"허상을 기획하는 느낌\"이라고 한 것의 실체일 수 있어요.\n\n그래서 \"생각 → 문서 변환 프롬프트 키트\"를 만들 때, 기존 워크플로우 중 **실제로 이미 쓰고 있는 것** 위에 올리는 게 맞아요. 그게 가장 빠른 모터예요. 지금 CSP가 매일 실제로 쓰는 도구가 Claude.ai인지, Claude Code인지, Slack인지 — 그 접점을 알면 첫 모터 위치가 확정돼요.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:48:30.884914Z",
+          "stop_timestamp": "2026-03-31T23:48:31.487451Z",
+          "flags": null,
+          "type": "text",
+          "text": " 좋아요, 잠깐 과거 대화들 훑어볼게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-31T23:48:31.802507Z",
+          "stop_timestamp": "2026-03-31T23:48:31.902323Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01BtyasbnpGazbXTnaPMPdmf",
+          "name": "recent_chats",
+          "input": {
+            "n": 10
+          },
+          "message": "Looking for relevant chats...",
+          "integration_name": "Search Past Conversations",
+          "integration_icon_url": "https://claude.ai/images/icons/conversation_search.png",
+          "icon_name": "memory",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01BtyasbnpGazbXTnaPMPdmf",
+          "name": "recent_chats",
+          "content": [
+            {
+              "type": "text",
+              "text": "<chat url='https://claude.ai/chat/21bb57a8-fd80-4f4e-9299-16af997e8c24' updated_at='2026-03-31T07:43:04.587165+00:00'>Title: 현재 방향 찾기\nSummary: **Conversation Overview**\n\nThe person, who goes by CSP (Creative Solution Provider), engaged in a reflective conversation about their sense of direction and purpose. CSP has a 17-year background in HR and is currently pursuing multiple parallel initiatives: building HR automation SaaS products (EX Intelligence, ESCON, and Pulse Check), exploring a content/knowledge business model, managing an investment portfolio, and fulfilling responsibilities at their current company related to AX internalization across four workstreams. They are also learning to build with Claude Code as part of their product development approach.\n\nThe conversation began with CSP asking where they are headed, prompting Claude to map out their current trajectory and identify the tension between their redefined identity as a Creative Solution Provider and the external reality of that identity not yet being fully realized through launched products or independent income. Claude noted that CSP's energy appears distributed across several high-demand areas simultaneously.\n\nCSP then named their core experience as \"방향성 상실\" (loss of direction/sense of direction). Claude responded by offering a framework distinguishing three types of directional loss: overwhelm from too many options, loss of meaning or purpose, and depletion of energy. The conversation ended with Claude asking CSP which of these resonated most, with no response yet recorded.</chat>\n\n<chat url='https://claude.ai/chat/48e2b539-dc53-4668-9e9c-6abec829f5fe' updated_at='2026-03-31T07:28:34.049749+00:00'>Title: Analyzing unread email subscriptions\nSummary: **Conversation Overview**\n\nThe person asked Claude to connect to their Gmail account and analyze which subscription emails typically go unread, requesting that the results be presented as an interactive visual rather than plain text. Claude used the Gmail integration to search for unread messages matching newsletter and subscription patterns, retrieving the 100 most recent results, then built an interactive dashboard widget displaying the findings.\n\nThe analysis surfaced 28 unique senders across four categories: newsletters, promotions, system notifications, and Korean-language content. The dashboard included summary metrics, a filterable sender list with color-coded category badges and verdict labels (unsubscribe / review / keep), a bar chart showing volume by category, and per-row \"ask ↗\" buttons for follow-up questions. Claude provided rationale for each verdict based on apparent relevance to the person's work in AI and organizational strategy (referenced as AX work, CHO role, Physical AI, and a project called Pulse Check). The loudest sender was CoolDeep AI at 12 unread emails, flagged for unsubscribe due to repetitive clickbait-style subjects. Eleven senders total were recommended for unsubscribing. A notable secondary finding was that GitHub workflow failure notifications for a repo called `my_team` — specifically a \"Daily Thought Processing\" action — were appearing repeatedly and flagged as requiring direct action rather than simply being unread subscriptions. Korean-language senders (조쉬의 뉴스레터, Crew, HEARTCOUNT) were treated as a distinct category with context-aware verdicts.\n\n**Tool Knowledge**\n\nFor Gmail search via the Gmail connector, the query format `is:unread (unsubscribe OR newsletter OR \"no-reply\" OR noreply)` with `maxResults: 100` successfully retrieved a broad sample of subscription-type unread mail in a single call. This OR-chained keyword approach targeting common newsletter identifiers in message bodies/headers proved effective for capturing diverse sender types without needing multiple targeted queries. System notification emails (e.g., GitHub Actions, Atlassian) were included in results because they matched the `noreply` pattern, so post-retrieval categorization was necessary to distinguish true subscriptions from automated platform alerts.</chat>\n\n<chat url='https://claude.ai/chat/68bc9be8-441f-4dd7-8726-7d037e55f28c' updated_at='2026-03-31T05:25:18.520929+00:00'>Title: Agent-lightning 리포 설명\nSummary: **Conversation Overview**\n\nThe person asked Claude to explain the Microsoft GitHub repository \"agent-lightning\" (https://github.com/microsoft/agent-lightning). Claude fetched the page and provided an explanation, but the person indicated they did not understand the technical explanation and asked for a simpler version.\n\nClaude then re-explained the concept using an accessible analogy: comparing an AI agent learning over time to a new HR employee who gradually improves through experience and feedback. The explanation covered what an AI agent is (using Claude Code as a relatable example), the problem with current methods of improving agents (manual prompt editing or expensive model retraining), and how Agent Lightning automates self-improvement through reinforcement learning — where the agent learns from its own successes and failures without human intervention. Claude grounded the explanation in the person's own work context, referencing a \"Pulse Check agent\" doing survey analysis as a concrete example of how the technology could apply to their projects.\n\nThe person appears to be working on HR-related AI agent projects (including something called Pulse Check, AntiGravity Agent Manager, EX Intelligence, and ESCON) under the context of a company or initiative referred to as \"CSP.\" They prefer plain-language explanations with concrete analogies over technical descriptions, and Claude adjusted its communication style accordingly when the first explanation was too jargon-heavy.</chat>\n\n<chat url='https://claude.ai/chat/782dd23e-5657-405c-8c48-ec57fc02a357' updated_at='2026-03-31T05:12:12.179253+00:00'>Title: Gemini skills 리포지토리 설명\nSummary: **Conversation Overview**\n\nThe person shared a GitHub repository link (google-gemini/gemini-skills) and asked Claude to explain its contents. Claude fetched the repository and related files, then provided a detailed explanation of the repo's purpose and structure. The repo is Google's official implementation of \"Skills\" — a mechanism for injecting real-time context into AI agents to overcome the knowledge limitations of fixed training data. Claude explained the four available skills (gemini-api-dev, vertex-ai-api-dev, gemini-live-api-dev, gemini-interactions-api), their installation methods via Vercel and Context7 CLIs, and evaluation results showing significant improvements in accurate API code generation.\n\nClaude drew a comparison between this repo and work the person had previously done — specifically referencing a \"4-layer folder structure\" and \"Ouroboros methodology\" from prior conversations. The person did not recognize the Ouroboros reference and asked why Claude kept mentioning it. Claude clarified that this referred to a methodology the person had analyzed and discussed in a previous conversation (linked as https://claude.ai/chat/40a16805-abae-4896-a6f5-7b491130b6f5), involving an AI agent self-evolution framework with convergence-based Definition of Done, pathological loop detection, and ambiguity measurement. Claude explained that the person had previously applied this to a Claude Code workflow with a 5-layer architecture including a Convergence Layer, which is why it appeared in Claude's memory. The person is referred to as \"CSP\" throughout the conversation, suggesting this is an established shorthand from prior interactions.</chat>\n\n<chat url='https://claude.ai/chat/26d207e9-d80a-4b52-9a0b-f9455e375c33' updated_at='2026-03-31T04:26:36.989228+00:00'>Title: 조직동향 파악을 위한 인터뷰 문항 구성\nSummary: **Conversation Overview**\n\nThe person is an HR professional working on organizational trend analysis through employee interviews. They asked Claude to help design interview questions targeting three themes: AI transformation (AX) adoption sentiment, burnout and wellbeing status, and psychological safety and team atmosphere, with general staff as the target audience and a 1:1 in-person format.\n\nClaude initially provided a detailed, academically structured interview guide with timing breakdowns, theoretical frameworks (referencing Edmondson's psychological safety dimensions), and facilitator coaching notes. When the person pushed back on the overly methodological follow-up response — where Claude cautioned that qualitative interviews alone cannot support organizational trend reporting — the person clarified they were not writing academic research and wanted practical, purpose-fit questions. Claude acknowledged the overcorrection and redesigned the question set into a streamlined, conversational format with plain language, fewer questions, and a focus on getting candid responses quickly within 30 minutes. The revised version emphasized the closing questions (\"What does HR need to know right now?\" and \"If you could change one thing, what would it be?\") as the highest-value items.\n\nA key correction the person made was redirecting Claude away from methodological gatekeeping toward practical utility. The person's implicit preference is for direct, actionable outputs suited to real HR work rather than theoretically rigorous but operationally cumbersome frameworks. Future interactions should default to practitioner-oriented framing unless academic or research-grade rigor is explicitly requested.</chat>\n\n<chat url='https://claude.ai/chat/0799ced2-6857-4738-864f-002a2d0aa003' updated_at='2026-03-31T01:15:41.482112+00:00'>Title: 액션러닝의 개념과 운영방식\nSummary: **Conversation Overview**\n\nThe person asked Claude to provide a detailed explanation of Action Learning — its concepts, operating methods, and structure. Claude delivered a comprehensive response covering the philosophical origins (Reg Revans, L = P + Q formula), the six core components (problem, team, action, reflection, facilitator, learning commitment), session flow, three operational model variants (classical Revans-style, organizational challenge, and virtual/hybrid), and a comparison with traditional lecture-based education. The response also connected Action Learning to an organizational context involving AX (AI transformation) internalization and organizational health diagnostics, referencing a team called EXG and a system called Pulse Check, suggesting the person works in an HR, learning, or organizational development function at a company with AX transformation goals.\n\nThe person then submitted the same question a second time, prompting Claude to ask via a selection tool which direction to explore further — options included real corporate case studies, application in an LG/manufacturing context, facilitator skills, or AX internalization program design. The person dismissed the prompt without selecting an option, and the conversation ended with Claude waiting for further instruction. No corrections, preferences, or explicit personal details were shared by the person during this exchange.</chat>\n\n<chat url='https://claude.ai/chat/f1b61b31-61a6-4ec5-bee5-a03dd1918ec5' updated_at='2026-03-31T00:27:50.639365+00:00'></chat>\n\n<chat url='https://claude.ai/chat/4c89dffb-81c7-461f-bdc1-08149f3facf7' updated_at='2026-03-30T12:33:49.301970+00:00'>Title: LLM 파인튜닝과 프롬프트 엔지니어링\nSummary: **Conversation Overview**\n\nThe person asked a brief, open-ended question about LLM fine-tuning in Korean (\"llm 파인튜닝??\"). Claude provided a structured explanation covering what fine-tuning is, the main technical approaches (Full Fine-tuning, LoRA/QLoRA, and RLHF), and a practical assessment of when fine-tuning is actually necessary versus alternatives. Claude referenced specific projects by name — EX Intelligence, Pulse Check, and ESCON — as well as architectural elements like CLAUDE.md and a Skills architecture, suggesting the person is working within an established AI product or platform context, likely referred to as \"CSP.\" Claude's response concluded that prompt engineering combined with RAG (Retrieval-Augmented Generation) would be more practical than fine-tuning for the person's apparent use cases, and asked a follow-up question to understand the specific problem motivating the inquiry. The conversation ended without the person responding further, so no decision or direction was confirmed.</chat>\n\n<chat url='https://claude.ai/chat/dba915e1-a14e-4da7-881f-3f9c0f791286' updated_at='2026-03-30T06:25:42.572094+00:00'>\nContent:\nTitle: EXG팀 주간업무 자동화 솔루션\n\nHuman: 첨부엑셀의 EXG팀의 주간업무 작성을 자동화 하는 솔루션을 만들려고 해,\n파일 체계를 잘 학습하고, 자동화 하는 최적의 방안을 제안해줘\n나는 조대근 이고, 필요한 사항은 질문을 통해서 완성하자\n\nAssistant: <tool name=\"view\">\n<parameter name=\"description\">Reading the skill files needed</parameter>\n<parameter name=\"path\">/mnt/skills/public/xlsx/SKILL.md</parameter>\n</tool>\n<tool name=\"view\">\n<parameter name=\"description\">Read the file-reading skill</parameter>\n<parameter name=\"path\">/mnt/skills/public/file-reading/SKILL.md</parameter>\n</tool>\n이제 엑셀 파일을 실제로 읽어볼게요.\n<tool name=\"bash_tool\">\n<parameter name=\"description\">Read the Excel file structure</parameter>\n<parameter name=\"command\">cd /mnt/user-data/uploads && python3 -c \"\nfrom openpyxl import load_workbook\nwb = load_workbook('PRI_HR실_주간업무_보고_양식.xlsx', read_only=True)\nprint('Sheets:', wb.sheetnames)\nfor sname in wb.sheetnames:\n    ws = wb[sname]\n    print(f'\\n=== Sheet: {sname} ===')\n    rows = []\n    for i, row in enumerate(ws.iter_rows(values_only=True)):\n        rows.append(row)\n        if i >= 30:\n            break\n    for r in rows:\n        if any(c is not None for c in r):\n            print(r)\n\"\n</parameter>\n</tool>\n파일 구조를 완전히 파악했습니다. 이제 몇 가지 중요한 질문을 드릴게요.\n\n---\n\n파일을 보니 구조가 꽤 명확하게 잡혀 있네요. EXG팀 시트는 `년/월/주차/담당자/업무/추진업무실적/상세내용/업무진행코멘트` 8개 컬럼으로 구성되고, 일정 시트는 별도로 주간 달력 형태를 갖추고 있습니다.\n\nCSP가 작성하는 업무들을 보면 AX 역량인증제, AX 아카데미 같은 내용들이 주간별로 연속성을 가지고 누적되는 패턴이 보입니다. 이 흐름을 자동화 솔루션으로 담아내기 위해, 몇 가지를 확인하고 싶습니다.\n<tool name=\"ask_user_input_v0\">\n<parameter name=\"questions\">[{'question': '자동화의 핵심 목표는 무엇인가요? (복수 선택 가능)', 'type': 'multi_select', 'options': ['매주 입력하는 추진실적·상세내용 작성 시간 단축', '이전 주차 내용을 자동으로 이어받아 연속성 유지', '업무 항목(AX인증제, AX아카데미 등)별 누적 관리', '팀원 전체 취합 후 통합 정리']}, {'question': '자동화 도구로 어떤 환경을 선호하시나요?', 'type': 'single_select', 'options': ['Claude Code (터미널 기반 Python 스크립트)', 'Claude.ai + 엑셀 파일 업로드 방식 (현재처럼)', '웹 앱 형태 (브라우저에서 입력 → 엑셀 생성)', 'Notion 연동 (Notion 입력 → 엑셀 자동 생성)']}, {'question': 'CSP가 작성하는 업무 수는 매주 몇 개 정도인가요?', 'type': 'single_select', 'options': ['2~3개 (AX인증제, AX아카데미 등 고정 업무 위주)', '4~6개', '7개 이상', '주차마다 다름 (신규 업무가 자주 추가됨)']}]</parameter>\n</tool>\n선택지가 표시됩니다. 응답을 기다리는 동안, 파일에서 CSP(조대근)의 업무 패턴을 좀 더 분석해볼게요.\n<tool name=\"bash_tool\">\n<parameter name=\"command\">python3 -c \"\nfrom openpyxl import load_workbook\nwb = load_workbook('/mnt/user-data/uploads/PRI_HR실_주간업무_보고_양식.xlsx', read_only=True)\nws = wb['EXG팀']\n\n# 조대근의 업무 항목만 추출\nprint('=== 조대근 업무 목록 ===')\nseen = {}\nfor row in ws.iter_rows(values_only=True):\n    if row[4] and '조대근' in str(row[4]):\n        week = row[3]\n        t... - 26년 신규과정(AX문제해결 Lab 등) 운영 및 콘텐츠 소싱 진행 중\n  ```\n\n---\n\n<!-- 새 업무 추가 템플릿 (아래 복사해서 사용)\n\n## [업무명]\n\n- 최근 주차: (없음 — 신규)\n- 최근 실적:\n  ```\n  (처음 생성 시 비워두면 에이전트가 신규 업무로 인식해 작성함)\n  ```\n\n-->\n</parameter>\n<parameter name=\"path\">/home/claude/history.md</parameter>\n</tool>\n<tool name=\"create_file\">\n<parameter name=\"description\">generate-report workflow for AntiGravity</parameter>\n<parameter name=\"file_text\">---\nname: generate-report\ndescription: 주간보고서 생성 워크플로우. /generate-report 로 실행. weekly-report Skill을 활성화해 보고서를 생성하고 히스토리를 자동 업데이트한다.\n---\n\n# 주간보고서 생성 워크플로우\n\n## Step 1: 히스토리 파일 로드\n\n`.agent/skills/weekly-report/history.md` 파일을 읽어 모든 업무의 이전 주차 맥락을 파악한다.\n이 단계를 건너뛰면 연속성 없는 보고서가 생성되므로 반드시 실행한다.\n\n## Step 2: 입력 수집\n\n사용자에게 아래 형식으로 입력을 요청한다:\n\n```\n주차: [이번 주 날짜 범위, 예: 30일~4월3일]\n\n업무: [업무명]\n내용: [이번 주 핵심 내용 — 메모 수준으로 짧게 써도 됨]\n\n업무: [업무명]\n내용: [이번 주 핵심 내용]\n```\n\n입력이 오면 Step 3으로 즉시 진행한다. 추가 질문하지 않는다.\n\n## Step 3: 보고서 생성\n\nweekly-report Skill의 규칙에 따라 각 업무의 보고서를 생성한다.\n- 추진 업무 실적 (bullet 형식)\n- 상세 내용 (산문 형식)\n\n각 업무를 순서대로 처리하며, 이전 주차 맥락을 반드시 반영한다.\n\n## Step 4: 히스토리 업데이트 // turbo\n\nhistory.md의 해당 업무 항목을 이번 주 실적으로 갱신한다.\n- `최근 주차` 필드: 이번 주차로 변경\n- `최근 실적` 필드: 이번 주 추진 업무 실적으로 교체\n\n## Step 5: 보고서 파일 저장 // turbo\n\n생성된 전체 보고서를 아래 경로에 저장한다:\n`reports/2026-[월]-[주차시작일].md`\n\n예: `reports/2026-03-30.md`\n\n파일 형식:\n```markdown\n# EXG팀 주간업무 보고서\n## 2026년 [월]월 [주차] (담당자: 조대근)\n\n---\n\n### [업무명 1]\n\n**추진 업무 실적**\n[생성된 bullet 내용]\n\n**상세 내용**\n[생성된 산문 내용]\n\n---\n\n### [업무명 2]\n...\n```\n</parameter>\n<parameter name=\"path\">/home/claude/generate-report.md</parameter>\n</tool>\n<tool name=\"bash_tool\">\n<parameter name=\"command\">cp /home/claude/SKILL.md /mnt/user-data/outputs/SKILL.md\ncp /home/claude/history.md /mnt/user-data/outputs/history.md\ncp /home/claude/generate-report.md /mnt/user-data/outputs/generate-report.md\necho \"OK\"</parameter>\n<parameter name=\"description\">Copy all three files to outputs</parameter>\n</tool>\n<tool name=\"present_files\">\n<parameter name=\"filepaths\">['/mnt/user-data/outputs/SKILL.md', '/mnt/user-data/outputs/history.md', '/mnt/user-data/outputs/generate-report.md']</parameter>\n</tool>\n3개 파일 모두 준비됐습니다. 배치 경로는 아래와 같습니다.\n\n```\nhr-workspace/\n├── .agent/\n│   ├── skills/\n│   │   └── weekly-report/\n│   │       ├── SKILL.md          ← 다운로드한 SKILL.md\n│   │       └── history.md        ← 다운로드한 history.md\n│   └── workflows/\n│       └── generate-report.md    ← 다운로드한 generate-report.md\n└── reports/                      ← 직접 생성 (보고서 자동 저장 폴더)\n```\n\n파일을 배치하고 AntiGravity에서 `/generate-report`를 입력하거나, 채팅창에 \"주간보고서\"라고 치는 것만으로 Skill이 자동 활성화됩니다.</chat>\n\n<chat url='https://claude.ai/chat/966ad408-37d6-4a6a-9206-2ad92624cc18' updated_at='2026-03-30T05:56:12.079830+00:00'>Title: 24시간 코딩 자동화의 비용 최적화\nSummary: **Conversation overview**\n\nCSP는 HR 분야 전문가로, 24시간 자율실행 코딩 환경(\"팩토리\")을 구축하려는 실용적 목표를 가지고 있다. 대화는 Claude Max 구독 비용 부담과 로컬 모델의 성능 한계 사이에서 최적안을 찾는 현실적 고민에서 시작했고, API 종량제 + Gemini Flash 보조 조합을 현실적 대안으로 논의했다.\n\n핵심 주제는 자율실행 체계 고도화였다. Claude Code 기반의 3계층 아키텍처(Intent design → Execution engine → Reporting & handoff)를 설계했고, 각 계층에 대응하는 개발 문서 체계(CLAUDE.md, TASK.md, CONTEXT.md, DOD.md, REPORT.md, DECISION.md)를 구체화했다. CSP가 \"구글 AntiGravity\"를 언급했을 때 Claude가 Google Workspace 자동화 환경으로 잘못 해석하는 착오가 있었고, CSP의 정정으로 AntiGravity가 Google의 agent-first AI IDE(VS Code 기반, Gemini 3 Pro 탑재)임을 확인했다. 이후 CLAUDE.md와 AGENTS.md의 관계, Rules/Workflows/Skills의 3단 계층 구조를 정리했다.\n\nCSP는 EX Intelligence(LG CHO부문 HR 포털), ESCON(Engineering Skill Competency Navigator, Next.js + Supabase), Pulse Check(조직 건강도 설문 시스템) 세 프로젝트를 병렬로 운영하고 있다. AntiGravity Agent Manager를 활용해 세 프로젝트를 독립 워크스페이스로 분리하고 병렬 실행하는 구체적 설계(폴더 구조, AGENTS.md 초안, Workflow 파일)를 도출했다. 대화 마지막에 Google AI Studio의 Multi-turn/Agent 기능으로 세 프로젝트 공용 구조(AGENTS.md 템플릿)를 구현하는 프롬프트 생성을 요청했으나 응답이 완성되지 않은 상태로 대화가 종료됐다. CSP는 lg-cho-portal-builder 스킬을 기존에 보유하고 있으며, Ouroboros(자기진화 피드백 루프)와 Notion 세컨브레인 인프라를 이미 운용 중이다.</chat>",
+              "uuid": "34ff3f4b-dd12-4a3e-b12f-ac4c96530c42"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Relevant chats",
+          "integration_name": "Search Past Conversations",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://claude.ai/images/icons/conversation_search.png",
+          "icon_name": "memory",
+          "display_content": {
+            "type": "rich_content",
+            "content": [
+              {
+                "title": "현재 방향 찾기",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/21bb57a8-fd80-4f4e-9299-16af997e8c24",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "Analyzing unread email subscriptions",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/48e2b539-dc53-4668-9e9c-6abec829f5fe",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "Agent-lightning 리포 설명",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/68bc9be8-441f-4dd7-8726-7d037e55f28c",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "Gemini skills 리포지토리 설명",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/782dd23e-5657-405c-8c48-ec57fc02a357",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "조직동향 파악을 위한 인터뷰 문항 구성",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/26d207e9-d80a-4b52-9a0b-f9455e375c33",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "액션러닝의 개념과 운영방식",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/0799ced2-6857-4738-864f-002a2d0aa003",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "어학 지원현황",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/f1b61b31-61a6-4ec5-bee5-a03dd1918ec5",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "LLM 파인튜닝과 프롬프트 엔지니어링",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/4c89dffb-81c7-461f-bdc1-08149f3facf7",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "EXG팀 주간업무 자동화 솔루션",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/dba915e1-a14e-4da7-881f-3f9c0f791286",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "24시간 코딩 자동화의 비용 최적화",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/966ad408-37d6-4a6a-9206-2ad92624cc18",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              }
+            ]
+          }
+        },
+        {
+          "start_timestamp": "2026-03-31T23:48:34.449228Z",
+          "stop_timestamp": "2026-03-31T23:48:35.139135Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01H1T7oRWDNna15p1FZ6yKbQ",
+          "name": "conversation_search",
+          "input": {
+            "query": "워크플로우 Slack 캡처 Notion 아카이브 프롬프트"
+          },
+          "message": "Looking for relevant chats...",
+          "integration_name": "Search Past Conversations",
+          "integration_icon_url": "https://claude.ai/images/icons/conversation_search.png",
+          "icon_name": "memory",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01H1T7oRWDNna15p1FZ6yKbQ",
+          "name": "conversation_search",
+          "content": [
+            {
+              "type": "text",
+              "text": "<chat url='https://claude.ai/chat/fd9ab723-f546-4cbc-bf20-e867d42e6522' updated_at=2026-01-17T23:29:36.088202+00:00>Conversation fd9ab723-f546-4cbc-bf20-e867d42e6522\n내일까지 제안서 마감\",\n        \"expected_priority\": \"high\",\n        \"expected_needs_action\": True\n    }\n]\n```\n\n---\n\n## 📊 프롬프트 성능 모니터링\n\n### 추적할 메트릭\n- 응답 시간\n- JSON 파싱 성공률\n- 카테고리 분류 정확도 (수동 검증)\n- 토큰 사용량\n\n---\n\n**마지막 업데이트:** 2024-01-18\n**Gemini Model:** gemini-1.5-flash\n</parameter>\n<parameter name=\"description\">AI 프롬프트 템플릿 - Gemini Flash 분석/분류/요약 프롬프트</parameter>\n</tool>\n<tool name=\"create_file\">\n<parameter name=\"path\">/tmp/my-ai-team-docs/workflows.md</parameter>\n<parameter name=\"file_text\"># 🔄 Workflows - 워크플로우 정의\n\n## 목표\n일상 단상 캡처 시스템의 모든 자동화 워크플로우를 정의합니다.\n\n---\n\n## 📊 워크플로우 전체 구조\n\n```\n┌─────────────────────────────────────┐\n│  사용자 입력 (24시간 수시)            │\n│  Telegram / Apple Notes / Notion    │\n└─────────────────────────────────────┘\n              ↓\n┌─────────────────────────────────────┐\n│  실시간 수집 (즉시)                   │\n│  Raw Thought 저장                    │\n└─────────────────────────────────────┘\n              ↓\n┌─────────────────────────────────────┐\n│  매일 밤 11시 자동 처리                │\n│  AI 분석 → 구조화 → ChromaDB → Notion│\n└─────────────────────────────────────┘\n              ↓\n┌─────────────────────────────────────┐\n│  주간 통합 (일요일 밤 11시)            │\n│  패턴 분석 → 주간 리포트 생성          │\n└─────────────────────────────────────┘\n```\n\n---\n\n## 1️⃣ 실시간 수집 워크플로우 (Telegram Bot)\n\n### 트리거\n- Telegram Bot이 메시지 수신\n\n### Step-by-Step\n\n#### Step 1: 메시지 수신\n```python\n# telegram_listener.py\nasync def handle_message(update: Update, context):\n    # 1.1 메시지 추출\n    message = update.message\n    user_id = message.from_user.id\n    chat_id = message.chat_id\n    text = message.text\n    timestamp = datetime.now(timezone(timedelta(hours=9)))  # KST\n    \n    # 1.2 메시지 검증\n    if not text or len(text) < 10:\n        await message.reply_text(\"❌ 너무 짧습니다 (최소 10자)\")\n        return\n    \n    if len(text) > 4000:\n        await message.reply_text(\"❌ 너무 깁니다 (최대 4000자)\")\n        return\n```\n\n#### Step 2: Raw Thought 생성\n```python\n    # 2.1 Raw Thought 객체 생성\n    raw_thought = {\n        \"timestamp\": timestamp.isoformat(),\n        \"source\": \"telegram\",\n        \"content\": text,\n        \"metadata\": {\n            \"message_id\": str(message.message_id),\n            \"user_id\": str(user_id),\n            \"chat_id\": str(chat_id),\n            \"has_attachment\": False,\n            \"attachment_type\": None,\n            \"raw_data\": {\n                \"date\": message.date.timestamp()\n            }\n        }\n    }\n    \n    # 2.2 검증\n    validate_raw_thought(raw_thought)\n```\n\n#### Step 3: 파일 저장\n```python\n    # 3.1 파일명 생성\n    date_str = timestamp.strftime('%Y-%m-%d')\n    filename = f\"data/daily_thoughts/{date_str}_thoughts.json\"\n    \n    # 3.2 파일에 추가 (append mode)\n    with open(filename, 'a', encoding='utf-8') as f:\n        f.write(json.dumps(raw_thought, ensure_ascii=False) + '\\n')\n    \n    # 3.3 로그 기록\n    logger.info(f\"Saved thought: {date_str} - {text[:50]}...\")\n```\n\n#### Step 4: 사용자 피드백\n```python\n    # 4.1 성공 메시지\n    await message.reply_text(\n        \"✅ 기록했습니다!\\n\"\n        f\"오늘 {get_today_count()}번째 단상\"\n    )\n    \n    # 4.2 Git commit (선택사항)\n    if ENABLE_AUTO_COMMIT:\n        subprocess.run([\n            'git', 'add', filename\n        ])\n        subprocess.run([\n            'git', 'commit', '-m', f'Add thought: {date_str}'\n        ])\n```\n\n### 에러 처리\n```python\nexcept Exception as e:\n    logger.error(f\"Error saving thought: {e}\")\n    await message.reply_text(\n        \"⚠️ 저장 중 오류가 발생했습니다.\\n\"\n        \"다시 시도해주세요.\"</chat>\n\n<chat url='https://claude.ai/chat/c015ca87-9b3e-4cc4-96ab-6e1c4ca6da6b' updated_at=2026-01-23T22:53:09.628405+00:00>Notion 페이지 대화 리스트업\n<chat_conversation>Title: Notion 페이지 대화 리스트업\n\nHuman: notion페이지에 업로드된 대화들을 리스트업 해줘\n\nAssistant: Notion의 Claude 대화 아카이브를 확인해드리겠습니다.\n<tool name=\"Notion:notion-fetch\">\n<parameter name=\"id\">https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15</parameter>\n</tool>\n데이터베이스 구조를 확인했습니다. 이제 실제로 저장된 대화 목록을 가져오겠습니다.\n<tool name=\"Notion:notion-search\">\n<parameter name=\"query\"></parameter>\n<parameter name=\"query_type\">internal</parameter>\n<parameter name=\"data_source_url\">collection://d012343e-b2a2-461e-944b-6f166e91d8e9</parameter>\n</tool>\n다른 방법으로 시도해보겠습니다.\n<tool name=\"Notion:notion-search\">\n<parameter name=\"query\">Claude 대화</parameter>\n<parameter name=\"query_type\">internal</parameter>\n</tool>\n검색 결과를 보니 여러 Claude 관련 페이지가 있네요. 데이터베이스 내부의 실제 항목들을 확인하기 위해 다른 방법을 시도해보겠습니다.\n<tool name=\"bash_tool\">\n<parameter name=\"command\">echo \"Attempting to query the database directly\"</parameter>\n<parameter name=\"description\">Preparing to query the Notion database for archived conversations</parameter>\n</tool>\n데이터베이스 페이지 내에서 검색해보겠습니다.\n<tool name=\"Notion:notion-search\">\n<parameter name=\"query\"></parameter>\n<parameter name=\"page_url\">https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15</parameter>\n<parameter name=\"query_type\">internal</parameter>\n</tool>\n💬 **Claude 대화 아카이브 상태**\n\n데이터베이스 구조는 완벽하게 설정되어 있습니다. 하지만 현재 Notion API를 통해 데이터베이스 내부의 실제 항목들을 직접 조회하는데 제한이 있네요.\n\n**발견된 관련 페이지들:**\n\n1. **💬 Claude 대화 아카이브** (데이터베이스 자체)\n   - URL: https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15\n   - 마지막 업데이트: 2026-01-21\n\n2. **Claude 대화 → Notion 세컨브레인 자동 아카이빙 시스템 구축**\n   - 시스템 구축 관련 문서\n   - 2025-12-24 생성\n\n3. **🧠 Claude 대화 → Obsidian 세컨브레인 자동화 시스템**\n   - Notion-Obsidian 동기화 시스템 문서\n   - 2025-12-24 생성\n\n4. 기타 관련 대화 페이지들:\n   - Claude Skills 종합 백서 작성\n   - 소프트웨어 공학 철학과 실행 심리학\n   - AI와 관계설정\n   - 제품/서비스 정의 전략 수립\n   - Skill vs Hook vs Agent 역할 구분\n   - 풀스택 빌더 시대, HR 전문가의 정체성 재정의\n\n**다음 단계 제안:**\n\n1. **직접 확인**: Notion에서 [데이터베이스](https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15)를 열어 실제로 저장된 대화 항목 수를 확인\n2. **수동 테스트**: 지금 이 대화를 수동으로 저장해보면서 시스템이 작동하는지 테스트\n3. **구조 확인**: 위에 나온 페이지 중 일부가 실제로 데이터베이스에 속한 항목인지 확인\n\n어떤 방법으로 진행하시겠습니까?</chat_conversation></chat>\n\n<chat url='https://claude.ai/chat/c67b9e40-a404-4863-985d-2a9a788d09fc' updated_at=2026-01-22T22:28:34.769064+00:00>Seeking approval or confirmation\n<chat_conversation>Title: Seeking approval or confirmation\n\nHuman: is it ok?\n\nAssistant: 네, 전반적으로 좋은데 몇 가지 현실적인 조정이 필요할 것 같아요.\n\n## ✅ 잘 설정된 부분\n\n1. **자기 정의와 선호사항** - 명확하고 유용합니다\n2. **데이터베이스 구조** - Notion 저장 위치와 메타데이터 기준이 체계적입니다\n3. **분류 기준** - 주제, 태그, 중요도 판단 기준이 명확합니다\n\n## ⚠️ 조정이 필요한 부분\n\n**\"자동\" 트리거의 한계:**\n저는 대화 턴을 실시간으로 카운트하거나, 대화 종료 시점을 감지해서 자동으로 저장을 제안하는 기능이 없습니다. 제가 할 수 있는 건:\n\n- 사용자가 \"저장\", \"아카이브\" 등을 언급하면 즉시 반응\n- 대화 중 중요한 결론이 나왔을 때 제가 판단해서 \"이거 저장해둘까요?\" 제안\n- 요청받으면 대화 내용을 구조화해서 Notion에 저장\n\n## 💡 제안하는 워크플로우\n\n**실용적 접근:**\n\n1. **명시적 트리거 방식**\n   - 사용자: \"저장\" / \"아카이브\" → 즉시 저장 프로세스 시작\n   - 중요한 코드/결정 후 제가 간단히 제안: \"이거 저장해둘까요?\"\n\n2. **메타데이터는 제가 자동 생성**\n   - 제목, 주제, 태그, 요약, 중요도는 제가 대화 컨텍스트 기반으로 생성\n   - 사용자는 필요시 수정 요청만 하면 됨\n\n3. **간편 명령어 활용**\n   ```\n   사용자: \"저장\"\n   Claude: [자동으로 메타데이터 생성 + Notion 저장 + 링크 제공]\n   ```\n\n이렇게 하면 어떨까요? 완전 자동화는 어렵지만, 한 단어로 저장 가능한 **준자동화** 워크플로우는 충분히 가능합니다.\n\n수정된 규칙으로 업데이트해드릴까요?</chat_conversation></chat>\n\n<chat url='https://claude.ai/chat/f7a87236-0554-4254-92a2-a4fa4f604164' updated_at=2026-03-20T08:06:38.740901+00:00>구글 안티그래비티와 러버블을 도구로 구성원의 AX역량을...\nHuman: 계속\n\nAssistant:  이 대화 내용을 Notion에 저장하겠습니다.\n<tool name=\"view\">\n<parameter name=\"description\">Notion 지식 캡처 스킬 확인</parameter>\n<parameter name=\"path\">/mnt/skills/user/notion-knowledge-capture/SKILL.md</parameter>\n</tool>\n<tool name=\"tool_search\">\n<parameter name=\"query\">notion create pages database</parameter>\n</tool>\n<tool name=\"Notion:notion-fetch\">\n<parameter name=\"id\">https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15</parameter>\n</tool>\n데이터베이스 스키마를 확인했습니다. 이제 이 대화를 아카이빙하겠습니다.\n<tool name=\"Notion:notion-create-pages\">\n<parameter name=\"parent\">{'type': 'data_source_id', 'data_source_id': 'd012343e-b2a2-461e-944b-6f166e91d8e9'}</parameter>\n<parameter name=\"pages\">[{'icon': '🧠', 'properties': {'대화 제목': '공통업무 AI 침투율 제고 전략', '주제': '생산성', '상태': '✅ 완료', '중요도': '⭐⭐⭐ 핵심', '태그': '[\"AI\", \"워크플로우\", \"자동화\"]', '관련 프로젝트': 'AX 내재화 · EXG 역량 개발', '키워드': 'MS Copilot, Antigravity, Lovable, 워크플로우 재설계, AX 침투율, 구성원 역량 향상, 3층 레이어', 'date:날짜:start': '2026-03-20', 'date:날짜:is_datetime': 0, '다음 액션': '__YES__', '요약': 'Antigravity·Lovable·MS Copilot 3도구 기반 공통업무 AI 침투 전략 설계. 3층 레이어 모델(침투→심화→확산), 10주 워크플로우 재설계 스프린트, 최신 연구 주입, 7슬라이드 PPTX 생성까지 완결.'}, 'content': \"## 대화 컨텍스트\\n\\n- **날짜**: 2026-03-20\\n- **주제**: 공통업무 AI 침투율 제고 — 구성원 역량 향상 전략\\n- **핵심 도구**: MS Copilot · Google Antigravity · Lovable\\n- **산출물**: 전략 문서 + 인터랙티브 다이어그램 4종 + PPTX 7슬라이드\\n\\n---\\n\\n## 핵심 프레임워크 — 3층 레이어 모델\\n\\n### Layer 1 — 전사 공통 침투층 (MS Copilot)\\n\\n별도 학습 없이 기존 업무 도구 안으로 AI가 들어오는 레이어. 구성원의 저항을 최소화하면서 AI 친숙도를 형성하는 것이 목표.\\n\\n- **Teams / Outlook**: 회의 자동 요약, 이메일 초안 생성\\n- **Word / Excel / PPT**: Agent Mode 반복 편집, 데이터 분석, 발표자료 자동 생성\\n- **AI 업무 침투**: 반복업무 AI 대체 경험 누적\\n\\n> 핵심 원리: 도구를 바꾸는 것이 아니라, 기존 도구의 사용 방식을 AI로 전환한다\\n\\n### Layer 2 — 역량 심화층 (Lovable + Antigravity)\\n\\n만드는 경험으로 전환. 사용자에서 설계자로의 심리적 전환점.\\n\\n- **Lovable**: 미니앱 제작, 체험 진입, 완성 경험이 심리적 임계점 돌파\\n- **Antigravity**: Manager View로 에이전트 지시, 병렬 작업 시각적 관리, 비개발자 친화 GUI\\n- **워크플로우 재설계**: 내 업무를 AI로 다시 그리기 (10주 스프린트)\\n\\n> 핵심 원리: 도구를 배우는 것이 아니라, 내 업무의 어느 부분이 나여야 하는지를 다시 정의한다\\n\\n### Layer 3 — AX 내재화 · 조직 확산층\\n\\n개인 역량 → 팀 자산 → 조직 문화로 전환.\\n\\n- **AX 쇼케이스**: 10주 스프린트 결과 발표, Before/After 수치 공개, 행동 전염 유도\\n- **팀 공통 Agent 개발**: 개인 자동화를 팀 공유 자산으로 전환, 공통 프롬프트 템플릿 구축\\n- **AX 성숙도 측정**: 참여율 85%, 생산성 10%, 전사 AX 성숙도 평균 +15%\\n\\n> 핵심 원리: 한 명의 가시적 성공 사례가 열 번의 교육보다 강력하다\\n\\n---\\n\\n## AI 기반 업무 재설계 — 3층위 개념\\n\\n| 층위 | 개념 | 내용 |\\n|---|---|---|\\n| 1층 | 자동화 | 반복·규칙적 업무 AI 위임 (시간 회수) |\\n| 2층 | 증강 | 판단의 질을 AI가 끌어올림 (역할 변화) |\\n| 3층 | 재창조 | 업무 존재 이유 자체를 다시 정의 (직무 재설계) |\\n\\n### 10주 워크플로우 재설계 스프린트\\n\\n- **W1-2 해부**: 업무 선택 → 시간 측정 → As-Is 분석\\n- **W3-4 실험**: AI 첫 위임 → 수정 패턴 발견\\n- **W5-6 정제**: 프롬프트 구체화 → 효과 측정\\n- **W7-8 확장**: 인접 업무 적용 → Tool 심화\\n- **W9-10 공유**: 사례 문서화 → AX 쇼케이스 발표\\n\\n**측정 지표**: Before 소요시간 vs After 소요시간 → 생산성 개선 수치 산출\\n\\n---\\n\\n## 최신 연구 주입 — 전략과의 연결\\n\\n| 연구 발견 | 전략 설계 변경 |\\n|---|---|\\n| AI 도입 실패 원인은 태도가 아닌 구조 (Prosci, 2025) | 구조적 접근 허용(IT 협의) 선행 |\\n| 주변 AI 사용자 아는 사람 → 본인 사용 가능성 3배 (irrational labs) | AX 쇼케이스를 1단계부터 도입 |\\n| 저역량 구성원이 AI 혜택 가장 큼 (Dell'Acqua et al.)</chat>\n\n<chat url='https://claude.ai/chat/fd9ab723-f546-4cbc-bf20-e867d42e6522' updated_at=2026-01-17T23:29:36.088202+00:00>Conversation fd9ab723-f546-4cbc-bf20-e867d42e6522\n오늘 만들 4개 핵심 문서를 모두 생성했습니다:\n\n## 📚 생성된 문서\n\n1. **setup.md** (환경 구축)\n   - Telegram Bot, Gemini API, Notion 설정\n   - 30분 안에 환경 완성\n   - 테스트 스크립트 포함\n\n2. **data-schema.md** (데이터 구조)\n   - Raw Thought → Processed Thought → Notion 전체 스키마\n   - JSON 예시와 검증 규칙\n   - ChromaDB, Notion DB 구조\n\n3. **prompts.md** (AI 프롬프트)\n   - Gemini Flash용 8가지 프롬프트 템플릿\n   - 단상 분석, 인사이트 생성, 주간 리포트\n   - 입출력 예시와 파라미터 가이드\n\n4. **workflows.md** (워크플로우)\n   - 실시간 수집 → 일일 처리 → 주간 리포트 전체 흐름\n   - GitHub Actions 설정 포함\n   - 에러 처리 및 복구 절차\n\n## 🎯 다음 액션\n\n**바로 시작하려면:**\n1. `setup.md` 열어서 Step 1부터 따라하기\n2. 30분 후면 첫 단상 기록 가능\n\n**개발 시작하려면:**\n- `workflows.md`의 Python 코드를 `src/` 폴더에 복사\n- `data-schema.md` 참고해서 데이터 검증 구현\n- `prompts.md`의 템플릿으로 Gemini 호출\n\n궁금한 점이나 특정 부분을 더 자세히 파고들고 싶은 게 있어?\n\nHuman: 나머지3개 문서 추가 생성\n\nAssistant: 좋아요! 나머지 3개 문서를 생성하겠습니다.\n<tool name=\"create_file\">\n<parameter name=\"path\">/tmp/my-ai-team-docs/architecture.md</parameter>\n<parameter name=\"file_text\"># 🏗️ Architecture - 시스템 아키텍처\n\n## 목표\n일상 단상 캡처 시스템의 전체 구조와 컴포넌트 간 관계를 정의합니다.\n\n---\n\n## 🎨 High-Level Architecture\n\n```\n┌────────────────────────────────────────────────────────────────┐\n│                         사용자 레이어                            │\n├────────────────────────────────────────────────────────────────┤\n│  📱 Telegram    🍎 Apple Notes    💻 Notion    📧 Email       │\n└────────────────────────────────────────────────────────────────┘\n                              ↓\n┌────────────────────────────────────────────────────────────────┐\n│                      수집 레이어 (Collection)                    │\n├────────────────────────────────────────────────────────────────┤\n│  Telegram Bot   │   MCP Tools    │   Notion API               │\n│  - 24/7 실행    │   - Apple Notes│   - Quick Add              │\n│  - 즉시 응답    │   - 매일 22:50 │   - 수동 입력              │\n└────────────────────────────────────────────────────────────────┘\n                              ↓\n┌────────────────────────────────────────────────────────────────┐\n│                      저장 레이어 (Storage)                       │\n├───────────────────────────────────────────</chat>",
+              "uuid": "f1c1efd8-cc63-4421-bd2e-d67735530ce2"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Relevant chats",
+          "integration_name": "Search Past Conversations",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://claude.ai/images/icons/conversation_search.png",
+          "icon_name": "memory",
+          "display_content": {
+            "type": "rich_content",
+            "content": [
+              {
+                "title": "Untitled",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/fd9ab723-f546-4cbc-bf20-e867d42e6522",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "Notion 페이지 대화 리스트업",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/c015ca87-9b3e-4cc4-96ab-6e1c4ca6da6b",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "Seeking approval or confirmation",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/c67b9e40-a404-4863-985d-2a9a788d09fc",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              },
+              {
+                "title": "구글 안티그래비티와 러버블을 도구로 구성원의 AX역량을...",
+                "subtitles": null,
+                "url": "https://claude.ai/chat/f7a87236-0554-4254-92a2-a4fa4f604164",
+                "resource_type": null,
+                "icon_url": null,
+                "source": null
+              }
+            ]
+          }
+        },
+        {
+          "start_timestamp": "2026-03-31T23:48:37.608348Z",
+          "stop_timestamp": "2026-03-31T23:48:58.973391Z",
+          "flags": null,
+          "type": "text",
+          "text": "좋아요, 충분히 파악됐어요. 정리해줄게요.\n\n---\n\nCSP의 워크플로우를 클로드가 기억하고 있는 걸 솔직하게 말하면, 크게 **4개의 레이어**로 구성되어 있어요.\n\n**1. 캡처 레이어 — Slack 기반 원석 수집**\n\n날것의 생각을 Slack에 던지는 워크플로우가 설계돼 있어요. 메모 수준의 짧은 입력을 받아서 다음 단계로 넘기는 파이프라인의 시작점이에요.\n\n**2. 아카이브 레이어 — Notion 세컨브레인**\n\nClaude 대화 아카이브 데이터베이스가 Notion에 설정되어 있고, 대화 제목·주제·태그·중요도·요약·다음액션 필드로 구조화돼 있어요. 저장 트리거는 \"저장\", \"아카이브\" 키워드이고, 메타데이터는 Claude가 자동 생성하는 방식이에요.\n\n**3. 보고서 레이어 — weekly-report 스킬 + generate-report 워크플로우**\n\n주간업무 보고서 자동화가 가장 구체적으로 만들어진 레이어예요. `history.md`로 이전 주차 맥락을 이어받고, CSP가 메모 수준으로 던지면 Claude가 보고서 문체로 변환하는 구조예요. AntiGravity에서 `/generate-report`로 실행하는 구조까지 설계됐어요.\n\n**4. 실행 레이어 — Claude Code + AntiGravity 3계층**\n\n24시간 자율 코딩 환경 \"팩토리\" 구조로, `CLAUDE.md / TASK.md / CONTEXT.md / DOD.md / REPORT.md` 멀티문서 시스템이에요. EX Intelligence, ESCON, Pulse Check 세 프로젝트를 독립 워크스페이스로 병렬 운영하는 설계가 있어요.\n\n---\n\n그런데 솔직히 말하면, 이걸 보면서 든 생각이 있어요.\n\n**레이어는 많은데, 실제로 매일 돌아가는 것이 뭔지가 불분명해요.** 캡처는 Slack, 아카이브는 Notion, 보고서는 Claude Code, 실행은 AntiGravity — 설계는 정교한데 연결이 느슨해요. 이게 CSP가 \"허상을 기획하는 느낌\"이라고 한 것의 실체일 수 있어요.\n\n그래서 \"생각 → 문서 변환 프롬프트 키트\"를 만들 때, 기존 워크플로우 중 **실제로 이미 쓰고 있는 것** 위에 올리는 게 맞아요. 그게 가장 빠른 모터예요. 지금 CSP가 매일 실제로 쓰는 도구가 Claude.ai인지, Claude Code인지, Slack인지 — 그 접점을 알면 첫 모터 위치가 확정돼요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-31T23:48:59.128349Z",
+      "updated_at": "2026-03-31T23:48:59.128349Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d464c-7493-744a-bea2-5fbbee5cbb91"
+    },
+    {
+      "uuid": "019d464e-9ba5-74e2-ac35-df624c52137e",
+      "text": "본질적인 문제야, Claude.ai를 매일 쓰는데, Claude.ai가 메신저이거나, 메모용 이거나, 저장 도구는 아니잖아?\n이 간극을 어떻게 보완할건데?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:50:51.134190Z",
+          "stop_timestamp": "2026-03-31T23:50:51.134190Z",
+          "flags": null,
+          "type": "text",
+          "text": "본질적인 문제야, Claude.ai를 매일 쓰는데, Claude.ai가 메신저이거나, 메모용 이거나, 저장 도구는 아니잖아?\n이 간극을 어떻게 보완할건데?",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-31T23:50:51.178986Z",
+      "updated_at": "2026-03-31T23:50:51.178986Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d464c-7493-7356-b52b-ae0886ac9fc2"
+    },
+    {
+      "uuid": "019d464e-9ba5-71d1-9a09-39a0147f6e5a",
+      "text": " 정확히 찔렀어요. 이게 핵심 문제예요.\n\nClaude.ai는 **대화 도구**예요. 생각을 처리하는 곳이지, 보관하거나 흘려보내는 파이프라인이 아니에요. 그런데 CSP의 워크플로우 설계는 Claude.ai를 파이프라인의 중간 허브처럼 쓰려고 했어요. 구조적으로 맞지 않아요.\n\n---\n\n이걸 심리학 개념으로 보면 **\"도구 불일치(Tool-Task Mismatch)\"** 예요.\n\n망치로 나사를 조이려는 게 아니라, 망치로 나사를 조이는 시스템을 설계한 거예요. 망치가 나쁜 게 아니고, 나사가 나쁜 게 아니에요. 그냥 역할이 달라요.\n\nClaude.ai의 실제 역할은 딱 하나예요. **생각을 처리하는 엔진.** 저장도, 전송도, 관리도 아니에요.\n\n---\n\n그러면 간극을 메우는 방법은 두 가지 방향이에요.\n\n**방향 A — Claude.ai 출력을 자동으로 흘려보내는 파이프 연결**\n\nClaude.ai에서 나온 결과물을 CSP가 복사-붙여넣기 없이 Notion이나 Slack으로 보내는 구조예요. 지금 Notion MCP가 연결되어 있으니까, 대화 끝에 \"저장\"이라고 하면 Claude가 직접 Notion에 쓰는 건 이미 돼요. 근데 이게 매번 의식적으로 트리거해야 하는 한계가 있어요.\n\n**방향 B — Claude.ai를 파이프라인에서 빼고, 처리 전용으로 고정**\n\n더 솔직한 방향이에요. Claude.ai는 \"여기서 생각을 정리한다\"는 것만 역할을 주고, 저장과 관리는 처음부터 다른 도구에 맡기는 거예요. CSP가 Claude.ai에서 나온 결과물을 **의도적으로 꺼내서 어딘가에 꽂는 행위 자체를 워크플로우로 인정**하는 거예요. 억지로 자동화하려다가 시스템이 복잡해지는 것보다, 이 한 스텝을 명시적으로 두는 게 더 단단할 수 있어요.\n\n---\n\n저는 솔직히 **방향 B가 더 현실적**이라고 봐요.\n\n이유는 간단해요. CSP가 Claude.ai를 쓰는 순간은 이미 **\"생각하고 있는 순간\"** 이에요. 그 순간에 자동화니 파이프니 신경 쓰게 만들면, 생각의 흐름이 끊겨요. 차라리 Claude.ai에서 좋은 결과물이 나왔을 때 \"이거 Notion에 저장해줘\" 한 마디가 훨씬 자연스럽고 실제로 지속 가능해요.\n\n그러면 진짜 문제는 자동화가 아니라, **\"무엇을 저장할 가치가 있는지 판단하는 기준\"** 이 없다는 거예요. 그게 생기면 간극은 자연스럽게 메워져요.\n\n이 방향으로 가볼까요?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:50:51.787134Z",
+          "stop_timestamp": "2026-03-31T23:51:11.972569Z",
+          "flags": null,
+          "type": "text",
+          "text": " 정확히 찔렀어요. 이게 핵심 문제예요.\n\nClaude.ai는 **대화 도구**예요. 생각을 처리하는 곳이지, 보관하거나 흘려보내는 파이프라인이 아니에요. 그런데 CSP의 워크플로우 설계는 Claude.ai를 파이프라인의 중간 허브처럼 쓰려고 했어요. 구조적으로 맞지 않아요.\n\n---\n\n이걸 심리학 개념으로 보면 **\"도구 불일치(Tool-Task Mismatch)\"** 예요.\n\n망치로 나사를 조이려는 게 아니라, 망치로 나사를 조이는 시스템을 설계한 거예요. 망치가 나쁜 게 아니고, 나사가 나쁜 게 아니에요. 그냥 역할이 달라요.\n\nClaude.ai의 실제 역할은 딱 하나예요. **생각을 처리하는 엔진.** 저장도, 전송도, 관리도 아니에요.\n\n---\n\n그러면 간극을 메우는 방법은 두 가지 방향이에요.\n\n**방향 A — Claude.ai 출력을 자동으로 흘려보내는 파이프 연결**\n\nClaude.ai에서 나온 결과물을 CSP가 복사-붙여넣기 없이 Notion이나 Slack으로 보내는 구조예요. 지금 Notion MCP가 연결되어 있으니까, 대화 끝에 \"저장\"이라고 하면 Claude가 직접 Notion에 쓰는 건 이미 돼요. 근데 이게 매번 의식적으로 트리거해야 하는 한계가 있어요.\n\n**방향 B — Claude.ai를 파이프라인에서 빼고, 처리 전용으로 고정**\n\n더 솔직한 방향이에요. Claude.ai는 \"여기서 생각을 정리한다\"는 것만 역할을 주고, 저장과 관리는 처음부터 다른 도구에 맡기는 거예요. CSP가 Claude.ai에서 나온 결과물을 **의도적으로 꺼내서 어딘가에 꽂는 행위 자체를 워크플로우로 인정**하는 거예요. 억지로 자동화하려다가 시스템이 복잡해지는 것보다, 이 한 스텝을 명시적으로 두는 게 더 단단할 수 있어요.\n\n---\n\n저는 솔직히 **방향 B가 더 현실적**이라고 봐요.\n\n이유는 간단해요. CSP가 Claude.ai를 쓰는 순간은 이미 **\"생각하고 있는 순간\"** 이에요. 그 순간에 자동화니 파이프니 신경 쓰게 만들면, 생각의 흐름이 끊겨요. 차라리 Claude.ai에서 좋은 결과물이 나왔을 때 \"이거 Notion에 저장해줘\" 한 마디가 훨씬 자연스럽고 실제로 지속 가능해요.\n\n그러면 진짜 문제는 자동화가 아니라, **\"무엇을 저장할 가치가 있는지 판단하는 기준\"** 이 없다는 거예요. 그게 생기면 간극은 자연스럽게 메워져요.\n\n이 방향으로 가볼까요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-31T23:51:12.133926Z",
+      "updated_at": "2026-03-31T23:51:12.133926Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d464e-9ba5-74e2-ac35-df624c52137e"
+    },
+    {
+      "uuid": "019d4650-817d-7f87-90cd-67e916a50462",
+      "text": "B로 가자 어떻게 구체화하면 좋을까?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:52:55.781373Z",
+          "stop_timestamp": "2026-03-31T23:52:55.781373Z",
+          "flags": null,
+          "type": "text",
+          "text": "B로 가자 어떻게 구체화하면 좋을까?",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-31T23:52:55.837895Z",
+      "updated_at": "2026-03-31T23:52:55.837895Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d464e-9ba5-71d1-9a09-39a0147f6e5a"
+    },
+    {
+      "uuid": "019d4650-817e-7d96-b067-7857bf8d81ce",
+      "text": " 좋아요. B로 가면 설계가 오히려 단순해져요.\n\n핵심 질문은 하나예요.\n\n> **\"이 대화에서 나온 것 중, 내일의 나에게 필요한 게 뭔가?\"**\n\n이걸 판단하는 기준만 있으면, \"저장해줘\" 한 마디로 나머지는 Claude가 다 해요. 지금 Notion MCP도 연결돼 있고, 아카이브 DB도 있으니까요.\n\n---\n\n구체화를 위해 하나만 물어볼게요.\n```\nThis block is not supported on your current device yet.\n```\n\n",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:52:56.589815Z",
+          "stop_timestamp": "2026-03-31T23:53:00.133375Z",
+          "flags": null,
+          "type": "text",
+          "text": " 좋아요. B로 가면 설계가 오히려 단순해져요.\n\n핵심 질문은 하나예요.\n\n> **\"이 대화에서 나온 것 중, 내일의 나에게 필요한 게 뭔가?\"**\n\n이걸 판단하는 기준만 있으면, \"저장해줘\" 한 마디로 나머지는 Claude가 다 해요. 지금 Notion MCP도 연결돼 있고, 아카이브 DB도 있으니까요.\n\n---\n\n구체화를 위해 하나만 물어볼게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-31T23:53:00.831217Z",
+          "stop_timestamp": "2026-03-31T23:53:03.913626Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01FgEiDFuB8AwRdFW1ZpLd3p",
+          "name": "ask_user_input_v0",
+          "input": {
+            "questions": [
+              {
+                "type": "multi_select",
+                "options": [
+                  "프레임워크/구조 (예: 3층 레이어 모델)",
+                  "프롬프트/템플릿 (재사용 가능한 형식)",
+                  "의사결정 근거 (왜 이걸 선택했는지)",
+                  "실행 결과물 (보고서, 문서, 코드)"
+                ],
+                "question": "Claude.ai에서 나온 결과물 중, 실제로 '나중에 또 쓰겠다'고 느낀 게 어떤 유형이었어요?"
+              }
+            ]
+          },
+          "message": "Generating ask_user_input_v0...",
+          "integration_name": "Dynamic Widget",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01FgEiDFuB8AwRdFW1ZpLd3p",
+          "name": "ask_user_input_v0",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"questions\": [\n    {\n      \"question\": \"Claude.ai\\uc5d0\\uc11c \\ub098\\uc628 \\uacb0\\uacfc\\ubb3c \\uc911, \\uc2e4\\uc81c\\ub85c '\\ub098\\uc911\\uc5d0 \\ub610 \\uc4f0\\uaca0\\ub2e4'\\uace0 \\ub290\\ub080 \\uac8c \\uc5b4\\ub5a4 \\uc720\\ud615\\uc774\\uc5c8\\uc5b4\\uc694?\",\n      \"type\": \"multi_select\",\n      \"options\": [\n        \"\\ud504\\ub808\\uc784\\uc6cc\\ud06c/\\uad6c\\uc870 (\\uc608: 3\\uce35 \\ub808\\uc774\\uc5b4 \\ubaa8\\ub378)\",\n        \"\\ud504\\ub86c\\ud504\\ud2b8/\\ud15c\\ud50c\\ub9bf (\\uc7ac\\uc0ac\\uc6a9 \\uac00\\ub2a5\\ud55c \\ud615\\uc2dd)\",\n        \"\\uc758\\uc0ac\\uacb0\\uc815 \\uadfc\\uac70 (\\uc65c \\uc774\\uac78 \\uc120\\ud0dd\\ud588\\ub294\\uc9c0)\",\n        \"\\uc2e4\\ud589 \\uacb0\\uacfc\\ubb3c (\\ubcf4\\uace0\\uc11c, \\ubb38\\uc11c, \\ucf54\\ub4dc)\"\n      ]\n    }\n  ]\n}",
+              "uuid": "445ce5fd-9de1-41f7-8a1b-b44474c826d0"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Generated ask_user_input_v0 widget",
+          "integration_name": "Dynamic Widget",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-31T23:53:05.252495Z",
+          "stop_timestamp": "2026-03-31T23:53:05.252495Z",
+          "flags": null,
+          "type": "text",
+          "text": "",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-31T23:53:05.485613Z",
+      "updated_at": "2026-03-31T23:53:05.485613Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4650-817d-7f87-90cd-67e916a50462"
+    },
+    {
+      "uuid": "019d4650-e50a-7bfa-903f-4dd147b238df",
+      "text": "Q: Claude.ai에서 나온 결과물 중, 실제로 '나중에 또 쓰겠다'고 느낀 게 어떤 유형이었어요? (Select all that apply)\nA: 프레임워크/구조 (예: 3층 레이어 모델), 프롬프트/템플릿 (재사용 가능한 형식), 의사결정 근거 (왜 이걸 선택했는지), 실행 결과물 (보고서, 문서, 코드)",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:53:21.013223Z",
+          "stop_timestamp": "2026-03-31T23:53:21.013223Z",
+          "flags": null,
+          "type": "text",
+          "text": "Q: Claude.ai에서 나온 결과물 중, 실제로 '나중에 또 쓰겠다'고 느낀 게 어떤 유형이었어요? (Select all that apply)\nA: 프레임워크/구조 (예: 3층 레이어 모델), 프롬프트/템플릿 (재사용 가능한 형식), 의사결정 근거 (왜 이걸 선택했는지), 실행 결과물 (보고서, 문서, 코드)",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-31T23:53:21.055056Z",
+      "updated_at": "2026-03-31T23:53:21.055056Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4650-817e-7d96-b067-7857bf8d81ce"
+    },
+    {
+      "uuid": "019d4650-e50a-793c-941c-a19b65046d42",
+      "text": " 네 가지 다 — 이것도 명확해요.\n\n그런데 이 네 가지는 사실 **저장 방식이 달라야 해요.** 하나의 Notion DB에 다 때려넣으면 나중에 못 찾아요. 지금 Claude 대화 아카이브가 그 함정에 빠져 있는 상태고요.\n\n---\n\n이렇게 생각해보면 어떨까요.\n\n네 가지 유형을 성격으로 나누면 딱 두 종류예요.\n\n**\"다시 꺼내 쓰는 것\"** — 프레임워크, 프롬프트/템플릿. 이건 **도구예요.** 찾기 쉬워야 하고, 바로 복사해서 쓸 수 있어야 해요. Notion보다 오히려 로컬 파일이나 Claude Skills 폴더가 더 맞아요.\n\n**\"다시 떠올리는 것\"** — 의사결정 근거, 실행 결과물. 이건 **기록이에요.** 나중에 \"왜 그렇게 했지?\" 할 때 찾는 거니까 Notion 아카이브가 맞아요.\n\n---\n\n그러면 B 방향의 구체적인 구조는 이거예요.\n\n```\nClaude.ai에서 좋은 게 나왔다\n        ↓\nCSP가 판단: \"이게 도구야, 아니면 기록이야?\"\n        ↓\n도구 → \"템플릿으로 저장해줘\" \n        → Claude가 Skills 폴더용 마크다운으로 정리\n        \n기록 → \"Notion에 저장해줘\"\n        → Claude가 아카이브 DB에 구조화해서 저장\n```\n\n판단은 CSP가 딱 한 마디로 해요. 정리와 저장은 Claude가 해요.\n\n---\n\n여기서 진짜 핵심은 **\"도구야, 기록이야?\"** 이 질문 하나예요.\n\n이게 몸에 배면 Claude.ai가 처리 엔진으로 고정되고, 나머지는 자연스럽게 흘러가요. 복잡한 자동화 없이, 한 마디 트리거로 워크플로우가 완성되는 거예요.\n\n---\n\n이 구조 기반으로 지금 당장 쓸 수 있는 **저장 트리거 문장 2개**를 만들어볼까요? CSP 말투랑 실제 상황에 맞게, 실제로 오늘부터 쓸 수 있는 것으로요.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:53:22.099836Z",
+          "stop_timestamp": "2026-03-31T23:53:38.558745Z",
+          "flags": null,
+          "type": "text",
+          "text": " 네 가지 다 — 이것도 명확해요.\n\n그런데 이 네 가지는 사실 **저장 방식이 달라야 해요.** 하나의 Notion DB에 다 때려넣으면 나중에 못 찾아요. 지금 Claude 대화 아카이브가 그 함정에 빠져 있는 상태고요.\n\n---\n\n이렇게 생각해보면 어떨까요.\n\n네 가지 유형을 성격으로 나누면 딱 두 종류예요.\n\n**\"다시 꺼내 쓰는 것\"** — 프레임워크, 프롬프트/템플릿. 이건 **도구예요.** 찾기 쉬워야 하고, 바로 복사해서 쓸 수 있어야 해요. Notion보다 오히려 로컬 파일이나 Claude Skills 폴더가 더 맞아요.\n\n**\"다시 떠올리는 것\"** — 의사결정 근거, 실행 결과물. 이건 **기록이에요.** 나중에 \"왜 그렇게 했지?\" 할 때 찾는 거니까 Notion 아카이브가 맞아요.\n\n---\n\n그러면 B 방향의 구체적인 구조는 이거예요.\n\n```\nClaude.ai에서 좋은 게 나왔다\n        ↓\nCSP가 판단: \"이게 도구야, 아니면 기록이야?\"\n        ↓\n도구 → \"템플릿으로 저장해줘\" \n        → Claude가 Skills 폴더용 마크다운으로 정리\n        \n기록 → \"Notion에 저장해줘\"\n        → Claude가 아카이브 DB에 구조화해서 저장\n```\n\n판단은 CSP가 딱 한 마디로 해요. 정리와 저장은 Claude가 해요.\n\n---\n\n여기서 진짜 핵심은 **\"도구야, 기록이야?\"** 이 질문 하나예요.\n\n이게 몸에 배면 Claude.ai가 처리 엔진으로 고정되고, 나머지는 자연스럽게 흘러가요. 복잡한 자동화 없이, 한 마디 트리거로 워크플로우가 완성되는 거예요.\n\n---\n\n이 구조 기반으로 지금 당장 쓸 수 있는 **저장 트리거 문장 2개**를 만들어볼까요? CSP 말투랑 실제 상황에 맞게, 실제로 오늘부터 쓸 수 있는 것으로요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-31T23:53:39.011954Z",
+      "updated_at": "2026-03-31T23:53:39.011954Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4650-e50a-7bfa-903f-4dd147b238df"
+    },
+    {
+      "uuid": "019d4652-30d6-7d03-a301-c2ab0d061de7",
+      "text": "아이디어 저장을 슬랙 메시지로 전송하기.. 같은 것도 가능한가?\n예를들면 \"자전거 모터 메타포\"를 슬랙 Dm으로 전송하기",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:54:46.297227Z",
+          "stop_timestamp": "2026-03-31T23:54:46.297227Z",
+          "flags": null,
+          "type": "text",
+          "text": "아이디어 저장을 슬랙 메시지로 전송하기.. 같은 것도 가능한가?\n예를들면 \"자전거 모터 메타포\"를 슬랙 Dm으로 전송하기",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-31T23:54:46.388679Z",
+      "updated_at": "2026-03-31T23:54:46.388679Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4650-e50a-793c-941c-a19b65046d42"
+    },
+    {
+      "uuid": "019d4652-30d6-76f3-b89f-d068f4c1344c",
+      "text": " 가능해요. 지금 Slack MCP가 연결되어 있으니까요.\n\n실제로 해볼게요. 지금 바로 \"자전거 모터 메타포\" 아이디어를 CSP 본인한테 Slack DM으로 보내볼까요?\n```\nThis block is not supported on your current device yet.\n```\n\nCSP의 user_id가 `U01KM01DRK3`이에요. 본인한테 DM으로 보낼게요.\n```\nThis block is not supported on your current device yet.\n```\n\n전송됐어요. Slack DM 확인해보세요.\n\n---\n\n이게 의미하는 게 뭔지 정리하면, 이제 워크플로우가 이렇게 돼요.\n\n```\nClaude.ai에서 좋은 게 나왔다\n        ↓\nCSP: \"이거 슬랙으로 보내줘\"\n        → Claude가 정리해서 DM 전송 (지금 한 것)\n\nCSP: \"이거 Notion에 저장해줘\"  \n        → Claude가 아카이브 DB에 구조화해서 저장\n\nCSP: \"이거 템플릿으로 저장해줘\"\n        → Claude가 재사용 가능한 형식으로 정리\n```\n\n**트리거 한 마디, 나머지는 Claude.** 이게 B 방향의 완성된 모습이에요.\n\nSlack DM은 특히 좋은 이유가 있어요. 모바일에서 바로 보이고, 나중에 검색도 되고, 별표 저장도 돼요. Notion보다 훨씬 마찰이 적어요. 아이디어처럼 가볍고 휘발성 있는 것들은 Slack, 구조화된 것들은 Notion — 이렇게 성격에 따라 목적지를 나누면 자연스러워요.\n\n다음 단계로 \"생각→문서 변환 프롬프트 키트\" 만들어볼까요?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:54:48.866731Z",
+          "stop_timestamp": "2026-03-31T23:54:50.616151Z",
+          "flags": null,
+          "type": "text",
+          "text": " 가능해요. 지금 Slack MCP가 연결되어 있으니까요.\n\n실제로 해볼게요. 지금 바로 \"자전거 모터 메타포\" 아이디어를 CSP 본인한테 Slack DM으로 보내볼까요?",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-31T23:54:50.887116Z",
+          "stop_timestamp": "2026-03-31T23:54:50.942810Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01P7RTuZ6zveDPvXCyANgiyV",
+          "name": "tool_search",
+          "input": {
+            "query": "slack send message DM user"
+          },
+          "message": "Searching available tools: slack send message DM user",
+          "integration_name": "Tool Search",
+          "integration_icon_url": null,
+          "icon_name": "search",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01P7RTuZ6zveDPvXCyANgiyV",
+          "name": "tool_search",
+          "content": [
+            {
+              "type": "text",
+              "text": "Loaded 5 Slack tools:\n  Slack:slack_send_message:\n    channel_id: string - 채널의 ID\n    message: string - 메시지 추가\n    draft_id?: string - 보낸 후 삭제할 초안의 ID\n    reply_broadcast?: boolean - 대화에도 추가\n    thread_ts?: string - 이 메시지에 댓글을 달려면 다른 메시지의 타임스탬프 값을 제공하세요.\n  Slack:slack_read_channel:\n    channel_id: string - ID of the Channel, private group, or IM channel to fetch history for. Can also be a user_id to read DM history.\n    cursor?: string - Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previou...\n    latest?: string - End of time range of messages to include in results (timestamp)\n    limit?: integer - Number of messages to return, between 1 and 100. Default value is 100.\n    oldest?: string - Start of time range of messages to include in results (timestamp)\n    response_format?: string - Level of detail (default: 'detailed'). Options: 'detailed', 'concise'\n  Slack:slack_schedule_message:\n    channel_id: string - Channel where message will be scheduled\n    message: string - Message content to schedule\n    post_at: integer - Unix timestamp when message should be sent (2 min future minimum, 120 days max)\n    reply_broadcast?: boolean - Broadcast thread reply to channel\n    thread_ts?: string - Message timestamp to reply to (for thread replies)\n  Slack:slack_search_public_and_private:\n    query: string - Search query using Slack's search syntax (e.g., 'in:#general from:@user important')\n    after?: string - Only messages after this Unix timestamp (inclusive)\n    before?: string - Only messages before this Unix timestamp (inclusive)\n    channel_types?: string - Comma-separated list of channel types to include in the search. Defaults to 'public_channel,private_channel,mpim,im' ...\n    content_types?: string - Content types to include, a comma-separated list of any combination of messages, files. Here's more info about the co...\n    context_channel_id?: string - Context channel ID to support boosting the search results for a channel when applicable\n    cursor?: string - The cursor returned by the API. Leave this blank for the first request, and use this to get the next page of results\n    include_bots?: boolean - Include bot messages (default: false)\n    include_context?: boolean - Include surrounding context messages for each result (default: true). Set to false to reduce response size.\n    limit?: integer - Number of results to return, up to a max of 20. Defaults to 20.\n    max_context_length?: integer - Max character length for each context message. Longer messages are truncated.\n    response_format?: string - Level of detail (default: 'detailed'). Options: 'detailed', 'concise'\n    sort?: string - Sort by relevance or date (default: 'score'). Options: 'score', 'timestamp'\n    sort_dir?: string - Sort direction (default: 'desc'). Options: 'asc', 'desc'\n  Slack:slack_read_thread:\n    channel_id: string - Channel, private group, or IM channel to fetch thread replies for\n    message_ts: string - Timestamp of the parent message to fetch replies for\n    cursor?: string - Paginate through collections of data by setting the cursor parameter to a next_cursor attribute returned by a previou...\n    latest?: string - End of time range of messages to include in results (timestamp)\n    limit?: integer - Number of messages to return, between 1 and 1000. Default value is 100.\n    oldest?: string - Start of time range of messages to include in results (timestamp)\n    response_format?: string - Level of detail (default: 'detailed'). Options: 'detailed', 'concise'\nThese tools are now available for you to call directly.",
+              "uuid": "109e66ee-d713-4a8a-9063-4369a059b700"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Searched available tools",
+          "integration_name": "Tool Search",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "search",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-31T23:54:52.519772Z",
+          "stop_timestamp": "2026-03-31T23:54:53.657565Z",
+          "flags": null,
+          "type": "text",
+          "text": "CSP의 user_id가 `U01KM01DRK3`이에요. 본인한테 DM으로 보낼게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-31T23:54:53.962205Z",
+          "stop_timestamp": "2026-03-31T23:55:02.105759Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_0198MW1nkfexDi9Q7LR8K1yY",
+          "name": "Slack:slack_send_message",
+          "input": {
+            "channel_id": "U01KM01DRK3",
+            "message": "💡 *아이디어 캡처 — 자전거 모터 메타포*\n\n허상을 기획하는 대신, 작고 단단한 솔루션을 하나씩 구축하고 장착해나가는 방식.\n\n> \"자전거에 전기모터를 다는 느낌\"\n> 이미 굴러가는 것 위에, 지금 당장 작동하는 것을 하나씩 올려놓는다.\n\n*핵심 원칙*\n• 첫 번째 기준: 지금 당장 쓸 수 있는 것\n• Claude.ai = 처리 엔진 (저장/전송 도구 아님)\n• 결과물 판단: \"도구야, 기록이야?\" 한 마디로\n\n*다음 액션*\n→ 생각→문서 변환 프롬프트 키트 제작\n→ 저장 트리거 문장 2개 확정\n\n_2026.04.01 Claude.ai 대화에서 캡처_"
+          },
+          "message": "Slack send message",
+          "integration_name": "Slack",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "f5efdb2f-6c76-49b1-861c-64470157d945:slack_send_message-61c5132c359abd4c1f6af0f62cedf74d",
+          "is_mcp_app": false,
+          "mcp_server_url": "https://mcp.slack.com/mcp"
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_0198MW1nkfexDi9Q7LR8K1yY",
+          "name": "Slack:slack_send_message",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"message_link\":\"https:\\/\\/dks-work-space.slack.com\\/archives\\/D01K58C3AGM\\/p1775001303207989\",\"message_context\":{\"message_ts\":\"1775001303.207989\",\"channel_id\":\"D01K58C3AGM\"}}",
+              "uuid": "43edbb2d-f47e-4cfe-acea-a93c3eaaa8ad"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Slack",
+          "mcp_server_url": "https://mcp.slack.com/mcp",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"message_link\": \"https://dks-work-space.slack.com/archives/D01K58C3AGM/p1775001303207989\",\n  \"message_context\": {\n    \"message_ts\": \"1775001303.207989\",\n    \"channel_id\": \"D01K58C3AGM\"\n  }\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-31T23:55:04.453151Z",
+          "stop_timestamp": "2026-03-31T23:55:13.768759Z",
+          "flags": null,
+          "type": "text",
+          "text": "전송됐어요. Slack DM 확인해보세요.\n\n---\n\n이게 의미하는 게 뭔지 정리하면, 이제 워크플로우가 이렇게 돼요.\n\n```\nClaude.ai에서 좋은 게 나왔다\n        ↓\nCSP: \"이거 슬랙으로 보내줘\"\n        → Claude가 정리해서 DM 전송 (지금 한 것)\n\nCSP: \"이거 Notion에 저장해줘\"  \n        → Claude가 아카이브 DB에 구조화해서 저장\n\nCSP: \"이거 템플릿으로 저장해줘\"\n        → Claude가 재사용 가능한 형식으로 정리\n```\n\n**트리거 한 마디, 나머지는 Claude.** 이게 B 방향의 완성된 모습이에요.\n\nSlack DM은 특히 좋은 이유가 있어요. 모바일에서 바로 보이고, 나중에 검색도 되고, 별표 저장도 돼요. Notion보다 훨씬 마찰이 적어요. 아이디어처럼 가볍고 휘발성 있는 것들은 Slack, 구조화된 것들은 Notion — 이렇게 성격에 따라 목적지를 나누면 자연스러워요.\n\n다음 단계로 \"생각→문서 변환 프롬프트 키트\" 만들어볼까요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-31T23:55:13.973294Z",
+      "updated_at": "2026-03-31T23:55:13.973294Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4652-30d6-7d03-a301-c2ab0d061de7"
+    },
+    {
+      "uuid": "019d4656-022f-7e4a-9629-1a63f99608aa",
+      "text": "템플릿으로 만든걸 저장하고 호출을 쉽게 할수 있는 방법은 없을까??",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:58:56.215995Z",
+          "stop_timestamp": "2026-03-31T23:58:56.215995Z",
+          "flags": null,
+          "type": "text",
+          "text": "템플릿으로 만든걸 저장하고 호출을 쉽게 할수 있는 방법은 없을까??",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-31T23:58:56.301637Z",
+      "updated_at": "2026-03-31T23:58:56.301637Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4652-30d6-76f3-b89f-d068f4c1344c"
+    },
+    {
+      "uuid": "019d4656-022f-7382-b586-2bcc136fcc78",
+      "text": " 좋은 질문이에요. 이게 사실 워크플로우의 마지막 퍼즐이에요.\n\n템플릿을 만들었는데 \"어디 있더라?\" 하고 찾아야 한다면 결국 안 써요. 호출이 쉬워야 진짜 도구예요.\n\n현실적인 옵션이 세 가지 있어요.\n```\nThis block is not supported on your current device yet.\n```\n\n",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:58:58.558728Z",
+          "stop_timestamp": "2026-03-31T23:59:01.619188Z",
+          "flags": null,
+          "type": "text",
+          "text": " 좋은 질문이에요. 이게 사실 워크플로우의 마지막 퍼즐이에요.\n\n템플릿을 만들었는데 \"어디 있더라?\" 하고 찾아야 한다면 결국 안 써요. 호출이 쉬워야 진짜 도구예요.\n\n현실적인 옵션이 세 가지 있어요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-31T23:59:02.228529Z",
+          "stop_timestamp": "2026-03-31T23:59:04.054141Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01VBaGQR6XeWwXndRZvpz82z",
+          "name": "ask_user_input_v0",
+          "input": {
+            "questions": [
+              {
+                "type": "single_select",
+                "options": [
+                  "Claude.ai 대화창에서 바로",
+                  "Slack에서 명령어로",
+                  "Notion에서 찾아서"
+                ],
+                "question": "템플릿을 '어디서' 호출하고 싶어요?"
+              }
+            ]
+          },
+          "message": "Generating ask_user_input_v0...",
+          "integration_name": "Dynamic Widget",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01VBaGQR6XeWwXndRZvpz82z",
+          "name": "ask_user_input_v0",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"questions\": [\n    {\n      \"type\": \"single_select\",\n      \"question\": \"\\ud15c\\ud50c\\ub9bf\\uc744 '\\uc5b4\\ub514\\uc11c' \\ud638\\ucd9c\\ud558\\uace0 \\uc2f6\\uc5b4\\uc694?\",\n      \"options\": [\n        \"Claude.ai \\ub300\\ud654\\ucc3d\\uc5d0\\uc11c \\ubc14\\ub85c\",\n        \"Slack\\uc5d0\\uc11c \\uba85\\ub839\\uc5b4\\ub85c\",\n        \"Notion\\uc5d0\\uc11c \\ucc3e\\uc544\\uc11c\"\n      ]\n    }\n  ]\n}",
+              "uuid": "1bb02769-8970-41b9-a437-6d87286657c5"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Generated ask_user_input_v0 widget",
+          "integration_name": "Dynamic Widget",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-31T23:59:04.984174Z",
+          "stop_timestamp": "2026-03-31T23:59:04.984174Z",
+          "flags": null,
+          "type": "text",
+          "text": "",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-31T23:59:05.093348Z",
+      "updated_at": "2026-03-31T23:59:05.093348Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4656-022f-7e4a-9629-1a63f99608aa"
+    },
+    {
+      "uuid": "019d4656-4761-7692-9699-c103176d2dbf",
+      "text": "Q: 템플릿을 '어디서' 호출하고 싶어요?\nA: Claude.ai 대화창에서 바로",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:59:14.011694Z",
+          "stop_timestamp": "2026-03-31T23:59:14.011694Z",
+          "flags": null,
+          "type": "text",
+          "text": "Q: 템플릿을 '어디서' 호출하고 싶어요?\nA: Claude.ai 대화창에서 바로",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-31T23:59:14.072209Z",
+      "updated_at": "2026-03-31T23:59:14.072209Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4656-022f-7382-b586-2bcc136fcc78"
+    },
+    {
+      "uuid": "019d4656-4761-7832-9494-04ddecf8aea6",
+      "text": " 그러면 답이 명확해요. **Claude.ai의 Project Instructions (Custom Instructions)** 가 가장 적합해요.\n\n---\n\n작동 방식은 이래요.\n\nClaude.ai에는 **Project** 기능이 있고, 프로젝트마다 \"이 대화에서 항상 적용할 지침\"을 설정할 수 있어요. 여기에 템플릿을 통째로 넣어두면, CSP가 대화창에서 단어 하나만 치면 Claude가 바로 그 템플릿을 꺼내서 실행해요.\n\n예를 들면 이런 식이에요.\n\n```\nCSP: \"보고서\"\nClaude: [보고서 변환 템플릿 자동 적용 → 바로 작성 시작]\n\nCSP: \"이메일\"  \nClaude: [이메일 톤 템플릿 적용 → 초안 생성]\n\nCSP: \"슬랙\"\nClaude: [아이디어 캡처 템플릿 → 정리 후 DM 전송]\n```\n\n저장도 없고, 검색도 없고, 복사-붙여넣기도 없어요. **키워드 하나 = 템플릿 실행.**\n\n---\n\n구조적으로 보면 이거예요.\n\n```\nProject Instructions (상시 로드)\n├── CSP 컨텍스트 (역할, 톤, 조직 맥락)\n├── 템플릿 라이브러리\n│   ├── 🔵 보고서 → 주간업무 보고 문체\n│   ├── 🟢 이메일 → 수신자별 톤 가이드  \n│   ├── 🟡 슬랙 → 아이디어 캡처 + DM 전송\n│   └── 🔴 회의록 → 결정사항/액션아이템 추출\n└── 호출 규칙 (키워드 → 템플릿 매핑)\n```\n\n이게 세팅되면 새 대화를 열어도 매번 설명할 필요가 없어요. Project 안에서 대화하는 한 항상 이 맥락이 살아있어요.\n\n---\n\n지금 당장 할 수 있는 순서는 이래요.\n\n**1단계** — 오늘 이 대화에서 나온 내용 기반으로 CSP용 템플릿 3~4개를 Claude가 초안으로 작성해줘요.\n\n**2단계** — CSP가 Claude.ai에서 새 Project를 만들고 Instructions에 붙여넣어요. (5분이면 돼요)\n\n**3단계** — 오늘부터 그 Project 안에서 대화하면 끝이에요.\n\n---\n\n바로 템플릿 초안 작성 시작할까요?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:59:15.393703Z",
+          "stop_timestamp": "2026-03-31T23:59:31.951589Z",
+          "flags": null,
+          "type": "text",
+          "text": " 그러면 답이 명확해요. **Claude.ai의 Project Instructions (Custom Instructions)** 가 가장 적합해요.\n\n---\n\n작동 방식은 이래요.\n\nClaude.ai에는 **Project** 기능이 있고, 프로젝트마다 \"이 대화에서 항상 적용할 지침\"을 설정할 수 있어요. 여기에 템플릿을 통째로 넣어두면, CSP가 대화창에서 단어 하나만 치면 Claude가 바로 그 템플릿을 꺼내서 실행해요.\n\n예를 들면 이런 식이에요.\n\n```\nCSP: \"보고서\"\nClaude: [보고서 변환 템플릿 자동 적용 → 바로 작성 시작]\n\nCSP: \"이메일\"  \nClaude: [이메일 톤 템플릿 적용 → 초안 생성]\n\nCSP: \"슬랙\"\nClaude: [아이디어 캡처 템플릿 → 정리 후 DM 전송]\n```\n\n저장도 없고, 검색도 없고, 복사-붙여넣기도 없어요. **키워드 하나 = 템플릿 실행.**\n\n---\n\n구조적으로 보면 이거예요.\n\n```\nProject Instructions (상시 로드)\n├── CSP 컨텍스트 (역할, 톤, 조직 맥락)\n├── 템플릿 라이브러리\n│   ├── 🔵 보고서 → 주간업무 보고 문체\n│   ├── 🟢 이메일 → 수신자별 톤 가이드  \n│   ├── 🟡 슬랙 → 아이디어 캡처 + DM 전송\n│   └── 🔴 회의록 → 결정사항/액션아이템 추출\n└── 호출 규칙 (키워드 → 템플릿 매핑)\n```\n\n이게 세팅되면 새 대화를 열어도 매번 설명할 필요가 없어요. Project 안에서 대화하는 한 항상 이 맥락이 살아있어요.\n\n---\n\n지금 당장 할 수 있는 순서는 이래요.\n\n**1단계** — 오늘 이 대화에서 나온 내용 기반으로 CSP용 템플릿 3~4개를 Claude가 초안으로 작성해줘요.\n\n**2단계** — CSP가 Claude.ai에서 새 Project를 만들고 Instructions에 붙여넣어요. (5분이면 돼요)\n\n**3단계** — 오늘부터 그 Project 안에서 대화하면 끝이에요.\n\n---\n\n바로 템플릿 초안 작성 시작할까요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-31T23:59:32.023839Z",
+      "updated_at": "2026-03-31T23:59:32.023839Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4656-4761-7692-9699-c103176d2dbf"
+    },
+    {
+      "uuid": "019d4656-ebe3-7cc3-92c1-319db62a72c9",
+      "text": "시작해",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:59:56.075973Z",
+          "stop_timestamp": "2026-03-31T23:59:56.075973Z",
+          "flags": null,
+          "type": "text",
+          "text": "시작해",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-31T23:59:56.138045Z",
+      "updated_at": "2026-03-31T23:59:56.138045Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4656-4761-7832-9494-04ddecf8aea6"
+    },
+    {
+      "uuid": "019d4656-ebe3-7989-bdf7-09202fe3c69a",
+      "text": " 좋아요. 오늘 대화에서 나온 맥락을 기반으로 CSP 전용 Project Instructions 초안을 바로 만들게요.\n\n---\n\n## CSP Project Instructions 초안\n\n아래를 Claude.ai에서 새 Project 만들고 → Instructions에 그대로 붙여넣으면 돼요.\n\n---\n\n```\n# CSP Project Instructions\n\n## 나는 누구인가\n나는 CSP(Creative Solution Provider)다.\nHR 17년 경력 기반의 Vibe Coder. SW 백그라운드 없이\n심리학·철학·HR 경험을 코드와 시스템으로 구현하는 사람.\n현재 AX 내재화 전략 운영 + HR 자동화 SaaS 창업을 병행 중.\n\n## Claude의 역할\n- 나의 생각을 처리하는 엔진\n- 저장/전송/관리는 내가 트리거할 때만 실행\n- 보고서보다 에세이 톤, 인문학적 설명 선호\n- 결론부터, 짧게, 군더더기 없이\n\n## 트리거 키워드 → 즉시 실행\n\n### 🔵 \"보고서\"\n아래 형식으로 즉시 변환 시작.\n입력: 메모 수준의 날것 텍스트\n출력: 주간업무 보고 문체 (추진실적 bullet + 상세내용 산문)\n톤: 간결하고 사실 중심, 수동적 존댓말 없이\n\n### 🟢 \"이메일\" [수신자]\n수신자에 따라 톤 자동 조정.\n- 임원/리더십: 두괄식, 핵심만, 3줄 이내 요약 먼저\n- 동료: 협력적, 부드럽지만 명확\n- 외부: 정중하되 간결\n입력: 전달하고 싶은 핵심 내용 (한 줄도 OK)\n출력: 제목 + 본문 초안\n\n### 🟡 \"슬랙\"\n아이디어/인사이트를 Slack DM으로 캡처.\n아래 형식으로 정리 후 내 계정(U01KM01DRK3)으로 즉시 전송.\n형식:\n💡 *[제목]*\n[핵심 내용 3줄 이내]\n> [핵심 문장 또는 메타포]\n*다음 액션*\n→ [있으면 작성, 없으면 생략]\n_날짜 Claude.ai 대화에서 캡처_\n\n### 🔴 \"회의록\"\n입력: 회의 내용 날것 텍스트 또는 구두 요약\n출력:\n- 결정사항 (D): 확정된 것\n- 액션아이템 (A): 누가, 무엇을, 언제까지\n- 미결사항 (P): 다음으로 넘어간 것\n\n### 🟣 \"Notion 저장\"\n이 대화의 핵심 내용을 구조화해서 Notion 아카이브 DB에 저장.\n자동 생성: 제목, 주제, 태그, 요약, 중요도, 다음액션\n\n### ⚪ \"도구야 / 기록이야\"\n결과물 성격 판단 기준:\n- 도구: 프레임워크, 프롬프트, 템플릿 → Skills 폴더용 마크다운으로 정리\n- 기록: 의사결정 근거, 실행 결과물 → Notion 아카이브\n\n## 기본 작동 원칙\n1. 트리거 키워드가 오면 추가 질문 없이 즉시 실행\n2. 결과물 먼저, 설명은 나중에\n3. \"어떻게 할까요?\" 묻지 않는다 — 바로 한다\n4. 애매하면 가장 단순한 해석으로 실행하고 확인\n```\n\n---\n\n이게 붙여넣어지면, 앞으로 모든 대화에서 키워드 하나로 작동해요.\n\n**세팅 방법은 30초예요.**\n\nClaude.ai 좌측 사이드바 → `+ New Project` → 프로젝트 이름 `CSP Workspace` → Instructions에 위 내용 붙여넣기 → 저장.\n\n그 다음부터는 이 Project 안에서 대화하면 끝이에요. 한번 해볼까요?",
+      "content": [
+        {
+          "start_timestamp": "2026-03-31T23:59:58.511167Z",
+          "stop_timestamp": "2026-04-01T00:00:28.973703Z",
+          "flags": null,
+          "type": "text",
+          "text": " 좋아요. 오늘 대화에서 나온 맥락을 기반으로 CSP 전용 Project Instructions 초안을 바로 만들게요.\n\n---\n\n## CSP Project Instructions 초안\n\n아래를 Claude.ai에서 새 Project 만들고 → Instructions에 그대로 붙여넣으면 돼요.\n\n---\n\n```\n# CSP Project Instructions\n\n## 나는 누구인가\n나는 CSP(Creative Solution Provider)다.\nHR 17년 경력 기반의 Vibe Coder. SW 백그라운드 없이\n심리학·철학·HR 경험을 코드와 시스템으로 구현하는 사람.\n현재 AX 내재화 전략 운영 + HR 자동화 SaaS 창업을 병행 중.\n\n## Claude의 역할\n- 나의 생각을 처리하는 엔진\n- 저장/전송/관리는 내가 트리거할 때만 실행\n- 보고서보다 에세이 톤, 인문학적 설명 선호\n- 결론부터, 짧게, 군더더기 없이\n\n## 트리거 키워드 → 즉시 실행\n\n### 🔵 \"보고서\"\n아래 형식으로 즉시 변환 시작.\n입력: 메모 수준의 날것 텍스트\n출력: 주간업무 보고 문체 (추진실적 bullet + 상세내용 산문)\n톤: 간결하고 사실 중심, 수동적 존댓말 없이\n\n### 🟢 \"이메일\" [수신자]\n수신자에 따라 톤 자동 조정.\n- 임원/리더십: 두괄식, 핵심만, 3줄 이내 요약 먼저\n- 동료: 협력적, 부드럽지만 명확\n- 외부: 정중하되 간결\n입력: 전달하고 싶은 핵심 내용 (한 줄도 OK)\n출력: 제목 + 본문 초안\n\n### 🟡 \"슬랙\"\n아이디어/인사이트를 Slack DM으로 캡처.\n아래 형식으로 정리 후 내 계정(U01KM01DRK3)으로 즉시 전송.\n형식:\n💡 *[제목]*\n[핵심 내용 3줄 이내]\n> [핵심 문장 또는 메타포]\n*다음 액션*\n→ [있으면 작성, 없으면 생략]\n_날짜 Claude.ai 대화에서 캡처_\n\n### 🔴 \"회의록\"\n입력: 회의 내용 날것 텍스트 또는 구두 요약\n출력:\n- 결정사항 (D): 확정된 것\n- 액션아이템 (A): 누가, 무엇을, 언제까지\n- 미결사항 (P): 다음으로 넘어간 것\n\n### 🟣 \"Notion 저장\"\n이 대화의 핵심 내용을 구조화해서 Notion 아카이브 DB에 저장.\n자동 생성: 제목, 주제, 태그, 요약, 중요도, 다음액션\n\n### ⚪ \"도구야 / 기록이야\"\n결과물 성격 판단 기준:\n- 도구: 프레임워크, 프롬프트, 템플릿 → Skills 폴더용 마크다운으로 정리\n- 기록: 의사결정 근거, 실행 결과물 → Notion 아카이브\n\n## 기본 작동 원칙\n1. 트리거 키워드가 오면 추가 질문 없이 즉시 실행\n2. 결과물 먼저, 설명은 나중에\n3. \"어떻게 할까요?\" 묻지 않는다 — 바로 한다\n4. 애매하면 가장 단순한 해석으로 실행하고 확인\n```\n\n---\n\n이게 붙여넣어지면, 앞으로 모든 대화에서 키워드 하나로 작동해요.\n\n**세팅 방법은 30초예요.**\n\nClaude.ai 좌측 사이드바 → `+ New Project` → 프로젝트 이름 `CSP Workspace` → Instructions에 위 내용 붙여넣기 → 저장.\n\n그 다음부터는 이 Project 안에서 대화하면 끝이에요. 한번 해볼까요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-01T00:00:29.053818Z",
+      "updated_at": "2026-04-01T00:00:29.053818Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4656-ebe3-7cc3-92c1-319db62a72c9"
+    },
+    {
+      "uuid": "019d465c-d7ee-7e01-b4d3-d90b4d819e14",
+      "text": "OK 이건 해봤고, 다음 아이템 제안해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-04-01T00:06:23.831379Z",
+          "stop_timestamp": "2026-04-01T00:06:23.831379Z",
+          "flags": null,
+          "type": "text",
+          "text": "OK 이건 해봤고, 다음 아이템 제안해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-01T00:06:23.885825Z",
+      "updated_at": "2026-04-01T00:06:23.885825Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d4656-ebe3-7989-bdf7-09202fe3c69a"
+    },
+    {
+      "uuid": "019d465c-d7ee-7486-8f13-1839ce956882",
+      "text": " 좋아요. 오늘 대화 전체 흐름을 보면 \"자전거 프레임\" 위에 모터 하나를 달았어요.\n\n**첫 번째 모터 ✅ — Claude.ai Project Instructions (생각 → 문서 변환 키트)**\n\n---\n\n다음 모터 후보를 뽑기 전에, 오늘 대화 초반에 나온 네 가지 소모 영역을 다시 보면요.\n\n회의/보고서는 방금 장착했고, 나머지 세 개가 남아 있어요. 그런데 단순히 순서대로 가기보다, **CSP의 현재 에너지와 맥락**에서 가장 임팩트 있는 걸 골라야 해요.\n\n제가 보기에 두 번째 모터 후보는 이거예요.\n\n---\n\n**후보 A — 교육 자료 제작 자동화**\n\n연간 6개 과정을 설계해야 하는데, 지금 커리큘럼 구상 → 슬라이드 → 운영 자료까지 전부 수작업이에요. 여기에 모터를 달면 \"과정명 + 핵심 목표 + 대상자\" 세 줄만 던지면 Claude가 커리큘럼 뼈대를 잡아주는 파이프라인이 생겨요. 임팩트가 크고, 지금 당장 필요한 시점이에요.\n\n**후보 B — 데이터 정리/분석 반자동화**\n\nPulse Check나 조직 진단 데이터가 나올 때마다 정리하는 데 시간이 빠져요. 엑셀이나 설문 결과를 Claude에 던지면 인사이트 요약 + 시각화 초안까지 뽑아주는 구조예요. 단, 원재료(데이터)가 손에 있을 때만 작동해요.\n\n**후보 C — 커뮤니케이션 초안 생성**\n\n이미 Project Instructions에 이메일 템플릿이 들어갔으니까, 사실 부분적으로는 장착된 상태예요. 여기서 더 나아가면 \"수신자 프로파일링 → 톤 자동 조정 → 초안 생성\"까지 정교화할 수 있어요.\n\n---\n\n어떤 게 지금 CSP한테 가장 페달이 무거운 느낌이에요?",
+      "content": [
+        {
+          "start_timestamp": "2026-04-01T00:06:25.135598Z",
+          "stop_timestamp": "2026-04-01T00:06:42.246659Z",
+          "flags": null,
+          "type": "text",
+          "text": " 좋아요. 오늘 대화 전체 흐름을 보면 \"자전거 프레임\" 위에 모터 하나를 달았어요.\n\n**첫 번째 모터 ✅ — Claude.ai Project Instructions (생각 → 문서 변환 키트)**\n\n---\n\n다음 모터 후보를 뽑기 전에, 오늘 대화 초반에 나온 네 가지 소모 영역을 다시 보면요.\n\n회의/보고서는 방금 장착했고, 나머지 세 개가 남아 있어요. 그런데 단순히 순서대로 가기보다, **CSP의 현재 에너지와 맥락**에서 가장 임팩트 있는 걸 골라야 해요.\n\n제가 보기에 두 번째 모터 후보는 이거예요.\n\n---\n\n**후보 A — 교육 자료 제작 자동화**\n\n연간 6개 과정을 설계해야 하는데, 지금 커리큘럼 구상 → 슬라이드 → 운영 자료까지 전부 수작업이에요. 여기에 모터를 달면 \"과정명 + 핵심 목표 + 대상자\" 세 줄만 던지면 Claude가 커리큘럼 뼈대를 잡아주는 파이프라인이 생겨요. 임팩트가 크고, 지금 당장 필요한 시점이에요.\n\n**후보 B — 데이터 정리/분석 반자동화**\n\nPulse Check나 조직 진단 데이터가 나올 때마다 정리하는 데 시간이 빠져요. 엑셀이나 설문 결과를 Claude에 던지면 인사이트 요약 + 시각화 초안까지 뽑아주는 구조예요. 단, 원재료(데이터)가 손에 있을 때만 작동해요.\n\n**후보 C — 커뮤니케이션 초안 생성**\n\n이미 Project Instructions에 이메일 템플릿이 들어갔으니까, 사실 부분적으로는 장착된 상태예요. 여기서 더 나아가면 \"수신자 프로파일링 → 톤 자동 조정 → 초안 생성\"까지 정교화할 수 있어요.\n\n---\n\n어떤 게 지금 CSP한테 가장 페달이 무거운 느낌이에요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-01T00:06:42.323252Z",
+      "updated_at": "2026-04-01T00:06:42.323252Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d465c-d7ee-7e01-b4d3-d90b4d819e14"
+    },
+    {
+      "uuid": "019d467c-6749-7b0d-96cd-dbe8bd76c013",
+      "text": "C",
+      "content": [
+        {
+          "start_timestamp": "2026-04-01T00:40:55.235582Z",
+          "stop_timestamp": "2026-04-01T00:40:55.235582Z",
+          "flags": null,
+          "type": "text",
+          "text": "C",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-01T00:40:55.289980Z",
+      "updated_at": "2026-04-01T00:40:55.289980Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d465c-d7ee-7486-8f13-1839ce956882"
+    },
+    {
+      "uuid": "019d467c-6749-7b97-8a82-d6e039ec2372",
+      "text": " 좋아요. C — 커뮤니케이션 초안 생성을 정교화하는 거예요.\n\nProject Instructions에 이메일 템플릿이 들어갔지만, 지금은 아직 \"형식\"만 있어요. 진짜 모터는 **수신자를 알면 톤이 자동으로 달라지는 것**이에요.\n\n---\n\n먼저 CSP가 실제로 자주 쓰는 커뮤니케이션 상황을 파악하고 싶어요. Slack DM에 최근에 보낸 메시지들 잠깐 봐도 될까요? 실제 패턴을 보면 템플릿이 훨씬 정확해져요.\n```\nThis block is not supported on your current device yet.\n```\n\n좋아요, 실제 패턴이 보여요. Slack DM을 보니까 CSP가 자신한테 보내는 메시지 유형이 크게 세 가지예요.\n\n**작업 세션 요약** (EX Intelligence 작업 세션 요약처럼), **일일 브리핑** (일일 브리핑 — 일정+메일+뉴스레터), **슬라이드 작성 요청** (포맷 기준 + 목적 + 대상 + 장수 구조).\n\n그리고 결정적으로 — 슬라이드 작성 요청 메시지가 **템플릿 형태로 이미 쓰이고 있어요.** CSP가 이미 본능적으로 패턴화하고 있었던 거예요.\n\n---\n\n이걸 보고 나니 C 모터의 설계가 명확해졌어요.\n\nCSP한테 필요한 건 \"이메일 초안\"이 아니에요. **상황별 커뮤니케이션 트리거 세트**예요. 실제 Slack에서 쓰이는 패턴 기반으로 만들면 돼요.\n\n바로 만들게요.\n\n---\n\n## C 모터 — 커뮤니케이션 트리거 세트\n\nProject Instructions에 추가할 블록이에요.\n\n```\n### 🟠 \"슬라이드 요청\"\n아래 형식으로 즉시 구조화.\n\n목적: [문제정의 / 방향제시 / 구조설명 / 데이터보고 / 경험서술 / 실행안내]\n주제: [내용]\n대상: [경영진 / 팀장 / 실무자]\n장수: [N장]\n\n→ 목적에 따라 두괄식/스토리텔링/데이터중심 구조 자동 선택\n→ 대상에 따라 밀도와 언어 수준 조정\n→ 슬라이드별 핵심 메시지 + 담을 내용 한 줄씩 출력\n\n### 🟠 \"세션 요약\"\n작업 내용을 아래 형식으로 정리 후 Slack DM 전송.\n\n🔬 [작업명] · [날짜]\n─────────────────\n이 채팅에서 한 일\n1. [작업1] — [한 줄 설명]\n2. [작업2] — [한 줄 설명]\n─────────────────\n다음 액션\n• [액션1]\n• [액션2]\n\n### 🟠 \"브리핑\"\n오늘의 컨텍스트를 아래 구조로 정리.\n\n🌅 일일 브리핑 — [날짜]\n📅 오늘 일정: [있으면 작성]\n📌 핵심 집중 사항: [오늘 가장 중요한 것 1가지]\n⚡ 빠른 액션: [5분 안에 처리할 것]\n📚 나중에 읽을 것: [링크나 자료]\n```\n\n---\n\n이 세 개를 아까 만든 Instructions 블록 뒤에 붙이면 돼요.\n\n그리고 하나 더 — 슬라이드 요청 템플릿은 이미 Slack에서 수동으로 쓰고 있었잖아요. 이제 Claude한테 \"슬라이드 요청\"이라고 치면 Claude가 그 형식을 대신 채워주는 거예요. **CSP가 하던 일을 Claude가 대신하는 구조**로 전환된 거예요.\n\n이 블록 추가하고, 다음 모터 얘기할까요?",
+      "content": [
+        {
+          "start_timestamp": "2026-04-01T00:40:57.242260Z",
+          "stop_timestamp": "2026-04-01T00:41:02.299281Z",
+          "flags": null,
+          "type": "text",
+          "text": " 좋아요. C — 커뮤니케이션 초안 생성을 정교화하는 거예요.\n\nProject Instructions에 이메일 템플릿이 들어갔지만, 지금은 아직 \"형식\"만 있어요. 진짜 모터는 **수신자를 알면 톤이 자동으로 달라지는 것**이에요.\n\n---\n\n먼저 CSP가 실제로 자주 쓰는 커뮤니케이션 상황을 파악하고 싶어요. Slack DM에 최근에 보낸 메시지들 잠깐 봐도 될까요? 실제 패턴을 보면 템플릿이 훨씬 정확해져요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-04-01T00:41:02.598929Z",
+          "stop_timestamp": "2026-04-01T00:41:03.042068Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01D5pUFQ5s774ktUsmriGTzG",
+          "name": "Slack:slack_read_channel",
+          "input": {
+            "channel_id": "U01KM01DRK3",
+            "limit": 20,
+            "response_format": "concise"
+          },
+          "message": "Slack read channel",
+          "integration_name": "Slack",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "f5efdb2f-6c76-49b1-861c-64470157d945:slack_read_channel-c0a48e93cf296843c746df9c5fde85b0",
+          "is_mcp_app": false,
+          "mcp_server_url": "https://mcp.slack.com/mcp"
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01D5pUFQ5s774ktUsmriGTzG",
+          "name": "Slack:slack_read_channel",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"messages\":\"Channel: DM (D01K58C3AGM)\\n\\nDK CHO: :bulb: _\\uc544\\uc774\\ub514\\uc5b4 \\ucea1\\ucc98 \\u2014 \\uc790\\uc804\\uac70 \\ubaa8\\ud130 \\uba54\\ud0c0\\ud3ec_\\n\\ud5c8\\uc0c1\\uc744 \\uae30\\ud68d\\ud558\\ub294 \\ub300\\uc2e0, \\uc791\\uace0 \\ub2e8\\ub2e8\\ud55c \\uc194\\ub8e8\\uc158\\uc744 \\ud558\\ub098\\uc529 \\uad6c\\ucd95\\ud558\\uace0 \\uc7a5\\ucc29\\ud574\\ub098\\uac00\\ub294 \\ubc29\\uc2dd.\\n> \\\"\\uc790\\uc804\\uac70\\uc5d0 \\uc804\\uae30\\ubaa8\\ud130\\ub97c \\ub2e4\\ub294 \\ub290\\ub08c\\\"\\n> \\uc774\\ubbf8 \\uad74\\ub7ec\\uac00\\ub294 \\uac83 \\uc704\\uc5d0, \\uc9c0\\uae08 \\ub2f9\\uc7a5 \\uc791\\ub3d9\\ud558\\ub294 \\uac83\\uc744 \\ud558\\ub098\\uc529 \\uc62c\\ub824\\ub193\\ub294\\ub2e4.\\n_\\ud575\\uc2ec \\uc6d0\\uce59_\\n\\u2022 \\uccab \\ubc88\\uc9f8 \\uae30\\uc900: \\uc9c0\\uae08 \\ub2f9\\uc7a5 \\uc4f8 \\uc218 \\uc788\\ub294 \\uac83\\n\\u2022 Claude.ai = \\ucc98\\ub9ac \\uc5d4\\uc9c4 (\\uc800\\uc7a5\\/\\uc804\\uc1a1 \\ub3c4\\uad6c \\uc544\\ub2d8)\\n\\u2022 \\uacb0\\uacfc\\ubb3c \\ud310\\ub2e8: \\\"\\ub3c4\\uad6c\\uc57c, \\uae30\\ub85d\\uc774\\uc57c?\\\" \\ud55c \\ub9c8\\ub514\\ub85c\\n_\\ub2e4\\uc74c \\uc561\\uc158_\\n\\u2192 \\uc0dd\\uac01\\u2192\\ubb38\\uc11c \\ubcc0\\ud658 \\ud504\\ub86c\\ud504\\ud2b8 \\ud0a4\\ud2b8 \\uc81c\\uc791\\n\\u2192 \\uc800\\uc7a5 \\ud2b8\\ub9ac\\uac70 \\ubb38\\uc7a5 2\\uac1c \\ud655\\uc815\\n_2026.04.01 Claude.ai \\ub300\\ud654\\uc5d0\\uc11c \\ucea1\\ucc98_\\n*\\ub2e4\\uc74c\\uc744 \\uc0ac\\uc6a9\\ud558\\uc5ec \\ubcf4\\ub0c4* <@U0AGE5CFFFW|Claude> [2026-04-01 08:55:03 KST]\\n\\nDK CHO: <https:\\/\\/www.linkedin.com\\/posts\\/zemma_ppt-%EC%84%9C%EC%8B%9D-%EB%B2%A0%EB%A6%AC%EC%97%90%EC%9D%B4%EC%85%98-ugcPost-7443666627331796992-rdky?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https:\\/\\/www.linkedin.com\\/posts\\/zemma_ppt-%EC%84%9C%EC%8B%9D-%EB%B2%A0%EB%A6%AC%EC%97%[\\u2026]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-29 07:40:37 KST]\\n\\nDK CHO: <https:\\/\\/www.linkedin.com\\/posts\\/petercha90_harness-engineering%EA%B0%95%EB%A0%A5%ED%95%98%EC%A7%80%EB%A7%8C-%EC%A0%9C%EB%A9%8B%EB%8C%80%EB%A1%9C-%EA%B0%80%EB%A9%B4-%ED%81%B0%EC%9D%BC%EB%82%98%EB%8A%94-share-7436405058616995840-3N5o?utm_source=share&utm_medium=member_ios&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https:\\/\\/www.linkedin.com\\/posts\\/petercha90_harness-engineering%EA%B0%95%EB%A0%A5%ED%95%98%EC%A7%80%EB%A7%8C-%EC%A0%9C%EB%A9%8B%EB%8C%80%EB%A1%9C-%EA%B0%80%EB%A9%B4-%ED%81%B0%EC%9D%BC%EB%82%98%EB%8A%94-share-7436405058616995840-3N5o?utm_source=share&utm_medium=member_ios&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78>  [2026-03-28 14:52:04 KST]\\n\\nDK CHO: :microscope: _EX Intelligence \\uc791\\uc5c5 \\uc138\\uc158 \\uc694\\uc57d_ \\u00b7 2026.03.23\\n\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\n_\\uc774 \\ucc44\\ud305\\uc5d0\\uc11c \\ud55c \\uc77c_\\n_1. Notion \\uc2ac\\ub77c\\uc774\\ub4dc \\ubd84\\uc11d \\u2192 \\uc758\\uc0ac\\uacb0\\uc815 \\uc9c0\\uc6d0 \\ucd95 \\ubc18\\uc601 \\ubc29\\ud5a5 \\ub3c4\\ucd9c_\\n`_\\ubcf4\\uace0\\uc790\\ub8cc_EX_AX_Task_260317_v1_3.pptx` (13\\uc2ac\\ub77c\\uc774\\ub4dc) \\ubd84\\ud574 \\ubd84\\uc11d \\ud398\\uc774\\uc9c0\\ub97c \\uc77d\\uace0, \\\"\\uc870\\uc9c1\\uc6b4\\uc601 \\uc758\\uc0ac\\uacb0\\uc815 \\uc9c0\\uc6d0\\uc744 \\uc704\\ud55c \\ud575\\uc2ec \\uc815\\ubcf4\\/\\uc778\\uc0ac\\uc774\\ud2b8 \\uc81c\\uacf5\\\"\\uc774 \\uc8fc\\uc694 \\ucd95\\uc73c\\ub85c \\ubd80\\uac01\\ub418\\ub3c4\\ub85d \\uc2ac\\ub77c\\uc774\\ub4dc\\ubcc4 \\uc218\\uc815 \\uc9c0\\uce68 \\uc791\\uc131. \\ud575\\uc2ec \\uc81c\\uc548: Slide 4(\\uc2e0\\uc124) \\u2014 \\ub9ac\\ub354\\u00b7\\uacbd\\uc601\\uc9c4\\u00b7HR 3\\uac00\\uc9c0 \\uc758\\uc0ac\\uacb0\\uc815 \\uc7a5\\uba74 \\uc804\\uc6a9 \\uc2ac\\ub77c\\uc774\\ub4dc \\uc0bd\\uc785.\\n_2. LG PRI \\uc7a5\\ud45c \\ubb38\\ubc95 \\uae30\\ubc18 Manus AI PPT \\uc0dd\\uc131 \\ud504\\ub86c\\ud504\\ud2b8 \\uc791\\uc131_\\nNotion \\uc7a5\\ud45c \\ubb38\\ubc95 \\uccb4\\ud06c\\ub9ac\\uc2a4\\ud2b8(11\\uac00\\uc9c0 \\uaddc\\uce59)\\ub97c \\ubd84\\uc11d\\ud558\\uc5ec BLOCK 1(System Instruction) + BLOCK 2(\\uc2ac\\ub77c\\uc774\\ub4dc\\ubcc4 \\uc9c0\\uc2dc) \\uad6c\\uc870\\uc758 \\ub9c8\\uc2a4\\ud130 \\ud504\\ub86c\\ud504\\ud2b8 \\uc644\\uc131. \\uaddc\\uce59 \\ud575\\uc2ec: \\uc18c\\uc81c\\ubaa9 ~\\ud568 \\uc885\\uacb0, \\ub300\\ube44 \\uad6c\\uc870, \\uc138\\ub85c \\ub77c\\ubca8, \\uc0c9\\uc0c1 4\\ub2e8\\uacc4 \\uc704\\uacc4.\\n_3. Manus AI \\ud504\\ub86c\\ud504\\ud2b8 \\u2192 HTML \\uc778\\ud130\\ub799\\ud2f0\\ube0c \\ubcf4\\uace0\\uc11c v1 \\uc0dd\\uc131_\\n\\uc2ac\\ub77c\\uc774\\ub4dc \\ud615\\ud0dc\\uac00 \\uc544\\ub2cc HTML \\uad6c\\uc870\\uc5d0 \\ucd5c\\uc801\\ud654\\ub41c \\ubcf4\\uace0\\uc11c \\ud398\\uc774\\uc9c0 \\uc0dd\\uc131. 3\\uc5f4 \\ub300\\ube44 \\uad6c\\uc870, \\uacc4\\uce35\\ubcc4 Output, \\uac04\\ud2b8 \\ucc28\\ud2b8, \\uc720\\ucca8 5\\uac1c \\uc139\\uc158 \\ud3ec\\ud568.\\n_4. HTML \\ubcf4\\uace0\\uc11c \\uc804\\uba74 \\uc7ac\\uc124\\uacc4 (v2) \\u2014 \\uc6f9 \\ub9e4\\uccb4 \\uac15\\uc810 \\uadf9\\ub300\\ud654_\\n\\ub2e4\\ud06c \\ud14c\\ub9c8 + Bebas Neue \\ub514\\uc2a4\\ud50c\\ub808\\uc774 \\ud3f0\\ud2b8\\ub85c \\uc644\\uc804\\ud788 \\uc0c8\\ub86d\\uac8c \\uc124\\uacc4.\\n\\uc8fc\\uc694 HTML \\uc804\\uc6a9 \\uae30\\ub2a5:\\n\\u2022 \\ud074\\ub9ad\\ud615 \\uc778\\ud130\\ub799\\ud2f0\\ube0c 3-Layer \\ud30c\\uc774\\ud504\\ub77c\\uc778\\n\\u2022 \\uc2a4\\ud06c\\ub864 \\uc9c4\\uc785 \\uc2dc \\uac04\\ud2b8 \\ubc14 \\uc560\\ub2c8\\uba54\\uc774\\uc158\\n\\u2022 Health Check \\uc810\\uc218 \\ubc14 \\uc2e4\\uc2dc\\uac04 \\ucc44\\uc6c0 \\ud6a8\\uacfc\\n\\u2022 \\ud0ed \\uae30\\ubc18 \\uc720\\ucca8 5\\uac1c (\\ubcf8\\ubb38 ref-link\\ub85c \\uc790\\ub3d9 \\uc804\\ud658)\\n\\u2022 \\uc2a4\\ud06c\\ub864 \\uc9c4\\ud589 \\ubc14 + \\uc139\\uc158 reveal \\uc560\\ub2c8\\uba54\\uc774\\uc158\\n_5. \\\"\\uc758\\uc0ac\\uacb0\\uc815 \\uc9c0\\uc6d0\\\" \\uc5ed\\ud560 \\uac15\\ud654 (v2 \\uac1c\\uc120)_\\n\\uc2e0\\uaddc \\uc139\\uc158 `DECISION INTELLIGENCE SUPPORT` \\uc0bd\\uc785:\\n\\u2192 3\\uac1c \\uc2dc\\ub098\\ub9ac\\uc624 \\uce74\\ub4dc (\\ub9ac\\ub354\\/\\uacbd\\uc601\\uc9c4\\/HR) \\u2014 \\ud604\\uc7ac \\ubb38\\uc81c \\u2192 AI \\uc778\\ud154\\ub9ac\\uc804\\uc2a4 \\u2192 \\uc758\\uc0ac\\uacb0\\uc815 \\uacb0\\uacfc\\n\\u2192 4\\uac00\\uc9c0 \\uc804\\ud658 \\uac00\\uce58 \\ubc14 (\\uc5f01\\ud68c\\u2192\\uc6d4\\ub2e8\\uc704, \\uac10\\u2192\\ub370\\uc774\\ud130, \\ud6c4\\ud589\\u2192\\uc120\\ud589, \\ub2e8\\uce35\\u2192\\uacc4\\uce35\\ubcc4)\\n\\u2192 Layer 3 \\ud328\\ub110 \\uac15\\ud654, S5 Communication \\uacc4\\uce35\\ubcc4 \\uc758\\uc0ac\\uacb0\\uc815 \\uc5b8\\uc5b4 \\uc7ac\\uae30\\uc220\\n_6. HR \\uc784\\uc6d0 \\ud53c\\uce6d \\uac00\\uc774\\ub4dc \\uc791\\uc131 \\u2192 Notion \\uc800\\uc7a5_\\n\\ubcf4\\uace0 \\ub300\\uc0c1: HR \\uc784\\uc6d0 | \\uc608\\uc0c1 \\uc2dc\\uac04: 20~25\\ubd84\\n\\ud575\\uc2ec \\uc124\\uacc4 \\uc6d0\\uce59 3\\uac00\\uc9c0 + \\uc139\\uc158\\ubcc4 \\uc2a4\\ud06c\\ub9bd\\ud2b8 + \\uc608\\uc0c1 Q&A 10\\uac1c + \\ub2f9\\uc77c \\uccb4\\ud06c\\ub9ac\\uc2a4\\ud2b8\\n\\u2192 Notion \\uc800\\uc7a5 \\uc644\\ub8cc: <https:\\/\\/www.notion.so\\/32c6b7b50b2381829168d1ab92ca219a>\\n\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\u2501\\n_\\ub2e4\\uc74c \\uc561\\uc158_\\n\\u2022 Manus AI\\uc5d0 \\ud504\\ub86c\\ud504\\ud2b8 \\uc785\\ub825 \\u2192 PPTX \\uc0dd\\uc131\\n\\u2022 HTML \\ubcf4\\uace0\\uc11c \\ub9c1\\ud06c \\uc784\\uc6d0 \\uc0ac\\uc804 \\uacf5\\uc720 (\\ubcf4\\uace0 \\uc804\\ub0a0)\\n\\u2022 \\ud53c\\uce6d \\uac00\\uc774\\ub4dc \\uae30\\ubc18 Q&A 5\\uac1c \\uc18c\\ub9ac \\ub0b4\\uc5b4 \\uc5f0\\uc2b5\\n\\u2022 \\uc554\\uae30 \\uc218\\uce58 4\\uac1c \\ud655\\uc778: _3\\ubd84 \\/ 85% \\/ 15% \\/ M3(12\\uc6d4)_\\n*\\ub2e4\\uc74c\\uc744 \\uc0ac\\uc6a9\\ud558\\uc5ec \\ubcf4\\ub0c4* <@U0AGE5CFFFW|Claude> [2026-03-23 18:45:11 KST]\\n\\nDK CHO: :date: _\\uc624\\ub298\\uc758 \\uc77c\\uc815 (2026\\ub144 3\\uc6d4 22\\uc77c)_\\n:birthday: _\\ubaa8\\uce5c \\uc0dd\\uc2e0_\\n\\u2022 :clock1: 12:00 \\u2013 13:00\\n\\u2022 :round_pushpin: \\ud3b8\\ubc31\\ud68c\\uad00 \\uc2dc\\ud765\\uc7a5\\uace1\\uc810 (\\uacbd\\uae30\\ub3c4 \\uc2dc\\ud765\\uc2dc \\uc7a5\\uace1\\ub3d9 \\uc9c4\\ub9d01\\ub85c 8 \\uc5d0\\ub4c0\\ud0c0\\uc6cc 3\\uce35)\\n\\uc624\\ub298 \\uc77c\\uc815\\uc740 \\uc704 1\\uac74\\uc785\\ub2c8\\ub2e4. \\uc990\\uac70\\uc6b4 \\ud558\\ub8e8 \\ub418\\uc138\\uc694! :blush:\\n*\\ub2e4\\uc74c\\uc744 \\uc0ac\\uc6a9\\ud558\\uc5ec \\ubcf4\\ub0c4* <@U0AGE5CFFFW|Claude> [2026-03-22 11:00:25 KST]\\n\\nDK CHO: 8670022138:AAFUeRMA8iyjJT20vrSDvrodT2Z0tIA8cKE [2026-03-22 08:55:41 KST]\\n\\nDK CHO: :sunrise: _\\uc77c\\uc77c \\ube0c\\ub9ac\\ud551 \\u2014 2026\\ub144 3\\uc6d4 22\\uc77c (\\uc77c)_\\n:date: _\\uc624\\ub298\\uc758 \\uc77c\\uc815_\\n\\u2022 _\\ubaa8\\uce5c \\uc0dd\\uc2e0_ | \\uc624\\ud6c4 12:00\\u20131:00 | \\ud3b8\\ubc31\\ud68c\\uad00 \\uc2dc\\ud765\\uc7a5\\uace1\\uc810\\n\\u2192 \\uc774\\ub3d9 \\uc2dc\\uac04 \\uace0\\ub824\\ud574 \\uc624\\uc804 \\uc911 \\ucd9c\\ubc1c \\uc900\\ube44 \\uc644\\ub8cc\\ud558\\uae30\\n:e-mail: _Gmail \\uc8fc\\uc694 \\uba54\\uc77c_\\n:warning: \\ud655\\uc778 \\ud544\\uc694\\n\\u2022 [\\uce74\\uce74\\uc624\\ubc45\\ud06c] \\ubaa8\\uc784\\ud1b5\\uc7a5 \\uae08\\uc735\\uac70\\ub798\\uc815\\ubcf4 \\uc81c\\uacf5 \\ub0b4\\uc5ed \\uc548\\ub0b4 \\u2014 \\ubc95\\uc801 \\ud1b5\\ubcf4, \\ub0b4\\uc6a9 \\ud655\\uc778 \\uad8c\\uc7a5\\n\\u2022 [\\uce74\\uce74\\uc624\\ubc45\\ud06c] \\ubaa8\\uc784\\ud1b5\\uc7a5 \\uae08\\uc735\\uac70\\ub798\\uc815\\ubcf4\\uc81c\\uacf5 \\ub3d9\\uc758 1\\ub144 \\uacbd\\uacfc \\u2014 \\uac31\\uc2e0 \\uc5ec\\ubd80 \\ud655\\uc778 \\ud544\\uc694\\n:information_source: \\uc815\\uc0c1 \\ucc98\\ub9ac\\n\\u2022 Google \\ubcf4\\uc548 \\uc54c\\ub9bc 2\\ud1b5 \\u2014 Claude Calendar\\/Gmail \\uc5f0\\uacb0 \\uc790\\ub3d9 \\uc54c\\ub9bc (\\uc815\\uc0c1)\\n:books: \\ub098\\uc911\\uc5d0 \\uc77d\\uc744 \\ub274\\uc2a4\\ub808\\ud130\\n\\u2022 McKinsey \\u2014 \\\"Leading disruption before it leads you\\\"\\n\\u2022 Daily Dose of DS \\u2014 \\\"LLM Inference and Optimization \\uc2e4\\uc804 \\uac00\\uc774\\ub4dc\\\"\\n:speech_balloon: _Slack_ \\u2014 \\ucd5c\\uadfc 24\\uc2dc\\uac04 \\uc0c8\\ub85c\\uc6b4 \\ud65c\\ub3d9 \\uc5c6\\uc74c\\n:dart: \\uc624\\ub298\\uc740 \\uc5b4\\uba38\\ub2c8 \\uc0dd\\uc2e0\\uc774 \\uc911\\uc2ec\\uc778 \\ub0a0. \\ud68c\\ubcf5\\uacfc \\uc7ac\\ucda9\\uc804\\uc5d0 \\uc9d1\\uc911\\ud558\\uace0, \\uce74\\uce74\\uc624\\ubc45\\ud06c \\uba54\\uc77c\\ub9cc \\uc810\\uc2ec \\uc804\\ud6c4\\ub85c \\uc7a0\\uae50 \\ud655\\uc778\\ud574\\ub450\\uba74 \\ucda9\\ubd84\\ud569\\ub2c8\\ub2e4. :slightly_smiling_face:\\n*\\ub2e4\\uc74c\\uc744 \\uc0ac\\uc6a9\\ud558\\uc5ec \\ubcf4\\ub0c4* <@U0AGE5CFFFW|Claude> [2026-03-22 08:18:33 KST]\\n\\nDK CHO: # \\uc2ac\\ub77c\\uc774\\ub4dc \\uc791\\uc131 \\uc694\\uccad\\n\\n**\\ud3ec\\ub9f7 \\uae30\\uc900**: <https:\\/\\/www.notion.so\\/3296b7b50b2381d28d61ff7f60b1f876>\\n **\\ub514\\uc790\\uc778 \\uae30\\uc900**: <https:\\/\\/www.notion.so\\/3296b7b50b2381c1b75ef1ea7c18954c>\\n\\n**\\uc694\\uccad**:\\n - \\ubaa9\\uc801: [\\ubb38\\uc81c\\uc815\\uc758 \\/ \\ubc29\\ud5a5\\uc81c\\uc2dc \\/ \\uad6c\\uc870\\uc124\\uba85 \\/ \\ub370\\uc774\\ud130\\ubcf4\\uace0 \\/ \\uacbd\\ud5d8\\uc11c\\uc220 \\/ \\uc2e4\\ud589\\uc548\\ub0b4]\\n - \\uc8fc\\uc81c: [\\ub0b4\\uc6a9]\\n - \\ub300\\uc0c1: [\\uacbd\\uc601\\uc9c4 \\/ \\ud300\\uc7a5 \\/ \\uc2e4\\ubb34\\uc790]\\n - \\uc7a5\\uc218: [N\\uc7a5] [2026-03-20 11:17:13 KST]\\n\\nDK CHO: <https:\\/\\/www.peters.place\\/ko\\/post\\/agentation> [2026-03-19 08:38:33 KST]\\n\\nDK CHO: <https:\\/\\/www.linkedin.com\\/posts\\/seungpil_21st-infrastructure-and-ui-building-blocks-share-7439094671274029056-wa4j?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https:\\/\\/www.linkedin.com\\/posts\\/seungpil_21st-infrastructure-and-ui-building-blocks-sh[\\u2026]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-16 09:51:00 KST]\\n\\nDK CHO: PM Skills Marketplace (phuryn\\/pm-skills)\\nTeresa Torres, Marty Cagan \\ub4f1 PM \\ub808\\uc804\\ub4dc\\ub4e4\\uc758 \\ud504\\ub808\\uc784\\uc6cc\\ud06c\\ub97c Claude Code \\/ Cowork \\uba85\\ub839\\uc5b4\\ub85c \\ubc14\\ub85c \\uc4f8 \\uc218 \\uc788\\uac8c \\ud328\\ud0a4\\uc9d5\\ud574\\ub1a8\\uc5b4\\uc694. [2026-03-16 08:26:18 KST]\\n\\nDK CHO: <https:\\/\\/www.linkedin.com\\/posts\\/sungjae-shim-9b353159_pm-%EB%B6%84%EB%93%A4-%EB%B0%94%EC%9D%B4%EB%B8%8C%EC%BD%94%EB%94%A9-%EC%8B%9C%EB%8C%80%EC%97%90-%EC%9D%B4%EA%B1%B0-%ED%95%98%EB%82%98-%EC%84%A4%EC%B9%98%ED%95%B4%EB%91%90%EB%A9%B4-%EB%90%A9%EB%8B%88%EB%8B%A4-github-share-7438766832486068224-xZOk?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https:\\/\\/www.linkedin.com\\/posts\\/sungjae-shim-9b353159_pm-%EB%B6%84%EB%93%A4-%EB%B0%94%[\\u2026]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-16 08:25:30 KST]\\n\\nDK CHO: <https:\\/\\/www.linkedin.com\\/feed\\/update\\/urn:li:activity:7438427908328599553\\/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https:\\/\\/www.linkedin.com\\/feed\\/update\\/urn:li:activity:7438427908328599553\\/?utm_source=[\\u2026]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-15 07:55:09 KST]\\n\\nDK CHO:  [2026-03-14 09:12:15 KST]\\n\\nDK CHO: <https:\\/\\/www.linkedin.com\\/posts\\/gb-jeong_%EC%86%8C%EC%8A%A4-url-%EB%91%90-%EA%B0%9C-10%EB%B6%84%EC%A7%9C%EB%A6%AC-%ED%8C%9F%EC%BA%90%EC%8A%A4%ED%8A%B8-youtube-%EC%97%85%EB%A1%9C%EB%93%9C-share-7437872501948473344-1YbC?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https:\\/\\/www.linkedin.com\\/posts\\/gb-jeong_%EC%86%8C%EC%8A%A4-url-%EB%91%90-%EA%B0%9C-10[\\u2026]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-13 08:32:01 KST]\\n\\nDK CHO: <https:\\/\\/www.linkedin.com\\/posts\\/jyoung105_ai-%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%EC%97%90%EA%B2%8C-%EC%9E%91%EC%97%85%EC%9D%84-%EC%8B%9C%ED%82%A8-%EB%8B%A4%EC%9D%8C-%EC%9D%B8%EA%B0%84%EC%9D%B4-%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%9D%BC%EC%9D%80-%EC%8B%9C%EA%B0%81%ED%99%94%EC%9E%85%EB%8B%88%EB%8B%A4-share-7437754496593805312-7DYR?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https:\\/\\/www.linkedin.com\\/posts\\/jyoung105_ai-%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%EC%9[\\u2026]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-12 16:34:59 KST]\\n\\nDK CHO: <https:\\/\\/www.linkedin.com\\/posts\\/petercha90_the-agent-skills-directory-activity-7437108444358344705-aqJY?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https:\\/\\/www.linkedin.com\\/posts\\/petercha90_the-agent-skills-directory-activity-7437108[\\u2026]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-12 10:39:21 KST]\\n\\nDK CHO: <https:\\/\\/gist.github.com\\/woozoobro\\/acebf5bc41f11ab8a8ad20ae60268f50> [2026-03-12 09:44:11 KST]\\n\\nDK CHO: <https:\\/\\/www.linkedin.com\\/feed\\/update\\/urn:li:activity:7436923657278394368\\/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https:\\/\\/www.linkedin.com\\/feed\\/update\\/urn:li:activity:7436923657278394368\\/?utm_source=[\\u2026]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-10 11:48:39 KST]\\n\\nDK CHO: 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 [2026-03-08 10:18:24 KST]\",\"pagination_info\":\"There are more messages available. To view the next page, use cursor: `bmV4dF90czoxNzcyOTMyNjgwODIxMjc5`\\n\"}",
+              "uuid": "a654cab8-337e-4613-bf14-3b0f3cf8fb01"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Slack",
+          "mcp_server_url": "https://mcp.slack.com/mcp",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"messages\": \"Channel: DM (D01K58C3AGM)\\n\\nDK CHO: :bulb: _아이디어 캡처 — 자전거 모터 메타포_\\n허상을 기획하는 대신, 작고 단단한 솔루션을 하나씩 구축하고 장착해나가는 방식.\\n> \\\"자전거에 전기모터를 다는 느낌\\\"\\n> 이미 굴러가는 것 위에, 지금 당장 작동하는 것을 하나씩 올려놓는다.\\n_핵심 원칙_\\n• 첫 번째 기준: 지금 당장 쓸 수 있는 것\\n• Claude.ai = 처리 엔진 (저장/전송 도구 아님)\\n• 결과물 판단: \\\"도구야, 기록이야?\\\" 한 마디로\\n_다음 액션_\\n→ 생각→문서 변환 프롬프트 키트 제작\\n→ 저장 트리거 문장 2개 확정\\n_2026.04.01 Claude.ai 대화에서 캡처_\\n*다음을 사용하여 보냄* <@U0AGE5CFFFW|Claude> [2026-04-01 08:55:03 KST]\\n\\nDK CHO: <https://www.linkedin.com/posts/zemma_ppt-%EC%84%9C%EC%8B%9D-%EB%B2%A0%EB%A6%AC%EC%97%90%EC%9D%B4%EC%85%98-ugcPost-7443666627331796992-rdky?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https://www.linkedin.com/posts/zemma_ppt-%EC%84%9C%EC%8B%9D-%EB%B2%A0%EB%A6%AC%EC%97%[…]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-29 07:40:37 KST]\\n\\nDK CHO: <https://www.linkedin.com/posts/petercha90_harness-engineering%EA%B0%95%EB%A0%A5%ED%95%98%EC%A7%80%EB%A7%8C-%EC%A0%9C%EB%A9%8B%EB%8C%80%EB%A1%9C-%EA%B0%80%EB%A9%B4-%ED%81%B0%EC%9D%BC%EB%82%98%EB%8A%94-share-7436405058616995840-3N5o?utm_source=share&utm_medium=member_ios&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https://www.linkedin.com/posts/petercha90_harness-engineering%EA%B0%95%EB%A0%A5%ED%95%98%EC%A7%80%EB%A7%8C-%EC%A0%9C%EB%A9%8B%EB%8C%80%EB%A1%9C-%EA%B0%80%EB%A9%B4-%ED%81%B0%EC%9D%BC%EB%82%98%EB%8A%94-share-7436405058616995840-3N5o?utm_source=share&utm_medium=member_ios&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78>  [2026-03-28 14:52:04 KST]\\n\\nDK CHO: :microscope: _EX Intelligence 작업 세션 요약_ · 2026.03.23\\n━━━━━━━━━━━━━━━━━━━━━━\\n_이 채팅에서 한 일_\\n_1. Notion 슬라이드 분석 → 의사결정 지원 축 반영 방향 도출_\\n`_보고자료_EX_AX_Task_260317_v1_3.pptx` (13슬라이드) 분해 분석 페이지를 읽고, \\\"조직운영 의사결정 지원을 위한 핵심 정보/인사이트 제공\\\"이 주요 축으로 부각되도록 슬라이드별 수정 지침 작성. 핵심 제안: Slide 4(신설) — 리더·경영진·HR 3가지 의사결정 장면 전용 슬라이드 삽입.\\n_2. LG PRI 장표 문법 기반 Manus AI PPT 생성 프롬프트 작성_\\nNotion 장표 문법 체크리스트(11가지 규칙)를 분석하여 BLOCK 1(System Instruction) + BLOCK 2(슬라이드별 지시) 구조의 마스터 프롬프트 완성. 규칙 핵심: 소제목 ~함 종결, 대비 구조, 세로 라벨, 색상 4단계 위계.\\n_3. Manus AI 프롬프트 → HTML 인터랙티브 보고서 v1 생성_\\n슬라이드 형태가 아닌 HTML 구조에 최적화된 보고서 페이지 생성. 3열 대비 구조, 계층별 Output, 간트 차트, 유첨 5개 섹션 포함.\\n_4. HTML 보고서 전면 재설계 (v2) — 웹 매체 강점 극대화_\\n다크 테마 + Bebas Neue 디스플레이 폰트로 완전히 새롭게 설계.\\n주요 HTML 전용 기능:\\n• 클릭형 인터랙티브 3-Layer 파이프라인\\n• 스크롤 진입 시 간트 바 애니메이션\\n• Health Check 점수 바 실시간 채움 효과\\n• 탭 기반 유첨 5개 (본문 ref-link로 자동 전환)\\n• 스크롤 진행 바 + 섹션 reveal 애니메이션\\n_5. \\\"의사결정 지원\\\" 역할 강화 (v2 개선)_\\n신규 섹션 `DECISION INTELLIGENCE SUPPORT` 삽입:\\n→ 3개 시나리오 카드 (리더/경영진/HR) — 현재 문제 → AI 인텔리전스 → 의사결정 결과\\n→ 4가지 전환 가치 바 (연1회→월단위, 감→데이터, 후행→선행, 단층→계층별)\\n→ Layer 3 패널 강화, S5 Communication 계층별 의사결정 언어 재기술\\n_6. HR 임원 피칭 가이드 작성 → Notion 저장_\\n보고 대상: HR 임원 | 예상 시간: 20~25분\\n핵심 설계 원칙 3가지 + 섹션별 스크립트 + 예상 Q&A 10개 + 당일 체크리스트\\n→ Notion 저장 완료: <https://www.notion.so/32c6b7b50b2381829168d1ab92ca219a>\\n━━━━━━━━━━━━━━━━━━━━━━\\n_다음 액션_\\n• Manus AI에 프롬프트 입력 → PPTX 생성\\n• HTML 보고서 링크 임원 사전 공유 (보고 전날)\\n• 피칭 가이드 기반 Q&A 5개 소리 내어 연습\\n• 암기 수치 4개 확인: _3분 / 85% / 15% / M3(12월)_\\n*다음을 사용하여 보냄* <@U0AGE5CFFFW|Claude> [2026-03-23 18:45:11 KST]\\n\\nDK CHO: :date: _오늘의 일정 (2026년 3월 22일)_\\n:birthday: _모친 생신_\\n• :clock1: 12:00 – 13:00\\n• :round_pushpin: 편백회관 시흥장곡점 (경기도 시흥시 장곡동 진말1로 8 에듀타워 3층)\\n오늘 일정은 위 1건입니다. 즐거운 하루 되세요! :blush:\\n*다음을 사용하여 보냄* <@U0AGE5CFFFW|Claude> [2026-03-22 11:00:25 KST]\\n\\nDK CHO: 8670022138:AAFUeRMA8iyjJT20vrSDvrodT2Z0tIA8cKE [2026-03-22 08:55:41 KST]\\n\\nDK CHO: :sunrise: _일일 브리핑 — 2026년 3월 22일 (일)_\\n:date: _오늘의 일정_\\n• _모친 생신_ | 오후 12:00–1:00 | 편백회관 시흥장곡점\\n→ 이동 시간 고려해 오전 중 출발 준비 완료하기\\n:e-mail: _Gmail 주요 메일_\\n:warning: 확인 필요\\n• [카카오뱅크] 모임통장 금융거래정보 제공 내역 안내 — 법적 통보, 내용 확인 권장\\n• [카카오뱅크] 모임통장 금융거래정보제공 동의 1년 경과 — 갱신 여부 확인 필요\\n:information_source: 정상 처리\\n• Google 보안 알림 2통 — Claude Calendar/Gmail 연결 자동 알림 (정상)\\n:books: 나중에 읽을 뉴스레터\\n• McKinsey — \\\"Leading disruption before it leads you\\\"\\n• Daily Dose of DS — \\\"LLM Inference and Optimization 실전 가이드\\\"\\n:speech_balloon: _Slack_ — 최근 24시간 새로운 활동 없음\\n:dart: 오늘은 어머니 생신이 중심인 날. 회복과 재충전에 집중하고, 카카오뱅크 메일만 점심 전후로 잠깐 확인해두면 충분합니다. :slightly_smiling_face:\\n*다음을 사용하여 보냄* <@U0AGE5CFFFW|Claude> [2026-03-22 08:18:33 KST]\\n\\nDK CHO: # 슬라이드 작성 요청\\n\\n**포맷 기준**: <https://www.notion.so/3296b7b50b2381d28d61ff7f60b1f876>\\n **디자인 기준**: <https://www.notion.so/3296b7b50b2381c1b75ef1ea7c18954c>\\n\\n**요청**:\\n - 목적: [문제정의 / 방향제시 / 구조설명 / 데이터보고 / 경험서술 / 실행안내]\\n - 주제: [내용]\\n - 대상: [경영진 / 팀장 / 실무자]\\n - 장수: [N장] [2026-03-20 11:17:13 KST]\\n\\nDK CHO: <https://www.peters.place/ko/post/agentation> [2026-03-19 08:38:33 KST]\\n\\nDK CHO: <https://www.linkedin.com/posts/seungpil_21st-infrastructure-and-ui-building-blocks-share-7439094671274029056-wa4j?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https://www.linkedin.com/posts/seungpil_21st-infrastructure-and-ui-building-blocks-sh[…]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-16 09:51:00 KST]\\n\\nDK CHO: PM Skills Marketplace (phuryn/pm-skills)\\nTeresa Torres, Marty Cagan 등 PM 레전드들의 프레임워크를 Claude Code / Cowork 명령어로 바로 쓸 수 있게 패키징해놨어요. [2026-03-16 08:26:18 KST]\\n\\nDK CHO: <https://www.linkedin.com/posts/sungjae-shim-9b353159_pm-%EB%B6%84%EB%93%A4-%EB%B0%94%EC%9D%B4%EB%B8%8C%EC%BD%94%EB%94%A9-%EC%8B%9C%EB%8C%80%EC%97%90-%EC%9D%B4%EA%B1%B0-%ED%95%98%EB%82%98-%EC%84%A4%EC%B9%98%ED%95%B4%EB%91%90%EB%A9%B4-%EB%90%A9%EB%8B%88%EB%8B%A4-github-share-7438766832486068224-xZOk?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https://www.linkedin.com/posts/sungjae-shim-9b353159_pm-%EB%B6%84%EB%93%A4-%EB%B0%94%[…]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-16 08:25:30 KST]\\n\\nDK CHO: <https://www.linkedin.com/feed/update/urn:li:activity:7438427908328599553/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https://www.linkedin.com/feed/update/urn:li:activity:7438427908328599553/?utm_source=[…]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-15 07:55:09 KST]\\n\\nDK CHO:  [2026-03-14 09:12:15 KST]\\n\\nDK CHO: <https://www.linkedin.com/posts/gb-jeong_%EC%86%8C%EC%8A%A4-url-%EB%91%90-%EA%B0%9C-10%EB%B6%84%EC%A7%9C%EB%A6%AC-%ED%8C%9F%EC%BA%90%EC%8A%A4%ED%8A%B8-youtube-%EC%97%85%EB%A1%9C%EB%93%9C-share-7437872501948473344-1YbC?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https://www.linkedin.com/posts/gb-jeong_%EC%86%8C%EC%8A%A4-url-%EB%91%90-%EA%B0%9C-10[…]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-13 08:32:01 KST]\\n\\nDK CHO: <https://www.linkedin.com/posts/jyoung105_ai-%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%EC%97%90%EA%B2%8C-%EC%9E%91%EC%97%85%EC%9D%84-%EC%8B%9C%ED%82%A8-%EB%8B%A4%EC%9D%8C-%EC%9D%B8%EA%B0%84%EC%9D%B4-%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%9D%BC%EC%9D%80-%EC%8B%9C%EA%B0%81%ED%99%94%EC%9E%85%EB%8B%88%EB%8B%A4-share-7437754496593805312-7DYR?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https://www.linkedin.com/posts/jyoung105_ai-%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%EC%9[…]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-12 16:34:59 KST]\\n\\nDK CHO: <https://www.linkedin.com/posts/petercha90_the-agent-skills-directory-activity-7437108444358344705-aqJY?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https://www.linkedin.com/posts/petercha90_the-agent-skills-directory-activity-7437108[…]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-12 10:39:21 KST]\\n\\nDK CHO: <https://gist.github.com/woozoobro/acebf5bc41f11ab8a8ad20ae60268f50> [2026-03-12 09:44:11 KST]\\n\\nDK CHO: <https://www.linkedin.com/feed/update/urn:li:activity:7436923657278394368/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78|https://www.linkedin.com/feed/update/urn:li:activity:7436923657278394368/?utm_source=[…]m=member_desktop&rcm=ACoAACqNvJwBPA1SThY3zOStRbIRYuHotbDqY78> [2026-03-10 11:48:39 KST]\\n\\nDK CHO: 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 [2026-03-08 10:18:24 KST]\",\n  \"pagination_info\": \"There are more messages available. To view the next page, use cursor: `bmV4dF90czoxNzcyOTMyNjgwODIxMjc5`\\n\"\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-04-01T00:41:05.937755Z",
+          "stop_timestamp": "2026-04-01T00:41:29.488124Z",
+          "flags": null,
+          "type": "text",
+          "text": "좋아요, 실제 패턴이 보여요. Slack DM을 보니까 CSP가 자신한테 보내는 메시지 유형이 크게 세 가지예요.\n\n**작업 세션 요약** (EX Intelligence 작업 세션 요약처럼), **일일 브리핑** (일일 브리핑 — 일정+메일+뉴스레터), **슬라이드 작성 요청** (포맷 기준 + 목적 + 대상 + 장수 구조).\n\n그리고 결정적으로 — 슬라이드 작성 요청 메시지가 **템플릿 형태로 이미 쓰이고 있어요.** CSP가 이미 본능적으로 패턴화하고 있었던 거예요.\n\n---\n\n이걸 보고 나니 C 모터의 설계가 명확해졌어요.\n\nCSP한테 필요한 건 \"이메일 초안\"이 아니에요. **상황별 커뮤니케이션 트리거 세트**예요. 실제 Slack에서 쓰이는 패턴 기반으로 만들면 돼요.\n\n바로 만들게요.\n\n---\n\n## C 모터 — 커뮤니케이션 트리거 세트\n\nProject Instructions에 추가할 블록이에요.\n\n```\n### 🟠 \"슬라이드 요청\"\n아래 형식으로 즉시 구조화.\n\n목적: [문제정의 / 방향제시 / 구조설명 / 데이터보고 / 경험서술 / 실행안내]\n주제: [내용]\n대상: [경영진 / 팀장 / 실무자]\n장수: [N장]\n\n→ 목적에 따라 두괄식/스토리텔링/데이터중심 구조 자동 선택\n→ 대상에 따라 밀도와 언어 수준 조정\n→ 슬라이드별 핵심 메시지 + 담을 내용 한 줄씩 출력\n\n### 🟠 \"세션 요약\"\n작업 내용을 아래 형식으로 정리 후 Slack DM 전송.\n\n🔬 [작업명] · [날짜]\n─────────────────\n이 채팅에서 한 일\n1. [작업1] — [한 줄 설명]\n2. [작업2] — [한 줄 설명]\n─────────────────\n다음 액션\n• [액션1]\n• [액션2]\n\n### 🟠 \"브리핑\"\n오늘의 컨텍스트를 아래 구조로 정리.\n\n🌅 일일 브리핑 — [날짜]\n📅 오늘 일정: [있으면 작성]\n📌 핵심 집중 사항: [오늘 가장 중요한 것 1가지]\n⚡ 빠른 액션: [5분 안에 처리할 것]\n📚 나중에 읽을 것: [링크나 자료]\n```\n\n---\n\n이 세 개를 아까 만든 Instructions 블록 뒤에 붙이면 돼요.\n\n그리고 하나 더 — 슬라이드 요청 템플릿은 이미 Slack에서 수동으로 쓰고 있었잖아요. 이제 Claude한테 \"슬라이드 요청\"이라고 치면 Claude가 그 형식을 대신 채워주는 거예요. **CSP가 하던 일을 Claude가 대신하는 구조**로 전환된 거예요.\n\n이 블록 추가하고, 다음 모터 얘기할까요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-01T00:41:29.845415Z",
+      "updated_at": "2026-04-01T00:41:29.845415Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d467c-6749-7b0d-96cd-dbe8bd76c013"
+    }
+  ]
+}

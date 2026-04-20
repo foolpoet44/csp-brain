@@ -24,7 +24,37 @@
 - **Primary IDE**: Claude Code, Antigravity
 - **Secondary**: VS Code, Cursor
 - **Cloud Brain**: Notion (세컨브레인 DB: d012343e-b2a2-461e-944b-6f166e91d8e9)
-- **Brain Repo**: `D:\dev\00_brain` (GitHub: foolpoet44/csp-brain)
+- **Brain Repo**: `~/00_brain` (GitHub: foolpoet44/csp-brain)
+
+## 4-Zone 로컬 아키텍처
+
+```
+~/
+├── 00_brain/           # 🧠 영원 지대 — 지식과 도구의 원천 (이 레포지토리)
+├── 10_work/            # 💼 업무 지대 — 회사 프로젝트 (EX Intelligence, Pulse Check...)
+├── 20_build/           # 🛠️ 빌드 지대 — 개인/창업 프로젝트 (ESCON, HR SaaS...)
+├── 30_lab/             # 🧪 실험 지대 — 휘발성 스크래치 (30 일 규칙)
+└── 99_archive/         # 📦 아카이브 — 완료되거나 중단된 것들
+```
+
+### Zone 별 책임
+
+| Zone | 수명 | Git 계정 | 예시 |
+|------|------|----------|------|
+| **00_brain** | 영구 | 개인 | 전역 헌법, 스킬, 프롬프트 |
+| **10_work** | 프로젝트 기간 | 회사 | EX Intelligence, Pulse Check |
+| **20_build** | 영구 (창업 준비) | 개인 | ESCON, CSP-OS |
+| **30_lab** | 30 일 휘발 | 혼용 | 5 분 실험, 프로토타입 |
+| **99_archive** | 영구 (참조용) | 보존 | 완료된 프로젝트 |
+
+### 프로젝트 CLAUDE.md 상속 규칙
+
+모든 프로젝트의 `CLAUDE.md` 맨 위에는 다음을 명시한다:
+
+```markdown
+> 이 프로젝트는 `~/00_brain/CLAUDE.md` 의 모든 원칙을 상속한다.
+> 아래는 이 프로젝트 고유의 컨텍스트만 기술한다.
+```
 
 ---
 

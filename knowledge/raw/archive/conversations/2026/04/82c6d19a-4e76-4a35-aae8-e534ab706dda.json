@@ -1,0 +1,262 @@
+﻿{
+  "uuid": "82c6d19a-4e76-4a35-aae8-e534ab706dda",
+  "name": "Anthropic의 관리형 에이전트 설명",
+  "summary": "",
+  "created_at": "2026-04-09T22:33:30.969529Z",
+  "updated_at": "2026-04-09T22:38:23.334457Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d7461-0ae4-7c93-8ae3-ca7e3113ece9",
+      "text": "https://www.anthropic.com/engineering/managed-agents\n주소의 내용을 쉽게 설명해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-04-09T22:33:31.575401Z",
+          "stop_timestamp": "2026-04-09T22:33:31.575401Z",
+          "flags": null,
+          "type": "text",
+          "text": "https://www.anthropic.com/engineering/managed-agents\n주소의 내용을 쉽게 설명해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-09T22:33:31.668350Z",
+      "updated_at": "2026-04-09T22:33:31.668350Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d7461-0ae5-7021-9ae9-8600549f1485",
+      "text": "\n```\nThis block is not supported on your current device yet.\n```\n\nCSP의 맥락—LDS 360 멀티에이전트 파이프라인, Pulse Check 시스템, Claude Code 워크플로우—에 맞게 이 글을 해석해 드릴게요.\n\n---\n\n## \"두뇌와 손을 분리하라\" — Managed Agents 철학 쉽게 읽기\n\n### 한 줄 핵심\n\n이 글의 주제는 하나입니다. AI 에이전트를 실제 운영 환경에서 장기간 안정적으로 돌리려면, **\"두뇌(Claude + 하네스)\"와 \"손(실행환경/도구)\"을 분리해야 한다**는 것입니다.\n\n---\n\n### 문제의 시작: 가정은 낡는다\n\n에이전트를 감싸는 \"하네스(harness)\"는 Claude가 혼자서는 할 수 없는 일에 대한 가정을 인코딩합니다. 문제는 그 가정이 모델이 발전하면서 낡아버린다는 것입니다.\n\n구체적인 예가 흥미롭습니다. Claude Sonnet 4.5는 컨텍스트 한계가 다가오면 작업을 조기에 마무리하는 경향이 있었고(\"context anxiety\"), 이를 해결하기 위해 하네스에 컨텍스트 리셋 기능을 추가했습니다. 그런데 같은 하네스를 Claude Opus 4.5에 적용해보니 그 행동 자체가 사라져 있었고, 리셋 기능은 그냥 무게만 추가하는 죽은 코드가 되어버렸습니다.\n\n모델이 똑똑해질수록, 예전에 필요했던 보조 장치가 오히려 방해가 됩니다.\n\n---\n\n### 오래된 컴퓨팅 지혜: 추상화\n\nAnthropic은 이 문제를 OS(운영체제)가 수십 년간 하드웨어를 추상화해온 방식에서 답을 찾습니다. `read()` 명령은 1970년대 디스크팩이든 현대 SSD든 신경 쓰지 않습니다. 추상화 레이어가 안정적으로 유지되는 동안, 아래의 구현은 자유롭게 바뀔 수 있었습니다.\n\n---\n\n### 해결책: 세 가지를 분리하라\n\nManaged Agents는 에이전트의 구성요소를 세 가지로 가상화합니다. **세션**(일어난 모든 일의 추가 전용 로그), **하네스**(Claude를 호출하고 도구 호출을 라우팅하는 루프), **샌드박스**(Claude가 코드를 실행하고 파일을 편집할 수 있는 실행 환경). 각각이 서로에 대한 가정을 최소화하며, 독립적으로 교체하거나 실패할 수 있습니다.\n\n---\n\n### \"반려동물 vs 가축\" 비유\n\n클라우드 인프라의 오래된 비유로 설명합니다. \"반려동물(pet)\"은 이름이 있고, 수작업으로 돌보며, 잃어버리면 큰일 나는 개체입니다. \"가축(cattle)\"은 개별 식별이 없고, 하나가 죽어도 새 것으로 교체하면 됩니다.\n\n초기 설계에서 모든 것을 하나의 컨테이너에 넣었더니, 그 서버가 \"반려동물\"이 되어버렸습니다. 컨테이너가 죽으면 세션도 같이 사라지고, 디버깅하려면 사용자 데이터가 있는 컨테이너 내부에 들어가야 하는 보안 문제가 생겼습니다.\n\n분리 후에는 컨테이너가 죽으면 하네스가 도구 호출 오류로 실패를 감지하고, Claude가 재시도를 결정하면 표준 레시피로 새 컨테이너를 초기화할 수 있습니다. 더 이상 실패한 컨테이너를 살려내는 데 시간을 쓰지 않아도 됩니다.\n\n---\n\n### 성능 향상: TTFT 90% 단축\n\n두뇌를 컨테이너에서 꺼내자 극적인 성능 개선이 일어났습니다. 샌드박스가 필요 없는 세션은 컨테이너 준비를 기다릴 필요 없이 바로 추론을 시작할 수 있게 됐습니다. p50 TTFT(첫 토큰까지의 지연시간)는 약 60% 줄었고, p95는 90% 이상 감소했습니다.\n\n---\n\n### 보안: 두뇌가 자격증명을 손에 쥐지 않는다\n\n기존 설계에서는 Claude가 생성한 코드가 실행되는 컨테이너에 자격증명도 함께 있었습니다. 프롬프트 인젝션 공격이 성공하면 공격자는 그 토큰을 탈취해 제한 없는 새 세션을 열 수 있었습니다. 구조적 해결책은 Claude가 생성한 코드가 실행되는 샌드박스에서 토큰이 절대 접근 가능하지 않도록 만드는 것이었습니다.\n\n---\n\n### 세션은 컨텍스트 윈도우가 아니다\n\n장기 에이전트 작업에서 가장 까다로운 문제는 컨텍스트 초과입니다. Managed Agents에서 세션은 Claude의 컨텍스트 윈도우 바깥에 존재하는 컨텍스트 객체 역할을 합니다. `getEvents()` 인터페이스를 통해 두뇌는 이벤트 스트림의 위치 기반 슬라이스를 선택해 컨텍스트를 조회할 수 있습니다. 어디서 멈췄는지 파악하거나, 특정 순간 직전으로 되감거나, 특정 행동 전후의 맥락을 다시 읽는 것이 가능합니다.\n\n---\n\n### CSP 관점에서 왜 이게 중요한가\n\nLDS 360의 7-에이전트 파이프라인이나 Pulse Check 멀티 에이전트 설계를 생각할 때, 이 글이 말하는 핵심 원칙은 직접 적용됩니다.\n\n**두뇌(Claude/로직)와 손(실행/도구/DB)을 인터페이스로만 연결하라.** 오늘의 가정이 내일의 부채가 됩니다. 에이전트가 `execute(name, input) → string`이라는 추상 인터페이스를 통해서만 세상과 상호작용한다면, 안쪽의 구현은 언제든 바꿀 수 있습니다. 이것이 \"프로그램들이 아직 생각되지도 않은 것들을 위한 시스템을 설계하는 방법\"에 대한 Anthropic의 대답입니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-09T22:33:33.563314Z",
+          "stop_timestamp": "2026-04-09T22:33:33.563314Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01Avo7W5k12vXMv5zWSu6PHa",
+          "name": "web_fetch",
+          "input": {
+            "url": "https://www.anthropic.com/engineering/managed-agents"
+          },
+          "message": "Fetching: https://www.anthropic.com/engineering/managed-agents",
+          "integration_name": "Web Fetch",
+          "integration_icon_url": null,
+          "icon_name": "globe",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01Avo7W5k12vXMv5zWSu6PHa",
+          "name": "web_fetch",
+          "content": [
+            {
+              "type": "knowledge",
+              "title": "Scaling Managed Agents: Decoupling the brain from the hands",
+              "url": "https://www.anthropic.com/engineering/managed-agents",
+              "metadata": {
+                "type": "webpage_metadata",
+                "site_domain": "anthropic.com",
+                "favicon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+                "site_name": "anthropic"
+              },
+              "is_missing": false,
+              "text": "[Skip to main content](#main-content)[Skip to footer](#footer)\n\n* [Research](https://www.anthropic.com/research)\n* [Economic Futures](https://www.anthropic.com/economic-futures)\n* Commitments\n* Learn\n* [News](https://www.anthropic.com/news)\n\n[Try Claude](https://claude.ai/)\n\n[Engineering at Anthropic](https://www.anthropic.com/engineering)\n\n![](https://www-cdn.anthropic.com/images/4zrzovbb/website/282c56ae3ec0a72a15c5f4186744ce0ac940a2dd-2554x2554.svg)\n\n# Scaling Managed Agents: Decoupling the brain from the hands\n\nHarnesses encode assumptions that go stale as models improve. Managed Agents—our hosted service for long-horizon agent work—is built around interfaces that stay stable as harnesses change.\n\n*Get started with Claude Managed Agents by following our [docs](https://platform.claude.com/docs/en/managed-agents/overview).*  \n  \nA running topic on the Engineering Blog is how to [build effective agents](https://www.anthropic.com/engineering/building-effective-agents) and [design harnesses](https://www.staging.ant.dev/engineering/effective-harnesses-for-long-running-agents) for [long-running work](https://www.anthropic.com/engineering/harness-design-long-running-apps). A common thread across this work is that harnesses encode assumptions about what Claude can’t do on its own. However, those assumptions need to be frequently questioned because they can [go stale](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) as models improve.\n\nAs just one example, in prior work [we found](https://www.anthropic.com/engineering/harness-design-long-running-apps) that Claude Sonnet 4.5 would wrap up tasks prematurely as it sensed its context limit approaching—a behavior sometimes called “context anxiety.” We addressed this by adding context resets to the harness. But when we used the same harness on Claude Opus 4.5, we found that the behavior was gone. The resets had become dead weight.\n\nWe expect harnesses to continue evolving. So we built Managed Agents: a hosted service in the Claude Platform that runs long-horizon agents on your behalf through a small set of interfaces meant to outlast any particular implementation—including the ones we run today.\n\nBuilding Managed Agents meant solving an old problem in computing: how to design a system for “[programs as yet unthought of](http://www.catb.org/esr/writings/taoup/html/ch03s01.html).” Decades ago, operating systems solved this problem by virtualizing hardware into abstractions—*process, file*—general enough for programs that didn't exist yet. The abstractions outlasted the hardware. The `read()` command is agnostic as to whether it’s accessing a disk pack from the 1970s or a modern SSD. The abstractions on top stayed stable while the implementations underneath changed freely.\n\nManaged Agents follow the same pattern. We virtualized the components of an agent: a session (the append-only log of everything that happened), a harness (the loop that calls Claude and routes Claude’s tool calls to the relevant infrastructure), and a sandbox (an execution environment where Claude can run code and edit files). This allows the implementation of each to be swapped without disturbing the others. We're opinionated about the shape of these interfaces, not about what runs behind them.\n\n![](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F903b624ada206b10753a24c6a1367e74a869165d-1080x1080.png&w=3840&q=75)\n\n## Don’t adopt a pet\n\nWe started by placing all agent components into a single container, which meant the session, agent harness, and sandbox all shared an environment. There were benefits to this approach, including that file edits are direct syscalls, and there were no service boundaries to design.\n\nBut by coupling everything into one container, we ran into an old infrastructure problem: we’d adopted a [*pet*](https://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/). In the pets-vs-cattle analogy, a pet is a named, hand-tended individual you can’t afford to lose, while cattle are interchangeable. In our case, the server became that pet; if a container failed, the session was lost. If a container was unresponsive, we had to nurse it back to health.\n\nNursing containers meant debugging unresponsive stuck sessions. Our only window in was the WebSocket event stream, but that couldn’t tell us *where* failures arose, which meant that a bug in the harness, a packet drop in the event stream, or a container going offline all presented the same. To figure out what went wrong, an engineer had to open a shell inside the container, but because that container often also held user data, that approach essentially meant we lacked the ability to debug.\n\nA second issue was that the harness assumed that whatever Claude worked on lived in the container with it. When customers asked us to connect Claude to their virtual private cloud, they had to either peer their network with ours, or run our harness in their own environment. An assumption baked into the harness became a problem when we wanted to connect it to different infrastructure.\n\n## Decouple the brain from the hands\n\nThe solution we arrived at was to decouple what we thought of as the “brain” (Claude and its harness) from both the “hands” (sandboxes and tools that perform actions) and the “session” (the log of session events). Each became an interface that made few assumptions about the others, and each could fail or be replaced independently.\n\n**The harness leaves the container.** Decoupling the brain from the hands meant the harness no longer lived inside the container. It called the container the way it called any other tool: `execute(name, input) → string`. The container became cattle. If the container died, the harness caught the failure as a tool-call error and passed it back to Claude. If Claude decided to retry, a new container could be reinitialized with a standard recipe: `provision({resources})`. We no longer had to nurse failed containers back to health.\n\n**Recovering from harness failure.** The harness also became cattle. Because the session log sits outside the harness, nothing in the harness needs to survive a crash. When one fails, a new one can be rebooted with `wake(sessionId)`, use `getSession(id)` to get back the event log, and resume from the last event. During the agent loop, the harness writes to the session with `emitEvent(id, event)` in order to keep a durable record of events.\n\n![](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F73e900af5b9d6ed8c64db0a8e74d4465963556b7-1640x1596.png&w=3840&q=75)\n\n**The security boundary.** In the coupled design, any untrusted code that Claude generated was run in the same container as credentials—so a prompt injection only had to convince Claude to read its own environment. Once an attacker has those tokens, they can spawn fresh, unrestricted sessions and delegate work to them. Narrow scoping is an obvious mitigation, but this encodes an assumption about what Claude can't do with a limited token—and Claude is getting increasingly smart. The structural fix was to make sure the tokens are never reachable from the sandbox where Claude’s generated code runs.\n\nWe used two patterns to ensure this. Auth can be bundled with a resource or held in a vault outside the sandbox. For Git, we use each repository’s access token to clone the repo during sandbox initialization and wire it into the local git remote. Git `push` and `pull` work from inside the sandbox without the agent ever handling the token itself. For custom tools, we support MCP and store OAuth tokens in a secure vault. Claude calls MCP tools via a dedicated proxy; this proxy takes in a token associated with the session. The proxy can then fetch the corresponding credentials from the vault and make the call to the external service. The harness is never made aware of any credentials.\n\n## The session is not Claude’s context window\n\nLong-horizon tasks often exceed the length of Claude’s context window, and the standard ways to address this all involve irreversible decisions about what to keep. We’ve explored these techniques in [prior work](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) on context engineering. For example, compaction lets Claude save a summary of its context window and the memory tool lets Claude write context to files, enabling learning across sessions. This can be paired with context trimming, which selectively removes tokens such as old tool results or thinking blocks.\n\nBut irreversible decisions to selectively retain or discard context can lead to failures. It is difficult to know which tokens the future turns will need. If messages are transformed by a compaction step, the harness removes compacted messages from Claude’s context window, and these are recoverable only if they are stored. Prior work [has explored](https://arxiv.org/pdf/2512.24601) ways to address this by storing context as an object that lives *outside* the context window. For example, context can be an object in a REPL that the LLM programmatically accesses by writing code to filter or slice it.\n\n![](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcf0719d7832b1f577b7393c84a7c53eecc725ca4-760x200.png&w=1920&q=75)\n\nIn Managed Agents, the session provides this same benefit, serving as a context object that lives outside Claude’s context window. But rather than be stored within the sandbox or REPL, context is durably stored in the session log. The interface, `getEvents(),` allows the brain to interrogate context by selecting positional slices of the event stream. The interface can be used flexibly, allowing the brain to pick up from wherever it last stopped reading, rewinding a few events before a specific moment to see the lead up, or rereading context before a specific action.\n\nAny fetched events can also be transformed in the harness before being passed to Claude’s context window. These transformations can be whatever the harness encodes, including context organization to achieve a high prompt cache hit rate and context engineering. We separated the concerns of recoverable context storage in the session and arbitrary context management in the harness because we can’t predict what specific context engineering will be required in future models. The interfaces push that context management into the harness, and only guarantee that the session is durable and available for interrogation.\n\n## Many brains, many hands\n\n**Many brains.** Decoupling the brain from the hands solved one of our earliest customer complaints. When teams wanted Claude to work against resources in their own VPC, the only path was to peer their network with ours, because the container holding the harness assumed every resource sat next to it. Once the harness was no longer in the container, that assumption went away. The same change had a performance payoff. When we initially put the brain in a container, it meant that many brains required as many containers. For each brain, no inference could happen until that container was provisioned; every session paid the full container setup cost up front. Every session, even ones that would never touch the sandbox, had to clone the repo, boot the process, fetch pending events from our servers.\n\nThat dead time is expressed in time-to-first-token (TTFT), which measures how long a session waits between accepting work and producing its first response token. TTFT is the latency the user most acutely *feels*.\n\nDecoupling the brain from the hands means that containers are provisioned by the brain via a tool call `(execute(name, input) → string)` only if they are needed. So a session that didn't need a container right away didn't wait for one. Inference could start as soon as the orchestration layer pulled pending events from the session log. Using this architecture, our p50 TTFT dropped roughly 60% and p95 dropped over 90%. Scaling to many brains just meant starting many stateless harnesses, and connecting them to hands only if needed.\n\n**Many hands.** We also wanted the ability to connect each brain to many hands. In practice, this means Claude must reason about many execution environments and decide where to send work—a harder cognitive task than operating in a single shell. We started with the brain in a single container because earlier models weren't capable of this. As intelligence scaled, the single container became the limitation instead: when that container failed, we lost state for every hand that the brain was reaching into.\n\nDecoupling the brain from the hands makes each hand a tool, `execute(name, input) → string`: a name and input go in, and a string is returned. That interface supports any custom tool, any MCP server, and our own tools. The harness doesn’t know whether the sandbox is a container, a phone, or a Pokémon emulator. And because no hand is coupled to any brain, brains can pass hands to one another.\n\n![](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4f67b1c10566552aec514a716ea43544ab330e0b-668x243.png&w=1920&q=75)\n\n## Conclusion\n\nThe challenge we faced is an old one: how to design a system for “programs as yet unthought of.” Operating systems have lasted decades by virtualizing the hardware into abstractions general enough for programs that didn't exist yet. With Managed Agents, we aimed to design a system that accommodates future harnesses, sandboxes, or other components around Claude.\n\nManaged Agents is a meta-harness in the same spirit, unopinionated about the *specific* harness that Claude will need in the future. Rather, it is a system with general interfaces that allow many different harnesses. For example, Claude Code is an excellent harness that we use widely across tasks. We’ve also shown that task-specific agent harnesses excel in narrow domains. Managed Agents can accommodate any of these, matching Claude’s intelligence over time.\n\nMeta-harness design means being opinionated about the interfaces around Claude: we expect that Claude will need the ability to manipulate state (the session) and perform computation (the sandbox). We also expect that Claude will require the ability to scale to many brains and many hands. We designed the interfaces so that these can be run reliably and securely over long time horizons. But we make no assumptions about the number or location of brains or hands that Claude will need.\n\n## Acknowledgements\n\nWritten by Lance Martin, Gabe Cemaj and Michael Cohen. Special thanks to the Agents API team and Jake Eaton for their contributions.\n\n## Get the developer newsletter\n\nProduct updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.\n\nPlease provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.\n\n### Products\n\n* [Claude](https://claude.com/product/overview)\n* [Claude Code](https://claude.com/product/claude-code)\n* [Claude Code Enterprise](https://claude.com/product/claude-code/enterprise)\n* [Claude Code Security](https://claude.com/claude-code-security)\n* [Claude Cowork](https://claude.com/product/cowork)\n* [Claude for Chrome](https://claude.com/chrome)\n* [Claude for Excel](https://claude.com/claude-for-excel)\n* [Claude for PowerPoint](https://claude.com/claude-for-powerpoint)\n* [Claude for Slack](https://claude.com/claude-for-slack)\n* [Skills](https://www.claude.com/skills)\n* [Max plan](https://claude.com/pricing/max)\n* [Team plan](https://claude.com/pricing/team)\n* [Enterprise plan](https://claude.com/pricing/enterprise)\n* [Download app](https://claude.ai/download)\n* [Pricing](https://claude.com/pricing)\n* [Log in to Claude](https://claude.ai/)\n\n### Models\n\n* [Mythos preview](https://www.anthropic.com/glasswing)\n* [Opus](https://www.anthropic.com/claude/opus)\n* [Sonnet](https://www.anthropic.com/claude/sonnet)\n* [Haiku](https://www.anthropic.com/claude/haiku)\n\n### Solutions\n\n* [AI agents](https://claude.com/solutions/agents)\n* [Code modernization](https://claude.com/solutions/code-modernization)\n* [Coding](https://claude.com/solutions/coding)\n* [Customer support](https://claude.com/solutions/customer-support)\n* [Education](https://claude.com/solutions/education)\n* [Financial services](https://claude.com/solutions/financial-services)\n* [Government](https://claude.com/solutions/government)\n* [Healthcare](https://claude.com/solutions/healthcare)\n* [Life sciences](https://claude.com/solutions/life-sciences)\n* [Nonprofits](https://claude.com/solutions/nonprofits)\n* [Security](https://claude.com/solutions/security)\n\n### Claude Platform\n\n* [Overview](https://claude.com/platform/api)\n* [Developer docs](https://platform.claude.com/docs)\n* [Pricing](https://claude.com/pricing#api)\n* [Marketplace](https://claude.com/platform/marketplace)\n* [Regional compliance](https://claude.com/regional-compliance)\n* [Amazon Bedrock](https://claude.com/partners/amazon-bedrock)\n* [Google Cloud’s Vertex AI](https://claude.com/partners/google-cloud-vertex-ai)\n* [Microsoft Foundry](https://claude.com/partners/microsoft-foundry)\n* [Console login](https://platform.claude.com/)\n\n### Resources\n\n* [Blog](https://claude.com/blog)\n* [Claude partner network](https://claude.com/partners)\n* [Community](https://claude.com/community)\n* [Connectors](https://claude.com/connectors)\n* [Courses](https://www.anthropic.com/learn)\n* [Customer stories](https://claude.com/customers)\n* [Engineering at Anthropic](https://www.anthropic.com/engineering)\n* [Events](https://www.anthropic.com/events)\n* [Inside Claude Code](https://www.anthropic.com/product/claude-code)\n* [Inside Claude Cowork](https://www.anthropic.com/product/claude-cowork)\n* [Plugins](https://claude.com/plugins)\n* [Powered by Claude](https://claude.com/partners/powered-by-claude)\n* [Service partners](https://claude.com/partners/services)\n* [Startups program](https://claude.com/programs/startups)\n* [Tutorials](https://claude.com/resources/tutorials)\n* [Use cases](https://claude.com/resources/use-cases)\n\n### Help and security\n\n* [Availability](https://www.anthropic.com/supported-countries)\n* [Status](https://status.anthropic.com/)\n* [Support center](https://support.claude.com/en/)\n\n### Company\n\n* [Anthropic](https://www.anthropic.com/company)\n* [Careers](https://www.anthropic.com/careers)\n* [Economic Futures](https://www.anthropic.com/economic-index)\n* [Research](https://www.anthropic.com/research)\n* [News](https://www.anthropic.com/news)\n* [Claude’s Constitution](https://www.anthropic.com/constitution)\n* [Responsible Scaling Policy](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy)\n* [Security and compliance](https://trust.anthropic.com/)\n* [Transparency](https://www.anthropic.com/transparency)\n\n### Terms and policies\n\n* [Privacy policy](https://www.anthropic.com/legal/privacy)\n* [Consumer health data privacy policy](https://www.anthropic.com/legal/consumer-health-data-privacy-policy)\n* [Responsible disclosure policy](https://www.anthropic.com/responsible-disclosure-policy)\n* [Terms of service: Commercial](https://www.anthropic.com/legal/commercial-terms)\n* [Terms of service: Consumer](https://www.anthropic.com/legal/consumer-terms)\n* [Usage policy](https://www.anthropic.com/legal/aup)\n\n© 2026 Anthropic PBC\n\nScaling Managed Agents: Decoupling the brain from the hands \\ Anthropic",
+              "is_citable": true,
+              "prompt_context_metadata": {
+                "content_type": "html",
+                "mime_type": "text/html; charset=utf-8",
+                "destination_url": "https://www.anthropic.com/engineering/managed-agents"
+              }
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Fetched: Scaling Managed Agents: Decoupling the brain from the hands",
+          "integration_name": "Web Fetch",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+          "icon_name": "globe",
+          "display_content": {
+            "type": "rich_link",
+            "link": {
+              "title": "Scaling Managed Agents: Decoupling the brain from the hands",
+              "subtitles": null,
+              "url": "https://www.anthropic.com/engineering/managed-agents",
+              "resource_type": null,
+              "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=anthropic.com",
+              "source": "anthropic"
+            },
+            "is_trusted": false
+          }
+        },
+        {
+          "start_timestamp": "2026-04-09T22:33:34.496472Z",
+          "stop_timestamp": "2026-04-09T22:34:17.110376Z",
+          "flags": null,
+          "type": "text",
+          "text": "CSP의 맥락—LDS 360 멀티에이전트 파이프라인, Pulse Check 시스템, Claude Code 워크플로우—에 맞게 이 글을 해석해 드릴게요.\n\n---\n\n## \"두뇌와 손을 분리하라\" — Managed Agents 철학 쉽게 읽기\n\n### 한 줄 핵심\n\n이 글의 주제는 하나입니다. AI 에이전트를 실제 운영 환경에서 장기간 안정적으로 돌리려면, **\"두뇌(Claude + 하네스)\"와 \"손(실행환경/도구)\"을 분리해야 한다**는 것입니다.\n\n---\n\n### 문제의 시작: 가정은 낡는다\n\n에이전트를 감싸는 \"하네스(harness)\"는 Claude가 혼자서는 할 수 없는 일에 대한 가정을 인코딩합니다. 문제는 그 가정이 모델이 발전하면서 낡아버린다는 것입니다.\n\n구체적인 예가 흥미롭습니다. Claude Sonnet 4.5는 컨텍스트 한계가 다가오면 작업을 조기에 마무리하는 경향이 있었고(\"context anxiety\"), 이를 해결하기 위해 하네스에 컨텍스트 리셋 기능을 추가했습니다. 그런데 같은 하네스를 Claude Opus 4.5에 적용해보니 그 행동 자체가 사라져 있었고, 리셋 기능은 그냥 무게만 추가하는 죽은 코드가 되어버렸습니다.\n\n모델이 똑똑해질수록, 예전에 필요했던 보조 장치가 오히려 방해가 됩니다.\n\n---\n\n### 오래된 컴퓨팅 지혜: 추상화\n\nAnthropic은 이 문제를 OS(운영체제)가 수십 년간 하드웨어를 추상화해온 방식에서 답을 찾습니다. `read()` 명령은 1970년대 디스크팩이든 현대 SSD든 신경 쓰지 않습니다. 추상화 레이어가 안정적으로 유지되는 동안, 아래의 구현은 자유롭게 바뀔 수 있었습니다.\n\n---\n\n### 해결책: 세 가지를 분리하라\n\nManaged Agents는 에이전트의 구성요소를 세 가지로 가상화합니다. **세션**(일어난 모든 일의 추가 전용 로그), **하네스**(Claude를 호출하고 도구 호출을 라우팅하는 루프), **샌드박스**(Claude가 코드를 실행하고 파일을 편집할 수 있는 실행 환경). 각각이 서로에 대한 가정을 최소화하며, 독립적으로 교체하거나 실패할 수 있습니다.\n\n---\n\n### \"반려동물 vs 가축\" 비유\n\n클라우드 인프라의 오래된 비유로 설명합니다. \"반려동물(pet)\"은 이름이 있고, 수작업으로 돌보며, 잃어버리면 큰일 나는 개체입니다. \"가축(cattle)\"은 개별 식별이 없고, 하나가 죽어도 새 것으로 교체하면 됩니다.\n\n초기 설계에서 모든 것을 하나의 컨테이너에 넣었더니, 그 서버가 \"반려동물\"이 되어버렸습니다. 컨테이너가 죽으면 세션도 같이 사라지고, 디버깅하려면 사용자 데이터가 있는 컨테이너 내부에 들어가야 하는 보안 문제가 생겼습니다.\n\n분리 후에는 컨테이너가 죽으면 하네스가 도구 호출 오류로 실패를 감지하고, Claude가 재시도를 결정하면 표준 레시피로 새 컨테이너를 초기화할 수 있습니다. 더 이상 실패한 컨테이너를 살려내는 데 시간을 쓰지 않아도 됩니다.\n\n---\n\n### 성능 향상: TTFT 90% 단축\n\n두뇌를 컨테이너에서 꺼내자 극적인 성능 개선이 일어났습니다. 샌드박스가 필요 없는 세션은 컨테이너 준비를 기다릴 필요 없이 바로 추론을 시작할 수 있게 됐습니다. p50 TTFT(첫 토큰까지의 지연시간)는 약 60% 줄었고, p95는 90% 이상 감소했습니다.\n\n---\n\n### 보안: 두뇌가 자격증명을 손에 쥐지 않는다\n\n기존 설계에서는 Claude가 생성한 코드가 실행되는 컨테이너에 자격증명도 함께 있었습니다. 프롬프트 인젝션 공격이 성공하면 공격자는 그 토큰을 탈취해 제한 없는 새 세션을 열 수 있었습니다. 구조적 해결책은 Claude가 생성한 코드가 실행되는 샌드박스에서 토큰이 절대 접근 가능하지 않도록 만드는 것이었습니다.\n\n---\n\n### 세션은 컨텍스트 윈도우가 아니다\n\n장기 에이전트 작업에서 가장 까다로운 문제는 컨텍스트 초과입니다. Managed Agents에서 세션은 Claude의 컨텍스트 윈도우 바깥에 존재하는 컨텍스트 객체 역할을 합니다. `getEvents()` 인터페이스를 통해 두뇌는 이벤트 스트림의 위치 기반 슬라이스를 선택해 컨텍스트를 조회할 수 있습니다. 어디서 멈췄는지 파악하거나, 특정 순간 직전으로 되감거나, 특정 행동 전후의 맥락을 다시 읽는 것이 가능합니다.\n\n---\n\n### CSP 관점에서 왜 이게 중요한가\n\nLDS 360의 7-에이전트 파이프라인이나 Pulse Check 멀티 에이전트 설계를 생각할 때, 이 글이 말하는 핵심 원칙은 직접 적용됩니다.\n\n**두뇌(Claude/로직)와 손(실행/도구/DB)을 인터페이스로만 연결하라.** 오늘의 가정이 내일의 부채가 됩니다. 에이전트가 `execute(name, input) → string`이라는 추상 인터페이스를 통해서만 세상과 상호작용한다면, 안쪽의 구현은 언제든 바꿀 수 있습니다. 이것이 \"프로그램들이 아직 생각되지도 않은 것들을 위한 시스템을 설계하는 방법\"에 대한 Anthropic의 대답입니다.",
+          "citations": [
+            {
+              "uuid": "697812d6-e4b0-41ed-bb69-fe21f2498917",
+              "start_index": 147,
+              "end_index": 251,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.anthropic.com/engineering/managed-agents"
+              }
+            },
+            {
+              "uuid": "26f51ac4-f5df-402e-9b30-f28e39ba7476",
+              "start_index": 279,
+              "end_index": 375,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.anthropic.com/engineering/managed-agents"
+              }
+            },
+            {
+              "uuid": "22808b4f-14bd-4714-b70e-b480cc06b559",
+              "start_index": 393,
+              "end_index": 591,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.anthropic.com/engineering/managed-agents"
+              }
+            },
+            {
+              "uuid": "1eaa710e-a895-46b9-98d3-06d5cf96c896",
+              "start_index": 661,
+              "end_index": 815,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.anthropic.com/engineering/managed-agents"
+              }
+            },
+            {
+              "uuid": "2f772716-f8b4-4bdd-83eb-86b3e2a655e6",
+              "start_index": 843,
+              "end_index": 1044,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.anthropic.com/engineering/managed-agents"
+              }
+            },
+            {
+              "uuid": "f8ca6f58-178c-447f-9fd8-b2995dca7100",
+              "start_index": 1072,
+              "end_index": 1196,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.anthropic.com/engineering/managed-agents"
+              }
+            },
+            {
+              "uuid": "662ae844-ff9b-4a03-bf75-97a9b9baa559",
+              "start_index": 1332,
+              "end_index": 1451,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.anthropic.com/engineering/managed-agents"
+              }
+            },
+            {
+              "uuid": "488e597f-e0da-4468-a12a-5f04c1439a0a",
+              "start_index": 1482,
+              "end_index": 1627,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.anthropic.com/engineering/managed-agents"
+              }
+            },
+            {
+              "uuid": "43613e3e-106b-436a-a8f8-046f100db6b0",
+              "start_index": 1663,
+              "end_index": 1838,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.anthropic.com/engineering/managed-agents"
+              }
+            },
+            {
+              "uuid": "6e8568ee-ea2e-4974-a250-8fb13eae5201",
+              "start_index": 1905,
+              "end_index": 2102,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.anthropic.com/engineering/managed-agents"
+              }
+            },
+            {
+              "uuid": "c7c783d7-3f1e-4b9a-8182-e2f5d7016dbe",
+              "start_index": 2378,
+              "end_index": 2418,
+              "details": {
+                "type": "web_search_citation",
+                "url": "https://www.anthropic.com/engineering/managed-agents"
+              }
+            }
+          ]
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-09T22:34:17.181307Z",
+      "updated_at": "2026-04-09T22:34:17.181307Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d7461-0ae4-7c93-8ae3-ca7e3113ece9"
+    },
+    {
+      "uuid": "019d7465-4c1e-7ff4-81f0-5bd37bca090b",
+      "text": "니가 하는 말이 더 어렵다, 쉽게좀 말해봐",
+      "content": [
+        {
+          "start_timestamp": "2026-04-09T22:38:09.994146Z",
+          "stop_timestamp": "2026-04-09T22:38:09.994146Z",
+          "flags": null,
+          "type": "text",
+          "text": "니가 하는 말이 더 어렵다, 쉽게좀 말해봐",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-04-09T22:38:10.051022Z",
+      "updated_at": "2026-04-09T22:38:10.051022Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d7461-0ae5-7021-9ae9-8600549f1485"
+    },
+    {
+      "uuid": "019d7465-4c1e-7065-b617-88a84724ec2d",
+      "text": " 알겠어요, 완전 쉽게 다시 설명할게요.\n\n---\n\n## 핵심 비유 하나로 이해하기\n\n### 요리사와 보조 요리사\n\nClaude = **요리사** (두뇌, 생각하는 놈)\n도구/실행환경 = **보조 요리사** (손, 실제로 움직이는 놈)\n\n예전에는 요리사와 보조 요리사를 **같은 방에 묶어뒀어요.**\n\n그러면 어떤 문제가 생기냐?\n\n- 보조 요리사가 쓰러지면 요리사도 같이 멈춤\n- 주방이 망가지면 모든 게 다 날아감\n- 다른 주방에서 일하게 하려면 요리사채로 통째로 이사해야 함\n\n---\n\n### 분리하니까 어떻게 됐냐?\n\n요리사(Claude)는 **주방 밖에 있고**, 보조에게 전화로 지시만 해요.\n\n- 보조가 쓰러지면? 새 보조 부르면 됨. 요리사는 계속 일함\n- 주방이 바뀌어도? 요리사는 신경 안 써도 됨\n- 보안도 해결: 요리사는 금고 비밀번호를 몰라도 됨. 보조가 알아서 처리\n\n---\n\n### 성능도 확 좋아졌어요\n\n예전엔 일 시작할 때 항상 주방 세팅부터 기다려야 했는데, 이제는 **주방이 필요할 때만 부르면 됨.** 그래서 응답 시작 시간이 최대 90% 빨라졌어요.\n\n---\n\n### 한 줄 요약\n\n> **Claude(두뇌)랑 실행환경(손)을 분리해서, 어느 쪽이 고장나도 서로 영향 안 받게 만들었다.**\n\n그게 Managed Agents의 전부예요.",
+      "content": [
+        {
+          "start_timestamp": "2026-04-09T22:38:11.258048Z",
+          "stop_timestamp": "2026-04-09T22:38:23.293266Z",
+          "flags": null,
+          "type": "text",
+          "text": " 알겠어요, 완전 쉽게 다시 설명할게요.\n\n---\n\n## 핵심 비유 하나로 이해하기\n\n### 요리사와 보조 요리사\n\nClaude = **요리사** (두뇌, 생각하는 놈)\n도구/실행환경 = **보조 요리사** (손, 실제로 움직이는 놈)\n\n예전에는 요리사와 보조 요리사를 **같은 방에 묶어뒀어요.**\n\n그러면 어떤 문제가 생기냐?\n\n- 보조 요리사가 쓰러지면 요리사도 같이 멈춤\n- 주방이 망가지면 모든 게 다 날아감\n- 다른 주방에서 일하게 하려면 요리사채로 통째로 이사해야 함\n\n---\n\n### 분리하니까 어떻게 됐냐?\n\n요리사(Claude)는 **주방 밖에 있고**, 보조에게 전화로 지시만 해요.\n\n- 보조가 쓰러지면? 새 보조 부르면 됨. 요리사는 계속 일함\n- 주방이 바뀌어도? 요리사는 신경 안 써도 됨\n- 보안도 해결: 요리사는 금고 비밀번호를 몰라도 됨. 보조가 알아서 처리\n\n---\n\n### 성능도 확 좋아졌어요\n\n예전엔 일 시작할 때 항상 주방 세팅부터 기다려야 했는데, 이제는 **주방이 필요할 때만 부르면 됨.** 그래서 응답 시작 시간이 최대 90% 빨라졌어요.\n\n---\n\n### 한 줄 요약\n\n> **Claude(두뇌)랑 실행환경(손)을 분리해서, 어느 쪽이 고장나도 서로 영향 안 받게 만들었다.**\n\n그게 Managed Agents의 전부예요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-04-09T22:38:23.334457Z",
+      "updated_at": "2026-04-09T22:38:23.334457Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d7465-4c1e-7ff4-81f0-5bd37bca090b"
+    }
+  ]
+}

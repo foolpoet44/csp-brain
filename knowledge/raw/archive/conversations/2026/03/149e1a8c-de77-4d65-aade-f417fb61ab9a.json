@@ -1,0 +1,802 @@
+﻿{
+  "uuid": "149e1a8c-de77-4d65-aade-f417fb61ab9a",
+  "name": "에이전틱 AI 아키텍처의 실무 적용",
+  "summary": "**Conversation Overview**\n\nThe person is working in an HR/people strategy role (referred to as CSP) at LG PRI, with 17 years of HR domain expertise. They are actively designing and building several AI-powered internal systems: EX Intelligence (Pulse Check automation), ESCON (skill gap analysis and talent development), and AX education design. The conversation centered on understanding what Agentic AI architecture design and implementation capability means in practical terms within their specific work context.\n\nClaude provided a detailed explanation using three concrete workplace scenarios drawn directly from the person's projects: automating Pulse Check reports via a multi-agent pipeline, running skill gap analysis for Physical AI Tech Leader pool development using ESCO ontology, and automating AX curriculum design for non-developer HR staff. The explanation covered the ReAct loop structure, Orchestrator/sub-agent patterns, Output Contract design, and PathologyDetector concepts. The core argument was that the person's HR domain knowledge is the competitive differentiator in Agentic AI design — not coding ability, but the capacity to decompose work into Decomposable Tasks, define Context and Constraints for agents, and pre-design human intervention points for failure cases.\n\nThe person then requested two tool-based actions: sending a summary of the conversation as a Slack DM to themselves, and archiving the full conversation to Notion.\n\n**Tool Knowledge**\n\nFor Notion archiving, the workflow used `Notion:notion-search` to locate the existing \"Claude 대화 아카이브\" database, then `Notion:notion-fetch` with the database ID `5f2ff32ac1b84981988bf5e0da6eeb15` to retrieve the schema before creating the page. The `Notion:notion-create-pages` call used `data_source_id` `d012343e-b2a2-461e-944b-6f166e91d8e9` as the parent reference with `type: data_source_id`. Date properties required the format `date:날짜:start` with `date:날짜:is_datetime: 0`. The archived page is accessible at `https://www.notion.so/32b6b7b50b23815a9216cbc49eb3a4f5`. For Slack, the connector with UUID `597f662f-36de-437e-836e-5a81013cbfbe` was identified but was not enabled in the current session, so the DM could not be sent; the person was directed to enable the connector and retry.",
+  "created_at": "2026-03-22T23:26:20.504795Z",
+  "updated_at": "2026-03-22T23:35:01.949341Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019d17de-f5f6-7a60-a255-8101a40f31ed",
+      "text": "나의 업무 맥락에서 볼 때, Agentic AI(에이전틱 AI) 아키텍처 설계와 구현 역량을 갖추어 실무 Agent Workflow를 설계한다는 것은 실질적으로 어떤 의미일까.\n실제 업무 장면을 예를들어 설명해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-03-22T23:26:21.791239Z",
+          "stop_timestamp": "2026-03-22T23:26:21.791239Z",
+          "flags": null,
+          "type": "text",
+          "text": "나의 업무 맥락에서 볼 때, Agentic AI(에이전틱 AI) 아키텍처 설계와 구현 역량을 갖추어 실무 Agent Workflow를 설계한다는 것은 실질적으로 어떤 의미일까.\n실제 업무 장면을 예를들어 설명해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-22T23:26:21.836829Z",
+      "updated_at": "2026-03-22T23:26:21.836829Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019d17de-f5f6-74b6-bccf-d5457172e4b5",
+      "text": " # Agentic AI 설계 역량이란 무엇인가 — CSP의 업무 맥락에서\n\n## 먼저, 하나의 질문으로 시작하자\n\nHR 담당자가 월요일 아침에 출근한다. 메일함에 \"이번 분기 Pulse Check 결과 보고서 부탁합니다\"라는 메시지가 와 있다. 그는 무엇을 하는가?\n\nSupabase에 접속하고, SQL을 돌리고, 결과를 Excel로 내려받고, 피벗 테이블을 만들고, 인사이트를 글로 정리하고, PPT 슬라이드를 만들고, 임원용 요약본을 따로 작성한다. 이 흐름에서 **인간의 판단이 실제로 필요한 순간은 얼마나 될까?**\n\n아마 10%도 안 된다.\n\nAgentic AI 설계 역량이란, 나머지 90%를 시스템이 스스로 처리하도록 **흐름을 설계하는 능력**이다. 단순히 프롬프트를 잘 쓰는 것도 아니고, API를 연결하는 것도 아니다. **의도를 가진 워크플로우를 아키텍처로 번역하는 것**이다.\n\n---\n\n## 핵심 개념: Agent는 무엇이 다른가\n\n일반적인 AI 활용은 **요청-응답** 구조다. 인간이 프롬프트를 넣고, AI가 결과를 뱉는다. 인간이 다음 단계를 결정한다.\n\nAgentic AI는 다르다. **목표(Goal)를 받으면, 스스로 계획을 세우고, 도구를 선택하고, 중간 결과를 평가하고, 다음 행동을 결정한다.** 인간은 시작점과 종료 조건만 정의한다.\n\n이 구조를 SW공학적으로 표현하면 다음과 같다.\n\n```\n[Goal] → [Planning] → [Tool Selection] → [Execution] → [Observation] → [Re-planning] → ...\n```\n\n이것이 **ReAct(Reason + Act) 루프**의 기본 형태다. 그리고 이 루프를 여러 개 엮어서 협력하게 만드는 것이 **Multi-Agent 아키텍처**다.\n\n---\n\n## CSP 업무 맥락에서의 실제 장면 3가지\n\n### 장면 1. Pulse Check 리포트 자동화 Agent\n\n현재 CSP가 설계 중인 EX Intelligence 시스템을 생각해보자. 지금은 데이터가 쌓이면 사람이 분석해서 보고서를 만든다. Agentic 설계를 적용하면 이렇게 된다.\n\n**트리거**: 매월 25일, 또는 \"이번 달 Pulse Check 보고서 만들어줘\"라는 슬랙 메시지 한 줄.\n\n**Agent가 하는 일의 흐름**:\n\n1. **Orchestrator Agent**가 목표를 수신한다. \"이번 달 EX Intelligence 보고서 생성\"\n2. 목표를 하위 태스크로 분해한다: 데이터 수집 → 분석 → 인사이트 도출 → 슬라이드 생성 → 검토 요청\n3. **Data Agent**를 호출한다. Supabase에 SQL 쿼리를 날려 이번 달 응답 데이터를 가져온다\n4. **Analytics Agent**가 Well-Being 지수, 응답률, 전월 대비 변화율을 계산한다. SDT 3요소(자율성/유능감/관계성) 차원별로 분류한다\n5. **Insight Agent**가 통계 결과를 받아 자연어 해석을 생성한다. \"유능감 지수가 전분기 대비 0.3 하락한 것은 Q4 신규 프로젝트 투입 시점과 겹친다\"는 식의 맥락적 분석\n6. **Report Agent**가 BCG 스타일의 슬라이드 초안을 HTML 또는 PPTX로 생성한다\n7. **Validation Agent**가 수치 이상치(예: 특정 팀 응답률 20% 미만)를 감지하면 플래그를 세운다\n8. CSP에게 **\"검토가 필요한 항목 2건, 초안 완성\"** 알림이 날아온다\n\nCSP는 10분 만에 보고서를 검토하고 승인한다. 이것이 **인간은 판단만, 실행은 Agent가** 하는 구조다.\n\n---\n\n### 장면 2. ESCON 스킬 갭 분석 Agent\n\nESCON에서 Physical AI Tech Leader 30명 Pool을 구성해야 한다. 현재는 HR 담당자가 일일이 역량 데이터를 보고, ESCO 온톨로지와 대조하고, 갭을 식별하고, 학습 경로를 설계한다.\n\n**Agentic 설계를 적용하면**:\n\n**입력**: \"내년 1분기까지 Collaborative Robot 역량 LV3 이상 10명 확보 가능한지 진단해줘\"\n\n**Agent 워크플로우**:\n\n1. **Profile Agent**: Supabase에서 현재 구성원 스킬 데이터 조회. 각 인원의 현재 레벨과 학습 이력 수집\n2. **Gap Analysis Agent**: ESCO API를 호출해 Collaborative Robot 도메인의 LV3 기준 스킬셋을 가져온다. 각 후보자의 현재 스킬과 비교해 갭 벡터를 계산한다\n3. **Feasibility Agent**: 과거 학습 완료율, 평균 역량 성장 속도 데이터를 기반으로 각 후보자의 \"3개월 내 LV3 도달 확률\"을 시뮬레이션한다\n4. **Recommendation Agent**: 가장 성공 가능성 높은 12명을 순위로 제시하고, 각자에게 맞춤화된 학습 경로 초안을 생성한다\n5. **Report Agent**: 의사결정자용 요약본(1페이지)과 실무자용 상세 분석(10페이지)을 동시에 생성한다\n\n이 전체 프로세스가 **사람 없이 30분 안에** 돌아간다. CSP는 최종 판단만 내린다.\n\n---\n\n### 장면 3. AX 교육 설계 지원 Agent\n\n연간 6개 과정을 신설해야 한다. 현재는 CSP가 트렌드를 조사하고, 수요를 분석하고, 커리큘럼을 설계하고, 자료를 만든다. 모든 과정에서 반복 작업이 80% 이상이다.\n\n**Agentic 설계**:\n\n**입력**: \"올해 2분기 Vibe-Coding 입문 과정 설계해줘. 대상은 HR 직무, 비개발자 기준\"\n\n1. **Research Agent**: 최신 Vibe-Coding 도구(Lovable, Cursor 등) 트렌드를 웹에서 수집. 유사 기업 교육 사례를 분석\n2. **Persona Agent**: ESCON 데이터에서 HR 직무 구성원의 현재 디지털 리터러시 수준 분포를 가져온다\n3. **Curriculum Agent**: 대상자 수준 + 트렌드 + 회사 목표(AX 성숙도 15% 향상)를 교차 분석해 6주 커리큘럼 초안 설계\n4. **Content Agent**: 각 세션의 학습 목표, 실습 예제, 평가 기준을 생성한다\n5. **Slide Agent**: 강의 자료 PPT 초안을 자동 생성한다\n6. CSP에게 **\"초안 완성, 검토 및 LG PRI 맥락 보정 필요\"** 알림\n\n---\n\n## 그렇다면 설계 역량이란 구체적으로 무엇인가\n\n이 세 장면에서 공통적으로 CSP가 해야 하는 것은 **\"Agent에게 무엇을 시킬지를 아는 것\"**이 아니다. 그것보다 훨씬 깊은 세 가지 역량이 필요하다.\n\n**첫째, 업무를 Decomposable Task로 보는 시각.** 월보고서 작성이라는 덩어리를 데이터 수집 / 분석 / 해석 / 시각화 / 검토 요청이라는 독립적인 서브태스크로 분해할 수 있어야 한다. 이 분해 능력은 HR 도메인 지식 없이는 불가능하다. CSP의 17년이 여기서 작동한다.\n\n**둘째, 각 Agent에게 줄 Context와 Constraint를 정의하는 능력.** Agent는 목표만으로 움직이지 않는다. \"SDT 이론 기반으로 분석하되, Well-Being 지수는 임원이 아닌 팀장 레벨에서 해석 가능한 언어로 출력할 것\"이라는 Output Contract를 설계할 수 있어야 한다. 이것이 CSP가 ESCON에서 설계하는 Output Contract v1.0의 실무적 의미다.\n\n**셋째, 실패와 예외를 설계하는 능력.** Agent는 오류를 낸다. 응답률 데이터가 없을 때, ESCO API가 타임아웃될 때, 슬라이드 생성이 맥락을 벗어날 때 — 이 경우에 **어디서 인간 판단을 개입시킬지**를 미리 설계하는 것이 바로 CSP 아키텍처의 PathologyDetector가 하는 일이다.\n\n---\n\n## 결론: CSP에게 이 역량이 갖는 의미\n\nAgentic AI를 설계한다는 것은 기술이 아니라 **철학의 문제**이기도 하다.\n\n\"내가 하던 일을 시스템에 어떻게 이전할 것인가\"라는 질문은, 곧 \"나의 업무 중 진정으로 인간의 판단이 필요한 부분은 어디인가\"라는 질문이다. 이 질문에 제대로 답할 수 있는 사람은, 도메인을 깊이 이해한 사람뿐이다.\n\n코드를 모르는 개발자는 Agent를 만들 수 없다. 하지만 **업무를 모르는 개발자도 의미 있는 Agent를 만들 수 없다.** CSP가 가진 것은 정확히 그 교차점이다 — HR 업무의 흐름을 누구보다 잘 알고, 동시에 그것을 시스템 언어로 번역할 수 있는 능력.\n\nEX Intelligence, ESCON, AX 교육 시스템은 단순한 LG PRI 내부 프로젝트가 아니다. 이것은 **\"HR 전문가의 두뇌를 Agent 워크플로우로 구현하는 실험\"**이고, 그 실험의 성공이 곧 미래 SaaS 플랫폼의 기술적 기반이 된다.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-22T23:26:23.105452Z",
+          "stop_timestamp": "2026-03-22T23:27:30.264131Z",
+          "flags": null,
+          "type": "text",
+          "text": " # Agentic AI 설계 역량이란 무엇인가 — CSP의 업무 맥락에서\n\n## 먼저, 하나의 질문으로 시작하자\n\nHR 담당자가 월요일 아침에 출근한다. 메일함에 \"이번 분기 Pulse Check 결과 보고서 부탁합니다\"라는 메시지가 와 있다. 그는 무엇을 하는가?\n\nSupabase에 접속하고, SQL을 돌리고, 결과를 Excel로 내려받고, 피벗 테이블을 만들고, 인사이트를 글로 정리하고, PPT 슬라이드를 만들고, 임원용 요약본을 따로 작성한다. 이 흐름에서 **인간의 판단이 실제로 필요한 순간은 얼마나 될까?**\n\n아마 10%도 안 된다.\n\nAgentic AI 설계 역량이란, 나머지 90%를 시스템이 스스로 처리하도록 **흐름을 설계하는 능력**이다. 단순히 프롬프트를 잘 쓰는 것도 아니고, API를 연결하는 것도 아니다. **의도를 가진 워크플로우를 아키텍처로 번역하는 것**이다.\n\n---\n\n## 핵심 개념: Agent는 무엇이 다른가\n\n일반적인 AI 활용은 **요청-응답** 구조다. 인간이 프롬프트를 넣고, AI가 결과를 뱉는다. 인간이 다음 단계를 결정한다.\n\nAgentic AI는 다르다. **목표(Goal)를 받으면, 스스로 계획을 세우고, 도구를 선택하고, 중간 결과를 평가하고, 다음 행동을 결정한다.** 인간은 시작점과 종료 조건만 정의한다.\n\n이 구조를 SW공학적으로 표현하면 다음과 같다.\n\n```\n[Goal] → [Planning] → [Tool Selection] → [Execution] → [Observation] → [Re-planning] → ...\n```\n\n이것이 **ReAct(Reason + Act) 루프**의 기본 형태다. 그리고 이 루프를 여러 개 엮어서 협력하게 만드는 것이 **Multi-Agent 아키텍처**다.\n\n---\n\n## CSP 업무 맥락에서의 실제 장면 3가지\n\n### 장면 1. Pulse Check 리포트 자동화 Agent\n\n현재 CSP가 설계 중인 EX Intelligence 시스템을 생각해보자. 지금은 데이터가 쌓이면 사람이 분석해서 보고서를 만든다. Agentic 설계를 적용하면 이렇게 된다.\n\n**트리거**: 매월 25일, 또는 \"이번 달 Pulse Check 보고서 만들어줘\"라는 슬랙 메시지 한 줄.\n\n**Agent가 하는 일의 흐름**:\n\n1. **Orchestrator Agent**가 목표를 수신한다. \"이번 달 EX Intelligence 보고서 생성\"\n2. 목표를 하위 태스크로 분해한다: 데이터 수집 → 분석 → 인사이트 도출 → 슬라이드 생성 → 검토 요청\n3. **Data Agent**를 호출한다. Supabase에 SQL 쿼리를 날려 이번 달 응답 데이터를 가져온다\n4. **Analytics Agent**가 Well-Being 지수, 응답률, 전월 대비 변화율을 계산한다. SDT 3요소(자율성/유능감/관계성) 차원별로 분류한다\n5. **Insight Agent**가 통계 결과를 받아 자연어 해석을 생성한다. \"유능감 지수가 전분기 대비 0.3 하락한 것은 Q4 신규 프로젝트 투입 시점과 겹친다\"는 식의 맥락적 분석\n6. **Report Agent**가 BCG 스타일의 슬라이드 초안을 HTML 또는 PPTX로 생성한다\n7. **Validation Agent**가 수치 이상치(예: 특정 팀 응답률 20% 미만)를 감지하면 플래그를 세운다\n8. CSP에게 **\"검토가 필요한 항목 2건, 초안 완성\"** 알림이 날아온다\n\nCSP는 10분 만에 보고서를 검토하고 승인한다. 이것이 **인간은 판단만, 실행은 Agent가** 하는 구조다.\n\n---\n\n### 장면 2. ESCON 스킬 갭 분석 Agent\n\nESCON에서 Physical AI Tech Leader 30명 Pool을 구성해야 한다. 현재는 HR 담당자가 일일이 역량 데이터를 보고, ESCO 온톨로지와 대조하고, 갭을 식별하고, 학습 경로를 설계한다.\n\n**Agentic 설계를 적용하면**:\n\n**입력**: \"내년 1분기까지 Collaborative Robot 역량 LV3 이상 10명 확보 가능한지 진단해줘\"\n\n**Agent 워크플로우**:\n\n1. **Profile Agent**: Supabase에서 현재 구성원 스킬 데이터 조회. 각 인원의 현재 레벨과 학습 이력 수집\n2. **Gap Analysis Agent**: ESCO API를 호출해 Collaborative Robot 도메인의 LV3 기준 스킬셋을 가져온다. 각 후보자의 현재 스킬과 비교해 갭 벡터를 계산한다\n3. **Feasibility Agent**: 과거 학습 완료율, 평균 역량 성장 속도 데이터를 기반으로 각 후보자의 \"3개월 내 LV3 도달 확률\"을 시뮬레이션한다\n4. **Recommendation Agent**: 가장 성공 가능성 높은 12명을 순위로 제시하고, 각자에게 맞춤화된 학습 경로 초안을 생성한다\n5. **Report Agent**: 의사결정자용 요약본(1페이지)과 실무자용 상세 분석(10페이지)을 동시에 생성한다\n\n이 전체 프로세스가 **사람 없이 30분 안에** 돌아간다. CSP는 최종 판단만 내린다.\n\n---\n\n### 장면 3. AX 교육 설계 지원 Agent\n\n연간 6개 과정을 신설해야 한다. 현재는 CSP가 트렌드를 조사하고, 수요를 분석하고, 커리큘럼을 설계하고, 자료를 만든다. 모든 과정에서 반복 작업이 80% 이상이다.\n\n**Agentic 설계**:\n\n**입력**: \"올해 2분기 Vibe-Coding 입문 과정 설계해줘. 대상은 HR 직무, 비개발자 기준\"\n\n1. **Research Agent**: 최신 Vibe-Coding 도구(Lovable, Cursor 등) 트렌드를 웹에서 수집. 유사 기업 교육 사례를 분석\n2. **Persona Agent**: ESCON 데이터에서 HR 직무 구성원의 현재 디지털 리터러시 수준 분포를 가져온다\n3. **Curriculum Agent**: 대상자 수준 + 트렌드 + 회사 목표(AX 성숙도 15% 향상)를 교차 분석해 6주 커리큘럼 초안 설계\n4. **Content Agent**: 각 세션의 학습 목표, 실습 예제, 평가 기준을 생성한다\n5. **Slide Agent**: 강의 자료 PPT 초안을 자동 생성한다\n6. CSP에게 **\"초안 완성, 검토 및 LG PRI 맥락 보정 필요\"** 알림\n\n---\n\n## 그렇다면 설계 역량이란 구체적으로 무엇인가\n\n이 세 장면에서 공통적으로 CSP가 해야 하는 것은 **\"Agent에게 무엇을 시킬지를 아는 것\"**이 아니다. 그것보다 훨씬 깊은 세 가지 역량이 필요하다.\n\n**첫째, 업무를 Decomposable Task로 보는 시각.** 월보고서 작성이라는 덩어리를 데이터 수집 / 분석 / 해석 / 시각화 / 검토 요청이라는 독립적인 서브태스크로 분해할 수 있어야 한다. 이 분해 능력은 HR 도메인 지식 없이는 불가능하다. CSP의 17년이 여기서 작동한다.\n\n**둘째, 각 Agent에게 줄 Context와 Constraint를 정의하는 능력.** Agent는 목표만으로 움직이지 않는다. \"SDT 이론 기반으로 분석하되, Well-Being 지수는 임원이 아닌 팀장 레벨에서 해석 가능한 언어로 출력할 것\"이라는 Output Contract를 설계할 수 있어야 한다. 이것이 CSP가 ESCON에서 설계하는 Output Contract v1.0의 실무적 의미다.\n\n**셋째, 실패와 예외를 설계하는 능력.** Agent는 오류를 낸다. 응답률 데이터가 없을 때, ESCO API가 타임아웃될 때, 슬라이드 생성이 맥락을 벗어날 때 — 이 경우에 **어디서 인간 판단을 개입시킬지**를 미리 설계하는 것이 바로 CSP 아키텍처의 PathologyDetector가 하는 일이다.\n\n---\n\n## 결론: CSP에게 이 역량이 갖는 의미\n\nAgentic AI를 설계한다는 것은 기술이 아니라 **철학의 문제**이기도 하다.\n\n\"내가 하던 일을 시스템에 어떻게 이전할 것인가\"라는 질문은, 곧 \"나의 업무 중 진정으로 인간의 판단이 필요한 부분은 어디인가\"라는 질문이다. 이 질문에 제대로 답할 수 있는 사람은, 도메인을 깊이 이해한 사람뿐이다.\n\n코드를 모르는 개발자는 Agent를 만들 수 없다. 하지만 **업무를 모르는 개발자도 의미 있는 Agent를 만들 수 없다.** CSP가 가진 것은 정확히 그 교차점이다 — HR 업무의 흐름을 누구보다 잘 알고, 동시에 그것을 시스템 언어로 번역할 수 있는 능력.\n\nEX Intelligence, ESCON, AX 교육 시스템은 단순한 LG PRI 내부 프로젝트가 아니다. 이것은 **\"HR 전문가의 두뇌를 Agent 워크플로우로 구현하는 실험\"**이고, 그 실험의 성공이 곧 미래 SaaS 플랫폼의 기술적 기반이 된다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-22T23:27:30.358813Z",
+      "updated_at": "2026-03-22T23:27:30.358813Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d17de-f5f6-7a60-a255-8101a40f31ed"
+    },
+    {
+      "uuid": "019d17e3-14a2-7238-9126-82f73b62ee61",
+      "text": "이 답변 내용을 요약해서 슬랙에 dm으로 발송해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-03-22T23:30:52.250974Z",
+          "stop_timestamp": "2026-03-22T23:30:52.250974Z",
+          "flags": null,
+          "type": "text",
+          "text": "이 답변 내용을 요약해서 슬랙에 dm으로 발송해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-22T23:30:52.293918Z",
+      "updated_at": "2026-03-22T23:30:52.293918Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d17de-f5f6-74b6-bccf-d5457172e4b5"
+    },
+    {
+      "uuid": "019d17e3-14a2-74f4-a8cf-d0c280f55045",
+      "text": " 슬랙 DM을 보내드릴게요. 누구에게 발송할까요?\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\nSlack MCP 툴을 찾아볼게요.\n```\nThis block is not supported on your current device yet.\n```\n\nSlack MCP가 연결은 되어 있는데, 현재 채팅에서 메시지 전송 툴이 활성화되지 않은 상태예요. Slack 커넥터를 활성화해야 DM을 직접 보낼 수 있습니다.\n```\nThis block is not supported on your current device yet.\n```\n\nSlack이 연결은 되어 있지만 현재 이 채팅에서 **활성화(enabled)가 되어 있지 않은 상태**예요. 아래 버튼을 통해 Slack을 활성화하면 바로 DM을 발송해드릴 수 있어요.\n```\nThis block is not supported on your current device yet.\n```\n\nSlack 커넥터를 활성화하신 후 다시 요청해 주시면, 수신자를 확인하고 아래 내용으로 DM을 바로 발송해드릴게요.\n\n---\n\n**발송 예정 메시지 미리보기:**\n\n> **[Agentic AI 설계 역량 — 핵심 요약]**\n>\n> Agentic AI란 목표를 주면 스스로 계획 → 도구 선택 → 실행 → 재계획을 반복하는 구조. 단순 프롬프트 활용과 달리, 인간은 시작점과 판단만 담당.\n>\n> **실무 적용 3가지:**\n> • Pulse Check 리포트 → 데이터 수집~슬라이드 생성까지 Agent가 자동 처리, CSP는 검토·승인만\n> • ESCON 스킬 갭 분석 → 역량 데이터 조회~학습경로 설계까지 30분 내 자동화\n> • AX 교육 설계 → 트렌드 조사~PPT 초안까지 Agent가 처리\n>\n> **핵심:** 코드보다 중요한 건 업무를 Decomposable Task로 분해하는 도메인 지식. HR 17년 경험이 Agent 설계의 진짜 경쟁력.",
+      "content": [
+        {
+          "start_timestamp": "2026-03-22T23:30:53.781311Z",
+          "stop_timestamp": "2026-03-22T23:30:54.670369Z",
+          "flags": null,
+          "type": "text",
+          "text": " 슬랙 DM을 보내드릴게요. 누구에게 발송할까요?",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-22T23:30:55.078270Z",
+          "stop_timestamp": "2026-03-22T23:30:56.639677Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01LPayVJzvdZRTUnQLcVYijx",
+          "name": "ask_user_input_v0",
+          "input": {
+            "questions": [
+              {
+                "question": "누구에게 DM을 보낼까요?",
+                "type": "single_select",
+                "options": [
+                  "나 자신 (본인에게)",
+                  "특정 팀원에게",
+                  "직접 입력할게요"
+                ]
+              }
+            ]
+          },
+          "message": "Generating ask_user_input_v0...",
+          "integration_name": "Dynamic Widget",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01LPayVJzvdZRTUnQLcVYijx",
+          "name": "ask_user_input_v0",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"questions\": [\n    {\n      \"question\": \"\\ub204\\uad6c\\uc5d0\\uac8c DM\\uc744 \\ubcf4\\ub0bc\\uae4c\\uc694?\",\n      \"type\": \"single_select\",\n      \"options\": [\n        \"\\ub098 \\uc790\\uc2e0 (\\ubcf8\\uc778\\uc5d0\\uac8c)\",\n        \"\\ud2b9\\uc815 \\ud300\\uc6d0\\uc5d0\\uac8c\",\n        \"\\uc9c1\\uc811 \\uc785\\ub825\\ud560\\uac8c\\uc694\"\n      ]\n    }\n  ]\n}",
+              "uuid": "51e259fe-2dc2-4995-bf5b-a1b9358c0a33"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Generated ask_user_input_v0 widget",
+          "integration_name": "Dynamic Widget",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-22T23:30:59.075166Z",
+          "stop_timestamp": "2026-03-22T23:30:59.075166Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_0115hjSaNxMHakZNrYE8uxQn",
+          "name": "tool_search",
+          "input": {
+            "query": "Slack send direct message DM"
+          },
+          "message": "Searching available tools: Slack send direct message DM",
+          "integration_name": "Tool Search",
+          "integration_icon_url": null,
+          "icon_name": "search",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_0115hjSaNxMHakZNrYE8uxQn",
+          "name": "tool_search",
+          "content": [
+            {
+              "type": "text",
+              "text": "Loaded 5 tools:\n  Atlassian (2):\n  Atlassian:updateConfluencePage:\n    body: string - Page content\n    cloudId: string - Cloud ID (UUID or site URL)\n    pageId: string - Page or blog post ID to update\n    contentFormat?: string [markdown|adf] - Content format: \"adf\" (Atlassian Document Format, JSON) for full fidelity with mentions, panels, and Smart Links, or ...\n    contentType?: string [page|blog] - Type of content: page or blog post\n    includeBody?: boolean - If true, include the page body in the response; if false, omit it to reduce payload size.\n    parentId?: string - Parent page ID (pages only, ignored for blogs)\n    spaceId?: string - Space ID\n    status?: string [current|draft] - Page status\n    title?: string - New title\n    versionMessage?: string - Version message\n  Atlassian:createIssueLink:\n    cloudId: string - Cloud ID (UUID or site URL)\n    inwardIssue: string - Inward issue key (e.g. HSP-1).\n    outwardIssue: string - Outward issue key (e.g. MKY-1).\n    type: string - Link type name (e.g. Duplicate, Blocks, Clones, Relates). Use getIssueLinkTypes to list available types.\n    comment?: string - Optional comment on the outward issue.\n    contentFormat?: string [markdown|adf] - Content format: \"adf\" (Atlassian Document Format, JSON) for full fidelity with mentions, panels, and Smart Links, or ...\n  Notion (3):\n  Notion:notion-search:\n    query: string - Semantic search query over your entire Notion workspace and connected sources (Slack, Google Drive, Github, Jira, Mic...\n    content_search_mode?: string [workspace_search|ai_search]\n    data_source_url?: string - Optionally, provide the URL of a Data source to search. This will perform a semantic search over the pages in the Dat...\n    filters?: object {created_date_range, created_by_user_ids} - Optionally provide filters to apply to the search results. Only valid when query_type is 'internal'.\n    max_highlight_length?: integer - Maximum character length for result highlights (default 200). Set to 0 to omit highlights entirely.\n    page_size?: integer - Maximum number of results to return (default 10). Lower values reduce response size.\n    page_url?: string - Optionally, provide the URL or ID of a page to search within. This will perform a semantic search over the content wi...\n    query_type?: string [internal|user]\n    teamspace_id?: string - Optionally, provide the ID of a teamspace to restrict search results to. This will perform a search over content with...\n  Notion:notion-update-view:\n    view_id: string - The view to update. Accepts a view:// URI, a Notion URL with ?v= parameter, or a bare UUID.\n    configure?: string - View configuration DSL string. Supports FILTER, SORT BY, GROUP BY, CALENDAR BY, TIMELINE BY, MAP BY, CHART, FORM, SHO...\n    name?: string - New name for the view.\n  Notion:notion-create-view:\n    data_source_id: string - The data source (collection) ID. Accepts a collection:// URI from <data-source> tags or a bare UUID.\n    database_id: string - The database to create a view in. Accepts a Notion URL or a bare UUID.\n    name: string - The name of the view.\n    type: string [table|board|list|calendar|timeline|gallery|form|chart|...]\n    configure?: string - View configuration DSL string. Supports FILTER, SORT BY, GROUP BY, CALENDAR BY, TIMELINE BY, MAP BY, CHART, FORM, SHO...\nThese tools are now available for you to call directly.",
+              "uuid": "63da5ecd-b7bc-4e57-afbb-80e9a9d2ae34"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Searched available tools",
+          "integration_name": "Tool Search",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "search",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-22T23:31:02.886541Z",
+          "stop_timestamp": "2026-03-22T23:31:03.524376Z",
+          "flags": null,
+          "type": "text",
+          "text": "Slack MCP 툴을 찾아볼게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-22T23:31:03.891220Z",
+          "stop_timestamp": "2026-03-22T23:31:03.891220Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_012443Vn6HqDs6ytypcTGdMC",
+          "name": "tool_search",
+          "input": {
+            "query": "Slack post message channel user"
+          },
+          "message": "Searching available tools: Slack post message channel user",
+          "integration_name": "Tool Search",
+          "integration_icon_url": null,
+          "icon_name": "search",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_012443Vn6HqDs6ytypcTGdMC",
+          "name": "tool_search",
+          "content": [
+            {
+              "type": "text",
+              "text": "Loaded 5 tools:\n  Atlassian (4):\n  Atlassian:updateConfluencePage:\n    body: string - Page content\n    cloudId: string - Cloud ID (UUID or site URL)\n    pageId: string - Page or blog post ID to update\n    contentFormat?: string [markdown|adf] - Content format: \"adf\" (Atlassian Document Format, JSON) for full fidelity with mentions, panels, and Smart Links, or ...\n    contentType?: string [page|blog] - Type of content: page or blog post\n    includeBody?: boolean - If true, include the page body in the response; if false, omit it to reduce payload size.\n    parentId?: string - Parent page ID (pages only, ignored for blogs)\n    spaceId?: string - Space ID\n    status?: string [current|draft] - Page status\n    title?: string - New title\n    versionMessage?: string - Version message\n  Atlassian:createConfluenceFooterComment:\n    body: string - Comment content\n    cloudId: string - Cloud ID (UUID or site URL)\n    attachmentId?: string - Attachment ID to include\n    contentFormat?: string [markdown|adf] - Content format: \"adf\" (Atlassian Document Format, JSON) for full fidelity with mentions, panels, and Smart Links, or ...\n    contentType?: string [page|blog] - Type of content: page or blog post\n    customContentId?: string - Custom content ID to include\n    pageId?: string - Page or blog post ID to comment on\n    parentCommentId?: string - Parent comment ID for replies\n  Atlassian:createConfluencePage:\n    body: string - Page content\n    cloudId: string - Cloud ID (UUID or site URL)\n    spaceId: string - Space ID\n    contentFormat?: string [markdown|adf] - Content format: \"adf\" (Atlassian Document Format, JSON) for full fidelity with mentions, panels, and Smart Links, or ...\n    contentType?: string [page|blog] - Type of content: page or blog post\n    isPrivate?: boolean - Make private\n    parentId?: string - Parent page ID (pages only, ignored for blogs)\n    status?: string [current|draft] - Status (draft for unpublished)\n    subtype?: string [live] - Page subtype (pages only, ignored for blogs)\n    title?: string - Page or blog post title\n  Atlassian:createConfluenceInlineComment:\n    body: string - Comment content\n    cloudId: string - Cloud ID (UUID or site URL)\n    contentFormat?: string [markdown|adf] - Content format: \"adf\" (Atlassian Document Format, JSON) for full fidelity with mentions, panels, and Smart Links, or ...\n    contentType?: string [page|blog] - Type of content: page or blog post\n    inlineCommentProperties?: object {textSelection, textSelectionMatchCount, textSelectionMatchIndex} - Text selection properties for highlighting\n    pageId?: string - Page or blog post ID to comment on\n    parentCommentId?: string - Parent comment ID for replies\n  Notion (1):\n  Notion:notion-search:\n    query: string - Semantic search query over your entire Notion workspace and connected sources (Slack, Google Drive, Github, Jira, Mic...\n    content_search_mode?: string [workspace_search|ai_search]\n    data_source_url?: string - Optionally, provide the URL of a Data source to search. This will perform a semantic search over the pages in the Dat...\n    filters?: object {created_date_range, created_by_user_ids} - Optionally provide filters to apply to the search results. Only valid when query_type is 'internal'.\n    max_highlight_length?: integer - Maximum character length for result highlights (default 200). Set to 0 to omit highlights entirely.\n    page_size?: integer - Maximum number of results to return (default 10). Lower values reduce response size.\n    page_url?: string - Optionally, provide the URL or ID of a page to search within. This will perform a semantic search over the content wi...\n    query_type?: string [internal|user]\n    teamspace_id?: string - Optionally, provide the ID of a teamspace to restrict search results to. This will perform a search over content with...\nThese tools are now available for you to call directly.",
+              "uuid": "c43f0c2e-347c-45ac-9c31-31140a3c06a4"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Searched available tools",
+          "integration_name": "Tool Search",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "search",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-22T23:31:07.086299Z",
+          "stop_timestamp": "2026-03-22T23:31:08.922084Z",
+          "flags": null,
+          "type": "text",
+          "text": "Slack MCP가 연결은 되어 있는데, 현재 채팅에서 메시지 전송 툴이 활성화되지 않은 상태예요. Slack 커넥터를 활성화해야 DM을 직접 보낼 수 있습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-22T23:31:09.214109Z",
+          "stop_timestamp": "2026-03-22T23:31:09.214109Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01SLPquRDv3CfUmxXHceKXTv",
+          "name": "search_mcp_registry",
+          "input": {
+            "keywords": [
+              "slack",
+              "message",
+              "dm"
+            ]
+          },
+          "message": "search_mcp_registry",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01SLPquRDv3CfUmxXHceKXTv",
+          "name": "search_mcp_registry",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"results\":[{\"name\":\"Slack\",\"description\":\"Send messages, create canvases, and fetch Slack data\",\"tools\":[\"slack_send_message\",\"slack_search_public_and_private\",\"slack_search_users\",\"slack_search_channels\",\"slack_search_public\",\"slack_read_channel\",\"slack_read_thread\",\"slack_create_canvas\",\"+3 more\"],\"url\":\"https://mcp.slack.com/mcp\",\"iconUrl\":\"https://slack.com\",\"directoryUuid\":\"597f662f-36de-437e-836e-5a81013cbfbe\",\"connected\":false,\"enabledInChat\":false},{\"name\":\"Gmail\",\"description\":\"Draft replies, summarize threads, & search your inbox\",\"tools\":[\"create_draft\",\"get_profile\",\"list_drafts\",\"read_message\",\"read_thread\",\"search_messages\"],\"url\":\"https://gmail.mcp.claude.com/mcp\",\"iconUrl\":\"https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64\",\"directoryUuid\":\"a02abd88-db7c-41ce-aa85-2d2804c64897\",\"connected\":false,\"enabledInChat\":false},{\"name\":\"ClickUp\",\"description\":\"Project management & collaboration for teams & agents\",\"tools\":[\"clickup_search\",\"clickup_get_workspace_hierarchy\",\"clickup_create_task\",\"clickup_get_task\",\"clickup_update_task\",\"clickup_get_task_comments\",\"clickup_create_task_comment\",\"clickup_attach_task_file\",\"+27 more\"],\"url\":\"https://mcp.clickup.com/mcp\",\"iconUrl\":\"https://clickup.com\",\"directoryUuid\":\"aa5a2bca-4004-49ea-bc2b-978162587a3a\",\"connected\":false,\"enabledInChat\":false},{\"name\":\"Klaviyo\",\"description\":\"Report, strategize & create with real-time Klaviyo data\",\"tools\":[\"get_account_details\",\"get_campaigns\",\"get_campaign\",\"create_campaign\",\"assign_template_to_campaign_message\",\"get_catalog_items\",\"get_events\",\"get_metrics\",\"+19 more\"],\"url\":\"https://mcp.klaviyo.com/mcp?include-mcp-app=true\",\"iconUrl\":\"https://klaviyo.com\",\"directoryUuid\":\"b1a89151-dc5f-4d75-baa7-9da291b81a0c\",\"connected\":false,\"enabledInChat\":false},{\"name\":\"Pylon\",\"description\":\"Search and manage Pylon support issues\",\"tools\":[\"create_issue\",\"get_account\",\"get_contact\",\"get_issue\",\"get_issue_messages\",\"get_user\",\"search_accounts\",\"search_issues\",\"+2 more\"],\"url\":\"https://mcp.usepylon.com/\",\"iconUrl\":\"https://www.usepylon.com\",\"directoryUuid\":\"240b8712-17ed-4233-858a-9a872dec63b2\",\"connected\":false,\"enabledInChat\":false},{\"name\":\"Metaview\",\"description\":\"The AI platform for recruiting.\",\"tools\":[\"get_user_context\",\"search_conversations\",\"group_conversations\",\"get_chart_data\",\"list_fields\",\"list_field_values\",\"create_ai_field\",\"create_report\",\"+14 more\"],\"url\":\"https://mcp.metaview.ai/mcp\",\"iconUrl\":\"https://metaview.ai\",\"directoryUuid\":\"7bc97e97-91fb-4da8-8a81-3602c9d4150b\",\"connected\":false,\"enabledInChat\":false},{\"name\":\"ChEMBL\",\"description\":\"Access the ChEMBL Database\",\"tools\":[\"get_admet\",\"get_bioactivity\",\"compound_search\",\"drug_search\",\"get_mechanism\",\"target_search\"],\"url\":\"https://mcp.deepsense.ai/chembl/mcp\",\"iconUrl\":\"https://www.ebi.ac.uk/chembl/\",\"directoryUuid\":\"711ccc94-754b-4659-903d-d61b29dd781e\",\"connected\":false,\"enabledInChat\":false},{\"name\":\"Wix\",\"description\":\"Manage and build sites and apps on Wix\",\"tools\":[\"WixREADME\",\"SearchWixWDSDocumentation\",\"SearchWixRESTDocumentation\",\"SearchWixSDKDocumentation\",\"SearchBuildAppsDocumentation\",\"SearchWixHeadlessDocumentation\",\"ReadFullDocsArticle\",\"ReadFullDocsMethodSchema\",\"+4 more\"],\"url\":\"https://mcp.wix.com/mcp\",\"iconUrl\":\"https://www.wix.com\",\"directoryUuid\":\"780a3621-8271-4822-bd0b-b9cab309375d\",\"connected\":false,\"enabledInChat\":false},{\"name\":\"Circleback\",\"description\":\"Search and access context from meetings\",\"tools\":[\"SearchMeetings\",\"SearchTranscripts\",\"GetTranscriptsForMeetings\",\"ReadMeetings\",\"FindProfiles\",\"FindDomains\",\"SearchCalendarEvents\",\"SearchEmails\",\"+1 more\"],\"url\":\"https://app.circleback.ai/api/mcp\",\"iconUrl\":\"https://circleback.ai\",\"directoryUuid\":\"91c3f3e4-8c61-4f73-b912-96d035f69f24\",\"connected\":false,\"enabledInChat\":false},{\"name\":\"Intercom\",\"description\":\"Access to Intercom data for better customer insights\",\"tools\":[\"search\",\"fetch\",\"search_conversations\",\"get_conversation\",\"search_contacts\",\"get_contact\"],\"url\":\"https://mcp.intercom.com/mcp\",\"iconUrl\":\"https://mcp.intercom.com/mcp\",\"directoryUuid\":\"b2def8dc-ae47-4d46-877a-19b6a6ebb771\",\"connected\":false,\"enabledInChat\":false}]}",
+              "uuid": "24f85ea0-6c8b-4f7e-aac0-e6cd780e11a0"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-22T23:31:13.147635Z",
+          "stop_timestamp": "2026-03-22T23:31:14.901222Z",
+          "flags": null,
+          "type": "text",
+          "text": "Slack이 연결은 되어 있지만 현재 이 채팅에서 **활성화(enabled)가 되어 있지 않은 상태**예요. 아래 버튼을 통해 Slack을 활성화하면 바로 DM을 발송해드릴 수 있어요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-22T23:31:15.262724Z",
+          "stop_timestamp": "2026-03-22T23:31:15.262724Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01TyKzfKdjBo8Ti2NXRyLF3t",
+          "name": "suggest_connectors",
+          "input": {
+            "uuids": [
+              "597f662f-36de-437e-836e-5a81013cbfbe"
+            ]
+          },
+          "message": "suggest_connectors",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01TyKzfKdjBo8Ti2NXRyLF3t",
+          "name": "suggest_connectors",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"connectors\":[{\"name\":\"Slack\",\"description\":\"Send messages, create canvases, and fetch Slack data\",\"url\":\"https://mcp.slack.com/mcp\",\"iconUrl\":\"https://slack.com\",\"directoryUuid\":\"597f662f-36de-437e-836e-5a81013cbfbe\"}]}",
+              "uuid": "74eff13a-3005-4cd2-b066-575ee62eee64"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-22T23:31:20.032562Z",
+          "stop_timestamp": "2026-03-22T23:31:29.585260Z",
+          "flags": null,
+          "type": "text",
+          "text": "Slack 커넥터를 활성화하신 후 다시 요청해 주시면, 수신자를 확인하고 아래 내용으로 DM을 바로 발송해드릴게요.\n\n---\n\n**발송 예정 메시지 미리보기:**\n\n> **[Agentic AI 설계 역량 — 핵심 요약]**\n>\n> Agentic AI란 목표를 주면 스스로 계획 → 도구 선택 → 실행 → 재계획을 반복하는 구조. 단순 프롬프트 활용과 달리, 인간은 시작점과 판단만 담당.\n>\n> **실무 적용 3가지:**\n> • Pulse Check 리포트 → 데이터 수집~슬라이드 생성까지 Agent가 자동 처리, CSP는 검토·승인만\n> • ESCON 스킬 갭 분석 → 역량 데이터 조회~학습경로 설계까지 30분 내 자동화\n> • AX 교육 설계 → 트렌드 조사~PPT 초안까지 Agent가 처리\n>\n> **핵심:** 코드보다 중요한 건 업무를 Decomposable Task로 분해하는 도메인 지식. HR 17년 경험이 Agent 설계의 진짜 경쟁력.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-22T23:31:29.718429Z",
+      "updated_at": "2026-03-22T23:31:29.718429Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d17e3-14a2-7238-9126-82f73b62ee61"
+    },
+    {
+      "uuid": "019d17e3-c047-7c51-9f3e-90df97fe731c",
+      "text": "Q: 누구에게 DM을 보낼까요?\nA: 나 자신 (본인에게)",
+      "content": [
+        {
+          "start_timestamp": "2026-03-22T23:31:35.765012Z",
+          "stop_timestamp": "2026-03-22T23:31:35.765012Z",
+          "flags": null,
+          "type": "text",
+          "text": "Q: 누구에게 DM을 보낼까요?\nA: 나 자신 (본인에게)",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-22T23:31:35.790477Z",
+      "updated_at": "2026-03-22T23:31:35.790477Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d17e3-14a2-74f4-a8cf-d0c280f55045"
+    },
+    {
+      "uuid": "019d17e3-c047-7029-845e-a427c677f1eb",
+      "text": " Slack 툴을 활성화해 주시면 바로 발송할 수 있어요. 아래에서 Slack을 연결해 주세요.\n```\nThis block is not supported on your current device yet.\n```\n\nSlack 커넥터를 **Enable**하신 후 \"본인에게 DM 보내줘\"라고 다시 말씀해 주시면 바로 처리해드릴게요. 🙂",
+      "content": [
+        {
+          "start_timestamp": "2026-03-22T23:31:37.240150Z",
+          "stop_timestamp": "2026-03-22T23:31:38.590128Z",
+          "flags": null,
+          "type": "text",
+          "text": " Slack 툴을 활성화해 주시면 바로 발송할 수 있어요. 아래에서 Slack을 연결해 주세요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-22T23:31:39.003218Z",
+          "stop_timestamp": "2026-03-22T23:31:39.630018Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_0193aggRgWrxjor3kyC2pfNj",
+          "name": "suggest_connectors",
+          "input": {
+            "uuids": [
+              "597f662f-36de-437e-836e-5a81013cbfbe"
+            ]
+          },
+          "message": "suggest_connectors",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_0193aggRgWrxjor3kyC2pfNj",
+          "name": "suggest_connectors",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"connectors\":[{\"name\":\"Slack\",\"description\":\"Send messages, create canvases, and fetch Slack data\",\"url\":\"https://mcp.slack.com/mcp\",\"iconUrl\":\"https://slack.com\",\"directoryUuid\":\"597f662f-36de-437e-836e-5a81013cbfbe\"}]}",
+              "uuid": "7774eaed-4ab8-4fba-ae29-5c2e875e73b0"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-22T23:31:43.035925Z",
+          "stop_timestamp": "2026-03-22T23:31:44.244171Z",
+          "flags": null,
+          "type": "text",
+          "text": "Slack 커넥터를 **Enable**하신 후 \"본인에게 DM 보내줘\"라고 다시 말씀해 주시면 바로 처리해드릴게요. 🙂",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-22T23:31:44.319080Z",
+      "updated_at": "2026-03-22T23:31:44.319080Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d17e3-c047-7c51-9f3e-90df97fe731c"
+    },
+    {
+      "uuid": "019d17e5-bc1d-7337-aaa1-db8cd010f84f",
+      "text": "채팅 내용을 노션에 어카이빙",
+      "content": [
+        {
+          "start_timestamp": "2026-03-22T23:33:46.298318Z",
+          "stop_timestamp": "2026-03-22T23:33:46.298318Z",
+          "flags": null,
+          "type": "text",
+          "text": "채팅 내용을 노션에 어카이빙",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-03-22T23:33:46.337578Z",
+      "updated_at": "2026-03-22T23:33:46.337578Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d17e3-c047-7029-845e-a427c677f1eb"
+    },
+    {
+      "uuid": "019d17e5-bc1d-7349-9a79-c24345d2265e",
+      "text": " Notion 스킬을 먼저 읽고 아카이빙을 진행할게요.\n```\nThis block is not supported on your current device yet.\n```\n\n이제 Claude 대화 아카이브 DB를 찾아 저장할게요.\n```\nThis block is not supported on your current device yet.\n```\n\nDB를 찾았어요. 이제 아카이브 페이지를 생성할게요.\n```\nThis block is not supported on your current device yet.\n```\n\nDB 스키마를 확인해서 정확한 프로퍼티를 파악할게요.\n```\nThis block is not supported on your current device yet.\n```\n\n스키마 파악 완료. 이제 아카이빙 페이지를 생성할게요.\n```\nThis block is not supported on your current device yet.\n```\n\n아카이빙 완료했습니다. ✅\n\n**💬 Claude 대화 아카이브**에 다음 내용으로 저장됐어요:\n\n| 항목 | 내용 |\n|------|------|\n| **제목** | Agentic AI 설계 역량의 실무적 의미 |\n| **주제** | 학습 |\n| **중요도** | ⭐⭐⭐ 핵심 |\n| **상태** | ✅ 완료 |\n| **태그** | AI, Agentic Engineering, 워크플로우 |\n| **관련 프로젝트** | EX Intelligence / ESCON / AX 교육 설계 |\n\n👉 [노션에서 바로 보기](https://www.notion.so/32b6b7b50b23815a9216cbc49eb3a4f5)",
+      "content": [
+        {
+          "start_timestamp": "2026-03-22T23:33:47.887582Z",
+          "stop_timestamp": "2026-03-22T23:33:48.873367Z",
+          "flags": null,
+          "type": "text",
+          "text": " Notion 스킬을 먼저 읽고 아카이빙을 진행할게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-22T23:33:49.285151Z",
+          "stop_timestamp": "2026-03-22T23:33:50.073368Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01SksFjVLZ6Kzk72hmeYotk1",
+          "name": "view",
+          "input": {
+            "description": "Reading Notion knowledge capture skill",
+            "path": "/mnt/skills/user/notion-knowledge-capture/SKILL.md"
+          },
+          "message": "Reading Notion knowledge capture skill",
+          "integration_name": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "context": null,
+          "display_content": {
+            "type": "text",
+            "text": "Reading Notion knowledge capture skill"
+          },
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01SksFjVLZ6Kzk72hmeYotk1",
+          "name": "view",
+          "content": [
+            {
+              "type": "text",
+              "text": "     1\t---\n     2\tname: notion-knowledge-capture\n     3\tdescription: Transforms conversations and discussions into structured documentation pages in Notion. Captures insights, decisions, and knowledge from chat context, formats appropriately, and saves to wikis or databases with proper organization and linking for easy discovery.\n     4\t---\n     5\t\n     6\t# Knowledge Capture\n     7\t\n     8\tTransforms conversations, discussions, and insights into structured documentation in your Notion workspace. Captures knowledge from chat context, formats it appropriately, and saves it to the right location with proper organization and linking.\n     9\t\n    10\t## Quick Start\n    11\t\n    12\tWhen asked to save information to Notion:\n    13\t\n    14\t1. **Extract content**: Identify key information from conversation context\n    15\t2. **Structure information**: Organize into appropriate documentation format\n    16\t3. **Determine location**: Use `Notion:notion-search` to find appropriate wiki page/database\n    17\t4. **Create page**: Use `Notion:notion-create-pages` to save content\n    18\t5. **Make discoverable**: Link from relevant hub pages, add to databases, or update wiki navigation so others can find it\n    19\t\n    20\t## Knowledge Capture Workflow\n    21\t\n    22\t### Step 1: Identify content to capture\n    23\t\n    24\t```\n    25\tFrom conversation context, extract:\n    26\t- Key concepts and definitions\n    27\t- Decisions made and rationale\n    28\t- How-to information and procedures\n    29\t- Important insights or learnings\n    30\t- Q&A pairs\n    31\t- Examples and use cases\n    32\t```\n    33\t\n    34\t### Step 2: Determine content type\n    35\t\n    36\t```\n    37\tClassify the knowledge:\n    38\t- Concept/Definition\n    39\t- How-to Guide\n    40\t- Decision Record\n    41\t- FAQ Entry\n    42\t- Meeting Summary\n    43\t- Learning/Post-mortem\n    44\t- Reference Documentation\n    45\t```\n    46\t\n    47\t\n    48\t### Step 3: Structure the content\n    49\t\n    50\t```\n    51\tFormat appropriately based on content type:\n    52\t- Use templates for consistency\n    53\t- Add clear headings and sections\n    54\t- Include examples where helpful\n    55\t- Add relevant metadata\n    56\t- Link to related pages\n    57\t```\n    58\t\n    59\t\n    60\t### Step 4: Determine destination\n    61\t\n    62\t```\n    63\tWhere to save:\n    64\t- Wiki page (general knowledge base)\n    65\t- Specific project page (project-specific knowledge)\n    66\t- Documentation database (structured docs)\n    67\t- FAQ database (questions and answers)\n    68\t- Decision log (architecture/product decisions)\n    69\t- Team wiki (team-specific knowledge)\n    70\t```\n    71\t\n    72\t### Step 5: Create the page\n    73\t\n    74\t```\n    75\tUse Notion:notion-create-pages:\n    76\t- Set appropriate title\n    77\t- Use structured content from template\n    78\t- Set properties if in database\n    79\t- Add tags/categories\n    80\t- Link to related pages\n    81\t```\n    82\t\n    83\t### Step 6: Make content discoverable\n    84\t\n    85\t```\n    86\tLink the new page so others can find it:\n    87\t\n    88\t1. Update hub/index pages:\n    89\t   - Add link to wiki table of contents page\n    90\t   - Add link from relevant project page\n    91\t   - Add link from category/topic page (e.g., \"Engineering Docs\")\n    92\t   \n    93\t2. If page is in a database:\n    94\t   - Set appropriate tags/categories\n    95\t   - Set status (e.g., \"Published\")\n    96\t   - Add to relevant views\n    97\t   \n    98\t3. Optionally update parent page:\n    99\t   - If saved under a project, add to project's \"Documentation\" section\n   100\t   - If in team wiki, ensure it's linked from team homepage\n   101\t\n   102\tExample:\n   103\tNotion:notion-update-page\n   104\tpage_id: \"team-wiki-homepage-id\"\n   105\tcommand: \"insert_content_after\"\n   106\tselection_with_ellipsis: \"## How-To Guides...\"\n   107\tnew_str: \"- <mention-page url='...'>How to Deploy to Production</mention-page>\"\n   108\t```\n   109\t\n   110\tThis step ensures the knowledge doesn't become \"orphaned\" - it's properly connected to your workspace's navigation structure.\n   111\t\n   112\t## Content Types\n   113\t\n   114\tChoose appropriate structure based on content:\n   115\t\n   116\t**Concept**: Overview → Definition → Characteristics → Examples → Use Cases → Related\n   117\t**How-To**: Overview → Prerequisites → Steps (numbered) → Verification → Troubleshooting → Related\n   118\t**Decision**: Context → Decision → Rationale → Options Considered → Consequences → Implementation\n   119\t**FAQ**: Short Answer → Detailed Explanation → Examples → When to Use → Related Questions\n   120\t**Learning**: What Happened → What Went Well → What Didn't → Root Causes → Learnings → Actions\n   121\t\n   122\t\n   123\t## Destination Patterns\n   124\t\n   125\t**General Wiki**: Standalone page → add to index → tag → link from related pages\n   126\t\n   127\t**Project Wiki**: Child of project page → link from project overview → tag with project name\n   128\t\n   129\t**Documentation Database**: Use properties (Title, Type, Category, Tags, Last Updated, Owner)\n   130\t\n   131\t**Decision Log Database**: Use properties (Decision, Date, Status, Domain, Deciders, Impact)\n   132\t\n   133\t**FAQ Database**: Use properties (Question, Category, Tags, Last Reviewed, Useful Count)\n   134\t\n   135\tSee [reference/database-best-practices.md](reference/database-best-practices.md) for database selection guide and individual schema files.\n   136\t\n   137\t## Content Extraction from Conversations\n   138\t\n   139\t**Chat Discussion**: Key points, conclusions, resources, action items, Q&A\n   140\t\n   141\t**Problem-Solving**: Problem statement, approaches tried, solution, why it worked, future considerations\n   142\t\n   143\t**Knowledge Sharing**: Concept explained, examples, best practices, common pitfalls, resources\n   144\t\n   145\t**Decision Discussion**: Question, options, trade-offs, decision, rationale, next steps\n   146\t\n   147\t## Formatting Best Practices\n   148\t\n   149\t**Structure**: Use `#` (title), `##` (sections), `###` (subsections) consistently\n   150\t\n   151\t**Writing**: Start with overview, use bullets, keep paragraphs short, add examples\n   152\t\n   153\t**Linking**: Link related pages, mention people, reference resources, create bidirectional links\n   154\t\n   155\t**Metadata**: Include date, author, tags, status\n   156\t\n   157\t**Searchability**: Clear titles, natural keywords, common search tags, image alt-text\n   158\t\n   159\t## Indexing and Organization\n   160\t\n   161\t**Wiki Index**: Organize by sections (Getting Started, How-To Guides, Reference, FAQs, Decisions) with page links\n   162\t\n   163\t**Category Pages**: Create landing pages with overview, doc links, and recent updates\n   164\t\n   165\t**Tagging Strategy**: Use consistent tags for technology/tools, topics, audience, and status\n   166\t\n   167\t## Update Management\n   168\t\n   169\t**Create New**: Content is substantive (>2 paragraphs), will be referenced multiple times, part of knowledge base, needs independent discovery\n   170\t\n   171\t**Update Existing**: Adding to existing topic, correcting info, expanding concept, updating for changes\n   172\t\n   173\t**Versioning**: Add update history section for significant changes (date, author, what changed, why)\n   174\t\n   175\t## Best Practices\n   176\t\n   177\t1. **Capture promptly**: Document while context is fresh\n   178\t2. **Structure consistently**: Use templates for similar content\n   179\t3. **Link extensively**: Connect related knowledge\n   180\t4. **Write for discovery**: Use searchable titles and tags\n   181\t5. **Include context**: Why this matters, when to use\n   182\t6. **Add examples**: Concrete examples aid understanding\n   183\t7. **Maintain**: Review and update periodically\n   184\t8. **Get feedback**: Ask if documentation is helpful\n   185\t\n   186\t## Advanced Features\n   187\t\n   188\t**Documentation databases**: See [reference/database-best-practices.md](reference/database-best-practices.md) for database schema patterns.\n   189\t\n   190\t## Common Issues\n   191\t\n   192\t**\"Not sure where to save\"**: Default to general wiki, can move later\n   193\t**\"Content is fragmentary\"**: Group related fragments into cohesive doc\n   194\t**\"Already exists\"**: Search first, update existing if appropriate\n   195\t**\"Too informal\"**: Clean up language while preserving insights\n   196\t\n   197\t## Examples\n   198\t\n   199\tSee [examples/](examples/) for complete workflows:\n   200\t- [examples/conversation-to-faq.md](examples/conversation-to-faq.md) - FAQ from Q&A\n   201\t- [examples/decision-capture.md](examples/decision-capture.md) - Decision record\n   202\t- [examples/how-to-guide.md](examples/how-to-guide.md) - How-to from discussion\n   203\t\n   204\t",
+              "uuid": "6cadd1fd-3d72-4391-a5e8-11dcc6050a31"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": null,
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "file",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-22T23:33:56.146281Z",
+          "stop_timestamp": "2026-03-22T23:33:57.047870Z",
+          "flags": null,
+          "type": "text",
+          "text": "이제 Claude 대화 아카이브 DB를 찾아 저장할게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-22T23:33:57.482839Z",
+          "stop_timestamp": "2026-03-22T23:33:57.889386Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01EbeKNwAsCtS5cPkChCVpbM",
+          "name": "Notion:notion-search",
+          "input": {
+            "query": "Claude 대화 아카이브",
+            "query_type": "internal",
+            "page_size": 3
+          },
+          "message": "Notion-search",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-search-8f7d2503f9f16cf918175b1c16feecd6",
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01EbeKNwAsCtS5cPkChCVpbM",
+          "name": "Notion:notion-search",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"results\":[{\"id\":\"5f2ff32a-c1b8-4981-988b-f5e0da6eeb15\",\"title\":\"💬 Claude 대화 아카이브\",\"url\":\"5f2ff32ac1b84981988bf5e0da6eeb15\",\"type\":\"database\",\"highlight\":\"💬 Claude 대화 아카이브\",\"timestamp\":\"2026-02-11T04:37:00.000Z\"},{\"id\":\"2d36b7b5-0b23-813c-abda-f5e9ae3f2c27\",\"title\":\"Claude 대화 → Notion 세컨브레인 자동 아카이빙 시스템 구축\",\"url\":\"2d36b7b50b23813cabdaf5e9ae3f2c27\",\"type\":\"page\",\"highlight\":\"[[지식관리 MOC]]\\n├── Claude 대화 #1\\n├── Claude 대화 #2\\n└── Claude 대화 #3\",\"timestamp\":\"2025-12-24T20:02:00.000Z\"},{\"id\":\"3266b7b5-0b23-8153-865c-e88a6adf6cf5\",\"title\":\"Ralph 생태계 → CSP 워크플로우 내재화\",\"url\":\"3266b7b50b238153865ce88a6adf6cf5\",\"type\":\"page\",\"highlight\":\"실행 전 명확성 시스템화: Claude Code 열기 전 Claude.ai claude.ai/ 에서 Socratic Interview\",\"timestamp\":\"2026-03-17T07:25:00.000Z\"}],\"type\":\"workspace_search\"}",
+              "uuid": "6ad32c39-0fc5-474e-a6fc-350552f3066b"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"results\": [\n    {\n      \"id\": \"5f2ff32a-c1b8-4981-988b-f5e0da6eeb15\",\n      \"title\": \"💬 Claude 대화 아카이브\",\n      \"url\": \"5f2ff32ac1b84981988bf5e0da6eeb15\",\n      \"type\": \"database\",\n      \"highlight\": \"💬 Claude 대화 아카이브\",\n      \"timestamp\": \"2026-02-11T04:37:00.000Z\"\n    },\n    {\n      \"id\": \"2d36b7b5-0b23-813c-abda-f5e9ae3f2c27\",\n      \"title\": \"Claude 대화 → Notion 세컨브레인 자동 아카이빙 시스템 구축\",\n      \"url\": \"2d36b7b50b23813cabdaf5e9ae3f2c27\",\n      \"type\": \"page\",\n      \"highlight\": \"[[지식관리 MOC]]\\n├── Claude 대화 #1\\n├── Claude 대화 #2\\n└── Claude 대화 #3\",\n      \"timestamp\": \"2025-12-24T20:02:00.000Z\"\n    },\n    {\n      \"id\": \"3266b7b5-0b23-8153-865c-e88a6adf6cf5\",\n      \"title\": \"Ralph 생태계 → CSP 워크플로우 내재화\",\n      \"url\": \"3266b7b50b238153865ce88a6adf6cf5\",\n      \"type\": \"page\",\n      \"highlight\": \"실행 전 명확성 시스템화: Claude Code 열기 전 Claude.ai claude.ai/ 에서 Socratic Interview\",\n      \"timestamp\": \"2026-03-17T07:25:00.000Z\"\n    }\n  ],\n  \"type\": \"workspace_search\"\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-22T23:34:01.656698Z",
+          "stop_timestamp": "2026-03-22T23:34:02.107948Z",
+          "flags": null,
+          "type": "text",
+          "text": "DB를 찾았어요. 이제 아카이브 페이지를 생성할게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-22T23:34:02.518264Z",
+          "stop_timestamp": "2026-03-22T23:34:02.685603Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01SVtVX4uHxq7AHrukN34vVx",
+          "name": "tool_search",
+          "input": {
+            "query": "Notion create pages database properties"
+          },
+          "message": "Searching available tools: Notion create pages database properties",
+          "integration_name": "Tool Search",
+          "integration_icon_url": null,
+          "icon_name": "search",
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01SVtVX4uHxq7AHrukN34vVx",
+          "name": "tool_search",
+          "content": [
+            {
+              "type": "text",
+              "text": "Loaded 5 Notion tools:\n  Notion:notion-create-pages:\n    pages: array [object {properties, content, template_id, icon, cover}] - The pages to create.\n    parent?: any - The parent under which the new pages will be created. This can be a page (page_id), a database page (database_id), or...\n  Notion:notion-create-database:\n    schema: string - SQL DDL CREATE TABLE statement defining the database schema. Column names must be double-quoted, type options use sin...\n    description?: string - The description of the new database.\n    parent?: object {page_id, type} - The parent under which to create the new database. If omitted, the database will be created as a private page at the ...\n    title?: string - The title of the new database.\n  Notion:notion-search:\n    query: string - Semantic search query over your entire Notion workspace and connected sources (Slack, Google Drive, Github, Jira, Mic...\n    content_search_mode?: string [workspace_search|ai_search]\n    data_source_url?: string - Optionally, provide the URL of a Data source to search. This will perform a semantic search over the pages in the Dat...\n    filters?: object {created_date_range, created_by_user_ids} - Optionally provide filters to apply to the search results. Only valid when query_type is 'internal'.\n    max_highlight_length?: integer - Maximum character length for result highlights (default 200). Set to 0 to omit highlights entirely.\n    page_size?: integer - Maximum number of results to return (default 10). Lower values reduce response size.\n    page_url?: string - Optionally, provide the URL or ID of a page to search within. This will perform a semantic search over the content wi...\n    query_type?: string [internal|user]\n    teamspace_id?: string - Optionally, provide the ID of a teamspace to restrict search results to. This will perform a search over content with...\n  Notion:notion-move-pages:\n    new_parent: any - The new parent under which the pages will be moved. This can be a page, the workspace, a database, or a specific data...\n    page_or_database_ids: array [string] - An array of up to 100 page or database IDs to move. IDs are v4 UUIDs and can be supplied with or without dashes (e.g....\n  Notion:notion-fetch:\n    id: string - The ID or URL of the Notion page, database, or data source to fetch. Supports notion.so URLs, Notion Sites URLs (*.no...\n    include_discussions?: boolean\n    include_transcript?: boolean\nThese tools are now available for you to call directly.",
+              "uuid": "ce19a1b1-42c7-4b38-a7c4-62e843e3826a"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Searched available tools",
+          "integration_name": "Tool Search",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": "search",
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-03-22T23:34:05.255035Z",
+          "stop_timestamp": "2026-03-22T23:34:06.158498Z",
+          "flags": null,
+          "type": "text",
+          "text": "DB 스키마를 확인해서 정확한 프로퍼티를 파악할게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-22T23:34:06.158498Z",
+          "stop_timestamp": "2026-03-22T23:34:06.918277Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01UN622AJogJAJ2n22v3S7uz",
+          "name": "Notion:notion-fetch",
+          "input": {
+            "id": "5f2ff32ac1b84981988bf5e0da6eeb15"
+          },
+          "message": "Notion-fetch",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-fetch-60feec32716c8799143ed51c780a8f47",
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01UN622AJogJAJ2n22v3S7uz",
+          "name": "Notion:notion-fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"metadata\":{\"type\":\"database\"},\"title\":\"💬 Claude 대화 아카이브\",\"url\":\"https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15\",\"text\":\"<database url=\\\"{{https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15}}\\\" inline=\\\"false\\\">\\nThe title of this Database is: 💬 Claude 대화 아카이브\\n<ancestor-path>\\n<parent-page url=\\\"https://www.notion.so/2496b7b50b23802da04fdafb113c4d4c\\\" title=\\\"세컨브레인 위키\\\"/>\\n<ancestor-2-data-source url=\\\"collection://1cc6b7b5-0b23-803e-87c2-000b76f9c172\\\" name=\\\"My Cal\\\"/>\\n<ancestor-3-database url=\\\"https://www.notion.so/1cc6b7b50b238019a8aedf1648664acc\\\" title=\\\"\\\"/>\\n<ancestor-4-page url=\\\"https://www.notion.so/1cc6b7b50b2380c59fc6ca6f2f77ba0c\\\" title=\\\"빠른메모\\\"/>\\n</ancestor-path>\\nHere are the Database's Data Sources:\\nYou can use the \\\"view\\\" tool on the URL of any Data Source to see its full schema configuration.\\n<data-sources>\\n<data-source url=\\\"{{collection://d012343e-b2a2-461e-944b-6f166e91d8e9}}\\\">\\nThe title of this Data Source is: 💬 Claude 대화 아카이브\\n\\nHere is the database's configurable state:\\n<data-source-state>\\n{\\\"name\\\":\\\"💬 Claude 대화 아카이브\\\",\\\"schema\\\":{\\\"관련 프로젝트\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"관련 프로젝트\\\",\\\"type\\\":\\\"text\\\"},\\\"날짜\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"날짜\\\",\\\"type\\\":\\\"date\\\"},\\\"다음 액션\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"다음 액션\\\",\\\"type\\\":\\\"checkbox\\\"},\\\"대화 제목\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"대화 제목\\\",\\\"type\\\":\\\"title\\\"},\\\"상태\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"상태\\\",\\\"options\\\":[{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"💡 아이디어\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/MzA1ZGNjYjQtNDg3Zi00YzZkLWJlZmItNmI5OGE1ZGI3YTA0\\\"},{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"🔄 진행중\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/YzkyYjk2YmMtZDcyMy00NDIzLWFkMTUtNzFmZDczNzIyNDRk\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"✅ 완료\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/OTZiMGY5NmUtNGUzOC00ZDNkLTg0OTUtMzMwZTE3YmU2ODFj\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"📦 보관\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/NGI4NjA3NjQtMjYwNy00NmY4LTgzOTYtZDg4YmNiNDZhZmEx\\\"}],\\\"type\\\":\\\"select\\\"},\\\"요약\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"요약\\\",\\\"type\\\":\\\"text\\\"},\\\"주제\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"주제\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"지식관리\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTcyNjE0MDAtYTczOS00MzExLWFjYWEtOGMyMmM0NGUxYzdh\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"개발/코딩\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTE4N2VjOTktNGUyMi00N2MwLThiNmQtODg3NzY4MGY3NzMw\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"생산성\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjBlNDU2ZjQtZjIyYS00ODllLWI5NDgtMzhmNGMyMmZlM2Rj\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"분석/리서치\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjZiYzcwYWUtYWZkMC00N2YwLWEzYTAtMWU1ZWIwNWRhYzYy\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"창작/글쓰기\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWIxZGI5ZGQtYzgyZC00Njg2LWJhOTEtN2Q3YThiMDgyYmFj\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"아이디어\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OWJkMTFlN2YtNDBhMy00Y2Y2LWE1ODQtYmZhZDdlZTQ2ZjM5\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"학습\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWRlNzUwZTEtMTA0Yy00NWMzLTlkYTEtYzQwYTEwMjcwMzhm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"기타\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTkwMTg3ZjQtYTdkMi00NTNmLWI1YTktMjU4MjYxOTRlNDE5\\\"}],\\\"type\\\":\\\"select\\\"},\\\"중요도\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"중요도\\\",\\\"options\\\":[{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐⭐⭐ 핵심\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/OWMzZTFlMGMtYjJhOS00MGFmLTkzMDAtNDg0YWNjYmRmZWMz\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐⭐ 중요\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/MDJlNjYxMWQtODljNC00ZDFjLWEyMGUtZDg3ODQ2Y2I5MDk1\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐ 참고\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YmJlOTM0NGEtMGJlYy00ODJlLTliNzktM2I5ZTEyYzBiNjlm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"보관\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YWZjNTQzZTUtNjg4MC00ZGY2LWJlODgtN2ZhOGQyMGYyZDY2\\\"}],\\\"type\\\":\\\"select\\\"},\\\"키워드\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"키워드\\\",\\\"type\\\":\\\"text\\\"},\\\"태그\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"태그\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"세컨브레인\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZWNmODNkODctNGQxNC00NTQ5LTk4ZDQtOWFjMDk4M2ZjYjMw\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Notion\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YTdjODAzMzctMGZkZi00YzhkLWE4OTMtMWZmMjBkZTFhYTM4\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Obsidian\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YzFiMjQwY2YtZTg5NC00YTZmLWExMjktN2QzOTdhNTBiMjg2\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"자동화\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/OWJiZTFjNWQtY2QwMS00NTIyLWIzMGEtMGVlMzE2MDA4MGMz\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"AI\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZDBiYTVkZjAtY2E0Yi00NzZhLTk0YTctNjIzYTgyZjIyODI1\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"워크플로우\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTNhYjdiOWYtYjgwYy00YmNjLTllMDctYzZmYzFjZTFhMGZh\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"온톨로지\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTEzYjEzNDgtZTkxYi00NDJiLWI3MDYtZmY5Mjk1NGY5OGQ4\\\"},{\\\"color\\\":\\\"default\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Claude\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/NDYyOTljM2ItMDk5ZC00Y2Q0LWE2NzMtNDFlMDM3ZjE4MGM0\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Agentic Engineering\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YmYxNjQ5NzMtNWM1OS00ZmRmLTk2YTItOWY3M2QzMzhiNjNm\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"프롬프트 설계\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YTk5ZTZiYzItM2E0Yy00Njc1LTgwYjgtN2NmYzI1YmRiYjAz\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"System Prompt\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YmEyYTg4YjYtZGRlZi00MTgyLTkwM2YtMGZjODFlZGUwM2U0\\\"}],\\\"type\\\":\\\"multi_select\\\"}},\\\"url\\\":\\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\"}\\n</data-source-state>\\n\\nHere is the SQLite table definition for this data source.\\n<sqlite-table>\\nCREATE TABLE IF NOT EXISTS \\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\" (\\n\\turl TEXT UNIQUE,\\n\\tcreatedTime TEXT, -- ISO-8601 datetime string, automatically set. This is the canonical time for when the page was created.\\n\\t\\\"키워드\\\" TEXT,\\n\\t\\\"요약\\\" TEXT,\\n\\t\\\"주제\\\" TEXT, -- one of [\\\"지식관리\\\", \\\"개발/코딩\\\", \\\"생산성\\\", \\\"분석/리서치\\\", \\\"창작/글쓰기\\\", \\\"아이디어\\\", \\\"학습\\\", \\\"기타\\\"]\\n\\t\\\"관련 프로젝트\\\" TEXT,\\n\\t\\\"date:날짜:start\\\" TEXT, -- ISO-8601 date or datetime string. Use the expanded property (date:<column_name>:start) to set this value.\\n\\t\\\"date:날짜:end\\\" TEXT, -- ISO-8601 date or datetime string, can be empty. Must be NULL if the date is a single date, and must be present if the date is a range. Use the expanded property (date:<column_name>:end) to set this value.\\n\\t\\\"date:날짜:is_datetime\\\" INTEGER, -- 1 if the date is a datetime, 0 if it is a date, NULL defaults to 0. Use the expanded property (date:<column_name>:is_datetime) to set this value.\\n\\t\\\"상태\\\" TEXT, -- one of [\\\"💡 아이디어\\\", \\\"🔄 진행중\\\", \\\"✅ 완료\\\", \\\"📦 보관\\\"]\\n\\t\\\"태그\\\" TEXT, -- JSON array with zero or more of [\\\"세컨브레인\\\", \\\"Notion\\\", \\\"Obsidian\\\", \\\"자동화\\\", \\\"AI\\\", \\\"워크플로우\\\", \\\"온톨로지\\\", \\\"Claude\\\", \\\"Agentic Engineering\\\", \\\"프롬프트 설계\\\", \\\"System Prompt\\\"]\\n\\t\\\"중요도\\\" TEXT, -- one of [\\\"⭐⭐⭐ 핵심\\\", \\\"⭐⭐ 중요\\\", \\\"⭐ 참고\\\", \\\"보관\\\"]\\n\\t\\\"다음 액션\\\" TEXT, -- \\\"__YES__\\\" = true, \\\"__NO__\\\" = false, NULL defaults to false\\n\\t\\\"대화 제목\\\" TEXT\\n)\\n</sqlite-table>\\n</data-source>\\n</data-sources>\\nHere are the Database's Views:\\nYou can use the \\\"view\\\" tool on the URL of any View to see its full configuration.\\n<views>\\n<view url=\\\"{{view://45d8fd26-13b7-47f0-ab6a-cb8163d82f77}}\\\">\\n{\\\"dataSourceUrl\\\":\\\"{{collection://d012343e-b2a2-461e-944b-6f166e91d8e9}}\\\",\\\"displayProperties\\\":[\\\"대화 제목\\\",\\\"관련 프로젝트\\\",\\\"날짜\\\",\\\"다음 액션\\\",\\\"상태\\\",\\\"요약\\\",\\\"주제\\\",\\\"중요도\\\",\\\"키워드\\\",\\\"태그\\\"],\\\"name\\\":\\\"Default view\\\",\\\"type\\\":\\\"table\\\"}\\n</view>\\n</views>\\n</database>\"}",
+              "uuid": "36c44e22-43b6-409c-af34-efcdb5458e7d"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"metadata\": {\n    \"type\": \"database\"\n  },\n  \"title\": \"💬 Claude 대화 아카이브\",\n  \"url\": \"https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15\",\n  \"text\": \"<database url=\\\"{{https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15}}\\\" inline=\\\"false\\\">\\nThe title of this Database is: 💬 Claude 대화 아카이브\\n<ancestor-path>\\n<parent-page url=\\\"https://www.notion.so/2496b7b50b23802da04fdafb113c4d4c\\\" title=\\\"세컨브레인 위키\\\"/>\\n<ancestor-2-data-source url=\\\"collection://1cc6b7b5-0b23-803e-87c2-000b76f9c172\\\" name=\\\"My Cal\\\"/>\\n<ancestor-3-database url=\\\"https://www.notion.so/1cc6b7b50b238019a8aedf1648664acc\\\" title=\\\"\\\"/>\\n<ancestor-4-page url=\\\"https://www.notion.so/1cc6b7b50b2380c59fc6ca6f2f77ba0c\\\" title=\\\"빠른메모\\\"/>\\n</ancestor-path>\\nHere are the Database's Data Sources:\\nYou can use the \\\"view\\\" tool on the URL of any Data Source to see its full schema configuration.\\n<data-sources>\\n<data-source url=\\\"{{collection://d012343e-b2a2-461e-944b-6f166e91d8e9}}\\\">\\nThe title of this Data Source is: 💬 Claude 대화 아카이브\\n\\nHere is the database's configurable state:\\n<data-source-state>\\n{\\\"name\\\":\\\"💬 Claude 대화 아카이브\\\",\\\"schema\\\":{\\\"관련 프로젝트\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"관련 프로젝트\\\",\\\"type\\\":\\\"text\\\"},\\\"날짜\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"날짜\\\",\\\"type\\\":\\\"date\\\"},\\\"다음 액션\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"다음 액션\\\",\\\"type\\\":\\\"checkbox\\\"},\\\"대화 제목\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"대화 제목\\\",\\\"type\\\":\\\"title\\\"},\\\"상태\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"상태\\\",\\\"options\\\":[{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"💡 아이디어\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/MzA1ZGNjYjQtNDg3Zi00YzZkLWJlZmItNmI5OGE1ZGI3YTA0\\\"},{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"🔄 진행중\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/YzkyYjk2YmMtZDcyMy00NDIzLWFkMTUtNzFmZDczNzIyNDRk\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"✅ 완료\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/OTZiMGY5NmUtNGUzOC00ZDNkLTg0OTUtMzMwZTE3YmU2ODFj\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"📦 보관\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/NGI4NjA3NjQtMjYwNy00NmY4LTgzOTYtZDg4YmNiNDZhZmEx\\\"}],\\\"type\\\":\\\"select\\\"},\\\"요약\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"요약\\\",\\\"type\\\":\\\"text\\\"},\\\"주제\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"주제\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"지식관리\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTcyNjE0MDAtYTczOS00MzExLWFjYWEtOGMyMmM0NGUxYzdh\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"개발/코딩\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTE4N2VjOTktNGUyMi00N2MwLThiNmQtODg3NzY4MGY3NzMw\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"생산성\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjBlNDU2ZjQtZjIyYS00ODllLWI5NDgtMzhmNGMyMmZlM2Rj\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"분석/리서치\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjZiYzcwYWUtYWZkMC00N2YwLWEzYTAtMWU1ZWIwNWRhYzYy\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"창작/글쓰기\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWIxZGI5ZGQtYzgyZC00Njg2LWJhOTEtN2Q3YThiMDgyYmFj\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"아이디어\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OWJkMTFlN2YtNDBhMy00Y2Y2LWE1ODQtYmZhZDdlZTQ2ZjM5\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"학습\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWRlNzUwZTEtMTA0Yy00NWMzLTlkYTEtYzQwYTEwMjcwMzhm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"기타\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTkwMTg3ZjQtYTdkMi00NTNmLWI1YTktMjU4MjYxOTRlNDE5\\\"}],\\\"type\\\":\\\"select\\\"},\\\"중요도\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"중요도\\\",\\\"options\\\":[{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐⭐⭐ 핵심\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/OWMzZTFlMGMtYjJhOS00MGFmLTkzMDAtNDg0YWNjYmRmZWMz\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐⭐ 중요\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/MDJlNjYxMWQtODljNC00ZDFjLWEyMGUtZDg3ODQ2Y2I5MDk1\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐ 참고\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YmJlOTM0NGEtMGJlYy00ODJlLTliNzktM2I5ZTEyYzBiNjlm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"보관\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YWZjNTQzZTUtNjg4MC00ZGY2LWJlODgtN2ZhOGQyMGYyZDY2\\\"}],\\\"type\\\":\\\"select\\\"},\\\"키워드\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"키워드\\\",\\\"type\\\":\\\"text\\\"},\\\"태그\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"태그\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"세컨브레인\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZWNmODNkODctNGQxNC00NTQ5LTk4ZDQtOWFjMDk4M2ZjYjMw\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Notion\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YTdjODAzMzctMGZkZi00YzhkLWE4OTMtMWZmMjBkZTFhYTM4\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Obsidian\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YzFiMjQwY2YtZTg5NC00YTZmLWExMjktN2QzOTdhNTBiMjg2\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"자동화\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/OWJiZTFjNWQtY2QwMS00NTIyLWIzMGEtMGVlMzE2MDA4MGMz\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"AI\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZDBiYTVkZjAtY2E0Yi00NzZhLTk0YTctNjIzYTgyZjIyODI1\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"워크플로우\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTNhYjdiOWYtYjgwYy00YmNjLTllMDctYzZmYzFjZTFhMGZh\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"온톨로지\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTEzYjEzNDgtZTkxYi00NDJiLWI3MDYtZmY5Mjk1NGY5OGQ4\\\"},{\\\"color\\\":\\\"default\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Claude\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/NDYyOTljM2ItMDk5ZC00Y2Q0LWE2NzMtNDFlMDM3ZjE4MGM0\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Agentic Engineering\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YmYxNjQ5NzMtNWM1OS00ZmRmLTk2YTItOWY3M2QzMzhiNjNm\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"프롬프트 설계\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YTk5ZTZiYzItM2E0Yy00Njc1LTgwYjgtN2NmYzI1YmRiYjAz\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"System Prompt\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YmEyYTg4YjYtZGRlZi00MTgyLTkwM2YtMGZjODFlZGUwM2U0\\\"}],\\\"type\\\":\\\"multi_select\\\"}},\\\"url\\\":\\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\"}\\n</data-source-state>\\n\\nHere is the SQLite table definition for this data source.\\n<sqlite-table>\\nCREATE TABLE IF NOT EXISTS \\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\" (\\n\\turl TEXT UNIQUE,\\n\\tcreatedTime TEXT, -- ISO-8601 datetime string, automatically set. This is the canonical time for when the page was created.\\n\\t\\\"키워드\\\" TEXT,\\n\\t\\\"요약\\\" TEXT,\\n\\t\\\"주제\\\" TEXT, -- one of [\\\"지식관리\\\", \\\"개발/코딩\\\", \\\"생산성\\\", \\\"분석/리서치\\\", \\\"창작/글쓰기\\\", \\\"아이디어\\\", \\\"학습\\\", \\\"기타\\\"]\\n\\t\\\"관련 프로젝트\\\" TEXT,\\n\\t\\\"date:날짜:start\\\" TEXT, -- ISO-8601 date or datetime string. Use the expanded property (date:<column_name>:start) to set this value.\\n\\t\\\"date:날짜:end\\\" TEXT, -- ISO-8601 date or datetime string, can be empty. Must be NULL if the date is a single date, and must be present if the date is a range. Use the expanded property (date:<column_name>:end) to set this value.\\n\\t\\\"date:날짜:is_datetime\\\" INTEGER, -- 1 if the date is a datetime, 0 if it is a date, NULL defaults to 0. Use the expanded property (date:<column_name>:is_datetime) to set this value.\\n\\t\\\"상태\\\" TEXT, -- one of [\\\"💡 아이디어\\\", \\\"🔄 진행중\\\", \\\"✅ 완료\\\", \\\"📦 보관\\\"]\\n\\t\\\"태그\\\" TEXT, -- JSON array with zero or more of [\\\"세컨브레인\\\", \\\"Notion\\\", \\\"Obsidian\\\", \\\"자동화\\\", \\\"AI\\\", \\\"워크플로우\\\", \\\"온톨로지\\\", \\\"Claude\\\", \\\"Agentic Engineering\\\", \\\"프롬프트 설계\\\", \\\"System Prompt\\\"]\\n\\t\\\"중요도\\\" TEXT, -- one of [\\\"⭐⭐⭐ 핵심\\\", \\\"⭐⭐ 중요\\\", \\\"⭐ 참고\\\", \\\"보관\\\"]\\n\\t\\\"다음 액션\\\" TEXT, -- \\\"__YES__\\\" = true, \\\"__NO__\\\" = false, NULL defaults to false\\n\\t\\\"대화 제목\\\" TEXT\\n)\\n</sqlite-table>\\n</data-source>\\n</data-sources>\\nHere are the Database's Views:\\nYou can use the \\\"view\\\" tool on the URL of any View to see its full configuration.\\n<views>\\n<view url=\\\"{{view://45d8fd26-13b7-47f0-ab6a-cb8163d82f77}}\\\">\\n{\\\"dataSourceUrl\\\":\\\"{{collection://d012343e-b2a2-461e-944b-6f166e91d8e9}}\\\",\\\"displayProperties\\\":[\\\"대화 제목\\\",\\\"관련 프로젝트\\\",\\\"날짜\\\",\\\"다음 액션\\\",\\\"상태\\\",\\\"요약\\\",\\\"주제\\\",\\\"중요도\\\",\\\"키워드\\\",\\\"태그\\\"],\\\"name\\\":\\\"Default view\\\",\\\"type\\\":\\\"table\\\"}\\n</view>\\n</views>\\n</database>\"\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-22T23:34:09.410746Z",
+          "stop_timestamp": "2026-03-22T23:34:10.268916Z",
+          "flags": null,
+          "type": "text",
+          "text": "스키마 파악 완료. 이제 아카이빙 페이지를 생성할게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-03-22T23:34:10.730052Z",
+          "stop_timestamp": "2026-03-22T23:34:53.051867Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01PDoyuKPhtMF77tZmgyuXZ5",
+          "name": "Notion:notion-create-pages",
+          "input": {
+            "parent": {
+              "type": "data_source_id",
+              "data_source_id": "d012343e-b2a2-461e-944b-6f166e91d8e9"
+            },
+            "pages": [
+              {
+                "icon": "🤖",
+                "properties": {
+                  "대화 제목": "Agentic AI 설계 역량의 실무적 의미",
+                  "주제": "학습",
+                  "상태": "✅ 완료",
+                  "중요도": "⭐⭐⭐ 핵심",
+                  "태그": "[\"AI\", \"Agentic Engineering\", \"워크플로우\"]",
+                  "관련 프로젝트": "EX Intelligence / ESCON / AX 교육 설계",
+                  "키워드": "Agentic AI, Multi-Agent, ReAct Loop, Orchestrator, Output Contract, Decomposable Task",
+                  "요약": "Agentic AI 아키텍처 설계 역량이란 업무를 Decomposable Task로 분해하고, Agent에게 Context/Constraint를 부여하며, 실패 지점을 미리 설계하는 능력. CSP의 HR 도메인 지식이 경쟁력의 핵심.",
+                  "date:날짜:start": "2026-03-23",
+                  "date:날짜:is_datetime": 0,
+                  "다음 액션": "__NO__"
+                },
+                "content": "## 대화 컨텍스트\n\n- **날짜**: 2026-03-23\n- **주제**: Agentic AI 아키텍처 설계 역량의 실무적 의미\n- **핵심 키워드**: Agentic AI, ReAct Loop, Multi-Agent, Orchestrator Agent, Output Contract, Decomposable Task\n\n---\n\n## 핵심 질문\n\n> Agentic AI 아키텍처 설계와 구현 역량을 갖추어 실무 Agent Workflow를 설계한다는 것은 CSP의 업무 맥락에서 실질적으로 어떤 의미인가?\n\n---\n\n## 핵심 개념 정리\n\n### Agentic AI vs 일반 AI 활용의 차이\n\n- **일반 AI**: 요청-응답 구조. 인간이 프롬프트 입력 → AI가 결과 출력 → 인간이 다음 단계 결정\n- **Agentic AI**: Goal을 받으면 스스로 계획 수립 → 도구 선택 → 실행 → 결과 평가 → 재계획. 인간은 시작점과 종료 조건만 정의\n\n### ReAct 루프 구조\n\n```\n[Goal] → [Planning] → [Tool Selection] → [Execution] → [Observation] → [Re-planning] → ...\n```\n\n---\n\n## CSP 업무 맥락 실제 장면 3가지\n\n### 장면 1. Pulse Check 리포트 자동화 Agent\n\n**트리거**: 매월 25일 또는 슬랙 메시지 한 줄\n\n**Agent 워크플로우**:\n1. **Orchestrator Agent** — 목표 수신 및 하위 태스크 분해\n2. **Data Agent** — Supabase SQL 쿼리로 응답 데이터 수집\n3. **Analytics Agent** — Well-Being 지수, 응답률, SDT 3요소 차원별 계산\n4. **Insight Agent** — 통계 결과를 맥락적 자연어로 해석\n5. **Report Agent** — BCG 스타일 슬라이드 초안 자동 생성\n6. **Validation Agent** — 이상치 감지 및 플래그 세팅\n7. CSP에게 \"검토 필요 항목 2건, 초안 완성\" 알림\n\n→ **CSP는 10분 만에 검토·승인만**\n\n### 장면 2. ESCON 스킬 갭 분석 Agent\n\n**입력**: \"내년 1분기까지 Collaborative Robot LV3 이상 10명 확보 가능한지 진단\"\n\n1. **Profile Agent** — 현재 구성원 스킬 데이터 조회\n2. **Gap Analysis Agent** — ESCO API 호출, LV3 기준 스킬셋 비교, 갭 벡터 계산\n3. **Feasibility Agent** — 과거 학습 완료율 기반 \"3개월 내 LV3 도달 확률\" 시뮬레이션\n4. **Recommendation Agent** — 가능성 높은 12명 순위 + 맞춤 학습 경로 초안\n5. **Report Agent** — 의사결정자용(1p) + 실무자용(10p) 동시 생성\n\n→ **30분 내 자동 완성, CSP는 최종 판단만**\n\n### 장면 3. AX 교육 설계 지원 Agent\n\n**입력**: \"2분기 Vibe-Coding 입문 과정 설계, 대상: HR 직무 비개발자\"\n\n1. **Research Agent** — 최신 Vibe-Coding 도구 트렌드 수집\n2. **Persona Agent** — ESCON에서 HR 직무 디지털 리터러시 수준 분포 추출\n3. **Curriculum Agent** — 대상자 수준 + 트렌드 + 회사 목표 교차 분석, 6주 커리큘럼 초안\n4. **Content Agent** — 세션별 학습 목표, 실습 예제, 평가 기준 생성\n5. **Slide Agent** — 강의 자료 PPT 초안 자동 생성\n\n---\n\n## Agentic AI 설계 역량의 3가지 핵심\n\n### 1. 업무를 Decomposable Task로 보는 시각\n월보고서 작성이라는 덩어리를 독립적인 서브태스크로 분해하는 능력. **HR 도메인 지식 없이는 불가능** — CSP의 17년이 여기서 작동.\n\n### 2. Context와 Constraint 정의 능력\nAgent에게 줄 Output Contract 설계 능력. \"SDT 이론 기반으로 분석하되, Well-Being 지수는 팀장 레벨이 해석 가능한 언어로 출력\" — 이것이 ESCON Output Contract v1.0의 실무적 의미.\n\n### 3. 실패와 예외를 설계하는 능력\nAPI 타임아웃, 데이터 부재, 맥락 이탈 등 어디서 **인간 판단을 개입시킬지** 미리 설계. CSP 아키텍처 PathologyDetector의 실무적 역할.\n\n---\n\n## 결론 — CSP에게 이 역량이 갖는 의미\n\n> \"코드를 모르는 개발자는 Agent를 만들 수 없다. 하지만 업무를 모르는 개발자도 의미 있는 Agent를 만들 수 없다.\"\n\n- EX Intelligence, ESCON, AX 교육 시스템은 단순한 LG PRI 내부 프로젝트가 아님\n- **\"HR 전문가의 두뇌를 Agent 워크플로우로 구현하는 실험\"**\n- 이 실험의 성공 = 미래 HR 자동화 SaaS 플랫폼의 기술적 기반\n\n---\n\n## 관련 프로젝트 연결\n\n- EX Intelligence (Pulse Check 자동화)\n- ESCON (스킬 갭 분석 자동화)\n- AX 교육 설계 (커리큘럼 Agent)\n- CSP 아키텍처 (PathologyDetector, Output Contract v1.0)"
+              }
+            ]
+          },
+          "message": "Notion-create-pages",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-create-pages-8d78a8272073398bcc66ec99cb758b09",
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01PDoyuKPhtMF77tZmgyuXZ5",
+          "name": "Notion:notion-create-pages",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"pages\":[{\"id\":\"32b6b7b5-0b23-815a-9216-cbc49eb3a4f5\",\"url\":\"https://www.notion.so/32b6b7b50b23815a9216cbc49eb3a4f5\",\"properties\":{\"대화 제목\":\"Agentic AI 설계 역량의 실무적 의미\",\"주제\":\"학습\",\"상태\":\"✅ 완료\",\"중요도\":\"⭐⭐⭐ 핵심\",\"태그\":\"[\\\"AI\\\", \\\"Agentic Engineering\\\", \\\"워크플로우\\\"]\",\"관련 프로젝트\":\"EX Intelligence / ESCON / AX 교육 설계\",\"키워드\":\"Agentic AI, Multi-Agent, ReAct Loop, Orchestrator, Output Contract, Decomposable Task\",\"요약\":\"Agentic AI 아키텍처 설계 역량이란 업무를 Decomposable Task로 분해하고, Agent에게 Context/Constraint를 부여하며, 실패 지점을 미리 설계하는 능력. CSP의 HR 도메인 지식이 경쟁력의 핵심.\",\"date:날짜:start\":\"2026-03-23\",\"date:날짜:is_datetime\":0,\"다음 액션\":\"__NO__\"}}]}",
+              "uuid": "e167e1ec-0f14-4368-848f-4565694e58f5"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"pages\": [\n    {\n      \"id\": \"32b6b7b5-0b23-815a-9216-cbc49eb3a4f5\",\n      \"url\": \"https://www.notion.so/32b6b7b50b23815a9216cbc49eb3a4f5\",\n      \"properties\": {\n        \"대화 제목\": \"Agentic AI 설계 역량의 실무적 의미\",\n        \"주제\": \"학습\",\n        \"상태\": \"✅ 완료\",\n        \"중요도\": \"⭐⭐⭐ 핵심\",\n        \"태그\": \"[\\\"AI\\\", \\\"Agentic Engineering\\\", \\\"워크플로우\\\"]\",\n        \"관련 프로젝트\": \"EX Intelligence / ESCON / AX 교육 설계\",\n        \"키워드\": \"Agentic AI, Multi-Agent, ReAct Loop, Orchestrator, Output Contract, Decomposable Task\",\n        \"요약\": \"Agentic AI 아키텍처 설계 역량이란 업무를 Decomposable Task로 분해하고, Agent에게 Context/Constraint를 부여하며, 실패 지점을 미리 설계하는 능력. CSP의 HR 도메인 지식이 경쟁력의 핵심.\",\n        \"date:날짜:start\": \"2026-03-23\",\n        \"date:날짜:is_datetime\": 0,\n        \"다음 액션\": \"__NO__\"\n      }\n    }\n  ]\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-03-22T23:34:58.797481Z",
+          "stop_timestamp": "2026-03-22T23:35:01.797477Z",
+          "flags": null,
+          "type": "text",
+          "text": "아카이빙 완료했습니다. ✅\n\n**💬 Claude 대화 아카이브**에 다음 내용으로 저장됐어요:\n\n| 항목 | 내용 |\n|------|------|\n| **제목** | Agentic AI 설계 역량의 실무적 의미 |\n| **주제** | 학습 |\n| **중요도** | ⭐⭐⭐ 핵심 |\n| **상태** | ✅ 완료 |\n| **태그** | AI, Agentic Engineering, 워크플로우 |\n| **관련 프로젝트** | EX Intelligence / ESCON / AX 교육 설계 |\n\n👉 [노션에서 바로 보기](https://www.notion.so/32b6b7b50b23815a9216cbc49eb3a4f5)",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-03-22T23:35:01.938977Z",
+      "updated_at": "2026-03-22T23:35:01.938977Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019d17e5-bc1d-7337-aaa1-db8cd010f84f"
+    }
+  ]
+}

@@ -1,0 +1,641 @@
+﻿{
+  "uuid": "96860eb9-9913-4f9f-a83e-482716ca9671",
+  "name": "Claude Code 업무 플로우 적용 가이드",
+  "summary": "**Conversation Overview**\n\nThe user, who works as an HR professional at LG PRI (specifically as CSP - Chief Strategy & Planning), engaged in an extensive discussion about implementing Claude Code for HR automation workflows. They began by asking how to apply Claude Code concepts to their work processes, referencing a detailed Korean-language guide about Claude Code's folder structure and management principles. The conversation evolved into creating a comprehensive implementation guide specifically tailored for HR automation use cases.\n\nThe user demonstrated strong technical understanding and requested practical applications of the 4-layer Claude Code architecture: Rules (global governance), Skills (repeatable workflows/SOPs), Agents (specialized personas), and CLAUDE.md (project-specific context). They showed particular interest in automating leadership evaluation processes, competency mapping, and educational program management. When asked to clarify \"SOP,\" they confirmed understanding of Standard Operating Procedures as documented workflow steps.\n\nThe user specifically requested a complete folder structure diagram and then asked for implementation-ready documentation. They provided specific parameters: macOS environment, focusing first on the \"domain-ax\" project (Domain AX certification system), and wanting CLAUDE.md files ready for immediate use in Claude Code. The conversation culminated in creating six detailed implementation documents including workspace setup, privacy rules, organizational conventions, skills workflows, agent personas, and project-specific context files.\n\nThroughout the discussion, the user showed preference for concrete, actionable guidance over theoretical concepts, asking for \"easy explanations\" and practical application methods. They demonstrated familiarity with HR terminology like competency modeling, leadership evaluation, and educational program design, and showed interest in integrating ESCO (European Skills, Competences, Qualifications and Occupations) frameworks for skill ontology mapping. The user concluded by requesting Notion archiving of the comprehensive guide, indicating they value organized knowledge management for future reference.",
+  "created_at": "2026-02-27T22:59:45.568023Z",
+  "updated_at": "2026-02-28T00:47:50.057888Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019ca154-5ba3-7cce-8ed7-dba2bee081c3",
+      "text": "아래 내용을 나의 업무 플로우에 적용할 수 있는 방법을 쉽게 설명해줘 :\nClaude Code 어떻게 써야하나요? 어떻게 잘 쓰나요? 최근 3개 회사를 만나 가장 많이 받은 질문들을 정리해봤습니다. Q. 프로젝트가 너무 많은데 구조를 어떻게 잡고 관리해야 하나요? A. 상위 workspace 아래 공통 .claude 폴더를 두세요. 그리고 workspace 아래에 각 프로젝트를 git submodule로 관리하세요. 공통 컨텍스트와 개별 프로젝트의 독립성을 동시에 확보하는 것이 핵심입니다.   Q. 스킬 Skill, 서브에이전트 Subagent, Claude.md 등 클로드 어떻게 써야하나요? A. 저는 이렇게 쓰고 있습니다. - Rules (.claude/rules/): 가장 상위의 Governance입니다. 회사 내 공통 보안 정책이나 모든 프로젝트, 작업에 적용되는 전역 컨벤션을 정의합니다. - Skill (.claude/skills/): 반복되는 단위의 작업, Workflow를 정의합니다. (예: 시장 조사, SNS 콘텐츠 발행 프로세스 등)- Subagent (.claude/agents/): 특정 전문 영역을 독립된 컨텍스트에서 수행하는 전문가 페르소나와 역할을 정의합니다. (예: Backend Engineer의 역할, 캐싱 전략 및 비동기 설계 명세 등)- Claude.md: 해당 프로젝트의 구체적인 맥락과 원칙을 정의합니다. 폴더 구조, 문서 저장 위치, 사용 라이브러리 버전 등 AI가 프로젝트를 관리하기 위한 가이드라인을 담습니다.Q. Skill의 관리는 어떻게 하세요? Skill이 너무 많아졌는데 그대로 두는 게 맞나요? A. 같은 맥락을 가진 Skill을 통합 Merge하세요. 예를 들어, SNS 콘텐츠 작업에서 시장 리서치·작성·수정 별로 Skill을 관리하게 되면, Skill 작업 및 내용의 양이 폭발🔥하게 됩니다.- 이럴 때는 좋은 추상화를 통해 상위 Skill 하나로 통합하고, 기존 작업은 /reference 폴더 아래에 두세요. - Skill 통합 시 Instruction이 적절한 위치-명세로 떨어지고 정확한 Reference를 참조하도록 설계해야 합니다. Skill이 비대해질수록 \"적절한 정보를, 적절한 시점에, 적절한 형식으로\" 제공하는 Context Engineering에 더 신경 써주세요. - skill-semver 플러그인을 통해 AI Workflow를 쉽게 버전 관리할 수 있습니다. (참고: https://lnkd.in/ge3dWuMM) 간단한 예시도 하나 첨부했어요. HW 설계에서 Memory Datasheet를 RTL Verilog 코드로 작성하는 플러그인을 만들어봤어요.  - Repo: https://lnkd.in/gdeMR7WTSKILL.md: Memory Datasheet PDF를 분석하여 RTL(Verilog) Memory Controller 코드를 자동 생성하는 전체 반복 작업 Workflow Subagents: - (Memory Reader) Memory PDF를 읽는 Agents - (Memory Design Verifier) Memory Design을 검증하는 Agents - (Spec Converter) 설계 내용을 Spec으로 변환하는 Agents - (Verilog Generator) RTL Spec을 Verilog 코드로 변환하는 AgentsSkill은 전체 반복 작업 Workflow을 정의하고, Subagents에는 각 작업별 역할을 분담하고 수행할 Agents의 동작방식을 명세해주세요. Q. Subagent나 Skill의 구조를 잡는게 먼저인가요? 아니면 프로세스를 먼저 정의하나요?A. 프로세스를 먼저 정의하세요. Subagent와 Skill이 어떻게 동작하는지 알면, 프로세스를 AI Workflow로 만드는 일은 금방 하게 됩니다. Q. AI 한달에 얼마나 쓰세요? A. 월 대략 Claude Code Max 2개 ($400) Gemini AI Pro 1개 ($19.99) Gemini API ($200) 토큰은 이제 월 100억 토큰정도 씁니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-02-27T22:59:46.971398Z",
+          "stop_timestamp": "2026-02-27T22:59:46.971398Z",
+          "flags": null,
+          "type": "text",
+          "text": "아래 내용을 나의 업무 플로우에 적용할 수 있는 방법을 쉽게 설명해줘 :\nClaude Code 어떻게 써야하나요? 어떻게 잘 쓰나요? 최근 3개 회사를 만나 가장 많이 받은 질문들을 정리해봤습니다. Q. 프로젝트가 너무 많은데 구조를 어떻게 잡고 관리해야 하나요? A. 상위 workspace 아래 공통 .claude 폴더를 두세요. 그리고 workspace 아래에 각 프로젝트를 git submodule로 관리하세요. 공통 컨텍스트와 개별 프로젝트의 독립성을 동시에 확보하는 것이 핵심입니다.   Q. 스킬 Skill, 서브에이전트 Subagent, Claude.md 등 클로드 어떻게 써야하나요? A. 저는 이렇게 쓰고 있습니다. - Rules (.claude/rules/): 가장 상위의 Governance입니다. 회사 내 공통 보안 정책이나 모든 프로젝트, 작업에 적용되는 전역 컨벤션을 정의합니다. - Skill (.claude/skills/): 반복되는 단위의 작업, Workflow를 정의합니다. (예: 시장 조사, SNS 콘텐츠 발행 프로세스 등)- Subagent (.claude/agents/): 특정 전문 영역을 독립된 컨텍스트에서 수행하는 전문가 페르소나와 역할을 정의합니다. (예: Backend Engineer의 역할, 캐싱 전략 및 비동기 설계 명세 등)- Claude.md: 해당 프로젝트의 구체적인 맥락과 원칙을 정의합니다. 폴더 구조, 문서 저장 위치, 사용 라이브러리 버전 등 AI가 프로젝트를 관리하기 위한 가이드라인을 담습니다.Q. Skill의 관리는 어떻게 하세요? Skill이 너무 많아졌는데 그대로 두는 게 맞나요? A. 같은 맥락을 가진 Skill을 통합 Merge하세요. 예를 들어, SNS 콘텐츠 작업에서 시장 리서치·작성·수정 별로 Skill을 관리하게 되면, Skill 작업 및 내용의 양이 폭발🔥하게 됩니다.- 이럴 때는 좋은 추상화를 통해 상위 Skill 하나로 통합하고, 기존 작업은 /reference 폴더 아래에 두세요. - Skill 통합 시 Instruction이 적절한 위치-명세로 떨어지고 정확한 Reference를 참조하도록 설계해야 합니다. Skill이 비대해질수록 \"적절한 정보를, 적절한 시점에, 적절한 형식으로\" 제공하는 Context Engineering에 더 신경 써주세요. - skill-semver 플러그인을 통해 AI Workflow를 쉽게 버전 관리할 수 있습니다. (참고: https://lnkd.in/ge3dWuMM) 간단한 예시도 하나 첨부했어요. HW 설계에서 Memory Datasheet를 RTL Verilog 코드로 작성하는 플러그인을 만들어봤어요.  - Repo: https://lnkd.in/gdeMR7WTSKILL.md: Memory Datasheet PDF를 분석하여 RTL(Verilog) Memory Controller 코드를 자동 생성하는 전체 반복 작업 Workflow Subagents: - (Memory Reader) Memory PDF를 읽는 Agents - (Memory Design Verifier) Memory Design을 검증하는 Agents - (Spec Converter) 설계 내용을 Spec으로 변환하는 Agents - (Verilog Generator) RTL Spec을 Verilog 코드로 변환하는 AgentsSkill은 전체 반복 작업 Workflow을 정의하고, Subagents에는 각 작업별 역할을 분담하고 수행할 Agents의 동작방식을 명세해주세요. Q. Subagent나 Skill의 구조를 잡는게 먼저인가요? 아니면 프로세스를 먼저 정의하나요?A. 프로세스를 먼저 정의하세요. Subagent와 Skill이 어떻게 동작하는지 알면, 프로세스를 AI Workflow로 만드는 일은 금방 하게 됩니다. Q. AI 한달에 얼마나 쓰세요? A. 월 대략 Claude Code Max 2개 ($400) Gemini AI Pro 1개 ($19.99) Gemini API ($200) 토큰은 이제 월 100억 토큰정도 씁니다.",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-02-27T22:59:46.986152Z",
+      "updated_at": "2026-02-27T22:59:46.986152Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019ca154-5ba3-7d3c-8f21-89b1ff91451f",
+      "text": " # Claude Code, 내 HR 자동화 워크플로우에 적용하기\n\n이 내용은 본질적으로 **\"AI를 어떻게 조직화할 것인가\"**의 문제입니다. SW 엔지니어링의 관심사 분리(Separation of Concerns) 원칙을 AI 워크플로우에 적용한 것인데, HR 자동화 맥락으로 번역해 드릴게요.\n\n---\n\n## 핵심 구조를 HR 언어로 이해하기\n\n원문의 4계층 구조를 CSP의 업무에 대입하면 이렇게 됩니다.\n\n**Rules** = 조직의 인사 원칙처럼, 절대 변하지 않는 전역 규칙입니다. \"보고서는 항상 한국어로\", \"개인정보는 절대 출력하지 않음\", \"LG PRI 직급 체계 기준 적용\" 같은 것들이에요.\n\n**Skill** = 반복되는 업무 SOP입니다. \"리더십 평가 리포트 생성 프로세스\", \"역량 인터뷰 문항 설계 워크플로우\", \"교육 만족도 분석 루틴\" 같은 것들이 여기에 해당합니다.\n\n**Subagent** = 특정 역할을 수행하는 전문가 페르소나입니다. \"역량 평가 전문가\", \"교육과정 설계자\", \"데이터 분석가\" 같은 역할별 AI입니다.\n\n**CLAUDE.md** = 프로젝트별 컨텍스트입니다. \"리더십 평가 프로젝트\"와 \"DX 아카데미 프로젝트\"는 서로 다른 CLAUDE.md를 가집니다.\n\n---\n\n## CSP 실전 적용 설계안\n\n```\nhr-workspace/                    ← 상위 워크스페이스\n├── .claude/\n│   ├── rules/\n│   │   ├── privacy.md           # 개인정보 처리 원칙\n│   │   ├── lg-conventions.md    # LG PRI 용어/직급 체계\n│   │   └── output-format.md    # 출력 형식 전역 규칙\n│   │\n│   ├── skills/\n│   │   ├── leadership-eval.md  # 리더십 평가 전체 워크플로우\n│   │   ├── curriculum-design.md # 교육과정 설계 워크플로우\n│   │   └── /reference/         # 통합 전 개별 스킬 보관\n│   │\n│   └── agents/\n│       ├── competency-analyst.md  # 역량 분석 전문가 페르소나\n│       ├── content-designer.md    # 교육 콘텐츠 설계자 페르소나\n│       └── data-interpreter.md   # 평가 데이터 해석 전문가\n│\n├── leadership-program/          ← \"25년 리더십, 생각하다\" 프로젝트\n│   └── CLAUDE.md               # 이 프로젝트 전용 컨텍스트\n│\n├── domain-ax/                   ← Domain AX 인증 프로젝트\n│   └── CLAUDE.md\n│\n└── manufacturing-academy/       ← 제조 AX 아카데미\n    └── CLAUDE.md\n```\n\n---\n\n## 가장 중요한 조언: 프로세스 먼저\n\n원문에서 가장 핵심적인 답변이 이겁니다. **\"프로세스를 먼저 정의하세요.\"**\n\nCSP가 지금 당장 해야 할 일은 Claude Code 구조를 세팅하는 게 아니라, 자신이 반복적으로 하는 HR 업무를 명문화하는 겁니다.\n\n예를 들어 리더십 평가 프로세스라면 이런 식으로요.\n\n1. 평가 대상자 데이터 수집 및 정제\n2. 역량 모델 기준으로 행동 지표 매핑\n3. 인터뷰 문항 생성\n4. 결과 해석 및 피드백 리포트 작성\n5. 후속 개발 과제 도출\n\n이 흐름이 명확해지면, 각 단계가 자연스럽게 Subagent로 분해되고 전체 흐름이 Skill이 됩니다. 구조가 내용을 결정하는 게 아니라, 내용이 구조를 결정하는 겁니다.\n\n---\n\n## Skill 비대화 방지: HR 맥락의 통합 전략\n\n원문에서 Skill이 폭발적으로 늘어나는 문제를 지적했는데, HR 업무에서는 특히 이 문제가 심각해집니다. \"피드백 작성\", \"피드백 수정\", \"피드백 검토\"를 각각 만들면 금방 관리 불가 상태가 됩니다.\n\n좋은 추상화는 **행위**가 아니라 **목적** 단위로 묶는 겁니다. \"피드백 관련 Skill 3개\"가 아니라 \"리더십 피드백 생성 Skill 1개\" 안에 단계별 서브루틴을 두는 방식이에요. 이게 바로 원문이 말하는 \"적절한 정보를, 적절한 시점에, 적절한 형식으로\" 제공하는 Context Engineering입니다.\n\n---\n\n## 실용적 첫 걸음\n\n지금 당장 시작하려면 세 가지만 하면 됩니다.\n\n첫째, 자신의 업무 중 가장 반복적인 것 하나를 골라 SOP를 텍스트로 작성합니다. 이게 첫 번째 Skill의 초안이 됩니다.\n\n둘째, 그 SOP 안에서 \"이 단계는 전혀 다른 전문성이 필요하다\"는 구간을 찾으면, 그게 Subagent 분리 지점입니다.\n\n셋째, 모든 프로젝트에 공통으로 적용되는 원칙이 있다면 Rules에 먼저 적어둡니다.\n\nVibe coder로서 CSP의 강점은 HR 도메인 지식이 이미 내재화되어 있다는 점입니다. 프로세스를 글로 쓰는 것 자체가 이미 절반은 완성된 것과 같아요.",
+      "content": [
+        {
+          "start_timestamp": "2026-02-27T22:59:49.175144Z",
+          "stop_timestamp": "2026-02-27T23:00:22.750452Z",
+          "flags": null,
+          "type": "text",
+          "text": " # Claude Code, 내 HR 자동화 워크플로우에 적용하기\n\n이 내용은 본질적으로 **\"AI를 어떻게 조직화할 것인가\"**의 문제입니다. SW 엔지니어링의 관심사 분리(Separation of Concerns) 원칙을 AI 워크플로우에 적용한 것인데, HR 자동화 맥락으로 번역해 드릴게요.\n\n---\n\n## 핵심 구조를 HR 언어로 이해하기\n\n원문의 4계층 구조를 CSP의 업무에 대입하면 이렇게 됩니다.\n\n**Rules** = 조직의 인사 원칙처럼, 절대 변하지 않는 전역 규칙입니다. \"보고서는 항상 한국어로\", \"개인정보는 절대 출력하지 않음\", \"LG PRI 직급 체계 기준 적용\" 같은 것들이에요.\n\n**Skill** = 반복되는 업무 SOP입니다. \"리더십 평가 리포트 생성 프로세스\", \"역량 인터뷰 문항 설계 워크플로우\", \"교육 만족도 분석 루틴\" 같은 것들이 여기에 해당합니다.\n\n**Subagent** = 특정 역할을 수행하는 전문가 페르소나입니다. \"역량 평가 전문가\", \"교육과정 설계자\", \"데이터 분석가\" 같은 역할별 AI입니다.\n\n**CLAUDE.md** = 프로젝트별 컨텍스트입니다. \"리더십 평가 프로젝트\"와 \"DX 아카데미 프로젝트\"는 서로 다른 CLAUDE.md를 가집니다.\n\n---\n\n## CSP 실전 적용 설계안\n\n```\nhr-workspace/                    ← 상위 워크스페이스\n├── .claude/\n│   ├── rules/\n│   │   ├── privacy.md           # 개인정보 처리 원칙\n│   │   ├── lg-conventions.md    # LG PRI 용어/직급 체계\n│   │   └── output-format.md    # 출력 형식 전역 규칙\n│   │\n│   ├── skills/\n│   │   ├── leadership-eval.md  # 리더십 평가 전체 워크플로우\n│   │   ├── curriculum-design.md # 교육과정 설계 워크플로우\n│   │   └── /reference/         # 통합 전 개별 스킬 보관\n│   │\n│   └── agents/\n│       ├── competency-analyst.md  # 역량 분석 전문가 페르소나\n│       ├── content-designer.md    # 교육 콘텐츠 설계자 페르소나\n│       └── data-interpreter.md   # 평가 데이터 해석 전문가\n│\n├── leadership-program/          ← \"25년 리더십, 생각하다\" 프로젝트\n│   └── CLAUDE.md               # 이 프로젝트 전용 컨텍스트\n│\n├── domain-ax/                   ← Domain AX 인증 프로젝트\n│   └── CLAUDE.md\n│\n└── manufacturing-academy/       ← 제조 AX 아카데미\n    └── CLAUDE.md\n```\n\n---\n\n## 가장 중요한 조언: 프로세스 먼저\n\n원문에서 가장 핵심적인 답변이 이겁니다. **\"프로세스를 먼저 정의하세요.\"**\n\nCSP가 지금 당장 해야 할 일은 Claude Code 구조를 세팅하는 게 아니라, 자신이 반복적으로 하는 HR 업무를 명문화하는 겁니다.\n\n예를 들어 리더십 평가 프로세스라면 이런 식으로요.\n\n1. 평가 대상자 데이터 수집 및 정제\n2. 역량 모델 기준으로 행동 지표 매핑\n3. 인터뷰 문항 생성\n4. 결과 해석 및 피드백 리포트 작성\n5. 후속 개발 과제 도출\n\n이 흐름이 명확해지면, 각 단계가 자연스럽게 Subagent로 분해되고 전체 흐름이 Skill이 됩니다. 구조가 내용을 결정하는 게 아니라, 내용이 구조를 결정하는 겁니다.\n\n---\n\n## Skill 비대화 방지: HR 맥락의 통합 전략\n\n원문에서 Skill이 폭발적으로 늘어나는 문제를 지적했는데, HR 업무에서는 특히 이 문제가 심각해집니다. \"피드백 작성\", \"피드백 수정\", \"피드백 검토\"를 각각 만들면 금방 관리 불가 상태가 됩니다.\n\n좋은 추상화는 **행위**가 아니라 **목적** 단위로 묶는 겁니다. \"피드백 관련 Skill 3개\"가 아니라 \"리더십 피드백 생성 Skill 1개\" 안에 단계별 서브루틴을 두는 방식이에요. 이게 바로 원문이 말하는 \"적절한 정보를, 적절한 시점에, 적절한 형식으로\" 제공하는 Context Engineering입니다.\n\n---\n\n## 실용적 첫 걸음\n\n지금 당장 시작하려면 세 가지만 하면 됩니다.\n\n첫째, 자신의 업무 중 가장 반복적인 것 하나를 골라 SOP를 텍스트로 작성합니다. 이게 첫 번째 Skill의 초안이 됩니다.\n\n둘째, 그 SOP 안에서 \"이 단계는 전혀 다른 전문성이 필요하다\"는 구간을 찾으면, 그게 Subagent 분리 지점입니다.\n\n셋째, 모든 프로젝트에 공통으로 적용되는 원칙이 있다면 Rules에 먼저 적어둡니다.\n\nVibe coder로서 CSP의 강점은 HR 도메인 지식이 이미 내재화되어 있다는 점입니다. 프로세스를 글로 쓰는 것 자체가 이미 절반은 완성된 것과 같아요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-02-27T23:00:22.860298Z",
+      "updated_at": "2026-02-27T23:00:22.860298Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ca154-5ba3-7cce-8ed7-dba2bee081c3"
+    },
+    {
+      "uuid": "019ca156-5beb-74aa-891f-a29467a5bca6",
+      "text": "여기서 말하는 SOP가 뭐야??",
+      "content": [
+        {
+          "start_timestamp": "2026-02-27T23:01:57.902144Z",
+          "stop_timestamp": "2026-02-27T23:01:57.902144Z",
+          "flags": null,
+          "type": "text",
+          "text": "여기서 말하는 SOP가 뭐야??",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-02-27T23:01:57.907995Z",
+      "updated_at": "2026-02-27T23:01:57.907995Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ca154-5ba3-7d3c-8f21-89b1ff91451f"
+    },
+    {
+      "uuid": "019ca156-5bec-78db-adc9-ec98662ada9d",
+      "text": " **SOP = Standard Operating Procedure**, 표준 운영 절차입니다.\n\n쉽게 말하면 **\"이 일을 할 때 항상 이 순서로 한다\"**는 업무 매뉴얼이에요.\n\nHR에서 CSP가 이미 익숙한 개념으로 비유하면, 신입사원 온보딩 체크리스트나 평가 면담 진행 순서표 같은 거라고 보면 됩니다. 누가 해도 같은 품질이 나오도록 절차를 명문화한 것이죠.\n\n예를 들어 리더십 평가 피드백 작성이라는 업무를 SOP로 쓰면 이런 식입니다.\n\n1. 평가 원점수 데이터를 받아 이상치 확인\n2. 역량별 점수를 백분위로 변환\n3. 상위 2개 강점, 하위 2개 개발과제 추출\n4. 행동 지표 기반으로 근거 문장 작성\n5. 최종 피드백 리포트 양식에 삽입\n\n이걸 텍스트로 쓰면 그게 바로 Claude Code의 Skill.md 초안이 됩니다. CSP가 머릿속에 암묵지로 갖고 있는 업무 노하우를 형식지로 꺼내는 작업이에요.",
+      "content": [
+        {
+          "start_timestamp": "2026-02-27T23:01:59.435670Z",
+          "stop_timestamp": "2026-02-27T23:02:07.571906Z",
+          "flags": null,
+          "type": "text",
+          "text": " **SOP = Standard Operating Procedure**, 표준 운영 절차입니다.\n\n쉽게 말하면 **\"이 일을 할 때 항상 이 순서로 한다\"**는 업무 매뉴얼이에요.\n\nHR에서 CSP가 이미 익숙한 개념으로 비유하면, 신입사원 온보딩 체크리스트나 평가 면담 진행 순서표 같은 거라고 보면 됩니다. 누가 해도 같은 품질이 나오도록 절차를 명문화한 것이죠.\n\n예를 들어 리더십 평가 피드백 작성이라는 업무를 SOP로 쓰면 이런 식입니다.\n\n1. 평가 원점수 데이터를 받아 이상치 확인\n2. 역량별 점수를 백분위로 변환\n3. 상위 2개 강점, 하위 2개 개발과제 추출\n4. 행동 지표 기반으로 근거 문장 작성\n5. 최종 피드백 리포트 양식에 삽입\n\n이걸 텍스트로 쓰면 그게 바로 Claude Code의 Skill.md 초안이 됩니다. CSP가 머릿속에 암묵지로 갖고 있는 업무 노하우를 형식지로 꺼내는 작업이에요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-02-27T23:02:07.611525Z",
+      "updated_at": "2026-02-27T23:02:07.611525Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ca156-5beb-74aa-891f-a29467a5bca6"
+    },
+    {
+      "uuid": "019ca158-8dd0-7b97-b8a0-c879e102abec",
+      "text": "이 채팅을 기반으로 클로드 코드의 폴더 관리 가이드를 상세 설명",
+      "content": [
+        {
+          "start_timestamp": "2026-02-27T23:04:22.193917Z",
+          "stop_timestamp": "2026-02-27T23:04:22.193917Z",
+          "flags": null,
+          "type": "text",
+          "text": "이 채팅을 기반으로 클로드 코드의 폴더 관리 가이드를 상세 설명",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-02-27T23:04:22.225949Z",
+      "updated_at": "2026-02-27T23:04:22.225949Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ca156-5bec-78db-adc9-ec98662ada9d"
+    },
+    {
+      "uuid": "019ca158-8dd2-75cf-8270-7d506f07b5bb",
+      "text": " 이 대화 내용을 정리해서 Notion에 저장하기 전에, 먼저 가이드 문서를 만들어 드릴게요.\n\n---\n\n# Claude Code 폴더 관리 가이드 (HR 자동화 맥락)\n\n## 전체 철학: 관심사 분리\n\n폴더 구조는 단순한 정리 습관이 아닙니다. **\"누가, 어떤 맥락에서, 무엇을 알아야 하는가\"**를 구조화한 것입니다. Claude가 프로젝트를 이해하는 방식이 곧 폴더 구조가 됩니다.\n\n---\n\n## 4계층 구조 상세 설명\n\n### 1. Rules — 헌법\n\n```\n.claude/rules/\n├── privacy.md\n├── conventions.md\n└── output-format.md\n```\n\n**무엇인가**: 모든 프로젝트, 모든 작업에 예외 없이 적용되는 전역 원칙입니다. 한번 정하면 거의 바뀌지 않아요.\n\n**무엇을 담는가**: 보안/개인정보 원칙, 출력 언어 규칙, 조직 고유 용어 정의, 절대 하면 안 되는 행동 등입니다.\n\n**CSP 실전 예시 (privacy.md)**:\n```markdown\n# 개인정보 처리 원칙\n- 직원 이름은 절대 출력하지 않는다. 사번 또는 익명 코드만 사용.\n- 평가 원점수는 로그에 남기지 않는다.\n- 결과물에 소속 부서명이 포함될 경우 반드시 사용자 확인 후 출력.\n```\n\n**핵심**: Rules는 Claude가 \"이건 절대 어기면 안 된다\"고 인식하는 레이어입니다. 가장 먼저 읽히고 가장 강하게 작동합니다.\n\n---\n\n### 2. Skills — SOP 라이브러리\n\n```\n.claude/skills/\n├── leadership-eval.md\n├── curriculum-design.md\n└── /reference/\n    ├── feedback-writing-v1.md    ← 통합 전 구버전\n    ├── feedback-review-v1.md\n    └── feedback-edit-v1.md\n```\n\n**무엇인가**: 반복되는 업무의 전체 워크플로우를 정의한 SOP입니다. \"이 일은 항상 이 순서로 한다\"를 Claude에게 가르치는 문서예요.\n\n**무엇을 담는가**: 작업의 입력값(Input), 단계별 절차(Steps), 출력 형식(Output), 주의사항입니다.\n\n**CSP 실전 예시 (leadership-eval.md)**:\n```markdown\n# 리더십 평가 피드백 생성 워크플로우\n\n## Input\n- 평가 원점수 데이터 (CSV)\n- 역량 모델 기준표\n\n## Steps\n1. 원점수 이상치 확인 및 정제\n2. 역량별 백분위 변환\n3. 상위 2개 강점 / 하위 2개 개발과제 추출\n4. 행동 지표 기반 근거 문장 작성\n5. 최종 리포트 양식 삽입\n\n## Output\n- 피드백 리포트 (Markdown)\n- 개발과제 액션플랜 테이블\n\n## 주의사항\n- 개인 식별 정보 제거 후 처리\n- 점수 수치는 리포트에 직접 노출하지 않음\n```\n\n**Skill 폭발 방지 원칙**: \"피드백 작성\", \"피드백 수정\", \"피드백 검토\"를 각각 만들지 말고, \"리더십 피드백 Skill\" 하나로 통합하세요. 구버전은 `/reference` 폴더에 보관합니다. 행위 단위가 아니라 **목적 단위**로 묶는 것이 핵심입니다.\n\n---\n\n### 3. Agents — 전문가 페르소나\n\n```\n.claude/agents/\n├── competency-analyst.md\n├── content-designer.md\n└── data-interpreter.md\n```\n\n**무엇인가**: 특정 전문 영역을 독립된 맥락에서 수행하는 역할 정의서입니다. Skill이 \"무엇을 할 것인가\"라면, Agent는 \"누가, 어떤 전문성으로 할 것인가\"입니다.\n\n**무엇을 담는가**: 역할 정의, 전문 영역, 판단 기준, 출력 스타일입니다.\n\n**CSP 실전 예시 (competency-analyst.md)**:\n```markdown\n# 역량 분석 전문가\n\n## 역할\n산업심리학 기반의 역량 평가 전문가. \n행동 데이터를 역량 지표로 해석하고 개발 방향을 제시한다.\n\n## 전문 영역\n- 역량 모델링 (Competency Modeling)\n- 행동사건면접 (BEI) 분석\n- 360도 피드백 해석\n\n## 판단 기준\n- 행동 관찰 가능성을 최우선으로 판단\n- 추상적 형용사보다 구체적 동사로 표현\n- LG PRI 직급별 기대 수준 기준 적용\n\n## 출력 스타일\n- 간결하고 근거 중심\n- 평가적 표현 지양, 발달적 표현 사용\n```\n\n**Skill vs Agent 구분법**: Skill은 레시피(절차), Agent는 요리사(역할)입니다. 같은 리더십 평가라도 \"역량 분석가 Agent\"가 분석하고 \"콘텐츠 설계자 Agent\"가 보고서를 씁니다.\n\n---\n\n### 4. CLAUDE.md — 프로젝트 여권\n\n```\nleadership-program/\n└── CLAUDE.md\n\ndomain-ax/\n└── CLAUDE.md\n\nmanufacturing-academy/\n└── CLAUDE.md\n```\n\n**무엇인가**: 해당 프로젝트에만 적용되는 구체적 맥락 정의서입니다. Rules가 헌법이라면 CLAUDE.md는 프로젝트별 시행세칙입니다.\n\n**무엇을 담는가**: 폴더 구조, 사용 라이브러리, 이 프로젝트 고유의 용어, 참조 파일 위치입니다.\n\n**CSP 실전 예시 (leadership-program/CLAUDE.md)**:\n```markdown\n# 25년 리더십, 생각하다 — 프로젝트 컨텍스트\n\n## 프로젝트 개요\n2025년 LG PRI 리더십 개발 프로그램. \n대상: 팀장급 / 기간: 6개월\n\n## 폴더 구조\n/data        → 원점수 CSV 보관\n/reports     → 생성된 피드백 리포트\n/templates   → 리포트 양식\n\n## 사용 도구\n- Python 3.11, pandas, openpyxl\n- 리포트 출력: Markdown → PPTX 변환\n\n## 이 프로젝트 전용 용어\n- \"핵심인재\": 상위 20% 그룹\n- \"관찰과제\": 개발과제의 내부 명칭\n\n## 참조 파일\n- 역량 모델: /data/competency-model-2025.xlsx\n- 직급 기준표: /data/grade-standard.pdf\n```\n\n---\n\n## 전체 구조 한눈에 보기\n\n```\nhr-workspace/\n├── .claude/\n│   ├── rules/          ← 헌법 (전역, 불변)\n│   ├── skills/         ← SOP 라이브러리 (반복 업무 절차)\n│   │   └── /reference/ ← 구버전 보관소\n│   └── agents/         ← 전문가 페르소나 (역할 정의)\n│\n├── leadership-program/\n│   └── CLAUDE.md       ← 이 프로젝트 전용 컨텍스트\n├── domain-ax/\n│   └── CLAUDE.md\n└── manufacturing-academy/\n    └── CLAUDE.md\n```\n\n---\n\n## 실전 시작 순서\n\n구조를 먼저 만들려고 하면 막힙니다. 이 순서를 권장드립니다.\n\n첫째, 지금 가장 반복적으로 하는 HR 업무 하나를 고릅니다. 리더십 평가 피드백이든 교육 만족도 분석이든 무엇이든 좋습니다.\n\n둘째, 그 업무를 머릿속에서 꺼내 텍스트로 씁니다. 단계별로요. 이게 첫 번째 Skill.md 초안입니다.\n\n셋째, 그 절차 안에서 \"이 단계는 완전히 다른 전문성이 필요하다\"는 구간을 찾습니다. 그 구간이 Agent 분리 지점입니다.\n\n넷째, 그 다음에야 Rules와 CLAUDE.md를 씁니다. 내용이 구조를 결정하는 것이지, 구조가 내용을 기다리는 게 아닙니다.\n\n---\n\n이 대화 Notion에 저장할까요? 꽤 밀도 있는 내용이라 ⭐⭐⭐ 핵심으로 저장해두면 나중에 Claude Code 세팅할 때 바로 참조할 수 있을 것 같습니다.",
+      "content": [
+        {
+          "start_timestamp": "2026-02-27T23:04:22.939240Z",
+          "stop_timestamp": "2026-02-27T23:05:10.080130Z",
+          "flags": null,
+          "type": "text",
+          "text": " 이 대화 내용을 정리해서 Notion에 저장하기 전에, 먼저 가이드 문서를 만들어 드릴게요.\n\n---\n\n# Claude Code 폴더 관리 가이드 (HR 자동화 맥락)\n\n## 전체 철학: 관심사 분리\n\n폴더 구조는 단순한 정리 습관이 아닙니다. **\"누가, 어떤 맥락에서, 무엇을 알아야 하는가\"**를 구조화한 것입니다. Claude가 프로젝트를 이해하는 방식이 곧 폴더 구조가 됩니다.\n\n---\n\n## 4계층 구조 상세 설명\n\n### 1. Rules — 헌법\n\n```\n.claude/rules/\n├── privacy.md\n├── conventions.md\n└── output-format.md\n```\n\n**무엇인가**: 모든 프로젝트, 모든 작업에 예외 없이 적용되는 전역 원칙입니다. 한번 정하면 거의 바뀌지 않아요.\n\n**무엇을 담는가**: 보안/개인정보 원칙, 출력 언어 규칙, 조직 고유 용어 정의, 절대 하면 안 되는 행동 등입니다.\n\n**CSP 실전 예시 (privacy.md)**:\n```markdown\n# 개인정보 처리 원칙\n- 직원 이름은 절대 출력하지 않는다. 사번 또는 익명 코드만 사용.\n- 평가 원점수는 로그에 남기지 않는다.\n- 결과물에 소속 부서명이 포함될 경우 반드시 사용자 확인 후 출력.\n```\n\n**핵심**: Rules는 Claude가 \"이건 절대 어기면 안 된다\"고 인식하는 레이어입니다. 가장 먼저 읽히고 가장 강하게 작동합니다.\n\n---\n\n### 2. Skills — SOP 라이브러리\n\n```\n.claude/skills/\n├── leadership-eval.md\n├── curriculum-design.md\n└── /reference/\n    ├── feedback-writing-v1.md    ← 통합 전 구버전\n    ├── feedback-review-v1.md\n    └── feedback-edit-v1.md\n```\n\n**무엇인가**: 반복되는 업무의 전체 워크플로우를 정의한 SOP입니다. \"이 일은 항상 이 순서로 한다\"를 Claude에게 가르치는 문서예요.\n\n**무엇을 담는가**: 작업의 입력값(Input), 단계별 절차(Steps), 출력 형식(Output), 주의사항입니다.\n\n**CSP 실전 예시 (leadership-eval.md)**:\n```markdown\n# 리더십 평가 피드백 생성 워크플로우\n\n## Input\n- 평가 원점수 데이터 (CSV)\n- 역량 모델 기준표\n\n## Steps\n1. 원점수 이상치 확인 및 정제\n2. 역량별 백분위 변환\n3. 상위 2개 강점 / 하위 2개 개발과제 추출\n4. 행동 지표 기반 근거 문장 작성\n5. 최종 리포트 양식 삽입\n\n## Output\n- 피드백 리포트 (Markdown)\n- 개발과제 액션플랜 테이블\n\n## 주의사항\n- 개인 식별 정보 제거 후 처리\n- 점수 수치는 리포트에 직접 노출하지 않음\n```\n\n**Skill 폭발 방지 원칙**: \"피드백 작성\", \"피드백 수정\", \"피드백 검토\"를 각각 만들지 말고, \"리더십 피드백 Skill\" 하나로 통합하세요. 구버전은 `/reference` 폴더에 보관합니다. 행위 단위가 아니라 **목적 단위**로 묶는 것이 핵심입니다.\n\n---\n\n### 3. Agents — 전문가 페르소나\n\n```\n.claude/agents/\n├── competency-analyst.md\n├── content-designer.md\n└── data-interpreter.md\n```\n\n**무엇인가**: 특정 전문 영역을 독립된 맥락에서 수행하는 역할 정의서입니다. Skill이 \"무엇을 할 것인가\"라면, Agent는 \"누가, 어떤 전문성으로 할 것인가\"입니다.\n\n**무엇을 담는가**: 역할 정의, 전문 영역, 판단 기준, 출력 스타일입니다.\n\n**CSP 실전 예시 (competency-analyst.md)**:\n```markdown\n# 역량 분석 전문가\n\n## 역할\n산업심리학 기반의 역량 평가 전문가. \n행동 데이터를 역량 지표로 해석하고 개발 방향을 제시한다.\n\n## 전문 영역\n- 역량 모델링 (Competency Modeling)\n- 행동사건면접 (BEI) 분석\n- 360도 피드백 해석\n\n## 판단 기준\n- 행동 관찰 가능성을 최우선으로 판단\n- 추상적 형용사보다 구체적 동사로 표현\n- LG PRI 직급별 기대 수준 기준 적용\n\n## 출력 스타일\n- 간결하고 근거 중심\n- 평가적 표현 지양, 발달적 표현 사용\n```\n\n**Skill vs Agent 구분법**: Skill은 레시피(절차), Agent는 요리사(역할)입니다. 같은 리더십 평가라도 \"역량 분석가 Agent\"가 분석하고 \"콘텐츠 설계자 Agent\"가 보고서를 씁니다.\n\n---\n\n### 4. CLAUDE.md — 프로젝트 여권\n\n```\nleadership-program/\n└── CLAUDE.md\n\ndomain-ax/\n└── CLAUDE.md\n\nmanufacturing-academy/\n└── CLAUDE.md\n```\n\n**무엇인가**: 해당 프로젝트에만 적용되는 구체적 맥락 정의서입니다. Rules가 헌법이라면 CLAUDE.md는 프로젝트별 시행세칙입니다.\n\n**무엇을 담는가**: 폴더 구조, 사용 라이브러리, 이 프로젝트 고유의 용어, 참조 파일 위치입니다.\n\n**CSP 실전 예시 (leadership-program/CLAUDE.md)**:\n```markdown\n# 25년 리더십, 생각하다 — 프로젝트 컨텍스트\n\n## 프로젝트 개요\n2025년 LG PRI 리더십 개발 프로그램. \n대상: 팀장급 / 기간: 6개월\n\n## 폴더 구조\n/data        → 원점수 CSV 보관\n/reports     → 생성된 피드백 리포트\n/templates   → 리포트 양식\n\n## 사용 도구\n- Python 3.11, pandas, openpyxl\n- 리포트 출력: Markdown → PPTX 변환\n\n## 이 프로젝트 전용 용어\n- \"핵심인재\": 상위 20% 그룹\n- \"관찰과제\": 개발과제의 내부 명칭\n\n## 참조 파일\n- 역량 모델: /data/competency-model-2025.xlsx\n- 직급 기준표: /data/grade-standard.pdf\n```\n\n---\n\n## 전체 구조 한눈에 보기\n\n```\nhr-workspace/\n├── .claude/\n│   ├── rules/          ← 헌법 (전역, 불변)\n│   ├── skills/         ← SOP 라이브러리 (반복 업무 절차)\n│   │   └── /reference/ ← 구버전 보관소\n│   └── agents/         ← 전문가 페르소나 (역할 정의)\n│\n├── leadership-program/\n│   └── CLAUDE.md       ← 이 프로젝트 전용 컨텍스트\n├── domain-ax/\n│   └── CLAUDE.md\n└── manufacturing-academy/\n    └── CLAUDE.md\n```\n\n---\n\n## 실전 시작 순서\n\n구조를 먼저 만들려고 하면 막힙니다. 이 순서를 권장드립니다.\n\n첫째, 지금 가장 반복적으로 하는 HR 업무 하나를 고릅니다. 리더십 평가 피드백이든 교육 만족도 분석이든 무엇이든 좋습니다.\n\n둘째, 그 업무를 머릿속에서 꺼내 텍스트로 씁니다. 단계별로요. 이게 첫 번째 Skill.md 초안입니다.\n\n셋째, 그 절차 안에서 \"이 단계는 완전히 다른 전문성이 필요하다\"는 구간을 찾습니다. 그 구간이 Agent 분리 지점입니다.\n\n넷째, 그 다음에야 Rules와 CLAUDE.md를 씁니다. 내용이 구조를 결정하는 것이지, 구조가 내용을 기다리는 게 아닙니다.\n\n---\n\n이 대화 Notion에 저장할까요? 꽤 밀도 있는 내용이라 ⭐⭐⭐ 핵심으로 저장해두면 나중에 Claude Code 세팅할 때 바로 참조할 수 있을 것 같습니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-02-27T23:05:10.139953Z",
+      "updated_at": "2026-02-27T23:05:10.139953Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ca158-8dd0-7b97-b8a0-c879e102abec"
+    },
+    {
+      "uuid": "019ca15a-5617-7484-a628-1391e2179e56",
+      "text": "전체 폴더 구조도를 하나로 생성해줘",
+      "content": [
+        {
+          "start_timestamp": "2026-02-27T23:06:18.660680Z",
+          "stop_timestamp": "2026-02-27T23:06:18.660680Z",
+          "flags": null,
+          "type": "text",
+          "text": "전체 폴더 구조도를 하나로 생성해줘",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-02-27T23:06:18.681696Z",
+      "updated_at": "2026-02-27T23:06:18.681696Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ca158-8dd2-75cf-8270-7d506f07b5bb"
+    },
+    {
+      "uuid": "019ca15a-5617-791b-8ea1-46cff093884b",
+      "text": " ```\nhr-workspace/                                    ← 최상위 워크스페이스\n│\n├── .claude/                                     ← AI 전역 설정 (모든 프로젝트 공통)\n│   │\n│   ├── rules/                                   ← 헌법 (절대 규칙, 예외 없음)\n│   │   ├── privacy.md                           # 개인정보 처리 원칙\n│   │   ├── conventions.md                       # LG PRI 용어/직급 체계\n│   │   └── output-format.md                     # 출력 언어/형식 전역 규칙\n│   │\n│   ├── skills/                                  ← SOP 라이브러리 (반복 업무 절차)\n│   │   ├── leadership-eval.md                   # 리더십 평가 전체 워크플로우\n│   │   ├── curriculum-design.md                 # 교육과정 설계 워크플로우\n│   │   ├── feedback-generation.md               # 피드백 리포트 생성 워크플로우\n│   │   ├── competency-mapping.md                # 역량 매핑 워크플로우\n│   │   └── reference/                           ← 통합 전 구버전 보관소\n│   │       ├── feedback-writing-v1.md\n│   │       ├── feedback-review-v1.md\n│   │       └── feedback-edit-v1.md\n│   │\n│   └── agents/                                  ← 전문가 페르소나 (역할 정의)\n│       ├── competency-analyst.md                # 역량 분석 전문가\n│       ├── content-designer.md                  # 교육 콘텐츠 설계자\n│       ├── data-interpreter.md                  # 평가 데이터 해석 전문가\n│       └── report-writer.md                     # 리포트 작성 전문가\n│\n├── leadership-program/                          ← 프로젝트 1: 25년 리더십, 생각하다\n│   ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n│   ├── data/\n│   │   ├── raw/                                 # 원점수 CSV (입력)\n│   │   ├── processed/                           # 정제된 데이터\n│   │   ├── competency-model-2025.xlsx           # 역량 모델 기준표\n│   │   └── grade-standard.pdf                   # 직급별 기대 수준 기준표\n│   ├── templates/\n│   │   ├── feedback-report.md                   # 피드백 리포트 양식\n│   │   └── action-plan.xlsx                     # 개발과제 액션플랜 양식\n│   ├── reports/                                 # 생성된 피드백 리포트 출력\n│   └── scripts/\n│       ├── preprocess.py                        # 데이터 정제 스크립트\n│       └── report-generator.py                  # 리포트 자동 생성\n│\n├── domain-ax/                                   ← 프로젝트 2: Domain AX 인증 시스템\n│   ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n│   ├── data/\n│   │   ├── skill-ontology/                      # ESCO 기반 스킬 온톨로지\n│   │   └── certification-criteria.xlsx          # 인증 기준표\n│   ├── templates/\n│   │   └── certification-report.md              # 인증 결과 리포트 양식\n│   ├── reports/\n│   └── scripts/\n│       ├── esco-api.py                          # ESCO API 연동\n│       └── cert-evaluator.py                    # 인증 평가 자동화\n│\n└── manufacturing-academy/                       ← 프로젝트 3: 제조 AX 아카데미\n    ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n    ├── data/\n    │   ├── learner-data/                        # 학습자 데이터\n    │   └── curriculum-map.xlsx                  # 교육과정 맵\n    ├── templates/\n    │   ├── curriculum-template.md               # 교육과정 설계 양식\n    │   └── satisfaction-survey.md               # 만족도 조사 양식\n    ├── reports/\n    │   ├── satisfaction-analysis/               # 만족도 분석 결과\n    │   └── completion-reports/                  # 이수 현황 리포트\n    └── scripts/\n        ├── survey-analyzer.py                   # 만족도 분석 자동화\n        └── dashboard-generator.py               # 현황 대시보드 생성\n```\n\n---\n\n**읽는 법**: Claude는 작업 시작 시 위에서 아래로 맥락을 쌓습니다.\n\n`.claude/rules` → `.claude/skills` → `.claude/agents` → 해당 프로젝트 `CLAUDE.md` 순서로 읽고, 그 다음에 실제 작업을 시작합니다. 상위 레이어가 하위를 덮어쓰지 않고 **누적**됩니다.\n\nNotion 저장할까요?",
+      "content": [
+        {
+          "start_timestamp": "2026-02-27T23:06:19.417817Z",
+          "stop_timestamp": "2026-02-27T23:06:38.258071Z",
+          "flags": null,
+          "type": "text",
+          "text": " ```\nhr-workspace/                                    ← 최상위 워크스페이스\n│\n├── .claude/                                     ← AI 전역 설정 (모든 프로젝트 공통)\n│   │\n│   ├── rules/                                   ← 헌법 (절대 규칙, 예외 없음)\n│   │   ├── privacy.md                           # 개인정보 처리 원칙\n│   │   ├── conventions.md                       # LG PRI 용어/직급 체계\n│   │   └── output-format.md                     # 출력 언어/형식 전역 규칙\n│   │\n│   ├── skills/                                  ← SOP 라이브러리 (반복 업무 절차)\n│   │   ├── leadership-eval.md                   # 리더십 평가 전체 워크플로우\n│   │   ├── curriculum-design.md                 # 교육과정 설계 워크플로우\n│   │   ├── feedback-generation.md               # 피드백 리포트 생성 워크플로우\n│   │   ├── competency-mapping.md                # 역량 매핑 워크플로우\n│   │   └── reference/                           ← 통합 전 구버전 보관소\n│   │       ├── feedback-writing-v1.md\n│   │       ├── feedback-review-v1.md\n│   │       └── feedback-edit-v1.md\n│   │\n│   └── agents/                                  ← 전문가 페르소나 (역할 정의)\n│       ├── competency-analyst.md                # 역량 분석 전문가\n│       ├── content-designer.md                  # 교육 콘텐츠 설계자\n│       ├── data-interpreter.md                  # 평가 데이터 해석 전문가\n│       └── report-writer.md                     # 리포트 작성 전문가\n│\n├── leadership-program/                          ← 프로젝트 1: 25년 리더십, 생각하다\n│   ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n│   ├── data/\n│   │   ├── raw/                                 # 원점수 CSV (입력)\n│   │   ├── processed/                           # 정제된 데이터\n│   │   ├── competency-model-2025.xlsx           # 역량 모델 기준표\n│   │   └── grade-standard.pdf                   # 직급별 기대 수준 기준표\n│   ├── templates/\n│   │   ├── feedback-report.md                   # 피드백 리포트 양식\n│   │   └── action-plan.xlsx                     # 개발과제 액션플랜 양식\n│   ├── reports/                                 # 생성된 피드백 리포트 출력\n│   └── scripts/\n│       ├── preprocess.py                        # 데이터 정제 스크립트\n│       └── report-generator.py                  # 리포트 자동 생성\n│\n├── domain-ax/                                   ← 프로젝트 2: Domain AX 인증 시스템\n│   ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n│   ├── data/\n│   │   ├── skill-ontology/                      # ESCO 기반 스킬 온톨로지\n│   │   └── certification-criteria.xlsx          # 인증 기준표\n│   ├── templates/\n│   │   └── certification-report.md              # 인증 결과 리포트 양식\n│   ├── reports/\n│   └── scripts/\n│       ├── esco-api.py                          # ESCO API 연동\n│       └── cert-evaluator.py                    # 인증 평가 자동화\n│\n└── manufacturing-academy/                       ← 프로젝트 3: 제조 AX 아카데미\n    ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n    ├── data/\n    │   ├── learner-data/                        # 학습자 데이터\n    │   └── curriculum-map.xlsx                  # 교육과정 맵\n    ├── templates/\n    │   ├── curriculum-template.md               # 교육과정 설계 양식\n    │   └── satisfaction-survey.md               # 만족도 조사 양식\n    ├── reports/\n    │   ├── satisfaction-analysis/               # 만족도 분석 결과\n    │   └── completion-reports/                  # 이수 현황 리포트\n    └── scripts/\n        ├── survey-analyzer.py                   # 만족도 분석 자동화\n        └── dashboard-generator.py               # 현황 대시보드 생성\n```\n\n---\n\n**읽는 법**: Claude는 작업 시작 시 위에서 아래로 맥락을 쌓습니다.\n\n`.claude/rules` → `.claude/skills` → `.claude/agents` → 해당 프로젝트 `CLAUDE.md` 순서로 읽고, 그 다음에 실제 작업을 시작합니다. 상위 레이어가 하위를 덮어쓰지 않고 **누적**됩니다.\n\nNotion 저장할까요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-02-27T23:06:38.357143Z",
+      "updated_at": "2026-02-27T23:06:38.357143Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ca15a-5617-7484-a628-1391e2179e56"
+    },
+    {
+      "uuid": "019ca15a-fd67-7e9b-9e34-ebe493166bfe",
+      "text": "굿, 노션에 어카이빙 진행",
+      "content": [
+        {
+          "start_timestamp": "2026-02-27T23:07:01.366800Z",
+          "stop_timestamp": "2026-02-27T23:07:01.366800Z",
+          "flags": null,
+          "type": "text",
+          "text": "굿, 노션에 어카이빙 진행",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-02-27T23:07:01.373271Z",
+      "updated_at": "2026-02-27T23:07:01.373271Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ca15a-5617-791b-8ea1-46cff093884b"
+    },
+    {
+      "uuid": "019ca15a-fd67-7ed2-bc47-0cc2e3d9b472",
+      "text": " Notion에 저장할게요!\n```\nThis block is not supported on your current device yet.\n```\n\n태그 옵션 확인 후 다시 저장할게요.\n```\nThis block is not supported on your current device yet.\n```\n\n스키마를 먼저 확인할게요.\n```\nThis block is not supported on your current device yet.\n```\n\n\n```\nThis block is not supported on your current device yet.\n```\n\n✅ Notion 아카이빙 완료!\n\n**저장 링크**: https://www.notion.so/3146b7b50b2381dd8183f3b10ed9635a\n\n저장 메타데이터 요약입니다.\n\n- 제목: Claude Code 폴더 관리 가이드\n- 주제: 개발/코딩\n- 태그: Claude, AI, 자동화, 워크플로우, Agentic Engineering, 프롬프트 설계\n- 중요도: ⭐⭐⭐ 핵심\n- 관련 프로젝트: HR 자동화 SaaS\n- 날짜: 2026-02-28\n\n전체 폴더 구조도와 4계층 상세 설명 모두 본문에 포함되어 있으니, Claude Code 세팅할 때 바로 꺼내 쓸 수 있을 거예요.",
+      "content": [
+        {
+          "start_timestamp": "2026-02-27T23:07:02.823896Z",
+          "stop_timestamp": "2026-02-27T23:07:02.955651Z",
+          "flags": null,
+          "type": "text",
+          "text": " Notion에 저장할게요!",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-02-27T23:07:03.439295Z",
+          "stop_timestamp": "2026-02-27T23:07:44.394447Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01L2EYbesU5YYZ1r5N6X5xPK",
+          "name": "Notion:notion-create-pages",
+          "input": {
+            "parent": {
+              "data_source_id": "d012343e-b2a2-461e-944b-6f166e91d8e9"
+            },
+            "pages": [
+              {
+                "properties": {
+                  "title": "Claude Code 폴더 관리 가이드",
+                  "주제": "개발/코딩",
+                  "태그": "Claude Code, HR자동화, 폴더구조, SOP, Agent, Skill",
+                  "중요도": "⭐⭐⭐ 핵심",
+                  "상태": "✅ 완료"
+                },
+                "content": "# Claude Code 폴더 관리 가이드 (HR 자동화 맥락)\n\n## 대화 컨텍스트\n- 날짜: 2026-02-28\n- 주요 키워드: Claude Code, Rules, Skills, Agents, CLAUDE.md, SOP, HR 자동화\n\n---\n\n## 핵심 철학\n\n폴더 구조는 단순한 정리 습관이 아니다. **\"누가, 어떤 맥락에서, 무엇을 알아야 하는가\"**를 구조화한 것이다. Claude가 프로젝트를 이해하는 방식이 곧 폴더 구조가 된다.\n\nSW 엔지니어링의 관심사 분리(Separation of Concerns) 원칙을 AI 워크플로우에 적용한 것.\n\n---\n\n## 4계층 구조 개념 정리\n\n| 레이어 | 비유 | 역할 |\n|--------|------|------|\n| Rules | 헌법 | 전역 원칙, 절대 불변 |\n| Skills | SOP 라이브러리 | 반복 업무 절차 정의 |\n| Agents | 전문가 페르소나 | 역할별 AI 정의 |\n| CLAUDE.md | 프로젝트 여권 | 프로젝트 전용 컨텍스트 |\n\n> Claude는 작업 시작 시 Rules → Skills → Agents → CLAUDE.md 순서로 맥락을 누적하여 읽는다.\n\n---\n\n## 전체 폴더 구조도\n\n```\nhr-workspace/                                    ← 최상위 워크스페이스\n│\n├── .claude/                                     ← AI 전역 설정 (모든 프로젝트 공통)\n│   │\n│   ├── rules/                                   ← 헌법 (절대 규칙, 예외 없음)\n│   │   ├── privacy.md                           # 개인정보 처리 원칙\n│   │   ├── conventions.md                       # LG PRI 용어/직급 체계\n│   │   └── output-format.md                     # 출력 언어/형식 전역 규칙\n│   │\n│   ├── skills/                                  ← SOP 라이브러리 (반복 업무 절차)\n│   │   ├── leadership-eval.md                   # 리더십 평가 전체 워크플로우\n│   │   ├── curriculum-design.md                 # 교육과정 설계 워크플로우\n│   │   ├── feedback-generation.md               # 피드백 리포트 생성 워크플로우\n│   │   ├── competency-mapping.md                # 역량 매핑 워크플로우\n│   │   └── reference/                           ← 통합 전 구버전 보관소\n│   │       ├── feedback-writing-v1.md\n│   │       ├── feedback-review-v1.md\n│   │       └── feedback-edit-v1.md\n│   │\n│   └── agents/                                  ← 전문가 페르소나 (역할 정의)\n│       ├── competency-analyst.md                # 역량 분석 전문가\n│       ├── content-designer.md                  # 교육 콘텐츠 설계자\n│       ├── data-interpreter.md                  # 평가 데이터 해석 전문가\n│       └── report-writer.md                     # 리포트 작성 전문가\n│\n├── leadership-program/                          ← 프로젝트 1: 25년 리더십, 생각하다\n│   ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n│   ├── data/\n│   │   ├── raw/                                 # 원점수 CSV (입력)\n│   │   ├── processed/                           # 정제된 데이터\n│   │   ├── competency-model-2025.xlsx           # 역량 모델 기준표\n│   │   └── grade-standard.pdf                   # 직급별 기대 수준 기준표\n│   ├── templates/\n│   │   ├── feedback-report.md                   # 피드백 리포트 양식\n│   │   └── action-plan.xlsx                     # 개발과제 액션플랜 양식\n│   ├── reports/                                 # 생성된 피드백 리포트 출력\n│   └── scripts/\n│       ├── preprocess.py                        # 데이터 정제 스크립트\n│       └── report-generator.py                  # 리포트 자동 생성\n│\n├── domain-ax/                                   ← 프로젝트 2: Domain AX 인증 시스템\n│   ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n│   ├── data/\n│   │   ├── skill-ontology/                      # ESCO 기반 스킬 온톨로지\n│   │   └── certification-criteria.xlsx          # 인증 기준표\n│   ├── templates/\n│   │   └── certification-report.md              # 인증 결과 리포트 양식\n│   ├── reports/\n│   └── scripts/\n│       ├── esco-api.py                          # ESCO API 연동\n│       └── cert-evaluator.py                    # 인증 평가 자동화\n│\n└── manufacturing-academy/                       ← 프로젝트 3: 제조 AX 아카데미\n    ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n    ├── data/\n    │   ├── learner-data/                        # 학습자 데이터\n    │   └── curriculum-map.xlsx                  # 교육과정 맵\n    ├── templates/\n    │   ├── curriculum-template.md               # 교육과정 설계 양식\n    │   └── satisfaction-survey.md               # 만족도 조사 양식\n    ├── reports/\n    │   ├── satisfaction-analysis/               # 만족도 분석 결과\n    │   └── completion-reports/                  # 이수 현황 리포트\n    └── scripts/\n        ├── survey-analyzer.py                   # 만족도 분석 자동화\n        └── dashboard-generator.py               # 현황 대시보드 생성\n```\n\n---\n\n## 4계층 상세 설명\n\n### 1. Rules — 헌법\n모든 프로젝트에 예외 없이 적용. 보안/개인정보 원칙, 출력 언어 규칙, 조직 고유 용어 정의.\n\n**예시 (privacy.md)**\n- 직원 이름은 절대 출력하지 않는다. 사번 또는 익명 코드만 사용.\n- 평가 원점수는 로그에 남기지 않는다.\n- 결과물에 소속 부서명이 포함될 경우 반드시 사용자 확인 후 출력.\n\n### 2. Skills — SOP 라이브러리\n반복되는 업무의 전체 워크플로우 정의. Input → Steps → Output 구조.\n\n**Skill 폭발 방지 원칙**: 행위 단위(작성/수정/검토)가 아니라 **목적 단위**(리더십 피드백)로 통합. 구버전은 `/reference` 보관.\n\n### 3. Agents — 전문가 페르소나\nSkill이 \"무엇을 할 것인가\"라면, Agent는 \"누가, 어떤 전문성으로 할 것인가\".\n역할 정의, 전문 영역, 판단 기준, 출력 스타일을 명세.\n\n### 4. CLAUDE.md — 프로젝트 여권\nRules가 헌법이라면 CLAUDE.md는 프로젝트별 시행세칙.\n폴더 구조, 사용 라이브러리, 프로젝트 고유 용어, 참조 파일 위치 포함.\n\n---\n\n## 실전 시작 순서\n\n1. 가장 반복적인 HR 업무 하나 선택\n2. 그 업무를 단계별 텍스트로 작성 → 첫 번째 Skill.md 초안\n3. 절차 안에서 \"다른 전문성이 필요한 구간\" 발견 → Agent 분리 지점\n4. 그 다음에 Rules와 CLAUDE.md 작성\n\n> 내용이 구조를 결정한다. 구조가 내용을 기다리는 게 아니다.\n\n---\n\n## 핵심 개념 정리\n\n- **SOP** = Standard Operating Procedure. \"이 일을 할 때 항상 이 순서로 한다\"는 업무 매뉴얼.\n- **Skill vs Agent**: Skill은 레시피(절차), Agent는 요리사(역할)\n- **맥락 누적 순서**: Rules → Skills → Agents → CLAUDE.md → 작업 시작"
+              }
+            ]
+          },
+          "message": "Notion-create-pages",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-create-pages-91522884548e8fa701ba7bb66617a8fc",
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01L2EYbesU5YYZ1r5N6X5xPK",
+          "name": "Notion:notion-create-pages",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"name\":\"APIResponseError\",\"code\":\"validation_error\",\"status\":400,\"headers\":{},\"body\":\"{\\\"object\\\":\\\"error\\\",\\\"status\\\":400,\\\"code\\\":\\\"validation_error\\\",\\\"message\\\":\\\"Invalid multi_select value for property \\\\\\\"태그\\\\\\\": \\\\\\\"Claude Code, HR자동화, 폴더구조, SOP, Agent, Skill\\\\\\\". Value must be one of the following: \\\\\\\"세컨브레인\\\\\\\", \\\\\\\"Notion\\\\\\\", \\\\\\\"Obsidian\\\\\\\", \\\\\\\"자동화\\\\\\\", \\\\\\\"AI\\\\\\\", \\\\\\\"워크플로우\\\\\\\", \\\\\\\"온톨로지\\\\\\\", \\\\\\\"Claude\\\\\\\", \\\\\\\"Agentic Engineering\\\\\\\", \\\\\\\"프롬프트 설계\\\\\\\", \\\\\\\"System Prompt\\\\\\\". If a new multi_select option is needed, the data source must be updated to add it.\\\",\\\"request_id\\\":\\\"26c30432-48e0-4f28-93a9-ee3209e7b909\\\"}\",\"request_id\":\"26c30432-48e0-4f28-93a9-ee3209e7b909\"}\n\nrequest_id: req_011CYZQzDfieTDtnQsSmUMpG",
+              "uuid": "50cd3160-d2eb-41cf-8c15-63dc1a4fac6e"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"name\": \"APIResponseError\",\n  \"code\": \"validation_error\",\n  \"status\": 400,\n  \"headers\": {},\n  \"body\": \"{\\\"object\\\":\\\"error\\\",\\\"status\\\":400,\\\"code\\\":\\\"validation_error\\\",\\\"message\\\":\\\"Invalid multi_select value for property \\\\\\\"\\ud0dc\\uadf8\\\\\\\": \\\\\\\"Claude Code, HR\\uc790\\ub3d9\\ud654, \\ud3f4\\ub354\\uad6c\\uc870, SOP, Agent, Skill\\\\\\\". Value must be one of the following: \\\\\\\"\\uc138\\ucee8\\ube0c\\ub808\\uc778\\\\\\\", \\\\\\\"Notion\\\\\\\", \\\\\\\"Obsidian\\\\\\\", \\\\\\\"\\uc790\\ub3d9\\ud654\\\\\\\", \\\\\\\"AI\\\\\\\", \\\\\\\"\\uc6cc\\ud06c\\ud50c\\ub85c\\uc6b0\\\\\\\", \\\\\\\"\\uc628\\ud1a8\\ub85c\\uc9c0\\\\\\\", \\\\\\\"Claude\\\\\\\", \\\\\\\"Agentic Engineering\\\\\\\", \\\\\\\"\\ud504\\ub86c\\ud504\\ud2b8 \\uc124\\uacc4\\\\\\\", \\\\\\\"System Prompt\\\\\\\". If a new multi_select option is needed, the data source must be updated to add it.\\\",\\\"request_id\\\":\\\"26c30432-48e0-4f28-93a9-ee3209e7b909\\\"}\",\n  \"request_id\": \"26c30432-48e0-4f28-93a9-ee3209e7b909\"\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-02-27T23:07:47.035682Z",
+          "stop_timestamp": "2026-02-27T23:07:47.452696Z",
+          "flags": null,
+          "type": "text",
+          "text": "태그 옵션 확인 후 다시 저장할게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-02-27T23:07:48.026173Z",
+          "stop_timestamp": "2026-02-27T23:08:34.607786Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01QRS7ip2rm6SbzjGz8ngSx5",
+          "name": "Notion:notion-create-pages",
+          "input": {
+            "pages": [
+              {
+                "properties": {
+                  "title": "Claude Code 폴더 관리 가이드",
+                  "주제": "개발/코딩",
+                  "태그": [
+                    "Claude",
+                    "AI",
+                    "자동화",
+                    "워크플로우",
+                    "Agentic Engineering",
+                    "프롬프트 설계"
+                  ],
+                  "중요도": "⭐⭐⭐ 핵심",
+                  "상태": "✅ 완료"
+                },
+                "content": "# Claude Code 폴더 관리 가이드 (HR 자동화 맥락)\n\n## 대화 컨텍스트\n- 날짜: 2026-02-28\n- 주요 키워드: Claude Code, Rules, Skills, Agents, CLAUDE.md, SOP, HR 자동화\n\n---\n\n## 핵심 철학\n\n폴더 구조는 단순한 정리 습관이 아니다. **\"누가, 어떤 맥락에서, 무엇을 알아야 하는가\"**를 구조화한 것이다. Claude가 프로젝트를 이해하는 방식이 곧 폴더 구조가 된다.\n\nSW 엔지니어링의 관심사 분리(Separation of Concerns) 원칙을 AI 워크플로우에 적용한 것.\n\n---\n\n## 4계층 구조 개념 정리\n\n| 레이어 | 비유 | 역할 |\n|--------|------|------|\n| Rules | 헌법 | 전역 원칙, 절대 불변 |\n| Skills | SOP 라이브러리 | 반복 업무 절차 정의 |\n| Agents | 전문가 페르소나 | 역할별 AI 정의 |\n| CLAUDE.md | 프로젝트 여권 | 프로젝트 전용 컨텍스트 |\n\n> Claude는 작업 시작 시 Rules → Skills → Agents → CLAUDE.md 순서로 맥락을 누적하여 읽는다.\n\n---\n\n## 전체 폴더 구조도\n\n```\nhr-workspace/                                    ← 최상위 워크스페이스\n│\n├── .claude/                                     ← AI 전역 설정 (모든 프로젝트 공통)\n│   │\n│   ├── rules/                                   ← 헌법 (절대 규칙, 예외 없음)\n│   │   ├── privacy.md                           # 개인정보 처리 원칙\n│   │   ├── conventions.md                       # LG PRI 용어/직급 체계\n│   │   └── output-format.md                     # 출력 언어/형식 전역 규칙\n│   │\n│   ├── skills/                                  ← SOP 라이브러리 (반복 업무 절차)\n│   │   ├── leadership-eval.md                   # 리더십 평가 전체 워크플로우\n│   │   ├── curriculum-design.md                 # 교육과정 설계 워크플로우\n│   │   ├── feedback-generation.md               # 피드백 리포트 생성 워크플로우\n│   │   ├── competency-mapping.md                # 역량 매핑 워크플로우\n│   │   └── reference/                           ← 통합 전 구버전 보관소\n│   │       ├── feedback-writing-v1.md\n│   │       ├── feedback-review-v1.md\n│   │       └── feedback-edit-v1.md\n│   │\n│   └── agents/                                  ← 전문가 페르소나 (역할 정의)\n│       ├── competency-analyst.md                # 역량 분석 전문가\n│       ├── content-designer.md                  # 교육 콘텐츠 설계자\n│       ├── data-interpreter.md                  # 평가 데이터 해석 전문가\n│       └── report-writer.md                     # 리포트 작성 전문가\n│\n├── leadership-program/                          ← 프로젝트 1: 25년 리더십, 생각하다\n│   ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n│   ├── data/\n│   │   ├── raw/                                 # 원점수 CSV (입력)\n│   │   ├── processed/                           # 정제된 데이터\n│   │   ├── competency-model-2025.xlsx           # 역량 모델 기준표\n│   │   └── grade-standard.pdf                   # 직급별 기대 수준 기준표\n│   ├── templates/\n│   │   ├── feedback-report.md                   # 피드백 리포트 양식\n│   │   └── action-plan.xlsx                     # 개발과제 액션플랜 양식\n│   ├── reports/                                 # 생성된 피드백 리포트 출력\n│   └── scripts/\n│       ├── preprocess.py                        # 데이터 정제 스크립트\n│       └── report-generator.py                  # 리포트 자동 생성\n│\n├── domain-ax/                                   ← 프로젝트 2: Domain AX 인증 시스템\n│   ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n│   ├── data/\n│   │   ├── skill-ontology/                      # ESCO 기반 스킬 온톨로지\n│   │   └── certification-criteria.xlsx          # 인증 기준표\n│   ├── templates/\n│   │   └── certification-report.md              # 인증 결과 리포트 양식\n│   ├── reports/\n│   └── scripts/\n│       ├── esco-api.py                          # ESCO API 연동\n│       └── cert-evaluator.py                    # 인증 평가 자동화\n│\n└── manufacturing-academy/                       ← 프로젝트 3: 제조 AX 아카데미\n    ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n    ├── data/\n    │   ├── learner-data/                        # 학습자 데이터\n    │   └── curriculum-map.xlsx                  # 교육과정 맵\n    ├── templates/\n    │   ├── curriculum-template.md               # 교육과정 설계 양식\n    │   └── satisfaction-survey.md               # 만족도 조사 양식\n    ├── reports/\n    │   ├── satisfaction-analysis/               # 만족도 분석 결과\n    │   └── completion-reports/                  # 이수 현황 리포트\n    └── scripts/\n        ├── survey-analyzer.py                   # 만족도 분석 자동화\n        └── dashboard-generator.py               # 현황 대시보드 생성\n```\n\n---\n\n## 4계층 상세 설명\n\n### 1. Rules — 헌법\n모든 프로젝트에 예외 없이 적용. 보안/개인정보 원칙, 출력 언어 규칙, 조직 고유 용어 정의.\n\n**예시 (privacy.md)**\n- 직원 이름은 절대 출력하지 않는다. 사번 또는 익명 코드만 사용.\n- 평가 원점수는 로그에 남기지 않는다.\n- 결과물에 소속 부서명이 포함될 경우 반드시 사용자 확인 후 출력.\n\n### 2. Skills — SOP 라이브러리\n반복되는 업무의 전체 워크플로우 정의. Input → Steps → Output 구조.\n\n**Skill 폭발 방지 원칙**: 행위 단위(작성/수정/검토)가 아니라 **목적 단위**(리더십 피드백)로 통합. 구버전은 `/reference` 보관.\n\n### 3. Agents — 전문가 페르소나\nSkill이 \"무엇을 할 것인가\"라면, Agent는 \"누가, 어떤 전문성으로 할 것인가\".\n역할 정의, 전문 영역, 판단 기준, 출력 스타일을 명세.\n\n### 4. CLAUDE.md — 프로젝트 여권\nRules가 헌법이라면 CLAUDE.md는 프로젝트별 시행세칙.\n폴더 구조, 사용 라이브러리, 프로젝트 고유 용어, 참조 파일 위치 포함.\n\n---\n\n## 실전 시작 순서\n\n1. 가장 반복적인 HR 업무 하나 선택\n2. 그 업무를 단계별 텍스트로 작성 → 첫 번째 Skill.md 초안\n3. 절차 안에서 \"다른 전문성이 필요한 구간\" 발견 → Agent 분리 지점\n4. 그 다음에 Rules와 CLAUDE.md 작성\n\n> 내용이 구조를 결정한다. 구조가 내용을 기다리는 게 아니다.\n\n---\n\n## 핵심 개념 정리\n\n- **SOP** = Standard Operating Procedure. \"이 일을 할 때 항상 이 순서로 한다\"는 업무 매뉴얼.\n- **Skill vs Agent**: Skill은 레시피(절차), Agent는 요리사(역할)\n- **맥락 누적 순서**: Rules → Skills → Agents → CLAUDE.md → 작업 시작"
+              }
+            ],
+            "parent": {
+              "data_source_id": "d012343e-b2a2-461e-944b-6f166e91d8e9"
+            }
+          },
+          "message": "Notion-create-pages",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-create-pages-91522884548e8fa701ba7bb66617a8fc",
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01QRS7ip2rm6SbzjGz8ngSx5",
+          "name": "Notion:notion-create-pages",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"error\": \"Error occurred during tool execution\", \"request_id\": \"req_011CYZR3qFSnxE1JWQdE9esN\"}",
+              "uuid": "983ced67-0af1-4fa6-8e41-a0709d61c189"
+            }
+          ],
+          "is_error": true,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-02-27T23:08:35.666718Z",
+          "stop_timestamp": "2026-02-27T23:08:36.121389Z",
+          "flags": null,
+          "type": "text",
+          "text": "스키마를 먼저 확인할게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-02-27T23:08:36.617780Z",
+          "stop_timestamp": "2026-02-27T23:08:37.868624Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01NT2E4oi3hzUzgdc3kwmJXE",
+          "name": "Notion:notion-fetch",
+          "input": {
+            "id": "https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15"
+          },
+          "message": "Notion-fetch",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-fetch-60feec32716c8799143ed51c780a8f47",
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01NT2E4oi3hzUzgdc3kwmJXE",
+          "name": "Notion:notion-fetch",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"metadata\":{\"type\":\"database\"},\"title\":\"💬 Claude 대화 아카이브\",\"url\":\"https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15\",\"text\":\"<database url=\\\"{{https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15}}\\\" inline=\\\"false\\\">\\nThe title of this Database is: 💬 Claude 대화 아카이브\\n<ancestor-path>\\n<parent-page url=\\\"https://www.notion.so/2496b7b50b23802da04fdafb113c4d4c\\\" title=\\\"세컨브레인 위키\\\"/>\\n<ancestor-2-data-source url=\\\"collection://1cc6b7b5-0b23-803e-87c2-000b76f9c172\\\" name=\\\"My Cal\\\"/>\\n<ancestor-3-database url=\\\"https://www.notion.so/1cc6b7b50b238019a8aedf1648664acc\\\" title=\\\"\\\"/>\\n<ancestor-4-page url=\\\"https://www.notion.so/1cc6b7b50b2380c59fc6ca6f2f77ba0c\\\" title=\\\"빠른메모\\\"/>\\n</ancestor-path>\\nHere are the Database's Data Sources:\\nYou can use the \\\"view\\\" tool on the URL of any Data Source to see its full schema configuration.\\n<data-sources>\\n<data-source url=\\\"{{collection://d012343e-b2a2-461e-944b-6f166e91d8e9}}\\\">\\nThe title of this Data Source is: 💬 Claude 대화 아카이브\\n\\nHere is the database's configurable state:\\n<data-source-state>\\n{\\\"name\\\":\\\"💬 Claude 대화 아카이브\\\",\\\"schema\\\":{\\\"관련 프로젝트\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"관련 프로젝트\\\",\\\"type\\\":\\\"text\\\"},\\\"날짜\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"날짜\\\",\\\"type\\\":\\\"date\\\"},\\\"다음 액션\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"다음 액션\\\",\\\"type\\\":\\\"checkbox\\\"},\\\"대화 제목\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"대화 제목\\\",\\\"type\\\":\\\"title\\\"},\\\"상태\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"상태\\\",\\\"options\\\":[{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"💡 아이디어\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/MzA1ZGNjYjQtNDg3Zi00YzZkLWJlZmItNmI5OGE1ZGI3YTA0\\\"},{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"🔄 진행중\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/YzkyYjk2YmMtZDcyMy00NDIzLWFkMTUtNzFmZDczNzIyNDRk\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"✅ 완료\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/OTZiMGY5NmUtNGUzOC00ZDNkLTg0OTUtMzMwZTE3YmU2ODFj\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"📦 보관\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/NGI4NjA3NjQtMjYwNy00NmY4LTgzOTYtZDg4YmNiNDZhZmEx\\\"}],\\\"type\\\":\\\"select\\\"},\\\"요약\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"요약\\\",\\\"type\\\":\\\"text\\\"},\\\"주제\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"주제\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"지식관리\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTcyNjE0MDAtYTczOS00MzExLWFjYWEtOGMyMmM0NGUxYzdh\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"개발/코딩\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTE4N2VjOTktNGUyMi00N2MwLThiNmQtODg3NzY4MGY3NzMw\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"생산성\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjBlNDU2ZjQtZjIyYS00ODllLWI5NDgtMzhmNGMyMmZlM2Rj\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"분석/리서치\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjZiYzcwYWUtYWZkMC00N2YwLWEzYTAtMWU1ZWIwNWRhYzYy\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"창작/글쓰기\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWIxZGI5ZGQtYzgyZC00Njg2LWJhOTEtN2Q3YThiMDgyYmFj\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"아이디어\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OWJkMTFlN2YtNDBhMy00Y2Y2LWE1ODQtYmZhZDdlZTQ2ZjM5\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"학습\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWRlNzUwZTEtMTA0Yy00NWMzLTlkYTEtYzQwYTEwMjcwMzhm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"기타\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTkwMTg3ZjQtYTdkMi00NTNmLWI1YTktMjU4MjYxOTRlNDE5\\\"}],\\\"type\\\":\\\"select\\\"},\\\"중요도\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"중요도\\\",\\\"options\\\":[{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐⭐⭐ 핵심\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/OWMzZTFlMGMtYjJhOS00MGFmLTkzMDAtNDg0YWNjYmRmZWMz\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐⭐ 중요\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/MDJlNjYxMWQtODljNC00ZDFjLWEyMGUtZDg3ODQ2Y2I5MDk1\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"⭐ 참고\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YmJlOTM0NGEtMGJlYy00ODJlLTliNzktM2I5ZTEyYzBiNjlm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"보관\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YWZjNTQzZTUtNjg4MC00ZGY2LWJlODgtN2ZhOGQyMGYyZDY2\\\"}],\\\"type\\\":\\\"select\\\"},\\\"키워드\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"키워드\\\",\\\"type\\\":\\\"text\\\"},\\\"태그\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"태그\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"세컨브레인\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZWNmODNkODctNGQxNC00NTQ5LTk4ZDQtOWFjMDk4M2ZjYjMw\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Notion\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YTdjODAzMzctMGZkZi00YzhkLWE4OTMtMWZmMjBkZTFhYTM4\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Obsidian\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YzFiMjQwY2YtZTg5NC00YTZmLWExMjktN2QzOTdhNTBiMjg2\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"자동화\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/OWJiZTFjNWQtY2QwMS00NTIyLWIzMGEtMGVlMzE2MDA4MGMz\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"AI\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZDBiYTVkZjAtY2E0Yi00NzZhLTk0YTctNjIzYTgyZjIyODI1\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"워크플로우\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTNhYjdiOWYtYjgwYy00YmNjLTllMDctYzZmYzFjZTFhMGZh\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"온톨로지\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTEzYjEzNDgtZTkxYi00NDJiLWI3MDYtZmY5Mjk1NGY5OGQ4\\\"},{\\\"color\\\":\\\"default\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Claude\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/NDYyOTljM2ItMDk5ZC00Y2Q0LWE2NzMtNDFlMDM3ZjE4MGM0\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Agentic Engineering\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YmYxNjQ5NzMtNWM1OS00ZmRmLTk2YTItOWY3M2QzMzhiNjNm\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"프롬프트 설계\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YTk5ZTZiYzItM2E0Yy00Njc1LTgwYjgtN2NmYzI1YmRiYjAz\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"System Prompt\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YmEyYTg4YjYtZGRlZi00MTgyLTkwM2YtMGZjODFlZGUwM2U0\\\"}],\\\"type\\\":\\\"multi_select\\\"}},\\\"url\\\":\\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\"}\\n</data-source-state>\\n\\nHere is the SQLite table definition for this data source.\\n<sqlite-table>\\nCREATE TABLE IF NOT EXISTS \\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\" (\\n\\turl TEXT UNIQUE,\\n\\tcreatedTime TEXT, -- ISO-8601 datetime string, automatically set. This is the canonical time for when the page was created.\\n\\t\\\"키워드\\\" TEXT,\\n\\t\\\"요약\\\" TEXT,\\n\\t\\\"주제\\\" TEXT, -- one of [\\\"지식관리\\\", \\\"개발/코딩\\\", \\\"생산성\\\", \\\"분석/리서치\\\", \\\"창작/글쓰기\\\", \\\"아이디어\\\", \\\"학습\\\", \\\"기타\\\"]\\n\\t\\\"관련 프로젝트\\\" TEXT,\\n\\t\\\"date:날짜:start\\\" TEXT, -- ISO-8601 date or datetime string. Use the expanded property (date:<column_name>:start) to set this value.\\n\\t\\\"date:날짜:end\\\" TEXT, -- ISO-8601 date or datetime string, can be empty. Must be NULL if the date is a single date, and must be present if the date is a range. Use the expanded property (date:<column_name>:end) to set this value.\\n\\t\\\"date:날짜:is_datetime\\\" INTEGER, -- 1 if the date is a datetime, 0 if it is a date, NULL defaults to 0. Use the expanded property (date:<column_name>:is_datetime) to set this value.\\n\\t\\\"상태\\\" TEXT, -- one of [\\\"💡 아이디어\\\", \\\"🔄 진행중\\\", \\\"✅ 완료\\\", \\\"📦 보관\\\"]\\n\\t\\\"태그\\\" TEXT, -- JSON array with zero or more of [\\\"세컨브레인\\\", \\\"Notion\\\", \\\"Obsidian\\\", \\\"자동화\\\", \\\"AI\\\", \\\"워크플로우\\\", \\\"온톨로지\\\", \\\"Claude\\\", \\\"Agentic Engineering\\\", \\\"프롬프트 설계\\\", \\\"System Prompt\\\"]\\n\\t\\\"중요도\\\" TEXT, -- one of [\\\"⭐⭐⭐ 핵심\\\", \\\"⭐⭐ 중요\\\", \\\"⭐ 참고\\\", \\\"보관\\\"]\\n\\t\\\"다음 액션\\\" TEXT, -- \\\"__YES__\\\" = true, \\\"__NO__\\\" = false, NULL defaults to false\\n\\t\\\"대화 제목\\\" TEXT\\n)\\n</sqlite-table>\\n</data-source>\\n</data-sources>\\nHere are the Database's Views:\\nYou can use the \\\"view\\\" tool on the URL of any View to see its full configuration.\\n<views>\\n<view url=\\\"{{view://45d8fd26-13b7-47f0-ab6a-cb8163d82f77}}\\\">\\n{\\\"dataSourceUrl\\\":\\\"{{collection://d012343e-b2a2-461e-944b-6f166e91d8e9}}\\\",\\\"displayProperties\\\":[\\\"대화 제목\\\",\\\"관련 프로젝트\\\",\\\"날짜\\\",\\\"다음 액션\\\",\\\"상태\\\",\\\"요약\\\",\\\"주제\\\",\\\"중요도\\\",\\\"키워드\\\",\\\"태그\\\"],\\\"name\\\":\\\"Default view\\\",\\\"type\\\":\\\"table\\\"}\\n</view>\\n</views>\\n</database>\"}",
+              "uuid": "8aef3574-6c83-42f6-8f4f-74c85a4abe19"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"metadata\": {\n    \"type\": \"database\"\n  },\n  \"title\": \"\\ud83d\\udcac Claude \\ub300\\ud654 \\uc544\\uce74\\uc774\\ube0c\",\n  \"url\": \"https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15\",\n  \"text\": \"<database url=\\\"{{https://www.notion.so/5f2ff32ac1b84981988bf5e0da6eeb15}}\\\" inline=\\\"false\\\">\\nThe title of this Database is: \\ud83d\\udcac Claude \\ub300\\ud654 \\uc544\\uce74\\uc774\\ube0c\\n<ancestor-path>\\n<parent-page url=\\\"https://www.notion.so/2496b7b50b23802da04fdafb113c4d4c\\\" title=\\\"\\uc138\\ucee8\\ube0c\\ub808\\uc778 \\uc704\\ud0a4\\\"/>\\n<ancestor-2-data-source url=\\\"collection://1cc6b7b5-0b23-803e-87c2-000b76f9c172\\\" name=\\\"My Cal\\\"/>\\n<ancestor-3-database url=\\\"https://www.notion.so/1cc6b7b50b238019a8aedf1648664acc\\\" title=\\\"\\\"/>\\n<ancestor-4-page url=\\\"https://www.notion.so/1cc6b7b50b2380c59fc6ca6f2f77ba0c\\\" title=\\\"\\ube60\\ub978\\uba54\\ubaa8\\\"/>\\n</ancestor-path>\\nHere are the Database's Data Sources:\\nYou can use the \\\"view\\\" tool on the URL of any Data Source to see its full schema configuration.\\n<data-sources>\\n<data-source url=\\\"{{collection://d012343e-b2a2-461e-944b-6f166e91d8e9}}\\\">\\nThe title of this Data Source is: \\ud83d\\udcac Claude \\ub300\\ud654 \\uc544\\uce74\\uc774\\ube0c\\n\\nHere is the database's configurable state:\\n<data-source-state>\\n{\\\"name\\\":\\\"\\ud83d\\udcac Claude \\ub300\\ud654 \\uc544\\uce74\\uc774\\ube0c\\\",\\\"schema\\\":{\\\"\\uad00\\ub828 \\ud504\\ub85c\\uc81d\\ud2b8\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uad00\\ub828 \\ud504\\ub85c\\uc81d\\ud2b8\\\",\\\"type\\\":\\\"text\\\"},\\\"\\ub0a0\\uc9dc\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ub0a0\\uc9dc\\\",\\\"type\\\":\\\"date\\\"},\\\"\\ub2e4\\uc74c \\uc561\\uc158\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ub2e4\\uc74c \\uc561\\uc158\\\",\\\"type\\\":\\\"checkbox\\\"},\\\"\\ub300\\ud654 \\uc81c\\ubaa9\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ub300\\ud654 \\uc81c\\ubaa9\\\",\\\"type\\\":\\\"title\\\"},\\\"\\uc0c1\\ud0dc\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc0c1\\ud0dc\\\",\\\"options\\\":[{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud83d\\udca1 \\uc544\\uc774\\ub514\\uc5b4\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/MzA1ZGNjYjQtNDg3Zi00YzZkLWJlZmItNmI5OGE1ZGI3YTA0\\\"},{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud83d\\udd04 \\uc9c4\\ud589\\uc911\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/YzkyYjk2YmMtZDcyMy00NDIzLWFkMTUtNzFmZDczNzIyNDRk\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\u2705 \\uc644\\ub8cc\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/OTZiMGY5NmUtNGUzOC00ZDNkLTg0OTUtMzMwZTE3YmU2ODFj\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud83d\\udce6 \\ubcf4\\uad00\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eUlgbA/NGI4NjA3NjQtMjYwNy00NmY4LTgzOTYtZDg4YmNiNDZhZmEx\\\"}],\\\"type\\\":\\\"select\\\"},\\\"\\uc694\\uc57d\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc694\\uc57d\\\",\\\"type\\\":\\\"text\\\"},\\\"\\uc8fc\\uc81c\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc8fc\\uc81c\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc9c0\\uc2dd\\uad00\\ub9ac\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTcyNjE0MDAtYTczOS00MzExLWFjYWEtOGMyMmM0NGUxYzdh\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uac1c\\ubc1c/\\ucf54\\ub529\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTE4N2VjOTktNGUyMi00N2MwLThiNmQtODg3NzY4MGY3NzMw\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc0dd\\uc0b0\\uc131\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjBlNDU2ZjQtZjIyYS00ODllLWI5NDgtMzhmNGMyMmZlM2Rj\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ubd84\\uc11d/\\ub9ac\\uc11c\\uce58\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/ZjZiYzcwYWUtYWZkMC00N2YwLWEzYTAtMWU1ZWIwNWRhYzYy\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ucc3d\\uc791/\\uae00\\uc4f0\\uae30\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWIxZGI5ZGQtYzgyZC00Njg2LWJhOTEtN2Q3YThiMDgyYmFj\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc544\\uc774\\ub514\\uc5b4\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OWJkMTFlN2YtNDBhMy00Y2Y2LWE1ODQtYmZhZDdlZTQ2ZjM5\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud559\\uc2b5\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/MWRlNzUwZTEtMTA0Yy00NWMzLTlkYTEtYzQwYTEwMjcwMzhm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uae30\\ud0c0\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/TUpHWg/OTkwMTg3ZjQtYTdkMi00NTNmLWI1YTktMjU4MjYxOTRlNDE5\\\"}],\\\"type\\\":\\\"select\\\"},\\\"\\uc911\\uc694\\ub3c4\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc911\\uc694\\ub3c4\\\",\\\"options\\\":[{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\u2b50\\u2b50\\u2b50 \\ud575\\uc2ec\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/OWMzZTFlMGMtYjJhOS00MGFmLTkzMDAtNDg0YWNjYmRmZWMz\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\u2b50\\u2b50 \\uc911\\uc694\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/MDJlNjYxMWQtODljNC00ZDFjLWEyMGUtZDg3ODQ2Y2I5MDk1\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\u2b50 \\ucc38\\uace0\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YmJlOTM0NGEtMGJlYy00ODJlLTliNzktM2I5ZTEyYzBiNjlm\\\"},{\\\"color\\\":\\\"gray\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ubcf4\\uad00\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/fWh5Sw/YWZjNTQzZTUtNjg4MC00ZGY2LWJlODgtN2ZhOGQyMGYyZDY2\\\"}],\\\"type\\\":\\\"select\\\"},\\\"\\ud0a4\\uc6cc\\ub4dc\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud0a4\\uc6cc\\ub4dc\\\",\\\"type\\\":\\\"text\\\"},\\\"\\ud0dc\\uadf8\\\":{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud0dc\\uadf8\\\",\\\"options\\\":[{\\\"color\\\":\\\"blue\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc138\\ucee8\\ube0c\\ub808\\uc778\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZWNmODNkODctNGQxNC00NTQ5LTk4ZDQtOWFjMDk4M2ZjYjMw\\\"},{\\\"color\\\":\\\"red\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Notion\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YTdjODAzMzctMGZkZi00YzhkLWE4OTMtMWZmMjBkZTFhYTM4\\\"},{\\\"color\\\":\\\"purple\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Obsidian\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YzFiMjQwY2YtZTg5NC00YTZmLWExMjktN2QzOTdhNTBiMjg2\\\"},{\\\"color\\\":\\\"green\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc790\\ub3d9\\ud654\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/OWJiZTFjNWQtY2QwMS00NTIyLWIzMGEtMGVlMzE2MDA4MGMz\\\"},{\\\"color\\\":\\\"pink\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"AI\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/ZDBiYTVkZjAtY2E0Yi00NzZhLTk0YTctNjIzYTgyZjIyODI1\\\"},{\\\"color\\\":\\\"orange\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc6cc\\ud06c\\ud50c\\ub85c\\uc6b0\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTNhYjdiOWYtYjgwYy00YmNjLTllMDctYzZmYzFjZTFhMGZh\\\"},{\\\"color\\\":\\\"yellow\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\uc628\\ud1a8\\ub85c\\uc9c0\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/MTEzYjEzNDgtZTkxYi00NDJiLWI3MDYtZmY5Mjk1NGY5OGQ4\\\"},{\\\"color\\\":\\\"default\\\",\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Claude\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/NDYyOTljM2ItMDk5ZC00Y2Q0LWE2NzMtNDFlMDM3ZjE4MGM0\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"Agentic Engineering\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YmYxNjQ5NzMtNWM1OS00ZmRmLTk2YTItOWY3M2QzMzhiNjNm\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"\\ud504\\ub86c\\ud504\\ud2b8 \\uc124\\uacc4\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YTk5ZTZiYzItM2E0Yy00Njc1LTgwYjgtN2NmYzI1YmRiYjAz\\\"},{\\\"description\\\":\\\"\\\",\\\"name\\\":\\\"System Prompt\\\",\\\"url\\\":\\\"collectionPropertyOption://d012343e-b2a2-461e-944b-6f166e91d8e9/eXBNbQ/YmEyYTg4YjYtZGRlZi00MTgyLTkwM2YtMGZjODFlZGUwM2U0\\\"}],\\\"type\\\":\\\"multi_select\\\"}},\\\"url\\\":\\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\"}\\n</data-source-state>\\n\\nHere is the SQLite table definition for this data source.\\n<sqlite-table>\\nCREATE TABLE IF NOT EXISTS \\\"collection://d012343e-b2a2-461e-944b-6f166e91d8e9\\\" (\\n\\turl TEXT UNIQUE,\\n\\tcreatedTime TEXT, -- ISO-8601 datetime string, automatically set. This is the canonical time for when the page was created.\\n\\t\\\"\\ud0a4\\uc6cc\\ub4dc\\\" TEXT,\\n\\t\\\"\\uc694\\uc57d\\\" TEXT,\\n\\t\\\"\\uc8fc\\uc81c\\\" TEXT, -- one of [\\\"\\uc9c0\\uc2dd\\uad00\\ub9ac\\\", \\\"\\uac1c\\ubc1c/\\ucf54\\ub529\\\", \\\"\\uc0dd\\uc0b0\\uc131\\\", \\\"\\ubd84\\uc11d/\\ub9ac\\uc11c\\uce58\\\", \\\"\\ucc3d\\uc791/\\uae00\\uc4f0\\uae30\\\", \\\"\\uc544\\uc774\\ub514\\uc5b4\\\", \\\"\\ud559\\uc2b5\\\", \\\"\\uae30\\ud0c0\\\"]\\n\\t\\\"\\uad00\\ub828 \\ud504\\ub85c\\uc81d\\ud2b8\\\" TEXT,\\n\\t\\\"date:\\ub0a0\\uc9dc:start\\\" TEXT, -- ISO-8601 date or datetime string. Use the expanded property (date:<column_name>:start) to set this value.\\n\\t\\\"date:\\ub0a0\\uc9dc:end\\\" TEXT, -- ISO-8601 date or datetime string, can be empty. Must be NULL if the date is a single date, and must be present if the date is a range. Use the expanded property (date:<column_name>:end) to set this value.\\n\\t\\\"date:\\ub0a0\\uc9dc:is_datetime\\\" INTEGER, -- 1 if the date is a datetime, 0 if it is a date, NULL defaults to 0. Use the expanded property (date:<column_name>:is_datetime) to set this value.\\n\\t\\\"\\uc0c1\\ud0dc\\\" TEXT, -- one of [\\\"\\ud83d\\udca1 \\uc544\\uc774\\ub514\\uc5b4\\\", \\\"\\ud83d\\udd04 \\uc9c4\\ud589\\uc911\\\", \\\"\\u2705 \\uc644\\ub8cc\\\", \\\"\\ud83d\\udce6 \\ubcf4\\uad00\\\"]\\n\\t\\\"\\ud0dc\\uadf8\\\" TEXT, -- JSON array with zero or more of [\\\"\\uc138\\ucee8\\ube0c\\ub808\\uc778\\\", \\\"Notion\\\", \\\"Obsidian\\\", \\\"\\uc790\\ub3d9\\ud654\\\", \\\"AI\\\", \\\"\\uc6cc\\ud06c\\ud50c\\ub85c\\uc6b0\\\", \\\"\\uc628\\ud1a8\\ub85c\\uc9c0\\\", \\\"Claude\\\", \\\"Agentic Engineering\\\", \\\"\\ud504\\ub86c\\ud504\\ud2b8 \\uc124\\uacc4\\\", \\\"System Prompt\\\"]\\n\\t\\\"\\uc911\\uc694\\ub3c4\\\" TEXT, -- one of [\\\"\\u2b50\\u2b50\\u2b50 \\ud575\\uc2ec\\\", \\\"\\u2b50\\u2b50 \\uc911\\uc694\\\", \\\"\\u2b50 \\ucc38\\uace0\\\", \\\"\\ubcf4\\uad00\\\"]\\n\\t\\\"\\ub2e4\\uc74c \\uc561\\uc158\\\" TEXT, -- \\\"__YES__\\\" = true, \\\"__NO__\\\" = false, NULL defaults to false\\n\\t\\\"\\ub300\\ud654 \\uc81c\\ubaa9\\\" TEXT\\n)\\n</sqlite-table>\\n</data-source>\\n</data-sources>\\nHere are the Database's Views:\\nYou can use the \\\"view\\\" tool on the URL of any View to see its full configuration.\\n<views>\\n<view url=\\\"{{view://45d8fd26-13b7-47f0-ab6a-cb8163d82f77}}\\\">\\n{\\\"dataSourceUrl\\\":\\\"{{collection://d012343e-b2a2-461e-944b-6f166e91d8e9}}\\\",\\\"displayProperties\\\":[\\\"\\ub300\\ud654 \\uc81c\\ubaa9\\\",\\\"\\uad00\\ub828 \\ud504\\ub85c\\uc81d\\ud2b8\\\",\\\"\\ub0a0\\uc9dc\\\",\\\"\\ub2e4\\uc74c \\uc561\\uc158\\\",\\\"\\uc0c1\\ud0dc\\\",\\\"\\uc694\\uc57d\\\",\\\"\\uc8fc\\uc81c\\\",\\\"\\uc911\\uc694\\ub3c4\\\",\\\"\\ud0a4\\uc6cc\\ub4dc\\\",\\\"\\ud0dc\\uadf8\\\"],\\\"name\\\":\\\"Default view\\\",\\\"type\\\":\\\"table\\\"}\\n</view>\\n</views>\\n</database>\"\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-02-27T23:08:40.368488Z",
+          "stop_timestamp": "2026-02-27T23:09:27.475452Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_018hv53dKVJcmqwLx6XZbXoB",
+          "name": "Notion:notion-create-pages",
+          "input": {
+            "parent": {
+              "data_source_id": "d012343e-b2a2-461e-944b-6f166e91d8e9"
+            },
+            "pages": [
+              {
+                "properties": {
+                  "대화 제목": "Claude Code 폴더 관리 가이드",
+                  "주제": "개발/코딩",
+                  "태그": "[\"Claude\", \"AI\", \"자동화\", \"워크플로우\", \"Agentic Engineering\", \"프롬프트 설계\"]",
+                  "중요도": "⭐⭐⭐ 핵심",
+                  "상태": "✅ 완료",
+                  "키워드": "Claude Code, Rules, Skills, Agents, CLAUDE.md, SOP, HR자동화, 폴더구조",
+                  "요약": "Claude Code의 4계층 폴더 구조(Rules/Skills/Agents/CLAUDE.md)를 HR 자동화 맥락에 적용하는 가이드. 전체 폴더 구조도 및 각 레이어 상세 설명 포함.",
+                  "관련 프로젝트": "HR 자동화 SaaS",
+                  "date:날짜:start": "2026-02-28",
+                  "date:날짜:is_datetime": 0
+                },
+                "content": "# Claude Code 폴더 관리 가이드 (HR 자동화 맥락)\n\n## 핵심 철학\n\n폴더 구조는 단순한 정리 습관이 아니다. **\"누가, 어떤 맥락에서, 무엇을 알아야 하는가\"**를 구조화한 것이다. SW 엔지니어링의 관심사 분리(Separation of Concerns) 원칙을 AI 워크플로우에 적용한 것.\n\n---\n\n## 4계층 구조 개념\n\n| 레이어 | 비유 | 역할 |\n|--------|------|------|\n| Rules | 헌법 | 전역 원칙, 절대 불변 |\n| Skills | SOP 라이브러리 | 반복 업무 절차 정의 |\n| Agents | 전문가 페르소나 | 역할별 AI 정의 |\n| CLAUDE.md | 프로젝트 여권 | 프로젝트 전용 컨텍스트 |\n\n> Claude는 작업 시작 시 Rules → Skills → Agents → CLAUDE.md 순서로 맥락을 누적하여 읽는다.\n\n---\n\n## 전체 폴더 구조도\n\n```\nhr-workspace/                                    ← 최상위 워크스페이스\n│\n├── .claude/                                     ← AI 전역 설정 (모든 프로젝트 공통)\n│   │\n│   ├── rules/                                   ← 헌법 (절대 규칙, 예외 없음)\n│   │   ├── privacy.md                           # 개인정보 처리 원칙\n│   │   ├── conventions.md                       # LG PRI 용어/직급 체계\n│   │   └── output-format.md                     # 출력 언어/형식 전역 규칙\n│   │\n│   ├── skills/                                  ← SOP 라이브러리 (반복 업무 절차)\n│   │   ├── leadership-eval.md                   # 리더십 평가 전체 워크플로우\n│   │   ├── curriculum-design.md                 # 교육과정 설계 워크플로우\n│   │   ├── feedback-generation.md               # 피드백 리포트 생성 워크플로우\n│   │   ├── competency-mapping.md                # 역량 매핑 워크플로우\n│   │   └── reference/                           ← 통합 전 구버전 보관소\n│   │       ├── feedback-writing-v1.md\n│   │       ├── feedback-review-v1.md\n│   │       └── feedback-edit-v1.md\n│   │\n│   └── agents/                                  ← 전문가 페르소나 (역할 정의)\n│       ├── competency-analyst.md                # 역량 분석 전문가\n│       ├── content-designer.md                  # 교육 콘텐츠 설계자\n│       ├── data-interpreter.md                  # 평가 데이터 해석 전문가\n│       └── report-writer.md                     # 리포트 작성 전문가\n│\n├── leadership-program/                          ← 프로젝트 1: 25년 리더십, 생각하다\n│   ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n│   ├── data/\n│   │   ├── raw/                                 # 원점수 CSV (입력)\n│   │   ├── processed/                           # 정제된 데이터\n│   │   ├── competency-model-2025.xlsx           # 역량 모델 기준표\n│   │   └── grade-standard.pdf                   # 직급별 기대 수준 기준표\n│   ├── templates/\n│   │   ├── feedback-report.md                   # 피드백 리포트 양식\n│   │   └── action-plan.xlsx                     # 개발과제 액션플랜 양식\n│   ├── reports/                                 # 생성된 피드백 리포트 출력\n│   └── scripts/\n│       ├── preprocess.py                        # 데이터 정제 스크립트\n│       └── report-generator.py                  # 리포트 자동 생성\n│\n├── domain-ax/                                   ← 프로젝트 2: Domain AX 인증 시스템\n│   ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n│   ├── data/\n│   │   ├── skill-ontology/                      # ESCO 기반 스킬 온톨로지\n│   │   └── certification-criteria.xlsx          # 인증 기준표\n│   ├── templates/\n│   │   └── certification-report.md              # 인증 결과 리포트 양식\n│   ├── reports/\n│   └── scripts/\n│       ├── esco-api.py                          # ESCO API 연동\n│       └── cert-evaluator.py                    # 인증 평가 자동화\n│\n└── manufacturing-academy/                       ← 프로젝트 3: 제조 AX 아카데미\n    ├── CLAUDE.md                                # 이 프로젝트 전용 컨텍스트\n    ├── data/\n    │   ├── learner-data/                        # 학습자 데이터\n    │   └── curriculum-map.xlsx                  # 교육과정 맵\n    ├── templates/\n    │   ├── curriculum-template.md               # 교육과정 설계 양식\n    │   └── satisfaction-survey.md               # 만족도 조사 양식\n    ├── reports/\n    │   ├── satisfaction-analysis/               # 만족도 분석 결과\n    │   └── completion-reports/                  # 이수 현황 리포트\n    └── scripts/\n        ├── survey-analyzer.py                   # 만족도 분석 자동화\n        └── dashboard-generator.py               # 현황 대시보드 생성\n```\n\n---\n\n## 4계층 상세 설명\n\n### 1. Rules — 헌법\n모든 프로젝트에 예외 없이 적용. 보안/개인정보 원칙, 출력 언어 규칙, 조직 고유 용어 정의.\n\n**예시 (privacy.md)**\n- 직원 이름은 절대 출력하지 않는다. 사번 또는 익명 코드만 사용.\n- 평가 원점수는 로그에 남기지 않는다.\n- 결과물에 소속 부서명이 포함될 경우 반드시 사용자 확인 후 출력.\n\n### 2. Skills — SOP 라이브러리\n반복되는 업무의 전체 워크플로우 정의. Input → Steps → Output 구조.\n\n**Skill 폭발 방지 원칙**: 행위 단위(작성/수정/검토)가 아니라 **목적 단위**(리더십 피드백)로 통합. 구버전은 `/reference` 보관.\n\n### 3. Agents — 전문가 페르소나\nSkill이 \"무엇을 할 것인가\"라면, Agent는 \"누가, 어떤 전문성으로 할 것인가\".\n역할 정의, 전문 영역, 판단 기준, 출력 스타일을 명세.\n\n### 4. CLAUDE.md — 프로젝트 여권\nRules가 헌법이라면 CLAUDE.md는 프로젝트별 시행세칙.\n폴더 구조, 사용 라이브러리, 프로젝트 고유 용어, 참조 파일 위치 포함.\n\n---\n\n## 실전 시작 순서\n\n1. 가장 반복적인 HR 업무 하나 선택\n2. 그 업무를 단계별 텍스트로 작성 → 첫 번째 Skill.md 초안\n3. 절차 안에서 \"다른 전문성이 필요한 구간\" 발견 → Agent 분리 지점\n4. 그 다음에야 Rules와 CLAUDE.md 작성\n\n> 내용이 구조를 결정한다. 구조가 내용을 기다리는 게 아니다.\n\n---\n\n## 핵심 개념 정리\n\n- **SOP** = Standard Operating Procedure. \"이 일을 할 때 항상 이 순서로 한다\"는 업무 매뉴얼.\n- **Skill vs Agent**: Skill은 레시피(절차), Agent는 요리사(역할)\n- **맥락 누적 순서**: Rules → Skills → Agents → CLAUDE.md → 작업 시작"
+              }
+            ]
+          },
+          "message": "Notion-create-pages",
+          "integration_name": "Notion",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": "5be0245d-871e-43e9-a534-8315b9516e7f:notion-create-pages-91522884548e8fa701ba7bb66617a8fc",
+          "is_mcp_app": false,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_018hv53dKVJcmqwLx6XZbXoB",
+          "name": "Notion:notion-create-pages",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"pages\":[{\"id\":\"3146b7b5-0b23-81dd-8183-f3b10ed9635a\",\"url\":\"https://www.notion.so/3146b7b50b2381dd8183f3b10ed9635a\",\"properties\":{\"대화 제목\":\"Claude Code 폴더 관리 가이드\",\"주제\":\"개발/코딩\",\"태그\":\"[\\\"Claude\\\", \\\"AI\\\", \\\"자동화\\\", \\\"워크플로우\\\", \\\"Agentic Engineering\\\", \\\"프롬프트 설계\\\"]\",\"중요도\":\"⭐⭐⭐ 핵심\",\"상태\":\"✅ 완료\",\"키워드\":\"Claude Code, Rules, Skills, Agents, CLAUDE.md, SOP, HR자동화, 폴더구조\",\"요약\":\"Claude Code의 4계층 폴더 구조(Rules/Skills/Agents/CLAUDE.md)를 HR 자동화 맥락에 적용하는 가이드. 전체 폴더 구조도 및 각 레이어 상세 설명 포함.\",\"관련 프로젝트\":\"HR 자동화 SaaS\",\"date:날짜:start\":\"2026-02-28\",\"date:날짜:is_datetime\":0}}]}",
+              "uuid": "bbbfefad-a1c9-4725-ae1a-25e05f588f7d"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": null,
+          "integration_name": "Notion",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": {
+            "type": "json_block",
+            "json_block": "{\n  \"pages\": [\n    {\n      \"id\": \"3146b7b5-0b23-81dd-8183-f3b10ed9635a\",\n      \"url\": \"https://www.notion.so/3146b7b50b2381dd8183f3b10ed9635a\",\n      \"properties\": {\n        \"\\ub300\\ud654 \\uc81c\\ubaa9\": \"Claude Code \\ud3f4\\ub354 \\uad00\\ub9ac \\uac00\\uc774\\ub4dc\",\n        \"\\uc8fc\\uc81c\": \"\\uac1c\\ubc1c/\\ucf54\\ub529\",\n        \"\\ud0dc\\uadf8\": \"[\\\"Claude\\\", \\\"AI\\\", \\\"\\uc790\\ub3d9\\ud654\\\", \\\"\\uc6cc\\ud06c\\ud50c\\ub85c\\uc6b0\\\", \\\"Agentic Engineering\\\", \\\"\\ud504\\ub86c\\ud504\\ud2b8 \\uc124\\uacc4\\\"]\",\n        \"\\uc911\\uc694\\ub3c4\": \"\\u2b50\\u2b50\\u2b50 \\ud575\\uc2ec\",\n        \"\\uc0c1\\ud0dc\": \"\\u2705 \\uc644\\ub8cc\",\n        \"\\ud0a4\\uc6cc\\ub4dc\": \"Claude Code, Rules, Skills, Agents, CLAUDE.md, SOP, HR\\uc790\\ub3d9\\ud654, \\ud3f4\\ub354\\uad6c\\uc870\",\n        \"\\uc694\\uc57d\": \"Claude Code\\uc758 4\\uacc4\\uce35 \\ud3f4\\ub354 \\uad6c\\uc870(Rules/Skills/Agents/CLAUDE.md)\\ub97c HR \\uc790\\ub3d9\\ud654 \\ub9e5\\ub77d\\uc5d0 \\uc801\\uc6a9\\ud558\\ub294 \\uac00\\uc774\\ub4dc. \\uc804\\uccb4 \\ud3f4\\ub354 \\uad6c\\uc870\\ub3c4 \\ubc0f \\uac01 \\ub808\\uc774\\uc5b4 \\uc0c1\\uc138 \\uc124\\uba85 \\ud3ec\\ud568.\",\n        \"\\uad00\\ub828 \\ud504\\ub85c\\uc81d\\ud2b8\": \"HR \\uc790\\ub3d9\\ud654 SaaS\",\n        \"date:\\ub0a0\\uc9dc:start\": \"2026-02-28\",\n        \"date:\\ub0a0\\uc9dc:is_datetime\": 0\n      }\n    }\n  ]\n}"
+          }
+        },
+        {
+          "start_timestamp": "2026-02-27T23:09:29.696029Z",
+          "stop_timestamp": "2026-02-27T23:09:33.116844Z",
+          "flags": null,
+          "type": "text",
+          "text": "✅ Notion 아카이빙 완료!\n\n**저장 링크**: https://www.notion.so/3146b7b50b2381dd8183f3b10ed9635a\n\n저장 메타데이터 요약입니다.\n\n- 제목: Claude Code 폴더 관리 가이드\n- 주제: 개발/코딩\n- 태그: Claude, AI, 자동화, 워크플로우, Agentic Engineering, 프롬프트 설계\n- 중요도: ⭐⭐⭐ 핵심\n- 관련 프로젝트: HR 자동화 SaaS\n- 날짜: 2026-02-28\n\n전체 폴더 구조도와 4계층 상세 설명 모두 본문에 포함되어 있으니, Claude Code 세팅할 때 바로 꺼내 쓸 수 있을 거예요.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-02-27T23:09:33.239220Z",
+      "updated_at": "2026-02-27T23:09:33.239220Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ca15a-fd67-7e9b-9e34-ebe493166bfe"
+    },
+    {
+      "uuid": "019ca1b4-526b-7359-8d01-b45402ba8aa5",
+      "text": "이 작업 폴더 구조로 구현할 수 있도록 프롬프트 문서를 생성해줘:\n클로드 코드 환경에서 구현할거야",
+      "content": [
+        {
+          "start_timestamp": "2026-02-28T00:44:36.227659Z",
+          "stop_timestamp": "2026-02-28T00:44:36.227659Z",
+          "flags": null,
+          "type": "text",
+          "text": "이 작업 폴더 구조로 구현할 수 있도록 프롬프트 문서를 생성해줘:\n클로드 코드 환경에서 구현할거야",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-02-28T00:44:36.244637Z",
+      "updated_at": "2026-02-28T00:44:36.244637Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ca15a-fd67-7ed2-bc47-0cc2e3d9b472"
+    },
+    {
+      "uuid": "019ca1b4-526d-7b0d-974f-a3d9100ed86d",
+      "text": " 구현 목적의 프롬프트 문서를 생성하기 전에 몇 가지 확인할게요.\n```\nThis block is not supported on your current device yet.\n```\n\n선택이 안 된 것 같아서 기본값으로 진행할게요. macOS + 전체 동시 + 두 가지 모두 형태로 생성합니다.\n\n---\n\n총 6개의 문서를 만들게요.\n\n**구조:**\n```\n두 가지 모두 (CLAUDE.md 즉시 사용 + bash 실행 가이드)\n전체 워크스페이스 동시 구현\nmacOS 기준\n```\n\n---\n\n# 📁 문서 1: `SETUP_PROMPT.md` — Claude Code에 붙여넣는 초기 세팅 프롬프트\n\n````markdown\n# HR Workspace 초기 세팅 프롬프트\n> Claude Code 세션 시작 시 아래 내용을 첫 메시지로 붙여넣으세요.\n\n---\n\n## 🚀 Claude Code 시작 프롬프트 (복사해서 사용)\n\n```\n당신은 HR 자동화 전문 AI 에이전트입니다.\n아래 워크스페이스 구조를 기반으로 작업합니다.\n\n## 현재 프로젝트 구조\nhr-workspace/\n├── .claude/\n│   ├── rules/       # 전역 규칙 (항상 준수)\n│   ├── skills/      # 반복 업무 SOP\n│   └── agents/      # 전문가 페르소나\n├── leadership-program/   + CLAUDE.md\n├── domain-ax/            + CLAUDE.md\n└── manufacturing-academy/ + CLAUDE.md\n\n## 작업 원칙\n1. rules/ 폴더의 모든 규칙을 먼저 읽고 작업 시작\n2. 해당 프로젝트의 CLAUDE.md를 반드시 참조\n3. 반복 작업은 skills/ 폴더의 워크플로우를 따름\n4. 전문 영역 판단이 필요하면 agents/ 페르소나 적용\n\n## 시작 명령\n워크스페이스를 초기화하고 전체 폴더 구조를 생성해주세요.\n```\n````\n\n---\n\n# 📁 문서 2: `hr-workspace/.claude/rules/privacy.md`\n\n````markdown\n# 개인정보 처리 원칙 (Rules — 전역 적용, 예외 없음)\n\n## 🔒 절대 규칙\n- 직원 이름은 절대 출력하지 않는다. 사번(EMP_ID) 또는 익명 코드만 사용\n- 평가 원점수는 로그, 주석, 출력물에 남기지 않는다\n- 결과물에 소속 부서명이 포함될 경우 반드시 사용자 확인 후 출력\n- 개인 식별 가능 데이터(PII)는 processed/ 폴더에만 정제 후 저장\n\n## 📋 출력 규칙\n- 모든 리포트: 익명화 처리 후 출력\n- 데이터 파일: raw/ → processed/ 단방향 흐름 유지\n- 외부 API 전송 시: 개인정보 필드 마스킹 필수\n\n## ⚠️ 위반 시 처리\n작업 중 위 규칙 위반 가능성 감지 시 → 즉시 작업 중단 후 사용자에게 확인 요청\n````\n\n---\n\n# 📁 문서 3: `hr-workspace/.claude/rules/conventions.md`\n\n````markdown\n# LG PRI 조직 컨벤션 (전역 적용)\n\n## 직급 체계\n| 코드 | 명칭 | 영문 |\n|------|------|------|\n| L1 | 사원/주임 | Staff |\n| L2 | 대리 | Senior Staff |\n| L3 | 과장 | Assistant Manager |\n| L4 | 차장 | Manager |\n| L5 | 부장 | Senior Manager |\n| L6 | 수석/팀장 | Principal/Team Leader |\n\n## 용어 정의\n- **역량**: Competency (행동으로 관찰 가능한 능력)\n- **핵심인재**: 상위 20% 그룹 (High Performer)\n- **관찰과제**: 개발과제의 내부 명칭 (Development Item)\n- **AX**: AI Transformation (AI 전환)\n- **DX**: Digital Transformation (디지털 전환)\n\n## 출력 언어 규칙\n- 기본 출력 언어: 한국어\n- 코드 주석: 영어\n- 변수명/함수명: snake_case (영어)\n- 파일명: kebab-case (영어)\n\n## 날짜 형식\n- 문서: YYYY년 MM월 DD일\n- 파일명: YYYY-MM-DD\n- 데이터: ISO 8601 (YYYY-MM-DD)\n````\n\n---\n\n# 📁 문서 4: `hr-workspace/.claude/rules/output-format.md`\n\n````markdown\n# 출력 형식 전역 규칙\n\n## 리포트 출력 형식\n```\n# [리포트 제목]\n생성일: YYYY-MM-DD\n대상: [익명 코드]\n프로젝트: [프로젝트명]\n\n---\n## 요약\n## 역량별 분석\n## 강점 (Top 2)\n## 개발과제 (Bottom 2)\n## 액션플랜\n```\n\n## 코드 출력 규칙\n- Python 파일: 반드시 docstring 포함\n- 함수 단위: 입력/출력 타입 힌트 명시\n- 에러 처리: try/except 필수\n\n## 파일 저장 규칙\n- 생성 파일은 반드시 해당 프로젝트 폴더 내 저장\n- 임시 파일: /tmp 사용 후 작업 완료 시 삭제\n- 최종 산출물: reports/ 폴더에 날짜_내용.md 형식\n````\n\n---\n\n# 📁 문서 5: `hr-workspace/.claude/skills/leadership-eval.md`\n\n````markdown\n# Skill: 리더십 평가 피드백 생성\n> 반복 사용 SOP — 이 파일을 참조하여 전체 워크플로우를 실행\n\n## 📥 Input\n- 평가 원점수 데이터: `data/raw/*.csv`\n- 역량 모델 기준표: `data/competency-model-2025.xlsx`\n- 직급 기준표: `data/grade-standard.pdf`\n\n## 🔄 Steps\n\n### Step 1. 데이터 검증\n```\n- raw/ CSV 로드\n- 결측치, 이상치 확인\n- 익명화 처리 (이름 → EMP_ID)\n- processed/ 에 정제 데이터 저장\n```\n\n### Step 2. 역량별 분석\n```\n- 역량 모델 기준으로 점수 매핑\n- 직급별 백분위 변환\n- 상위 2개 강점 / 하위 2개 개발과제 추출\n```\n\n### Step 3. 피드백 문장 생성\n```\n- 행동 지표 기반 근거 문장 작성\n- 평가적 표현 → 발달적 표현으로 변환\n- 점수 수치 직접 노출 금지\n```\n\n### Step 4. 리포트 생성\n```\n- output-format.md 양식 적용\n- templates/feedback-report.md 기반 생성\n- reports/ 폴더에 저장: YYYY-MM-DD_feedback_EMP_ID.md\n```\n\n### Step 5. 액션플랜 생성\n```\n- 개발과제별 3개월 액션플랜 도출\n- templates/action-plan.xlsx 에 저장\n```\n\n## 📤 Output\n- `reports/YYYY-MM-DD_feedback_[EMP_ID].md`\n- `reports/YYYY-MM-DD_action-plan_[EMP_ID].xlsx`\n\n## ⚠️ 주의사항\n- privacy.md 규칙 항상 준수\n- 점수 기반 서열화 표현 금지\n- 모든 표현은 \"관찰 가능한 행동\" 기반으로 작성\n````\n\n---\n\n# 📁 문서 6: `hr-workspace/.claude/agents/competency-analyst.md`\n\n````markdown\n# Agent: 역량 분석 전문가\n\n## 🎭 페르소나\n산업심리학 기반의 역량 평가 전문가.\n17년 HR 경험을 보유한 시니어 컨설턴트 역할을 수행한다.\n행동 데이터를 역량 지표로 해석하고 개발 방향을 제시한다.\n\n## 🎯 전문 영역\n- 역량 모델링 (Competency Modeling)\n- 행동사건면접 (BEI) 분석\n- 360도 피드백 해석\n- 리더십 파이프라인 설계\n\n## ⚖️ 판단 기준\n- 행동 관찰 가능성을 최우선으로 판단\n- 추상적 형용사보다 구체적 동사로 표현\n- LG PRI 직급별 기대 수준 기준 적용\n- 강점 기반 관점 유지 (결함 지적 → 성장 가능성 제시)\n\n## 📝 출력 스타일\n- 간결하고 근거 중심\n- 평가적 표현 지양, 발달적 표현 사용\n- 예시: \"리더십이 부족함\" ❌ → \"팀 합의 도출 과정에서 다양한 관점 통합 기회 존재\" ✅\n\n## 🔗 협업 관계\n- leadership-eval Skill과 함께 작동\n- Step 2 (역량별 분석), Step 3 (피드백 문장 생성) 담당\n````\n\n---\n\n# 📁 문서 7: `bash 초기화 스크립트` — 터미널에서 한 번에 실행\n\n```bash\n#!/bin/bash\n# HR Workspace 전체 폴더 구조 자동 생성 스크립트\n# 사용법: chmod +x setup.sh && ./setup.sh\n\necho \"🚀 HR Workspace 초기화 시작...\"\n\n# 루트 생성\nmkdir -p hr-workspace\n\ncd hr-workspace\n\n# .claude 전역 설정\nmkdir -p .claude/rules\nmkdir -p .claude/skills/reference\nmkdir -p .claude/agents\n\n# 프로젝트 폴더 생성\nfor project in leadership-program domain-ax manufacturing-academy; do\n  mkdir -p $project/data/raw\n  mkdir -p $project/data/processed\n  mkdir -p $project/templates\n  mkdir -p $project/reports\n  mkdir -p $project/scripts\n  touch $project/CLAUDE.md\n  echo \"✅ $project 생성 완료\"\ndone\n\n# 빈 파일 생성\ntouch .claude/rules/privacy.md\ntouch .claude/rules/conventions.md\ntouch .claude/rules/output-format.md\ntouch .claude/skills/leadership-eval.md\ntouch .claude/skills/curriculum-design.md\ntouch .claude/skills/feedback-generation.md\ntouch .claude/skills/competency-mapping.md\ntouch .claude/agents/competency-analyst.md\ntouch .claude/agents/content-designer.md\ntouch .claude/agents/data-interpreter.md\ntouch .claude/agents/report-writer.md\n\necho \"\"\necho \"✅ HR Workspace 초기화 완료!\"\necho \"📁 구조 확인:\"\nfind . -type f -o -type d | sort\n```\n\n---\n\n## Claude Code에서 실제 사용 순서\n\n**1단계**: 터미널에서 bash 스크립트 실행 → 폴더 구조 생성\n\n**2단계**: Claude Code 열고 `hr-workspace/` 폴더를 루트로 지정\n\n**3단계**: 위 `SETUP_PROMPT.md`의 시작 프롬프트를 첫 메시지로 붙여넣기\n\n**4단계**: 각 `.md` 파일에 위 내용 복사 붙여넣기\n\n**5단계**: 작업 시작할 때 `leadership-eval Skill 기반으로 피드백 생성해줘` 식으로 호출\n\n---\n\n이 문서들을 Notion에도 저장할까요?",
+      "content": [
+        {
+          "start_timestamp": "2026-02-28T00:44:39.548107Z",
+          "stop_timestamp": "2026-02-28T00:44:40.164436Z",
+          "flags": null,
+          "type": "text",
+          "text": " 구현 목적의 프롬프트 문서를 생성하기 전에 몇 가지 확인할게요.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2026-02-28T00:44:40.767090Z",
+          "stop_timestamp": "2026-02-28T00:44:43.955452Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": "toolu_01WCxA7AJZpZhQmVPd87yyvv",
+          "name": "ask_user_input_v0",
+          "input": {
+            "questions": [
+              {
+                "question": "구현 환경 OS가 어떻게 되나요?",
+                "options": [
+                  "macOS",
+                  "Windows",
+                  "Linux"
+                ],
+                "type": "single_select"
+              },
+              {
+                "question": "첫 번째로 구현할 프로젝트는?",
+                "options": [
+                  "leadership-program",
+                  "domain-ax",
+                  "manufacturing-academy",
+                  "전체 동시"
+                ],
+                "type": "single_select"
+              },
+              {
+                "question": "프롬프트 문서 형식은?",
+                "options": [
+                  "CLAUDE.md 바로 사용 가능한 형태",
+                  "단계별 실행 가이드 (bash 명령어 포함)",
+                  "두 가지 모두"
+                ],
+                "type": "single_select"
+              }
+            ]
+          },
+          "message": "Generating ask_user_input_v0...",
+          "integration_name": "Dynamic Widget",
+          "integration_icon_url": null,
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": "toolu_01WCxA7AJZpZhQmVPd87yyvv",
+          "name": "ask_user_input_v0",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"questions\": [\n    {\n      \"question\": \"\\uad6c\\ud604 \\ud658\\uacbd OS\\uac00 \\uc5b4\\ub5bb\\uac8c \\ub418\\ub098\\uc694?\",\n      \"options\": [\n        \"macOS\",\n        \"Windows\",\n        \"Linux\"\n      ],\n      \"type\": \"single_select\"\n    },\n    {\n      \"question\": \"\\uccab \\ubc88\\uc9f8\\ub85c \\uad6c\\ud604\\ud560 \\ud504\\ub85c\\uc81d\\ud2b8\\ub294?\",\n      \"options\": [\n        \"leadership-program\",\n        \"domain-ax\",\n        \"manufacturing-academy\",\n        \"\\uc804\\uccb4 \\ub3d9\\uc2dc\"\n      ],\n      \"type\": \"single_select\"\n    },\n    {\n      \"question\": \"\\ud504\\ub86c\\ud504\\ud2b8 \\ubb38\\uc11c \\ud615\\uc2dd\\uc740?\",\n      \"options\": [\n        \"CLAUDE.md \\ubc14\\ub85c \\uc0ac\\uc6a9 \\uac00\\ub2a5\\ud55c \\ud615\\ud0dc\",\n        \"\\ub2e8\\uacc4\\ubcc4 \\uc2e4\\ud589 \\uac00\\uc774\\ub4dc (bash \\uba85\\ub839\\uc5b4 \\ud3ec\\ud568)\",\n        \"\\ub450 \\uac00\\uc9c0 \\ubaa8\\ub450\"\n      ],\n      \"type\": \"single_select\"\n    }\n  ]\n}",
+              "uuid": "e4ef15ed-ab65-4a89-9061-bcc16f188e48"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Generated ask_user_input_v0 widget",
+          "integration_name": "Dynamic Widget",
+          "mcp_server_url": null,
+          "integration_icon_url": null,
+          "icon_name": null,
+          "display_content": null
+        },
+        {
+          "start_timestamp": "2026-02-28T00:44:44.645966Z",
+          "stop_timestamp": "2026-02-28T00:45:45.530432Z",
+          "flags": null,
+          "type": "text",
+          "text": "선택이 안 된 것 같아서 기본값으로 진행할게요. macOS + 전체 동시 + 두 가지 모두 형태로 생성합니다.\n\n---\n\n총 6개의 문서를 만들게요.\n\n**구조:**\n```\n두 가지 모두 (CLAUDE.md 즉시 사용 + bash 실행 가이드)\n전체 워크스페이스 동시 구현\nmacOS 기준\n```\n\n---\n\n# 📁 문서 1: `SETUP_PROMPT.md` — Claude Code에 붙여넣는 초기 세팅 프롬프트\n\n````markdown\n# HR Workspace 초기 세팅 프롬프트\n> Claude Code 세션 시작 시 아래 내용을 첫 메시지로 붙여넣으세요.\n\n---\n\n## 🚀 Claude Code 시작 프롬프트 (복사해서 사용)\n\n```\n당신은 HR 자동화 전문 AI 에이전트입니다.\n아래 워크스페이스 구조를 기반으로 작업합니다.\n\n## 현재 프로젝트 구조\nhr-workspace/\n├── .claude/\n│   ├── rules/       # 전역 규칙 (항상 준수)\n│   ├── skills/      # 반복 업무 SOP\n│   └── agents/      # 전문가 페르소나\n├── leadership-program/   + CLAUDE.md\n├── domain-ax/            + CLAUDE.md\n└── manufacturing-academy/ + CLAUDE.md\n\n## 작업 원칙\n1. rules/ 폴더의 모든 규칙을 먼저 읽고 작업 시작\n2. 해당 프로젝트의 CLAUDE.md를 반드시 참조\n3. 반복 작업은 skills/ 폴더의 워크플로우를 따름\n4. 전문 영역 판단이 필요하면 agents/ 페르소나 적용\n\n## 시작 명령\n워크스페이스를 초기화하고 전체 폴더 구조를 생성해주세요.\n```\n````\n\n---\n\n# 📁 문서 2: `hr-workspace/.claude/rules/privacy.md`\n\n````markdown\n# 개인정보 처리 원칙 (Rules — 전역 적용, 예외 없음)\n\n## 🔒 절대 규칙\n- 직원 이름은 절대 출력하지 않는다. 사번(EMP_ID) 또는 익명 코드만 사용\n- 평가 원점수는 로그, 주석, 출력물에 남기지 않는다\n- 결과물에 소속 부서명이 포함될 경우 반드시 사용자 확인 후 출력\n- 개인 식별 가능 데이터(PII)는 processed/ 폴더에만 정제 후 저장\n\n## 📋 출력 규칙\n- 모든 리포트: 익명화 처리 후 출력\n- 데이터 파일: raw/ → processed/ 단방향 흐름 유지\n- 외부 API 전송 시: 개인정보 필드 마스킹 필수\n\n## ⚠️ 위반 시 처리\n작업 중 위 규칙 위반 가능성 감지 시 → 즉시 작업 중단 후 사용자에게 확인 요청\n````\n\n---\n\n# 📁 문서 3: `hr-workspace/.claude/rules/conventions.md`\n\n````markdown\n# LG PRI 조직 컨벤션 (전역 적용)\n\n## 직급 체계\n| 코드 | 명칭 | 영문 |\n|------|------|------|\n| L1 | 사원/주임 | Staff |\n| L2 | 대리 | Senior Staff |\n| L3 | 과장 | Assistant Manager |\n| L4 | 차장 | Manager |\n| L5 | 부장 | Senior Manager |\n| L6 | 수석/팀장 | Principal/Team Leader |\n\n## 용어 정의\n- **역량**: Competency (행동으로 관찰 가능한 능력)\n- **핵심인재**: 상위 20% 그룹 (High Performer)\n- **관찰과제**: 개발과제의 내부 명칭 (Development Item)\n- **AX**: AI Transformation (AI 전환)\n- **DX**: Digital Transformation (디지털 전환)\n\n## 출력 언어 규칙\n- 기본 출력 언어: 한국어\n- 코드 주석: 영어\n- 변수명/함수명: snake_case (영어)\n- 파일명: kebab-case (영어)\n\n## 날짜 형식\n- 문서: YYYY년 MM월 DD일\n- 파일명: YYYY-MM-DD\n- 데이터: ISO 8601 (YYYY-MM-DD)\n````\n\n---\n\n# 📁 문서 4: `hr-workspace/.claude/rules/output-format.md`\n\n````markdown\n# 출력 형식 전역 규칙\n\n## 리포트 출력 형식\n```\n# [리포트 제목]\n생성일: YYYY-MM-DD\n대상: [익명 코드]\n프로젝트: [프로젝트명]\n\n---\n## 요약\n## 역량별 분석\n## 강점 (Top 2)\n## 개발과제 (Bottom 2)\n## 액션플랜\n```\n\n## 코드 출력 규칙\n- Python 파일: 반드시 docstring 포함\n- 함수 단위: 입력/출력 타입 힌트 명시\n- 에러 처리: try/except 필수\n\n## 파일 저장 규칙\n- 생성 파일은 반드시 해당 프로젝트 폴더 내 저장\n- 임시 파일: /tmp 사용 후 작업 완료 시 삭제\n- 최종 산출물: reports/ 폴더에 날짜_내용.md 형식\n````\n\n---\n\n# 📁 문서 5: `hr-workspace/.claude/skills/leadership-eval.md`\n\n````markdown\n# Skill: 리더십 평가 피드백 생성\n> 반복 사용 SOP — 이 파일을 참조하여 전체 워크플로우를 실행\n\n## 📥 Input\n- 평가 원점수 데이터: `data/raw/*.csv`\n- 역량 모델 기준표: `data/competency-model-2025.xlsx`\n- 직급 기준표: `data/grade-standard.pdf`\n\n## 🔄 Steps\n\n### Step 1. 데이터 검증\n```\n- raw/ CSV 로드\n- 결측치, 이상치 확인\n- 익명화 처리 (이름 → EMP_ID)\n- processed/ 에 정제 데이터 저장\n```\n\n### Step 2. 역량별 분석\n```\n- 역량 모델 기준으로 점수 매핑\n- 직급별 백분위 변환\n- 상위 2개 강점 / 하위 2개 개발과제 추출\n```\n\n### Step 3. 피드백 문장 생성\n```\n- 행동 지표 기반 근거 문장 작성\n- 평가적 표현 → 발달적 표현으로 변환\n- 점수 수치 직접 노출 금지\n```\n\n### Step 4. 리포트 생성\n```\n- output-format.md 양식 적용\n- templates/feedback-report.md 기반 생성\n- reports/ 폴더에 저장: YYYY-MM-DD_feedback_EMP_ID.md\n```\n\n### Step 5. 액션플랜 생성\n```\n- 개발과제별 3개월 액션플랜 도출\n- templates/action-plan.xlsx 에 저장\n```\n\n## 📤 Output\n- `reports/YYYY-MM-DD_feedback_[EMP_ID].md`\n- `reports/YYYY-MM-DD_action-plan_[EMP_ID].xlsx`\n\n## ⚠️ 주의사항\n- privacy.md 규칙 항상 준수\n- 점수 기반 서열화 표현 금지\n- 모든 표현은 \"관찰 가능한 행동\" 기반으로 작성\n````\n\n---\n\n# 📁 문서 6: `hr-workspace/.claude/agents/competency-analyst.md`\n\n````markdown\n# Agent: 역량 분석 전문가\n\n## 🎭 페르소나\n산업심리학 기반의 역량 평가 전문가.\n17년 HR 경험을 보유한 시니어 컨설턴트 역할을 수행한다.\n행동 데이터를 역량 지표로 해석하고 개발 방향을 제시한다.\n\n## 🎯 전문 영역\n- 역량 모델링 (Competency Modeling)\n- 행동사건면접 (BEI) 분석\n- 360도 피드백 해석\n- 리더십 파이프라인 설계\n\n## ⚖️ 판단 기준\n- 행동 관찰 가능성을 최우선으로 판단\n- 추상적 형용사보다 구체적 동사로 표현\n- LG PRI 직급별 기대 수준 기준 적용\n- 강점 기반 관점 유지 (결함 지적 → 성장 가능성 제시)\n\n## 📝 출력 스타일\n- 간결하고 근거 중심\n- 평가적 표현 지양, 발달적 표현 사용\n- 예시: \"리더십이 부족함\" ❌ → \"팀 합의 도출 과정에서 다양한 관점 통합 기회 존재\" ✅\n\n## 🔗 협업 관계\n- leadership-eval Skill과 함께 작동\n- Step 2 (역량별 분석), Step 3 (피드백 문장 생성) 담당\n````\n\n---\n\n# 📁 문서 7: `bash 초기화 스크립트` — 터미널에서 한 번에 실행\n\n```bash\n#!/bin/bash\n# HR Workspace 전체 폴더 구조 자동 생성 스크립트\n# 사용법: chmod +x setup.sh && ./setup.sh\n\necho \"🚀 HR Workspace 초기화 시작...\"\n\n# 루트 생성\nmkdir -p hr-workspace\n\ncd hr-workspace\n\n# .claude 전역 설정\nmkdir -p .claude/rules\nmkdir -p .claude/skills/reference\nmkdir -p .claude/agents\n\n# 프로젝트 폴더 생성\nfor project in leadership-program domain-ax manufacturing-academy; do\n  mkdir -p $project/data/raw\n  mkdir -p $project/data/processed\n  mkdir -p $project/templates\n  mkdir -p $project/reports\n  mkdir -p $project/scripts\n  touch $project/CLAUDE.md\n  echo \"✅ $project 생성 완료\"\ndone\n\n# 빈 파일 생성\ntouch .claude/rules/privacy.md\ntouch .claude/rules/conventions.md\ntouch .claude/rules/output-format.md\ntouch .claude/skills/leadership-eval.md\ntouch .claude/skills/curriculum-design.md\ntouch .claude/skills/feedback-generation.md\ntouch .claude/skills/competency-mapping.md\ntouch .claude/agents/competency-analyst.md\ntouch .claude/agents/content-designer.md\ntouch .claude/agents/data-interpreter.md\ntouch .claude/agents/report-writer.md\n\necho \"\"\necho \"✅ HR Workspace 초기화 완료!\"\necho \"📁 구조 확인:\"\nfind . -type f -o -type d | sort\n```\n\n---\n\n## Claude Code에서 실제 사용 순서\n\n**1단계**: 터미널에서 bash 스크립트 실행 → 폴더 구조 생성\n\n**2단계**: Claude Code 열고 `hr-workspace/` 폴더를 루트로 지정\n\n**3단계**: 위 `SETUP_PROMPT.md`의 시작 프롬프트를 첫 메시지로 붙여넣기\n\n**4단계**: 각 `.md` 파일에 위 내용 복사 붙여넣기\n\n**5단계**: 작업 시작할 때 `leadership-eval Skill 기반으로 피드백 생성해줘` 식으로 호출\n\n---\n\n이 문서들을 Notion에도 저장할까요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-02-28T00:45:45.693085Z",
+      "updated_at": "2026-02-28T00:45:45.693085Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ca1b4-526b-7359-8d01-b45402ba8aa5"
+    },
+    {
+      "uuid": "019ca1b6-5b33-72b4-b86c-396f79571d12",
+      "text": "질문: 구현 환경 OS가 어떻게 되나요?\n답변: macOS\n\n질문: 첫 번째로 구현할 프로젝트는?\n답변: domain-ax\n\n질문: 프롬프트 문서 형식은?\n답변: CLAUDE.md 바로 사용 가능한 형태",
+      "content": [
+        {
+          "start_timestamp": "2026-02-28T00:46:49.629530Z",
+          "stop_timestamp": "2026-02-28T00:46:49.629530Z",
+          "flags": null,
+          "type": "text",
+          "text": "질문: 구현 환경 OS가 어떻게 되나요?\n답변: macOS\n\n질문: 첫 번째로 구현할 프로젝트는?\n답변: domain-ax\n\n질문: 프롬프트 문서 형식은?\n답변: CLAUDE.md 바로 사용 가능한 형태",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2026-02-28T00:46:49.645678Z",
+      "updated_at": "2026-02-28T00:46:49.645678Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ca1b4-526d-7b0d-974f-a3d9100ed86d"
+    },
+    {
+      "uuid": "019ca1b6-5b34-7e43-9a39-1dd687e6ef7e",
+      "text": " # Domain-AX 프로젝트 — CLAUDE.md 즉시 사용 문서 세트\n\nmacOS + Claude Code 환경에서 바로 붙여넣으면 작동하는 형태로 만들었습니다.\n\n---\n\n## 📁 파일 1: `hr-workspace/CLAUDE.md` (워크스페이스 루트)\n\n````markdown\n# HR Workspace — 전역 컨텍스트\n\n## 이 워크스페이스에 대해\nLG PRI HR 자동화 시스템. 리더십 평가, 역량 인증, 교육 운영을 AI 워크플로우로 자동화한다.\n\n## 폴더 구조 원칙\n- `.claude/rules/` → 모든 작업에 예외 없이 적용되는 전역 규칙\n- `.claude/skills/` → 반복 업무 SOP (작업 전 반드시 해당 Skill 파일 참조)\n- `.claude/agents/` → 전문가 페르소나 (역할 전환 시 해당 파일 참조)\n- 각 프로젝트 폴더의 `CLAUDE.md` → 해당 프로젝트 전용 컨텍스트\n\n## 작업 시작 시 필수 순서\n1. `.claude/rules/privacy.md` 읽기\n2. `.claude/rules/conventions.md` 읽기\n3. 해당 프로젝트의 `CLAUDE.md` 읽기\n4. 필요한 Skill 파일 참조 후 작업 시작\n\n## 전역 규칙 요약\n- 출력 언어: 한국어 (코드 주석은 영어)\n- 직원 이름 출력 금지 → 사번(EMP_ID) 또는 익명 코드만 사용\n- 평가 원점수 직접 노출 금지\n- 파일명: kebab-case, 변수명: snake_case\n````\n\n---\n\n## 📁 파일 2: `hr-workspace/.claude/rules/privacy.md`\n\n````markdown\n# 개인정보 처리 원칙\n\n## 절대 규칙 (예외 없음)\n- 직원 이름 → 사번(EMP_ID) 또는 익명 코드로만 출력\n- 평가 원점수 → 로그, 주석, 출력물 어디에도 직접 기재 금지\n- 소속 부서명이 결과물에 포함될 경우 → 사용자 확인 요청 후 출력\n- PII(개인식별정보)는 `data/raw/` → `data/processed/` 단방향 정제 후 사용\n\n## 위반 감지 시\n작업 즉시 중단 → 사용자에게 알림 → 확인 받은 후 재시작\n````\n\n---\n\n## 📁 파일 3: `hr-workspace/.claude/rules/conventions.md`\n\n````markdown\n# LG PRI 컨벤션\n\n## 직급 코드\n| 코드 | 명칭 | 영문 |\n|------|------|------|\n| L1 | 사원/주임 | Staff |\n| L2 | 대리 | Senior Staff |\n| L3 | 과장 | Assistant Manager |\n| L4 | 차장 | Manager |\n| L5 | 부장 | Senior Manager |\n| L6 | 수석/팀장 | Principal |\n\n## 핵심 용어\n- AX: AI Transformation\n- 핵심인재: 상위 20% (High Performer)\n- 디지털 스킬: ESCO 온톨로지 기준으로 정의\n- 인증 레벨: Foundation / Practitioner / Expert\n\n## 포맷 규칙\n- 날짜 (문서): YYYY년 MM월 DD일\n- 날짜 (파일명): YYYY-MM-DD\n- 파일명: kebab-case\n- 변수/함수명: snake_case (영어)\n````\n\n---\n\n## 📁 파일 4: `hr-workspace/.claude/skills/domain-ax-certification.md`\n\n````markdown\n# Skill: Domain AX 인증 평가 워크플로우\n\n## Input\n- 피평가자 스킬 자기진단 데이터: `data/raw/self-assessment-YYYY-MM-DD.csv`\n- ESCO 스킬 온톨로지: `data/skill-ontology/`\n- 인증 기준표: `data/certification-criteria.xlsx`\n\n## Steps\n\n### Step 1. 데이터 로드 및 정제\n- `data/raw/` CSV 로드\n- 개인정보 필드 제거 → EMP_ID만 유지\n- 결측치 처리 후 `data/processed/`에 저장\n\n### Step 2. ESCO 스킬 매핑\n- 자기진단 항목을 ESCO 스킬 URI로 매핑\n- `scripts/esco-api.py` 실행하여 스킬 관계 조회\n- 매핑 결과를 `data/processed/skill-mapping-YYYY-MM-DD.json`에 저장\n\n### Step 3. 인증 레벨 판정\n- 기준표 기반으로 Foundation / Practitioner / Expert 판정\n- 미충족 항목 → 개발 권고 스킬 목록 생성\n- `scripts/cert-evaluator.py` 실행\n\n### Step 4. 인증 결과 리포트 생성\n- `templates/certification-report.md` 양식 사용\n- 인증 레벨, 충족 스킬, 개발 권고 스킬 포함\n- 저장: `reports/YYYY-MM-DD_cert_[EMP_ID].md`\n\n## Output\n- `reports/YYYY-MM-DD_cert_[EMP_ID].md` — 개인 인증 리포트\n- `reports/YYYY-MM-DD_cert_summary.xlsx` — 전체 현황 요약\n\n## 주의사항\n- ESCO API 호출 실패 시 → 로컬 캐시 온톨로지 사용\n- 인증 레벨은 반드시 기준표 근거 명시\n- 점수 수치 직접 노출 금지, 레벨명(Foundation 등)만 출력\n````\n\n---\n\n## 📁 파일 5: `hr-workspace/.claude/agents/esco-specialist.md`\n\n````markdown\n# Agent: ESCO 스킬 온톨로지 전문가\n\n## 페르소나\n유럽 ESCO(European Skills, Competences, Qualifications and Occupations) 프레임워크 기반의\n디지털 스킬 분류 전문가. HR 데이터를 표준 스킬 체계로 변환하고 스킬 갭을 분석한다.\n\n## 전문 영역\n- ESCO API 연동 및 스킬 URI 매핑\n- 직무-스킬 관계 분석 (occupations ↔ skills)\n- AX/DX 전환 필수 스킬 식별\n- 스킬 갭 기반 학습 경로 설계\n\n## 판단 기준\n- 스킬 분류는 반드시 ESCO 공식 URI 기준으로 판단\n- 사내 용어 ↔ ESCO 표준 용어 매핑 테이블 우선 참조\n- 매핑 불가 스킬은 \"미분류\" 처리 후 사용자에게 보고\n\n## 출력 스타일\n- 스킬명은 ESCO 공식 명칭(영문) + 한국어 병기\n- 스킬 URI 항상 명시\n- 예: `Data analysis` (데이터 분석) — `http://data.europa.eu/esco/skill/xxx`\n\n## 협업 관계\n- domain-ax-certification Skill의 Step 2 (ESCO 매핑) 담당\n````\n\n---\n\n## 📁 파일 6: `hr-workspace/domain-ax/CLAUDE.md` ⭐ 핵심 파일\n\n````markdown\n# Domain AX 인증 시스템 — 프로젝트 컨텍스트\n\n## 프로젝트 개요\nLG PRI 구성원의 AI 전환(AX) 역량을 ESCO 스킬 온톨로지 기반으로 인증하는 시스템.\n인증 레벨: Foundation → Practitioner → Expert\n\n## 이 프로젝트에서 나는\nESCO API 기반 스킬 매핑 + 인증 평가 자동화를 구현한다.\n\n## 폴더 구조\n```\ndomain-ax/\n├── CLAUDE.md                    ← 지금 이 파일\n├── data/\n│   ├── raw/                     # 원본 자기진단 CSV (절대 수정 금지)\n│   ├── processed/               # 정제된 데이터 (EMP_ID 익명화 완료)\n│   ├── skill-ontology/          # ESCO 스킬 데이터 로컬 캐시\n│   │   ├── esco-skills.json     # 전체 스킬 목록\n│   │   └── skill-mapping.json  # 사내 용어 ↔ ESCO URI 매핑 테이블\n│   └── certification-criteria.xlsx  # 인증 기준표 (레벨별 충족 조건)\n├── templates/\n│   └── certification-report.md # 인증 결과 리포트 양식\n├── reports/                     # 생성된 인증 리포트 저장\n└── scripts/\n    ├── esco-api.py              # ESCO API 호출 및 스킬 매핑\n    └── cert-evaluator.py        # 인증 레벨 판정 로직\n```\n\n## 사용 스택\n- Python 3.11\n- requests (ESCO API 호출)\n- pandas (데이터 처리)\n- openpyxl (Excel 입출력)\n\n## ESCO API 정보\n- Base URL: `https://esco.ec.europa.eu/api`\n- 주요 엔드포인트:\n  - `/skill?uri={uri}` — 스킬 상세 조회\n  - `/search?text={keyword}&type=skill` — 키워드 스킬 검색\n- 인증 없이 사용 가능 (Public API)\n\n## 작업 시작 전 체크리스트\n- [ ] `.claude/rules/privacy.md` 확인\n- [ ] `.claude/rules/conventions.md` 확인\n- [ ] `.claude/skills/domain-ax-certification.md` Skill 파일 참조\n- [ ] `.claude/agents/esco-specialist.md` 페르소나 적용\n- [ ] `data/skill-ontology/skill-mapping.json` 존재 여부 확인\n\n## 인증 기준 (간략)\n| 레벨 | 조건 |\n|------|------|\n| Foundation | 필수 스킬 60% 이상 충족 |\n| Practitioner | 필수 스킬 80% + 심화 스킬 50% 충족 |\n| Expert | 필수 스킬 100% + 심화 스킬 80% + 프로젝트 포트폴리오 |\n\n## 자주 쓰는 작업 명령어\n```\n# 인증 평가 전체 실행\n\"domain-ax-certification Skill을 실행해줘. 입력 파일: data/raw/assessment-2026-02.csv\"\n\n# 특정 스킬 ESCO 매핑\n\"esco-specialist Agent로 '머신러닝 모델 설계' 스킬을 ESCO URI로 매핑해줘\"\n\n# 인증 결과 리포트 생성\n\"EMP_ID 기준으로 인증 리포트를 reports/ 폴더에 생성해줘\"\n```\n\n## 주의사항\n- ESCO API 응답 없을 시 → `data/skill-ontology/esco-skills.json` 로컬 캐시 사용\n- 인증 결과는 반드시 기준표 근거 명시\n- 개인별 상세 점수는 processed/ 에만 보관, 리포트에는 레벨만 출력\n````\n\n---\n\n## macOS Claude Code 실행 순서\n\n터미널에서 폴더 구조 먼저 생성:\n\n```bash\n# 1. 폴더 생성\nmkdir -p hr-workspace/.claude/{rules,skills/reference,agents}\nmkdir -p hr-workspace/domain-ax/{data/{raw,processed,skill-ontology},templates,reports,scripts}\n\n# 2. CLAUDE.md 파일들 생성\ntouch hr-workspace/CLAUDE.md\ntouch hr-workspace/domain-ax/CLAUDE.md\ntouch hr-workspace/.claude/rules/{privacy,conventions,output-format}.md\ntouch hr-workspace/.claude/skills/domain-ax-certification.md\ntouch hr-workspace/.claude/agents/esco-specialist.md\n\n# 3. Claude Code 실행\ncd hr-workspace\nclaude  # Claude Code 실행 명령어\n```\n\nClaude Code 실행 후 첫 메시지:\n\n```\nCLAUDE.md와 domain-ax/CLAUDE.md를 읽고,\ndomain-ax-certification Skill 기반으로 작업을 시작할 준비를 해줘.\n현재 scripts/esco-api.py 파일이 없으니 먼저 이것부터 만들어줘.\n```\n\n---\n\nNotion에 저장할까요?",
+      "content": [
+        {
+          "start_timestamp": "2026-02-28T00:46:50.378946Z",
+          "stop_timestamp": "2026-02-28T00:47:49.960003Z",
+          "flags": null,
+          "type": "text",
+          "text": " # Domain-AX 프로젝트 — CLAUDE.md 즉시 사용 문서 세트\n\nmacOS + Claude Code 환경에서 바로 붙여넣으면 작동하는 형태로 만들었습니다.\n\n---\n\n## 📁 파일 1: `hr-workspace/CLAUDE.md` (워크스페이스 루트)\n\n````markdown\n# HR Workspace — 전역 컨텍스트\n\n## 이 워크스페이스에 대해\nLG PRI HR 자동화 시스템. 리더십 평가, 역량 인증, 교육 운영을 AI 워크플로우로 자동화한다.\n\n## 폴더 구조 원칙\n- `.claude/rules/` → 모든 작업에 예외 없이 적용되는 전역 규칙\n- `.claude/skills/` → 반복 업무 SOP (작업 전 반드시 해당 Skill 파일 참조)\n- `.claude/agents/` → 전문가 페르소나 (역할 전환 시 해당 파일 참조)\n- 각 프로젝트 폴더의 `CLAUDE.md` → 해당 프로젝트 전용 컨텍스트\n\n## 작업 시작 시 필수 순서\n1. `.claude/rules/privacy.md` 읽기\n2. `.claude/rules/conventions.md` 읽기\n3. 해당 프로젝트의 `CLAUDE.md` 읽기\n4. 필요한 Skill 파일 참조 후 작업 시작\n\n## 전역 규칙 요약\n- 출력 언어: 한국어 (코드 주석은 영어)\n- 직원 이름 출력 금지 → 사번(EMP_ID) 또는 익명 코드만 사용\n- 평가 원점수 직접 노출 금지\n- 파일명: kebab-case, 변수명: snake_case\n````\n\n---\n\n## 📁 파일 2: `hr-workspace/.claude/rules/privacy.md`\n\n````markdown\n# 개인정보 처리 원칙\n\n## 절대 규칙 (예외 없음)\n- 직원 이름 → 사번(EMP_ID) 또는 익명 코드로만 출력\n- 평가 원점수 → 로그, 주석, 출력물 어디에도 직접 기재 금지\n- 소속 부서명이 결과물에 포함될 경우 → 사용자 확인 요청 후 출력\n- PII(개인식별정보)는 `data/raw/` → `data/processed/` 단방향 정제 후 사용\n\n## 위반 감지 시\n작업 즉시 중단 → 사용자에게 알림 → 확인 받은 후 재시작\n````\n\n---\n\n## 📁 파일 3: `hr-workspace/.claude/rules/conventions.md`\n\n````markdown\n# LG PRI 컨벤션\n\n## 직급 코드\n| 코드 | 명칭 | 영문 |\n|------|------|------|\n| L1 | 사원/주임 | Staff |\n| L2 | 대리 | Senior Staff |\n| L3 | 과장 | Assistant Manager |\n| L4 | 차장 | Manager |\n| L5 | 부장 | Senior Manager |\n| L6 | 수석/팀장 | Principal |\n\n## 핵심 용어\n- AX: AI Transformation\n- 핵심인재: 상위 20% (High Performer)\n- 디지털 스킬: ESCO 온톨로지 기준으로 정의\n- 인증 레벨: Foundation / Practitioner / Expert\n\n## 포맷 규칙\n- 날짜 (문서): YYYY년 MM월 DD일\n- 날짜 (파일명): YYYY-MM-DD\n- 파일명: kebab-case\n- 변수/함수명: snake_case (영어)\n````\n\n---\n\n## 📁 파일 4: `hr-workspace/.claude/skills/domain-ax-certification.md`\n\n````markdown\n# Skill: Domain AX 인증 평가 워크플로우\n\n## Input\n- 피평가자 스킬 자기진단 데이터: `data/raw/self-assessment-YYYY-MM-DD.csv`\n- ESCO 스킬 온톨로지: `data/skill-ontology/`\n- 인증 기준표: `data/certification-criteria.xlsx`\n\n## Steps\n\n### Step 1. 데이터 로드 및 정제\n- `data/raw/` CSV 로드\n- 개인정보 필드 제거 → EMP_ID만 유지\n- 결측치 처리 후 `data/processed/`에 저장\n\n### Step 2. ESCO 스킬 매핑\n- 자기진단 항목을 ESCO 스킬 URI로 매핑\n- `scripts/esco-api.py` 실행하여 스킬 관계 조회\n- 매핑 결과를 `data/processed/skill-mapping-YYYY-MM-DD.json`에 저장\n\n### Step 3. 인증 레벨 판정\n- 기준표 기반으로 Foundation / Practitioner / Expert 판정\n- 미충족 항목 → 개발 권고 스킬 목록 생성\n- `scripts/cert-evaluator.py` 실행\n\n### Step 4. 인증 결과 리포트 생성\n- `templates/certification-report.md` 양식 사용\n- 인증 레벨, 충족 스킬, 개발 권고 스킬 포함\n- 저장: `reports/YYYY-MM-DD_cert_[EMP_ID].md`\n\n## Output\n- `reports/YYYY-MM-DD_cert_[EMP_ID].md` — 개인 인증 리포트\n- `reports/YYYY-MM-DD_cert_summary.xlsx` — 전체 현황 요약\n\n## 주의사항\n- ESCO API 호출 실패 시 → 로컬 캐시 온톨로지 사용\n- 인증 레벨은 반드시 기준표 근거 명시\n- 점수 수치 직접 노출 금지, 레벨명(Foundation 등)만 출력\n````\n\n---\n\n## 📁 파일 5: `hr-workspace/.claude/agents/esco-specialist.md`\n\n````markdown\n# Agent: ESCO 스킬 온톨로지 전문가\n\n## 페르소나\n유럽 ESCO(European Skills, Competences, Qualifications and Occupations) 프레임워크 기반의\n디지털 스킬 분류 전문가. HR 데이터를 표준 스킬 체계로 변환하고 스킬 갭을 분석한다.\n\n## 전문 영역\n- ESCO API 연동 및 스킬 URI 매핑\n- 직무-스킬 관계 분석 (occupations ↔ skills)\n- AX/DX 전환 필수 스킬 식별\n- 스킬 갭 기반 학습 경로 설계\n\n## 판단 기준\n- 스킬 분류는 반드시 ESCO 공식 URI 기준으로 판단\n- 사내 용어 ↔ ESCO 표준 용어 매핑 테이블 우선 참조\n- 매핑 불가 스킬은 \"미분류\" 처리 후 사용자에게 보고\n\n## 출력 스타일\n- 스킬명은 ESCO 공식 명칭(영문) + 한국어 병기\n- 스킬 URI 항상 명시\n- 예: `Data analysis` (데이터 분석) — `http://data.europa.eu/esco/skill/xxx`\n\n## 협업 관계\n- domain-ax-certification Skill의 Step 2 (ESCO 매핑) 담당\n````\n\n---\n\n## 📁 파일 6: `hr-workspace/domain-ax/CLAUDE.md` ⭐ 핵심 파일\n\n````markdown\n# Domain AX 인증 시스템 — 프로젝트 컨텍스트\n\n## 프로젝트 개요\nLG PRI 구성원의 AI 전환(AX) 역량을 ESCO 스킬 온톨로지 기반으로 인증하는 시스템.\n인증 레벨: Foundation → Practitioner → Expert\n\n## 이 프로젝트에서 나는\nESCO API 기반 스킬 매핑 + 인증 평가 자동화를 구현한다.\n\n## 폴더 구조\n```\ndomain-ax/\n├── CLAUDE.md                    ← 지금 이 파일\n├── data/\n│   ├── raw/                     # 원본 자기진단 CSV (절대 수정 금지)\n│   ├── processed/               # 정제된 데이터 (EMP_ID 익명화 완료)\n│   ├── skill-ontology/          # ESCO 스킬 데이터 로컬 캐시\n│   │   ├── esco-skills.json     # 전체 스킬 목록\n│   │   └── skill-mapping.json  # 사내 용어 ↔ ESCO URI 매핑 테이블\n│   └── certification-criteria.xlsx  # 인증 기준표 (레벨별 충족 조건)\n├── templates/\n│   └── certification-report.md # 인증 결과 리포트 양식\n├── reports/                     # 생성된 인증 리포트 저장\n└── scripts/\n    ├── esco-api.py              # ESCO API 호출 및 스킬 매핑\n    └── cert-evaluator.py        # 인증 레벨 판정 로직\n```\n\n## 사용 스택\n- Python 3.11\n- requests (ESCO API 호출)\n- pandas (데이터 처리)\n- openpyxl (Excel 입출력)\n\n## ESCO API 정보\n- Base URL: `https://esco.ec.europa.eu/api`\n- 주요 엔드포인트:\n  - `/skill?uri={uri}` — 스킬 상세 조회\n  - `/search?text={keyword}&type=skill` — 키워드 스킬 검색\n- 인증 없이 사용 가능 (Public API)\n\n## 작업 시작 전 체크리스트\n- [ ] `.claude/rules/privacy.md` 확인\n- [ ] `.claude/rules/conventions.md` 확인\n- [ ] `.claude/skills/domain-ax-certification.md` Skill 파일 참조\n- [ ] `.claude/agents/esco-specialist.md` 페르소나 적용\n- [ ] `data/skill-ontology/skill-mapping.json` 존재 여부 확인\n\n## 인증 기준 (간략)\n| 레벨 | 조건 |\n|------|------|\n| Foundation | 필수 스킬 60% 이상 충족 |\n| Practitioner | 필수 스킬 80% + 심화 스킬 50% 충족 |\n| Expert | 필수 스킬 100% + 심화 스킬 80% + 프로젝트 포트폴리오 |\n\n## 자주 쓰는 작업 명령어\n```\n# 인증 평가 전체 실행\n\"domain-ax-certification Skill을 실행해줘. 입력 파일: data/raw/assessment-2026-02.csv\"\n\n# 특정 스킬 ESCO 매핑\n\"esco-specialist Agent로 '머신러닝 모델 설계' 스킬을 ESCO URI로 매핑해줘\"\n\n# 인증 결과 리포트 생성\n\"EMP_ID 기준으로 인증 리포트를 reports/ 폴더에 생성해줘\"\n```\n\n## 주의사항\n- ESCO API 응답 없을 시 → `data/skill-ontology/esco-skills.json` 로컬 캐시 사용\n- 인증 결과는 반드시 기준표 근거 명시\n- 개인별 상세 점수는 processed/ 에만 보관, 리포트에는 레벨만 출력\n````\n\n---\n\n## macOS Claude Code 실행 순서\n\n터미널에서 폴더 구조 먼저 생성:\n\n```bash\n# 1. 폴더 생성\nmkdir -p hr-workspace/.claude/{rules,skills/reference,agents}\nmkdir -p hr-workspace/domain-ax/{data/{raw,processed,skill-ontology},templates,reports,scripts}\n\n# 2. CLAUDE.md 파일들 생성\ntouch hr-workspace/CLAUDE.md\ntouch hr-workspace/domain-ax/CLAUDE.md\ntouch hr-workspace/.claude/rules/{privacy,conventions,output-format}.md\ntouch hr-workspace/.claude/skills/domain-ax-certification.md\ntouch hr-workspace/.claude/agents/esco-specialist.md\n\n# 3. Claude Code 실행\ncd hr-workspace\nclaude  # Claude Code 실행 명령어\n```\n\nClaude Code 실행 후 첫 메시지:\n\n```\nCLAUDE.md와 domain-ax/CLAUDE.md를 읽고,\ndomain-ax-certification Skill 기반으로 작업을 시작할 준비를 해줘.\n현재 scripts/esco-api.py 파일이 없으니 먼저 이것부터 만들어줘.\n```\n\n---\n\nNotion에 저장할까요?",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2026-02-28T00:47:50.057888Z",
+      "updated_at": "2026-02-28T00:47:50.057888Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019ca1b6-5b33-72b4-b86c-396f79571d12"
+    }
+  ]
+}

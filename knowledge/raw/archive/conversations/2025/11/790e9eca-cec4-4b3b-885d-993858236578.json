@@ -1,0 +1,185 @@
+﻿{
+  "uuid": "790e9eca-cec4-4b3b-885d-993858236578",
+  "name": "Today's schedule briefing",
+  "summary": "**Conversation Overview**\n\nThe user requested a daily schedule briefing in Korean, indicating they prefer Korean language communication for routine work updates. Claude accessed their Google Calendar to retrieve today's appointments and provided a structured briefing format. The user appears to work in HR or leadership development, with today's schedule consisting of two consecutive 1:1 feedback sessions related to \"25년 리더십, 생각하다\" (2025 Leadership, Think About It) evaluations. Both meetings are scheduled in the same conference room (P1동 2층 회의실 2B) with 30-minute intervals, suggesting efficient scheduling practices. The meetings involve providing feedback to colleagues Kim Seongi and Lee Seungjin based on leadership assessment reports, indicating the user likely holds a role in talent development or performance management within their organization.\n\n**Tool Knowledge**\n\nGoogle Calendar integration successfully retrieved daily events using Korean timezone (Asia/Seoul, +09:00 offset) with time_min and time_max parameters set to capture a full day range from 2025-11-13T00:00:00+09:00 to 2025-11-14T00:00:00+09:00. The user's primary calendar contains detailed meeting information including Korean location names, LG email addresses (@lge.com domain), and Korean-language event titles with mixed Korean-English descriptions. Calendar events include rich metadata like attendee email addresses, specific room locations using Korean building notation (P1동), and detailed meeting purposes in the description fields.",
+  "created_at": "2025-11-13T00:14:47.615773Z",
+  "updated_at": "2025-11-13T00:15:10.284829Z",
+  "account": {
+    "uuid": "b56a29d3-1cd5-4b54-9081-30715f2a9d0a"
+  },
+  "chat_messages": [
+    {
+      "uuid": "019a7a90-9fe7-7625-ac82-4fb5c3b519eb",
+      "text": "오늘 일정 브리핑",
+      "content": [
+        {
+          "start_timestamp": "2025-11-13T00:14:49.833934Z",
+          "stop_timestamp": "2025-11-13T00:14:49.833934Z",
+          "flags": null,
+          "type": "text",
+          "text": "오늘 일정 브리핑",
+          "citations": []
+        }
+      ],
+      "sender": "human",
+      "created_at": "2025-11-13T00:14:49.848309Z",
+      "updated_at": "2025-11-13T00:14:49.848309Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "00000000-0000-4000-8000-000000000000"
+    },
+    {
+      "uuid": "019a7a90-9fe7-7625-ac82-4fb63d8e4652",
+      "text": "사용자가 오늘 일정 브리핑을 요청했습니다. 오늘은 2025년 11월 13일 목요일입니다. \n\n사용자의 구글 캘린더에서 오늘 일정을 조회해야 합니다. list_gcal_events 도구를 사용하여 오늘의 일정을 가져오겠습니다.\n\n사용자의 타임존은 서울(Asia/Seoul)이므로, 오늘 날짜의 시작과 끝 시간을 RFC3339 형식으로 설정해야 합니다.\n\n2025년 11월 13일 00:00:00 KST = 2025-11-13T00:00:00+09:00\n2025년 11월 14일 00:00:00 KST = 2025-11-14T00:00:00+09:00오늘 일정을 확인해드리겠습니다.\n```\nThis block is not supported on your current device yet.\n```\n\n오늘 일정을 확인한 결과 2개의 일정이 있습니다:\n\n1. 10:00-10:30 - 25년 리더십, 생각하다 피드백(1:1) (김선기)\n   - 위치: P1동 2층 회의실(2B)\n   - 참석자: 김선기 (sunkee.kim@lge.com)\n   - 내용: 25년 리더십 생각하다 리포트를 기반으로 1:1 피드백 진행\n\n2. 11:00-11:30 - 25년 리더십, 생각하다 피드백(1:1) (이승진)\n   - 위치: P1동 2층 회의실(2B)\n   - 참석자: 이승진 (seungjin.lee@lge.com)\n   - 내용: 25년 리더십 생각하다 리포트를 기반으로 1:1 피드백 진행\n\n사용자는 HR/인재개발 업무를 담당하고 있고, 리더십 평가와 관련된 업무를 하고 있으므로 이 일정들이 업무의 일부인 것 같습니다.오늘(11월 13일 목요일) 일정은 다음과 같습니다:\n\n**오전 일정**\n\n**10:00 - 10:30** | 25년 리더십, 생각하다 피드백(1:1) (김선기)\n- 장소: P1동 2층 회의실(2B)\n- 참석자: 김선기 (sunkee.kim@lge.com)\n- 내용: 25년 리더십 생각하다 리포트 기반 1:1 피드백\n\n**11:00 - 11:30** | 25년 리더십, 생각하다 피드백(1:1) (이승진)\n- 장소: P1동 2층 회의실(2B)\n- 참석자: 이승진 (seungjin.lee@lge.com)\n- 내용: 25년 리더십 생각하다 리포트 기반 1:1 피드백\n\n---\n\n오늘은 오전에 리더십 평가 1:1 피드백 미팅 2건이 예정되어 있네요. 같은 장소에서 30분 간격으로 진행됩니다.",
+      "content": [
+        {
+          "start_timestamp": "2025-11-13T00:14:52.261819Z",
+          "stop_timestamp": "2025-11-13T00:14:55.985721Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "사용자가 오늘 일정 브리핑을 요청했습니다. 오늘은 2025년 11월 13일 목요일입니다. \n\n사용자의 구글 캘린더에서 오늘 일정을 조회해야 합니다. list_gcal_events 도구를 사용하여 오늘의 일정을 가져오겠습니다.\n\n사용자의 타임존은 서울(Asia/Seoul)이므로, 오늘 날짜의 시작과 끝 시간을 RFC3339 형식으로 설정해야 합니다.\n\n2025년 11월 13일 00:00:00 KST = 2025-11-13T00:00:00+09:00\n2025년 11월 14일 00:00:00 KST = 2025-11-14T00:00:00+09:00",
+          "summaries": [
+            {
+              "summary": "생각해보기: 오늘의 일정을 정리하고 요약하기"
+            },
+            {
+              "summary": "오늘 일정 조회하기 위해 캘린더 도구 활용 중"
+            },
+            {
+              "summary": "사용자의 오늘 일정을 조회하기 위해 캘린더 도구 활용을 계획했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-11-13T00:14:56.117063Z",
+          "stop_timestamp": "2025-11-13T00:14:56.424891Z",
+          "flags": null,
+          "type": "text",
+          "text": "오늘 일정을 확인해드리겠습니다.",
+          "citations": []
+        },
+        {
+          "start_timestamp": "2025-11-13T00:14:56.597525Z",
+          "stop_timestamp": "2025-11-13T00:14:57.528740Z",
+          "flags": null,
+          "type": "tool_use",
+          "id": null,
+          "name": "list_gcal_events",
+          "input": {
+            "time_max": "2025-11-14T00:00:00+09:00",
+            "time_min": "2025-11-13T00:00:00+09:00",
+            "calendar_id": "primary",
+            "max_results": "25"
+          },
+          "message": "Searching calendar events",
+          "integration_name": "Google Calendar",
+          "integration_icon_url": "https://www.gstatic.com/marketing-cms/assets/images/cf/3c/0d56042f479fac9ad22d06855578/calender.webp",
+          "icon_name": null,
+          "context": null,
+          "display_content": null,
+          "approval_options": null,
+          "approval_key": null,
+          "is_mcp_app": null,
+          "mcp_server_url": null
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "tool_result",
+          "tool_use_id": null,
+          "name": "list_gcal_events",
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"id\": \"3glqnc8d4bfgegmftabmk32g5s\", \"status\": \"confirmed\", \"htmlLink\": \"https://www.google.com/calendar/event?eid=M2dscW5jOGQ0YmZnZWdtZnRhYm1rMzJnNXMgZm9vbHBvZXQ0NEBt\", \"created\": \"2025-11-10T05:33:27.000Z\", \"updated\": \"2025-11-10T05:33:28.061Z\", \"summary\": \"25\\ub144 \\ub9ac\\ub354\\uc2ed, \\uc0dd\\uac01\\ud558\\ub2e4 \\ud53c\\ub4dc\\ubc31(1:1) (\\uae40\\uc120\\uae30)\", \"description\": \"<b>\\uc608\\uc57d\\uc790:</b>\\n\\uae40\\uc120\\uae30\\nsunkee.kim@lge.com\\n<br>25\\ub144 \\ub9ac\\ub354\\uc2ed \\uc0dd\\uac01\\ud558\\ub2e4 \\ub9ac\\ud3ec\\ud2b8\\ub97c \\uae30\\ubc18\\uc73c\\ub85c 1:1 \\ud53c\\ub4dc\\ubc31\\uc744 \\uc9c4\\ud589\\ud569\\ub2c8\\ub2e4.\", \"location\": \"P1\\ub3d9 2\\uce35 \\ud68c\\uc758\\uc2e4(2B)\", \"creator\": {\"email\": \"foolpoet44@gmail.com\", \"self\": true}, \"organizer\": {\"email\": \"foolpoet44@gmail.com\", \"self\": true}, \"start\": {\"dateTime\": \"2025-11-13T10:00:00+09:00\", \"timeZone\": \"Asia/Seoul\"}, \"end\": {\"dateTime\": \"2025-11-13T10:30:00+09:00\", \"timeZone\": \"Asia/Seoul\"}, \"attendees\": [{\"email\": \"foolpoet44@gmail.com\", \"organizer\": true, \"self\": true, \"responseStatus\": \"accepted\"}, {\"email\": \"sunkee.kim@lge.com\", \"responseStatus\": \"accepted\"}], \"extendedProperties\": {\"shared\": {\"goo.createdByAvailId\": \"1arpgon3h4pbqleagkdteit5nt\", \"goo.createdBySet\": \"default_cita\"}}, \"eventType\": \"default\"}",
+              "uuid": "7c6151ff-6c1c-4117-9265-704c6f68009a"
+            },
+            {
+              "type": "text",
+              "text": "{\"id\": \"75h3f64cac3bul799k96ldmq7c\", \"status\": \"confirmed\", \"htmlLink\": \"https://www.google.com/calendar/event?eid=NzVoM2Y2NGNhYzNidWw3OTlrOTZsZG1xN2MgZm9vbHBvZXQ0NEBt\", \"created\": \"2025-11-10T05:33:26.000Z\", \"updated\": \"2025-11-10T05:33:27.015Z\", \"summary\": \"25\\ub144 \\ub9ac\\ub354\\uc2ed, \\uc0dd\\uac01\\ud558\\ub2e4 \\ud53c\\ub4dc\\ubc31(1:1) (\\uc774\\uc2b9\\uc9c4)\", \"description\": \"<b>\\uc608\\uc57d\\uc790:</b>\\n\\uc774\\uc2b9\\uc9c4\\nseungjin.lee@lge.com\\n<br>25\\ub144 \\ub9ac\\ub354\\uc2ed \\uc0dd\\uac01\\ud558\\ub2e4 \\ub9ac\\ud3ec\\ud2b8\\ub97c \\uae30\\ubc18\\uc73c\\ub85c 1:1 \\ud53c\\ub4dc\\ubc31\\uc744 \\uc9c4\\ud589\\ud569\\ub2c8\\ub2e4.\", \"location\": \"P1\\ub3d9 2\\uce35 \\ud68c\\uc758\\uc2e4(2B)\", \"creator\": {\"email\": \"foolpoet44@gmail.com\", \"self\": true}, \"organizer\": {\"email\": \"foolpoet44@gmail.com\", \"self\": true}, \"start\": {\"dateTime\": \"2025-11-13T11:00:00+09:00\", \"timeZone\": \"Asia/Seoul\"}, \"end\": {\"dateTime\": \"2025-11-13T11:30:00+09:00\", \"timeZone\": \"Asia/Seoul\"}, \"attendees\": [{\"email\": \"foolpoet44@gmail.com\", \"organizer\": true, \"self\": true, \"responseStatus\": \"accepted\"}, {\"email\": \"seungjin.lee@lge.com\", \"responseStatus\": \"accepted\"}], \"extendedProperties\": {\"shared\": {\"goo.createdByAvailId\": \"1arpgon3h4pbqleagkdteit5nt\", \"goo.createdBySet\": \"default_cita\"}}, \"eventType\": \"default\"}",
+              "uuid": "8137e124-0999-400d-8f5b-52fb49f7298c"
+            }
+          ],
+          "is_error": false,
+          "structured_content": null,
+          "meta": null,
+          "message": "Searched calendar events",
+          "integration_name": "Google Calendar",
+          "mcp_server_url": null,
+          "integration_icon_url": "https://www.gstatic.com/marketing-cms/assets/images/cf/3c/0d56042f479fac9ad22d06855578/calender.webp",
+          "icon_name": null,
+          "display_content": {
+            "type": "rich_content",
+            "content": [
+              {
+                "title": "25년 리더십, 생각하다 피드백(1:1) (김선기)",
+                "subtitles": [
+                  "Nov 13, 2025 at 10:00 AM"
+                ],
+                "url": "https://www.google.com/calendar/event?eid=M2dscW5jOGQ0YmZnZWdtZnRhYm1rMzJnNXMgZm9vbHBvZXQ0NEBt",
+                "resource_type": "Event",
+                "icon_url": "https://www.gstatic.com/marketing-cms/assets/images/cf/3c/0d56042f479fac9ad22d06855578/calender.webp",
+                "source": "Google Calendar"
+              },
+              {
+                "title": "25년 리더십, 생각하다 피드백(1:1) (이승진)",
+                "subtitles": [
+                  "Nov 13, 2025 at 11:00 AM"
+                ],
+                "url": "https://www.google.com/calendar/event?eid=NzVoM2Y2NGNhYzNidWw3OTlrOTZsZG1xN2MgZm9vbHBvZXQ0NEBt",
+                "resource_type": "Event",
+                "icon_url": "https://www.gstatic.com/marketing-cms/assets/images/cf/3c/0d56042f479fac9ad22d06855578/calender.webp",
+                "source": "Google Calendar"
+              }
+            ]
+          }
+        },
+        {
+          "start_timestamp": null,
+          "stop_timestamp": null,
+          "flags": null,
+          "type": "token_budget",
+          "remaining": null
+        },
+        {
+          "start_timestamp": "2025-11-13T00:15:00.955036Z",
+          "stop_timestamp": "2025-11-13T00:15:06.118158Z",
+          "flags": null,
+          "type": "thinking",
+          "thinking": "오늘 일정을 확인한 결과 2개의 일정이 있습니다:\n\n1. 10:00-10:30 - 25년 리더십, 생각하다 피드백(1:1) (김선기)\n   - 위치: P1동 2층 회의실(2B)\n   - 참석자: 김선기 (sunkee.kim@lge.com)\n   - 내용: 25년 리더십 생각하다 리포트를 기반으로 1:1 피드백 진행\n\n2. 11:00-11:30 - 25년 리더십, 생각하다 피드백(1:1) (이승진)\n   - 위치: P1동 2층 회의실(2B)\n   - 참석자: 이승진 (seungjin.lee@lge.com)\n   - 내용: 25년 리더십 생각하다 리포트를 기반으로 1:1 피드백 진행\n\n사용자는 HR/인재개발 업무를 담당하고 있고, 리더십 평가와 관련된 업무를 하고 있으므로 이 일정들이 업무의 일부인 것 같습니다.",
+          "summaries": [
+            {
+              "summary": "오늘 두 건의 리더십 피드백 일정 정리중"
+            },
+            {
+              "summary": "오늘 두 건의 리더십 피드백 일정을 파악했습니다."
+            }
+          ],
+          "cut_off": false,
+          "truncated": false,
+          "alternative_display_type": null,
+          "signature": null
+        },
+        {
+          "start_timestamp": "2025-11-13T00:15:06.176313Z",
+          "stop_timestamp": "2025-11-13T00:15:10.012597Z",
+          "flags": null,
+          "type": "text",
+          "text": "오늘(11월 13일 목요일) 일정은 다음과 같습니다:\n\n**오전 일정**\n\n**10:00 - 10:30** | 25년 리더십, 생각하다 피드백(1:1) (김선기)\n- 장소: P1동 2층 회의실(2B)\n- 참석자: 김선기 (sunkee.kim@lge.com)\n- 내용: 25년 리더십 생각하다 리포트 기반 1:1 피드백\n\n**11:00 - 11:30** | 25년 리더십, 생각하다 피드백(1:1) (이승진)\n- 장소: P1동 2층 회의실(2B)\n- 참석자: 이승진 (seungjin.lee@lge.com)\n- 내용: 25년 리더십 생각하다 리포트 기반 1:1 피드백\n\n---\n\n오늘은 오전에 리더십 평가 1:1 피드백 미팅 2건이 예정되어 있네요. 같은 장소에서 30분 간격으로 진행됩니다.",
+          "citations": []
+        }
+      ],
+      "sender": "assistant",
+      "created_at": "2025-11-13T00:15:10.284829Z",
+      "updated_at": "2025-11-13T00:15:10.284829Z",
+      "attachments": [],
+      "files": [],
+      "parent_message_uuid": "019a7a90-9fe7-7625-ac82-4fb5c3b519eb"
+    }
+  ]
+}
