@@ -96,46 +96,76 @@ claude
 
 ## 3. 구조 설명
 
-### 3.1 루트 폴더
+### 3.1 4-Zone 로컬 아키텍처
+
+```
+~/
+├── 00_brain/           # 🧠 영원 지대 — 지식과 도구의 원천 (이 레포지토리)
+├── 10_work/            # 💼 업무 지대 — 회사 프로젝트 (EX Intelligence, Pulse Check...)
+├── 20_build/           # 🛠️ 빌드 지대 — 개인/창업 프로젝트 (ESCON, HR SaaS...)
+├── 30_lab/             # 🧪 실험 지대 — 휘발성 스크래치 (30 일 규칙)
+└── 99_archive/         # 📦 아카이브 — 완료되거나 중단된 것들
+```
+
+### 3.2 00_brain 상세 구조
 
 ```
 00_brain/
-├── CLAUDE.md           # 전역 헌법 + 에이전트 진입점
-├── README.md           # 프로젝트 소개
-├── MANUAL.md           # 이 매뉴얼
-├── INIT_PROMPT.md      # 초기 구현 프롬프트 모음
-├── .gitignore          # Git 제외 패턴
+├── CLAUDE.md                   # 🧭 전역 헌법 — 모든 프로젝트가 상속
+├── README.md                   # 프로젝트 소개
+├── MANUAL.md                   # 이 매뉴얼
+├── INIT_PROMPT.md              # 초기 구현 프롬프트 모음
+├── .gitignore                  # Git 제외 패턴
 │
-├── .claude/            # Claude Code 설정 (Junction 연결)
-├── projects/           # 프로젝트별 컨텍스트 (Compiled Truth + Timeline)
-├── people/             # 인물 지식
-├── concepts/           # 개념·이론 (100+ 지식 노트)
-├── decisions/          # 의사결정 로그
-├── weekly/             # 주간 컨텍스트 (Dream Cycle 결과물)
-├── raw/
-│   └── inbox.md        # 미분류 수신함
-├── skills/             # 에이전트 스킬 (context-restore, dream-cycle, memory-save)
-├── _templates/         # 재사용 템플릿 (project, person, concept, decision, weekly)
-├── scripts/            # 자동화 스크립트 (brain_build, auto_commit, validate_brain)
-├── prompts/            # 프롬프트 라이브러리
-├── dotfiles/           # 설정 파일 템플릿
-└── knowledge/          # Zettelkasten 지식 저장소
+├── .claude/                    # Claude Code 설정 (Junction 연결)
+│   ├── agents/                 # AI Agent 정의
+│   ├── commands/               # 사용자 정의 명령
+│   ├── skills/                 # 재사용 가능한 스킬
+│   └── settings.json           # 권한 설정
+│
+├── knowledge/                  # 지식 저장소 (Zettelkasten)
+│   ├── moc/                    # Map of Content (지식 인덱스)
+│   ├── permanent/              # 영구 지식
+│   ├── references/             # 참고 자료
+│   ├── concepts/               # 개념·이론 (Compiled Truth + Timeline)
+│   ├── people/                 # 인물 지식
+│   ├── decisions/              # 의사결정 로그
+│   ├── weekly/                 # 주간 컨텍스트 (Dream Cycle 결과물)
+│   └── raw/
+│       └── inbox.md            # 미분류 수신함
+│
+├── prompts/                    # 프롬프트 라이브러리
+├── scripts/                    # 자동화 스크립트
+├── dotfiles/                   # 설정 파일 템플릿
+└── _templates/                 # 재사용 템플릿 (10_work 용)
 ```
 
-### 3.2 주요 폴더 상세
+### 3.3 Zone 별 책임
+
+| Zone | 수명 | Git 계정 | 예시 |
+|------|------|----------|------|
+| **00_brain** | 영구 | 개인 | 전역 헌법, 스킬, 프롬프트 |
+| **10_work** | 프로젝트 기간 | 회사 | EX Intelligence, Pulse Check |
+| **20_build** | 영구 (창업 준비) | 개인 | ESCON, CSP-OS |
+| **30_lab** | 30 일 휘발 | 혼용 | 5 분 실험, 프로토타입 |
+| **99_archive** | 영구 (참조용) | 보존 | 완료된 프로젝트 |
+
+### 3.4 주요 폴더 상세 (00_brain 기준)
 
 | 폴더 | 파일 수 | 설명 |
 |------|---------|------|
-| `projects/` | 11 개 | EX Intelligence, Pulse Check, ESCON 등 활성 프로젝트 |
-| `concepts/` | 100+ | 추출된 지식 노트 (UUID 명명) + 수동 작성 개념 |
-| `weekly/` | 주간 생성 | Dream Cycle 결과물 (YYYY-WNN.md 형식) |
+| `knowledge/concepts/` | 100+ | 추출된 지식 노트 (UUID 명명) + 수동 작성 개념 |
+| `knowledge/weekly/` | 주간 생성 | Dream Cycle 결과물 (YYYY-WNN.md 형식) |
+| `knowledge/people/` | 인물별 | 인물별 컨텍스트 (Compiled Truth + Timeline) |
+| `knowledge/decisions/` | 결정별 | 의사결정 로그 (append-only) |
 | `scripts/` | 5 개 | brain_build, auto_commit, validate_brain, weekly_scaffold |
+| `_templates/` | 4 개 | project.md, person.md, concept.md, decision.md |
 
 ---
 
 ## 4. 핵심: Compiled Truth + Timeline
 
-모든 지식 파일 (`projects/*.md`, `concepts/*.md`, `people/*.md`) 은 이 구조를 따릅니다.
+모든 지식 파일 (`knowledge/concepts/*.md`, `knowledge/people/*.md`, `10_work/*/CLAUDE.md`) 은 이 구조를 따릅니다.
 
 ```markdown
 ## Compiled Truth
@@ -163,7 +193,7 @@ append-only 증거 기록. 절대 삭제/수정 금지.
 
 | 주기 | 작업 | 설명 |
 |------|------|------|
-| **매 대화 시작 전** | 파일 읽기 | CLAUDE.md → 관련 프로젝트 → weekly → inbox |
+| **매 대화 시작 전** | 파일 읽기 | CLAUDE.md → 10_work/[프로젝트]/CLAUDE.md → knowledge/weekly → inbox |
 | **매 대화 종료 후** | Timeline append | 관련 프로젝트에 `### YYYY-MM-DD` 헤더로 기록 |
 | **매주 금요일** | Dream Cycle | inbox 정리 → Compiled Truth 갱신 → weekly 생성 |
 | **월 1 회** | 스크립트 실행 | `python scripts/brain_build.py`로 지식 맵 최신화 |
@@ -227,7 +257,7 @@ cmd /c mklink /J "C:\dev\.claude" "C:\dev\00_brain\.claude"
 
 ### 8.2 "프로젝트 파일을 못 읽어요"
 
-1. `projects/[이름]/README.md` 존재 확인
+1. `10_work/[이름]/CLAUDE.md` 존재 확인
 2. Compiled Truth 섹션에 현재 상태가 있는지 확인
 3. CLAUDE.md 프로젝트 상태 테이블 업데이트
 
@@ -256,11 +286,12 @@ cmd /c mklink /J "C:\dev\.claude" "C:\dev\00_brain\.claude"
 | 상황 | 프롬프트 |
 |------|---------|
 | 새 대화 시작 | `"csp-brain 을 읽고 현재 상황을 브리핑해줘."` |
-| 프로젝트 추가 | `"새 프로젝트 [이름] 을 csp-brain 에 추가해줘."` |
+| 프로젝트 추가 | `"새 프로젝트 [이름] 을 10_work/에 추가해줘."` |
 | 대화 후 저장 | `"오늘 대화 내용을 csp-brain 에 저장해줘."` |
-| 인물 등록 | `"[이름] 에 대한 페이지를 csp-brain 에 추가해줘."` |
-| 결정 기록 | `"오늘 내린 결정을 decisions/에 기록해줘."` |
+| 인물 등록 | `"[이름] 에 대한 페이지를 knowledge/people/에 추가해줘."` |
+| 결정 기록 | `"오늘 내린 결정을 knowledge/decisions/에 기록해줘."` |
 | 주간 정리 | `"이번 주 Dream Cycle 을 실행해줘."` |
+| 실험 시작 | `"30_lab/에 새 실험 폴더를 생성해줘."` |
 
 ---
 
