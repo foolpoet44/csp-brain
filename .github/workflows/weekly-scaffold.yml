@@ -1,0 +1,29 @@
+name: Weekly Scaffolding
+
+on:
+  schedule:
+    # 매주 일요일 23:00 KST (14:00 UTC)
+    - cron: '0 14 * * 0'
+  workflow_dispatch: # 수동 실행 허용
+
+jobs:
+  scaffold:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          
+      - name: Create Weekly Scaffolding
+        run: python scripts/weekly_scaffold.py
+        
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "knowledge: weekly scaffolding (GitHub Actions)"
+          file_pattern: 'weekly/*.md'

@@ -1,0 +1,36 @@
+name: Auto Knowledge Indexing
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'projects/**'
+      - 'concepts/**'
+      - 'people/**'
+      - 'decisions/**'
+      - 'weekly/**'
+      - 'raw/**'
+      - 'CLAUDE.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          
+      - name: Update Knowledge Index
+        run: python scripts/brain_build.py
+        
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "knowledge: auto-index sync (GitHub Actions)"
+          file_pattern: 'CONVERSATION_MAP.md'
