@@ -20,12 +20,20 @@
 내용
 -->
 
+### 2026-04-28 — [태그: skill/featured]
+- **내용**: andrej-karpathy-skills 리포 설치 및 00_brain 적용 완료
+- **분류 완료**: decisions/2026-04-28-karpathy-skills-adoption.md
+
 ---
 
 ## 처리된 항목 (Archive)
 
+### ~~2026-04-28 — [태그: skill]~~
+- **분배 완료**: decisions/2026-04-28-karpathy-skills-adoption.md
+- **내용 요약**: Karpathy 4 Principles 00_brain 적용, 옵션 A 선택 (8대 원칙으로 통합)
+
 ### ~~2026-04-14 — [태그: memories/migrated]~~
-- **분배 완료**: 
+- **분배 완료**:
     - `projects/ex-intelligence/README.md`
     - `projects/pulse-check/README.md`
     - `projects/ai--솔로프레너/README.md`
@@ -39,4 +47,4 @@
 
 ---
 
-_마지막 Dream Cycle: 2026-04-14_
+_마지막 Dream Cycle: 2026-04-28_

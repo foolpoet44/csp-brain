@@ -94,6 +94,13 @@
 3. **인문학·철학·심리학적 프레이밍** 환영
 4. **즉시 실행 가능한 아웃풋**
 
+### Karpathy-Inspired Coding Discipline
+
+5. **Think Before Coding** — 가정 명시, 혼란 표면화. Don't assume. Don't hide confusion. 모호하면 질문 후 진행.
+6. **Simplicity First** — 최소 코드, 추상화 지연. Nothing speculative. 200줄로 50줄에 가능한 코드 작성 금지.
+7. **Surgical Changes** — 필요한 것만 정확히 변경. Drive-by 리팩토링 금지. 요청한 것만 변경.
+8. **Goal-Driven Execution** — 검증 가능한 목표. "작동함" 대신 구체적 성공 기준 설정 후 테스트.
+
 ---
 
 ## Code Standards
@@ -211,4 +218,4 @@
 
 ---
 
-_Last updated: 2026-04-20_
+_Last updated: 2026-04-28_
